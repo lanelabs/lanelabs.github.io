@@ -1,0 +1,1479 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pioneer Time Adventure</title>
+  <style>
+    :root {
+      --bg: #f7f2e9;
+      --ink: #2b2621;
+      --accent: #d38c3c;
+      --accent-dark: #a86422;
+      --card: #fffaf0;
+      --line: #e3d6c4;
+      --muted: #6a5b4e;
+      --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      --radius: 14px;
+      --font-head: "Georgia", "Times New Roman", serif;
+      --font-body: "Trebuchet MS", "Verdana", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: radial-gradient(circle at 20% 10%, #fff6e1, var(--bg));
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px 18px 10px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: 28px;
+      margin: 0 0 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 18px 30px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .scene-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      margin: 0 0 8px;
+    }
+
+    .scene-illust {
+      margin: 8px 0 12px;
+      padding: 10px;
+      background: #fff7e6;
+      border: 1px solid #ead8bf;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scene-illust svg {
+      width: 240px;
+      height: 130px;
+    }
+
+    .scene-text {
+      line-height: 1.5;
+      font-size: 16px;
+      white-space: pre-line;
+    }
+
+    .inventory,
+    .stats {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: #f6efe4;
+      border: 1px solid #e1d5c7;
+      border-radius: 12px;
+      font-size: 13px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .inventory-label,
+    .stats-label {
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .inv-item,
+    .stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #fff7ea;
+      border: 1px solid #e6d4b8;
+      font-size: 12px;
+    }
+
+    .inv-item svg,
+    .stat-chip svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .stats-icons {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-stack {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 6px;
+    }
+
+    .stat-stack .stat-icon {
+      margin-left: -6px;
+    }
+
+    .stat-stack .stat-icon:first-child {
+      margin-left: 0;
+    }
+
+    .stat-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stat-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .journey {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: #f3efe9;
+      border: 1px solid #e1d5c7;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .journey-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 6px;
+    }
+
+    .journey-node {
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid #e1d5c7;
+      background: #fff7ea;
+      text-align: center;
+      color: #7a6a5c;
+    }
+
+    .journey-node.visited {
+      background: #e8f2de;
+      border-color: #c7d7b8;
+      color: #2f4a2f;
+    }
+
+    .journey-node.current {
+      background: #ffe6bf;
+      border-color: #e0b572;
+      color: #5a3b1c;
+      font-weight: 700;
+    }
+
+    .outcome {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: #fff3da;
+      border: 1px solid #e9cfa8;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    .choices {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    button {
+      text-align: left;
+      font-size: 15px;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: white;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .choice-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #fff1d8;
+      border: 1px solid #e6cfa8;
+    }
+
+    .choice-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .choice-note {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .field-notes h2 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      margin: 10px 0 10px;
+    }
+
+    .notes-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .note {
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      padding: 8px;
+      background: #fff;
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .note.locked {
+      color: #b1a294;
+      background: #fbf7f0;
+    }
+
+    .note-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .note-text {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .note-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 12px;
+      color: #4c3c2f;
+      background: linear-gradient(135deg, #ffe9c1, #f2c27b);
+      border: 1px solid #e1b06a;
+    }
+
+    .note.locked .note-icon {
+      background: #f2ece4;
+      border-color: #e1d5c7;
+      color: #b1a294;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 8px 0 20px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .secondary {
+      background: #f7efe3;
+      border-color: #e6d7c2;
+    }
+
+    @media (max-width: 860px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+      .notes-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .notes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pioneer Time Adventure</h1>
+    <div class="subtitle">Join Addie and Caleb on a time-travel journey through early America.</div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel" id="scene-panel">
+      <div class="scene-title" id="scene-title"></div>
+      <div class="scene-illust" id="scene-illust"></div>
+      <div class="scene-text" id="scene-text"></div>
+      <div class="outcome" id="outcome" hidden></div>
+      <div class="choices" id="choices"></div>
+      <div class="controls">
+        <button class="secondary" id="restart">Start Over</button>
+      </div>
+    </section>
+
+    <aside class="panel field-notes">
+      <div class="stats" id="stats"></div>
+      <div class="inventory" id="inventory"></div>
+      <div class="journey" id="journey"></div>
+      <h2>Field Notes (Collected Facts)</h2>
+      <div class="notes-grid" id="notes-grid"></div>
+    </aside>
+  </main>
+
+  <div class="footer">Local prototype: progress saves in this browser.</div>
+
+  <script>
+    const story = {
+      start: "camp",
+      scenes: {
+        camp: {
+          title: "Wagon Camp Arrival",
+          illustration: "camp",
+          text:
+            "A bright portal opens in the school library, and Addie and Caleb step into a busy wagon camp.\n\n" +
+            "Oxen pull big wooden wagons. People are packing barrels, blankets, and tools. A guide named Ms. Hart smiles.\n\n" +
+            "\"Welcome, travelers! Choose one supply to carry. It might help later.\"",
+          choices: [
+            { label: "Carry a rope", icon: "rope", note: "Good for crossings.", next: "prairie", collect: "rope", item: "rope", outcome: "Addie coils the rope over her shoulder. \"This will help at the river,\" she says.", effects: { morale: 1 } },
+            { label: "Carry a water can", icon: "water", note: "Good for long walks.", next: "prairie", collect: "water", item: "water", outcome: "Caleb fills the water can. \"Long walks are easier with sips along the way,\" he says.", effects: { supplies: 1 } },
+            { label: "Carry a warm blanket", icon: "blanket", note: "Good for cold nights.", next: "prairie", collect: "blanket", item: "blanket", outcome: "Addie tucks the blanket under her arm. \"We can stay warm at night,\" she says.", effects: { morale: 1 } }
+          ]
+        },
+        prairie: {
+          title: "Wide Prairie",
+          illustration: "prairie",
+          text:
+            "The grass waves like the ocean. Caleb spots animal tracks in the soft dirt.\n\n" +
+            "Ms. Hart says, \"These tracks can tell us who lives here.\"",
+          choices: [
+            {
+              label: "Follow the tracks",
+              icon: "tracks",
+              note: "Learn about prairie animals.",
+              next: "storm",
+              collect: "tracks",
+              outcome: "The tracks lead to a burrow and a scatter of seeds. \"A small animal lives here,\" says Ms. Hart.",
+              outcomeIfHas: [
+                { item: "water", text: "With water to sip, they follow the tracks farther and spot a tiny burrow." }
+              ],
+              effects: { supplies: -1, morale: 1 }
+            },
+            {
+              label: "Stay on the trail",
+              icon: "trail",
+              note: "Find shelter sooner.",
+              next: "storm",
+              collect: "trail",
+              outcome: "\"Staying together keeps us safe,\" Ms. Hart says as the wagons roll on.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Share water with a traveler",
+              icon: "water",
+              note: "Only if you brought water.",
+              next: "storm",
+              collect: "trade",
+              requires: "water",
+              outcome: "A tired traveler smiles and shares a shortcut through the prairie.",
+              effects: { money: 1, supplies: -1, morale: 1 }
+            }
+          ]
+        },
+        storm: {
+          title: "Prairie Storm",
+          illustration: "storm",
+          text:
+            "Dark clouds roll in fast. The wind rises. Ms. Hart points to a low hill.\n\n" +
+            "\"Storms move quickly here. We need shelter.\"",
+          choices: [
+            {
+              label: "Find a low spot",
+              icon: "storm",
+              note: "Hide from the wind.",
+              next: "trail",
+              collect: "storm",
+              outcome: "They crouch low until the wind softens. \"Good thinking,\" Ms. Hart says.",
+              outcomeIfHas: [
+                { item: "blanket", text: "The blanket keeps them warm as the wind passes. \"Great planning,\" Ms. Hart says." }
+              ],
+              effects: { morale: 1 }
+            },
+            {
+              label: "Cover the wagon",
+              icon: "wagon",
+              note: "Keep supplies dry.",
+              next: "trail",
+              collect: "wagon",
+              outcome: "Caleb ties the cover tight. \"Our supplies stay safe and dry,\" he says.",
+              effects: { supplies: 1 }
+            },
+            {
+              label: "Wrap the oxen in the blanket",
+              icon: "blanket",
+              note: "Only if you brought it.",
+              next: "trail",
+              collect: "storm",
+              requires: "blanket",
+              outcome: "Addie drapes the blanket over the oxen. They calm down and the team moves on.",
+              effects: { morale: 1 }
+            }
+          ]
+        },
+        trail: {
+          title: "Long Trail Day",
+          illustration: "trailday",
+          text:
+            "The trail stretches out ahead. The wagons creak, and the sun is high.\n\n" +
+            "Ms. Hart asks how everyone wants to manage the long day.",
+          choices: [
+            {
+              label: "Rest at a shady tree",
+              icon: "journal",
+              note: "Take a careful break.",
+              next: "creek",
+              collect: "trail",
+              outcome: "The short rest lifts everyone’s spirits.",
+              effects: { morale: 1, supplies: -1 }
+            },
+            {
+              label: "Push onward",
+              icon: "trail",
+              note: "Make quick progress.",
+              next: "creek",
+              collect: "trail",
+              outcome: "They cover more ground, but everyone feels a little tired.",
+              effects: { supplies: -1 }
+            },
+            {
+              label: "Share a snack",
+              icon: "water",
+              note: "Only if you have supplies.",
+              next: "creek",
+              collect: "trail",
+              requiresStats: { supplies: 1 },
+              outcome: "The snack brings smiles and energy for the next stretch.",
+              effects: { morale: 2, supplies: -1 }
+            }
+          ]
+        },
+        creek: {
+          title: "Creek Crossing",
+          illustration: "creek",
+          text:
+            "A shallow creek runs across the trail. The water is clear and cold.\n\n" +
+            "\"We can cross carefully or take time to refill,\" Ms. Hart says.",
+          choices: [
+            {
+              label: "Cross carefully",
+              icon: "trail",
+              note: "Keep moving.",
+              next: "wildlife",
+              collect: "trail",
+              outcome: "They cross without slipping and keep the wagons steady.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Refill the water can",
+              icon: "water",
+              note: "Only if you have water.",
+              next: "wildlife",
+              collect: "water",
+              requires: "water",
+              outcome: "They refill the can and feel ready for the next stretch.",
+              effects: { supplies: 1 }
+            },
+            {
+              label: "Build a tiny bridge",
+              icon: "rope",
+              note: "Only if you have rope.",
+              next: "wildlife",
+              collect: "rope",
+              requires: "rope",
+              outcome: "With rope and sticks, they make a safe crossing.",
+              effects: { morale: 1 }
+            }
+          ]
+        },
+        wildlife: {
+          title: "Wildlife Encounter",
+          illustration: "wildlife",
+          text:
+            "A small deer and its fawn appear near tall grass. They freeze, listening.\n\n" +
+            "Ms. Hart whispers, \"Quiet steps show respect.\"",
+          choices: [
+            {
+              label: "Observe quietly",
+              icon: "tracks",
+              note: "Learn animal behavior.",
+              next: "ridge",
+              collect: "tracks",
+              outcome: "The deer relax and graze. Addie sketches their tracks.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Offer water",
+              icon: "water",
+              note: "Only if you brought water.",
+              next: "ridge",
+              collect: "water",
+              requires: "water",
+              outcome: "The fawn drinks a little before trotting away.",
+              effects: { morale: 2, supplies: -1 }
+            },
+            {
+              label: "Collect edible berries",
+              icon: "trail",
+              note: "Boost supplies.",
+              next: "ridge",
+              collect: "trail",
+              outcome: "They gather a handful of safe berries for the road.",
+              effects: { supplies: 1 }
+            }
+          ]
+        },
+        ridge: {
+          title: "Ridge Lookout",
+          illustration: "ridge",
+          text:
+            "From a low ridge, the travelers can see the trail winding ahead.\n\n" +
+            "\"A good view helps us choose the best path,\" says Ms. Hart.",
+          choices: [
+            {
+              label: "Choose the valley route",
+              icon: "trail",
+              note: "Gentler path.",
+              next: "town",
+              collect: "trail",
+              outcome: "The valley path is easy on the wagons.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Choose the ridge path",
+              icon: "tracks",
+              note: "Faster but windy.",
+              next: "town",
+              collect: "storm",
+              outcome: "The ridge is windy but saves time.",
+              effects: { supplies: -1 }
+            },
+            {
+              label: "Let Caleb read the map",
+              icon: "journal",
+              note: "Practice reading.",
+              next: "town",
+              collect: "journal",
+              outcome: "Caleb reads the map and the group follows his plan.",
+              effects: { morale: 1 }
+            }
+          ]
+        },
+        town: {
+          title: "Small Town Visit",
+          illustration: "town",
+          text:
+            "A small town appears ahead. There’s a schoolhouse, a blacksmith, and a market stall.\n\n" +
+            "Ms. Hart says, \"We can learn or earn before heading on.\"",
+          choices: [
+            {
+              label: "Help stack firewood",
+              icon: "trail",
+              note: "Earn money.",
+              next: "market",
+              collect: "trade",
+              outcome: "The shopkeeper pays them a few coins and thanks them.",
+              effects: { money: 2, morale: 1 }
+            },
+            {
+              label: "Visit the schoolhouse",
+              icon: "journal",
+              note: "Learn a local fact.",
+              next: "market",
+              collect: "journal",
+              outcome: "They read a short lesson about pioneer towns and feel inspired.",
+              effects: { morale: 2 }
+            },
+            {
+              label: "Watch the blacksmith",
+              icon: "wagon",
+              note: "See how tools are made.",
+              next: "market",
+              collect: "trade",
+              outcome: "Sparks fly as the blacksmith shapes metal into tools.",
+              effects: { morale: 1, money: 1 }
+            }
+          ]
+        },
+        market: {
+          title: "Market Square",
+          illustration: "market",
+          text:
+            "A market stall sells apples, candles, and spare wagon parts.\n\n" +
+            "\"A little help here could earn a coin,\" Ms. Hart says.",
+          choices: [
+            {
+              label: "Help unload crates",
+              icon: "trail",
+              note: "Earn coins.",
+              next: "work",
+              collect: "trade",
+              outcome: "They unload crates and earn a coin.",
+              effects: { money: 1, morale: 1 }
+            },
+            {
+              label: "Buy an apple",
+              icon: "water",
+              note: "Only if you have a coin.",
+              next: "work",
+              collect: "trail",
+              requiresStats: { money: 1 },
+              outcome: "The apple is crisp and boosts their energy.",
+              effects: { money: -1, morale: 1 }
+            },
+            {
+              label: "Ask about the road",
+              icon: "journal",
+              note: "Learn a tip.",
+              next: "work",
+              collect: "journal",
+              outcome: "A traveler explains the safest road ahead.",
+              effects: { morale: 1 }
+            }
+          ]
+        },
+        work: {
+          title: "Quick Job Stop",
+          illustration: "work",
+          text:
+            "A farmer needs help mending a fence before the next storm.\n\n" +
+            "\"We can lend a hand for a small reward,\" Ms. Hart says.",
+          choices: [
+            {
+              label: "Mend the fence",
+              icon: "rope",
+              note: "Earn coins.",
+              next: "shop",
+              collect: "trade",
+              outcome: "They patch the fence and earn a few coins.",
+              effects: { money: 2, morale: 1 }
+            },
+            {
+              label: "Carry water",
+              icon: "water",
+              note: "Tiring but helpful.",
+              next: "shop",
+              collect: "water",
+              outcome: "They haul water and the farmer shares a fresh loaf.",
+              effects: { supplies: 1, morale: 1 }
+            },
+            {
+              label: "Decline politely",
+              icon: "journal",
+              note: "Save energy.",
+              next: "shop",
+              collect: "trail",
+              outcome: "They thank the farmer and keep moving."
+            }
+          ]
+        },
+        shop: {
+          title: "General Store",
+          illustration: "shop",
+          text:
+            "Inside the general store, shelves are lined with rope, cans, and cloth.\n\n" +
+            "Ms. Hart says, \"We can buy more than one item if we have enough coins.\"",
+          choices: [
+            {
+              label: "Buy a rope",
+              icon: "rope",
+              note: "Costs 1 coin.",
+              next: "shop",
+              collect: "rope",
+              requiresStats: { money: 1 },
+              addItem: "rope",
+              outcome: "The shopkeeper hands over a strong rope.",
+              effects: { money: -1 }
+            },
+            {
+              label: "Buy a water can",
+              icon: "water",
+              note: "Costs 1 coin.",
+              next: "shop",
+              collect: "water",
+              requiresStats: { money: 1 },
+              addItem: "water",
+              outcome: "They pick a sturdy can for long days.",
+              effects: { money: -1, supplies: 1 }
+            },
+            {
+              label: "Buy a warm blanket",
+              icon: "blanket",
+              note: "Costs 1 coin.",
+              next: "shop",
+              collect: "blanket",
+              requiresStats: { money: 1 },
+              addItem: "blanket",
+              outcome: "A cozy blanket is folded into their pack.",
+              effects: { money: -1, morale: 1 }
+            },
+            {
+              label: "Leave the store",
+              icon: "trail",
+              note: "Continue the journey.",
+              next: "wagonrepair",
+              collect: "trade",
+              outcome: "They thank the shopkeeper and step back onto the trail."
+            }
+          ]
+        },
+        wagonrepair: {
+          title: "Wagon Repair",
+          illustration: "wagonrepair",
+          text:
+            "A wagon wheel creaks loudly. The axle needs a quick fix.\n\n" +
+            "\"We can stop to repair or move slowly,\" Ms. Hart says.",
+          choices: [
+            {
+              label: "Repair the wheel",
+              icon: "wagon",
+              note: "Safer travel.",
+              next: "river",
+              collect: "wagon",
+              outcome: "Caleb tightens the wheel and the wagon rolls smoothly.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Tie with rope",
+              icon: "rope",
+              note: "Only if you have rope.",
+              next: "river",
+              collect: "rope",
+              requires: "rope",
+              outcome: "The rope holds the wheel steady for the next stretch.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Move slowly",
+              icon: "trail",
+              note: "Save time.",
+              next: "river",
+              collect: "trail",
+              outcome: "They move carefully to avoid damage.",
+              effects: { supplies: -1 }
+            }
+          ]
+        },
+        river: {
+          title: "River Crossing",
+          illustration: "river",
+          text:
+            "A wide river blocks the trail. The water is moving fast.\n\n" +
+            "\"We can ford the river, wait, or build a small ferry,\" Ms. Hart says.",
+          choices: [
+            {
+              label: "Wait and watch",
+              icon: "safety",
+              note: "Learn about water safety.",
+              next: "trading",
+              collect: "safety",
+              outcome: "They wait and learn how the current changes. \"Patience keeps us safe,\" says Ms. Hart.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Build a ferry",
+              icon: "ferry",
+              note: "Teamwork wins.",
+              next: "trading",
+              collect: "ferry",
+              outcome: "Everyone helps build a small ferry. The wagon crosses steady and slow.",
+              outcomeIfHas: [
+                { item: "rope", text: "The rope keeps the ferry steady, and the crossing is much smoother." }
+              ],
+              effects: { morale: 1 }
+            },
+            {
+              label: "Tie a rope across",
+              icon: "rope",
+              note: "Only if you have rope.",
+              next: "trading",
+              collect: "safety",
+              requires: "rope",
+              outcome: "Addie ties the rope across the river. Everyone crosses safely, hand over hand.",
+              effects: { morale: 2 }
+            }
+          ]
+        },
+        trading: {
+          title: "Trading Post",
+          illustration: "trading",
+          text:
+            "A wooden post stands by a road. People trade flour, soap, and tools.\n\n" +
+            "Ms. Hart says, \"Trading works best when you bring something useful.\"",
+          choices: [
+            {
+              label: "Trade water for flour",
+              icon: "water",
+              note: "Only if you have water.",
+              next: "homestead",
+              collect: "trade",
+              requires: "water",
+              outcome: "The trader swaps flour for fresh water.",
+              effects: { supplies: 2 }
+            },
+            {
+              label: "Trade rope skills for soap",
+              icon: "rope",
+              note: "Only if you have rope.",
+              next: "homestead",
+              collect: "soap",
+              requires: "rope",
+              outcome: "Addie shows a sturdy knot and earns a bar of soap.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Trade blanket for lantern oil",
+              icon: "blanket",
+              note: "Only if you have a blanket.",
+              next: "homestead",
+              collect: "trade",
+              requires: "blanket",
+              outcome: "The trader swaps lantern oil for the blanket.",
+              effects: { morale: 1, supplies: 1 }
+            },
+            {
+              label: "Watch and learn",
+              icon: "journal",
+              note: "No trade needed.",
+              next: "homestead",
+              collect: "trade",
+              outcome: "They listen to traders talk about routes and weather.",
+              effects: { morale: 1 }
+            }
+          ]
+        },
+        homestead: {
+          title: "Prairie Homestead",
+          illustration: "homestead",
+          text:
+            "A small homestead sits on the open land. Chickens scratch near a fence, and smoke rises from a chimney.\n\n" +
+            "A family invites the travelers for a short rest.",
+          choices: [
+            {
+              label: "Help with chores",
+              icon: "trail",
+              note: "Earn thanks and a meal.",
+              next: "campfire",
+              collect: "trade",
+              outcome: "They carry water and gather eggs. The family shares a warm meal.",
+              effects: { morale: 2, supplies: 1 }
+            },
+            {
+              label: "Trade a story for bread",
+              icon: "journal",
+              note: "Share something you learned.",
+              next: "campfire",
+              collect: "journal",
+              outcome: "Addie tells a story about the river, and the family offers fresh bread.",
+              effects: { morale: 1, supplies: 1 }
+            },
+            {
+              label: "Repair a fence with rope",
+              icon: "rope",
+              note: "Only if you have rope.",
+              next: "campfire",
+              collect: "rope",
+              requires: "rope",
+              outcome: "The rope helps fix a loose fence, and the family thanks them kindly.",
+              effects: { money: 1, morale: 1 }
+            }
+          ]
+        },
+        campfire: {
+          title: "Campfire Stories",
+          illustration: "campfire",
+          text:
+            "That evening, the family invites Addie and Caleb to share stories by the fire.\n\n" +
+            "Ms. Hart says, \"A strong heart makes the trail feel shorter.\"",
+          choices: [
+            {
+              label: "Tell a brave story",
+              icon: "journal",
+              note: "Boost morale.",
+              next: "night",
+              collect: "journal",
+              outcome: "Everyone listens closely and smiles.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Ask about the stars",
+              icon: "stars",
+              note: "Learn navigation.",
+              next: "night",
+              collect: "stars",
+              outcome: "They point out a bright star to guide travelers.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Skip stories and rest",
+              icon: "trail",
+              note: "Save energy.",
+              next: "night",
+              collect: "trail",
+              outcome: "They rest quietly and feel ready for the next day.",
+              effects: { supplies: 1 }
+            }
+          ]
+        },
+        night: {
+          title: "Night Sky Camp",
+          illustration: "night",
+          text:
+            "The day ends by a warm fire. The sky is clear.\n\n" +
+            "Caleb points to bright stars. Addie opens her notebook.",
+          choices: [
+            {
+              label: "Learn a star pattern",
+              icon: "stars",
+              note: "How travelers navigate.",
+              next: "dawn",
+              collect: "stars",
+              outcome: "\"That pattern points north,\" Ms. Hart says, tracing the stars.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Write a field note",
+              icon: "journal",
+              note: "Remember the journey.",
+              next: "dawn",
+              collect: "journal",
+              outcome: "Addie writes a note so they can share the story later."
+            },
+            {
+              label: "Wrap in the blanket",
+              icon: "blanket",
+              note: "Only if you brought it.",
+              next: "dawn",
+              collect: "journal",
+              requires: "blanket",
+              outcome: "The blanket keeps them cozy by the fire as they watch the stars.",
+              effects: { morale: 2 }
+            },
+            {
+              label: "Refill the water can by the stream",
+              icon: "water",
+              note: "Only if you brought it.",
+              next: "dawn",
+              collect: "stars",
+              requires: "water",
+              outcome: "They refill the water can for the morning and hear owls calling.",
+              effects: { supplies: 1 }
+            }
+          ]
+        },
+        dawn: {
+          title: "Early Morning",
+          illustration: "dawn",
+          text:
+            "The sky turns pink and gold. Birds sing as the camp wakes up.\n\n" +
+            "\"We’re almost done,\" Ms. Hart says.",
+          choices: [
+            {
+              label: "Pack quickly",
+              icon: "trail",
+              note: "Finish the journey.",
+              next: "end",
+              collect: "trail",
+              outcome: "They pack up and head toward the portal.",
+              effects: { morale: 1 }
+            },
+            {
+              label: "Share breakfast",
+              icon: "water",
+              note: "Only if you have supplies.",
+              next: "end",
+              collect: "trail",
+              requiresStats: { supplies: 1 },
+              outcome: "A simple breakfast makes everyone smile.",
+              effects: { supplies: -1, morale: 2 }
+            },
+            {
+              label: "Check the map one last time",
+              icon: "journal",
+              note: "Reading practice.",
+              next: "end",
+              collect: "journal",
+              outcome: "Caleb checks the map and the path is clear.",
+              effects: { morale: 1 }
+            }
+          ]
+        },
+        end: {
+          title: "Back Through the Portal",
+          illustration: "end",
+          text:
+            "The portal shimmers. Addie and Caleb return to the library with their Field Notes.\n\n" +
+            "\"We learned so much,\" Addie says. \"Let’s visit another time next!\"",
+          choices: [
+            { label: "Play again", icon: "journal", note: "Try a new path.", next: "camp" }
+          ]
+        }
+      }
+    };
+
+    const notes = {
+      rope: { title: "Rope", icon: "rope", text: "Rope was important for tying wagons and helping at river crossings." },
+      water: { title: "Water", icon: "water", text: "On the trail, clean water was precious and had to be carried carefully." },
+      blanket: { title: "Blanket", icon: "blanket", text: "Nights could be cold on the prairie, even after warm days." },
+      tracks: { title: "Tracks", icon: "tracks", text: "Animal tracks help travelers learn which animals live nearby." },
+      trail: { title: "Trail", icon: "trail", text: "Staying on the trail kept wagons together and safer." },
+      storm: { title: "Storms", icon: "storm", text: "Prairie storms move fast and bring strong wind and rain." },
+      wagon: { title: "Wagons", icon: "wagon", text: "Covering the wagon helped keep supplies dry." },
+      safety: { title: "Water Safety", icon: "safety", text: "Waiting let the group watch the current and choose a safe crossing." },
+      ferry: { title: "Ferry", icon: "ferry", text: "A small ferry could carry people and supplies across deep water." },
+      trade: { title: "Barter", icon: "trade", text: "Trading goods was common at frontier trading posts." },
+      soap: { title: "Soap", icon: "soap", text: "Soap helped prevent sickness on long journeys." },
+      stars: { title: "Stars", icon: "stars", text: "Stars helped travelers find direction at night." },
+      journal: { title: "Field Notes", icon: "journal", text: "Writing notes helps remember and share discoveries." }
+    };
+
+    const inventoryItems = {
+      rope: { label: "Rope", icon: "rope" },
+      water: { label: "Water", icon: "water" },
+      blanket: { label: "Blanket", icon: "blanket" }
+    };
+
+    const icons = {
+      lock: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><rect x='5' y='10' width='14' height='9' rx='2' fill='#d9cbb8'/><path d='M8 10V7a4 4 0 0 1 8 0v3' fill='none' stroke='#b8a693' stroke-width='2'/></svg>",
+      rope: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M7 7c0-2 1.5-3.5 3.5-3.5S14 5 14 7c0 1.9-1.4 3.4-3.2 3.5' fill='none' stroke='#6b4c2e' stroke-width='2'/><path d='M10 10c-2.8.2-5 2.5-5 5.3 0 2.5 2 4.7 4.5 4.7 1.6 0 2.9-.8 3.7-2.1' fill='none' stroke='#6b4c2e' stroke-width='2'/></svg>",
+      water: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M12 4c3 4 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5 5-9z' fill='#5aa6d6' stroke='#2f6c8f' stroke-width='1.5'/></svg>",
+      blanket: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><rect x='5' y='6' width='14' height='12' rx='2' fill='#d08a5a' stroke='#8b4e2d' stroke-width='1.5'/><path d='M5 10h14M5 14h14' stroke='#8b4e2d' stroke-width='1'/></svg>",
+      tracks: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><circle cx='8' cy='9' r='2' fill='#7a5b3e'/><circle cx='15' cy='15' r='2' fill='#7a5b3e'/><circle cx='10' cy='13' r='1.3' fill='#7a5b3e'/><circle cx='17' cy='9' r='1.3' fill='#7a5b3e'/></svg>",
+      trail: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M6 19c0-6 4-6 4-12h8' fill='none' stroke='#7a5b3e' stroke-width='2'/><circle cx='18' cy='7' r='2' fill='#7a5b3e'/></svg>",
+      storm: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M7 14a4 4 0 1 1 2-7 3.5 3.5 0 1 1 6 2' fill='#b8c2cc'/><path d='M10 14l-2 4m7-4l-2 4' stroke='#5a7fa3' stroke-width='2'/></svg>",
+      wagon: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><rect x='6' y='9' width='12' height='5' fill='#c4864a' stroke='#7a4d24' stroke-width='1.5'/><circle cx='8' cy='16.5' r='2' fill='#7a4d24'/><circle cx='16' cy='16.5' r='2' fill='#7a4d24'/></svg>",
+      safety: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M12 4l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V7l7-3z' fill='#9cc3a5' stroke='#4f7b59' stroke-width='1.5'/><path d='M9 12l2 2 4-4' fill='none' stroke='#4f7b59' stroke-width='2'/></svg>",
+      ferry: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M5 14h14l-2 4H7l-2-4z' fill='#c19b6b' stroke='#7b5a34' stroke-width='1.5'/><path d='M7 12h10' stroke='#7b5a34' stroke-width='1.5'/></svg>",
+      trade: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M7 7h6l-2-2m2 2l-2 2' fill='none' stroke='#7a5b3e' stroke-width='2'/><path d='M17 17h-6l2 2m-2-2l2-2' fill='none' stroke='#7a5b3e' stroke-width='2'/></svg>",
+      soap: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><rect x='6' y='9' width='12' height='7' rx='2' fill='#9bc3d6' stroke='#4e7a8f' stroke-width='1.5'/><circle cx='16.5' cy='7' r='1.5' fill='#cfe6f1'/></svg>",
+      stars: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M12 4l1.8 4 4.2.4-3.2 2.7.9 4-3.7-2.2-3.7 2.2.9-4L6 8.4l4.2-.4L12 4z' fill='#f0c96b' stroke='#a77a2a' stroke-width='1'/></svg>",
+      journal: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><rect x='6' y='5' width='12' height='14' rx='2' fill='#c98f6c' stroke='#7b4e33' stroke-width='1.5'/><path d='M9 8h6M9 11h6M9 14h6' stroke='#7b4e33' stroke-width='1'/></svg>",
+      coin: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><circle cx='12' cy='12' r='8' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/><path d='M9 12h6' stroke='#c69b40' stroke-width='2'/></svg>",
+      heart: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><path d='M12 20s-7-4.5-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.5-7 9-7 9z' fill='#d96b5b' stroke='#a74a3a' stroke-width='1'/></svg>",
+      pack: "<svg viewBox='0 0 24 24' width='22' height='22' aria-hidden='true'><rect x='7' y='5' width='10' height='14' rx='2' fill='#c28a5a' stroke='#7a4d24' stroke-width='1.5'/><rect x='9' y='9' width='6' height='3' fill='#e0c29a' stroke='#7a4d24' stroke-width='1'/></svg>"
+    };
+
+    const sceneIllustrations = {
+      camp: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#fff4da'/><path d='M0 100h240' stroke='#c2b49a' stroke-width='2'/><path d='M30 95c10-8 20-8 30 0 10-8 20-8 30 0 10-8 20-8 30 0' stroke='#b89a6c' stroke-width='2' fill='none'/><path d='M60 95l30-30 30 30' fill='none' stroke='#8a6b4f' stroke-width='3'/><rect x='86' y='95' width='18' height='14' fill='#d9c2a1' stroke='#8a6b4f' stroke-width='2'/><rect x='150' y='78' width='50' height='22' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><circle cx='158' cy='103' r='9' fill='#7a4d24'/><circle cx='192' cy='103' r='9' fill='#7a4d24'/><path d='M18 88c5-10 12-10 17 0' stroke='#7a4d24' stroke-width='2' fill='none'/><path d='M24 80c0-6 6-10 12-10s12 4 12 10' fill='none' stroke='#b58a5a' stroke-width='2'/><circle cx='210' cy='35' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/></svg>",
+      prairie: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#e9f4e1'/><path d='M0 85h240' stroke='#b9c8a4' stroke-width='2'/><path d='M10 105c25-12 50-12 75 0 25-12 50-12 75 0 25-12 50-12 75 0' stroke='#7faa5b' stroke-width='2' fill='none'/><path d='M30 95c10-8 20-8 30 0' stroke='#6e9c55' stroke-width='2' fill='none'/><circle cx='185' cy='32' r='12' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/><path d='M60 72c6-4 12-4 18 0' stroke='#7a5b3e' stroke-width='2' fill='none'/><circle cx='50' cy='72' r='2' fill='#7a5b3e'/><circle cx='90' cy='72' r='2' fill='#7a5b3e'/></svg>",
+      storm: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#e8edf2'/><path d='M60 55a22 22 0 1 1 12-38 20 20 0 1 1 68 12' fill='#b8c2cc'/><path d='M140 55a16 16 0 1 1 8-28 14 14 0 1 1 40 10' fill='#c3cbd4'/><path d='M70 78l-8 16M100 78l-8 16M130 78l-8 16M160 78l-8 16' stroke='#6b87a6' stroke-width='3'/><path d='M40 96c10-6 20-6 30 0' stroke='#8a6b4f' stroke-width='2' fill='none'/></svg>",
+      trailday: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f4f0de'/><path d='M0 96h240' stroke='#c2b49a' stroke-width='2'/><path d='M20 110c30-20 60-20 90 0 30-20 60-20 90 0' stroke='#b89a6c' stroke-width='2' fill='none'/><path d='M130 70c12-10 24-10 36 0' stroke='#7faa5b' stroke-width='3' fill='none'/><circle cx='45' cy='60' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/><rect x='160' y='78' width='30' height='18' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><circle cx='166' cy='98' r='6' fill='#7a4d24'/><circle cx='184' cy='98' r='6' fill='#7a4d24'/></svg>",
+      creek: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#e8f3f7'/><path d='M0 85c40-18 80-18 120 0s80 18 120 0' stroke='#5aa6d6' stroke-width='10' fill='none'/><path d='M40 92c20-6 40-6 60 0' stroke='#2f6c8f' stroke-width='2' fill='none'/><circle cx='190' cy='30' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/></svg>",
+      wildlife: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#e9f4e1'/><path d='M0 95h240' stroke='#b9c8a4' stroke-width='2'/><circle cx='60' cy='90' r='10' fill='#9b7a55'/><circle cx='80' cy='88' r='8' fill='#9b7a55'/><circle cx='140' cy='85' r='12' fill='#9b7a55'/><path d='M150 80c8-10 20-10 28 0' stroke='#7a5b3e' stroke-width='2' fill='none'/><circle cx='190' cy='30' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/></svg>",
+      ridge: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f4f0de'/><path d='M0 95h240' stroke='#c2b49a' stroke-width='2'/><path d='M30 100l40-30 40 30' fill='none' stroke='#8a6b4f' stroke-width='3'/><path d='M120 100l40-30 40 30' fill='none' stroke='#8a6b4f' stroke-width='3'/><circle cx='200' cy='30' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/></svg>",
+      town: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f5efe2'/><path d='M0 95h240' stroke='#c2b49a' stroke-width='2'/><rect x='30' y='60' width='50' height='35' fill='#d3b08a' stroke='#7a4d24' stroke-width='2'/><rect x='40' y='70' width='12' height='12' fill='#f7efe3' stroke='#7a4d24' stroke-width='1'/><rect x='100' y='55' width='60' height='40' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><path d='M100 55l30-20 30 20' fill='#b07b4b' stroke='#7a4d24' stroke-width='2'/><rect x='180' y='65' width='30' height='30' fill='#d8b68d' stroke='#7a4d24' stroke-width='2'/><circle cx='195' cy='55' r='8' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/></svg>",
+      market: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f7f0e3'/><rect x='40' y='70' width='160' height='18' fill='#d8b68d' stroke='#7a4d24' stroke-width='2'/><circle cx='70' cy='88' r='8' fill='#d96b5b'/><circle cx='100' cy='88' r='8' fill='#d96b5b'/><rect x='140' y='80' width='24' height='16' fill='#9bc3d6' stroke='#4e7a8f' stroke-width='2'/></svg>",
+      work: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f4f0de'/><path d='M0 96h240' stroke='#c2b49a' stroke-width='2'/><rect x='50' y='70' width='120' height='10' fill='#b07b4b' stroke='#7a4d24' stroke-width='2'/><rect x='90' y='60' width='10' height='30' fill='#b07b4b' stroke='#7a4d24' stroke-width='2'/><circle cx='180' cy='50' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/></svg>",
+      shop: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f7f2ea'/><rect x='40' y='55' width='160' height='45' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><rect x='50' y='45' width='140' height='14' fill='#d8b68d' stroke='#7a4d24' stroke-width='2'/><circle cx='90' cy='78' r='10' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/><rect x='120' y='70' width='24' height='16' fill='#9bc3d6' stroke='#4e7a8f' stroke-width='2'/><rect x='160' y='70' width='24' height='16' fill='#d08a5a' stroke='#8b4e2d' stroke-width='2'/></svg>",
+      wagonrepair: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f7efe3'/><rect x='70' y='80' width='90' height='18' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><circle cx='80' cy='102' r='8' fill='#7a4d24'/><circle cx='150' cy='102' r='8' fill='#7a4d24'/><rect x='170' y='85' width='12' height='30' fill='#7a4d24'/></svg>",
+      river: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#e8f3f7'/><path d='M0 80c48-20 96-20 144 0s96 20 96 0' stroke='#5aa6d6' stroke-width='14' fill='none'/><path d='M30 90c24-8 48-8 72 0' stroke='#2f6c8f' stroke-width='2' fill='none'/><path d='M140 92c20-6 40-6 60 0' stroke='#2f6c8f' stroke-width='2' fill='none'/><path d='M170 70l20 0 6 10h-32z' fill='#c19b6b' stroke='#7b5a34' stroke-width='2'/><path d='M176 62v18' stroke='#7b5a34' stroke-width='2'/></svg>",
+      trading: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f7f0e3'/><rect x='35' y='60' width='170' height='32' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><rect x='45' y='48' width='150' height='14' fill='#d8b68d' stroke='#7a4d24' stroke-width='2'/><rect x='60' y='92' width='24' height='18' fill='#c9b19a' stroke='#7a4d24' stroke-width='2'/><rect x='110' y='92' width='24' height='18' fill='#c9b19a' stroke='#7a4d24' stroke-width='2'/><rect x='160' y='92' width='24' height='18' fill='#c9b19a' stroke='#7a4d24' stroke-width='2'/><path d='M70 78h20M120 78h20M170 78h20' stroke='#7a4d24' stroke-width='3'/></svg>",
+      homestead: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f1f4e8'/><path d='M0 98h240' stroke='#c2b49a' stroke-width='2'/><rect x='60' y='60' width='60' height='38' fill='#d3b08a' stroke='#7a4d24' stroke-width='2'/><path d='M60 60l30-22 30 22' fill='#b07b4b' stroke='#7a4d24' stroke-width='2'/><rect x='140' y='70' width='70' height='28' fill='#c28a5a' stroke='#7a4d24' stroke-width='2'/><path d='M148 90h54' stroke='#7a4d24' stroke-width='2'/><circle cx='30' cy='90' r='6' fill='#7a5b3e'/><circle cx='44' cy='92' r='6' fill='#7a5b3e'/></svg>",
+      campfire: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#2a3442'/><circle cx='190' cy='28' r='10' fill='#f5e6a1'/><path d='M90 100c12-18 36-18 48 0' stroke='#c28a5a' stroke-width='4' fill='none'/><path d='M110 98l10-14 10 14' fill='#d37a3a' stroke='#9b4e1e' stroke-width='2'/><circle cx='40' cy='30' r='2' fill='#f5e6a1'/><circle cx='70' cy='45' r='2' fill='#f5e6a1'/><circle cx='120' cy='35' r='2' fill='#f5e6a1'/></svg>",
+      night: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#1f2b3a'/><circle cx='190' cy='28' r='12' fill='#f5e6a1'/><circle cx='40' cy='22' r='2' fill='#f5e6a1'/><circle cx='70' cy='42' r='2' fill='#f5e6a1'/><circle cx='100' cy='25' r='2' fill='#f5e6a1'/><circle cx='130' cy='40' r='2' fill='#f5e6a1'/><path d='M90 102c12-18 36-18 48 0' stroke='#c28a5a' stroke-width='4' fill='none'/><path d='M110 98l10-14 10 14' fill='#d37a3a' stroke='#9b4e1e' stroke-width='2'/></svg>",
+      dawn: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f8efe1'/><circle cx='190' cy='40' r='16' fill='#f2d37b' stroke='#c69b40' stroke-width='2'/><path d='M0 96h240' stroke='#c2b49a' stroke-width='2'/><path d='M40 90c20-8 40-8 60 0' stroke='#b89a6c' stroke-width='2' fill='none'/></svg>",
+      end: "<svg viewBox='0 0 240 130' aria-hidden='true'><rect width='240' height='130' fill='#f4eaff'/><circle cx='120' cy='65' r='36' fill='#b7d3ff' stroke='#6d8fcf' stroke-width='3'/><path d='M80 65h80' stroke='#6d8fcf' stroke-width='2'/><path d='M120 29v72' stroke='#6d8fcf' stroke-width='2'/><circle cx='120' cy='65' r='18' fill='none' stroke='#8aa7e6' stroke-width='2'/><path d='M30 100c20-10 40-10 60 0' stroke='#c2b49a' stroke-width='2' fill='none'/></svg>"
+    };
+
+    const storageKey = "pioneer_time_adventure_v5";
+    const journeyOrder = [
+      "camp",
+      "prairie",
+      "storm",
+      "trail",
+      "creek",
+      "wildlife",
+      "ridge",
+      "town",
+      "market",
+      "work",
+      "shop",
+      "wagonrepair",
+      "river",
+      "trading",
+      "homestead",
+      "campfire",
+      "night",
+      "dawn",
+      "end"
+    ];
+    const journeyLabels = {
+      camp: "Camp",
+      prairie: "Prairie",
+      storm: "Storm",
+      trail: "Trail Day",
+      creek: "Creek",
+      wildlife: "Wildlife",
+      ridge: "Ridge",
+      town: "Town",
+      market: "Market",
+      work: "Work Stop",
+      shop: "Store",
+      wagonrepair: "Repair",
+      river: "River",
+      trading: "Trading",
+      homestead: "Homestead",
+      campfire: "Campfire",
+      night: "Night",
+      dawn: "Dawn",
+      end: "Portal"
+    };
+
+    function loadState() {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) return { scene: story.start, collected: [], inventory: [], lastOutcome: "", money: 1, morale: 2, supplies: 2, visited: [] };
+      try {
+        const parsed = JSON.parse(raw);
+        if (!parsed.scene || !Array.isArray(parsed.collected)) throw new Error("bad state");
+        if (!Array.isArray(parsed.inventory)) parsed.inventory = [];
+        if (typeof parsed.lastOutcome !== "string") parsed.lastOutcome = "";
+        if (typeof parsed.money !== "number") parsed.money = 1;
+        if (typeof parsed.morale !== "number") parsed.morale = 2;
+        if (typeof parsed.supplies !== "number") parsed.supplies = 2;
+        if (!Array.isArray(parsed.visited)) parsed.visited = [];
+        return parsed;
+      } catch {
+        return { scene: story.start, collected: [], inventory: [], lastOutcome: "", money: 1, morale: 2, supplies: 2, visited: [] };
+      }
+    }
+
+    function saveState(state) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function hasItem(state, item) {
+      return state.inventory.includes(item);
+    }
+
+    function meetsRequirements(choice, state) {
+      if (choice.requires) {
+        const reqs = Array.isArray(choice.requires) ? choice.requires : [choice.requires];
+        if (!reqs.every((item) => hasItem(state, item))) return false;
+      }
+      if (choice.requiresAny) {
+        const reqs = Array.isArray(choice.requiresAny) ? choice.requiresAny : [choice.requiresAny];
+        if (!reqs.some((item) => hasItem(state, item))) return false;
+      }
+      if (choice.requiresStats) {
+        const reqs = choice.requiresStats;
+        for (const key of Object.keys(reqs)) {
+          if ((state[key] ?? 0) < reqs[key]) return false;
+        }
+      }
+      return true;
+    }
+
+    function resolveOutcome(choice, state) {
+      if (choice.outcomeIfHas) {
+        for (const variant of choice.outcomeIfHas) {
+          if (hasItem(state, variant.item)) return variant.text;
+        }
+      }
+      if (choice.outcomeIfStat) {
+        for (const variant of choice.outcomeIfStat) {
+          if ((state[variant.stat] ?? 0) >= variant.min) return variant.text;
+        }
+      }
+      return choice.outcome || "";
+    }
+
+    function applyEffects(choice, state) {
+      if (!choice.effects) return;
+      const { money, morale, supplies } = choice.effects;
+      if (typeof money === "number") state.money = Math.max(0, state.money + money);
+      if (typeof morale === "number") state.morale = Math.max(0, state.morale + morale);
+      if (typeof supplies === "number") state.supplies = Math.max(0, state.supplies + supplies);
+    }
+
+    function renderInventory(state) {
+      const el = document.getElementById("inventory");
+      el.innerHTML = "";
+      const label = document.createElement("span");
+      label.className = "inventory-label";
+      label.textContent = "Inventory:";
+      el.appendChild(label);
+
+      if (!state.inventory.length) {
+        const empty = document.createElement("span");
+        empty.textContent = "(empty)";
+        el.appendChild(empty);
+        return;
+      }
+
+      state.inventory.forEach((key) => {
+        const item = inventoryItems[key];
+        if (!item) return;
+        const chip = document.createElement("span");
+        chip.className = "inv-item";
+        chip.innerHTML = icons[item.icon] + item.label;
+        el.appendChild(chip);
+      });
+    }
+
+    function renderStats(state) {
+      const el = document.getElementById("stats");
+      el.innerHTML = "";
+      const sr = document.createElement("span");
+      sr.className = "sr-only";
+      sr.textContent = `Stats: Coins ${state.money}, Morale ${state.morale}, Supplies ${state.supplies}`;
+      el.appendChild(sr);
+
+      const sections = [
+        { key: "money", icon: icons.coin, count: state.money },
+        { key: "morale", icon: icons.heart, count: state.morale },
+        { key: "supplies", icon: icons.pack, count: state.supplies }
+      ];
+
+      sections.forEach((section) => {
+        const group = document.createElement("span");
+        group.className = "stats-icons";
+        group.setAttribute("aria-label", section.key);
+        const count = Math.max(0, section.count);
+        if (count <= 10) {
+          for (let i = 0; i < count; i += 1) {
+            const icon = document.createElement("span");
+            icon.className = "stat-icon";
+            icon.innerHTML = section.icon;
+            group.appendChild(icon);
+          }
+        } else {
+          const stacks = Math.ceil(count / 5);
+          for (let s = 0; s < stacks; s += 1) {
+            const stack = document.createElement("span");
+            stack.className = "stat-stack";
+            const remaining = count - s * 5;
+            const size = Math.min(5, remaining);
+            for (let i = 0; i < size; i += 1) {
+              const icon = document.createElement("span");
+              icon.className = "stat-icon";
+              icon.innerHTML = section.icon;
+              stack.appendChild(icon);
+            }
+            group.appendChild(stack);
+          }
+        }
+        el.appendChild(group);
+      });
+    }
+
+    function renderNotes(collected) {
+      const grid = document.getElementById("notes-grid");
+      grid.innerHTML = "";
+      const allKeys = Object.keys(notes);
+      allKeys.forEach((key) => {
+        const card = document.createElement("div");
+        const isUnlocked = collected.includes(key);
+        card.className = "note" + (isUnlocked ? "" : " locked");
+        const icon = document.createElement("div");
+        icon.className = "note-icon";
+        icon.innerHTML = isUnlocked ? icons[notes[key].icon] : icons.lock;
+        const title = document.createElement("div");
+        title.className = "note-title";
+        title.textContent = isUnlocked ? notes[key].title : "Unknown";
+        const text = document.createElement("div");
+        text.className = "note-text";
+        text.textContent = isUnlocked ? notes[key].text : "Find this fact by exploring.";
+        const content = document.createElement("div");
+        content.appendChild(title);
+        content.appendChild(text);
+        card.appendChild(icon);
+        card.appendChild(content);
+        grid.appendChild(card);
+      });
+    }
+
+    function renderJourney(state) {
+      const el = document.getElementById("journey");
+      el.innerHTML = "";
+      const title = document.createElement("div");
+      title.className = "journey-title";
+      title.textContent = "Journey Map:";
+      el.appendChild(title);
+
+      const grid = document.createElement("div");
+      grid.className = "journey-grid";
+      journeyOrder.forEach((key) => {
+        const node = document.createElement("div");
+        node.className = "journey-node";
+        if (state.visited.includes(key)) node.classList.add("visited");
+        if (state.scene === key) node.classList.add("current");
+        node.textContent = journeyLabels[key] || key;
+        grid.appendChild(node);
+      });
+      el.appendChild(grid);
+    }
+
+    function renderScene(state) {
+      const scene = story.scenes[state.scene];
+      document.getElementById("scene-title").textContent = scene.title;
+      document.getElementById("scene-text").textContent = scene.text;
+      const illust = document.getElementById("scene-illust");
+      if (scene.illustration && sceneIllustrations[scene.illustration]) {
+        illust.innerHTML = sceneIllustrations[scene.illustration];
+        illust.hidden = false;
+      } else {
+        illust.hidden = true;
+        illust.innerHTML = "";
+      }
+
+      if (!state.visited.includes(state.scene)) {
+        state.visited.push(state.scene);
+        saveState(state);
+      }
+
+      renderInventory(state);
+      renderStats(state);
+      renderJourney(state);
+
+      const outcomeEl = document.getElementById("outcome");
+      if (state.lastOutcome) {
+        outcomeEl.textContent = state.lastOutcome;
+        outcomeEl.hidden = false;
+      } else {
+        outcomeEl.hidden = true;
+        outcomeEl.textContent = "";
+      }
+
+      const choicesEl = document.getElementById("choices");
+      choicesEl.innerHTML = "";
+
+      scene.choices.forEach((choice) => {
+        if (!meetsRequirements(choice, state)) return;
+        const btn = document.createElement("button");
+        const iconWrap = document.createElement("div");
+        iconWrap.className = "choice-icon";
+        const iconKey = choice.icon && icons[choice.icon] ? choice.icon : "lock";
+        iconWrap.innerHTML = icons[iconKey];
+        const textWrap = document.createElement("div");
+        const label = document.createElement("div");
+        label.textContent = choice.label;
+        textWrap.appendChild(label);
+        if (choice.note) {
+          const note = document.createElement("span");
+          note.className = "choice-note";
+          note.textContent = choice.note;
+          textWrap.appendChild(note);
+        }
+        btn.appendChild(iconWrap);
+        btn.appendChild(textWrap);
+        btn.addEventListener("click", () => {
+          if (choice.collect && !state.collected.includes(choice.collect)) {
+            state.collected.push(choice.collect);
+          }
+          if (choice.item && !state.inventory.includes(choice.item)) {
+            state.inventory.push(choice.item);
+          }
+          if (choice.addItem && !state.inventory.includes(choice.addItem)) {
+            state.inventory.push(choice.addItem);
+          }
+          applyEffects(choice, state);
+          state.lastOutcome = resolveOutcome(choice, state);
+          state.scene = choice.next;
+          saveState(state);
+          renderScene(state);
+          renderNotes(state.collected);
+        });
+        choicesEl.appendChild(btn);
+      });
+    }
+
+    const state = loadState();
+    renderScene(state);
+    renderNotes(state.collected);
+
+    document.getElementById("restart").addEventListener("click", () => {
+      const next = { scene: story.start, collected: [], inventory: [], lastOutcome: "", money: 1, morale: 2, supplies: 2, visited: [] };
+      saveState(next);
+      renderScene(next);
+      renderNotes(next.collected);
+    });
+  </script>
+</body>
+</html>
