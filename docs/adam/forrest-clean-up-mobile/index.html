@@ -369,9 +369,8 @@
       }
 
       canvas {
-        width: 100vw;
-        height: auto;
-        max-height: 100dvh;
+        width: 100%;
+        height: 100%;
         border: 0;
         border-radius: 0;
       }
@@ -536,7 +535,7 @@
     };
 
     const GOAL = { trees: 12, cleaned: 12, eco: 90 };
-    const WORLD = { w: canvas.width, h: canvas.height };
+    const WORLD = { w: 1600, h: 920 };
     const CYCLE = {
       dayFrames: 60 * 180,
       nightFrames: 60 * 120,
@@ -631,10 +630,20 @@
       return window.matchMedia("(hover: none), (pointer: coarse)").matches;
     }
 
+    function syncCanvasSize() {
+      const targetW = isMobileViewport() ? Math.max(320, Math.round(window.innerWidth)) : WORLD.w;
+      const targetH = isMobileViewport() ? Math.max(320, Math.round(window.innerHeight)) : WORLD.h;
+      if (canvas.width !== targetW || canvas.height !== targetH) {
+        canvas.width = targetW;
+        canvas.height = targetH;
+      }
+    }
+
     function updateCamera() {
+      syncCanvasSize();
       const zoom = isMobileViewport() ? 1.9 : 1;
-      const viewW = WORLD.w / zoom;
-      const viewH = WORLD.h / zoom;
+      const viewW = canvas.width / zoom;
+      const viewH = canvas.height / zoom;
       const maxX = Math.max(0, WORLD.w - viewW);
       const maxY = Math.max(0, WORLD.h - viewH);
       state.camera.zoom = zoom;
@@ -1661,21 +1670,6 @@
         ctx.fill();
       }
 
-      const sunTrack = cycle.cycleProgress;
-      const sunX = 90 + (WORLD.w - 180) * sunTrack;
-      const sunY = 108 + Math.sin(sunTrack * Math.PI) * -70;
-
-      if (!cycle.isNight) {
-        ctx.fillStyle = "rgba(255, 228, 136, 0.95)";
-        ctx.beginPath();
-        ctx.arc(sunX, sunY, 24, 0, Math.PI * 2);
-        ctx.fill();
-      } else {
-        ctx.fillStyle = "rgba(228, 237, 255, 0.9)";
-        ctx.beginPath();
-        ctx.arc(sunX, sunY, 18, 0, Math.PI * 2);
-        ctx.fill();
-      }
     }
 
     function drawLeaves() {
