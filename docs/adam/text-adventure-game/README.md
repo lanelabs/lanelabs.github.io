@@ -1,16 +1,16 @@
-# Pioneer Time Adventure
+# Text Adventure Game
 
 A story-driven, choice-based learning game for early readers. Join Addie and Caleb as they explore pioneer life, collect Field Notes, and make decisions that affect the journey.
 
 ## Play Locally
 
-1. Open `/home/alane1/learning-game/index.html` in a browser.
+1. Open `/home/alane1/text-adventure-game/index.html` in a browser.
 2. Start playing immediately (no install required).
 
 Optional local server:
 
 ```bash
-cd /home/alane1/learning-game
+cd /home/alane1/text-adventure-game
 python3 -m http.server 8000
 ```
 
@@ -89,7 +89,7 @@ Order shown by Journey Map:
 
 ## Sharing Options (Early Thoughts)
 - **Local share:** Copy the project folder and open `index.html` in a browser.
-- **Zip file:** Bundle `learning-game/` and send via email or message.
+- **Zip file:** Bundle `text-adventure-game/` and send via email or message.
 - **Static hosting:** GitHub Pages, Netlify, or Vercel for a shareable URL.
 - **Offline app:** Wrap in a tiny desktop app (Electron/Tauri) if needed later.
 

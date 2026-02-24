@@ -1,16 +1,16 @@
-# Forest Friends Rescue
+# Forrest Clean Up
 
 A kid-friendly browser game focused on restoring a forest through cleanup and planting.
 
 ## Play Locally
 
-1. Open `/home/alane1/forest-friends-game/index.html` in a browser.
+1. Open `/home/alane1/forrest-clean-up/index.html` in a browser.
 2. Start playing immediately (no install required).
 
 Optional local server:
 
 ```bash
-cd /home/alane1/forest-friends-game
+cd /home/alane1/forrest-clean-up
 python3 -m http.server 8000
 ```
 
