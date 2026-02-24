@@ -21,6 +21,8 @@ Then visit `http://localhost:8000`.
 - Move: `WASD` or arrow keys (desktop) or on-screen joystick (mobile)
 - Interact: `Space` (desktop) or `Interact` button (mobile)
 - Tap/click interaction: acorns, litter spots, plant spots, ponds, animals, and trees
+- Camera: mobile view follows the ranger with a closer zoom
+- Menu overlay: on mobile, tap the top-right `Menu` button to open stats, tips, and game actions
 - Inspect mode: click animals or planted trees to view name/type/fact in sidebar
 - Hover feedback: interactive objects glow and show pointer cursor
 - Systems & Debug: open live panel for formulas, queue, counters, and current state

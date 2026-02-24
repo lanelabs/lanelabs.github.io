@@ -47,6 +47,7 @@
 
     .game-wrap {
       padding: 14px;
+      position: relative;
     }
 
     h1 {
@@ -301,14 +302,118 @@
       transform: translateY(1px);
     }
 
+    .menu-toggle {
+      display: none;
+      min-width: 84px;
+      height: 42px;
+      border-radius: 999px;
+      border: 2px solid #2f8f4a;
+      background: rgba(248, 255, 246, 0.95);
+      color: #215e36;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(14, 41, 23, 0.24);
+      touch-action: manipulation;
+    }
+
+    .ui-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 28, 15, 0.38);
+      display: none;
+      z-index: 34;
+    }
+
+    .ui-backdrop.open {
+      display: block;
+    }
+
     @media (max-width: 900px) {
       .shell { grid-template-columns: 1fr; }
       h1 { font-size: 25px; }
     }
 
     @media (hover: none), (pointer: coarse) {
+      body {
+        display: block;
+        padding: 0;
+        min-height: 100dvh;
+      }
+
+      .shell {
+        width: 100vw;
+        height: 100dvh;
+        display: block;
+      }
+
+      .card {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .game-wrap {
+        width: 100vw;
+        height: 100dvh;
+        padding: 0;
+      }
+
+      h1,
+      .subtitle,
+      .foot {
+        display: none;
+      }
+
+      canvas {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+      }
+
       .touch-controls {
         display: flex;
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        margin-top: 0;
+        z-index: 22;
+        pointer-events: none;
+      }
+
+      .joystick,
+      .touch-action {
+        pointer-events: auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: calc(10px + env(safe-area-inset-top));
+        right: 12px;
+        z-index: 36;
+      }
+
+      .ui {
+        position: fixed;
+        top: calc(60px + env(safe-area-inset-top));
+        left: 10px;
+        right: 10px;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        z-index: 35;
+        display: none;
+        background: var(--panel);
+        overflow: auto;
+        border: 1px solid #b8d7ba;
+        border-radius: 14px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+
+      .ui.open {
+        display: grid;
       }
     }
   </style>
@@ -319,6 +424,7 @@
       <h1>Forrest Clean Up</h1>
       <p class="subtitle">Cleanup and planting gradually heal the forest. Watch life return in real time.</p>
       <canvas id="game" width="1600" height="920" aria-label="Forrest Clean Up game"></canvas>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Open game menu" aria-expanded="false">Menu</button>
       <p class="foot">Move with arrow keys/WASD or the joystick. Space/Interact button = interact.</p>
       <div class="touch-controls" aria-label="Mobile controls">
         <div id="joystick" class="joystick" aria-label="Movement joystick">
@@ -328,7 +434,7 @@
       </div>
     </section>
 
-    <aside class="card ui">
+    <aside id="gameMenu" class="card ui">
       <div class="row"><span class="label">Acorns</span><span class="value" id="acorns">0</span></div>
       <div class="row"><span class="label">Water</span><span class="value" id="water">Empty</span></div>
       <div class="row"><span class="label">Saplings Planted</span><span class="value" id="trees">0</span></div>
@@ -365,6 +471,7 @@
       </div>
     </aside>
   </main>
+  <div id="uiBackdrop" class="ui-backdrop"></div>
 
   <div id="debugOverlay" class="debug-overlay" aria-hidden="true">
     <section class="debug-panel">
@@ -417,7 +524,10 @@
       debugInfluence: document.getElementById("debugInfluence"),
       joystick: document.getElementById("joystick"),
       joystickKnob: document.getElementById("joystickKnob"),
-      touchInteract: document.getElementById("touchInteract")
+      touchInteract: document.getElementById("touchInteract"),
+      menuToggle: document.getElementById("menuToggle"),
+      menuPanel: document.getElementById("gameMenu"),
+      uiBackdrop: document.getElementById("uiBackdrop")
     };
 
     const GOAL = { trees: 12, cleaned: 12, eco: 90 };
@@ -470,8 +580,14 @@
         wildlifeFromSurprises: 0
       },
       debugPanelOpen: false,
+      menuOpen: false,
       debugTick: 0,
       lastWiltMessageFrame: -9999,
+      camera: {
+        x: 0,
+        y: 0,
+        zoom: 1
+      },
       touch: {
         active: false,
         pointerId: null,
@@ -504,6 +620,30 @@
 
     function randomFrom(items) {
       return items[Math.floor(rand(0, items.length))];
+    }
+
+    function isMobileViewport() {
+      return window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    }
+
+    function updateCamera() {
+      const zoom = isMobileViewport() ? 1.9 : 1;
+      const viewW = WORLD.w / zoom;
+      const viewH = WORLD.h / zoom;
+      const maxX = Math.max(0, WORLD.w - viewW);
+      const maxY = Math.max(0, WORLD.h - viewH);
+      state.camera.zoom = zoom;
+      state.camera.x = clamp(state.player.x - viewW / 2, 0, maxX);
+      state.camera.y = clamp(state.player.y - viewH / 2, 0, maxY);
+    }
+
+    function setMenuOpen(open) {
+      const shouldOpen = Boolean(open) && isMobileViewport();
+      state.menuOpen = shouldOpen;
+      ui.menuPanel.classList.toggle("open", shouldOpen);
+      ui.uiBackdrop.classList.toggle("open", shouldOpen);
+      ui.menuToggle.textContent = shouldOpen ? "Close" : "Menu";
+      ui.menuToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
     }
 
     const ANIMAL_FACTS = {
@@ -716,6 +856,8 @@
       setInspectCard("Nature Notebook", "Click an animal or planted tree", "-", "Interesting facts appear here.");
       setMessage("New restoration day! Clean and plant to bring the forest back to life.");
       logImpact("Playthrough reset.");
+      setMenuOpen(false);
+      updateCamera();
       syncUI();
     }
 
@@ -1053,9 +1195,12 @@
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
+      const screenX = (event.clientX - rect.left) * scaleX;
+      const screenY = (event.clientY - rect.top) * scaleY;
+      const zoom = state.camera.zoom || 1;
       return {
-        x: (event.clientX - rect.left) * scaleX,
-        y: (event.clientY - rect.top) * scaleY
+        x: screenX / zoom + state.camera.x,
+        y: screenY / zoom + state.camera.y
       };
     }
 
@@ -1766,6 +1911,7 @@
 
     function update() {
       playerMove();
+      updateCamera();
       updateAcorns();
       updateBees();
       updateLeaves();
@@ -1790,6 +1936,13 @@
     }
 
     function render() {
+      const zoom = state.camera.zoom || 1;
+      const camX = state.camera.x || 0;
+      const camY = state.camera.y || 0;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.setTransform(zoom, 0, 0, zoom, -camX * zoom, -camY * zoom);
       drawGround();
       drawLeaves();
       drawAcorns();
@@ -1800,7 +1953,10 @@
       drawFireflies();
       drawHoverHighlight();
       drawPlayer();
-      drawHudOverlay();
+      ctx.restore();
+      if (!isMobileViewport()) {
+        drawHudOverlay();
+      }
     }
 
     function frame() {
@@ -1846,6 +2002,12 @@
     document.getElementById("easyMode").addEventListener("click", toggleEasyMode);
     document.getElementById("debugOpen").addEventListener("click", openDebugPanel);
     document.getElementById("debugClose").addEventListener("click", closeDebugPanel);
+    ui.menuToggle.addEventListener("click", () => {
+      setMenuOpen(!state.menuOpen);
+    });
+    ui.uiBackdrop.addEventListener("click", () => {
+      setMenuOpen(false);
+    });
     ui.debugOverlay.addEventListener("click", (e) => {
       if (e.target === ui.debugOverlay) closeDebugPanel();
     });
@@ -1859,9 +2021,16 @@
       event.preventDefault();
     }, { passive: false });
     canvas.addEventListener("mouseleave", clearCanvasHover);
+    window.addEventListener("resize", () => {
+      if (!isMobileViewport()) {
+        setMenuOpen(false);
+      }
+      updateCamera();
+    });
 
     ui.best.textContent = state.bestScore;
     setupMobileControls();
+    updateCamera();
     resetGame();
     frame();
   </script>
