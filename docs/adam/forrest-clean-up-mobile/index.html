@@ -356,6 +356,10 @@
         width: 100vw;
         height: 100dvh;
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
       }
 
       h1,
@@ -365,8 +369,9 @@
       }
 
       canvas {
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: auto;
+        max-height: 100dvh;
         border: 0;
         border-radius: 0;
       }
@@ -1309,9 +1314,21 @@
       const scale = dist > maxRadius ? maxRadius / dist : 1;
       const x = rawX * scale;
       const y = rawY * scale;
-
-      state.touch.dx = maxRadius ? x / maxRadius : 0;
-      state.touch.dy = maxRadius ? y / maxRadius : 0;
+      const nx = maxRadius ? x / maxRadius : 0;
+      const ny = maxRadius ? y / maxRadius : 0;
+      const mag = Math.min(1, Math.hypot(nx, ny));
+      const deadzone = 0.14;
+      const maxTouchSpeed = 0.85;
+      if (mag <= deadzone) {
+        state.touch.dx = 0;
+        state.touch.dy = 0;
+      } else {
+        const normalized = (mag - deadzone) / (1 - deadzone);
+        const eased = Math.pow(normalized, 1.6) * maxTouchSpeed;
+        const dirScale = eased / (mag || 1);
+        state.touch.dx = nx * dirScale;
+        state.touch.dy = ny * dirScale;
+      }
       ui.joystickKnob.style.transform = "translate(calc(-50% + " + x.toFixed(1) + "px), calc(-50% + " + y.toFixed(1) + "px))";
     }
 
