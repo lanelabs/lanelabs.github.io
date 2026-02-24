@@ -1,0 +1,1869 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forrest Clean Up</title>
+  <style>
+    :root {
+      --bg-top: #d9f4d4;
+      --bg-mid: #bde6bb;
+      --bg-bottom: #89c98c;
+      --panel: #f8fff6;
+      --ink: #1d3a24;
+      --accent: #2f8f4a;
+      --line: #cfe9c9;
+      --shadow: 0 10px 28px rgba(21, 57, 28, 0.18);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Verdana", sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg-top), var(--bg-mid) 40%, var(--bg-bottom));
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .shell {
+      width: min(1720px, 100%);
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .game-wrap {
+      padding: 14px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1;
+      color: #1a4f2d;
+      letter-spacing: 0.3px;
+    }
+
+    .subtitle {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #356a45;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 2px solid #8ec597;
+      background: #8fbf7d;
+      touch-action: none;
+    }
+
+    .ui {
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .label { font-weight: 700; }
+
+    .value {
+      background: #eef8eb;
+      border: 1px solid #d1ebcc;
+      border-radius: 999px;
+      padding: 4px 9px;
+      min-width: 42px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .msg {
+      min-height: 92px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .btns {
+      display: grid;
+      gap: 8px;
+    }
+
+    button {
+      border: 1px solid #2f8f4a;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover { filter: brightness(1.06); }
+    button.secondary {
+      background: #fff;
+      color: #266f3b;
+      border-color: #8ec597;
+    }
+
+    .tips {
+      border: 1px dashed #99cca4;
+      border-radius: 10px;
+      padding: 10px;
+      background: #f7fff5;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .inspect {
+      border: 1px solid #c7e4c8;
+      border-radius: 10px;
+      padding: 10px;
+      background: #ffffff;
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .inspect-title {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e5d35;
+    }
+
+    .inspect-line {
+      margin: 4px 0;
+    }
+
+    .debug-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 20, 12, 0.58);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 50;
+    }
+
+    .debug-overlay.open {
+      display: flex;
+    }
+
+    .debug-panel {
+      width: min(980px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      background: #f8fff6;
+      border: 1px solid #b8d8b6;
+      border-radius: 12px;
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+      padding: 14px;
+    }
+
+    .debug-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .debug-title {
+      margin: 0;
+      font-size: 18px;
+      color: #1f5f37;
+    }
+
+    .debug-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .debug-box {
+      border: 1px solid #c8e1c7;
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 10px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .debug-box h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: #205f37;
+    }
+
+    .debug-pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: "Consolas", "Menlo", monospace;
+      font-size: 12px;
+      color: #224830;
+    }
+
+    @media (max-width: 900px) {
+      .debug-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .foot {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #2d6640;
+      text-align: center;
+    }
+
+    .touch-controls {
+      display: none;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-top: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    .joystick {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 2px solid #6da37a;
+      background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.65), rgba(102, 154, 112, 0.32));
+      position: relative;
+      touch-action: none;
+    }
+
+    .joystick-knob {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid #3f8350;
+      background: #f4fff2;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 4px 12px rgba(28, 70, 39, 0.22);
+      touch-action: none;
+    }
+
+    .touch-action {
+      min-width: 118px;
+      height: 66px;
+      border-radius: 14px;
+      border: 2px solid #2f8f4a;
+      background: #2f8f4a;
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 8px 16px rgba(37, 95, 52, 0.24);
+      touch-action: manipulation;
+    }
+
+    .touch-action.active {
+      filter: brightness(0.92);
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 900px) {
+      .shell { grid-template-columns: 1fr; }
+      h1 { font-size: 25px; }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .touch-controls {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card game-wrap">
+      <h1>Forrest Clean Up</h1>
+      <p class="subtitle">Cleanup and planting gradually heal the forest. Watch life return in real time.</p>
+      <canvas id="game" width="1600" height="920" aria-label="Forrest Clean Up game"></canvas>
+      <p class="foot">Move with arrow keys/WASD or the joystick. Space/Interact button = interact.</p>
+      <div class="touch-controls" aria-label="Mobile controls">
+        <div id="joystick" class="joystick" aria-label="Movement joystick">
+          <div id="joystickKnob" class="joystick-knob"></div>
+        </div>
+        <button id="touchInteract" class="touch-action" type="button" aria-label="Interact">Interact</button>
+      </div>
+    </section>
+
+    <aside class="card ui">
+      <div class="row"><span class="label">Acorns</span><span class="value" id="acorns">0</span></div>
+      <div class="row"><span class="label">Water</span><span class="value" id="water">Empty</span></div>
+      <div class="row"><span class="label">Saplings Planted</span><span class="value" id="trees">0</span></div>
+      <div class="row"><span class="label">Litter Cleaned</span><span class="value" id="cleaned">0</span></div>
+      <div class="row"><span class="label">Eco Health</span><span class="value" id="eco">5%</span></div>
+      <div class="row"><span class="label">Wildlife Seen</span><span class="value" id="wildlife">1</span></div>
+      <div class="row"><span class="label">Best Clean-Up Score</span><span class="value" id="best">0</span></div>
+
+      <div id="message" class="msg">Welcome, Ranger! Clean litter and plant saplings to restore the forest.</div>
+
+      <div class="btns">
+        <button id="newGame">New Game</button>
+        <button id="easyMode" class="secondary">Toggle Easy Mode</button>
+        <button id="debugOpen" class="secondary">Systems & Debug</button>
+      </div>
+
+      <div class="tips">
+        Goal: Build Eco Health by cleaning and planting.<br>
+        Interact near markers: 🌱 plant spots and 🧺 litter spots.<br>
+        You can also click items directly to interact.<br>
+        Cleaned spots bloom flowers, then spread tiny patches after 1-2 minutes.<br>
+        Mature trees can drop new acorns; wildlife returns as the forest heals.<br>
+        Some young trees get thirsty after a while. Refill at a pond, then water them.<br>
+        Owls appear at night; fireflies appear at high restoration levels.<br>
+        Open Systems & Debug to see live formulas, queued effects, and stats.<br>
+        After 10s idle, your ranger slowly follows the cursor.
+      </div>
+
+      <div class="inspect">
+        <p class="inspect-title" id="inspectTitle">Nature Notebook</p>
+        <p class="inspect-line"><strong>Name:</strong> <span id="inspectName">Click an animal or planted tree</span></p>
+        <p class="inspect-line"><strong>Type:</strong> <span id="inspectType">-</span></p>
+        <p class="inspect-line"><strong>Fact:</strong> <span id="inspectFact">Interesting facts appear here.</span></p>
+      </div>
+    </aside>
+  </main>
+
+  <div id="debugOverlay" class="debug-overlay" aria-hidden="true">
+    <section class="debug-panel">
+      <div class="debug-head">
+        <h2 class="debug-title">Systems & Debug</h2>
+        <button id="debugClose" class="secondary">Close</button>
+      </div>
+      <div class="debug-grid">
+        <div class="debug-box">
+          <h3>How Systems Work</h3>
+          <p id="debugSystems" class="debug-pre"></p>
+        </div>
+        <div class="debug-box">
+          <h3>Current Playthrough</h3>
+          <p id="debugPlaythrough" class="debug-pre"></p>
+        </div>
+        <div class="debug-box">
+          <h3>Active Surprise Queue</h3>
+          <p id="debugQueue" class="debug-pre"></p>
+        </div>
+        <div class="debug-box">
+          <h3>Influence + Formula Snapshot</h3>
+          <p id="debugInfluence" class="debug-pre"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    const ui = {
+      acorns: document.getElementById("acorns"),
+      water: document.getElementById("water"),
+      trees: document.getElementById("trees"),
+      cleaned: document.getElementById("cleaned"),
+      eco: document.getElementById("eco"),
+      wildlife: document.getElementById("wildlife"),
+      best: document.getElementById("best"),
+      message: document.getElementById("message"),
+      inspectTitle: document.getElementById("inspectTitle"),
+      inspectName: document.getElementById("inspectName"),
+      inspectType: document.getElementById("inspectType"),
+      inspectFact: document.getElementById("inspectFact"),
+      debugOverlay: document.getElementById("debugOverlay"),
+      debugSystems: document.getElementById("debugSystems"),
+      debugPlaythrough: document.getElementById("debugPlaythrough"),
+      debugQueue: document.getElementById("debugQueue"),
+      debugInfluence: document.getElementById("debugInfluence"),
+      joystick: document.getElementById("joystick"),
+      joystickKnob: document.getElementById("joystickKnob"),
+      touchInteract: document.getElementById("touchInteract")
+    };
+
+    const GOAL = { trees: 12, cleaned: 12, eco: 90 };
+    const WORLD = { w: canvas.width, h: canvas.height };
+    const CYCLE = {
+      dayFrames: 60 * 180,
+      nightFrames: 60 * 120,
+      total: (60 * 180) + (60 * 120)
+    };
+
+    const state = {
+      easyMode: false,
+      bestScore: Number(localStorage.getItem("forest-best") || 0),
+      won: false,
+      t: 0,
+      ecoScore: 5,
+      celebrationFrames: 0,
+      acorns: 0,
+      waterCarried: false,
+      planted: 0,
+      cleaned: 0,
+      keys: new Set(),
+      player: {
+        x: 140,
+        y: 620,
+        r: 15,
+        speed: 2.7,
+        color: "#e88434",
+        facing: 1,
+        moving: false
+      },
+      acornNodes: [],
+      saplingSpots: [],
+      litterSpots: [],
+      puddles: [],
+      bees: [],
+      leaves: [],
+      flowers: [],
+      animals: [],
+      fireflies: [],
+      hoverTarget: null,
+      mouseWorld: null,
+      lastMovementInputFrame: 0,
+      surprises: [],
+      recentImpacts: [],
+      stats: {
+        surprisesTriggered: 0,
+        flowerSpreadEvents: 0,
+        treeAcornDrops: 0,
+        wildlifeFromSurprises: 0
+      },
+      debugPanelOpen: false,
+      debugTick: 0,
+      lastWiltMessageFrame: -9999,
+      touch: {
+        active: false,
+        pointerId: null,
+        dx: 0,
+        dy: 0
+      }
+    };
+
+    const WATER = {
+      wiltDelayMin: 60 * 60,
+      wiltDelayMax: 60 * 120,
+      wiltChance: 0.45,
+      easyWiltChance: 0.25,
+      maxWilted: 4
+    };
+
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function clamp(v, min, max) {
+      return Math.max(min, Math.min(max, v));
+    }
+
+    function distance(a, b) {
+      const dx = a.x - b.x;
+      const dy = a.y - b.y;
+      return Math.hypot(dx, dy);
+    }
+
+    function randomFrom(items) {
+      return items[Math.floor(rand(0, items.length))];
+    }
+
+    const ANIMAL_FACTS = {
+      rabbit: "Rabbits can rotate their ears to detect sounds from many directions.",
+      bird: "Many birds spread seeds when they eat fruit, helping forests regrow.",
+      deer: "Deer can run quickly and use strong smell to detect predators.",
+      fox: "Foxes use excellent hearing to locate tiny animals under leaves and snow.",
+      owl: "Owls can turn their heads far to scan the forest at night."
+    };
+
+    const ANIMAL_NAMES = {
+      rabbit: ["Moss", "Hopper", "Clover", "Pebble"],
+      bird: ["Pip", "Skye", "Chirp", "Breeze"],
+      deer: ["Fern", "Maple", "Juniper", "Dawn"],
+      fox: ["Amber", "Rusty", "Flint", "Rowan"],
+      owl: ["Willow", "Luna", "Echo", "Sage"]
+    };
+
+    const TREE_TYPES = ["Oak", "Pine", "Maple", "Birch", "Cedar"];
+    const TREE_FACTS = {
+      Oak: "Oak trees can support hundreds of different insects, birds, and small animals.",
+      Pine: "Pine needles stay year-round and help protect soil during cold seasons.",
+      Maple: "Maple trees provide shade that helps keep forest floors cool and moist.",
+      Birch: "Birch trees are often among the first to grow back in recovering forests.",
+      Cedar: "Cedar trees provide shelter for wildlife and can live for many years."
+    };
+    const TREE_NAMES = ["Sunroot", "Rainwhisper", "Brightbark", "Leafsong", "Stonebranch", "Emberwood"];
+
+    function makeTreeProfile() {
+      const type = randomFrom(TREE_TYPES);
+      return {
+        treeType: type,
+        treeName: randomFrom(TREE_NAMES),
+        treeFact: TREE_FACTS[type]
+      };
+    }
+
+    function createAnimal(type, x, y) {
+      return {
+        x,
+        y,
+        vx: rand(-0.9, 0.9),
+        vy: rand(-0.6, 0.6),
+        type,
+        name: randomFrom(ANIMAL_NAMES[type]),
+        fact: ANIMAL_FACTS[type],
+        nightOnly: type === "owl",
+        bob: rand(0, Math.PI * 2)
+      };
+    }
+
+    function createFirefly() {
+      return {
+        x: rand(20, WORLD.w - 20),
+        y: rand(70, WORLD.h - 20),
+        vx: rand(-0.35, 0.35),
+        vy: rand(-0.25, 0.25),
+        phase: rand(0, Math.PI * 2),
+        pulse: rand(0.03, 0.08)
+      };
+    }
+
+    function getCycleInfo() {
+      const frame = state.t % CYCLE.total;
+      const isNight = frame >= CYCLE.dayFrames;
+      const cycleProgress = frame / CYCLE.total;
+      if (!isNight) {
+        return {
+          isNight,
+          frame,
+          cycleProgress,
+          phase: frame / CYCLE.dayFrames
+        };
+      }
+      return {
+        isNight,
+        frame,
+        cycleProgress,
+        phase: (frame - CYCLE.dayFrames) / CYCLE.nightFrames
+      };
+    }
+
+    function getVisibleAnimals() {
+      const cycle = getCycleInfo();
+      return state.animals.filter((animal) => !animal.nightOnly || cycle.isNight);
+    }
+
+    function setInspectCard(title, name, type, fact) {
+      ui.inspectTitle.textContent = title;
+      ui.inspectName.textContent = name;
+      ui.inspectType.textContent = type;
+      ui.inspectFact.textContent = fact;
+    }
+
+    function logImpact(text) {
+      state.recentImpacts.unshift("t+" + Math.floor(state.t / 60) + "s: " + text);
+      state.recentImpacts = state.recentImpacts.slice(0, 6);
+    }
+
+    function scheduleSurprise(kind, delayFrames, payload) {
+      state.surprises.push({
+        id: "s-" + Math.floor(rand(1000, 9999999)),
+        kind,
+        at: state.t + delayFrames,
+        payload
+      });
+    }
+
+    function nearestPond(point, maxDist) {
+      let best = null;
+      let bestDist = maxDist;
+      for (const puddle of state.puddles) {
+        const d = distance(point, puddle);
+        if (d < bestDist) {
+          bestDist = d;
+          best = puddle;
+        }
+      }
+      return best;
+    }
+
+    function pondWithin(point, buffer) {
+      for (const puddle of state.puddles) {
+        if (distance(point, puddle) <= puddle.r + buffer) return puddle;
+      }
+      return null;
+    }
+
+    function countWiltedPlants() {
+      return state.saplingSpots.filter((spot) => spot.wilted).length;
+    }
+
+    function spawnWorld() {
+      state.acornNodes = Array.from({ length: 26 }, () => ({
+        x: rand(60, WORLD.w - 60),
+        y: rand(60, WORLD.h - 60),
+        active: true,
+        pulse: rand(0, Math.PI * 2)
+      }));
+
+      state.saplingSpots = Array.from({ length: 16 }, () => ({
+        x: rand(80, WORLD.w - 80),
+        y: rand(80, WORLD.h - 80),
+        planted: false,
+        growth: 0,
+        acornDropped: false,
+        wilted: false,
+        needsWater: false,
+        wiltAt: 0,
+        ...makeTreeProfile()
+      }));
+
+      state.litterSpots = Array.from({ length: 16 }, () => ({
+        x: rand(80, WORLD.w - 80),
+        y: rand(80, WORLD.h - 80),
+        cleaned: false,
+        spreadReadyFrame: 0,
+        spreadDone: false
+      }));
+
+      state.puddles = Array.from({ length: 9 }, () => ({
+        x: rand(110, WORLD.w - 110),
+        y: rand(110, WORLD.h - 90),
+        r: rand(26, 44)
+      }));
+
+      state.bees = Array.from({ length: state.easyMode ? 3 : 5 }, () => ({
+        x: rand(70, WORLD.w - 70),
+        y: rand(70, WORLD.h - 70),
+        r: 10,
+        vx: rand(-1.6, 1.6),
+        vy: rand(-1.6, 1.6)
+      }));
+
+      state.leaves = Array.from({ length: 24 }, () => ({
+        x: rand(0, WORLD.w),
+        y: rand(0, WORLD.h),
+        speed: rand(0.4, 1.1),
+        sway: rand(0.6, 2.2),
+        phase: rand(0, Math.PI * 2)
+      }));
+
+      state.flowers = [];
+      state.animals = [createAnimal("rabbit", rand(140, WORLD.w - 140), rand(180, WORLD.h - 80))];
+      state.fireflies = [];
+    }
+
+    function resetGame() {
+      state.won = false;
+      state.t = 0;
+      state.ecoScore = 5;
+      state.celebrationFrames = 0;
+      state.acorns = 0;
+      state.waterCarried = false;
+      state.planted = 0;
+      state.cleaned = 0;
+      state.surprises = [];
+      state.recentImpacts = [];
+      state.stats.surprisesTriggered = 0;
+      state.stats.flowerSpreadEvents = 0;
+      state.stats.treeAcornDrops = 0;
+      state.stats.wildlifeFromSurprises = 0;
+      state.lastMovementInputFrame = state.t;
+      state.lastWiltMessageFrame = -9999;
+      state.player.x = 140;
+      state.player.y = 620;
+      state.player.step = 0;
+      state.player.moving = false;
+      spawnWorld();
+      setInspectCard("Nature Notebook", "Click an animal or planted tree", "-", "Interesting facts appear here.");
+      setMessage("New restoration day! Clean and plant to bring the forest back to life.");
+      logImpact("Playthrough reset.");
+      syncUI();
+    }
+
+    function setMessage(text) {
+      ui.message.textContent = text;
+    }
+
+    function syncUI() {
+      ui.acorns.textContent = state.acorns;
+      ui.water.textContent = state.waterCarried ? "Full" : "Empty";
+      ui.trees.textContent = state.planted;
+      ui.cleaned.textContent = state.cleaned;
+      ui.eco.textContent = Math.round(state.ecoScore) + "%";
+      ui.wildlife.textContent = getVisibleAnimals().length;
+      ui.best.textContent = state.bestScore;
+    }
+
+    function playerMove() {
+      let dx = 0;
+      let dy = 0;
+
+      if (state.touch.active) {
+        dx = state.touch.dx;
+        dy = state.touch.dy;
+      }
+
+      if (state.keys.has("ArrowLeft") || state.keys.has("a")) dx -= 1;
+      if (state.keys.has("ArrowRight") || state.keys.has("d")) dx += 1;
+      if (state.keys.has("ArrowUp") || state.keys.has("w")) dy -= 1;
+      if (state.keys.has("ArrowDown") || state.keys.has("s")) dy += 1;
+
+      let moved = false;
+      if (dx !== 0 || dy !== 0) {
+        moved = movePlayerByVector(dx, dy, 1);
+        state.lastMovementInputFrame = state.t;
+      } else if (state.mouseWorld && state.t - state.lastMovementInputFrame > 600) {
+        const toMouseX = state.mouseWorld.x - state.player.x;
+        const toMouseY = state.mouseWorld.y - state.player.y;
+        const dist = Math.hypot(toMouseX, toMouseY);
+        if (dist > 10) {
+          const ramp = clamp((state.t - state.lastMovementInputFrame - 600) / 180, 0, 1);
+          moved = movePlayerByVector(toMouseX / dist, toMouseY / dist, 0.22 + ramp * 0.5);
+        }
+      }
+
+      state.player.moving = moved;
+      if (moved) {
+        state.player.step = (state.player.step || 0) + 0.22;
+      }
+      state.player.x = clamp(state.player.x, state.player.r, WORLD.w - state.player.r);
+      state.player.y = clamp(state.player.y, state.player.r, WORLD.h - state.player.r);
+    }
+
+    function movePlayerByVector(dx, dy, speedScale) {
+      const mag = Math.hypot(dx, dy);
+      if (mag === 0) return false;
+
+      dx /= mag;
+      dy /= mag;
+      let speed = state.player.speed * speedScale;
+      for (const puddle of state.puddles) {
+        if (distance(state.player, puddle) < puddle.r + state.player.r * 0.4) {
+          speed *= 0.52;
+          break;
+        }
+      }
+
+      const oldX = state.player.x;
+      const oldY = state.player.y;
+      state.player.x += dx * speed;
+      state.player.y += dy * speed;
+      state.player.facing = dx < -0.02 ? -1 : dx > 0.02 ? 1 : state.player.facing;
+      return Math.hypot(state.player.x - oldX, state.player.y - oldY) > 0.01;
+    }
+
+    function updateAcorns() {
+      for (const acorn of state.acornNodes) {
+        if (!acorn.active) continue;
+        acorn.pulse += 0.05;
+        if (distance(state.player, acorn) < state.player.r + 12) {
+          acorn.active = false;
+          state.acorns += 1;
+          setMessage("Acorn found! You can use it to plant a sapling.");
+        }
+      }
+
+      if (state.acornNodes.every((a) => !a.active)) {
+        const refill = state.acornNodes.slice(0, state.easyMode ? 13 : 10);
+        for (const a of refill) {
+          a.active = true;
+          a.x = rand(70, WORLD.w - 70);
+          a.y = rand(70, WORLD.h - 70);
+        }
+      }
+    }
+
+    function updateBees() {
+      for (const bee of state.bees) {
+        bee.x += bee.vx;
+        bee.y += bee.vy;
+
+        if (bee.x < 20 || bee.x > WORLD.w - 20) bee.vx *= -1;
+        if (bee.y < 20 || bee.y > WORLD.h - 20) bee.vy *= -1;
+
+        if (Math.random() < 0.03) {
+          bee.vx += rand(-0.35, 0.35);
+          bee.vy += rand(-0.35, 0.35);
+          bee.vx = clamp(bee.vx, -2.2, 2.2);
+          bee.vy = clamp(bee.vy, -2.2, 2.2);
+        }
+      }
+    }
+
+    function updateLeaves() {
+      for (const leaf of state.leaves) {
+        leaf.y += leaf.speed;
+        leaf.x += Math.sin(state.t * 0.03 + leaf.phase) * leaf.sway;
+        if (leaf.y > WORLD.h + 10) {
+          leaf.y = -10;
+          leaf.x = rand(0, WORLD.w);
+        }
+      }
+    }
+
+    function interact() {
+      if (state.waterCarried) {
+        for (const spot of state.saplingSpots) {
+          if (spot.wilted && distance(state.player, spot) < 32) {
+            attemptWaterPlant(spot);
+            return;
+          }
+        }
+      } else {
+        const pond = pondWithin(state.player, 18);
+        if (pond) {
+          attemptCollectWater(pond);
+          return;
+        }
+      }
+
+      for (const spot of state.saplingSpots) {
+        if (!spot.planted && distance(state.player, spot) < 28) {
+          attemptPlant(spot);
+          return;
+        }
+      }
+
+      for (const spot of state.litterSpots) {
+        if (!spot.cleaned && distance(state.player, spot) < 28) {
+          attemptCleanup(spot);
+          return;
+        }
+      }
+
+      setMessage("Try standing near a 🌱, 🧺, or a pond, then press Space.");
+    }
+
+    function updateEcoSystem() {
+      for (const spot of state.saplingSpots) {
+        if (spot.planted) {
+          if (!spot.wilted) {
+            spot.growth = clamp((spot.growth || 0.04) + 0.00055, 0.04, 1);
+          }
+          if (spot.growth >= 0.985 && !spot.acornDropped) {
+            spot.acornDropped = true;
+            state.acornNodes.push({
+              x: clamp(spot.x + rand(-18, 18), 30, WORLD.w - 30),
+              y: clamp(spot.y + rand(10, 26), 30, WORLD.h - 30),
+              active: true,
+              pulse: rand(0, Math.PI * 2)
+            });
+            state.stats.treeAcornDrops += 1;
+            logImpact("A mature " + spot.treeType + " dropped an acorn.");
+          }
+
+          if (!spot.wilted && spot.needsWater && state.t >= spot.wiltAt && countWiltedPlants() < WATER.maxWilted) {
+            spot.wilted = true;
+            if (state.t - state.lastWiltMessageFrame > 60 * 20) {
+              setMessage("A young tree is getting thirsty. Refill at a pond, then water it.");
+              state.lastWiltMessageFrame = state.t;
+            }
+            logImpact("A " + spot.treeType + " sapling turned thirsty.");
+          }
+        }
+      }
+
+      for (const flower of state.flowers) {
+        flower.growth = clamp(flower.growth + 0.0008, 0.03, 1);
+      }
+
+      for (const spot of state.litterSpots) {
+        if (spot.cleaned && !spot.spreadDone && state.t >= spot.spreadReadyFrame) {
+          spot.spreadDone = true;
+          state.stats.flowerSpreadEvents += 1;
+          const tinyPatchCount = 2;
+          for (let p = 0; p < tinyPatchCount; p++) {
+            const ang = rand(0, Math.PI * 2);
+            const dist = rand(24, 54);
+            const cx = clamp(spot.x + Math.cos(ang) * dist, 20, WORLD.w - 20);
+            const cy = clamp(spot.y + Math.sin(ang) * dist, 20, WORLD.h - 20);
+            const flowersInPatch = 2 + Math.floor(rand(0, 2));
+            for (let i = 0; i < flowersInPatch; i++) {
+              state.flowers.push({
+                x: cx + rand(-8, 8),
+                y: cy + rand(-8, 8),
+                growth: 0.03,
+                color: ["#ffd166", "#ff7aa2", "#b5e48c", "#9bf6ff"][Math.floor(rand(0, 4))]
+              });
+            }
+          }
+          logImpact("Flowers spread into nearby mini patches.");
+        }
+      }
+
+      const matureTrees = state.saplingSpots.filter((s) => s.planted && s.growth > 0.65).length;
+      const matureFlowers = state.flowers.filter((f) => f.growth > 0.7).length;
+
+      state.ecoScore = clamp(
+        5 + state.cleaned * 5 + state.planted * 4 + matureTrees * 2 + matureFlowers * 0.4,
+        5,
+        100
+      );
+
+      const targetAnimals = 1 + Math.floor(state.ecoScore / 20);
+      while (state.animals.length < targetAnimals) {
+        const types = ["rabbit", "bird", "deer", "fox", "owl"];
+        const idx = Math.min(types.length - 1, state.animals.length);
+        state.animals.push(createAnimal(types[idx], rand(140, WORLD.w - 140), rand(160, WORLD.h - 80)));
+        setMessage("Wildlife is returning to the forest!");
+      }
+    }
+
+    function attemptPlant(spot) {
+      if (state.acorns < 1) {
+        setMessage("Planting needs 1 acorn. Gather one first.");
+        return;
+      }
+      if (spot.planted) return;
+
+      spot.planted = true;
+      spot.growth = 0.04;
+      spot.acornDropped = false;
+      spot.wilted = false;
+      spot.needsWater = Math.random() < (state.easyMode ? WATER.easyWiltChance : WATER.wiltChance);
+      spot.wiltAt = state.t + Math.floor(rand(WATER.wiltDelayMin, WATER.wiltDelayMax));
+      state.acorns -= 1;
+      state.planted += 1;
+      state.ecoScore += 3;
+      setMessage("Sapling planted. It will grow over time.");
+      logImpact("Planted " + spot.treeType + " (" + spot.treeName + ").");
+
+      scheduleSurprise("pollinator-arrival", Math.floor(rand(60 * 25, 60 * 65)), {
+        x: spot.x,
+        y: spot.y,
+        treeType: spot.treeType
+      });
+      scheduleSurprise("bonus-bloom", Math.floor(rand(60 * 70, 60 * 125)), {
+        x: spot.x,
+        y: spot.y
+      });
+    }
+
+    function attemptCleanup(spot) {
+      if (spot.cleaned) return;
+      spot.cleaned = true;
+      state.cleaned += 1;
+      state.ecoScore += 5;
+      spot.spreadReadyFrame = state.t + Math.floor(rand(60 * 60, 60 * 120));
+      spot.spreadDone = false;
+
+      const newFlowers = 3 + Math.floor(rand(0, 3));
+      for (let i = 0; i < newFlowers; i++) {
+        state.flowers.push({
+          x: spot.x + rand(-13, 13),
+          y: spot.y + rand(-10, 10),
+          growth: 0.03,
+          color: ["#ffd166", "#ff7aa2", "#b5e48c", "#9bf6ff"][Math.floor(rand(0, 4))]
+        });
+      }
+
+      setMessage("Litter cleaned. New flowers are starting to bloom here.");
+      logImpact("Cleaned litter at (" + Math.round(spot.x) + ", " + Math.round(spot.y) + ").");
+
+      scheduleSurprise("soil-recovery", Math.floor(rand(60 * 35, 60 * 80)), {
+        x: spot.x,
+        y: spot.y
+      });
+
+      const nearPond = nearestPond(spot, 170);
+      if (nearPond) {
+        scheduleSurprise("fish-return", Math.floor(rand(60 * 45, 60 * 95)), {
+          x: nearPond.x,
+          y: nearPond.y
+        });
+      }
+    }
+
+    function attemptCollectAcorn(acorn) {
+      if (!acorn.active) return;
+      acorn.active = false;
+      state.acorns += 1;
+      setMessage("Acorn collected.");
+    }
+
+    function attemptCollectWater(puddle) {
+      if (state.waterCarried) {
+        setMessage("Your water is already full.");
+        return;
+      }
+      state.waterCarried = true;
+      setMessage("Water collected from the pond. Find a thirsty tree.");
+      logImpact("Collected water from a pond.");
+    }
+
+    function attemptWaterPlant(spot) {
+      if (!spot.planted) return;
+      if (!spot.wilted) {
+        setMessage("This tree looks healthy.");
+        return;
+      }
+      if (!state.waterCarried) {
+        setMessage("You need water first. Visit a pond to refill.");
+        return;
+      }
+      spot.wilted = false;
+      spot.needsWater = false;
+      spot.growth = clamp((spot.growth || 0.04) + 0.05, 0.04, 1);
+      state.waterCarried = false;
+      state.ecoScore = clamp(state.ecoScore + 1, 5, 100);
+      setMessage("You watered the tree. It’s perking up!");
+      logImpact("Watered " + spot.treeType + " (" + spot.treeName + ").");
+    }
+
+    function getCanvasPoint(event) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      return {
+        x: (event.clientX - rect.left) * scaleX,
+        y: (event.clientY - rect.top) * scaleY
+      };
+    }
+
+    function findInteractiveTarget(point) {
+      for (const animal of getVisibleAnimals()) {
+        if (distance(point, animal) <= 18) return { kind: "animal", ref: animal };
+      }
+
+      for (const spot of state.saplingSpots) {
+        if (!spot.planted && distance(point, spot) <= 24) return { kind: "plant-spot", ref: spot };
+        if (spot.planted && distance(point, spot) <= 28) return { kind: "tree", ref: spot };
+      }
+
+      for (const spot of state.litterSpots) {
+        if (!spot.cleaned && distance(point, spot) <= 24) return { kind: "litter", ref: spot };
+      }
+
+      for (const acorn of state.acornNodes) {
+        if (acorn.active && distance(point, acorn) <= 16) return { kind: "acorn", ref: acorn };
+      }
+
+      for (const puddle of state.puddles) {
+        if (distance(point, puddle) <= puddle.r + 8) return { kind: "pond", ref: puddle };
+      }
+
+      return null;
+    }
+
+    function handleCanvasPoint(point) {
+      const target = findInteractiveTarget(point);
+      if (!target) return;
+
+      if (target.kind === "animal") {
+        const animal = target.ref;
+        setInspectCard(
+          "Animal Notes",
+          animal.name,
+          animal.type.charAt(0).toUpperCase() + animal.type.slice(1),
+          animal.fact
+        );
+        return;
+      }
+
+      if (target.kind === "plant-spot") {
+        attemptPlant(target.ref);
+        return;
+      }
+
+      if (target.kind === "tree") {
+        const spot = target.ref;
+        if (spot.wilted) {
+          attemptWaterPlant(spot);
+          return;
+        }
+        setInspectCard("Tree Notes", spot.treeName, spot.treeType + " Tree", spot.treeFact);
+        return;
+      }
+
+      if (target.kind === "litter") {
+        attemptCleanup(target.ref);
+        return;
+      }
+
+      if (target.kind === "acorn") {
+        attemptCollectAcorn(target.ref);
+        return;
+      }
+
+      if (target.kind === "pond") {
+        attemptCollectWater(target.ref);
+      }
+    }
+
+    function handleCanvasClick(event) {
+      handleCanvasPoint(getCanvasPoint(event));
+    }
+
+    function handleCanvasMove(event) {
+      const point = getCanvasPoint(event);
+      state.mouseWorld = point;
+      state.hoverTarget = findInteractiveTarget(point);
+      canvas.style.cursor = state.hoverTarget ? "pointer" : "default";
+    }
+
+    function clearCanvasHover() {
+      state.hoverTarget = null;
+      canvas.style.cursor = "default";
+    }
+
+    function resetJoystick() {
+      state.touch.active = false;
+      state.touch.pointerId = null;
+      state.touch.dx = 0;
+      state.touch.dy = 0;
+      ui.joystickKnob.style.transform = "translate(-50%, -50%)";
+    }
+
+    function updateJoystickFromEvent(event) {
+      const rect = ui.joystick.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const maxRadius = rect.width * 0.36;
+      const rawX = event.clientX - centerX;
+      const rawY = event.clientY - centerY;
+      const dist = Math.hypot(rawX, rawY);
+      const scale = dist > maxRadius ? maxRadius / dist : 1;
+      const x = rawX * scale;
+      const y = rawY * scale;
+
+      state.touch.dx = maxRadius ? x / maxRadius : 0;
+      state.touch.dy = maxRadius ? y / maxRadius : 0;
+      ui.joystickKnob.style.transform = "translate(calc(-50% + " + x.toFixed(1) + "px), calc(-50% + " + y.toFixed(1) + "px))";
+    }
+
+    function setupMobileControls() {
+      ui.joystick.addEventListener("pointerdown", (event) => {
+        state.touch.active = true;
+        state.touch.pointerId = event.pointerId;
+        ui.joystick.setPointerCapture(event.pointerId);
+        updateJoystickFromEvent(event);
+        event.preventDefault();
+      });
+
+      ui.joystick.addEventListener("pointermove", (event) => {
+        if (!state.touch.active || event.pointerId !== state.touch.pointerId) return;
+        updateJoystickFromEvent(event);
+        event.preventDefault();
+      });
+
+      const endJoystick = (event) => {
+        if (!state.touch.active || event.pointerId !== state.touch.pointerId) return;
+        try {
+          ui.joystick.releasePointerCapture(event.pointerId);
+        } catch (_err) {
+        }
+        resetJoystick();
+      };
+
+      ui.joystick.addEventListener("pointerup", endJoystick);
+      ui.joystick.addEventListener("pointercancel", endJoystick);
+
+      ui.touchInteract.addEventListener("pointerdown", (event) => {
+        ui.touchInteract.classList.add("active");
+        interact();
+        event.preventDefault();
+      });
+      ui.touchInteract.addEventListener("pointerup", () => {
+        ui.touchInteract.classList.remove("active");
+      });
+      ui.touchInteract.addEventListener("pointercancel", () => {
+        ui.touchInteract.classList.remove("active");
+      });
+      ui.touchInteract.addEventListener("click", (event) => {
+        event.preventDefault();
+      });
+    }
+
+    function drawHoverHighlight() {
+      if (!state.hoverTarget) return;
+
+      const target = state.hoverTarget;
+      const ref = target.ref;
+      let radius = 20;
+
+      if (target.kind === "litter" || target.kind === "plant-spot") radius = 24;
+      if (target.kind === "tree") radius = 30;
+      if (target.kind === "acorn") radius = 16;
+      if (target.kind === "pond") radius = ref.r + 6;
+
+      ctx.save();
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.95)";
+      ctx.lineWidth = 3;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      ctx.arc(ref.x, ref.y, radius + Math.sin(state.t * 0.12) * 1.5, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function updateAnimals() {
+      for (const animal of state.animals) {
+        animal.x += animal.vx;
+        animal.y += animal.vy;
+        animal.bob += 0.04;
+
+        if (animal.x < 30 || animal.x > WORLD.w - 30) animal.vx *= -1;
+        if (animal.y < 70 || animal.y > WORLD.h - 25) animal.vy *= -1;
+
+        if (Math.random() < 0.02) {
+          animal.vx = clamp(animal.vx + rand(-0.25, 0.25), -1.1, 1.1);
+          animal.vy = clamp(animal.vy + rand(-0.2, 0.2), -0.9, 0.9);
+        }
+      }
+    }
+
+    function updateFireflies() {
+      const cycle = getCycleInfo();
+      const shouldShow = cycle.isNight && state.ecoScore >= 55;
+
+      if (!shouldShow) {
+        if (state.fireflies.length > 0 && Math.random() < 0.2) {
+          state.fireflies.pop();
+        }
+        return;
+      }
+
+      const targetCount = Math.min(38, Math.floor((state.ecoScore - 45) * 0.7));
+      while (state.fireflies.length < targetCount) {
+        state.fireflies.push(createFirefly());
+      }
+      while (state.fireflies.length > targetCount) {
+        state.fireflies.pop();
+      }
+
+      for (const firefly of state.fireflies) {
+        firefly.x += firefly.vx;
+        firefly.y += firefly.vy;
+        firefly.phase += firefly.pulse;
+
+        if (firefly.x < 10 || firefly.x > WORLD.w - 10) firefly.vx *= -1;
+        if (firefly.y < 50 || firefly.y > WORLD.h - 10) firefly.vy *= -1;
+
+        if (Math.random() < 0.05) {
+          firefly.vx = clamp(firefly.vx + rand(-0.1, 0.1), -0.5, 0.5);
+          firefly.vy = clamp(firefly.vy + rand(-0.1, 0.1), -0.35, 0.35);
+        }
+      }
+    }
+
+    function applySurprise(event) {
+      state.stats.surprisesTriggered += 1;
+
+      if (event.kind === "soil-recovery") {
+        state.ecoScore = clamp(state.ecoScore + 1.5, 5, 100);
+        logImpact("Later effect: soil recovery boosted eco health.");
+        setMessage("Because of your cleanup, the soil recovered and little plants popped up.");
+        return;
+      }
+
+      if (event.kind === "pollinator-arrival") {
+        state.animals.push(createAnimal("bird", clamp(event.payload.x + rand(-40, 40), 40, WORLD.w - 40), clamp(event.payload.y + rand(-50, 30), 50, WORLD.h - 40)));
+        state.stats.wildlifeFromSurprises += 1;
+        logImpact("Later effect: pollinators visited around a " + event.payload.treeType + ".");
+        setMessage("Because of your tree, pollinators found this area!");
+        return;
+      }
+
+      if (event.kind === "bonus-bloom") {
+        for (let i = 0; i < 4; i++) {
+          state.flowers.push({
+            x: clamp(event.payload.x + rand(-25, 25), 20, WORLD.w - 20),
+            y: clamp(event.payload.y + rand(-25, 25), 20, WORLD.h - 20),
+            growth: 0.08,
+            color: ["#ffd166", "#ff7aa2", "#b5e48c", "#9bf6ff"][Math.floor(rand(0, 4))]
+          });
+        }
+        logImpact("Later effect: a bonus bloom patch appeared.");
+        setMessage("Because of your planting, a surprise flower bloom appeared!");
+        return;
+      }
+
+      if (event.kind === "fish-return") {
+        logImpact("Later effect: fish returned near cleaner water.");
+        setMessage("Because nearby areas got cleaner, fish returned to the pond.");
+        scheduleSurprise("bird-visit", Math.floor(rand(60 * 30, 60 * 70)), {
+          x: event.payload.x,
+          y: event.payload.y
+        });
+        return;
+      }
+
+      if (event.kind === "bird-visit") {
+        state.animals.push(createAnimal("bird", clamp(event.payload.x + rand(-60, 60), 40, WORLD.w - 40), clamp(event.payload.y + rand(-40, 20), 50, WORLD.h - 40)));
+        state.stats.wildlifeFromSurprises += 1;
+        logImpact("Later effect: birds came to the pond.");
+        setMessage("Because fish returned, birds started visiting the pond.");
+      }
+    }
+
+    function updateSurprises() {
+      if (state.surprises.length === 0) return;
+
+      const ready = [];
+      const pending = [];
+      for (const s of state.surprises) {
+        if (s.at <= state.t) ready.push(s);
+        else pending.push(s);
+      }
+      state.surprises = pending;
+
+      for (const s of ready) {
+        applySurprise(s);
+      }
+    }
+
+    function formatSurpriseQueue(limit) {
+      if (state.surprises.length === 0) return "None";
+      const sorted = state.surprises
+        .slice()
+        .sort((a, b) => a.at - b.at)
+        .slice(0, limit)
+        .map((s) => {
+          const sec = Math.max(0, Math.round((s.at - state.t) / 60));
+          return s.kind + " in ~" + sec + "s";
+        });
+      return sorted.join("\n");
+    }
+
+    function updateDebugPanel() {
+      if (!state.debugPanelOpen) return;
+      state.debugTick += 1;
+      if (state.debugTick % 8 !== 0) return;
+
+      const cycle = getCycleInfo();
+      const matureTrees = state.saplingSpots.filter((s) => s.planted && s.growth > 0.65).length;
+      const matureFlowers = state.flowers.filter((f) => f.growth > 0.7).length;
+      const inactiveLitter = state.litterSpots.filter((s) => s.cleaned).length;
+      const activeLitter = state.litterSpots.length - inactiveLitter;
+      const dayState = cycle.isNight ? "Night" : "Day";
+
+      ui.debugSystems.textContent =
+        "Core loop:\\n" +
+        "- Clean litter -> flowers + delayed spread + soil recovery\\n" +
+        "- Plant saplings -> growth -> mature tree acorn drops\\n" +
+        "- Some saplings get thirsty -> collect water -> water them\\n" +
+        "- Actions queue delayed surprise chains\\n" +
+        "- Eco score drives wildlife and night fireflies\\n\\n" +
+        "Surprise chains:\\n" +
+        "- cleanup -> soil-recovery\\n" +
+        "- cleanup near pond -> fish-return -> bird-visit\\n" +
+        "- planting -> pollinator-arrival + bonus-bloom";
+
+      ui.debugPlaythrough.textContent =
+        "Time: " + Math.floor(state.t / 60) + "s (" + dayState + ")\\n" +
+        "Acorns: " + state.acorns + "\\n" +
+        "Water: " + (state.waterCarried ? "Full" : "Empty") + "\\n" +
+        "Planted: " + state.planted + "/" + GOAL.trees + "\\n" +
+        "Cleaned: " + state.cleaned + "/" + GOAL.cleaned + "\\n" +
+        "Eco: " + Math.round(state.ecoScore) + "% / " + GOAL.eco + "%\\n" +
+        "Animals visible: " + getVisibleAnimals().length + "\\n" +
+        "Flowers total: " + state.flowers.length + "\\n" +
+        "Mature trees: " + matureTrees + "\\n" +
+        "Mature flowers: " + matureFlowers + "\\n" +
+        "Thirsty trees: " + countWiltedPlants();
+
+      ui.debugQueue.textContent =
+        "Queued: " + state.surprises.length + "\\n" +
+        formatSurpriseQueue(10) + "\\n\\n" +
+        "Recent impacts:\\n" +
+        (state.recentImpacts.length ? state.recentImpacts.join("\\n") : "None yet");
+
+      ui.debugInfluence.textContent =
+        "Eco formula snapshot:\\n" +
+        "5 + cleaned*5 + planted*4 + matureTrees*2 + matureFlowers*0.4\\n\\n" +
+        "Current terms:\\n" +
+        "cleaned(" + state.cleaned + ") => " + (state.cleaned * 5).toFixed(1) + "\\n" +
+        "planted(" + state.planted + ") => " + (state.planted * 4).toFixed(1) + "\\n" +
+        "matureTrees(" + matureTrees + ") => " + (matureTrees * 2).toFixed(1) + "\\n" +
+        "matureFlowers(" + matureFlowers + ") => " + (matureFlowers * 0.4).toFixed(1) + "\\n" +
+        "base => 5.0\\n\\n" +
+        "Counters:\\n" +
+        "surprisesTriggered: " + state.stats.surprisesTriggered + "\\n" +
+        "flowerSpreadEvents: " + state.stats.flowerSpreadEvents + "\\n" +
+        "treeAcornDrops: " + state.stats.treeAcornDrops + "\\n" +
+        "wildlifeFromSurprises: " + state.stats.wildlifeFromSurprises + "\\n" +
+        "litter active/clean: " + activeLitter + "/" + inactiveLitter;
+    }
+
+    function openDebugPanel() {
+      state.debugPanelOpen = true;
+      ui.debugOverlay.classList.add("open");
+      ui.debugOverlay.setAttribute("aria-hidden", "false");
+      updateDebugPanel();
+    }
+
+    function closeDebugPanel() {
+      state.debugPanelOpen = false;
+      ui.debugOverlay.classList.remove("open");
+      ui.debugOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    function checkWin() {
+      const restored = state.planted >= GOAL.trees &&
+                       state.cleaned >= GOAL.cleaned &&
+                       state.ecoScore >= GOAL.eco;
+
+      if (restored && !state.won) {
+        state.won = true;
+        state.celebrationFrames = 260;
+
+        const score = Math.floor(state.cleaned * 15 + state.planted * 12 + state.flowers.length * 2 + state.ecoScore * 2);
+        if (score > state.bestScore) {
+          state.bestScore = score;
+          localStorage.setItem("forest-best", String(score));
+        }
+
+        setMessage("Forest thriving! Score: " + score + ". Keep exploring or start a fresh run.");
+      }
+    }
+
+    function drawGround() {
+      const cycle = getCycleInfo();
+      ctx.fillStyle = cycle.isNight ? "#233828" : "#8fbf7d";
+      ctx.fillRect(0, 0, WORLD.w, WORLD.h);
+
+      for (const puddle of state.puddles) {
+        const bankColor = cycle.isNight ? "rgba(52, 87, 70, 0.66)" : "rgba(83, 123, 88, 0.58)";
+        ctx.fillStyle = bankColor;
+        ctx.beginPath();
+        ctx.ellipse(puddle.x, puddle.y + 1, puddle.r + 7, puddle.r * 0.74, 0.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        const waterGradient = ctx.createRadialGradient(
+          puddle.x - puddle.r * 0.25, puddle.y - puddle.r * 0.2, 4,
+          puddle.x, puddle.y, puddle.r + 3
+        );
+        if (cycle.isNight) {
+          waterGradient.addColorStop(0, "rgba(113, 165, 201, 0.62)");
+          waterGradient.addColorStop(1, "rgba(34, 74, 99, 0.7)");
+        } else {
+          waterGradient.addColorStop(0, "rgba(152, 210, 238, 0.72)");
+          waterGradient.addColorStop(1, "rgba(69, 129, 167, 0.72)");
+        }
+        ctx.fillStyle = waterGradient;
+        ctx.beginPath();
+        ctx.ellipse(puddle.x, puddle.y, puddle.r, puddle.r * 0.62, 0.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = cycle.isNight ? "rgba(184, 219, 255, 0.34)" : "rgba(224, 245, 255, 0.44)";
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.ellipse(puddle.x - 3, puddle.y - 1, puddle.r * 0.56, puddle.r * 0.24, 0.4, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(puddle.x + 5, puddle.y + 3, puddle.r * 0.34, puddle.r * 0.14, 0.4, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.fillStyle = cycle.isNight ? "rgba(189, 231, 255, 0.22)" : "rgba(235, 251, 255, 0.42)";
+        ctx.beginPath();
+        ctx.ellipse(puddle.x - puddle.r * 0.24, puddle.y - puddle.r * 0.2, puddle.r * 0.2, puddle.r * 0.1, 0.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      const sunTrack = cycle.cycleProgress;
+      const sunX = 90 + (WORLD.w - 180) * sunTrack;
+      const sunY = 108 + Math.sin(sunTrack * Math.PI) * -70;
+
+      if (!cycle.isNight) {
+        ctx.fillStyle = "rgba(255, 228, 136, 0.95)";
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, 24, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillStyle = "rgba(228, 237, 255, 0.9)";
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, 18, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawLeaves() {
+      ctx.fillStyle = "rgba(237, 174, 83, 0.8)";
+      for (const leaf of state.leaves) {
+        ctx.beginPath();
+        ctx.ellipse(leaf.x, leaf.y, 3.5, 2.1, 0.6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawAcorns() {
+      for (const acorn of state.acornNodes) {
+        if (!acorn.active) continue;
+        const bob = Math.sin(acorn.pulse) * 2;
+        ctx.fillStyle = "#7b4d25";
+        ctx.beginPath();
+        ctx.ellipse(acorn.x, acorn.y + bob, 7, 9, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#4d2b10";
+        ctx.fillRect(acorn.x - 7, acorn.y - 7 + bob, 14, 3);
+      }
+    }
+
+    function drawSpots() {
+      for (const spot of state.saplingSpots) {
+        if (!spot.planted) {
+          ctx.font = "18px sans-serif";
+          ctx.fillText("🌱", spot.x - 9, spot.y + 6);
+        } else {
+          const growth = spot.growth || 0.04;
+          const crown = 8 + growth * 20;
+          const trunk = 5 + growth * 16;
+
+          ctx.fillStyle = spot.wilted ? "#9a6b3e" : "#3d8f43";
+          ctx.beginPath();
+          ctx.moveTo(spot.x, spot.y - crown);
+          ctx.lineTo(spot.x - crown * 0.55, spot.y + 12);
+          ctx.lineTo(spot.x + crown * 0.55, spot.y + 12);
+          ctx.closePath();
+          ctx.fill();
+
+          ctx.fillStyle = spot.wilted ? "#6b4428" : "#6e4a2e";
+          ctx.fillRect(spot.x - 2, spot.y + 10, 4, trunk);
+        }
+      }
+
+      for (const spot of state.litterSpots) {
+        if (!spot.cleaned) {
+          ctx.font = "18px sans-serif";
+          ctx.fillText("🧺", spot.x - 9, spot.y + 6);
+        } else {
+          ctx.fillStyle = "#d7e8d2";
+          ctx.beginPath();
+          ctx.arc(spot.x, spot.y, 8, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = "#9fbe97";
+          ctx.stroke();
+        }
+      }
+    }
+
+    function drawFlowers() {
+      for (const flower of state.flowers) {
+        const size = 3 + flower.growth * 7;
+        const stem = 4 + flower.growth * 6;
+
+        ctx.strokeStyle = "#5b8f47";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(flower.x, flower.y + 8);
+        ctx.lineTo(flower.x, flower.y + 8 - stem);
+        ctx.stroke();
+
+        ctx.fillStyle = flower.color;
+        for (let i = 0; i < 5; i++) {
+          const a = (Math.PI * 2 * i) / 5 + state.t * 0.002;
+          ctx.beginPath();
+          ctx.arc(
+            flower.x + Math.cos(a) * (size * 0.6),
+            flower.y + 8 - stem + Math.sin(a) * (size * 0.6),
+            size * 0.35,
+            0,
+            Math.PI * 2
+          );
+          ctx.fill();
+        }
+
+        ctx.fillStyle = "#f4cf55";
+        ctx.beginPath();
+        ctx.arc(flower.x, flower.y + 8 - stem, size * 0.28, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawBees() {
+      for (const bee of state.bees) {
+        ctx.fillStyle = "#f5bf33";
+        ctx.beginPath();
+        ctx.arc(bee.x, bee.y, bee.r * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = "#2c2a25";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(bee.x - 3, bee.y - 3);
+        ctx.lineTo(bee.x + 3, bee.y - 3);
+        ctx.moveTo(bee.x - 4, bee.y + 1);
+        ctx.lineTo(bee.x + 4, bee.y + 1);
+        ctx.stroke();
+
+        ctx.fillStyle = "rgba(240, 248, 255, 0.8)";
+        ctx.beginPath();
+        ctx.ellipse(bee.x - 4, bee.y - 6, 4, 2, -0.4, 0, Math.PI * 2);
+        ctx.ellipse(bee.x + 4, bee.y - 6, 4, 2, 0.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawAnimals() {
+      for (const animal of getVisibleAnimals()) {
+        const bobY = Math.sin(animal.bob) * 1.6;
+
+        if (animal.type === "rabbit") {
+          ctx.fillStyle = "#e8d8c8";
+          ctx.beginPath();
+          ctx.ellipse(animal.x, animal.y + bobY, 10, 8, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillRect(animal.x - 6, animal.y - 12 + bobY, 3, 8);
+          ctx.fillRect(animal.x + 3, animal.y - 12 + bobY, 3, 8);
+        } else if (animal.type === "bird") {
+          ctx.fillStyle = "#6f95d8";
+          ctx.beginPath();
+          ctx.arc(animal.x, animal.y - 16 + bobY, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = "#3d5d98";
+          ctx.beginPath();
+          ctx.moveTo(animal.x - 9, animal.y - 16 + bobY);
+          ctx.lineTo(animal.x + 9, animal.y - 16 + bobY);
+          ctx.stroke();
+        } else if (animal.type === "deer") {
+          ctx.fillStyle = "#9e7044";
+          ctx.beginPath();
+          ctx.ellipse(animal.x, animal.y + bobY, 12, 8, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillRect(animal.x - 9, animal.y + 7 + bobY, 3, 8);
+          ctx.fillRect(animal.x + 6, animal.y + 7 + bobY, 3, 8);
+        } else if (animal.type === "fox") {
+          ctx.fillStyle = "#e98b3f";
+          ctx.beginPath();
+          ctx.ellipse(animal.x, animal.y + bobY, 11, 7, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#fff4e8";
+          ctx.beginPath();
+          ctx.arc(animal.x + 5, animal.y + 1 + bobY, 3, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillStyle = "#7e6aa8";
+          ctx.beginPath();
+          ctx.arc(animal.x, animal.y - 12 + bobY, 7, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#65508f";
+          ctx.fillRect(animal.x - 1, animal.y - 4 + bobY, 2, 10);
+        }
+      }
+    }
+
+    function drawFireflies() {
+      const cycle = getCycleInfo();
+      if (!cycle.isNight) return;
+
+      for (const firefly of state.fireflies) {
+        const glow = 0.45 + ((Math.sin(firefly.phase) + 1) * 0.5) * 0.55;
+
+        ctx.fillStyle = "rgba(255, 244, 133, " + glow.toFixed(3) + ")";
+        ctx.beginPath();
+        ctx.arc(firefly.x, firefly.y, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "rgba(255, 244, 133, " + (glow * 0.28).toFixed(3) + ")";
+        ctx.beginPath();
+        ctx.arc(firefly.x, firefly.y, 7.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawPlayer() {
+      const p = state.player;
+      const step = p.moving ? Math.sin((p.step || 0) * 1.8) : 0;
+      const legA = step * 7;
+      const legB = -step * 7;
+
+      ctx.strokeStyle = "#1d1d1d";
+      ctx.lineWidth = 3;
+      ctx.lineCap = "round";
+
+      ctx.fillStyle = "#ffe4c7";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y - 16, 6.4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y - 9);
+      ctx.lineTo(p.x, p.y + 8);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y - 2);
+      ctx.lineTo(p.x - 8, p.y + 3 + legB * 0.18);
+      ctx.moveTo(p.x, p.y - 2);
+      ctx.lineTo(p.x + 8, p.y + 3 + legA * 0.18);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y + 8);
+      ctx.lineTo(p.x - 6, p.y + 18 + legA);
+      ctx.moveTo(p.x, p.y + 8);
+      ctx.lineTo(p.x + 6, p.y + 18 + legB);
+      ctx.stroke();
+
+      if (state.waterCarried) {
+        ctx.fillStyle = "rgba(90, 160, 215, 0.9)";
+        ctx.beginPath();
+        ctx.ellipse(p.x + 10, p.y - 22, 4, 6, 0, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawHudOverlay() {
+      ctx.fillStyle = "rgba(16, 56, 29, 0.75)";
+      ctx.fillRect(12, 10, 360, 62);
+      ctx.fillStyle = "#f4fff0";
+      ctx.font = "14px Trebuchet MS";
+      ctx.fillText("Restore Mission: " + GOAL.trees + " saplings, " + GOAL.cleaned + " cleanups", 20, 32);
+      ctx.fillText("Eco Health: " + Math.round(state.ecoScore) + "% | Wildlife: " + getVisibleAnimals().length, 20, 56);
+
+      if (state.celebrationFrames > 0) {
+        ctx.fillStyle = "rgba(255, 255, 255, 0.24)";
+        ctx.fillRect(0, 0, WORLD.w, WORLD.h);
+        ctx.fillStyle = "#1e5e38";
+        ctx.font = "bold 42px Trebuchet MS";
+        ctx.textAlign = "center";
+        ctx.fillText("Forest Thriving!", WORLD.w / 2, WORLD.h / 2 - 4);
+        ctx.font = "22px Trebuchet MS";
+        ctx.fillText("Keep exploring and growing", WORLD.w / 2, WORLD.h / 2 + 34);
+        ctx.textAlign = "start";
+      }
+    }
+
+    function update() {
+      playerMove();
+      updateAcorns();
+      updateBees();
+      updateLeaves();
+      updateEcoSystem();
+      updateAnimals();
+      updateFireflies();
+      updateSurprises();
+      const cycle = getCycleInfo();
+      if (
+        state.hoverTarget &&
+        state.hoverTarget.kind === "animal" &&
+        state.hoverTarget.ref.nightOnly &&
+        !cycle.isNight
+      ) {
+        clearCanvasHover();
+      }
+      checkWin();
+      syncUI();
+      updateDebugPanel();
+
+      if (state.celebrationFrames > 0) state.celebrationFrames -= 1;
+    }
+
+    function render() {
+      drawGround();
+      drawLeaves();
+      drawAcorns();
+      drawSpots();
+      drawFlowers();
+      drawBees();
+      drawAnimals();
+      drawFireflies();
+      drawHoverHighlight();
+      drawPlayer();
+      drawHudOverlay();
+    }
+
+    function frame() {
+      state.t += 1;
+      update();
+      render();
+      requestAnimationFrame(frame);
+    }
+
+    function toggleEasyMode() {
+      state.easyMode = !state.easyMode;
+      setMessage(state.easyMode
+        ? "Easy mode on: fewer bees in the area."
+        : "Easy mode off: standard forest challenge.");
+      resetGame();
+    }
+
+    window.addEventListener("keydown", (e) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      state.keys.add(key);
+      if (e.key === "Escape" && state.debugPanelOpen) {
+        closeDebugPanel();
+      }
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d"].includes(key)) {
+        state.lastMovementInputFrame = state.t;
+      }
+
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(e.key)) {
+        e.preventDefault();
+      }
+
+      if (e.key === " ") {
+        interact();
+      }
+    }, { passive: false });
+
+    window.addEventListener("keyup", (e) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      state.keys.delete(key);
+    });
+
+    document.getElementById("newGame").addEventListener("click", resetGame);
+    document.getElementById("easyMode").addEventListener("click", toggleEasyMode);
+    document.getElementById("debugOpen").addEventListener("click", openDebugPanel);
+    document.getElementById("debugClose").addEventListener("click", closeDebugPanel);
+    ui.debugOverlay.addEventListener("click", (e) => {
+      if (e.target === ui.debugOverlay) closeDebugPanel();
+    });
+    canvas.addEventListener("click", handleCanvasClick);
+    canvas.addEventListener("mousemove", handleCanvasMove);
+    canvas.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse") return;
+      const point = getCanvasPoint(event);
+      state.mouseWorld = point;
+      handleCanvasPoint(point);
+      event.preventDefault();
+    }, { passive: false });
+    canvas.addEventListener("mouseleave", clearCanvasHover);
+
+    ui.best.textContent = state.bestScore;
+    setupMobileControls();
+    resetGame();
+    frame();
+  </script>
+</body>
+</html>
