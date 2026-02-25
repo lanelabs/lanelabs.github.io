@@ -2,6 +2,14 @@
 
 A kid-friendly browser game focused on restoring a forest through cleanup and planting.
 
+## Codebase Status
+
+This is the only source of truth for the game.
+
+- Desktop and mobile behavior are both implemented in `index.html`.
+- Mobile UI/controls are enabled conditionally at runtime (touch/coarse-pointer viewport detection).
+- Do not make gameplay or UI changes in `../forrest-clean-up-mobile/`; that folder is legacy documentation only.
+
 ## Play Locally
 
 1. Open `/home/alane1/forrest-clean-up/index.html` in a browser.
@@ -24,7 +32,6 @@ Then visit `http://localhost:8000`.
 - Inspect mode: click animals or planted trees to view name/type/fact in sidebar
 - Hover feedback: interactive objects glow and show pointer cursor
 - Systems & Debug: open live panel for formulas, queue, counters, and current state
-- Dash: `Shift`
 - Restart: `New Game` button
 - Easier difficulty: `Toggle Easy Mode`
 

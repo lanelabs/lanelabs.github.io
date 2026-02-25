@@ -47,6 +47,7 @@
 
     .game-wrap {
       padding: 14px;
+      position: relative;
     }
 
     h1 {
@@ -70,6 +71,7 @@
       border-radius: 12px;
       border: 2px solid #8ec597;
       background: #8fbf7d;
+      touch-action: none;
     }
 
     .ui {
@@ -247,9 +249,176 @@
       text-align: center;
     }
 
+    .touch-controls {
+      display: none;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-top: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    .joystick {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 2px solid #6da37a;
+      background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.65), rgba(102, 154, 112, 0.32));
+      position: relative;
+      touch-action: none;
+    }
+
+    .joystick-knob {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid #3f8350;
+      background: #f4fff2;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 4px 12px rgba(28, 70, 39, 0.22);
+      touch-action: none;
+    }
+
+    .touch-action {
+      min-width: 118px;
+      height: 66px;
+      border-radius: 14px;
+      border: 2px solid #2f8f4a;
+      background: #2f8f4a;
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 8px 16px rgba(37, 95, 52, 0.24);
+      touch-action: manipulation;
+    }
+
+    .touch-action.active {
+      filter: brightness(0.92);
+      transform: translateY(1px);
+    }
+
+    .menu-toggle {
+      display: none;
+      min-width: 84px;
+      height: 42px;
+      border-radius: 999px;
+      border: 2px solid #2f8f4a;
+      background: rgba(248, 255, 246, 0.95);
+      color: #215e36;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(14, 41, 23, 0.24);
+      touch-action: manipulation;
+    }
+
+    .ui-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 28, 15, 0.38);
+      display: none;
+      z-index: 34;
+    }
+
+    .ui-backdrop.open {
+      display: block;
+    }
+
     @media (max-width: 900px) {
       .shell { grid-template-columns: 1fr; }
       h1 { font-size: 25px; }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      body {
+        display: block;
+        padding: 0;
+        min-height: 100dvh;
+      }
+
+      .shell {
+        width: 100vw;
+        height: 100dvh;
+        display: block;
+      }
+
+      .card {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .game-wrap {
+        width: 100vw;
+        height: 100dvh;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      h1,
+      .subtitle,
+      .foot {
+        display: none;
+      }
+
+      canvas {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .touch-controls {
+        display: flex;
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        margin-top: 0;
+        z-index: 22;
+        pointer-events: none;
+      }
+
+      .joystick,
+      .touch-action {
+        pointer-events: auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: calc(10px + env(safe-area-inset-top));
+        right: 12px;
+        z-index: 36;
+      }
+
+      .ui {
+        position: fixed;
+        top: calc(60px + env(safe-area-inset-top));
+        left: 10px;
+        right: 10px;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        z-index: 35;
+        display: none;
+        background: var(--panel);
+        overflow: auto;
+        border: 1px solid #b8d7ba;
+        border-radius: 14px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+
+      .ui.open {
+        display: grid;
+      }
     }
   </style>
 </head>
@@ -259,10 +428,17 @@
       <h1>Forrest Clean Up</h1>
       <p class="subtitle">Cleanup and planting gradually heal the forest. Watch life return in real time.</p>
       <canvas id="game" width="1600" height="920" aria-label="Forrest Clean Up game"></canvas>
-      <p class="foot">Move with arrow keys or WASD. Space = interact. Shift = dash.</p>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Open game menu" aria-expanded="false">Menu</button>
+      <p class="foot">Move with arrow keys/WASD or joystick. Space/Interact button = interact.</p>
+      <div class="touch-controls" aria-label="Mobile controls">
+        <div id="joystick" class="joystick" aria-label="Movement joystick">
+          <div id="joystickKnob" class="joystick-knob"></div>
+        </div>
+        <button id="touchInteract" class="touch-action" type="button" aria-label="Interact">Interact</button>
+      </div>
     </section>
 
-    <aside class="card ui">
+    <aside id="gameMenu" class="card ui">
       <div class="row"><span class="label">Acorns</span><span class="value" id="acorns">0</span></div>
       <div class="row"><span class="label">Water</span><span class="value" id="water">Empty</span></div>
       <div class="row"><span class="label">Saplings Planted</span><span class="value" id="trees">0</span></div>
@@ -299,6 +475,7 @@
       </div>
     </aside>
   </main>
+  <div id="uiBackdrop" class="ui-backdrop"></div>
 
   <div id="debugOverlay" class="debug-overlay" aria-hidden="true">
     <section class="debug-panel">
@@ -348,14 +525,22 @@
       debugSystems: document.getElementById("debugSystems"),
       debugPlaythrough: document.getElementById("debugPlaythrough"),
       debugQueue: document.getElementById("debugQueue"),
-      debugInfluence: document.getElementById("debugInfluence")
+      debugInfluence: document.getElementById("debugInfluence"),
+      joystick: document.getElementById("joystick"),
+      joystickKnob: document.getElementById("joystickKnob"),
+      touchInteract: document.getElementById("touchInteract"),
+      menuToggle: document.getElementById("menuToggle"),
+      menuPanel: document.getElementById("gameMenu"),
+      uiBackdrop: document.getElementById("uiBackdrop")
     };
 
     const GOAL = { trees: 12, cleaned: 12, eco: 90 };
-    const WORLD = { w: canvas.width, h: canvas.height };
+    const WORLD = { w: 1600, h: 920 };
+    let grassPattern = null;
     const CYCLE = {
       dayFrames: 60 * 180,
       nightFrames: 60 * 120,
+      transitionFrames: 60 * 28,
       total: (60 * 180) + (60 * 120)
     };
 
@@ -401,8 +586,21 @@
         wildlifeFromSurprises: 0
       },
       debugPanelOpen: false,
+      menuOpen: false,
       debugTick: 0,
-      lastWiltMessageFrame: -9999
+      lastWiltMessageFrame: -9999,
+      noAcornHintUntil: 0,
+      camera: {
+        x: 0,
+        y: 0,
+        zoom: 1
+      },
+      touch: {
+        active: false,
+        pointerId: null,
+        dx: 0,
+        dy: 0
+      }
     };
 
     const WATER = {
@@ -421,6 +619,20 @@
       return Math.max(min, Math.min(max, v));
     }
 
+    function smoothstep(t) {
+      const x = clamp(t, 0, 1);
+      return x * x * (3 - 2 * x);
+    }
+
+    function mixColor(dayRgb, nightRgb, nightAmount) {
+      const n = clamp(nightAmount, 0, 1);
+      const d = 1 - n;
+      const r = Math.round(dayRgb[0] * d + nightRgb[0] * n);
+      const g = Math.round(dayRgb[1] * d + nightRgb[1] * n);
+      const b = Math.round(dayRgb[2] * d + nightRgb[2] * n);
+      return "rgb(" + r + ", " + g + ", " + b + ")";
+    }
+
     function distance(a, b) {
       const dx = a.x - b.x;
       const dy = a.y - b.y;
@@ -429,6 +641,72 @@
 
     function randomFrom(items) {
       return items[Math.floor(rand(0, items.length))];
+    }
+
+    function isMobileViewport() {
+      return window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    }
+
+    function syncCanvasSize() {
+      const targetW = isMobileViewport() ? Math.max(320, Math.round(window.innerWidth)) : WORLD.w;
+      const targetH = isMobileViewport() ? Math.max(320, Math.round(window.innerHeight)) : WORLD.h;
+      if (canvas.width !== targetW || canvas.height !== targetH) {
+        canvas.width = targetW;
+        canvas.height = targetH;
+      }
+    }
+
+    function updateCamera() {
+      syncCanvasSize();
+      const zoom = isMobileViewport() ? 1.45 : 1;
+      const viewW = canvas.width / zoom;
+      const viewH = canvas.height / zoom;
+      const maxX = Math.max(0, WORLD.w - viewW);
+      const maxY = Math.max(0, WORLD.h - viewH);
+      state.camera.zoom = zoom;
+      state.camera.x = clamp(state.player.x - viewW / 2, 0, maxX);
+      state.camera.y = clamp(state.player.y - viewH / 2, 0, maxY);
+    }
+
+    function ensureGrassPattern() {
+      if (grassPattern) return grassPattern;
+      const tile = document.createElement("canvas");
+      tile.width = 88;
+      tile.height = 88;
+      const tctx = tile.getContext("2d");
+      tctx.clearRect(0, 0, tile.width, tile.height);
+
+      for (let i = 0; i < 120; i++) {
+        const x = rand(0, tile.width);
+        const y = rand(0, tile.height);
+        const len = rand(2, 7);
+        const tilt = rand(-0.65, 0.65);
+        tctx.strokeStyle = rand(0, 1) > 0.5 ? "rgba(255, 255, 255, 0.16)" : "rgba(19, 56, 32, 0.14)";
+        tctx.lineWidth = rand(0, 1) > 0.5 ? 0.85 : 1.1;
+        tctx.beginPath();
+        tctx.moveTo(x, y);
+        tctx.lineTo(x + tilt * 1.9, y - len);
+        tctx.stroke();
+      }
+
+      for (let i = 0; i < 42; i++) {
+        tctx.fillStyle = rand(0, 1) > 0.5 ? "rgba(255, 255, 255, 0.1)" : "rgba(14, 39, 24, 0.08)";
+        tctx.beginPath();
+        tctx.arc(rand(0, tile.width), rand(0, tile.height), rand(0.5, 1.6), 0, Math.PI * 2);
+        tctx.fill();
+      }
+
+      grassPattern = ctx.createPattern(tile, "repeat");
+      return grassPattern;
+    }
+
+    function setMenuOpen(open) {
+      const shouldOpen = Boolean(open) && isMobileViewport();
+      state.menuOpen = shouldOpen;
+      ui.menuPanel.classList.toggle("open", shouldOpen);
+      ui.uiBackdrop.classList.toggle("open", shouldOpen);
+      ui.menuToggle.textContent = shouldOpen ? "Close" : "Menu";
+      ui.menuToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
     }
 
     const ANIMAL_FACTS = {
@@ -509,6 +787,24 @@
         cycleProgress,
         phase: (frame - CYCLE.dayFrames) / CYCLE.nightFrames
       };
+    }
+
+    function getDaylightLevel() {
+      const frame = state.t % CYCLE.total;
+      const dawn = CYCLE.transitionFrames;
+      const duskStart = CYCLE.dayFrames - CYCLE.transitionFrames;
+      const dawnStart = CYCLE.total - CYCLE.transitionFrames;
+
+      if (frame < CYCLE.dayFrames) {
+        if (frame > duskStart) {
+          return 1 - smoothstep((frame - duskStart) / CYCLE.transitionFrames);
+        }
+        return 1;
+      }
+      if (frame >= dawnStart) {
+        return smoothstep((frame - dawnStart) / dawn);
+      }
+      return 0;
     }
 
     function getVisibleAnimals() {
@@ -633,6 +929,7 @@
       state.stats.wildlifeFromSurprises = 0;
       state.lastMovementInputFrame = state.t;
       state.lastWiltMessageFrame = -9999;
+      state.noAcornHintUntil = 0;
       state.player.x = 140;
       state.player.y = 620;
       state.player.step = 0;
@@ -641,6 +938,8 @@
       setInspectCard("Nature Notebook", "Click an animal or planted tree", "-", "Interesting facts appear here.");
       setMessage("New restoration day! Clean and plant to bring the forest back to life.");
       logImpact("Playthrough reset.");
+      setMenuOpen(false);
+      updateCamera();
       syncUI();
     }
 
@@ -661,14 +960,25 @@
     function playerMove() {
       let dx = 0;
       let dy = 0;
+      let speedScale = 1;
+
+      if (state.touch.active) {
+        dx = state.touch.dx;
+        dy = state.touch.dy;
+        speedScale = clamp(Math.hypot(dx, dy), 0, 1);
+      }
+
       if (state.keys.has("ArrowLeft") || state.keys.has("a")) dx -= 1;
       if (state.keys.has("ArrowRight") || state.keys.has("d")) dx += 1;
       if (state.keys.has("ArrowUp") || state.keys.has("w")) dy -= 1;
       if (state.keys.has("ArrowDown") || state.keys.has("s")) dy += 1;
+      if (state.keys.size) {
+        speedScale = 1;
+      }
 
       let moved = false;
       if (dx !== 0 || dy !== 0) {
-        moved = movePlayerByVector(dx, dy, state.keys.has("Shift") ? 1.6 : 1);
+        moved = movePlayerByVector(dx, dy, speedScale);
         state.lastMovementInputFrame = state.t;
       } else if (state.mouseWorld && state.t - state.lastMovementInputFrame > 600) {
         const toMouseX = state.mouseWorld.x - state.player.x;
@@ -870,6 +1180,7 @@
     function attemptPlant(spot) {
       if (state.acorns < 1) {
         setMessage("Planting needs 1 acorn. Gather one first.");
+        state.noAcornHintUntil = state.t + 70;
         return;
       }
       if (spot.planted) return;
@@ -972,9 +1283,12 @@
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
+      const screenX = (event.clientX - rect.left) * scaleX;
+      const screenY = (event.clientY - rect.top) * scaleY;
+      const zoom = state.camera.zoom || 1;
       return {
-        x: (event.clientX - rect.left) * scaleX,
-        y: (event.clientY - rect.top) * scaleY
+        x: screenX / zoom + state.camera.x,
+        y: screenY / zoom + state.camera.y
       };
     }
 
@@ -1003,8 +1317,7 @@
       return null;
     }
 
-    function handleCanvasClick(event) {
-      const point = getCanvasPoint(event);
+    function handleCanvasPoint(point) {
       const target = findInteractiveTarget(point);
       if (!target) return;
 
@@ -1049,6 +1362,10 @@
       }
     }
 
+    function handleCanvasClick(event) {
+      handleCanvasPoint(getCanvasPoint(event));
+    }
+
     function handleCanvasMove(event) {
       const point = getCanvasPoint(event);
       state.mouseWorld = point;
@@ -1059,6 +1376,86 @@
     function clearCanvasHover() {
       state.hoverTarget = null;
       canvas.style.cursor = "default";
+    }
+
+    function resetJoystick() {
+      state.touch.active = false;
+      state.touch.pointerId = null;
+      state.touch.dx = 0;
+      state.touch.dy = 0;
+      ui.joystickKnob.style.transform = "translate(-50%, -50%)";
+    }
+
+    function updateJoystickFromEvent(event) {
+      const rect = ui.joystick.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const maxRadius = rect.width * 0.36;
+      const rawX = event.clientX - centerX;
+      const rawY = event.clientY - centerY;
+      const dist = Math.hypot(rawX, rawY);
+      const scale = dist > maxRadius ? maxRadius / dist : 1;
+      const x = rawX * scale;
+      const y = rawY * scale;
+      const nx = maxRadius ? x / maxRadius : 0;
+      const ny = maxRadius ? y / maxRadius : 0;
+      const mag = Math.min(1, Math.hypot(nx, ny));
+      const deadzone = 0.12;
+      const responseCurve = 2.2;
+      if (mag <= deadzone) {
+        state.touch.dx = 0;
+        state.touch.dy = 0;
+      } else {
+        const normalized = (mag - deadzone) / (1 - deadzone);
+        const eased = Math.pow(normalized, responseCurve);
+        const dirScale = eased / (mag || 1);
+        state.touch.dx = nx * dirScale;
+        state.touch.dy = ny * dirScale;
+      }
+      ui.joystickKnob.style.transform = "translate(calc(-50% + " + x.toFixed(1) + "px), calc(-50% + " + y.toFixed(1) + "px))";
+    }
+
+    function setupMobileControls() {
+      ui.joystick.addEventListener("pointerdown", (event) => {
+        state.touch.active = true;
+        state.touch.pointerId = event.pointerId;
+        ui.joystick.setPointerCapture(event.pointerId);
+        updateJoystickFromEvent(event);
+        event.preventDefault();
+      });
+
+      ui.joystick.addEventListener("pointermove", (event) => {
+        if (!state.touch.active || event.pointerId !== state.touch.pointerId) return;
+        updateJoystickFromEvent(event);
+        event.preventDefault();
+      });
+
+      const endJoystick = (event) => {
+        if (!state.touch.active || event.pointerId !== state.touch.pointerId) return;
+        try {
+          ui.joystick.releasePointerCapture(event.pointerId);
+        } catch (_err) {
+        }
+        resetJoystick();
+      };
+
+      ui.joystick.addEventListener("pointerup", endJoystick);
+      ui.joystick.addEventListener("pointercancel", endJoystick);
+
+      ui.touchInteract.addEventListener("pointerdown", (event) => {
+        ui.touchInteract.classList.add("active");
+        interact();
+        event.preventDefault();
+      });
+      ui.touchInteract.addEventListener("pointerup", () => {
+        ui.touchInteract.classList.remove("active");
+      });
+      ui.touchInteract.addEventListener("pointercancel", () => {
+        ui.touchInteract.classList.remove("active");
+      });
+      ui.touchInteract.addEventListener("click", (event) => {
+        event.preventDefault();
+      });
     }
 
     function drawHoverHighlight() {
@@ -1084,17 +1481,24 @@
     }
 
     function updateAnimals() {
+      const daylight = getDaylightLevel();
       for (const animal of state.animals) {
-        animal.x += animal.vx;
-        animal.y += animal.vy;
+        const isDayAnimal = !animal.nightOnly;
+        const movementScale = isDayAnimal
+          ? (daylight < 0.14 ? 0.02 : 0.08 + daylight * 0.92)
+          : (0.24 + (1 - daylight) * 0.96);
+
+        animal.x += animal.vx * movementScale;
+        animal.y += animal.vy * movementScale;
         animal.bob += 0.04;
 
         if (animal.x < 30 || animal.x > WORLD.w - 30) animal.vx *= -1;
         if (animal.y < 70 || animal.y > WORLD.h - 25) animal.vy *= -1;
 
-        if (Math.random() < 0.02) {
-          animal.vx = clamp(animal.vx + rand(-0.25, 0.25), -1.1, 1.1);
-          animal.vy = clamp(animal.vy + rand(-0.2, 0.2), -0.9, 0.9);
+        const jitterChance = isDayAnimal ? 0.005 + daylight * 0.02 : 0.01 + (1 - daylight) * 0.02;
+        if (Math.random() < jitterChance) {
+          animal.vx = clamp(animal.vx + rand(-0.2, 0.2), -1.1, 1.1);
+          animal.vy = clamp(animal.vy + rand(-0.16, 0.16), -0.9, 0.9);
         }
       }
     }
@@ -1305,63 +1709,138 @@
     }
 
     function drawGround() {
-      const cycle = getCycleInfo();
-      ctx.fillStyle = cycle.isNight ? "#233828" : "#8fbf7d";
+      const daylight = getDaylightLevel();
+      const nightAmount = 1 - daylight;
+
+      ctx.fillStyle = mixColor([143, 191, 125], [35, 56, 40], nightAmount);
       ctx.fillRect(0, 0, WORLD.w, WORLD.h);
+      const pattern = ensureGrassPattern();
+      if (pattern) {
+        ctx.save();
+        ctx.globalAlpha = 0.36 - nightAmount * 0.14;
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, WORLD.w, WORLD.h);
+        ctx.restore();
+      }
 
       for (const puddle of state.puddles) {
-        const bankColor = cycle.isNight ? "rgba(52, 87, 70, 0.66)" : "rgba(83, 123, 88, 0.58)";
+        const bankColor = mixColor([83, 123, 88], [52, 87, 70], nightAmount);
         ctx.fillStyle = bankColor;
+        ctx.globalAlpha = 0.58 + nightAmount * 0.08;
         ctx.beginPath();
         ctx.ellipse(puddle.x, puddle.y + 1, puddle.r + 7, puddle.r * 0.74, 0.4, 0, Math.PI * 2);
         ctx.fill();
+        ctx.globalAlpha = 1;
 
         const waterGradient = ctx.createRadialGradient(
           puddle.x - puddle.r * 0.25, puddle.y - puddle.r * 0.2, 4,
           puddle.x, puddle.y, puddle.r + 3
         );
-        if (cycle.isNight) {
-          waterGradient.addColorStop(0, "rgba(113, 165, 201, 0.62)");
-          waterGradient.addColorStop(1, "rgba(34, 74, 99, 0.7)");
-        } else {
-          waterGradient.addColorStop(0, "rgba(152, 210, 238, 0.72)");
-          waterGradient.addColorStop(1, "rgba(69, 129, 167, 0.72)");
-        }
+        waterGradient.addColorStop(0, mixColor([152, 210, 238], [113, 165, 201], nightAmount));
+        waterGradient.addColorStop(1, mixColor([69, 129, 167], [34, 74, 99], nightAmount));
         ctx.fillStyle = waterGradient;
         ctx.beginPath();
         ctx.ellipse(puddle.x, puddle.y, puddle.r, puddle.r * 0.62, 0.4, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.strokeStyle = cycle.isNight ? "rgba(184, 219, 255, 0.34)" : "rgba(224, 245, 255, 0.44)";
-        ctx.lineWidth = 1.4;
+        const wavePhase = state.t * 0.04 + puddle.x * 0.03 + puddle.y * 0.02;
+        ctx.save();
         ctx.beginPath();
-        ctx.ellipse(puddle.x - 3, puddle.y - 1, puddle.r * 0.56, puddle.r * 0.24, 0.4, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.ellipse(puddle.x + 5, puddle.y + 3, puddle.r * 0.34, puddle.r * 0.14, 0.4, 0, Math.PI * 2);
-        ctx.stroke();
+        ctx.ellipse(puddle.x, puddle.y, puddle.r * 0.98, puddle.r * 0.6, 0.4, 0, Math.PI * 2);
+        ctx.clip();
 
-        ctx.fillStyle = cycle.isNight ? "rgba(189, 231, 255, 0.22)" : "rgba(235, 251, 255, 0.42)";
+        ctx.strokeStyle = "rgba(230, 248, 255, " + (0.32 - nightAmount * 0.08).toFixed(3) + ")";
+        ctx.lineWidth = 1.05;
+        for (let i = 0; i < 4; i++) {
+          const lineWidth = puddle.r * (0.66 - i * 0.1);
+          const y = puddle.y + (-0.25 + i * 0.16) * puddle.r + Math.sin(wavePhase + i * 1.3) * 1.2;
+          const amp = 1.2 + Math.sin(wavePhase * 0.8 + i) * 0.45;
+          const x1 = puddle.x - lineWidth;
+          const x2 = puddle.x + lineWidth;
+          ctx.beginPath();
+          ctx.moveTo(x1, y);
+          ctx.quadraticCurveTo(puddle.x - lineWidth * 0.35, y + amp, puddle.x, y);
+          ctx.quadraticCurveTo(puddle.x + lineWidth * 0.35, y - amp, x2, y);
+          ctx.stroke();
+        }
+
+        ctx.strokeStyle = "rgba(245, 252, 255, " + (0.18 - nightAmount * 0.05).toFixed(3) + ")";
+        ctx.lineWidth = 0.9;
+        for (let i = 0; i < 10; i++) {
+          const seed = Math.sin(puddle.x * 0.173 + puddle.y * 0.131 + i * 2.41) * 43758.5453;
+          const frac = seed - Math.floor(seed);
+          const seed2 = Math.sin(puddle.x * 0.223 + puddle.y * 0.097 + i * 3.17) * 24634.6345;
+          const frac2 = seed2 - Math.floor(seed2);
+          const x = puddle.x + (frac * 2 - 1) * puddle.r * 0.7;
+          const y = puddle.y + (frac2 * 2 - 1) * puddle.r * 0.38;
+          const len = 1.5 + (frac * 1.8);
+          ctx.beginPath();
+          ctx.moveTo(x - len * 0.5, y);
+          ctx.lineTo(x + len * 0.5, y);
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        ctx.fillStyle = "rgba(235, 251, 255, " + (0.42 - nightAmount * 0.2).toFixed(3) + ")";
         ctx.beginPath();
         ctx.ellipse(puddle.x - puddle.r * 0.24, puddle.y - puddle.r * 0.2, puddle.r * 0.2, puddle.r * 0.1, 0.4, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      const sunTrack = cycle.cycleProgress;
-      const sunX = 90 + (WORLD.w - 180) * sunTrack;
-      const sunY = 108 + Math.sin(sunTrack * Math.PI) * -70;
-
-      if (!cycle.isNight) {
-        ctx.fillStyle = "rgba(255, 228, 136, 0.95)";
-        ctx.beginPath();
-        ctx.arc(sunX, sunY, 24, 0, Math.PI * 2);
-        ctx.fill();
-      } else {
-        ctx.fillStyle = "rgba(228, 237, 255, 0.9)";
-        ctx.beginPath();
-        ctx.arc(sunX, sunY, 18, 0, Math.PI * 2);
-        ctx.fill();
+      if (nightAmount > 0) {
+        ctx.fillStyle = "rgba(14, 30, 24, " + (nightAmount * 0.36).toFixed(3) + ")";
+        ctx.fillRect(0, 0, WORLD.w, WORLD.h);
       }
+    }
+
+    function drawMobileMiniMap() {
+      if (!isMobileViewport()) return;
+
+      const zoom = state.camera.zoom || 1;
+      const camX = state.camera.x || 0;
+      const camY = state.camera.y || 0;
+      const viewW = canvas.width / zoom;
+      const viewH = canvas.height / zoom;
+
+      const mapW = Math.max(96, Math.min(128, Math.round(canvas.width * 0.22)));
+      const mapH = Math.round(mapW * (WORLD.h / WORLD.w));
+      const padX = 12;
+      const padY = 12;
+
+      const frameX = padX;
+      const frameY = padY;
+      const innerX = frameX + 4;
+      const innerY = frameY + 4;
+      const innerW = mapW - 8;
+      const innerH = mapH - 8;
+
+      const viewX = innerX + (camX / WORLD.w) * innerW;
+      const viewY = innerY + (camY / WORLD.h) * innerH;
+      const viewBoxW = Math.max(8, (viewW / WORLD.w) * innerW);
+      const viewBoxH = Math.max(8, (viewH / WORLD.h) * innerH);
+
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.fillStyle = "rgba(248, 255, 244, 0.64)";
+      ctx.strokeStyle = "rgba(27, 71, 41, 0.65)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.rect(frameX, frameY, mapW, mapH);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(115, 170, 98, 0.32)";
+      ctx.fillRect(innerX, innerY, innerW, innerH);
+
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.75)";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(
+        clamp(viewX, innerX, innerX + innerW - viewBoxW),
+        clamp(viewY, innerY, innerY + innerH - viewBoxH),
+        viewBoxW,
+        viewBoxH
+      );
+      ctx.restore();
     }
 
     function drawLeaves() {
@@ -1395,17 +1874,19 @@
           const growth = spot.growth || 0.04;
           const crown = 8 + growth * 20;
           const trunk = 5 + growth * 16;
+          const sway = Math.sin(state.t * 0.018 + spot.x * 0.018 + spot.y * 0.009) * (spot.wilted ? 0.7 : (1.1 + growth * 1.5));
+          const topX = spot.x + sway;
 
           ctx.fillStyle = spot.wilted ? "#9a6b3e" : "#3d8f43";
           ctx.beginPath();
-          ctx.moveTo(spot.x, spot.y - crown);
-          ctx.lineTo(spot.x - crown * 0.55, spot.y + 12);
-          ctx.lineTo(spot.x + crown * 0.55, spot.y + 12);
+          ctx.moveTo(topX, spot.y - crown);
+          ctx.lineTo(topX - crown * 0.55, spot.y + 12);
+          ctx.lineTo(topX + crown * 0.55, spot.y + 12);
           ctx.closePath();
           ctx.fill();
 
           ctx.fillStyle = spot.wilted ? "#6b4428" : "#6e4a2e";
-          ctx.fillRect(spot.x - 2, spot.y + 10, 4, trunk);
+          ctx.fillRect(spot.x - 2 + sway * 0.33, spot.y + 10, 4, trunk);
         }
       }
 
@@ -1428,12 +1909,15 @@
       for (const flower of state.flowers) {
         const size = 3 + flower.growth * 7;
         const stem = 4 + flower.growth * 6;
+        const sway = Math.sin(state.t * 0.03 + flower.x * 0.05 + flower.y * 0.03) * (0.6 + flower.growth * 1.2);
+        const bloomX = flower.x + sway;
+        const bloomY = flower.y + 8 - stem;
 
         ctx.strokeStyle = "#5b8f47";
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(flower.x, flower.y + 8);
-        ctx.lineTo(flower.x, flower.y + 8 - stem);
+        ctx.lineTo(bloomX, bloomY);
         ctx.stroke();
 
         ctx.fillStyle = flower.color;
@@ -1441,8 +1925,8 @@
           const a = (Math.PI * 2 * i) / 5 + state.t * 0.002;
           ctx.beginPath();
           ctx.arc(
-            flower.x + Math.cos(a) * (size * 0.6),
-            flower.y + 8 - stem + Math.sin(a) * (size * 0.6),
+            bloomX + Math.cos(a) * (size * 0.6),
+            bloomY + Math.sin(a) * (size * 0.6),
             size * 0.35,
             0,
             Math.PI * 2
@@ -1452,7 +1936,7 @@
 
         ctx.fillStyle = "#f4cf55";
         ctx.beginPath();
-        ctx.arc(flower.x, flower.y + 8 - stem, size * 0.28, 0, Math.PI * 2);
+        ctx.arc(bloomX, bloomY, size * 0.28, 0, Math.PI * 2);
         ctx.fill();
       }
     }
@@ -1484,47 +1968,107 @@
     function drawAnimals() {
       for (const animal of getVisibleAnimals()) {
         const bobY = Math.sin(animal.bob) * 1.6;
+        const x = animal.x;
+        const y = animal.y + bobY;
 
         if (animal.type === "rabbit") {
           ctx.fillStyle = "#e8d8c8";
           ctx.beginPath();
-          ctx.ellipse(animal.x, animal.y + bobY, 10, 8, 0, 0, Math.PI * 2);
+          ctx.ellipse(x, y, 11, 7.5, 0, 0, Math.PI * 2);
           ctx.fill();
-          ctx.fillRect(animal.x - 6, animal.y - 12 + bobY, 3, 8);
-          ctx.fillRect(animal.x + 3, animal.y - 12 + bobY, 3, 8);
+          ctx.fillRect(x - 6, y - 13, 3, 9);
+          ctx.fillRect(x + 3, y - 13, 3, 9);
+          ctx.fillStyle = "#f7efe7";
+          ctx.beginPath();
+          ctx.arc(x + 7, y + 1, 2.8, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#2d2926";
+          ctx.beginPath();
+          ctx.arc(x + 9, y - 2, 1.1, 0, Math.PI * 2);
+          ctx.fill();
         } else if (animal.type === "bird") {
           ctx.fillStyle = "#6f95d8";
           ctx.beginPath();
-          ctx.arc(animal.x, animal.y - 16 + bobY, 6, 0, Math.PI * 2);
+          ctx.ellipse(x, y - 2, 7.5, 5.5, 0, 0, Math.PI * 2);
           ctx.fill();
-          ctx.strokeStyle = "#3d5d98";
+          ctx.fillStyle = "#a7c1ec";
           ctx.beginPath();
-          ctx.moveTo(animal.x - 9, animal.y - 16 + bobY);
-          ctx.lineTo(animal.x + 9, animal.y - 16 + bobY);
-          ctx.stroke();
+          ctx.ellipse(x - 1, y - 2, 4.6, 3.2, -0.4, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#f4c86c";
+          ctx.beginPath();
+          ctx.moveTo(x + 7, y - 2);
+          ctx.lineTo(x + 11, y - 1);
+          ctx.lineTo(x + 7, y);
+          ctx.closePath();
+          ctx.fill();
+          ctx.fillStyle = "#2f3f61";
+          ctx.beginPath();
+          ctx.arc(x + 3, y - 4, 1.1, 0, Math.PI * 2);
+          ctx.fill();
         } else if (animal.type === "deer") {
           ctx.fillStyle = "#9e7044";
           ctx.beginPath();
-          ctx.ellipse(animal.x, animal.y + bobY, 12, 8, 0, 0, Math.PI * 2);
+          ctx.ellipse(x, y, 13, 7, 0, 0, Math.PI * 2);
           ctx.fill();
-          ctx.fillRect(animal.x - 9, animal.y + 7 + bobY, 3, 8);
-          ctx.fillRect(animal.x + 6, animal.y + 7 + bobY, 3, 8);
+          ctx.fillRect(x - 8, y + 6, 2.6, 8);
+          ctx.fillRect(x + 5.5, y + 6, 2.6, 8);
+          ctx.fillStyle = "#c28a58";
+          ctx.beginPath();
+          ctx.ellipse(x + 8.5, y - 4, 4.3, 3.6, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = "#6f4a2e";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(x + 10, y - 7);
+          ctx.lineTo(x + 12, y - 11);
+          ctx.moveTo(x + 10, y - 7);
+          ctx.lineTo(x + 8, y - 11);
+          ctx.stroke();
         } else if (animal.type === "fox") {
           ctx.fillStyle = "#e98b3f";
           ctx.beginPath();
-          ctx.ellipse(animal.x, animal.y + bobY, 11, 7, 0, 0, Math.PI * 2);
+          ctx.ellipse(x, y, 11.5, 6.5, 0, 0, Math.PI * 2);
           ctx.fill();
           ctx.fillStyle = "#fff4e8";
           ctx.beginPath();
-          ctx.arc(animal.x + 5, animal.y + 1 + bobY, 3, 0, Math.PI * 2);
+          ctx.ellipse(x + 8.5, y + 1, 3.8, 2.6, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#cf6e2b";
+          ctx.beginPath();
+          ctx.moveTo(x - 10, y);
+          ctx.lineTo(x - 16, y - 4);
+          ctx.lineTo(x - 14, y + 2);
+          ctx.closePath();
+          ctx.fill();
+          ctx.fillStyle = "#2f2118";
+          ctx.beginPath();
+          ctx.arc(x + 9.5, y + 0.5, 0.9, 0, Math.PI * 2);
           ctx.fill();
         } else {
           ctx.fillStyle = "#7e6aa8";
           ctx.beginPath();
-          ctx.arc(animal.x, animal.y - 12 + bobY, 7, 0, Math.PI * 2);
+          ctx.ellipse(x, y - 10, 8, 9, 0, 0, Math.PI * 2);
           ctx.fill();
           ctx.fillStyle = "#65508f";
-          ctx.fillRect(animal.x - 1, animal.y - 4 + bobY, 2, 10);
+          ctx.beginPath();
+          ctx.moveTo(x - 8, y - 8);
+          ctx.lineTo(x - 12, y - 2);
+          ctx.lineTo(x - 6, y - 2);
+          ctx.closePath();
+          ctx.fill();
+          ctx.beginPath();
+          ctx.moveTo(x + 8, y - 8);
+          ctx.lineTo(x + 12, y - 2);
+          ctx.lineTo(x + 6, y - 2);
+          ctx.closePath();
+          ctx.fill();
+          ctx.fillRect(x - 2, y - 3, 4, 11);
+          ctx.fillStyle = "#f0eaff";
+          ctx.beginPath();
+          ctx.arc(x - 2.2, y - 11, 1.2, 0, Math.PI * 2);
+          ctx.arc(x + 2.2, y - 11, 1.2, 0, Math.PI * 2);
+          ctx.fill();
         }
       }
     }
@@ -1591,6 +2135,39 @@
       }
     }
 
+    function drawNoAcornHint() {
+      if (state.t >= state.noAcornHintUntil) return;
+
+      const framesLeft = state.noAcornHintUntil - state.t;
+      const life = clamp(framesLeft / 70, 0, 1);
+      const rise = (1 - life) * 7;
+      const pulse = 0.88 + Math.sin(state.t * 0.35) * 0.12;
+      const y = state.player.y - 44 - rise;
+
+      ctx.save();
+      ctx.globalAlpha = 0.42 + life * 0.58;
+
+      const drawAcornIcon = (x, size) => {
+        ctx.fillStyle = "#7b4d25";
+        ctx.beginPath();
+        ctx.ellipse(x, y, size * 0.82, size, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#4d2b10";
+        ctx.fillRect(x - size * 0.88, y - size * 0.96, size * 1.76, size * 0.44);
+      };
+
+      drawAcornIcon(state.player.x, 7.2 * pulse);
+
+      ctx.fillStyle = "#ffe14f";
+      ctx.font = "900 18px Trebuchet MS";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("!", state.player.x - 2, y - 3);
+      ctx.textAlign = "start";
+      ctx.textBaseline = "alphabetic";
+      ctx.restore();
+    }
+
     function drawHudOverlay() {
       ctx.fillStyle = "rgba(16, 56, 29, 0.75)";
       ctx.fillRect(12, 10, 360, 62);
@@ -1614,6 +2191,7 @@
 
     function update() {
       playerMove();
+      updateCamera();
       updateAcorns();
       updateBees();
       updateLeaves();
@@ -1638,6 +2216,13 @@
     }
 
     function render() {
+      const zoom = state.camera.zoom || 1;
+      const camX = state.camera.x || 0;
+      const camY = state.camera.y || 0;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.setTransform(zoom, 0, 0, zoom, -camX * zoom, -camY * zoom);
       drawGround();
       drawLeaves();
       drawAcorns();
@@ -1648,7 +2233,13 @@
       drawFireflies();
       drawHoverHighlight();
       drawPlayer();
-      drawHudOverlay();
+      drawNoAcornHint();
+      ctx.restore();
+      if (!isMobileViewport()) {
+        drawHudOverlay();
+      } else {
+        drawMobileMiniMap();
+      }
     }
 
     function frame() {
@@ -1694,14 +2285,35 @@
     document.getElementById("easyMode").addEventListener("click", toggleEasyMode);
     document.getElementById("debugOpen").addEventListener("click", openDebugPanel);
     document.getElementById("debugClose").addEventListener("click", closeDebugPanel);
+    ui.menuToggle.addEventListener("click", () => {
+      setMenuOpen(!state.menuOpen);
+    });
+    ui.uiBackdrop.addEventListener("click", () => {
+      setMenuOpen(false);
+    });
     ui.debugOverlay.addEventListener("click", (e) => {
       if (e.target === ui.debugOverlay) closeDebugPanel();
     });
     canvas.addEventListener("click", handleCanvasClick);
     canvas.addEventListener("mousemove", handleCanvasMove);
+    canvas.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse") return;
+      const point = getCanvasPoint(event);
+      state.mouseWorld = point;
+      handleCanvasPoint(point);
+      event.preventDefault();
+    }, { passive: false });
     canvas.addEventListener("mouseleave", clearCanvasHover);
+    window.addEventListener("resize", () => {
+      if (!isMobileViewport()) {
+        setMenuOpen(false);
+      }
+      updateCamera();
+    });
 
     ui.best.textContent = state.bestScore;
+    setupMobileControls();
+    updateCamera();
     resetGame();
     frame();
   </script>
