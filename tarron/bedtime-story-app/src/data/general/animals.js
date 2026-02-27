@@ -1,6 +1,5 @@
 export const animals = [
   'Fox',
-  'Dragon',
   'Owl',
   'Bear',
   'Rabbit',
@@ -23,5 +22,4 @@ export const animals = [
   'Raven',
   'Monkey',
   'Whale',
-  'Phoenix',
 ];

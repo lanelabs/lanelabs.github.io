@@ -1,0 +1,15 @@
+export const items = [
+  'Map',
+  'Key',
+  'Book',
+  'Compass',
+  'Lantern',
+  'Thread',
+  'Drum',
+  'Herb',
+  'Egg',
+  'Pearl',
+  'Feather',
+  'Mirror',
+  'Stone',
+];

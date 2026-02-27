@@ -1,0 +1,15 @@
+export const items = [
+  'Sword',
+  'Orb',
+  'Shield',
+  'Amulet',
+  'Potion',
+  'Scroll',
+  'Chalice',
+  'Crown',
+  'Dagger',
+  'Cloak',
+  'Ring',
+  'Flute',
+  'Wand',
+];

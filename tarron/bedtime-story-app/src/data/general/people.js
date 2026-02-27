@@ -1,0 +1,16 @@
+export const people = [
+  'Farmer',
+  'Shepherd',
+  'Sailor',
+  'Hunter',
+  'Healer',
+  'Monk',
+  'Explorer',
+  'Orphan',
+  'Captain',
+  'Thief',
+  'Merchant',
+  'Baker',
+  'Blacksmith',
+  'Inventor',
+];

@@ -1,0 +1,16 @@
+export const descriptors = [
+  'Ancient',
+  'Golden',
+  'Mysterious',
+  'Crystal',
+  'Silver',
+  'Wooden',
+  'Iron',
+  'Ruby',
+  'Frozen',
+  'Legendary',
+  'Feathered',
+  'Invisible',
+  'Talking',
+  'Thunder',
+];

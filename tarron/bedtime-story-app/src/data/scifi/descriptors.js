@@ -1,0 +1,18 @@
+export const descriptors = [
+  'Quantum',
+  'Plasma',
+  'Holographic',
+  'Cybernetic',
+  'Nano',
+  'Alien',
+  'Interstellar',
+  'Nuclear',
+  'Biometric',
+  'Encrypted',
+  'Neon',
+  'Cyber',
+  'Chrome',
+  'Void',
+  'Ion',
+  'Data',
+];
