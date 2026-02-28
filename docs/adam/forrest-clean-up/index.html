@@ -761,11 +761,11 @@
     .notebook-panel {
       --notebook-line: 24px;
       position: absolute;
-      left: 18%;
+      right: 12px;
       bottom: -2px;
-      transform: translateX(-50%) translateY(calc(100% - var(--notebook-line)));
+      transform: translateY(calc(100% - var(--notebook-line)));
       transform-origin: bottom center;
-      width: min(350px, calc(100% - 24px));
+      width: min(350px, calc(50% - 12px), calc(100% - 24px));
       border: 1px solid #cfbf9f;
       border-radius: 10px 10px 0 0;
       background:
@@ -784,15 +784,15 @@
     }
 
     .notebook-panel.peek {
-      transform: translateX(-50%) translateY(calc(100% - (var(--notebook-line) * 2.7)));
+      transform: translateY(calc(100% - (var(--notebook-line) * 2.7)));
     }
 
     .notebook-panel.collapsed {
-      transform: translateX(-50%) translateY(calc(100% - var(--notebook-line)));
+      transform: translateY(calc(100% - var(--notebook-line)));
     }
 
     .notebook-panel.expanded {
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
     }
 
     .notebook-tab {
@@ -920,14 +920,16 @@
       margin: 0;
       padding-left: 18px;
       display: grid;
-      gap: 2px;
+      gap: 0;
       font-size: 12px;
-      line-height: 1.35;
+      line-height: var(--notebook-line);
       color: #334032;
     }
 
     .inspect-observations li {
       margin: 0;
+      min-height: var(--notebook-line);
+      line-height: var(--notebook-line);
     }
 
     .inspect-observations-typing {
@@ -1275,7 +1277,7 @@
 
     .touch-controls {
       display: none;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: flex-end;
       gap: 16px;
       margin-top: 10px;
@@ -1310,24 +1312,6 @@
       transform: translate(-50%, -50%);
       box-shadow: 0 4px 12px rgba(28, 70, 39, 0.22);
       touch-action: none;
-    }
-
-    .touch-action {
-      min-width: 118px;
-      height: 66px;
-      border-radius: 14px;
-      border: 2px solid #2f8f4a;
-      background: #2f8f4a;
-      color: #fff;
-      font-weight: 800;
-      font-size: 16px;
-      box-shadow: 0 8px 16px rgba(37, 95, 52, 0.24);
-      touch-action: manipulation;
-    }
-
-    .touch-action.active {
-      filter: brightness(0.92);
-      transform: translateY(1px);
     }
 
     .menu-toggle {
@@ -1517,8 +1501,7 @@
         pointer-events: none;
       }
 
-      .joystick,
-      .touch-action {
+      .joystick {
         pointer-events: auto;
       }
 
@@ -1545,11 +1528,18 @@
       }
 
       .top-stats-hud {
-        top: calc(58px + env(safe-area-inset-top));
+        position: absolute;
+        display: flex;
+        gap: 0;
+        left: 50%;
+        top: calc(10px + env(safe-area-inset-top));
+        transform: translateX(-50%) scale(var(--play-ui-scale));
+        transform-origin: top center;
+        z-index: 18;
       }
 
       .quest-widget {
-        top: calc(10px + env(safe-area-inset-top));
+        top: calc(92px + env(safe-area-inset-top));
       }
 
       .ui {
@@ -1609,7 +1599,7 @@
               </div>
             </div>
             <div class="tips">
-              Controls: WASD/arrow keys to move, Space to interact, or use on-screen joystick + Interact on touch screens.<br>
+              Controls: WASD/arrow keys to move, Space to interact, or use on-screen joystick + tap anywhere on touch screens.<br>
               Start by cleaning nearby litter, collecting acorns, and planting trees in open spots.<br>
               Keep helping the forest and watch how the world responds over time.
               <div class="tips-toggle">
@@ -1681,7 +1671,6 @@
         <div id="joystick" class="joystick" aria-label="Movement joystick">
           <div id="joystickKnob" class="joystick-knob"></div>
         </div>
-        <button id="touchInteract" class="touch-action" type="button" aria-label="Interact">Interact</button>
       </div>
     </section>
   </main>
@@ -1799,7 +1788,6 @@
       spriteSample: document.getElementById("spriteSample"),
       joystick: document.getElementById("joystick"),
       joystickKnob: document.getElementById("joystickKnob"),
-      touchInteract: document.getElementById("touchInteract"),
       touchControls: document.querySelector(".touch-controls"),
       touchModeLabel: document.getElementById("touchModeLabel"),
       touchModeToggle: document.getElementById("touchModeToggle"),
@@ -2205,8 +2193,11 @@
     function updatePlayUiScale() {
       const viewportW = window.visualViewport ? window.visualViewport.width : window.innerWidth;
       const w = viewportW || canvas.getBoundingClientRect().width || 1600;
-      // Scale in the 300-1000px viewport range; clamp outside it.
-      const scale = clamp((w - 300) / (1000 - 300), 0.62, 1);
+      // Scale in the 300-1000px viewport range; keep a higher minimum and ease changes.
+      const minScale = 0.82;
+      const t = clamp((w - 300) / (1000 - 300), 0, 1);
+      const eased = t * t * (3 - 2 * t);
+      const scale = minScale + (1 - minScale) * eased;
       document.documentElement.style.setProperty("--play-ui-scale", scale.toFixed(3));
     }
 
@@ -3614,14 +3605,18 @@
     }
 
     function syncUI() {
+      const mobile = isMobileViewport();
       renderAcornStack();
       renderCleanedStack();
       ui.water.textContent = state.waterCarried ? "Full" : "Empty";
       ui.waterIcon.classList.toggle("full", state.waterCarried);
       ui.trees.textContent = state.planted;
       ui.best.textContent = state.bestScore;
-      ui.ecoHud.textContent = "Eco " + Math.round(state.ecoScore) + "%";
+      ui.ecoHud.textContent = mobile
+        ? "eco: " + Math.round(state.ecoScore) + "%"
+        : "Eco " + Math.round(state.ecoScore) + "%";
       ui.wildlifeHud.textContent = "Wildlife " + getVisibleAnimals().length;
+      ui.wildlifeHud.style.display = mobile ? "none" : "";
       ui.notebookTab.classList.toggle("hint-pulse", state.t < state.notebookHintUntil && !state.inspectExpanded);
       renderMessageLog();
       maybeAdvanceQuest();
@@ -3660,7 +3655,7 @@
       if (dx !== 0 || dy !== 0) {
         moved = movePlayerByVector(dx, dy, speedScale);
         state.lastMovementInputFrame = state.t;
-      } else if (state.mouseWorld && state.t - state.lastMovementInputFrame > 600) {
+      } else if (!state.touchControlsEnabled && state.mouseWorld && state.t - state.lastMovementInputFrame > 600) {
         const toMouseX = state.mouseWorld.x - state.player.x;
         const toMouseY = state.mouseWorld.y - state.player.y;
         const dist = Math.hypot(toMouseX, toMouseY);
@@ -4309,22 +4304,6 @@
 
       ui.joystick.addEventListener("pointerup", endJoystick);
       ui.joystick.addEventListener("pointercancel", endJoystick);
-
-      ui.touchInteract.addEventListener("pointerdown", (event) => {
-        if (!state.touchControlsEnabled) return;
-        ui.touchInteract.classList.add("active");
-        interact();
-        event.preventDefault();
-      });
-      ui.touchInteract.addEventListener("pointerup", () => {
-        ui.touchInteract.classList.remove("active");
-      });
-      ui.touchInteract.addEventListener("pointercancel", () => {
-        ui.touchInteract.classList.remove("active");
-      });
-      ui.touchInteract.addEventListener("click", (event) => {
-        event.preventDefault();
-      });
     }
 
     function drawHoverHighlight() {
