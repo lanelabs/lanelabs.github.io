@@ -1,75 +1,93 @@
 // Story templates — each is a plain string with {placeholder} slots.
 //
-// ── Placeholder syntax ──────────────────────────────────────────────
+// See template_engine/placeholders.md for full placeholder reference.
+// See template_engine/dimensions.md for dimension tag definitions.
 //
-//   {name}       — default form (includes article): "a quest"
-//   {name.bare}  — article-stripped form:            "quest"
-//   {name.xyz}   — any custom form defined in the data file
-//   {Name}       — auto-capitalise the first letter: "A quest"
-//   {Name.bare}  — capitalise + custom form:         "Quest"
-//
-// The ".bare" form is auto-computed for every value by stripping the
-// leading article. Custom forms beyond "bare" must be defined as object
-// properties in the data file (see storyShapes.js for an example).
-//
-// ── Available placeholders ──────────────────────────────────────────
-//
-//   {setting}              — location, e.g. "a castle"
-//   {weather}              — atmosphere, e.g. "during a thunderstorm"
-//   {character1}           — first character (plain), e.g. "a farmer"
-//   {character1.emotional} — first character with emotion, e.g. "a scared farmer"
-//   {character2}           — second character (plain), e.g. "a fox"
-//   {character2.emotional} — second character with emotion, e.g. "a scared fox"
-//   {item}                 — article + descriptor + item, e.g. "a golden map"
-//   {hook}                 — conflict or mystery, e.g. "a broken promise"
-//   {opening}              — how the story starts, e.g. "a quiet moment alone"
-//   {storyShape}           — plot archetype with article, e.g. "a quest"
-//   {tone}                 — mood adjective, e.g. "cozy"
-//   {tone.noun}            — noun form, e.g. "warmth" (for "a story of {tone.noun}")
-//   {aTone}                — with a/an article, e.g. "a cozy" or "an adventurous"
-//   {moral}                — lesson (word or phrase), e.g. "courage" or "don't give up"
-//   {moral.about}          — works after "about", e.g. "courage" or "never giving up"
-//   {weather.adj}          — single adjective, e.g. "stormy" or "moonlit"
-//   {aWeatherAdj}          — with a/an article, e.g. "a stormy" or "an overcast"
-//
-// Each template controls which character gets the emotion by choosing
-// {character1.emotional} or {character2.emotional}. The other character
-// uses the plain {character1} or {character2}. Templates also choose
-// whether {weather} colors the setting or the hook.
-//
-// ── Adding a new template ───────────────────────────────────────────
-//
-// 1. Append a new string to this array.
-// 2. Use {name} for the default form or {name.bare} for article-stripped.
-// 3. Pick ONE character to be emotional ({characterN.emotional}), use
-//    plain {characterN} for the other.
-// 4. Place {weather} near {setting} OR near {hook} for variety.
-// 5. If you need a form that doesn't exist yet (e.g. {moral.gerund}),
-//    go to the data file (e.g. morals.js), convert the items that are
-//    still plain strings into objects, and add the new form key:
-//      BEFORE:  'Courage'
-//      AFTER:   { full: 'Courage', gerund: 'having courage' }
-//    Items that are already objects just get the new key added.
+// Each template's comment block lists its dimension tags so you can
+// scan for coverage gaps at a glance.
 
 export const templates = [
-  // Template 1 — Setting opens, weather with setting, character1 emotional
-  'In {setting}, {weather}, {character1.emotional} and {character2} discover {item}. What begins as {opening} becomes {storyShape} centered around {hook}. The tone is {tone}. The lesson: {Moral}.',
+  // Template 1 — Setting opens
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: steady-build | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: central
+  // Moral: label | Mystery: laid-out | Spotlight: setting
+  // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: neutral | Genre-feel: neutral
+  'In {setting} {weather}, {character1.emotional} and {character2} are drawn together. What begins as {opening} leads them into {hook}.\n\nWith {item}, their {storyShape.bare} unfolds — {aTone} tale about {moral.about}.',
 
-  // Template 2 — Character opens, weather with setting, character1 emotional
-  '{Character1.emotional} meets {character2} in {setting} {weather}. Together, they uncover {item} connected to {hook}. Their {storyShape.bare} begins with {opening}. It\'s {aTone} tale about {moral.about}.',
+  // Template 2 — Character opens
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: surprise-pivot | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: surprise-twist
+  // Moral: label | Mystery: laid-out | Spotlight: character-emotional
+  // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: neutral | Genre-feel: neutral
+  '{Character1.emotional} and {character2} cross paths in {setting}. What begins as {opening} takes a turn when they stumble into {hook}.\n\n{Weather}, {item} points the way toward {storyShape} — {aTone} tale about {moral.about}.',
 
-  // Template 3 — Atmosphere opens, weather with setting, character1 emotional
-  '{Weather}, {setting} holds a secret: {hook}. {Character1.emotional} and {character2} are drawn together by {item}. From {opening}, their {storyShape.bare} unfolds. {Moral} — that\'s the heart of this {tone} story.',
+  // Template 3 — Atmosphere opens
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: steady-build | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: central
+  // Moral: label | Mystery: teaser | Spotlight: weather
+  // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: neutral | Genre-feel: neutral
+  '{Weather}, {setting} holds a secret — {hook}. {Character1.emotional} and {character2} are both drawn in, and what starts as {opening} leads somewhere neither of them expected.\n\nWith {item}, their {storyShape.bare} unfolds — {aTone} story about {moral.about}.',
 
-  // Template 4 — Hook-first, weather with setting, character2 emotional
-  '{Hook} — that\'s what brings {character1} and {character2.emotional} together in {setting} {weather}. With {item} and {storyShape} ahead, it all begins with {opening}. A story of {tone.noun} and {moral.about}.',
+  // Template 4 — Hook-first
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: steady-build | Tension: discovery | Stakes: implied | Connection: coincidence | Hook-role: central
+  // Moral: label | Mystery: laid-out | Spotlight: hook
+  // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: neutral | Genre-feel: neutral
+  '{Hook} — that\'s what brings {character1} and {character2.emotional} together in {setting}. It all begins with {opening}, and neither of them knows where it will lead.\n\n{Weather}, {item} holds the key to {storyShape} — a story of {tone.noun} and {moral.about}.',
 
-  // Template 5 — Weather-adjective setting, character2 emotional
-  '{AWeatherAdj} {setting.bare} is where {character1} meets {character2.emotional}. {Hook} leads to {storyShape}, and {item} holds the key. Starting from {opening}, this {tone} tale reminds us: {Moral}.',
+  // Template 5 — Weather-adjective setting
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: surprise-pivot | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: surprise-twist
+  // Moral: label | Mystery: laid-out | Spotlight: weather-adj
+  // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: neutral | Genre-feel: neutral
+  '{AWeatherAdj} {setting.bare} is where {character1} first meets {character2.emotional}. What begins as {opening} takes an unexpected turn — {hook}.\n\n{Item} holds the key, and before long their {storyShape.bare} is underway. A {tone} tale that reminds us: {Moral}.',
 
-  // Template 6 — Weather colors the hook, character1 emotional
-  'In {setting}, {character1.emotional} and {character2} stumble into {hook} {weather}. Armed with {item}, their {storyShape.bare} begins with {opening}. It\'s {aTone} tale about {moral.about}.',
+  // Template 6 — Hook draws them in
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: steady-build | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: catalyst
+  // Moral: label | Mystery: laid-out | Spotlight: hook
+  // Structure: two-para | Rhythm: flowing | Item-role: catalyst | Scale: neutral | Genre-feel: neutral
+  'In {setting}, {character1.emotional} and {character2} stumble into {hook}. It starts with {opening}, but things quickly grow more complicated.\n\n{Weather}, {item} changes everything — turning their path into {storyShape}. It\'s {aTone} tale about {moral.about}.',
 
-  // Template 7 — Weather intensifies the hook, character2 emotional
-  '{Character1} and {character2.emotional} meet in {setting}. When faced with {hook} {weather}, {item} becomes their only hope. What starts as {opening} turns into {storyShape}. A {tone} story about {moral.about}.',
+  // Template 7 — Both characters meet
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
+  // Arc: steady-build | Tension: discovery | Stakes: implied | Connection: collision | Hook-role: catalyst
+  // Moral: label | Mystery: laid-out | Spotlight: character-both
+  // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: neutral | Genre-feel: neutral
+  '{Character1} and {character2.emotional} meet in {setting}. What starts as {opening} brings them face to face with {hook}.\n\n{Weather}, {item} becomes their only hope. What once seemed simple turns into {storyShape} — a {tone} story about {moral.about}.',
+
+  // Template 8 — Legend frame, believer vs. skeptic
+  // Voice: legend | Opening: everyone-knows | Temporal: linear | Dynamic: believer-skeptic | Agency: reactive
+  // Arc: steady-build | Tension: forbidden | Stakes: trust | Connection: prophecy | Hook-role: looming-threat
+  // Moral: label | Mystery: teaser | Spotlight: hook
+  // Structure: two-para | Rhythm: flowing | Item-role: catalyst | Scale: local | Genre-feel: campfire-legend
+  'They say that in {setting}, {weather}, {hook} happens once a generation. {Character1.emotional} believes it. {Character2} thinks it\'s nonsense.\n\nBut when {item} appears during {opening}, their {storyShape.bare} begins whether they\'re ready or not — {aTone} story about {moral.about}.',
+
+  // Template 9 — Reluctant hero
+  // Voice: classic | Opening: declarative | Temporal: linear | Dynamic: reluctant-partners | Agency: reluctant
+  // Arc: dark-to-light | Tension: mismatch | Stakes: trust | Connection: causal | Hook-role: central
+  // Moral: label | Mystery: laid-out | Spotlight: character-emotional
+  // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: neutral | Genre-feel: neutral
+  '{Character1.emotional} wants nothing to do with {hook}. But in {setting}, they\'re the only one who can help — and {character2} is counting on them.\n\n{Weather}, {item} might be the answer. What starts as {opening} becomes {storyShape} — {aTone} tale about {moral.about}.',
+
+  // Template 10 — Rule to be broken
+  // Voice: classic | Opening: rule-to-break | Temporal: linear | Dynamic: strangers | Agency: proactive
+  // Arc: steady-build | Tension: forbidden | Stakes: personal-loss | Connection: causal | Hook-role: catalyst
+  // Moral: woven | Mystery: laid-out | Spotlight: item
+  // Structure: two-para | Rhythm: mixed | Item-role: catalyst | Scale: local | Genre-feel: neutral
+  'The rule in {setting} was simple: never touch {item}. {Character1.emotional} wasn\'t good with rules.\n\nNow, {weather}, {character2} is involved too — and what started as {opening} has become {hook}. Their {storyShape.bare} won\'t be easy. A {tone} tale about {moral.about}.',
+
+  // Template 11 — Direct address wind-down
+  // Voice: direct-address | Opening: sensory | Temporal: end-first | Dynamic: strangers | Agency: passive
+  // Arc: wind-down | Tension: discovery | Stakes: implied | Connection: assertion | Hook-role: past-event
+  // Moral: woven | Mystery: laid-out | Spotlight: tone
+  // Structure: wind-down | Rhythm: flowing | Item-role: comfort | Scale: intimate | Genre-feel: lullaby
+  'If you\'d been in {setting} tonight, {weather}, you\'d have seen {character1.emotional} and {character2} catching their breath. What started as {opening} led to {hook} — but that\'s all over now.\n\n{Item} rests nearby. Their {storyShape.bare} can wait until morning. Tonight, it\'s just {aWeatherAdj} quiet, a {tone} feeling, and the comfort that comes from {moral.about}.',
+
+  // Template 12 — Dialogue cold open, fragile alliance
+  // Voice: campfire | Opening: dialogue-cold | Temporal: linear | Dynamic: fragile-alliance | Agency: compelled
+  // Arc: dark-to-light | Tension: secret | Stakes: trust | Connection: causal | Hook-role: central
+  // Moral: label | Mystery: teaser | Spotlight: hook
+  // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: local | Genre-feel: neutral
+  '"I don\'t trust you." "Good — I don\'t trust you either." {Character1} and {character2.emotional} find themselves in {setting}, {weather}, forced together by {hook}.\n\n{Opening} gives way to something unexpected. With {item} between them, their {storyShape.bare} begins — {aTone} tale about {moral.about}.',
 ];

@@ -307,11 +307,26 @@ h1 {
   border: 1px solid var(--moral-border);
 }
 
+.template-flavor {
+  font-style: italic;
+  opacity: 0.55;
+  font-size: 0.9rem;
+  margin-bottom: 0.75em;
+}
+
 .template-narrative {
   text-align: left;
   font-size: 1.15rem;
   line-height: 1.7;
   color: var(--text);
+}
+
+.template-narrative p {
+  margin: 0 0 0.75em;
+}
+
+.template-narrative p:last-child {
+  margin-bottom: 0;
 }
 
 .template-value {

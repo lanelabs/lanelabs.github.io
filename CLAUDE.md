@@ -23,6 +23,7 @@ Light/dark mode is supported site-wide using `@media (prefers-color-scheme: dark
 
 - Remote uses SSH alias `github-tarronlane01` for the correct identity file
 - Remote URL: `git@github-tarronlane01:lanelabs/lanelabs.github.io.git`
+- Commit messages must include which app the changes are for (e.g. "bedtime-story-app: ...") since multiple family members commit to different apps in this repo
 
 ---
 

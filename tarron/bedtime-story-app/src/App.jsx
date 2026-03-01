@@ -7,6 +7,7 @@ import {
   NUM_CHARACTERS, NUM_CONFLICTS, NUM_ITEMS, NUM_MORALS,
   NUM_TONES, NUM_OPENINGS, NUM_STORY_SHAPES,
 } from './config';
+import { flavorLines } from './data/general/flavorLines';
 import './App.css';
 
 const genres = { fantasy, scifi, modern };
@@ -229,6 +230,7 @@ export default function App() {
       hooks: pickRandom(hookPool, NUM_CONFLICTS),
       morals: pickRandom(general.morals, NUM_MORALS),
       template: pickRandom(general.templates, 1)[0],
+      flavorLine: pickRandom(flavorLines, 1)[0],
     });
   }
 
@@ -268,7 +270,15 @@ export default function App() {
       ...placeholderColors,
       hook: result.hookType === 'Mystery' ? 'label-mysteries' : 'label-conflicts',
     };
-    return <p className="template-narrative">{applyTemplate(template, values, colors)}</p>;
+
+    const paragraphs = template.split('\n\n');
+    return (
+      <div className="template-narrative">
+        {paragraphs.map((para, i) => (
+          <p key={i}>{applyTemplate(para, values, colors)}</p>
+        ))}
+      </div>
+    );
   }
 
   return (
@@ -317,7 +327,10 @@ export default function App() {
       {result && (
         <div className="results">
           {useTemplate ? (
-            renderTemplate()
+            <>
+              <p className="template-flavor">{result.flavorLine}</p>
+              {renderTemplate()}
+            </>
           ) : (
             <>
               <div className="section">
