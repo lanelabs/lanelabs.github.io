@@ -2,6 +2,18 @@
 // against each other, against society, or against impossible odds. Should be
 // genre-neutral — vague enough to fit fantasy, sci-fi, or modern, but specific
 // enough to provide real creative constraint for a story.
+//
+// TEMPLATE FIT — must be a noun phrase starting with "A/An" or "Something/Two".
+// Auto-computed forms:
+//   {hook}      → "a broken promise"  (default, with article)
+//   {hook.bare} → "broken promise"    (article stripped)
+//
+// To add custom forms, convert to an object:
+//   BEFORE: 'A broken promise'
+//   AFTER:  { full: 'A broken promise', involving: 'involving a broken promise' }
+//
+// Each entry should be ONE specific conflict — never combine with "or"
+// (split into separate entries instead).
 export const conflicts = [
   'A broken promise',
   'A stolen treasure',

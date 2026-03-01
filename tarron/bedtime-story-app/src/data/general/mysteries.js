@@ -3,6 +3,18 @@
 // hidden truths waiting to be uncovered. Should be genre-neutral — vague enough
 // to fit fantasy, sci-fi, or modern, but specific enough to spark curiosity
 // and anchor a story.
+//
+// TEMPLATE FIT — must be a noun phrase starting with "A/An" or "Something".
+// Auto-computed forms (shared with conflicts as {hook}):
+//   {hook}      → "a forbidden secret"  (default, with article)
+//   {hook.bare} → "forbidden secret"    (article stripped)
+//
+// To add custom forms, convert to an object:
+//   BEFORE: 'A forbidden secret'
+//   AFTER:  { full: 'A forbidden secret', involving: 'involving a forbidden secret' }
+//
+// Each entry should be ONE specific mystery — never combine with "or"
+// (split into separate entries instead).
 export const mysteries = [
   'A forbidden secret',
   'A lost memory',

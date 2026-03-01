@@ -1,43 +1,55 @@
-// Openings: creative constraints for how to START the story. These combine
-// opening scenes (what's happening), techniques (how to tell it), and starting
-// situations (what the status quo is before the conflict). Each should work as
-// a standalone prompt that shapes how the storyteller begins — WITHOUT hinting
-// at the conflict or mystery (those have their own lists) and WITHOUT locking
-// in a specific setting or genre.
+// Openings: creative constraints for how to START the story.
+//
+// TEMPLATE FIT — must be a noun phrase. Auto-computed forms:
+//   {opening}      → "a quiet moment alone"  (default, with article)
+//   {opening.bare} → "quiet moment alone"    (article stripped)
+//
+// Do NOT use full clauses with verbs like "Everything has been..." or
+// "The character is..." — they break in slots like "begins with {opening}".
+// Rephrase as noun phrases. To add custom forms, convert to an object:
+//   BEFORE: 'A quiet moment alone'
+//   AFTER:  { full: 'A quiet moment alone', during: 'during a quiet moment alone' }
+//
+// Each entry should be ONE specific thing — never combine with "or"
+// (e.g. "A celebration or festival" → split into "A celebration" and "A festival").
 export const openings = [
   // Opening scenes — what kind of moment to start with
   'A quiet moment alone',
   'A group gathered together',
   'Someone arriving somewhere new',
-  'A celebration or festival',
+  'A celebration',
+  'A festival',
   'Someone waking up',
   'Someone saying goodbye',
   'Two characters meeting for the first time',
   'Someone watching from a distance',
   'A meal being shared',
-  'Someone practicing or training',
+  'Someone practicing',
+  'Someone training',
   'Someone lost',
   'A journey already underway',
 
   // Opening techniques — how to tell the beginning
-  'A question the character is asking themselves',
-  'A vivid sound or smell',
-  'Dialogue — someone mid-conversation',
-  'In the middle of the action',
-  'The character describing their favorite thing',
-  'A small, specific detail that hints at something bigger',
-  'What the character sees right now',
-  'The character doing something they do every day',
+  'A question on the character\'s mind',
+  'A vivid sound',
+  'A vivid smell',
+  'A conversation already underway',
+  'The middle of the action',
+  'A description of a favorite thing',
+  'A small detail that hints at something bigger',
+  'A vivid first impression',
+  'An everyday routine',
 
   // Starting situations — the status quo before the conflict
-  'Everything has been peaceful for a long time',
+  'A long stretch of peace',
   'A big day everyone has been preparing for',
-  'An ordinary day — nothing special at all',
-  'Things have been slowly getting worse',
-  'Someone just accomplished something important',
-  'A new season or change is in the air',
-  'A long wait is finally over',
-  'The character is about to leave home',
-  'A rumor has been spreading',
-  'An old routine is about to be broken',
+  'An ordinary, uneventful day',
+  'A slowly worsening situation',
+  'A recent accomplishment',
+  'A new season',
+  'A change in the air',
+  'A long wait finally over',
+  'A character about to leave home',
+  'A spreading rumor',
+  'An old routine about to break',
 ];
