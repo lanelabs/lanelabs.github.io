@@ -1,6 +1,6 @@
 // Conflicts: opposition, tension, and struggle. Things that pit characters
 // against each other, against society, or against impossible odds. Should be
-// genre-neutral — vague enough to fit fantasy, sci-fi, or modern, but specific
+// world-neutral — vague enough to fit fantasy, sci-fi, modern, or ocean, but specific
 // enough to provide real creative constraint for a story.
 //
 // TEMPLATE FIT — must be a noun phrase starting with "A/An" or "Something/Two".

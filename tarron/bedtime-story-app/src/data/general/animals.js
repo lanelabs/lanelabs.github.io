@@ -23,11 +23,9 @@ export const animals = [
   'Snake',
   'Lion',
   'Elephant',
-  'Dolphin',
   'Hawk',
   'Badger',
   'Otter',
   'Raven',
   'Monkey',
-  'Whale',
 ];

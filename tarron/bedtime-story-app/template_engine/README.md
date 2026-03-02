@@ -55,7 +55,7 @@ dimension comment block at the top (see existing templates for format).
 
 1. Every template MUST use all of these placeholders at least once:
    `character1`, `character2`, `setting`, `weather`, `item`, `hook`,
-   `opening`, `storyShape`, `tone`, `moral`
+   `storyShape`, `tone`, `moral`
 
 2. Exactly ONE character gets the emotional form (`{characterN.emotional}`).
    The other uses the plain form.

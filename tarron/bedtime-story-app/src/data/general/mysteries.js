@@ -1,7 +1,7 @@
 // Mysteries: unknowns, puzzles, and things that demand discovery. Things that
 // make you ask "what's going on?" — unexplained phenomena, missing pieces,
-// hidden truths waiting to be uncovered. Should be genre-neutral — vague enough
-// to fit fantasy, sci-fi, or modern, but specific enough to spark curiosity
+// hidden truths waiting to be uncovered. Should be world-neutral — vague enough
+// to fit fantasy, sci-fi, modern, or ocean, but specific enough to spark curiosity
 // and anchor a story.
 //
 // TEMPLATE FIT — must be a noun phrase starting with "A/An" or "Something".

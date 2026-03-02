@@ -1,5 +1,5 @@
 // Weather: atmospheric conditions that color the scene. Should be
-// genre-neutral — evocative enough to shape mood but not tied to any genre.
+// world-neutral — evocative enough to shape mood but not tied to any world.
 // Must be a prepositional/conjunction phrase (starting with "during", "on",
 // "under", "in", "as", "at") so it attaches naturally to a setting.
 //

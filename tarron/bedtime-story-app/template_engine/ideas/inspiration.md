@@ -36,7 +36,7 @@ The "What If" Premise — one impossible thing, stated plainly
 > What if {hook} only happened in {setting}? And what if {character1.emotional} was the only one who noticed?
 
 The Snowball — one thing leads to another leads to chaos
-> It started with {opening}. Then {hook}. Then {item} showed up. Now {character1.emotional} and {character2} are in the middle of {storyShape}.
+> It started small. Then {hook}. Then {item} showed up. Now {character1.emotional} and {character2} are in the middle of {storyShape}.
 
 The Withholding Blurb — hint but don't explain
 > Something is wrong in {setting}. {Character1.emotional} knows it. {Character2} knows it. Neither will say what.
@@ -54,10 +54,10 @@ Rebirth — darkness to sudden light
 > {Character1.emotional} has been trapped by {hook} for as long as they can remember. Then {character2} arrives in {setting} with {item}.
 
 The Story Spine — "because of that" chain
-> Once upon a time, {character1.emotional} lived in {setting}. Every day, {opening}. But one day, {hook}. Because of that, {item}. Because of that, {storyShape}.
+> Once upon a time, {character1.emotional} lived in {setting}. Every day, everything was the same. But one day, {hook}. Because of that, {item}. Because of that, {storyShape}.
 
 Circular — ends where it began
-> It begins in {setting}. It ends there, too. But between {opening} and {hook}, everything about {character1.emotional} and {character2} changes.
+> It begins in {setting}. It ends there, too. But between the first step and {hook}, everything about {character1.emotional} and {character2} changes.
 
 ~~Wind-Down — energy narrows toward sleep~~ → **Used in Template 11** (combined with Direct Address)
 > ~~{Weather}, {setting} grows quiet. {Character1.emotional} and {character2} settle into {opening}. Even {hook} feels far away now. {Item} rests nearby. Tomorrow, {storyShape}. Tonight, just {tone.noun}.~~

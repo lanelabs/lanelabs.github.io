@@ -1,0 +1,14 @@
+export const settings = [
+  'A coral reef',
+  'A kelp forest',
+  'A sunken shipwreck',
+  'A deep-sea trench',
+  'A sea cave',
+  'An oyster bed',
+  'A volcanic vent',
+  'A sandy seafloor',
+  'A hidden grotto',
+  'A coral castle',
+  'A tidal pool',
+  'An underwater canyon',
+];

@@ -1,5 +1,5 @@
 // Settings: places where the story unfolds. Should be broad enough to fit
-// multiple genres but vivid enough to anchor scenes. Use "A" or "An" at the
+// multiple worlds but vivid enough to anchor scenes. Use "A" or "An" at the
 // start so they read naturally alongside events (which use the same format).
 //
 // TEMPLATE FIT — used with and without articles:

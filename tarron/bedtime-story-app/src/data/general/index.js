@@ -7,7 +7,7 @@ export { conflicts } from './conflicts';
 export { mysteries } from './mysteries';
 export { morals } from './morals';
 export { tones } from './tones';
-export { openings } from './openings';
+
 export { emotions, preEmotions, postEmotions } from './emotions';
 export { templates } from './templates';
 export { flavorLines } from './flavorLines';

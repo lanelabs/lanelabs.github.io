@@ -50,7 +50,6 @@ Pick ONE character to be emotional. The other uses the plain form.
 |-------------------|-------------------------------------------|
 | `{item}`          | "a golden map" (article + descriptor + item) |
 | `{hook}`          | "a broken promise" / "a sealed door that won't open" |
-| `{opening}`       | "a quiet moment alone" / "someone saying goodbye" |
 | `{storyShape}`    | "a quest" / "a race against time"         |
 | `{storyShape.bare}` | "quest" / "race against time"          |
 

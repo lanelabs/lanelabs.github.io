@@ -1,6 +1,6 @@
 // Events: occasions and happenings that can replace a setting as the backdrop
 // for the story. Instead of a place, the story unfolds during an event.
-// Should be genre-neutral — broad enough to work in any world.
+// Should be world-neutral — broad enough to work in any world.
 // Must start with "A" or "An" to match settings format.
 //
 // TEMPLATE FIT — used in the same slots as settings:

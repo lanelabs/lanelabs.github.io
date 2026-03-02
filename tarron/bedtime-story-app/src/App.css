@@ -7,7 +7,7 @@
   --card-text: #111;
   --label-tones: #c06040;
   --label-storyShapes: #2e8a7a;
-  --label-openings: #5a68a8;
+
   --label-settings: #8a6030;
   --label-weather: #4a98b5;
   --label-characters: #3a7cc5;
@@ -20,8 +20,7 @@
   --tone-border: #c06040;
   --storyShape-bg: #dcf0ed;
   --storyShape-border: #4ab8a4;
-  --opening-bg: #dddcf0;
-  --opening-border: #5a68a8;
+
   --setting-bg: #f0e8df;
   --setting-border: #a07048;
   --weather-bg: #dcecf2;
@@ -50,7 +49,7 @@
     --card-text: #fff;
     --label-tones: #e09070;
     --label-storyShapes: #4ec8b0;
-    --label-openings: #8898d0;
+
     --label-settings: #c4956a;
     --label-weather: #7ec0e0;
     --label-characters: #5b9bd5;
@@ -63,8 +62,7 @@
     --tone-border: #e09070;
     --storyShape-bg: #1a3a34;
     --storyShape-border: #4ab8a4;
-    --opening-bg: #1e1d30;
-    --opening-border: #8898d0;
+
     --setting-bg: #30221a;
     --setting-border: #c4956a;
     --weather-bg: #18303a;
@@ -110,37 +108,59 @@ h1 {
   color: var(--heading);
 }
 
-.genre-section {
-  margin-bottom: 1.25rem;
+.settings-wrapper {
+  margin-bottom: 0.75rem;
+  text-align: right;
 }
 
-.genre-row {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-bottom: 0.5rem;
+.settings-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s;
 }
 
-.genre-checkbox {
+.settings-btn:hover {
+  opacity: 0.8;
+}
+
+.settings-dropdown {
+  text-align: left;
+  padding: 0.5rem 0 0;
+}
+
+.settings-heading {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.5;
+  margin-bottom: 0.35rem;
+}
+
+.settings-heading-gap {
+  margin-top: 0.75rem;
+}
+
+.settings-checkbox {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   font-size: 0.95rem;
   cursor: pointer;
   color: var(--text);
+  padding: 0.2rem 0;
 }
 
-.genre-checkbox input[type='checkbox'] {
+.settings-checkbox input[type='checkbox'] {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
   accent-color: var(--btn-bg);
-}
-
-.genre-single {
-  justify-content: center;
-  font-size: 0.85rem;
-  opacity: 0.75;
 }
 
 .generate-btn {
@@ -250,14 +270,10 @@ h1 {
   font-weight: 600;
 }
 
-.card-opening {
-  background: var(--opening-bg);
-  border: 1px solid var(--opening-border);
-}
 
 .label-tones { color: var(--label-tones); }
 .label-storyShapes { color: var(--label-storyShapes); }
-.label-openings { color: var(--label-openings); }
+
 .label-settings { color: var(--label-settings); }
 .label-characters { color: var(--label-characters); }
 .label-emotions { color: var(--label-emotions); }

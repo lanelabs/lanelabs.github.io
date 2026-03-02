@@ -3,14 +3,22 @@ import * as general from './data/general';
 import * as fantasy from './data/fantasy';
 import * as scifi from './data/scifi';
 import * as modern from './data/modern';
+import * as ocean from './data/ocean';
 import {
   NUM_CHARACTERS, NUM_CONFLICTS, NUM_ITEMS, NUM_MORALS,
-  NUM_TONES, NUM_OPENINGS, NUM_STORY_SHAPES,
+  NUM_TONES, NUM_STORY_SHAPES,
 } from './config';
 import { flavorLines } from './data/general/flavorLines';
 import './App.css';
 
-const genres = { fantasy, scifi, modern };
+const worlds = { fantasy, scifi, modern, ocean };
+
+const worldLabels = {
+  fantasy: 'Fantasy',
+  modern: 'Modern',
+  scifi: 'Sci-Fi',
+  ocean: 'Under the Ocean',
+};
 
 function pickRandom(array, count) {
   const shuffled = [...array].sort(() => Math.random() - 0.5);
@@ -89,7 +97,7 @@ const placeholderColors = {
   character2: 'label-characters',
   item: 'label-items',
   hook: 'label-conflicts',
-  opening: 'label-openings',
+
   storyShape: 'label-storyShapes',
   tone: 'label-tones',
   aTone: 'label-tones',
@@ -156,31 +164,33 @@ function applyTemplate(template, values, colors) {
 
 export default function App() {
   const [result, setResult] = useState(null);
-  const [selectedGenres, setSelectedGenres] = useState({
+  const [selectedWorlds, setSelectedWorlds] = useState({
     fantasy: true,
     scifi: true,
     modern: true,
+    ocean: true,
   });
-  const [singleGenre, setSingleGenre] = useState(false);
+  const [singleWorld, setSingleWorld] = useState(true);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [useTemplate, setUseTemplate] = useState(true);
 
-  function toggleGenre(genre) {
-    setSelectedGenres((prev) => ({ ...prev, [genre]: !prev[genre] }));
+  function toggleWorld(world) {
+    setSelectedWorlds((prev) => ({ ...prev, [world]: !prev[world] }));
   }
 
   function generate() {
-    const checked = Object.entries(selectedGenres)
+    const checked = Object.entries(selectedWorlds)
       .filter(([, on]) => on)
       .map(([key]) => key);
 
     let activeMods;
     if (checked.length === 0) {
       activeMods = [general];
-    } else if (singleGenre) {
+    } else if (singleWorld) {
       const pick = checked[Math.floor(Math.random() * checked.length)];
-      activeMods = [general, genres[pick]];
+      activeMods = [general, worlds[pick]];
     } else {
-      activeMods = [general, ...checked.map((k) => genres[k])];
+      activeMods = [general, ...checked.map((k) => worlds[k])];
     }
 
     const allPeople = mergeArrays(activeMods, 'people');
@@ -213,12 +223,9 @@ export default function App() {
       settingVal = pickRandom(allSettings, 1)[0];
     }
 
-    const opening = pickRandom(general.openings, 1)[0];
-
     setResult({
       tones: pickRandom(general.tones, NUM_TONES),
       storyShapes: pickRandom(general.storyShapes, NUM_STORY_SHAPES),
-      openings: [opening],
       characters,
       emotion: pickedEmotion,
       setting: settingVal,
@@ -246,7 +253,6 @@ export default function App() {
     const weatherAdj = values['weather.adj'] || values.weather;
     values.aWeatherAdj = `${aOrAn(weatherAdj)} ${weatherAdj}`;
     addForms(values, 'hook', result.hooks[0]);
-    addForms(values, 'opening', result.openings[0]);
     addForms(values, 'storyShape', result.storyShapes[0]);
     addForms(values, 'tone', result.tones[0]);
     // Computed: "a cozy" or "an adventurous" — for templates that need "A {tone} tale".
@@ -285,39 +291,45 @@ export default function App() {
     <div className="app">
       <h1>Bedtime Story Ideas</h1>
 
-      <div className="genre-section">
-        <div className="genre-row">
-          {[
-            ['fantasy', 'Fantasy'],
-            ['modern', 'Modern'],
-            ['scifi', 'Sci-Fi'],
-          ].map(([key, label]) => (
-            <label key={key} className="genre-checkbox">
+      <div className="settings-wrapper">
+        <button
+          className="settings-btn"
+          onClick={() => setSettingsOpen((v) => !v)}
+        >
+          Settings {settingsOpen ? '\u25B2' : '\u25BC'}
+        </button>
+        {settingsOpen && (
+          <div className="settings-dropdown">
+            <h3 className="settings-heading">Worlds</h3>
+            {Object.keys(worlds).map((key) => (
+              <label key={key} className="settings-checkbox">
+                <input
+                  type="checkbox"
+                  checked={selectedWorlds[key]}
+                  onChange={() => toggleWorld(key)}
+                />
+                {worldLabels[key]}
+              </label>
+            ))}
+            <h3 className="settings-heading settings-heading-gap">Other</h3>
+            <label className="settings-checkbox">
               <input
                 type="checkbox"
-                checked={selectedGenres[key]}
-                onChange={() => toggleGenre(key)}
+                checked={singleWorld}
+                onChange={() => setSingleWorld((v) => !v)}
               />
-              {label}
+              Stick to one world
             </label>
-          ))}
-        </div>
-        <label className="genre-checkbox genre-single">
-          <input
-            type="checkbox"
-            checked={singleGenre}
-            onChange={() => setSingleGenre((v) => !v)}
-          />
-          Stick to one genre
-        </label>
-        <label className="genre-checkbox genre-single">
-          <input
-            type="checkbox"
-            checked={useTemplate}
-            onChange={() => setUseTemplate((v) => !v)}
-          />
-          Use narrative template
-        </label>
+            <label className="settings-checkbox">
+              <input
+                type="checkbox"
+                checked={useTemplate}
+                onChange={() => setUseTemplate((v) => !v)}
+              />
+              Use narrative template
+            </label>
+          </div>
+        )}
       </div>
 
       <button className="generate-btn" onClick={generate}>
@@ -339,7 +351,7 @@ export default function App() {
                 <div className="line-list">
                   <p className="line-item"><span className="line-label label-storyShapes">Story Shape:</span> {displayValue(result.storyShapes[0])}</p>
                   <p className="line-item"><span className={`line-label label-${result.hookType === 'Mystery' ? 'mysteries' : 'conflicts'}`}>{result.hookType}:</span> {displayValue(result.hooks[0])}</p>
-                  <p className="line-item"><span className="line-label label-openings">Opening:</span> {displayValue(result.openings[0])}</p>
+
                 </div>
               </div>
               <div className="section">
