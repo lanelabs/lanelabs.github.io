@@ -348,3 +348,20 @@ h1 {
 .template-value {
   font-weight: 600;
 }
+
+.copy-ai-btn {
+  margin-top: 1rem;
+  background: none;
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.copy-ai-btn:hover {
+  opacity: 0.85;
+}

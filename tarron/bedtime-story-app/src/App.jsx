@@ -173,6 +173,7 @@ export default function App() {
   const [singleWorld, setSingleWorld] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [useTemplate, setUseTemplate] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   function toggleWorld(world) {
     setSelectedWorlds((prev) => ({ ...prev, [world]: !prev[world] }));
@@ -239,45 +240,38 @@ export default function App() {
       template: pickRandom(general.templates, 1)[0],
       flavorLine: pickRandom(flavorLines, 1)[0],
     });
+    setCopied(false);
   }
 
-  function renderTemplate() {
-    const template = result.template;
+  function buildTemplateValues() {
     const values = {};
-
-    // Data-driven values — addForms gives each one a default + .bare form,
-    // plus any custom forms defined as object properties in the data file.
     addForms(values, 'setting', result.setting);
     addForms(values, 'weather', result.weather);
-    // Computed: "a stormy" or "an overcast" — for "{AWeatherAdj} {setting.bare}".
     const weatherAdj = values['weather.adj'] || values.weather;
     values.aWeatherAdj = `${aOrAn(weatherAdj)} ${weatherAdj}`;
     addForms(values, 'hook', result.hooks[0]);
     addForms(values, 'storyShape', result.storyShapes[0]);
     addForms(values, 'tone', result.tones[0]);
-    // Computed: "a cozy" or "an adventurous" — for templates that need "A {tone} tale".
     const toneWord = values.tone;
     values.aTone = `${aOrAn(toneWord)} ${toneWord}`;
     addForms(values, 'moral', result.morals[0]);
-    // For single-word morals (strings), "about" = bare (just the lowercase word).
     if (!values['moral.about']) values['moral.about'] = values['moral.bare'];
-
-    // Characters: plain and emotional variants.
-    // Templates choose which character gets the emotion via {character1.emotional}.
     values.character1 = formatCharacterPlain(result.characters[0]);
     values['character1.emotional'] = formatCharacterEmotional(result.characters[0], result.emotion);
     values.character2 = formatCharacterPlain(result.characters[1]);
     values['character2.emotional'] = formatCharacterEmotional(result.characters[1], result.emotion);
-
     const bareItem = stripArticle(result.items[0]).toLowerCase();
     values.item = `${aOrAn(bareItem)} ${bareItem}`;
+    return values;
+  }
 
+  function renderTemplate() {
+    const values = buildTemplateValues();
     const colors = {
       ...placeholderColors,
       hook: result.hookType === 'Mystery' ? 'label-mysteries' : 'label-conflicts',
     };
-
-    const paragraphs = template.split('\n\n');
+    const paragraphs = result.template.split('\n\n');
     return (
       <div className="template-narrative">
         {paragraphs.map((para, i) => (
@@ -285,6 +279,86 @@ export default function App() {
         ))}
       </div>
     );
+  }
+
+  function getPlainTextPrompt() {
+    const values = buildTemplateValues();
+    let text = result.template.replace(/\{([\w.]+)\}/g, (_, key) => {
+      const isCapitalised = key[0] === key[0].toUpperCase();
+      const lowerKey = key[0].toLowerCase() + key.slice(1);
+      const value = values[lowerKey];
+      if (value == null) return `{${key}}`;
+      return isCapitalised ? value[0].toUpperCase() + value.slice(1) : value;
+    });
+    // Fix a/an before resolved values.
+    text = text.replace(/\b(an?)\s+([a-z])/gi, (_, article, nextChar) => {
+      const upper = article[0] === article[0].toUpperCase();
+      const needsN = /[aeiou]/i.test(nextChar);
+      return (needsN ? (upper ? 'An' : 'an') : (upper ? 'A' : 'a')) + ' ' + nextChar;
+    });
+    return text;
+  }
+
+  function buildElementList() {
+    const lines = [];
+    lines.push(`Story Shape: ${displayValue(result.storyShapes[0])}`);
+    lines.push(`${result.hookType}: ${displayValue(result.hooks[0])}`);
+    result.characters.forEach((c) => lines.push(`Character: ${c}`));
+    lines.push(`Emotion: ${result.emotion.text}`);
+    lines.push(`Setting: ${displayValue(result.setting)}`);
+    lines.push(`Weather: ${displayValue(result.weather)}`);
+    result.items.forEach((i) => lines.push(`Item: ${i}`));
+    result.morals.forEach((m) => lines.push(`Moral: ${displayValue(m)}`));
+    result.tones.forEach((t) => lines.push(`Tone: ${displayValue(t)}`));
+    return lines.join('\n');
+  }
+
+  async function handleCopyForAI() {
+    const prompt = getPlainTextPrompt();
+    const elements = buildElementList();
+    const fullText = `Write a bedtime story for a young child (ages 3\u20137) based on the story prompt below.
+
+Guidelines:
+- Keep it around 500\u2013800 words, a comfortable 5-minute read-aloud.
+- The prompt below is a back-cover-style teaser. Use it as a springboard, not a script \u2014 surprise me with where the story actually goes.
+- Read the entire prompt first so you have the full picture before writing. Establish the setting, weather, and atmosphere from the very first scene \u2014 don\u2019t introduce them halfway through and make the reader re-imagine everything. If it\u2019s a rainy night, the reader should feel that from sentence one, not get blindsided five paragraphs in.
+- The prompt was generated randomly, so its elements may not obviously connect. Your job is to weave them into a story that feels like it was planned from the start \u2014 find the thread that ties everything together into one cohesive narrative.
+- Every element in the prompt (characters, setting, weather, item, emotion, moral) must matter to the plot. Don\u2019t just mention them in passing \u2014 let their unique qualities shape what happens. The item should do something only that item could do. The setting should create problems or possibilities that wouldn\u2019t exist anywhere else. The weather should change how a scene feels or what\u2019s possible. The story should feel like it couldn\u2019t exist with different elements swapped in.
+- Give the characters distinct voices and at least one small, specific detail that makes them feel real (a habit, a favorite thing, a way of speaking).
+- Let the story breathe. Not every sentence needs to advance the plot \u2014 a moment of wonder, a silly aside, or a quiet pause can make a story feel alive.
+- Avoid AI-story clich\u00e9s: no \u201clittle did they know,\u201d no \u201cand from that day on,\u201d no tidy moral bow at the end. If the theme comes through, the reader will feel it without being told.
+- Write in a warm, natural voice \u2014 as if a parent were telling this story from memory, not reading from a script.
+- End in a way that feels settling and satisfying. This is a bedtime story \u2014 the child should feel ready to close their eyes.
+- Take your time. Write a draft, then re-read it against the prompt and the craft checklist below. If something feels cheap, disjointed, or formulaic, revise it. Go through as many iterations as you need until the story feels compelling, cohesive, and worth telling. Only give me the final version.
+
+Craft checklist (use these as inspiration for making the story effective, not rigid rules \u2014 vary your approach so stories stay fresh and different each time):
+- Start close to the action. No wasted setup \u2014 open with something happening.
+- Every sentence must reveal character or advance the story. In 500\u2013800 words there is zero room for filler.
+- Use the Rule of Three: three attempts, three events. The first two set the pattern, the third breaks it. Children crave the rhythm and love the payoff.
+- The character must solve their own problem. No parent, wizard, or narrator swooping in.
+- Make the reader care within the first two sentences \u2014 give the character a want, a quirk, or a vulnerability right away.
+- Give the character a specific, concrete desire ("find her lost stuffed bear") not an abstract one ("be brave"). The concrete desire reveals the theme.
+- Put real, age-appropriate obstacles in the way. Without friction there is no story, just a sequence of events.
+- Write for the ear. These stories are read aloud \u2014 every sentence must sound good spoken. If it\u2019s clunky in your mouth, rewrite it.
+- Use rhythm, repetition, and refrains. A recurring phrase gives children handholds and creates musicality.
+- Use specific sensory details. "The cave smelled like wet rocks and old leaves" is alive. "The cave was dark and scary" is dead. Engage smell, touch, sound \u2014 not just sight.
+- Prefer strong concrete nouns and verbs over adjectives and adverbs. "She crept" beats "she walked quietly."
+- Never be preachy. If the moral is woven into action, children absorb it. The moment you state it, the story dies.
+- Balance adventure with calm \u2014 energy arcs downward toward the end. Curiosity builds, challenge is met, world settles into peace.
+- Earn the emotion, don\u2019t assert it. Don\u2019t say "she felt happy" \u2014 show her laughing, spinning, hugging.
+- No info-dumping. Drop the reader into the scene; let them piece it together.
+- Avoid generic, interchangeable language. The details that make THIS story different are what make it memorable.
+- Avoid "and then" plotting. Events must connect through causation or conflict, not just sequence. "Because of that\u2026" not "And then\u2026"
+- One main character, one clear problem, one setting. No subplots.
+
+Story elements:
+${elements}
+
+Narrative prompt:
+${prompt}`;
+    await navigator.clipboard.writeText(fullText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   }
 
   return (
@@ -342,6 +416,9 @@ export default function App() {
             <>
               <p className="template-flavor">{result.flavorLine}</p>
               {renderTemplate()}
+              <button className="copy-ai-btn" onClick={handleCopyForAI}>
+                {copied ? 'Copied!' : 'Copy for AI'}
+              </button>
             </>
           ) : (
             <>
