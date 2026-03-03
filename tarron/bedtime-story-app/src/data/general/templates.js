@@ -145,7 +145,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-emotional
   // Structure: single-turn | Rhythm: short-punchy | Item-role: key | Scale: neutral | Genre-feel: tall-tale
   // Shape: unlikely-friendship
-  '{Weather}, the {setting.bare|event.bare} turned upside down — not figuratively. {Character1.emotional} barely blinked. {Character2} had questions. {Hook} was only the beginning, and {item} didn\'t exactly help at first. But their unlikely friendship worked out, eventually — a {tone} story about {wish.bare} and {moral.about}.',
+  '{Weather}, the {setting.bare} turned upside down — not figuratively. {Character1.emotional} barely blinked. {Character2} had questions. {Hook} was only the beginning, and {item} didn\'t exactly help at first. But their unlikely friendship worked out, eventually — a {tone} story about {wish.bare} and {moral.about}.',
 
   // Template 18 — Fairy-Tale Subversion
   // Voice: classic | Opening: contrast | Temporal: linear | Dynamic: helper | Agency: proactive
@@ -169,7 +169,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: weather
   // Structure: two-para | Rhythm: mixed | Item-role: catalyst | Scale: expanding | Genre-feel: neutral
   // Shape: race-against-time
-  'It started with a sound — {weather} — rolling across {setting|event}. {Character1.emotional} heard it first. Then came {hook}, and after that, nothing was small anymore.\n\n{Character2} got pulled in next. Then {item} appeared, and the race picked up speed. All they wanted was {wish}. A {tone} tale about {moral.about}, told one consequence at a time.',
+  'It started small. {Weather}, a sound rolled across {setting} — and {character1.emotional} heard it first. Then came {hook}, and after that, nothing was small anymore.\n\n{Character2} got pulled in next. Then {item} appeared, and the race picked up speed. All they wanted was {wish}. A {tone} tale about {moral.about}, told one consequence at a time.',
 
   // Template 21 — Withholding Blurb
   // Voice: bedtime-whisper | Opening: sensory | Temporal: linear | Dynamic: secret-between | Agency: passive
@@ -217,7 +217,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: weather
   // Structure: two-para | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: adventure-serial
   // Shape: daring-escape
-  'They were already running when {weather} hit. The quiet morning in {setting|event} — gone. {Hook} made sure of that. {Character1.emotional} pulled {character2} along without a word.\n\nThings got worse before they got better. But {item} changed everything, and the escape clawed its way up from the dark. All they wanted was {wish}. A {tone} tale about {moral.about}.',
+  'They were already running when {weather.noun} hit. The quiet morning in {setting|event} — gone. {Hook} made sure of that. {Character1.emotional} pulled {character2} along without a word.\n\nThings got worse before they got better. But {item} changed everything, and the escape clawed its way up from the dark. All they wanted was {wish}. A {tone} tale about {moral.about}.',
 
   // Template 27 — Everyone Knows
   // Voice: campfire | Opening: everyone-knows | Temporal: linear | Dynamic: believer-skeptic | Agency: reactive
@@ -241,7 +241,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: setting
   // Structure: single-turn | Rhythm: short-punchy | Item-role: catalyst | Scale: local | Genre-feel: tall-tale
   // Shape: wild-thing-to-tame
-  'I should warn you — {weather}, the {setting.bare|event.bare} turned upside down. Not figuratively. {Character1.emotional} and {character2} were standing right there when it happened. {Hook} was somehow the least strange part. {Item} started glowing. The wild thing got very {tone} very quickly — all because of {wish.bare} and {moral.about}.',
+  'I should warn you — {weather}, the {setting.bare} turned upside down. Not figuratively. {Character1.emotional} and {character2} were standing right there when it happened. {Hook} was somehow the least strange part. {Item} started glowing. The wild thing got very {tone} very quickly — all because of {wish.bare} and {moral.about}.',
 
   // Template 30 — Scalar Shift / Whispered Zoom
   // Voice: bedtime-whisper | Opening: scalar-shift | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -249,7 +249,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: setting
   // Structure: bookend | Rhythm: rhythmic | Item-role: comfort | Scale: contracting | Genre-feel: lullaby
   // Shape: build-together
-  'Somewhere out past {setting|event}, {weather}, the sky stretches on and on and on.\n\nBut down below — much closer — the {character1.emotional.bare} and the {character2.bare} sit with {item} between them. {Hook} feels far away now. The project is almost done — a {tone} story about {wish.bare} and {moral.about}.\n\nThe sky stretches on. And everything underneath it rests.',
+  'Somewhere out past {setting}, {weather}, the sky stretches on and on and on.\n\nBut down below — much closer — the {character1.emotional.bare} and the {character2.bare} sit with {item} between them. {Hook} feels far away now. The project is almost done — a {tone} story about {wish.bare} and {moral.about}.\n\nThe sky stretches on. And everything underneath it rests.',
 
   // Template 31 — Sensory + Seasonal
   // Voice: legend | Opening: sensory | Temporal: circular | Dynamic: strangers | Agency: passive
@@ -257,7 +257,7 @@ export const templates = [
   // Moral: woven | Mystery: laid-out | Spotlight: weather
   // Structure: wind-down | Rhythm: flowing | Item-role: symbol | Scale: local | Genre-feel: myth
   // Shape: reunion
-  'The sound came first — {weather}. Then the smell of {setting.bare|event.bare}, the kind that only comes once a year. They say the {character1.emotional.bare} and the {character2.bare} both knew what it meant.\n\nAnd with the season came {hook}. {Item} appeared where it always does. The reunion unfolded slowly, full of {tone.noun}, winding down to where it always ends — with {wish.bare} and {moral.about}.',
+  'The sound came first — {weather}. Then the smell of {setting.bare}, the kind that only comes once a year. They say the {character1.emotional.bare} and the {character2.bare} both knew what it meant.\n\nAnd with the season came {hook}. {Item} appeared where it always does. The reunion unfolded slowly, full of {tone.noun}, winding down to where it always ends — with {wish.bare} and {moral.about}.',
 
   // Template 32 — False Start
   // Voice: confessional | Opening: false-start | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -273,7 +273,7 @@ export const templates = [
   // Moral: label | Mystery: teaser | Spotlight: item
   // Structure: bookend | Rhythm: rhythmic | Item-role: last | Scale: epic | Genre-feel: myth
   // Shape: message-to-deliver
-  'Before anyone lived in {setting|event}, there was {item}. That\'s how the old stories begin.\n\n{Weather}, {character1.emotional} and {character2} found it — buried, waiting, still warm. {Hook} was only the first sign of what it meant. The message inside is {aTone} tale about {wish.bare} and {moral.about}.\n\nAnd the {item.bare} is still there. It was there first. It will be there last.',
+  'Before anyone lived in {setting}, there was {item}. That\'s how the old stories begin.\n\n{Weather}, {character1.emotional} and {character2} found it — buried, waiting, still warm. {Hook} was only the first sign of what it meant. The message inside is {aTone} tale about {wish.bare} and {moral.about}.\n\nAnd the {item.bare} is still there. It was there first. It will be there last.',
 
   // Template 34 — Impossible Choice
   // Voice: rhetorical | Opening: contrast | Temporal: linear | Dynamic: strangers | Agency: compelled
@@ -297,7 +297,7 @@ export const templates = [
   // Moral: woven | Mystery: withhold-hook | Spotlight: character-emotional
   // Structure: three-beat | Rhythm: mixed | Item-role: clue | Scale: internal | Genre-feel: neutral
   // Shape: high-stakes-bet
-  'There\'s something I should tell you first. {Character1.emotional} has been carrying this a long time — since before {setting|event}, since before {weather} meant anything.\n\n{Hook} brought it all back. What was hidden is now impossible to ignore. {Character2} sees it. {Item} confirms it.\n\nBut here\'s what makes it {aTone} story: the stakes aren\'t about the secret. They\'re about {wish.bare} and {moral.about}.',
+  'There\'s something I should tell you first. {Character1.emotional} has been carrying this a long time — since before everything changed in {setting|event}.\n\n{Weather}, {hook} brought it all back. What was hidden is now impossible to ignore. {Character2} sees it. {Item} confirms it.\n\nBut here\'s what makes it {aTone} story: the stakes aren\'t about the secret. They\'re about {wish.bare} and {moral.about}.',
 
   // Template 37 — Scarcity + The Promise
   // Voice: legend | Opening: rule-to-break | Temporal: linear | Dynamic: protector-ward | Agency: compelled
@@ -313,5 +313,85 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: tone
   // Structure: three-beat | Rhythm: mixed | Item-role: key | Scale: local | Genre-feel: tall-tale
   // Shape: unexpected-adventure
-  'Listen — this {character1.emotional.bare} didn\'t plan any of this. Nobody plans for {hook}. But here they are, in {setting|event}, {weather}, with nothing but {item} and a bad feeling.\n\n{Character2} showed up, which made things both better and worse. The smell of {setting.bare|event.bare} after dark is something else, let me tell you.\n\nAnyway — the adventure is worth hearing. All they wanted was {wish}. A {tone} tale, all things considered, about {moral.about}.',
+  'Listen — this {character1.emotional.bare} didn\'t plan any of this. Nobody plans for {hook}. But here they are, in {setting|event}, {weather}, with nothing but {item} and a bad feeling.\n\n{Character2} showed up, which made things both better and worse. The smell of {setting.bare} after dark is something else, let me tell you.\n\nAnyway — the adventure is worth hearing. All they wanted was {wish}. A {tone} tale, all things considered, about {moral.about}.',
+
+  // Template 39 — The Lesson
+  // Voice: instructional | Opening: declarative | Temporal: linear | Dynamic: mentor-student | Agency: proactive
+  // Arc: steady-build | Tension: discovery | Stakes: identity | Connection: causal | Hook-role: central
+  // Moral: frame | Mystery: laid-out | Spotlight: moral
+  // Structure: two-para | Rhythm: flowing | Item-role: gift | Scale: local | Genre-feel: fable
+  // Shape: passing-the-torch
+  'This is a story about {moral.about} — and how {character1.emotional} learned it the hard way. Their {role}, {character2}, brought them to {setting|event} with nothing but {item} and a warning: {hook} changes everyone it touches.\n\n{Weather}, the lesson took hold. Not all at once — slowly, the way {tone} things do. All they wanted was {wish}. What they got was the {item.bare}, passed from one hand to another, and the understanding that {moral.about} can\'t be taught. It has to be lived.',
+
+  // Template 40 — The Contest
+  // Voice: laconic | Opening: dialogue-cold | Temporal: linear | Dynamic: rivals | Agency: proactive
+  // Arc: surprise-pivot | Tension: rivalry | Stakes: identity | Connection: collision | Hook-role: central
+  // Moral: label | Mystery: laid-out | Spotlight: character-both
+  // Structure: two-para | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: neutral
+  // Shape: changing-sides
+  '"I was here first." "No, you weren\'t." {Character1} and {character2.emotional} — both claiming to be the rightful {role} — arrived at {setting|event} at exactly the same time. {Hook} was the prize. Neither planned on sharing.\n\n{Weather.noun} made everything worse, naturally. {Item} didn\'t help either — it just gave them one more thing to fight over. But rivals have a way of surprising you. A {tone} tale about {wish.bare} and {moral.about}.',
+
+  // Template 41 — Two Paths
+  // Voice: campfire | Opening: declarative | Temporal: parallel | Dynamic: reuniting | Agency: reactive
+  // Arc: surprise-pivot | Tension: discovery | Stakes: belonging | Connection: collision | Hook-role: catalyst
+  // Moral: label | Mystery: teaser | Spotlight: character-both
+  // Structure: three-beat | Rhythm: mixed | Item-role: key | Scale: local | Genre-feel: neutral
+  // Shape: crossed-paths
+  'Here\'s the thing about {character1} and {character2.emotional} — they were both headed for {event}, but neither one knew the other was coming. One carried {item}. The other carried {hook}. {Weather}, both paths pointed the same way.\n\nThey hadn\'t seen each other since the last time everything went wrong. Now here they are — {role} and old friend, standing in {setting}, holding the pieces of something that only works if you put it together. A {tone} tale about {wish.bare} and {moral.about}.',
+
+  // Template 42 — The Truce
+  // Voice: rhetorical | Opening: question-hook | Temporal: flashback | Dynamic: former-enemies | Agency: reluctant
+  // Arc: dark-to-light | Tension: promise | Stakes: trust | Connection: causal | Hook-role: past-event
+  // Moral: question | Mystery: teaser | Spotlight: hook
+  // Structure: dialogue | Rhythm: mixed | Item-role: symbol | Scale: local | Genre-feel: neutral
+  // Shape: old-wounds
+  'Can you really forgive someone who was once your {role}? {Character1.emotional} wasn\'t sure. The last time they faced {character2}, it ended with {hook} — and neither walked away clean.\n\n"I brought something." The {character2.bare} holds out {item}, right there in {setting|event}, {weather}. The past feels closer than it should. A {tone} story about {wish.bare} — and whether {moral.about} is something you earn or something you choose.',
+
+  // Template 43 — The Fairy Tale
+  // Voice: legend | Opening: declarative | Temporal: linear | Dynamic: helper | Agency: reactive
+  // Arc: cinderella | Tension: mismatch | Stakes: belonging | Connection: inheritance | Hook-role: catalyst
+  // Moral: woven | Mystery: laid-out | Spotlight: story-shape
+  // Structure: two-para | Rhythm: flowing | Item-role: gift | Scale: local | Genre-feel: fairy-tale
+  // Shape: underdog-triumph
+  'Once upon a time — and not so long ago — {character1.emotional} was nobody\'s idea of a {role}. They lived quietly near {setting}, with nothing to their name but {item}. Then {hook.verb}, and everything changed.\n\n{Character2} arrived with the dawn, {weather}. What began as {aTone} accident became something bigger — a rise from the lowest place to the highest. All they wanted was {wish}. In the end, {moral.about} mattered more than the crown.',
+
+  // Template 44 — Field Notes
+  // Voice: instructional | Opening: sensory | Temporal: linear | Dynamic: strangers | Agency: reactive
+  // Arc: calm | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: background
+  // Moral: implied | Mystery: laid-out | Spotlight: weather
+  // Structure: two-para | Rhythm: flowing | Item-role: symbol | Scale: intimate | Genre-feel: neutral
+  // Shape: nature-takes-its-course
+  'Note the way {weather.noun} settles over {setting}. Watch closely. There — {character1.emotional} and {character2} have just noticed each other for the first time. In the wild, this is the moment that decides everything.\n\n{Hook} is part of the landscape here, as ordinary as {item}. The {role} and the newcomer circle each other, {tone} and cautious. What they want — {wish} — isn\'t so different from what anything wants. Nature does the rest. And somewhere in the quiet, {moral.about} speaks for itself.',
+
+  // Template 45 — The Moment Before
+  // Voice: bedtime-whisper | Opening: contrast | Temporal: middle-first | Dynamic: strangers | Agency: passive
+  // Arc: light-to-dark | Tension: secret | Stakes: missed-moment | Connection: symbolic | Hook-role: past-event
+  // Moral: woven | Mystery: withhold-hook | Spotlight: tone
+  // Structure: two-para | Rhythm: flowing | Item-role: comfort | Scale: microscopic | Genre-feel: ghost-story
+  // Shape: moment-frozen
+  'Everything was fine a moment ago. {Weather}, {setting|event} was {tone} and still, and {character1.emotional} was holding {item} like nothing would ever go wrong again.\n\nBut here\'s where the story really starts — with {character2}, with {hook}, with the way {weather.noun} changes everything between one breath and the next. The {role} should have said something sooner. Now {wish.bare} feels further away than ever. But even the darkest turn carries {moral.about} somewhere inside it.',
+
+  // Template 46 — The Inventory
+  // Voice: direct-address | Opening: catalog | Temporal: linear | Dynamic: strangers | Agency: proactive
+  // Arc: steady-build | Tension: discovery | Stakes: implied | Connection: discovery | Hook-role: central
+  // Moral: label | Mystery: laid-out | Spotlight: item
+  // Structure: two-para | Rhythm: fragmented | Item-role: key | Scale: local | Genre-feel: adventure-serial
+  // Shape: map-to-follow
+  'You\'ll need a few things for this one. {Item}. A {role} you can trust — that\'s {character2}. A place to start — {setting|event}, {weather}. And most of all, you\'ll need {character1.emotional}, because nobody else is going to do this.\n\n{Hook} is waiting ahead. The path gets {tone} the further you go. But somewhere out there is {wish.bare}, and that\'s worth every step. A story about {moral.about}, told one mile at a time.',
+
+  // Template 47 — Already Wrong
+  // Voice: in-medias-res | Opening: contrast | Temporal: middle-first | Dynamic: protector-ward | Agency: reactive
+  // Arc: man-in-hole | Tension: pursuit | Stakes: personal-loss | Connection: causal | Hook-role: looming-threat
+  // Moral: tested | Mystery: teaser | Spotlight: character-emotional
+  // Structure: hook-plus-para | Rhythm: long-then-short | Item-role: burden | Scale: local | Genre-feel: adventure-serial
+  // Shape: borrowed-time
+  'By the time {weather.noun} rolled in, it was already too late to turn back. {Character1.emotional} held {item} tight — the one thing they couldn\'t afford to lose — while {character2}, the {role}, kept watch.\n\nIt wasn\'t supposed to go like this. {Setting|event} was supposed to be safe. {Hook} was supposed to stay buried. But now they\'re on borrowed time, and the only thing keeping them moving is {wish} — {aTone} story about {moral.about}, tested at every turn.',
+
+  // Template 48 — Don't Stay Up
+  // Voice: warning | Opening: rule-to-break | Temporal: linear | Dynamic: strangers | Agency: reactive
+  // Arc: steady-build | Tension: forbidden | Stakes: missed-moment | Connection: causal | Hook-role: central
+  // Moral: label | Mystery: teaser | Spotlight: tone
+  // Structure: single-turn | Rhythm: short-punchy | Item-role: catalyst | Scale: local | Genre-feel: neutral
+  // Shape: night-watch
+  'Do not stay up for this. I mean it. Because once you hear about {character1.emotional} and the {role} they met at {event}, {weather}, you will not want to stop. {Hook} is just the beginning. {Character2} makes it worse. {Item} makes it interesting. The whole thing gets very {tone} very quickly, and before you know it you\'re deep into a story about {wish.bare} and {moral.about} and it\'s way past {setting.bare} o\'clock.',
 ];

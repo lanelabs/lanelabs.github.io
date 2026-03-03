@@ -93,25 +93,25 @@ When the full set of templates is reviewed, aim for:
 - No two templates sharing the same combination across Voice +
   Opening Technique + Structure (these three define the most visible "feel")
 
-### Coverage Status (38 templates)
+### Coverage Status (48 templates)
 
 All Voice, Opening, and Structure tags are now covered. The three dimensions that
 define the most visible "feel" (Voice + Opening + Structure) have full coverage,
 and no two templates share the same V+O+S triple (except T1-7,9 which are all
 classic + declarative + two-para by design).
 
-**Voice (11/11):** `classic` (T1-7,9,10,14,18,20), `legend` (T8,24,31,33,37), `direct-address` (T11,22,25), `campfire` (T12,23,27,38), `warning` (T13,29), `rhetorical` (T15,34), `instructional` (T16), `laconic` (T17,28), `confessional` (T19,32,36), `bedtime-whisper` (T21,30), `in-medias-res` (T26,35)
+**Voice (11/11):** `classic` (T1-7,9,10,14,18,20), `legend` (T8,24,31,33,37,43), `direct-address` (T11,22,25,46), `campfire` (T12,23,27,38,41), `warning` (T13,29,48), `rhetorical` (T15,34,42), `instructional` (T16,39,44), `laconic` (T17,28,40), `confessional` (T19,32,36), `bedtime-whisper` (T21,30,45), `in-medias-res` (T26,35,47)
 
-**Opening (12/12):** `declarative` (T1-7,9,14,22,33), `everyone-knows` (T8,27), `rule-to-break` (T10,37), `sensory` (T11,20,21,31,38), `dialogue-cold` (T12), `contrast` (T13,18,23,25,34,36), `question-hook` (T15,19), `catalog` (T16), `impossible-image` (T17,29), `interrupted-routine` (T26,28), `scalar-shift` (T24,30,35), `false-start` (T32)
+**Opening (12/12):** `declarative` (T1-7,9,14,22,33,39,41,43), `everyone-knows` (T8,27), `rule-to-break` (T10,37,48), `sensory` (T11,20,21,31,38,44), `dialogue-cold` (T12,40), `contrast` (T13,18,23,25,34,36,45,47), `question-hook` (T15,19,42), `catalog` (T16,46), `impossible-image` (T17,29), `interrupted-routine` (T26,28), `scalar-shift` (T24,30,35), `false-start` (T32)
 
-**Structure (8/8):** `two-para` (T1-10,12,13,15,18-21,23,26,28,34,35,37), `wind-down` (T11,22,31), `hook-plus-para` (T14,24), `list-like` (T16), `single-turn` (T17,29), `bookend` (T25,30,33), `dialogue` (T27), `three-beat` (T32,36,38)
+**Structure (8/8):** `two-para` (T1-10,12,13,15,18-21,23,26,28,34,35,37,39-41,43-46), `wind-down` (T11,22,31), `hook-plus-para` (T14,24,47), `list-like` (T16), `single-turn` (T17,29,48), `bookend` (T25,30,33), `dialogue` (T27,42), `three-beat` (T32,36,38)
 
-**Shape (37 tags, 36/37 used):** `discovery` (T1), `unexpected-adventure` (T2,T38), `hidden-truth` (T3), `quest` (T4), `puzzle` (T5), `transformation` (T6), `rescue` (T7), `curse-to-break` (T8), `fear-to-overcome` (T9), `dare-to-accept` (T10), `precious-to-protect` (T11), `trust-to-earn` (T12), `test-of-courage` (T13), `fresh-start` (T14), `gift-to-give` (T15), `rise-from-nothing` (T16), `unlikely-friendship` (T17), `mistaken-identity` (T18), `secret-to-keep` (T19), `race-against-time` (T20), `stranger-in-need` (T21), `lesson-to-learn` (T22), `journey-home` (T23), `overcoming-threat` (T24), `search-for-lost` (T25), `daring-escape` (T26), `stand-against-bully` (T27), `competition` (T28), `wild-thing-to-tame` (T29), `build-together` (T30), `reunion` (T31), `mistake-to-fix` (T32), `message-to-deliver` (T33), `promise-to-keep` (T34), `big-event` (T35), `high-stakes-bet` (T36), `trade` (T37)
+**Shape (47 tags, all unique except unexpected-adventure):** `discovery` (T1), `unexpected-adventure` (T2,T38), `hidden-truth` (T3), `quest` (T4), `puzzle` (T5), `transformation` (T6), `rescue` (T7), `curse-to-break` (T8), `fear-to-overcome` (T9), `dare-to-accept` (T10), `precious-to-protect` (T11), `trust-to-earn` (T12), `test-of-courage` (T13), `fresh-start` (T14), `gift-to-give` (T15), `rise-from-nothing` (T16), `unlikely-friendship` (T17), `mistaken-identity` (T18), `secret-to-keep` (T19), `race-against-time` (T20), `stranger-in-need` (T21), `lesson-to-learn` (T22), `journey-home` (T23), `overcoming-threat` (T24), `search-for-lost` (T25), `daring-escape` (T26), `stand-against-bully` (T27), `competition` (T28), `wild-thing-to-tame` (T29), `build-together` (T30), `reunion` (T31), `mistake-to-fix` (T32), `message-to-deliver` (T33), `promise-to-keep` (T34), `big-event` (T35), `high-stakes-bet` (T36), `trade` (T37), `passing-the-torch` (T39), `changing-sides` (T40), `crossed-paths` (T41), `old-wounds` (T42), `underdog-triumph` (T43), `nature-takes-its-course` (T44), `moment-frozen` (T45), `map-to-follow` (T46), `borrowed-time` (T47), `night-watch` (T48)
 
-Remaining dimensions with partial coverage (not all tags used):
-- **Temporal:** `linear`, `end-first`, `circular`, `middle-first`, `flashback`, `countdown` covered; `parallel` unused
-- **Dynamic:** `strangers`, `believer-skeptic`, `reluctant-partners`, `fragile-alliance`, `helper`, `protector-ward`, `secret-between`, `seeker` covered; `reuniting`, `mentor-student`, `rivals`, `former-enemies` unused
-- **Tension:** `discovery`, `forbidden`, `mismatch`, `secret`, `promise`, `question`, `scarcity`, `ticking-clock`, `impossible-choice`, `pursuit` covered; `rivalry` unused
-- **Stakes:** `implied`, `trust`, `personal-loss`, `identity`, `belonging`, `promise`, `missed-moment`, `scarcity` covered
-- **Moral:** `label`, `woven`, `tested` covered; `frame`, `question`, `implied` unused
-- **Genre-feel:** `neutral`, `campfire-legend`, `lullaby`, `anti-fairy-tale`, `tall-tale`, `ghost-story`, `adventure-serial`, `myth`, `fable` covered; `fairy-tale` unused
+All dimension tags now have coverage:
+- **Temporal (7/7):** `linear`, `end-first`, `circular`, `middle-first`, `flashback`, `countdown`, `parallel` (T41)
+- **Dynamic (12/12):** `strangers`, `believer-skeptic`, `reluctant-partners`, `fragile-alliance`, `helper`, `protector-ward`, `secret-between`, `seeker`, `mentor-student` (T39), `rivals` (T40), `reuniting` (T41), `former-enemies` (T42)
+- **Tension (11/11):** `discovery`, `forbidden`, `mismatch`, `secret`, `promise`, `question`, `scarcity`, `ticking-clock`, `impossible-choice`, `pursuit`, `rivalry` (T40)
+- **Stakes (8/8):** `implied`, `trust`, `personal-loss`, `identity`, `belonging`, `promise`, `missed-moment`, `scarcity` — all covered
+- **Moral (6/6):** `label`, `woven`, `tested`, `frame` (T39), `question` (T42), `implied` (T44)
+- **Genre-feel (10/10):** `neutral`, `campfire-legend`, `lullaby`, `anti-fairy-tale`, `tall-tale`, `ghost-story`, `adventure-serial`, `myth`, `fable`, `fairy-tale` (T43)

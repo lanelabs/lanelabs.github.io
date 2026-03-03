@@ -73,7 +73,12 @@ or "this" reads more naturally than "a/an".
 | `{setting\|event}` | randomly picks setting or event|
 | `{weather}`        | "during a thunderstorm"        |
 | `{weather.adj}`    | "stormy" / "moonlit"           |
+| `{weather.noun}`   | "the thunderstorm" / "the fog" |
 | `{aWeatherAdj}`    | "a stormy" / "an overcast"     |
+
+`{weather.noun}` gives a definite noun phrase ("the thunderstorm",
+"the fog") that works as a subject or object — useful in positions
+where the full clause form doesn't fit grammatically.
 
 Settings are places ("a castle"); events are occasions ("a wedding").
 Both are always generated. Use `{setting}` for place-only,

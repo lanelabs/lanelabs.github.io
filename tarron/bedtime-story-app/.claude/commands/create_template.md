@@ -43,7 +43,7 @@ Write the actual template string following these mandatory rules:
 - `{character1}` or `{character1.emotional}` — First character
 - `{character2}` or `{character2.emotional}` — Second character
 - `{setting}`, `{event}`, or `{setting|event}` — Where/when the story happens (see below)
-- `{weather}` — Weather/atmosphere (or use `{weather.adj}` / `{aWeatherAdj}`)
+- `{weather}` — Weather/atmosphere (or `{weather.adj}` / `{weather.noun}` / `{aWeatherAdj}`)
 - `{item}` — A special object
 - `{hook}` — The conflict or mystery
 - `{wish}` — The character's deep desire (or `{wish.bare}` for gerund)
