@@ -25,45 +25,9 @@ Light/dark mode is supported site-wide using `@media (prefers-color-scheme: dark
 - Remote URL: `git@github-tarronlane01:lanelabs/lanelabs.github.io.git`
 - Commit messages must include which app the changes are for (e.g. "bedtime-story-app: ...") since multiple family members commit to different apps in this repo
 
----
+## Apps
 
-## Tarron's Apps
+Each app with a build step has its own CLAUDE.md with app-specific instructions.
 
-### Bedtime Story App
-
-**Source:** `tarron/bedtime-story-app/` (Vite + React)
-**Output:** `docs/tarron/bedtime-story-app/`
-
-```bash
-# Install dependencies
-cd tarron/bedtime-story-app && npm install
-
-# Local dev server
-cd tarron/bedtime-story-app && npm run dev
-
-# Production build (outputs to docs/)
-cd tarron/bedtime-story-app && npm run build
-```
-
-Vite is configured with `base: '/tarron/bedtime-story-app/'` so asset paths work on GitHub Pages.
-
-**Data-driven architecture:** Story elements are modular JS files under `src/data/`, organized as `general/` (shared across all genres) and genre-specific folders (`fantasy/`, `modern/`, `scifi/`). Each genre folder mirrors the general structure. Adding a new genre means creating a new data folder and registering it in the app.
-
-**Key files:**
-- `src/App.jsx` — Main component with story generation algorithm
-- `src/config.js` — Tunable constants (number of characters, items, etc.)
-- `src/data/` — All story content, organized by genre
-
-No linting or testing is configured.
-
----
-
-## Adam's Apps
-
-Adam's apps are self-contained single HTML files with no build step, no dependencies, and inline SVG/CSS.
-
-**Edit directly in:** `docs/adam/<app>/index.html`
-
-Current apps:
-- `docs/adam/text-adventure-game/` — Choice-based learning game with inventory, stats, and localStorage persistence
-- `docs/adam/forrest-clean-up/` — Canvas-based forest restoration game with touch/desktop controls
+- **Tarron's Bedtime Story App** — `tarron/bedtime-story-app/` (Vite + React, builds to `docs/tarron/bedtime-story-app/`)
+- **Adam's apps** — Self-contained HTML files edited directly in `docs/adam/<app>/index.html` (text-adventure-game, forrest-clean-up)

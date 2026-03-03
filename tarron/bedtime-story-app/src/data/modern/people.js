@@ -9,4 +9,8 @@ export const people = [
   'Detective',
   'Musician',
   'Architect',
+  'Farmer',
+  'Hunter',
+  'Monk',
+  'Baker',
 ];

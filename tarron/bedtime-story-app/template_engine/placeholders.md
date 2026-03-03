@@ -26,14 +26,22 @@ The rendering engine automatically fixes `a {placeholder}` to `an {placeholder}`
 
 ### Characters
 
-| Placeholder              | Example output                          |
-|--------------------------|-----------------------------------------|
-| `{character1}`           | "a farmer"                              |
-| `{character1.emotional}` | "a scared farmer" / "a farmer who is afraid of the dark" |
-| `{character2}`           | "a fox"                                 |
-| `{character2.emotional}` | "a scared fox"                          |
+| Placeholder                    | Example output                          |
+|--------------------------------|-----------------------------------------|
+| `{character1}`                 | "a farmer"                              |
+| `{character1.bare}`            | "farmer"                                |
+| `{character1.emotional}`       | "a scared farmer" / "a farmer who is afraid of the dark" |
+| `{character1.emotional.bare}`  | "scared farmer" / "farmer who is afraid of the dark" |
+| `{character2}`                 | "a fox"                                 |
+| `{character2.bare}`            | "fox"                                   |
+| `{character2.emotional}`       | "a scared fox"                          |
+| `{character2.emotional.bare}`  | "scared fox"                            |
 
 Pick ONE character to be emotional. The other uses the plain form.
+
+The `.bare` forms strip the leading article, allowing templates to use
+`the {character1.bare}` or `this {character1.emotional.bare}` when "the"
+or "this" reads more naturally than "a/an".
 
 ### Setting & Weather
 
@@ -49,9 +57,21 @@ Pick ONE character to be emotional. The other uses the plain form.
 | Placeholder       | Example output                            |
 |-------------------|-------------------------------------------|
 | `{item}`          | "a golden map" (article + descriptor + item) |
+| `{item.bare}`     | "golden map" (no article)                 |
 | `{hook}`          | "a broken promise" / "a sealed door that won't open" |
-| `{storyShape}`    | "a quest" / "a race against time"         |
-| `{storyShape.bare}` | "quest" / "race against time"          |
+| `{hook.bare}`     | "broken promise" (article stripped)                   |
+| `{hook.verb}`     | "a promise was broken" (event clause)                 |
+
+### Wish / Longing
+
+| Placeholder    | Example output                  |
+|----------------|---------------------------------|
+| `{wish}`       | "to belong" (infinitive)        |
+| `{wish.bare}`  | "belonging" (gerund)            |
+
+Wishes are the deep desire driving the character. The `full` form is an
+infinitive ("to belong") for slots like "all they wanted was {wish}". The
+`bare` form is a gerund ("belonging") for slots like "about {wish.bare}".
 
 ### Tone
 

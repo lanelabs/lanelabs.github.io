@@ -11,4 +11,5 @@ export const settings = [
   'A coral castle',
   'A tidal pool',
   'An underwater canyon',
+  'An island',
 ];

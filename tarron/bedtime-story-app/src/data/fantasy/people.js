@@ -10,4 +10,10 @@ export const people = [
   'Pirate',
   'Prince',
   'Jester',
+  'Farmer',
+  'Shepherd',
+  'Hunter',
+  'Monk',
+  'Baker',
+  'Blacksmith',
 ];

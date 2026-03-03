@@ -11,4 +11,5 @@ export const settings = [
   'A wormhole',
   'A quantum realm',
   'An alien planet',
+  'A bridge',
 ];

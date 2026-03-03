@@ -9,4 +9,6 @@ export const descriptors = [
   'Recycled',
   'Turbo',
   'Custom-built',
+  'Wooden',
+  'Feathered',
 ];

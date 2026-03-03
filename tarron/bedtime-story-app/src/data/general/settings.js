@@ -9,16 +9,7 @@
 // Each entry should be ONE specific place — never combine with "or"
 // (split into separate entries instead).
 export const settings = [
-  'A lake',
-  'A forest',
-  'A village',
-  'A mountain',
-  'A desert',
-  'An island',
-  'A swamp',
-  'A bridge',
   'A garden',
-  'A cottage',
   'A marketplace',
   'A ship',
   'A library',

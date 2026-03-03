@@ -8,11 +8,12 @@ When designing new templates, pick dimensions that are underrepresented
 in the current set. See the template comments in `src/data/general/templates.js`
 for which tags are already in use.
 
-Dimensions are grouped into four families:
+Dimensions are grouped into five families:
 - **Narrative Voice** (1-3): How the story is told
 - **Characters & Relationships** (4-6): Who's in it and how they relate
 - **Story Mechanics** (7-13): How the plot and elements work
 - **Style & Feel** (14-18): The texture and tradition
+- **Baked-In Shape** (19): What kind of story it is
 
 ---
 
@@ -350,3 +351,55 @@ The storytelling tradition the prompt evokes — independent of tone.
 | `myth`            | Origin story: "This is the story of how [X] came to be"       |
 | `campfire-legend` | Passed down orally: "They say..." / "The old stories tell..." |
 | `anti-fairy-tale` | Subverts the expected: "She's a princess. She'd rather not be."|
+
+---
+
+# BAKED-IN SHAPE
+
+## 19. Shape
+
+The structural backbone of the plot — what kind of story it is. Unlike
+other dimensions, the shape is written directly into the template's
+prose rather than filled from a random placeholder. Each template
+embodies one specific shape. When adding new templates, check which
+shapes are underrepresented and aim to fill gaps.
+
+| Tag                        | Description                                           |
+|----------------------------|-------------------------------------------------------|
+| `quest`                    | A goal to pursue: "holds the key to the quest ahead"  |
+| `rescue`                   | Someone needs saving: "becomes their only hope"        |
+| `journey-home`             | Departure and return: "the journey home was wilder"    |
+| `competition`              | A contest or rivalry disrupts the status quo           |
+| `discovery`                | Something new is found or revealed                     |
+| `transformation`           | A character or situation fundamentally changes          |
+| `mistaken-identity`        | Things aren't what they seem: "the other way around"   |
+| `unlikely-friendship`      | Mismatched characters bond through shared experience   |
+| `race-against-time`        | Urgency and escalation: "nothing was small anymore"    |
+| `unexpected-adventure`     | An unplanned journey: "neither one planned"            |
+| `test-of-courage`          | Fear must be faced: "shows up anyway"                  |
+| `hidden-truth`             | A secret waiting to surface: "drawn in deeper"         |
+| `daring-escape`            | Running from danger: "clawed its way up from the dark" |
+| `search-for-lost`          | Circular return: the thing was always there             |
+| `puzzle`                   | Something to figure out: "the puzzle takes shape"      |
+| `build-together`           | Shared creation: "the project is almost done"          |
+| `stand-against-bully`      | Confronting injustice: "the truth comes out"           |
+| `trust-to-earn`            | Distrust gives way: "trust must be earned"             |
+| `fear-to-overcome`         | Conquering resistance: "reluctance gives way"          |
+| `fresh-start`              | New beginnings: "nothing is ordinary anymore"          |
+| `precious-to-protect`      | Guarding something valuable: "precious and protected"  |
+| `message-to-deliver`       | Transmitting meaning: "how the old stories begin"      |
+| `mistake-to-fix`           | Making amends: "something worth making right"          |
+| `stranger-in-need`         | Someone needs help: "the stranger's need unfolds"      |
+| `big-event`                | Preparing for something: "running out of room"         |
+| `curse-to-break`           | A cyclical affliction: "the curse stirs"               |
+| `dare-to-accept`           | A line crossed: "a dare accepted"                      |
+| `gift-to-give`             | Generosity discovered: "the real gift is..."           |
+| `rise-from-nothing`        | Starting from zero: "the rise has only just begun"     |
+| `secret-to-keep`           | A burden of knowledge: "impossible to ignore"          |
+| `overcoming-threat`        | Defeating something vast: "starts vast and dark"       |
+| `wild-thing-to-tame`       | Chaotic energy brought under control                   |
+| `reunion`                  | Coming back together after time apart                  |
+| `lesson-to-learn`          | Quiet shift in understanding: "something shifts"       |
+| `promise-to-keep`          | Competing commitments: "every promise demands"         |
+| `high-stakes-bet`          | A gamble with consequences: "the stakes aren't about"  |
+| `trade`                    | An exchange that changes everything                    |

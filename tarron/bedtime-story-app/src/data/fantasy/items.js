@@ -12,4 +12,5 @@ export const items = [
   'Ring',
   'Flute',
   'Wand',
+  'Herb',
 ];

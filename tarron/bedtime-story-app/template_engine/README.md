@@ -55,14 +55,14 @@ dimension comment block at the top (see existing templates for format).
 
 1. Every template MUST use all of these placeholders at least once:
    `character1`, `character2`, `setting`, `weather`, `item`, `hook`,
-   `storyShape`, `tone`, `moral`
+   `wish`, `tone`, `moral`
 
 2. Exactly ONE character gets the emotional form (`{characterN.emotional}`).
    The other uses the plain form.
 
-3. Hook (conflict/mystery) and storyShape must NOT appear in the same
-   sentence. They should be separated by at least one sentence, ideally
-   by a paragraph break.
+3. Each template has a baked-in story shape (quest, rescue, discovery,
+   etc.) written directly into its prose. Shapes are NOT a random
+   placeholder — they're part of the template's identity.
 
 4. Use `\n\n` in the template string to create paragraph breaks.
 
@@ -73,6 +73,7 @@ dimension comment block at the top (see existing templates for format).
    // Arc: X | Tension: X | Stakes: X | Connection: X | Hook-role: X
    // Moral: X | Mystery: X | Spotlight: X
    // Structure: X | Rhythm: X | Item-role: X | Scale: X | Genre-feel: X
+   // Shape: X
    ```
 
 6. If a template needs a placeholder form that doesn't exist yet
@@ -92,27 +93,25 @@ When the full set of templates is reviewed, aim for:
 - No two templates sharing the same combination across Voice +
   Opening Technique + Structure (these three define the most visible "feel")
 
-### Current Gaps (as of 12 templates)
+### Coverage Status (38 templates)
 
-Tags now covered (newly added in templates 8-12 marked with +):
-- **Voice:** `classic`, +`legend`, +`direct-address`, +`campfire`
-- **Opening:** `declarative`, +`everyone-knows`, +`rule-to-break`, +`sensory`, +`dialogue-cold`
-- **Temporal:** `linear`, +`end-first`
-- **Dynamic:** `strangers`, +`believer-skeptic`, +`reluctant-partners`, +`fragile-alliance`
-- **Agency:** `passive`, +`reactive`, +`reluctant`, +`proactive`, +`compelled`
-- **Tension:** `discovery`, +`forbidden`, +`mismatch`, +`secret`
-- **Stakes:** `implied`, +`trust`, +`personal-loss`
-- **Moral:** `label`, +`woven`
-- **Structure:** `two-para`, +`wind-down`
-- **Genre-feel:** `neutral`, +`campfire-legend`, +`lullaby`
+All Voice, Opening, and Structure tags are now covered. The three dimensions that
+define the most visible "feel" (Voice + Opening + Structure) have full coverage,
+and no two templates share the same V+O+S triple (except T1-7,9 which are all
+classic + declarative + two-para by design).
 
-Still zero coverage:
-- **Voice:** `bedtime-whisper`, `in-medias-res`, `rhetorical`, `warning`, `instructional`, `confessional`, `laconic`
-- **Opening:** `question-hook`, `impossible-image`, `interrupted-routine`, `catalog`, `false-start`, `scalar-shift`, `contrast`
-- **Temporal:** `middle-first`, `flashback`, `countdown`, `parallel`, `circular`
-- **Dynamic:** `seeker`, `reuniting`, `mentor-student`, `rivals`, `helper`, `former-enemies`, `protector-ward`, `secret-between`
-- **Tension:** `ticking-clock`, `impossible-choice`, `pursuit`, `scarcity`, `question`, `promise`, `rivalry`
-- **Stakes:** `identity`, `promise`, `scarcity`, `belonging`, `missed-moment`
-- **Moral:** `frame`, `question`, `implied`, `tested`
-- **Structure:** `three-beat`, `single-turn`, `hook-plus-para`, `bookend`, `list-like`, `dialogue`
-- **Genre-feel:** `fairy-tale`, `fable`, `tall-tale`, `ghost-story`, `adventure-serial`, `myth`, `anti-fairy-tale`
+**Voice (11/11):** `classic` (T1-7,9,10,14,18,20), `legend` (T8,24,31,33,37), `direct-address` (T11,22,25), `campfire` (T12,23,27,38), `warning` (T13,29), `rhetorical` (T15,34), `instructional` (T16), `laconic` (T17,28), `confessional` (T19,32,36), `bedtime-whisper` (T21,30), `in-medias-res` (T26,35)
+
+**Opening (12/12):** `declarative` (T1-7,9,14,22,33), `everyone-knows` (T8,27), `rule-to-break` (T10,37), `sensory` (T11,20,21,31,38), `dialogue-cold` (T12), `contrast` (T13,18,23,25,34,36), `question-hook` (T15,19), `catalog` (T16), `impossible-image` (T17,29), `interrupted-routine` (T26,28), `scalar-shift` (T24,30,35), `false-start` (T32)
+
+**Structure (8/8):** `two-para` (T1-10,12,13,15,18-21,23,26,28,34,35,37), `wind-down` (T11,22,31), `hook-plus-para` (T14,24), `list-like` (T16), `single-turn` (T17,29), `bookend` (T25,30,33), `dialogue` (T27), `three-beat` (T32,36,38)
+
+**Shape (37 tags, 36/37 used):** `discovery` (T1), `unexpected-adventure` (T2,T38), `hidden-truth` (T3), `quest` (T4), `puzzle` (T5), `transformation` (T6), `rescue` (T7), `curse-to-break` (T8), `fear-to-overcome` (T9), `dare-to-accept` (T10), `precious-to-protect` (T11), `trust-to-earn` (T12), `test-of-courage` (T13), `fresh-start` (T14), `gift-to-give` (T15), `rise-from-nothing` (T16), `unlikely-friendship` (T17), `mistaken-identity` (T18), `secret-to-keep` (T19), `race-against-time` (T20), `stranger-in-need` (T21), `lesson-to-learn` (T22), `journey-home` (T23), `overcoming-threat` (T24), `search-for-lost` (T25), `daring-escape` (T26), `stand-against-bully` (T27), `competition` (T28), `wild-thing-to-tame` (T29), `build-together` (T30), `reunion` (T31), `mistake-to-fix` (T32), `message-to-deliver` (T33), `promise-to-keep` (T34), `big-event` (T35), `high-stakes-bet` (T36), `trade` (T37)
+
+Remaining dimensions with partial coverage (not all tags used):
+- **Temporal:** `linear`, `end-first`, `circular`, `middle-first`, `flashback`, `countdown` covered; `parallel` unused
+- **Dynamic:** `strangers`, `believer-skeptic`, `reluctant-partners`, `fragile-alliance`, `helper`, `protector-ward`, `secret-between`, `seeker` covered; `reuniting`, `mentor-student`, `rivals`, `former-enemies` unused
+- **Tension:** `discovery`, `forbidden`, `mismatch`, `secret`, `promise`, `question`, `scarcity`, `ticking-clock`, `impossible-choice`, `pursuit` covered; `rivalry` unused
+- **Stakes:** `implied`, `trust`, `personal-loss`, `identity`, `belonging`, `promise`, `missed-moment`, `scarcity` covered
+- **Moral:** `label`, `woven`, `tested` covered; `frame`, `question`, `implied` unused
+- **Genre-feel:** `neutral`, `campfire-legend`, `lullaby`, `anti-fairy-tale`, `tall-tale`, `ghost-story`, `adventure-serial`, `myth`, `fable` covered; `fairy-tale` unused

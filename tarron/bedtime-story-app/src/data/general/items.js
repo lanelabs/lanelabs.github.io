@@ -15,10 +15,8 @@ export const items = [
   'Lantern',
   'Thread',
   'Drum',
-  'Herb',
   'Egg',
   'Pearl',
-  'Feather',
   'Mirror',
   'Stone',
 ];

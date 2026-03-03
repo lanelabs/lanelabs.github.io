@@ -7,4 +7,6 @@ export const events = [
   'A field trip',
   'A neighborhood block party',
   'A talent show',
+  'A harvest festival',
+  'A pilgrimage',
 ];

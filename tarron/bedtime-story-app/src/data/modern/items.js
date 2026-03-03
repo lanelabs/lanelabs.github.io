@@ -9,4 +9,6 @@ export const items = [
   'Skateboard',
   'Drone',
   '3D Printer',
+  'Herb',
+  'Feather',
 ];

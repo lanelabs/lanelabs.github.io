@@ -6,7 +6,7 @@
   --btn-hover: #a82740;
   --card-text: #111;
   --label-tones: #c06040;
-  --label-storyShapes: #2e8a7a;
+  --label-wishes: #2e8a7a;
 
   --label-settings: #8a6030;
   --label-weather: #4a98b5;
@@ -18,8 +18,8 @@
   --label-morals: #4a9e5a;
   --tone-bg: #f5e4dc;
   --tone-border: #c06040;
-  --storyShape-bg: #dcf0ed;
-  --storyShape-border: #4ab8a4;
+  --wish-bg: #dcf0ed;
+  --wish-border: #4ab8a4;
 
   --setting-bg: #f0e8df;
   --setting-border: #a07048;
@@ -48,7 +48,7 @@
     --btn-hover: #c73650;
     --card-text: #fff;
     --label-tones: #e09070;
-    --label-storyShapes: #4ec8b0;
+    --label-wishes: #4ec8b0;
 
     --label-settings: #c4956a;
     --label-weather: #7ec0e0;
@@ -60,8 +60,8 @@
     --label-morals: #7ec88b;
     --tone-bg: #3a2018;
     --tone-border: #e09070;
-    --storyShape-bg: #1a3a34;
-    --storyShape-border: #4ab8a4;
+    --wish-bg: #1a3a34;
+    --wish-border: #4ab8a4;
 
     --setting-bg: #30221a;
     --setting-border: #c4956a;
@@ -272,7 +272,7 @@ h1 {
 
 
 .label-tones { color: var(--label-tones); }
-.label-storyShapes { color: var(--label-storyShapes); }
+.label-wishes { color: var(--label-wishes); }
 
 .label-settings { color: var(--label-settings); }
 .label-characters { color: var(--label-characters); }
@@ -288,9 +288,9 @@ h1 {
   border: 1px solid var(--tone-border);
 }
 
-.card-storyShape {
-  background: var(--storyShape-bg);
-  border: 1px solid var(--storyShape-border);
+.card-wish {
+  background: var(--wish-bg);
+  border: 1px solid var(--wish-border);
 }
 
 .card-setting {

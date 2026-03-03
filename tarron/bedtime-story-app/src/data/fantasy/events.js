@@ -7,4 +7,7 @@ export const events = [
   'A royal ball',
   'A quest departure',
   'A prophecy reading',
+  'A harvest festival',
+  'A coronation',
+  'A pilgrimage',
 ];

@@ -9,4 +9,5 @@ export const people = [
   'Robot',
   'Pilot',
   'Hacker',
+  'Hunter',
 ];

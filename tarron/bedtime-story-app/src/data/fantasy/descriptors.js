@@ -11,4 +11,6 @@ export const descriptors = [
   'Whispering',
   'Glowing',
   'Bewitched',
+  'Wooden',
+  'Feathered',
 ];

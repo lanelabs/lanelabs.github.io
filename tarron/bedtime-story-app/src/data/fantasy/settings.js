@@ -11,4 +11,13 @@ export const settings = [
   "A dragon's lair",
   'A fairy ring',
   "A wizard's study",
+  'A lake',
+  'A forest',
+  'A village',
+  'A mountain',
+  'A desert',
+  'An island',
+  'A swamp',
+  'A bridge',
+  'A cottage',
 ];

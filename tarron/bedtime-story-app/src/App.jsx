@@ -6,7 +6,7 @@ import * as modern from './data/modern';
 import * as ocean from './data/ocean';
 import {
   NUM_CHARACTERS, NUM_CONFLICTS, NUM_ITEMS, NUM_MORALS,
-  NUM_TONES, NUM_STORY_SHAPES,
+  NUM_TONES, NUM_WISHES,
 } from './config';
 import { flavorLines } from './data/general/flavorLines';
 import './App.css';
@@ -88,7 +88,7 @@ function addForms(values, key, rawValue) {
 }
 
 // Default placeholder → CSS label-color class mapping.
-// Dot-suffixed keys (e.g. "storyShape.bare") inherit from the base name.
+// Dot-suffixed keys (e.g. "wish.bare") inherit from the base name.
 const placeholderColors = {
   setting: 'label-settings',
   weather: 'label-weather',
@@ -98,14 +98,14 @@ const placeholderColors = {
   item: 'label-items',
   hook: 'label-conflicts',
 
-  storyShape: 'label-storyShapes',
+  wish: 'label-wishes',
   tone: 'label-tones',
   aTone: 'label-tones',
   moral: 'label-morals',
 };
 
 // Parse a template string into an array of JSX elements with color-coded values.
-// Supports dot notation: {storyShape.bare} resolves the "bare" form.
+// Supports dot notation: {wish.bare} resolves the "bare" form.
 // Capitalised first letter (e.g. {Character1}) auto-capitalises the value.
 // Optional `colors` override lets the caller customise per-placeholder classes.
 function applyTemplate(template, values, colors) {
@@ -226,7 +226,7 @@ export default function App() {
 
     setResult({
       tones: pickRandom(general.tones, NUM_TONES),
-      storyShapes: pickRandom(general.storyShapes, NUM_STORY_SHAPES),
+      wishes: pickRandom(general.wishes, NUM_WISHES),
       characters,
       emotion: pickedEmotion,
       setting: settingVal,
@@ -250,7 +250,7 @@ export default function App() {
     const weatherAdj = values['weather.adj'] || values.weather;
     values.aWeatherAdj = `${aOrAn(weatherAdj)} ${weatherAdj}`;
     addForms(values, 'hook', result.hooks[0]);
-    addForms(values, 'storyShape', result.storyShapes[0]);
+    addForms(values, 'wish', result.wishes[0]);
     addForms(values, 'tone', result.tones[0]);
     const toneWord = values.tone;
     values.aTone = `${aOrAn(toneWord)} ${toneWord}`;
@@ -258,10 +258,15 @@ export default function App() {
     if (!values['moral.about']) values['moral.about'] = values['moral.bare'];
     values.character1 = formatCharacterPlain(result.characters[0]);
     values['character1.emotional'] = formatCharacterEmotional(result.characters[0], result.emotion);
+    values['character1.bare'] = stripArticle(values.character1);
+    values['character1.emotional.bare'] = stripArticle(values['character1.emotional']);
     values.character2 = formatCharacterPlain(result.characters[1]);
     values['character2.emotional'] = formatCharacterEmotional(result.characters[1], result.emotion);
+    values['character2.bare'] = stripArticle(values.character2);
+    values['character2.emotional.bare'] = stripArticle(values['character2.emotional']);
     const bareItem = stripArticle(result.items[0]).toLowerCase();
     values.item = `${aOrAn(bareItem)} ${bareItem}`;
+    values['item.bare'] = bareItem;
     return values;
   }
 
@@ -301,8 +306,8 @@ export default function App() {
 
   function buildElementList() {
     const lines = [];
-    lines.push(`Story Shape: ${displayValue(result.storyShapes[0])}`);
     lines.push(`${result.hookType}: ${displayValue(result.hooks[0])}`);
+    lines.push(`Wish: ${displayValue(result.wishes[0])}`);
     result.characters.forEach((c) => lines.push(`Character: ${c}`));
     lines.push(`Emotion: ${result.emotion.text}`);
     lines.push(`Setting: ${displayValue(result.setting)}`);
@@ -426,7 +431,6 @@ ${prompt}`;
                 <h2 className="section-heading">Hook</h2>
                 <p className="section-sub">Draw them in to what is happening</p>
                 <div className="line-list">
-                  <p className="line-item"><span className="line-label label-storyShapes">Story Shape:</span> {displayValue(result.storyShapes[0])}</p>
                   <p className="line-item"><span className={`line-label label-${result.hookType === 'Mystery' ? 'mysteries' : 'conflicts'}`}>{result.hookType}:</span> {displayValue(result.hooks[0])}</p>
 
                 </div>
@@ -454,6 +458,9 @@ ${prompt}`;
                 <div className="line-list">
                   {result.morals.map((m) => (
                     <p key={displayValue(m)} className="line-item"><span className="line-label label-morals">Moral:</span> {displayValue(m)}</p>
+                  ))}
+                  {result.wishes.map((w) => (
+                    <p key={displayValue(w)} className="line-item"><span className="line-label label-wishes">Wish:</span> {displayValue(w)}</p>
                   ))}
                   {result.tones.map((t) => (
                     <p key={displayValue(t)} className="line-item"><span className="line-label label-tones">Tone:</span> {displayValue(t)}</p>

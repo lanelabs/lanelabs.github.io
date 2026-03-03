@@ -6,26 +6,4 @@
 //
 // Each entry should be ONE specific animal — never combine with "or"
 // (split into separate entries instead).
-export const animals = [
-  'Fox',
-  'Owl',
-  'Bear',
-  'Rabbit',
-  'Mouse',
-  'Wolf',
-  'Eagle',
-  'Deer',
-  'Turtle',
-  'Cat',
-  'Crow',
-  'Horse',
-  'Frog',
-  'Snake',
-  'Lion',
-  'Elephant',
-  'Hawk',
-  'Badger',
-  'Otter',
-  'Raven',
-  'Monkey',
-];
+export const animals = [];

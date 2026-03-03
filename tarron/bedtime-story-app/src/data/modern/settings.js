@@ -11,4 +11,12 @@ export const settings = [
   'A stadium',
   'A museum',
   'A rooftop garden',
+  'A lake',
+  'A forest',
+  'A village',
+  'A mountain',
+  'A desert',
+  'An island',
+  'A bridge',
+  'A cottage',
 ];

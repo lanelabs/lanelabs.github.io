@@ -5,4 +5,4 @@ export const NUM_CONFLICTS = 1;
 export const NUM_SETTINGS = 1;
 export const NUM_TONES = 1;
 
-export const NUM_STORY_SHAPES = 1;
+export const NUM_WISHES = 1;
