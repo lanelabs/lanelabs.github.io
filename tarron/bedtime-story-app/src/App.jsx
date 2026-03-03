@@ -6,7 +6,7 @@ import * as modern from './data/modern';
 import * as ocean from './data/ocean';
 import {
   NUM_CHARACTERS, NUM_CONFLICTS, NUM_ITEMS, NUM_MORALS,
-  NUM_TONES, NUM_WISHES,
+  NUM_TONES, NUM_WISHES, NUM_ROLES,
 } from './config';
 import { flavorLines } from './data/general/flavorLines';
 import './App.css';
@@ -91,12 +91,14 @@ function addForms(values, key, rawValue) {
 // Dot-suffixed keys (e.g. "wish.bare") inherit from the base name.
 const placeholderColors = {
   setting: 'label-settings',
+  event: 'label-settings',
   weather: 'label-weather',
   aWeatherAdj: 'label-weather',
   character1: 'label-characters',
   character2: 'label-characters',
   item: 'label-items',
   hook: 'label-conflicts',
+  role: 'label-roles',
 
   wish: 'label-wishes',
   tone: 'label-tones',
@@ -216,13 +218,20 @@ export default function App() {
     const characters = pickRandom([...allPeople, ...allAnimals], NUM_CHARACTERS);
 
     const weatherVal = pickRandom(allWeather, 1)[0];
-    const useEvent = Math.random() < 0.35;
-    let settingVal;
-    if (useEvent) {
-      settingVal = pickRandom(allEvents, 1)[0];
-    } else {
-      settingVal = pickRandom(allSettings, 1)[0];
-    }
+    const settingVal = pickRandom(allSettings, 1)[0];
+    const eventVal = pickRandom(allEvents, 1)[0];
+
+    // Resolve pipe choices in the template (e.g. {setting|event} → {setting}
+    // or {event}). This runs once at generation time so the choice is stable
+    // across re-renders.
+    let templateStr = pickRandom(general.templates, 1)[0];
+    templateStr = templateStr.replace(
+      /\{([\w.]+(?:\|[\w.]+)+)\}/g,
+      (_, pipeGroup) => {
+        const options = pipeGroup.split('|');
+        return `{${options[Math.floor(Math.random() * options.length)]}}`;
+      },
+    );
 
     setResult({
       tones: pickRandom(general.tones, NUM_TONES),
@@ -230,6 +239,7 @@ export default function App() {
       characters,
       emotion: pickedEmotion,
       setting: settingVal,
+      event: eventVal,
       weather: weatherVal,
       items: pickRandom(allItems, NUM_ITEMS).map((item) =>
         `${pickRandom(allDescriptors, 1)[0]} ${item}`
@@ -237,7 +247,8 @@ export default function App() {
       hookType,
       hooks: pickRandom(hookPool, NUM_CONFLICTS),
       morals: pickRandom(general.morals, NUM_MORALS),
-      template: pickRandom(general.templates, 1)[0],
+      role: pickRandom(general.roles, NUM_ROLES)[0],
+      template: templateStr,
       flavorLine: pickRandom(flavorLines, 1)[0],
     });
     setCopied(false);
@@ -246,6 +257,7 @@ export default function App() {
   function buildTemplateValues() {
     const values = {};
     addForms(values, 'setting', result.setting);
+    addForms(values, 'event', result.event);
     addForms(values, 'weather', result.weather);
     const weatherAdj = values['weather.adj'] || values.weather;
     values.aWeatherAdj = `${aOrAn(weatherAdj)} ${weatherAdj}`;
@@ -254,6 +266,7 @@ export default function App() {
     addForms(values, 'tone', result.tones[0]);
     const toneWord = values.tone;
     values.aTone = `${aOrAn(toneWord)} ${toneWord}`;
+    addForms(values, 'role', result.role);
     addForms(values, 'moral', result.morals[0]);
     if (!values['moral.about']) values['moral.about'] = values['moral.bare'];
     values.character1 = formatCharacterPlain(result.characters[0]);
@@ -309,8 +322,10 @@ export default function App() {
     lines.push(`${result.hookType}: ${displayValue(result.hooks[0])}`);
     lines.push(`Wish: ${displayValue(result.wishes[0])}`);
     result.characters.forEach((c) => lines.push(`Character: ${c}`));
+    lines.push(`Role: ${result.role}`);
     lines.push(`Emotion: ${result.emotion.text}`);
     lines.push(`Setting: ${displayValue(result.setting)}`);
+    lines.push(`Event: ${displayValue(result.event)}`);
     lines.push(`Weather: ${displayValue(result.weather)}`);
     result.items.forEach((i) => lines.push(`Item: ${i}`));
     result.morals.forEach((m) => lines.push(`Moral: ${displayValue(m)}`));
@@ -328,7 +343,7 @@ Guidelines:
 - The prompt below is a back-cover-style teaser. Use it as a springboard, not a script \u2014 surprise me with where the story actually goes.
 - Read the entire prompt first so you have the full picture before writing. Establish the setting, weather, and atmosphere from the very first scene \u2014 don\u2019t introduce them halfway through and make the reader re-imagine everything. If it\u2019s a rainy night, the reader should feel that from sentence one, not get blindsided five paragraphs in.
 - The prompt was generated randomly, so its elements may not obviously connect. Your job is to weave them into a story that feels like it was planned from the start \u2014 find the thread that ties everything together into one cohesive narrative.
-- Every element in the prompt (characters, setting, weather, item, emotion, moral) must matter to the plot. Don\u2019t just mention them in passing \u2014 let their unique qualities shape what happens. The item should do something only that item could do. The setting should create problems or possibilities that wouldn\u2019t exist anywhere else. The weather should change how a scene feels or what\u2019s possible. The story should feel like it couldn\u2019t exist with different elements swapped in.
+- Every element in the prompt (characters, role, setting, event, weather, item, emotion, moral) must matter to the plot. Don\u2019t just mention them in passing \u2014 let their unique qualities shape what happens. The item should do something only that item could do. The setting should create problems or possibilities that wouldn\u2019t exist anywhere else. The weather should change how a scene feels or what\u2019s possible. The story should feel like it couldn\u2019t exist with different elements swapped in.
 - Give the characters distinct voices and at least one small, specific detail that makes them feel real (a habit, a favorite thing, a way of speaking).
 - Let the story breathe. Not every sentence needs to advance the plot \u2014 a moment of wonder, a silly aside, or a quiet pause can make a story feel alive.
 - Avoid AI-story clich\u00e9s: no \u201clittle did they know,\u201d no \u201cand from that day on,\u201d no tidy moral bow at the end. If the theme comes through, the reader will feel it without being told.
@@ -444,8 +459,10 @@ ${prompt}`;
                       <span className="line-label label-characters">Character:</span> {c}
                     </p>
                   ))}
+                  <p className="line-item"><span className="line-label label-roles">Role:</span> {result.role}</p>
                   <p className="line-item"><span className="line-label label-emotions">Emotion:</span> {result.emotion.text}</p>
                   <p className="line-item"><span className="line-label label-settings">Setting:</span> {displayValue(result.setting)}</p>
+                  <p className="line-item"><span className="line-label label-settings">Event:</span> {displayValue(result.event)}</p>
                   <p className="line-item"><span className="line-label label-weather">Weather:</span> {displayValue(result.weather)}</p>
                   {result.items.map((i) => (
                     <p key={i} className="line-item"><span className="line-label label-items">Item:</span> {i}</p>

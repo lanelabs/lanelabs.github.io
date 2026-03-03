@@ -42,13 +42,22 @@ Write the actual template string following these mandatory rules:
 
 - `{character1}` or `{character1.emotional}` — First character
 - `{character2}` or `{character2.emotional}` — Second character
-- `{setting}` — The location
+- `{setting}`, `{event}`, or `{setting|event}` — Where/when the story happens (see below)
 - `{weather}` — Weather/atmosphere (or use `{weather.adj}` / `{aWeatherAdj}`)
 - `{item}` — A special object
 - `{hook}` — The conflict or mystery
 - `{wish}` — The character's deep desire (or `{wish.bare}` for gerund)
 - `{tone}` — The mood (or `{tone.noun}` / `{aTone}`)
 - `{moral}` — The lesson (or `{moral.about}`)
+
+**Setting vs. Event vs. Combined:** The app always generates both a setting (a place like "a castle") and an event (an occasion like "a wedding"). You choose what your template needs:
+- `{setting}` — place only. Use when your prose needs a physical location ("in {setting}").
+- `{event}` — event only. Use when the story is about an occasion ("during {event}").
+- `{setting|event}` — randomly picks one at generation time. Use when either works. Most existing templates use this.
+- You can also use both `{setting}` AND `{event}` in the same template to reference both.
+- Forms work too: `{setting.bare|event.bare}`, `{Setting|Event}`, `{event.bare}`, etc.
+
+**Pipe syntax (combined pools):** The `|` operator works with ANY placeholders, not just setting/event. Writing `{a|b}` randomly picks between the resolved values of `a` and `b` at generation time. For example, `{role|character1.bare}` would randomly pick between the narrative role and the first character's name. Use this whenever you want variety between two element types.
 
 **Opening flavor:** There is no `{opening}` placeholder. Instead, bake the opening flavor directly into the template's prose. Each template should have its own distinctive way of beginning — a direct statement, an atmospheric setup, a question, a rule, a bit of dialogue, etc. This gives each template a unique voice rather than relying on a formulaic slot.
 

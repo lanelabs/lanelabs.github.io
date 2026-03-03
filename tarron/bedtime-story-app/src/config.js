@@ -6,3 +6,4 @@ export const NUM_SETTINGS = 1;
 export const NUM_TONES = 1;
 
 export const NUM_WISHES = 1;
+export const NUM_ROLES = 1;

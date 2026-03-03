@@ -30,7 +30,7 @@ A "Copy for AI" button assembles the resolved template, element list, and detail
 
 Story content lives in `src/data/`, split into:
 
-- **`general/`** — Shared across all worlds. Contains categories that only exist here (templates, wishes, morals, tones, emotions, flavorLines, conflicts, mysteries) plus world-neutral people, animals, settings, items, descriptors, weather, events.
+- **`general/`** — Shared across all worlds. Contains categories that only exist here (templates, wishes, morals, tones, emotions, flavorLines, conflicts, mysteries, roles) plus world-neutral people, animals, settings, items, descriptors, weather, events.
 - **World folders** (`fantasy/`, `scifi/`, `modern/`, `ocean/`) — Each exports: people, animals, settings, items, descriptors, weather, events. At generation time, arrays from the active world(s) merge with general via `mergeArrays()`.
 
 Each world folder has an `index.js` barrel file. Adding a new world means creating a folder with the same exports and registering it in `App.jsx` (the `worlds` object and `worldLabels` map).
@@ -45,6 +45,7 @@ Data values can be plain strings or objects with named forms. The template engin
 - `{Character1}` → capital first letter triggers auto-capitalisation
 - `{character1.emotional}` → character with random emotion applied
 - `{hook}` → noun phrase ("a broken promise"); `{hook.verb}` → event clause ("a promise was broken")
+- `{setting|event}` → **pipe syntax** — randomly picks one placeholder at generation time; works with any combination of keys
 
 **Each data file has header comments documenting the required format, valid forms, and constraints** (e.g. "must start with A/An", "must be an object with adj form"). Always read them before adding entries.
 

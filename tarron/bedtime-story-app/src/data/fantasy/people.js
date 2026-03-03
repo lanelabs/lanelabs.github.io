@@ -62,12 +62,6 @@ export const people = [
   'Mermaid',
   'Valkyrie',
 
-  // Story archetypes
-  'Mentor',
-  'Guardian',
-  'Hermit',
-  'Trickster',
-
   // Professions & trades
   'Farmer',
   'Shepherd',
@@ -91,6 +85,7 @@ export const people = [
   'Elder',
 
   // Travelers & outsiders
+  'Hermit',
   'Hunter',
   'Apprentice',
   'Wanderer',

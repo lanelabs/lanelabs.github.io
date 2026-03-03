@@ -16,6 +16,7 @@
   --label-mysteries: #8b5cc4;
   --label-items: #b8862e;
   --label-morals: #4a9e5a;
+  --label-roles: #9a5cb5;
   --tone-bg: #f5e4dc;
   --tone-border: #c06040;
   --wish-bg: #dcf0ed;
@@ -58,6 +59,7 @@
     --label-mysteries: #b88ae8;
     --label-items: #e2a84b;
     --label-morals: #7ec88b;
+    --label-roles: #c088e0;
     --tone-bg: #3a2018;
     --tone-border: #e09070;
     --wish-bg: #1a3a34;
@@ -282,6 +284,7 @@ h1 {
 .label-weather { color: var(--label-weather); }
 .label-items { color: var(--label-items); }
 .label-morals { color: var(--label-morals); }
+.label-roles { color: var(--label-roles); }
 
 .card-tone {
   background: var(--tone-bg);

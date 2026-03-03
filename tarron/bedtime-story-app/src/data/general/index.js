@@ -12,5 +12,6 @@ export { emotions, preEmotions, postEmotions } from './emotions';
 export { templates } from './templates';
 export { flavorLines } from './flavorLines';
 export { wishes } from './wishes';
+export { roles } from './roles';
 export { weather } from './weather';
 export { events } from './events';
