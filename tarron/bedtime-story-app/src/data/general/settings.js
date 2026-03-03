@@ -6,6 +6,10 @@
 //   "in {setting}"             → "in a castle"
 //   "{setting} holds a secret" → "a castle holds a secret"
 //
+// IMPORTANT: Every setting must work with "in". Avoid places that
+// need "on" (a cliff, a beach), "at" (a crossroads), etc. If a place
+// doesn't pass the "in ___" test, reword it (e.g. "A cove" not "A beach").
+//
 // Each entry should be ONE specific place — never combine with "or"
 // (split into separate entries instead).
 export const settings = [
@@ -14,4 +18,16 @@ export const settings = [
   'A ship',
   'A library',
   'A volcano',
+  'A river',
+  'A valley',
+  'A meadow',
+  'A village square',
+  'A ravine',
+  'A waterfall',
+  'A canyon',
+  'A cove',
+  'A field',
+  'A temple',
+  'A harbor',
+  'A well',
 ];

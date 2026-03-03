@@ -7,4 +7,12 @@ export const weather = [
   { full: 'during a plankton bloom', adj: 'glowing' },
   { full: "in a whirlpool's pull", adj: 'swirling' },
   { full: 'as warm water meets cold', adj: 'shimmering' },
+  { full: 'during a surface storm', adj: 'storm-churned' },
+  { full: 'as bioluminescence lights the way', adj: 'bioluminescent' },
+  { full: 'in the stillest water', adj: 'still' },
+  { full: 'as a school of fish swirls past', adj: 'teeming' },
+  { full: 'during a red tide', adj: 'crimson' },
+  { full: 'under drifting ice', adj: 'ice-cold' },
+  { full: 'as sand swirls in the current', adj: 'sand-swept' },
+  { full: 'in water so clear you can see forever', adj: 'crystal-clear' },
 ];

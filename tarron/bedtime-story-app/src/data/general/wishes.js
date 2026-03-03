@@ -44,4 +44,38 @@ export const wishes = [
   { full: 'To find where they fit', bare: 'finding where they fit' },
   { full: 'To have one more chance', bare: 'having one more chance' },
   { full: 'To be enough', bare: 'being enough' },
+
+  // Freedom & independence
+  { full: 'To be free', bare: 'freedom' },
+  { full: 'To make their own choices', bare: 'making their own choices' },
+
+  // Love, trust & forgiveness
+  { full: 'To be loved', bare: 'being loved' },
+  { full: 'To learn to trust again', bare: 'learning to trust again' },
+  { full: 'To forgive someone', bare: 'forgiving someone' },
+  { full: 'To be forgiven', bare: 'being forgiven' },
+
+  // Growth & becoming
+  { full: 'To become who they\'re meant to be', bare: 'becoming who they\'re meant to be' },
+  { full: 'To discover what they\'re good at', bare: 'discovering what they\'re good at' },
+  { full: 'To grow up', bare: 'growing up' },
+
+  // Family, legacy & origin
+  { full: 'To find where they came from', bare: 'finding where they came from' },
+  { full: 'To carry on what someone else started', bare: 'carrying on what someone else started' },
+  { full: 'To make their family whole again', bare: 'making their family whole' },
+
+  // Joy, peace & adventure
+  { full: 'To find peace', bare: 'finding peace' },
+  { full: 'To have one great adventure', bare: 'having one great adventure' },
+  { full: 'To feel alive again', bare: 'feeling alive' },
+
+  // Others & connection
+  { full: 'To bring two sides together', bare: 'bringing two sides together' },
+  { full: 'To change someone\'s mind', bare: 'changing someone\'s mind' },
+
+  // Letting go & speaking up
+  { full: 'To say goodbye', bare: 'saying goodbye' },
+  { full: 'To say what they\'ve never said', bare: 'saying what\'s never been said' },
+  { full: 'To prove they\'ve changed', bare: 'proving they\'ve changed' },
 ];

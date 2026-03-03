@@ -41,4 +41,36 @@ export const mysteries = [
   { full: 'An unexpected knock at the door', verb: 'an unexpected knock came at the door' },
   { full: 'Something that changed overnight', verb: 'something changed overnight' },
   { full: 'Something missing that no one noticed at first', verb: 'something went missing that no one noticed at first' },
+
+  // Objects behaving impossibly
+  { full: 'A book that writes itself', verb: 'a book began writing itself' },
+  { full: 'A key that fits no lock', verb: 'a key appeared that fit no lock' },
+  { full: 'A gift from someone who doesn\'t exist', verb: 'a gift arrived from someone who doesn\'t exist' },
+  { full: 'A painting that changes when no one\'s looking', verb: 'a painting changed when no one was looking' },
+
+  // Identity puzzles
+  { full: 'A face no one can place', verb: 'a face appeared that no one could place' },
+  { full: 'A child who remembers things that haven\'t happened', verb: 'a child remembered things that hadn\'t happened yet' },
+  { full: 'A photograph of someone not yet born', verb: 'a photograph surfaced of someone not yet born' },
+
+  // Patterns & repetitions
+  { full: 'A word that keeps appearing everywhere', verb: 'a word began appearing everywhere' },
+  { full: 'A song no one remembers learning', verb: 'a song surfaced that no one remembered learning' },
+  { full: 'A dream that two people share', verb: 'two people shared the same dream' },
+  { full: 'A promise someone made but can\'t remember', verb: 'a forgotten promise resurfaced' },
+
+  // Nature & space anomalies
+  { full: 'A tree that grew overnight', verb: 'a tree grew overnight' },
+  { full: 'An animal that follows only one person', verb: 'an animal began following only one person' },
+  { full: 'A star that wasn\'t there yesterday', verb: 'a star appeared that wasn\'t there yesterday' },
+  { full: 'A light in a place that should be empty', verb: 'a light appeared where nothing should be' },
+
+  // Time oddities
+  { full: 'A day that seems to repeat', verb: 'the day began to repeat' },
+
+  // Things from the past
+  { full: 'Something buried that was never meant to be found', verb: 'something was unearthed that shouldn\'t have been' },
+  { full: 'A footprint with no one to match it', verb: 'a footprint appeared with no one to match it' },
+  { full: 'A path that leads somewhere different every time', verb: 'a path led somewhere different every time' },
+  { full: 'A place that doesn\'t appear on any map', verb: 'a place was found that wasn\'t on any map' },
 ];

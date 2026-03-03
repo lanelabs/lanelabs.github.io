@@ -11,4 +11,13 @@ export const items = [
   'Driftwood',
   'Anemone',
   'Kelp Rope',
+  'Harpoon',
+  'Net',
+  'Buoy',
+  'Oar',
+  'Spyglass',
+  'Treasure Chest',
+  'Sextant',
+  'Sail',
+  'Figurehead',
 ];

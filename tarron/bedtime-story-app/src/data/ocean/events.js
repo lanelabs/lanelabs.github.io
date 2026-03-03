@@ -7,4 +7,12 @@ export const events = [
   'A tidal gathering',
   'A shipwreck discovery',
   'A moonlit surface glow',
+  'A fishing competition',
+  'A pearl harvest',
+  'A sea turtle nesting',
+  'An underwater volcano eruption',
+  'A ship launching',
+  'A harbor festival',
+  'A lighthouse lighting',
+  'A low tide',
 ];

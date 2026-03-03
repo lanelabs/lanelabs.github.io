@@ -8,4 +8,11 @@ export const weather = [
   { full: 'during a rain of flower petals', adj: 'petal-covered' },
   { full: 'under twin moons', adj: 'moonlit' },
   { full: 'as the sky turns an impossible color', adj: 'strange' },
+  { full: 'as the trees whisper in unison', adj: 'whispering' },
+  { full: 'during a rain of golden light', adj: 'gilded' },
+  { full: 'under a sky that hums with magic', adj: 'enchanted' },
+  { full: 'as frost creeps across everything it touches', adj: 'frost-bound' },
+  { full: 'as fireflies fill the air', adj: 'firefly-lit' },
+  { full: 'during an eclipse', adj: 'eclipsed' },
+  { full: 'in a warm wind that carries voices', adj: 'murmuring' },
 ];

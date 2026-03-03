@@ -32,4 +32,32 @@ export const tones = [
   { full: 'Dramatic', noun: 'drama' },
   { full: 'Calm', noun: 'calm' },
   { full: 'Wondrous', noun: 'wonder' },
+
+  // Emotional depth
+  { full: 'Bittersweet', noun: 'bittersweetness' },
+  { full: 'Tender', noun: 'tenderness' },
+  { full: 'Wistful', noun: 'longing' },
+
+  // Triumph & hope
+  { full: 'Heroic', noun: 'heroism' },
+  { full: 'Hopeful', noun: 'hope' },
+
+  // Energy & intensity
+  { full: 'Wild', noun: 'wildness' },
+  { full: 'Fierce', noun: 'fierceness' },
+  { full: 'Defiant', noun: 'defiance' },
+  { full: 'Thrilling', noun: 'thrills' },
+
+  // Playful-dark
+  { full: 'Mischievous', noun: 'mischief' },
+
+  // Contemplative
+  { full: 'Quiet', noun: 'quiet' },
+  { full: 'Nostalgic', noun: 'nostalgia' },
+  { full: 'Somber', noun: 'somberness' },
+
+  // Wonder & magic
+  { full: 'Curious', noun: 'curiosity' },
+  { full: 'Enchanting', noun: 'enchantment' },
+  { full: 'Joyful', noun: 'joy' },
 ];

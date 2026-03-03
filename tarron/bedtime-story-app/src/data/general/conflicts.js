@@ -45,4 +45,33 @@ export const conflicts = [
   { full: 'A wall that divides two worlds', verb: 'a wall rose between two worlds' },
   { full: 'A rule that\'s about to be broken', verb: 'the rule was broken' },
   { full: 'A day that changes everything', verb: 'everything changed in a single day' },
+
+  // Identity & self
+  { full: 'A secret that threatens to come out', verb: 'a secret threatened to come out' },
+  { full: 'A past that catches up', verb: 'the past caught up' },
+  { full: 'A fear that must be faced', verb: 'a deep fear surfaced' },
+  { full: 'Two loyalties that can\'t both be kept', verb: 'two loyalties collided' },
+
+  // Relationships
+  { full: 'A friendship on the verge of ending', verb: 'a friendship nearly ended' },
+  { full: 'A grudge that won\'t die', verb: 'an old grudge resurfaced' },
+  { full: 'A misunderstanding that spirals', verb: 'a misunderstanding spiraled' },
+  { full: 'A newcomer who disrupts everything', verb: 'a newcomer disrupted everything' },
+  { full: 'A promise to the wrong person', verb: 'a promise was made to the wrong person' },
+
+  // Society & authority
+  { full: 'A tradition no one dares question', verb: 'someone dared question the tradition' },
+  { full: 'A stranger who isn\'t welcome', verb: 'a stranger arrived unwelcome' },
+  { full: 'A voice that no one will listen to', verb: 'a voice went unheard' },
+  { full: 'A crown no one wants', verb: 'a crown was left unclaimed' },
+  { full: 'A prophecy that must be fulfilled', verb: 'a prophecy came due' },
+  { full: 'A weapon that can\'t be controlled', verb: 'a weapon spiraled out of control' },
+
+  // Things going wrong
+  { full: 'A truth no one wants to hear', verb: 'an unwelcome truth emerged' },
+  { full: 'A warning that was ignored', verb: 'a warning went ignored' },
+  { full: 'An old wound reopened', verb: 'an old wound reopened' },
+  { full: 'A plan that\'s falling apart', verb: 'the plan began falling apart' },
+  { full: 'A boundary that\'s been crossed', verb: 'a boundary was crossed' },
+  { full: 'A sacrifice no one asked for', verb: 'an unexpected sacrifice was demanded' },
 ];

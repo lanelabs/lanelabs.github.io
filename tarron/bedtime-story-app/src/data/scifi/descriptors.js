@@ -15,4 +15,12 @@ export const descriptors = [
   'Void',
   'Ion',
   'Data',
+  'Prototype',
+  'Glitching',
+  'Sentient',
+  'Classified',
+  'Salvaged',
+  'Experimental',
+  'Synthetic',
+  'Cloaked',
 ];

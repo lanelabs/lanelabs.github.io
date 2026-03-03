@@ -39,6 +39,18 @@ export const preEmotions = [
   'stubborn',
   'guilty',
   'impatient',
+  'heartbroken',
+  'suspicious',
+  'mischievous',
+  'exhausted',
+  'fearless',
+  'rebellious',
+  'peaceful',
+  'bitter',
+  'forgotten',
+  'desperate',
+  'reckless',
+  'awestruck',
 ];
 
 export const postEmotions = [
@@ -46,6 +58,18 @@ export const postEmotions = [
   'left out',
   'afraid of the dark',
   'missing someone',
+  'hiding a secret',
+  'pretending to be fine',
+  'trying not to cry',
+  'running from something',
+  'not sure who to trust',
+  'far from home',
+  'in over their head',
+  'trying to be brave',
+  'about to give up',
+  'haunted by a memory',
+  'dreaming of something bigger',
+  'tired of being overlooked',
 ];
 
 // Combined list for backward-compatible access (list view still uses this).

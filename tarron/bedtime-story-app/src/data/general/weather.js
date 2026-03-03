@@ -31,4 +31,12 @@ export const weather = [
   { full: 'on the coldest night of the year', adj: 'freezing' },
   { full: 'under a full moon', adj: 'moonlit' },
   { full: 'at golden hour', adj: 'golden' },
+  { full: 'at dawn', adj: 'dawn-lit' },
+  { full: 'at dusk', adj: 'dusky' },
+  { full: 'during a gentle breeze', adj: 'breezy' },
+  { full: 'in the first frost', adj: 'frosty' },
+  { full: 'as autumn leaves fall', adj: 'autumn' },
+  { full: 'on a drizzly evening', adj: 'drizzly' },
+  { full: 'under a starless sky', adj: 'dark' },
+  { full: 'in the twilight', adj: 'twilit' },
 ];
