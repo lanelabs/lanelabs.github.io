@@ -1,4 +1,4 @@
-// Story templates — each is a plain string with {placeholder} slots.
+// Core story templates (1–48) — general storytelling archetypes.
 //
 // See template_engine/placeholders.md for full placeholder reference.
 // See template_engine/dimensions.md for dimension tag definitions.

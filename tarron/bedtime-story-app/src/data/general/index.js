@@ -9,7 +9,7 @@ export { morals } from './morals';
 export { tones } from './tones';
 
 export { emotions, preEmotions, postEmotions } from './emotions';
-export { templates } from './templates';
+export { templates } from './templates/index';
 export { flavorLines } from './flavorLines';
 export { wishes } from './wishes';
 export { roles } from './roles';
