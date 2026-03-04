@@ -657,6 +657,73 @@
       box-shadow: 0 6px 12px rgba(20, 55, 33, 0.18);
     }
 
+    .tool-selector {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 40;
+      transform: translateY(-50%) scale(var(--play-ui-scale));
+      transform-origin: left center;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    .tool-toggle {
+      border: 1px solid rgba(176, 210, 176, 0.9);
+      border-radius: 999px;
+      background: rgba(248, 255, 246, 0.95);
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #255e39;
+      box-shadow: 0 6px 12px rgba(20, 55, 33, 0.18);
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .tool-options {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tool-selector:not(.open) .tool-options {
+      display: none;
+    }
+
+    .tool-btn {
+      border: 1px solid rgba(176, 210, 176, 0.9);
+      border-radius: 999px;
+      background: rgba(248, 255, 246, 0.9);
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #255e39;
+      box-shadow: 0 6px 12px rgba(20, 55, 33, 0.18);
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .tool-btn.active {
+      background: #2f7d45;
+      border-color: #2f7d45;
+      color: #f2ffe8;
+      box-shadow: 0 6px 14px rgba(23, 66, 37, 0.28);
+    }
+
     .quest-widget {
       position: absolute;
       top: 12px;
@@ -672,6 +739,7 @@
       --msg-shadow-dark-a: 0.56;
       --msg-shadow-light-a: 0.4;
       --msg-outline-a: 0.44;
+      pointer-events: none;
     }
 
     .quest-widget-head {
@@ -703,10 +771,19 @@
       font-size: calc(11px * var(--play-ui-scale));
       font-weight: 700;
       cursor: pointer;
+      pointer-events: auto;
       text-shadow:
         0 1px 0 rgba(0, 0, 0, var(--msg-shadow-dark-a)),
         0 -1px 0 rgba(255, 255, 255, var(--msg-shadow-light-a)),
         0 0 3px rgba(0, 0, 0, var(--msg-outline-a));
+    }
+
+    .quest-widget-toggle-fab {
+      position: absolute;
+      top: 12px;
+      left: calc(12px + (56px * var(--play-ui-scale)));
+      z-index: 19;
+      pointer-events: auto;
     }
 
     .quest-widget-list {
@@ -1168,8 +1245,8 @@
       top: 6px;
       width: 14px;
       height: 10px;
-      background: #f7d36f;
-      border: 1px solid rgba(80, 70, 55, 0.65);
+      background: #b4bcc6;
+      border: 1px solid rgba(58, 63, 70, 0.72);
       transform: rotate(-10deg);
     }
 
@@ -1180,8 +1257,8 @@
       top: 4px;
       width: 10px;
       height: 7px;
-      background: #56c2ff;
-      border: 1px solid rgba(80, 70, 55, 0.65);
+      background: #8d96a3;
+      border: 1px solid rgba(58, 63, 70, 0.72);
       transform: rotate(14deg);
     }
 
@@ -1204,7 +1281,7 @@
       top: 2px;
       width: 8px;
       height: 6px;
-      border: 1px solid rgba(80, 70, 55, 0.7);
+      border: 1px solid rgba(56, 62, 70, 0.75);
       transform-origin: 50% 50%;
       border-radius: 1px;
     }
@@ -1514,6 +1591,10 @@
         top: calc(58px + env(safe-area-inset-top));
       }
 
+      .tool-selector {
+        left: 10px;
+      }
+
       .menu-panel {
         padding-top: calc(12px + env(safe-area-inset-top));
         padding-bottom: calc(12px + env(safe-area-inset-bottom));
@@ -1539,6 +1620,10 @@
       }
 
       .quest-widget {
+        top: calc(92px + env(safe-area-inset-top));
+      }
+
+      .quest-widget-toggle-fab {
         top: calc(92px + env(safe-area-inset-top));
       }
 
@@ -1622,13 +1707,20 @@
         <div id="questWidget" class="quest-widget">
           <div class="quest-widget-head">
             <p class="quest-widget-title">Quests</p>
-            <button id="questWidgetToggle" class="quest-widget-toggle" type="button" aria-expanded="false">▾</button>
           </div>
           <div id="questWidgetList" class="quest-widget-list"></div>
         </div>
+        <button id="questWidgetToggle" class="quest-widget-toggle quest-widget-toggle-fab" type="button" aria-expanded="false">▾</button>
         <div class="top-stats-hud">
           <div class="top-stat" id="ecoHud">Eco 5%</div>
           <div class="top-stat" id="wildlifeHud">Wildlife 1</div>
+        </div>
+        <div id="toolSelector" class="tool-selector" role="group" aria-label="Tool selector">
+          <button id="toolToggle" class="tool-toggle" type="button" aria-expanded="false" aria-label="Current tool: Empty Hand. Tap to choose tool." title="Current tool: Empty Hand"><span aria-hidden="true">🖐️</span></button>
+          <div id="toolOptions" class="tool-options" role="group" aria-label="Choose tool">
+            <button id="toolEmptyHand" class="tool-btn active" type="button" aria-pressed="true" aria-label="Empty Hand" title="Empty Hand"><span aria-hidden="true">🖐️</span></button>
+            <button id="toolShovel" class="tool-btn" type="button" aria-pressed="false" aria-label="Shovel" title="Shovel"><span aria-hidden="true">🪏</span></button>
+          </div>
         </div>
         <div id="floatingMessage" class="floating-message">
           <div class="msg-head">
@@ -1798,6 +1890,11 @@
       startOverlay: document.getElementById("startOverlay"),
       startPlayerName: document.getElementById("startPlayerName"),
       startContinue: document.getElementById("startContinue"),
+      toolSelector: document.getElementById("toolSelector"),
+      toolToggle: document.getElementById("toolToggle"),
+      toolOptions: document.getElementById("toolOptions"),
+      toolEmptyHand: document.getElementById("toolEmptyHand"),
+      toolShovel: document.getElementById("toolShovel"),
       buildToggle: document.getElementById("buildToggle"),
       buildMenu: document.getElementById("buildMenu"),
       campsiteList: document.getElementById("campsiteList"),
@@ -1818,6 +1915,7 @@
 
     const GOAL = { trees: 12, cleaned: 12, eco: 90 };
     const WORLD = { w: 1600, h: 920 };
+    const TREE_PLANT_MIN_DISTANCE = 46;
     const OBSERVATION_UNLOCK_FRAMES = [60 * 45, 60 * 120, 60 * 240, 60 * 420, 60 * 660];
     const NAMED_OBSERVATION_RATE = 2.5;
     let grassPattern = null;
@@ -1833,6 +1931,9 @@
       bestScore: Number(localStorage.getItem("forest-best") || 0),
       won: false,
       t: 0,
+      frameTimeScale: 1,
+      lastFrameTimeMs: null,
+      simAccumulatorMs: 0,
       ecoScore: 5,
       celebrationFrames: 0,
       acorns: 0,
@@ -1918,6 +2019,8 @@
       },
       questPanelOpen: localStorage.getItem("forest-quest-panel") === "open",
       questWidgetExpanded: false,
+      activeTool: "empty-hand",
+      toolMenuOpen: false,
       playerName: "",
       saveLoaded: false,
       saveTimer: null,
@@ -2298,6 +2401,84 @@
       butterfly: "Butterflies are gentle pollinators that thrive in healthy habitats."
     };
 
+    const UTAH_FOREST_BIRD_SPECIES = [
+      {
+        id: "stellers-jay",
+        name: "Steller's Jay",
+        color: "#3f5368",
+        fact: "Steller's Jays are common in Utah mountain forests and can mimic calls from other birds."
+      },
+      {
+        id: "mountain-chickadee",
+        name: "Mountain Chickadee",
+        color: "#6e7679",
+        fact: "Mountain Chickadees stash seeds in bark crevices and remember many hiding spots."
+      },
+      {
+        id: "dark-eyed-junco",
+        name: "Dark-eyed Junco",
+        color: "#646a73",
+        fact: "Dark-eyed Juncos forage in flocks on forest floors and edges across Utah."
+      },
+      {
+        id: "red-naped-sapsucker",
+        name: "Red-naped Sapsucker",
+        color: "#4b5863",
+        fact: "Red-naped Sapsuckers drill neat rows of sap wells in trees and revisit them."
+      },
+      {
+        id: "northern-flicker",
+        name: "Northern Flicker",
+        color: "#7a6a58",
+        fact: "Northern Flickers often feed on ants on the ground in open forest patches."
+      },
+      {
+        id: "american-robin",
+        name: "American Robin",
+        color: "#746056",
+        fact: "American Robins are familiar thrushes in Utah woodlands and forest clearings."
+      }
+    ];
+    const BIRD_SPECIES_BY_ID = Object.fromEntries(
+      UTAH_FOREST_BIRD_SPECIES.map((species) => [species.id, species])
+    );
+
+    function getAnimalTypeLabel(ref) {
+      if (!ref || typeof ref.type !== "string") return "Animal";
+      if (
+        ref.type === "bird" &&
+        typeof ref.speciesName === "string" &&
+        ref.speciesName.trim().length > 0
+      ) {
+        return ref.speciesName.trim();
+      }
+      return ref.type.charAt(0).toUpperCase() + ref.type.slice(1);
+    }
+
+    function getAnimalTypeLabelLower(ref) {
+      return getAnimalTypeLabel(ref).toLowerCase();
+    }
+
+    function ensureBirdSpeciesData(animal) {
+      if (!animal || animal.type !== "bird") return;
+      const currentProfile = BIRD_SPECIES_BY_ID[animal.speciesId];
+      const profile = currentProfile || randomFrom(UTAH_FOREST_BIRD_SPECIES);
+      animal.speciesId = profile.id;
+      if (typeof animal.speciesName !== "string" || !animal.speciesName.trim()) {
+        animal.speciesName = profile.name;
+      }
+      if (typeof animal.speciesColor !== "string" || !animal.speciesColor.trim()) {
+        animal.speciesColor = profile.color;
+      }
+      if (
+        typeof animal.fact !== "string" ||
+        !animal.fact.trim() ||
+        animal.fact === ANIMAL_FACTS.bird
+      ) {
+        animal.fact = profile.fact;
+      }
+    }
+
 
     const RARE_WILDLIFE = {
       minIntervalFrames: 60 * 60 * 45,
@@ -2328,7 +2509,7 @@
       const isBee = type === "bee";
       const isRaccoon = type === "raccoon";
       const isOwl = type === "owl";
-      return {
+      const animal = {
         x,
         y,
         vx: rand(isBee ? -0.8 : -0.9, isBee ? 0.8 : 0.9),
@@ -2348,6 +2529,10 @@
         glideTarget: isOwl ? { x: x, y: y } : null,
         nextGlideRetargetFrame: isOwl ? (state.t + Math.floor(rand(60 * 4, 60 * 8))) : 0
       };
+      if (type === "bird") {
+        ensureBirdSpeciesData(animal);
+      }
+      return animal;
     }
 
     function createFirefly() {
@@ -2594,6 +2779,39 @@
             "Path prefers soft ground near water channels."
           ]
         };
+        if (animalType === "bird" && ref.speciesId) {
+          const birdSpeciesExtras = {
+            "stellers-jay": [
+              "Lingers in conifer cover, then calls loudly from exposed branches.",
+              "Pauses to watch activity before swooping to a new perch."
+            ],
+            "mountain-chickadee": [
+              "Short hops trace neat loops around bark and branch junctions.",
+              "Stops at old bark creases like it remembers hidden seed spots."
+            ],
+            "dark-eyed-junco": [
+              "Keeps low and forages in quick pecks along soft forest floor edges.",
+              "Moves with tight flock-like spacing, then scatters and regroups."
+            ],
+            "red-naped-sapsucker": [
+              "Returns to one trunk face and checks bark in tidy vertical passes.",
+              "Foraging route climbs in steps, then drops quickly to a lower perch."
+            ],
+            "northern-flicker": [
+              "Lands near open patches and probes the ground in steady bursts.",
+              "Launches in a rolling arc, then glides to another sunlit edge."
+            ],
+            "american-robin": [
+              "Pauses upright to scan, then pulls food from soft soil patches.",
+              "Short runs across open litter end in quick, precise pecks."
+            ]
+          };
+          return animalPool.concat(
+            quirkyPool,
+            animalTypeExtras[animalType] || [],
+            birdSpeciesExtras[ref.speciesId] || []
+          );
+        }
         return animalPool.concat(quirkyPool, animalTypeExtras[animalType] || []);
       }
 
@@ -2616,7 +2834,7 @@
       const isTree = typeof ref.treeType === "string";
       const label = isTree
         ? (ref.customName || (ref.treeType + " tree"))
-        : (ref.customName || (ref.type ? ref.type.charAt(0).toUpperCase() + ref.type.slice(1) : "animal"));
+        : (ref.customName || getAnimalTypeLabel(ref));
       const moods = ["quiet", "windy", "sunny", "cool", "misty", "bright", "still", "rain-washed"];
       const textures = ["the air feels softer", "sounds carry farther", "the ground smells richer", "movement feels calmer", "the light sits lower"];
       const mood = moods[Math.floor(rand(0, moods.length))];
@@ -2708,7 +2926,7 @@
         };
       }
       if (ref.type) {
-        const label = ref.type.charAt(0).toUpperCase() + ref.type.slice(1);
+        const label = getAnimalTypeLabel(ref);
         return {
           title: "Animal Notes",
           type: label,
@@ -2934,9 +3152,9 @@
       state.saplingSpots = [];
       for (let i = 0; i < 48; i++) {
         let candidate = null;
-        for (let attempt = 0; attempt < 12; attempt++) {
+        for (let attempt = 0; attempt < 32; attempt++) {
           const pt = { x: rand(80, WORLD.w - 80), y: rand(80, WORLD.h - 80) };
-          if (!isTreeTrunkOverWater(pt)) {
+          if (canCreateSaplingSpotAt(pt)) {
             candidate = pt;
             break;
           }
@@ -3053,6 +3271,8 @@
       state.questUnlocks.afterWilt = false;
       state.campsiteItems = [];
       state.buildMode = null;
+      state.activeTool = "empty-hand";
+      state.toolMenuOpen = false;
       state.trash.nextSpawnFrame = state.t + Math.floor(rand(60 * 35, 60 * 55));
       state.trash.introShown = false;
       state.trash.raccoonIntroShown = false;
@@ -3150,7 +3370,7 @@
       const spacing = clamp(8 - visibleCount * 0.12, 1.6, 6);
       const totalW = 8 + (visibleCount - 1) * spacing;
       const left = Math.max(0, Math.min(36, (72 - totalW) * 0.5));
-      const palette = ["#ff7aa2", "#56c2ff", "#f7d36f"];
+      const palette = ["#b6bec8", "#8d96a3", "#d0d3cc"];
       for (let i = 0; i < visibleCount; i++) {
         const chip = document.createElement("span");
         chip.className = "trash-chip";
@@ -3195,6 +3415,7 @@
         questUnlocks: state.questUnlocks,
         campsiteItems: state.campsiteItems,
         buildMode: state.buildMode,
+        activeTool: state.activeTool,
         trash: state.trash,
         nextFlowerSpreadFrame: state.nextFlowerSpreadFrame,
         butterflyBurstDone: state.butterflyBurstDone,
@@ -3238,6 +3459,9 @@
       for (const animal of state.animals) {
         if (typeof animal.customName !== "string") animal.customName = "";
         if (typeof animal.everNamed !== "boolean") animal.everNamed = animal.customName.trim().length > 0;
+        if (animal.type === "bird") {
+          ensureBirdSpeciesData(animal);
+        }
         if (animal.type === "owl") {
           if (!animal.glideTarget || typeof animal.glideTarget.x !== "number" || typeof animal.glideTarget.y !== "number") {
             animal.glideTarget = { x: animal.x, y: animal.y };
@@ -3303,6 +3527,8 @@
       state.questUnlocks = Object.assign(state.questUnlocks, save.questUnlocks || {});
       state.campsiteItems = save.campsiteItems || [];
       state.buildMode = save.buildMode || null;
+      state.activeTool = save.activeTool === "shovel" ? "shovel" : "empty-hand";
+      state.toolMenuOpen = false;
       state.trash = Object.assign(state.trash, save.trash || {});
       state.nextFlowerSpreadFrame = save.nextFlowerSpreadFrame || 0;
       state.butterflyBurstDone = Boolean(save.butterflyBurstDone);
@@ -3440,6 +3666,47 @@
       }
       renderCampsiteList();
       scheduleSave();
+    }
+
+    function getActiveToolLabel() {
+      return state.activeTool === "shovel" ? "Shovel" : "Empty Hand";
+    }
+
+    function getActiveToolIcon() {
+      return state.activeTool === "shovel" ? "🪏" : "🖐️";
+    }
+
+    function setToolMenuOpen(open) {
+      state.toolMenuOpen = Boolean(open);
+      ui.toolSelector.classList.toggle("open", state.toolMenuOpen);
+      ui.toolToggle.setAttribute("aria-expanded", state.toolMenuOpen ? "true" : "false");
+    }
+
+    function setActiveTool(id) {
+      const nextTool = id === "shovel" ? "shovel" : "empty-hand";
+      const changed = state.activeTool !== nextTool;
+      state.activeTool = nextTool;
+      renderToolSelector();
+      setToolMenuOpen(false);
+      if (changed) {
+        setMessage("Tool equipped: " + getActiveToolLabel() + ".");
+      }
+      scheduleSave();
+    }
+
+    function renderToolSelector() {
+      const shovel = state.activeTool === "shovel";
+      const activeLabel = getActiveToolLabel();
+      const activeIcon = getActiveToolIcon();
+      ui.toolToggle.innerHTML = "<span aria-hidden=\"true\">" + activeIcon + "</span>";
+      ui.toolToggle.setAttribute("aria-label", "Current tool: " + activeLabel + ". Tap to choose tool.");
+      ui.toolToggle.title = "Current tool: " + activeLabel;
+      ui.toolEmptyHand.classList.toggle("active", !shovel);
+      ui.toolEmptyHand.setAttribute("aria-pressed", shovel ? "false" : "true");
+      ui.toolShovel.classList.toggle("active", shovel);
+      ui.toolShovel.setAttribute("aria-pressed", shovel ? "true" : "false");
+      ui.toolSelector.classList.toggle("open", state.toolMenuOpen);
+      ui.toolToggle.setAttribute("aria-expanded", state.toolMenuOpen ? "true" : "false");
     }
 
     function renderCampsiteList() {
@@ -3617,6 +3884,7 @@
         : "Eco " + Math.round(state.ecoScore) + "%";
       ui.wildlifeHud.textContent = "Wildlife " + getVisibleAnimals().length;
       ui.wildlifeHud.style.display = mobile ? "none" : "";
+      renderToolSelector();
       ui.notebookTab.classList.toggle("hint-pulse", state.t < state.notebookHintUntil && !state.inspectExpanded);
       renderMessageLog();
       maybeAdvanceQuest();
@@ -3679,7 +3947,7 @@
 
       dx /= mag;
       dy /= mag;
-      let speed = state.player.speed * speedScale;
+      let speed = state.player.speed * speedScale * (state.frameTimeScale || 1);
       for (const puddle of state.puddles) {
         if (distance(state.player, puddle) < puddle.r + state.player.r * 0.4) {
           speed *= 0.52;
@@ -3890,6 +4158,44 @@
       }
     }
 
+    function canCreateSaplingSpotAt(point, excludeSpot = null) {
+      if (!point) return false;
+      if (isTreeTrunkOverWater(point)) return false;
+      const tooClose = state.saplingSpots.some((spot) => {
+        if (spot === excludeSpot) return false;
+        return distance(point, spot) < TREE_PLANT_MIN_DISTANCE;
+      });
+      return !tooClose;
+    }
+
+    function createSaplingSpotAt(point) {
+      const spotPoint = {
+        x: clamp(point.x, 80, WORLD.w - 80),
+        y: clamp(point.y, 80, WORLD.h - 80)
+      };
+      if (!canCreateSaplingSpotAt(spotPoint)) {
+        setMessage("That spot is too tight or too wet. Try another patch of ground.");
+        return null;
+      }
+      const spot = {
+        x: spotPoint.x,
+        y: spotPoint.y,
+        planted: false,
+        growth: 0,
+        acornDropped: false,
+        wilted: false,
+        wiltBlend: 0,
+        needsWater: false,
+        wiltAt: 0,
+        lastWateredAt: -999999,
+        ...makeTreeProfile()
+      };
+      state.saplingSpots.push(spot);
+      setMessage("New planting spot marked.");
+      scheduleSave();
+      return spot;
+    }
+
     function attemptPlant(spot) {
       if (state.acorns < 1) {
         setMessage("Planting needs 1 acorn. Gather one first.");
@@ -3897,6 +4203,15 @@
         return;
       }
       if (spot.planted) return;
+      const closestPlanted = state.saplingSpots.reduce((best, candidate) => {
+        if (!candidate.planted || candidate === spot) return best;
+        const d = distance(spot, candidate);
+        return d < best ? d : best;
+      }, Infinity);
+      if (closestPlanted < TREE_PLANT_MIN_DISTANCE) {
+        setMessage("Give young trees a little space. Plant a bit farther away.");
+        return;
+      }
 
       spot.planted = true;
       spot.growth = 0.04;
@@ -4058,7 +4373,7 @@
         const animal = target.ref;
         setInspectCard(
           "Animal Notes",
-          animal.type.charAt(0).toUpperCase() + animal.type.slice(1),
+          getAnimalTypeLabel(animal),
           animal.fact,
           animal,
           true
@@ -4106,6 +4421,18 @@
         placeCampsiteItem(point);
         return;
       }
+      if (state.activeTool === "shovel") {
+        const target = findInteractiveTarget(point);
+        if (target) {
+          handleCanvasPoint(point);
+          return;
+        }
+        const spot = createSaplingSpotAt(point);
+        if (spot) {
+          state.hoverTarget = { kind: "plant-spot", ref: spot };
+        }
+        return;
+      }
       handleCanvasPoint(point);
     }
 
@@ -4115,6 +4442,8 @@
       state.hoverTarget = findInteractiveTarget(point);
       if (state.buildMode) {
         canvas.style.cursor = canPlaceCampsiteItem(point) ? "crosshair" : "not-allowed";
+      } else if (state.activeTool === "shovel" && !state.hoverTarget) {
+        canvas.style.cursor = canCreateSaplingSpotAt(point) ? "crosshair" : "not-allowed";
       } else {
         canvas.style.cursor = state.hoverTarget ? "pointer" : "default";
       }
@@ -4720,10 +5049,10 @@
       return false;
     }
 
-    function findDryTreePoint() {
+    function findDryTreePoint(excludeSpot = null) {
       for (let attempt = 0; attempt < 60; attempt++) {
         const pt = { x: rand(80, WORLD.w - 80), y: rand(80, WORLD.h - 80) };
-        if (!isTreeTrunkOverWater(pt)) return pt;
+        if (canCreateSaplingSpotAt(pt, excludeSpot)) return pt;
       }
       return null;
     }
@@ -4732,7 +5061,7 @@
       if (!state.saplingSpots.length) return;
       for (const spot of state.saplingSpots) {
         if (!isTreeTrunkOverWater(spot)) continue;
-        const dryPoint = findDryTreePoint();
+        const dryPoint = findDryTreePoint(spot);
         if (!dryPoint) continue;
         spot.x = dryPoint.x;
         spot.y = dryPoint.y;
@@ -5063,16 +5392,20 @@
       };
 
       const drawLitter = (x, y) => {
-        sctx.strokeStyle = "rgba(80, 70, 55, 0.65)";
+        sctx.strokeStyle = "rgba(52, 58, 66, 0.72)";
         sctx.lineWidth = 1;
-        const colors = ["#ff7aa2", "#56c2ff", "#f7d36f"];
+        const colors = ["#b6bec8", "#8d96a3", "#d0d3cc"];
         for (let i = 0; i < 3; i++) {
           sctx.fillStyle = colors[i];
           sctx.save();
           sctx.translate(x + i * 5, y - i * 2);
           sctx.rotate((i - 1) * 0.2);
           sctx.beginPath();
-          sctx.rect(-6, -4, 12, 8);
+          sctx.moveTo(-6, -4);
+          sctx.lineTo(6, -3);
+          sctx.lineTo(5, 4);
+          sctx.lineTo(-4, 5);
+          sctx.closePath();
           sctx.fill();
           sctx.stroke();
           sctx.restore();
@@ -5517,8 +5850,8 @@
           const seed = Math.sin(spot.x * 0.13 + spot.y * 0.17) * 43758.5453;
           const frac = seed - Math.floor(seed);
           const clumpCount = spot.variant || (frac > 0.55 ? 3 : 2);
-          const colors = ["#ff7aa2", "#56c2ff", "#f7d36f"];
-          ctx.strokeStyle = "rgba(80, 70, 55, 0.65)";
+          const colors = ["#b6bec8", "#8d96a3", "#d0d3cc"];
+          ctx.strokeStyle = "rgba(52, 58, 66, 0.72)";
           ctx.lineWidth = 1;
           for (let i = 0; i < clumpCount; i++) {
             const offsetSeed = Math.sin(spot.x * 0.21 + spot.y * 0.19 + i * 2.1) * 24634.6345;
@@ -5533,9 +5866,25 @@
             ctx.translate(spot.x + dx, spot.y + dy);
             ctx.rotate(angle);
             ctx.beginPath();
-            ctx.rect(-w / 2, -h / 2, w, h);
+            // Jagged wrapper-like scrap to keep litter visually distinct from flower petals.
+            ctx.moveTo(-w * 0.55, -h * 0.38);
+            ctx.lineTo(w * 0.52, -h * 0.46);
+            ctx.lineTo(w * 0.44, h * 0.45);
+            ctx.lineTo(-w * 0.3, h * 0.5);
+            ctx.lineTo(-w * 0.62, h * 0.1);
+            ctx.closePath();
             ctx.fill();
             ctx.stroke();
+            if (i === 0) {
+              ctx.strokeStyle = "rgba(64, 70, 78, 0.78)";
+              ctx.beginPath();
+              ctx.moveTo(-w * 0.25, -h * 0.1);
+              ctx.lineTo(w * 0.25, -h * 0.1);
+              ctx.moveTo(-w * 0.2, h * 0.18);
+              ctx.lineTo(w * 0.2, h * 0.18);
+              ctx.stroke();
+              ctx.strokeStyle = "rgba(52, 58, 66, 0.72)";
+            }
             ctx.restore();
           }
         } else {
@@ -5842,7 +6191,9 @@
           bee: "#4f4738",
           butterfly: "#685c73"
         };
-        const body = bodyByType[animal.type] || "#66554a";
+        const body = animal.type === "bird" && animal.speciesColor
+          ? animal.speciesColor
+          : (bodyByType[animal.type] || "#66554a");
 
         if (animal.type === "bee") {
           ctx.fillStyle = "#f5bf33";
@@ -6209,9 +6560,41 @@
       }
     }
 
-    function frame() {
-      state.t += 1;
-      update();
+    const FIXED_STEP_MS = 1000 / 60;
+    const MAX_FRAME_DELTA_MS = 250;
+    const MAX_UPDATES_PER_FRAME = 12;
+
+    function frame(nowMs) {
+      if (typeof nowMs !== "number") {
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      if (state.lastFrameTimeMs == null) {
+        state.lastFrameTimeMs = nowMs;
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      let frameMs = nowMs - state.lastFrameTimeMs;
+      state.lastFrameTimeMs = nowMs;
+      if (!Number.isFinite(frameMs) || frameMs < 0) frameMs = FIXED_STEP_MS;
+      frameMs = Math.min(frameMs, MAX_FRAME_DELTA_MS);
+      state.simAccumulatorMs += frameMs;
+
+      let updates = 0;
+      while (state.simAccumulatorMs >= FIXED_STEP_MS && updates < MAX_UPDATES_PER_FRAME) {
+        state.frameTimeScale = 1;
+        state.t += 1;
+        update();
+        state.simAccumulatorMs -= FIXED_STEP_MS;
+        updates += 1;
+      }
+      if (updates >= MAX_UPDATES_PER_FRAME) {
+        // Drop excess backlog to prevent runaway catch-up after long tab pauses.
+        state.simAccumulatorMs = 0;
+      }
+
       render();
       requestAnimationFrame(frame);
     }
@@ -6346,6 +6729,27 @@
     ui.menuToggle.addEventListener("click", () => {
       setMenuOpen(!state.menuOpen);
     });
+    ui.toolToggle.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      const nextTool = state.activeTool === "shovel" ? "empty-hand" : "shovel";
+      setActiveTool(nextTool);
+    });
+    ui.toolEmptyHand.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      setActiveTool("empty-hand");
+    });
+    ui.toolShovel.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      setActiveTool("shovel");
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (!state.toolMenuOpen) return;
+      if (ui.toolSelector.contains(event.target)) return;
+      setToolMenuOpen(false);
+    });
     ui.notebookPanel.addEventListener("click", () => {
       if (state.inspectExpanded) return;
       state.inspectExpanded = true;
@@ -6411,7 +6815,7 @@
       ) {
         state.inspectTarget.everNamed = true;
         state.stats.animalsNamed += 1;
-        logImpact("you watch " + nextName + " the " + state.inspectTarget.type + " closely");
+        logImpact("you watch " + nextName + " the " + getAnimalTypeLabelLower(state.inspectTarget) + " closely");
       }
       if (unlockObservations(state.inspectTarget)) {
         renderInspectObservations();
@@ -6476,7 +6880,7 @@
     setupMobileControls();
     updateCamera();
     initGame();
-    frame();
+    requestAnimationFrame(frame);
   </script>
 </body>
 </html>

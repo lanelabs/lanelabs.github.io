@@ -62,3 +62,17 @@ After that, the game keeps running so you can continue restoring.
 
 - Best score is saved in browser local storage.
 - The game is dependency-free (single HTML file), so it is easy to extend.
+
+## Design Philosophies (Learning From You)
+
+- Guidance should be optional and lightweight, never blocking flow.
+- Mechanics are introduced only when the player naturally encounters them.
+- The core loop stays calming and exploratory; structure is a helpful layer, not the main event.
+- UI should invite curiosity without demanding attention.
+- Progression should feel like “discovering the forest,” not grinding objectives.
+
+## Design Decisions (2026-02-27)
+
+- Tone: Cozy and exploratory (not management/survival).
+- Scope: We are exploring new features and ideas; tighten later.
+- Failure: No fail states for now; players should always recover.
