@@ -1661,20 +1661,27 @@
               Ranger Name
               <input id="menuPlayerName" class="profile-input" type="text" maxlength="22" placeholder="name (optional)" aria-label="Ranger name">
             </label>
+            <label class="menu-label">
+              Mode
+              <select id="menuModeSelect" class="profile-input" aria-label="Game mode">
+                <option value="forest">Forest</option>
+                <option value="winter">Winter</option>
+              </select>
+            </label>
             <div class="inventory-bar">
               <div class="inv-slot" title="Acorns">
                 <div id="acornStack" class="acorn-stack"></div>
                 <div id="acornPlaceholder" class="gather-placeholder">acorns gathered</div>
               </div>
-              <div class="inv-slot" title="Water">
+              <div id="waterSlot" class="inv-slot" title="Water">
                 <div id="waterIcon" class="inv-glyph water" aria-hidden="true"></div>
                 <div id="water" class="inv-count">Empty</div>
               </div>
-              <div class="inv-slot" title="Trees Planted">
+              <div id="treesSlot" class="inv-slot" title="Trees Planted">
                 <div class="inv-glyph sapling" aria-hidden="true"></div>
                 <div id="trees" class="inv-count">0</div>
               </div>
-              <div class="inv-slot trash-slot" title="Litter Cleaned">
+              <div id="cleanedSlot" class="inv-slot trash-slot" title="Litter Cleaned">
                 <div id="cleanedStack" class="trash-stack" aria-label="Trash collected: 0"></div>
                 <div id="cleanedPlaceholder" class="gather-placeholder">litter cleaned</div>
               </div>
@@ -1684,9 +1691,11 @@
               </div>
             </div>
             <div class="tips">
-              Controls: WASD/arrow keys to move, Space to interact, or use on-screen joystick + tap anywhere on touch screens.<br>
-              Start by cleaning nearby litter, collecting acorns, and planting trees in open spots.<br>
-              Keep helping the forest and watch how the world responds over time.
+              <span id="menuTipsText">
+                Controls: WASD/arrow keys to move, Space to interact, or use on-screen joystick + tap anywhere on touch screens.<br>
+                Start by cleaning nearby litter, collecting acorns, and planting trees in open spots.<br>
+                Keep helping the forest and watch how the world responds over time.
+              </span>
               <div class="tips-toggle">
                 <span id="touchModeLabel">Touch Controls: On</span>
                 <button id="touchModeToggle" type="button">Hide Touch UI</button>
@@ -1700,6 +1709,7 @@
               <div id="questList" class="quest-list" aria-live="polite"></div>
               <div id="questCollapsedNote" class="quest-collapsed-note">Quest log hidden. You can keep exploring freely.</div>
             </div>
+            <button id="menuStart" type="button">Start Selected Mode</button>
             <button id="newGame" type="button">New Game</button>
             <button id="debugOpen" class="secondary" type="button">Systems & Debug</button>
           </div>
@@ -1711,7 +1721,7 @@
           <div id="questWidgetList" class="quest-widget-list"></div>
         </div>
         <button id="questWidgetToggle" class="quest-widget-toggle quest-widget-toggle-fab" type="button" aria-expanded="false">▾</button>
-        <div class="top-stats-hud">
+        <div id="topStatsHud" class="top-stats-hud">
           <div class="top-stat" id="ecoHud">Eco 5%</div>
           <div class="top-stat" id="wildlifeHud">Wildlife 1</div>
         </div>
@@ -1770,10 +1780,17 @@
   <div id="startOverlay" class="start-overlay" aria-hidden="true">
     <section class="start-panel">
       <h2>Forrest Clean Up</h2>
-      <p>Cleanup and planting gradually heal the forest. Watch life return in real time.</p>
+      <p id="startModeDescription">Cleanup and planting gradually heal the forest. Watch life return in real time.</p>
       <label class="menu-label">
         Ranger Name
         <input id="startPlayerName" class="profile-input" type="text" maxlength="22" placeholder="name (optional)" aria-label="Ranger name at start">
+      </label>
+      <label class="menu-label">
+        Mode
+        <select id="startModeSelect" class="profile-input" aria-label="Mode at start">
+          <option value="forest">Forest</option>
+          <option value="winter">Winter</option>
+        </select>
       </label>
       <button id="startContinue" type="button">Start</button>
     </section>
@@ -1841,8 +1858,12 @@
     const ui = {
       water: document.getElementById("water"),
       trees: document.getElementById("trees"),
+      waterSlot: document.getElementById("waterSlot"),
+      treesSlot: document.getElementById("treesSlot"),
+      cleanedSlot: document.getElementById("cleanedSlot"),
       cleanedStack: document.getElementById("cleanedStack"),
       best: document.getElementById("best"),
+      topStatsHud: document.getElementById("topStatsHud"),
       ecoHud: document.getElementById("ecoHud"),
       wildlifeHud: document.getElementById("wildlifeHud"),
       message: document.getElementById("message"),
@@ -1881,14 +1902,19 @@
       joystick: document.getElementById("joystick"),
       joystickKnob: document.getElementById("joystickKnob"),
       touchControls: document.querySelector(".touch-controls"),
+      menuTipsText: document.getElementById("menuTipsText"),
       touchModeLabel: document.getElementById("touchModeLabel"),
       touchModeToggle: document.getElementById("touchModeToggle"),
       menuToggle: document.getElementById("menuToggle"),
       menuClose: document.getElementById("menuClose"),
       gameMenu: document.getElementById("gameMenu"),
       menuPlayerName: document.getElementById("menuPlayerName"),
+      menuModeSelect: document.getElementById("menuModeSelect"),
+      menuStart: document.getElementById("menuStart"),
       startOverlay: document.getElementById("startOverlay"),
       startPlayerName: document.getElementById("startPlayerName"),
+      startModeDescription: document.getElementById("startModeDescription"),
+      startModeSelect: document.getElementById("startModeSelect"),
       startContinue: document.getElementById("startContinue"),
       toolSelector: document.getElementById("toolSelector"),
       toolToggle: document.getElementById("toolToggle"),
@@ -1927,6 +1953,12 @@
     };
 
     const state = {
+      gameMode: "forest",
+      pendingGameMode: "forest",
+      modeStates: {
+        forest: null,
+        winter: null
+      },
       easyMode: false,
       bestScore: Number(localStorage.getItem("forest-best") || 0),
       won: false,
@@ -1954,6 +1986,10 @@
       saplingSpots: [],
       litterSpots: [],
       puddles: [],
+      winterIceCells: [],
+      winterSnowballs: [],
+      winterHitEffects: [],
+      winterSnowflakes: [],
       leaves: [],
       flowers: [],
       grassTufts: [],
@@ -2130,6 +2166,21 @@
       maxWilted: 4,
       transitionFrames: 60 * 2,
       postWaterGraceFrames: 60 * 10
+    };
+
+    const WINTER = {
+      minPonds: 2,
+      maxPonds: 2,
+      pondRadiusMin: 76,
+      pondRadiusMax: 114,
+      treeCountMin: 34,
+      treeCountMax: 46,
+      treeSpacing: 52,
+      iceHitsToBreak: 10,
+      refreezeFrames: 60 * 60 * 10,
+      snowballCap: 30,
+      snowflakeCountDesktop: 84,
+      snowflakeCountMobile: 52
     };
 
     function rand(min, max) {
@@ -2362,11 +2413,32 @@
       state.menuOpen = Boolean(open);
       ui.gameMenu.hidden = !state.menuOpen;
       ui.menuToggle.setAttribute("aria-expanded", state.menuOpen ? "true" : "false");
+      if (state.menuOpen) {
+        syncNameInputs();
+      }
+    }
+
+    function normalizeGameMode(mode) {
+      return mode === "winter" ? "winter" : "forest";
+    }
+
+    function isWinterMode() {
+      return state.gameMode === "winter";
+    }
+
+    function setPendingGameMode(mode) {
+      state.pendingGameMode = normalizeGameMode(mode);
+      ui.menuModeSelect.value = state.pendingGameMode;
+      ui.startModeSelect.value = state.pendingGameMode;
+      ui.startModeDescription.textContent = state.pendingGameMode === "winter"
+        ? "Winter sandbox mode: crack frozen pond ice and make snowballs."
+        : "Cleanup and planting gradually heal the forest. Watch life return in real time.";
     }
 
     function syncNameInputs() {
       ui.menuPlayerName.value = state.playerName || "";
       ui.startPlayerName.value = state.playerName || "";
+      setPendingGameMode(state.pendingGameMode || state.gameMode);
     }
 
     function setPlayerName(name) {
@@ -2385,6 +2457,10 @@
     function closeStartOverlay() {
       ui.startOverlay.classList.remove("open");
       ui.startOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    function cloneData(value) {
+      return JSON.parse(JSON.stringify(value));
     }
 
     const ANIMAL_FACTS = {
@@ -2503,6 +2579,14 @@
         customName: "",
         treeFact: TREE_FACTS[type]
       };
+    }
+
+    function makeWinterTreeType() {
+      // Evergreen dominant mix with some deciduous winter silhouettes.
+      if (Math.random() < 0.7) {
+        return Math.random() < 0.58 ? "Pine" : "Cedar";
+      }
+      return randomFrom(["Oak", "Maple", "Birch", "Aspen"]);
     }
 
     function createAnimal(type, x, y, extra = {}) {
@@ -3010,7 +3094,9 @@
         ui.notebookTab.setAttribute("aria-expanded", "false");
         ui.notebookTabArrow.textContent = "▴";
         ui.inspectNameInput.value = "";
-        ui.inspectNameInput.placeholder = "Click an animal or planted tree";
+        ui.inspectNameInput.placeholder = isWinterMode()
+          ? "Click an animal"
+          : "Click an animal or planted tree";
         ui.inspectNameInput.disabled = true;
       }
       renderNotebookPager();
@@ -3100,17 +3186,20 @@
     }
 
     function spawnWorld() {
-      state.stream = createStream();
-      const pondCount = 2 + Math.floor(rand(0, 2));
+      const winterMode = isWinterMode();
+      state.stream = winterMode ? null : createStream();
+      const pondCount = winterMode
+        ? WINTER.minPonds
+        : (2 + Math.floor(rand(0, 2)));
       state.puddles = [];
       for (let i = 0; i < pondCount; i++) {
         let candidate = null;
-        for (let attempt = 0; attempt < 12; attempt++) {
+        for (let attempt = 0; attempt < 16; attempt++) {
           const pt = { x: rand(110, WORLD.w - 110), y: rand(110, WORLD.h - 90) };
-          if (isInStream(pt, 30)) continue;
+          if (!winterMode && isInStream(pt, 30)) continue;
           let overlaps = false;
           for (const pond of state.puddles) {
-            if (Math.hypot(pt.x - pond.x, pt.y - pond.y) < pond.r + 46) {
+            if (Math.hypot(pt.x - pond.x, pt.y - pond.y) < pond.r + (winterMode ? 86 : 46)) {
               overlaps = true;
               break;
             }
@@ -3122,9 +3211,12 @@
         }
         if (candidate) {
           state.puddles.push({
+            id: "pond-" + i,
             x: candidate.x,
             y: candidate.y,
-            r: rand(26, 44)
+            r: winterMode
+              ? rand(WINTER.pondRadiusMin, WINTER.pondRadiusMax)
+              : rand(26, 44)
           });
         }
       }
@@ -3150,71 +3242,115 @@
       }
 
       state.saplingSpots = [];
-      for (let i = 0; i < 48; i++) {
-        let candidate = null;
-        for (let attempt = 0; attempt < 32; attempt++) {
-          const pt = { x: rand(80, WORLD.w - 80), y: rand(80, WORLD.h - 80) };
-          if (canCreateSaplingSpotAt(pt)) {
-            candidate = pt;
-            break;
+      if (!winterMode) {
+        for (let i = 0; i < 48; i++) {
+          let candidate = null;
+          for (let attempt = 0; attempt < 32; attempt++) {
+            const pt = { x: rand(80, WORLD.w - 80), y: rand(80, WORLD.h - 80) };
+            if (canCreateSaplingSpotAt(pt)) {
+              candidate = pt;
+              break;
+            }
+          }
+          if (candidate) {
+            state.saplingSpots.push({
+              x: candidate.x,
+              y: candidate.y,
+              planted: false,
+              growth: 0,
+              acornDropped: false,
+              wilted: false,
+              wiltBlend: 0,
+              needsWater: false,
+              wiltAt: 0,
+              lastWateredAt: -999999,
+              ...makeTreeProfile()
+            });
           }
         }
-        if (candidate) {
+
+        const starterTrees = Math.min(12, state.saplingSpots.length);
+        const starterIndices = state.saplingSpots
+          .map((_, idx) => idx)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, starterTrees);
+        for (const idx of starterIndices) {
+          const spot = state.saplingSpots[idx];
+          spot.planted = true;
+          spot.growth = rand(0.45, 0.9);
+          spot.acornDropped = spot.growth >= 0.85;
+          spot.needsWater = Math.random() < WATER.wiltChance;
+          spot.wiltAt = state.t + Math.floor(rand(WATER.wiltDelayMin, WATER.wiltDelayMax));
+          spot.wilted = false;
+          spot.wiltBlend = 0;
+        }
+      } else {
+        const winterTreeTarget = Math.floor(rand(WINTER.treeCountMin, WINTER.treeCountMax + 1));
+        const isWinterTreeValid = (point) => {
+          if (!point) return false;
+          if (isTreeTrunkOverWater(point)) return false;
+          for (const spot of state.saplingSpots) {
+            if (distance(point, spot) < WINTER.treeSpacing) return false;
+          }
+          return true;
+        };
+
+        for (let i = 0; i < winterTreeTarget; i++) {
+          let candidate = null;
+          for (let attempt = 0; attempt < 64; attempt++) {
+            const pt = { x: rand(70, WORLD.w - 70), y: rand(90, WORLD.h - 70) };
+            if (isWinterTreeValid(pt)) {
+              candidate = pt;
+              break;
+            }
+          }
+          if (!candidate) continue;
+          const treeType = makeWinterTreeType();
+          const isEvergreen = treeType === "Pine" || treeType === "Cedar";
           state.saplingSpots.push({
             x: candidate.x,
             y: candidate.y,
-            planted: false,
-            growth: 0,
+            planted: true,
+            growth: rand(0.68, 1),
             acornDropped: false,
             wilted: false,
             wiltBlend: 0,
             needsWater: false,
             wiltAt: 0,
             lastWateredAt: -999999,
-            ...makeTreeProfile()
+            winterBare: !isEvergreen && Math.random() < 0.65,
+            treeType,
+            customName: "",
+            treeFact: TREE_FACTS[treeType]
           });
         }
-      }
-
-      const starterTrees = Math.min(12, state.saplingSpots.length);
-      const starterIndices = state.saplingSpots
-        .map((_, idx) => idx)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, starterTrees);
-      for (const idx of starterIndices) {
-        const spot = state.saplingSpots[idx];
-        spot.planted = true;
-        spot.growth = rand(0.45, 0.9);
-        spot.acornDropped = spot.growth >= 0.85;
-        spot.needsWater = Math.random() < WATER.wiltChance;
-        spot.wiltAt = state.t + Math.floor(rand(WATER.wiltDelayMin, WATER.wiltDelayMax));
-        spot.wilted = false;
-        spot.wiltBlend = 0;
       }
 
       state.litterSpots = [];
-      for (let i = 0; i < 16; i++) {
-        let candidate = null;
-        for (let attempt = 0; attempt < 12; attempt++) {
-          const pt = { x: rand(80, WORLD.w - 80), y: rand(80, WORLD.h - 80) };
-          if (!isInStream(pt, 18)) {
-            candidate = pt;
-            break;
+      if (!winterMode) {
+        for (let i = 0; i < 16; i++) {
+          let candidate = null;
+          for (let attempt = 0; attempt < 12; attempt++) {
+            const pt = { x: rand(80, WORLD.w - 80), y: rand(80, WORLD.h - 80) };
+            if (!isInStream(pt, 18)) {
+              candidate = pt;
+              break;
+            }
           }
-        }
-        if (candidate) {
-          state.litterSpots.push({
-            x: candidate.x,
-            y: candidate.y,
-            cleaned: false,
-            spreadReadyFrame: 0,
-            spreadDone: false,
-            variant: Math.random() < 0.5 ? 2 : 3
-          });
+          if (candidate) {
+            state.litterSpots.push({
+              x: candidate.x,
+              y: candidate.y,
+              cleaned: false,
+              spreadReadyFrame: 0,
+              spreadDone: false,
+              variant: Math.random() < 0.5 ? 2 : 3
+            });
+          }
         }
       }
 
-      state.leaves = Array.from({ length: 24 }, () => ({
+      state.leaves = winterMode ? [] : Array.from({ length: 24 }, () => ({
         x: rand(0, WORLD.w),
         y: rand(0, WORLD.h),
         speed: rand(0.4, 1.1),
@@ -3230,6 +3366,20 @@
       state.animals = [];
       spawnAnimal("rabbit", { minX: 140, maxX: WORLD.w - 140, minY: 180, maxY: WORLD.h - 80, padding: 18 });
       state.fireflies = [];
+      state.winterIceCells = [];
+      state.winterSnowballs = [];
+      state.winterHitEffects = [];
+      state.winterSnowflakes = Array.from(
+        { length: isMobileViewport() ? WINTER.snowflakeCountMobile : WINTER.snowflakeCountDesktop },
+        () => ({
+          x: rand(0, WORLD.w),
+          y: rand(0, WORLD.h),
+          speed: rand(0.7, 1.9),
+          drift: rand(-0.35, 0.35),
+          radius: rand(0.9, 2.1),
+          phase: rand(0, Math.PI * 2)
+        })
+      );
     }
 
     function resetGame() {
@@ -3286,13 +3436,21 @@
       state.notebookHistoryIndex = -1;
       state.stream = null;
       spawnWorld();
-      scheduleNextRareWildlife();
+      if (!isWinterMode()) {
+        scheduleNextRareWildlife();
+      }
       state.ferns = [];
       state.bushes = [];
       state.meadowGrass = [];
       setBuildMode(null);
       setInspectCard("Nature Notebook", "-", "Interesting facts appear here.", null);
-      setMessage("New restoration day! Clean and plant to bring the forest back to life.");
+      if (isWinterMode()) {
+        state.activeTool = "shovel";
+        setMessage("Winter mode: shovel ice to crack ponds and scoop snowballs.");
+      } else {
+        state.activeTool = "empty-hand";
+        setMessage("New restoration day! Clean and plant to bring the forest back to life.");
+      }
       logImpact("Playthrough reset.");
       setMenuOpen(false);
       setQuestPanelOpen(state.questPanelOpen);
@@ -3397,6 +3555,8 @@
         saplingSpots: state.saplingSpots,
         litterSpots: state.litterSpots,
         puddles: state.puddles,
+        winterIceCells: state.winterIceCells,
+        winterSnowballs: state.winterSnowballs,
         leaves: state.leaves,
         flowers: state.flowers,
         grassTufts: state.grassTufts,
@@ -3449,6 +3609,20 @@
       }
       state.litterSpots = save.litterSpots || [];
       state.puddles = save.puddles || [];
+      state.winterIceCells = save.winterIceCells || [];
+      state.winterSnowballs = save.winterSnowballs || [];
+      state.winterHitEffects = [];
+      state.winterSnowflakes = Array.from(
+        { length: isMobileViewport() ? WINTER.snowflakeCountMobile : WINTER.snowflakeCountDesktop },
+        () => ({
+          x: rand(0, WORLD.w),
+          y: rand(0, WORLD.h),
+          speed: rand(0.7, 1.9),
+          drift: rand(-0.35, 0.35),
+          radius: rand(0.9, 2.1),
+          phase: rand(0, Math.PI * 2)
+        })
+      );
       state.leaves = save.leaves || [];
       state.flowers = save.flowers || [];
       state.grassTufts = save.grassTufts || [];
@@ -3483,7 +3657,9 @@
         if (typeof firefly.fadeDelay !== "number") firefly.fadeDelay = 0;
       }
       state.stream = save.stream || null;
-      if (!state.stream) {
+      if (isWinterMode()) {
+        state.stream = null;
+      } else if (!state.stream) {
         state.stream = createStream();
       } else {
         if (!Array.isArray(state.stream.points) || state.stream.points.length < 2) {
@@ -3565,13 +3741,18 @@
       for (const spot of state.saplingSpots) registerUsedNotes(spot);
       for (const animal of state.animals) registerUsedNotes(animal);
       normalizeDecorationSpawnTimes();
-      sanitizeSaplingSpotsAgainstWater();
+      if (!isWinterMode()) {
+        sanitizeSaplingSpotsAgainstWater();
+      }
       syncNameInputs();
-      if (!state.trash.nextSpawnFrame || state.trash.nextSpawnFrame <= state.t) {
+      if (!isWinterMode() && (!state.trash.nextSpawnFrame || state.trash.nextSpawnFrame <= state.t)) {
         scheduleNextTrashSpawn();
       }
-      if (!state.nextRareAnimalFrame || state.nextRareAnimalFrame <= state.t) {
+      if (!isWinterMode() && (!state.nextRareAnimalFrame || state.nextRareAnimalFrame <= state.t)) {
         scheduleNextRareWildlife();
+      }
+      if (isWinterMode()) {
+        state.activeTool = "shovel";
       }
       setBuildMode(state.buildMode);
       setQuestPanelOpen(state.questPanelOpen);
@@ -3581,11 +3762,40 @@
       return true;
     }
 
+    function captureCurrentModeSnapshot() {
+      state.modeStates[state.gameMode] = cloneData(serializeState());
+    }
+
+    function getSnapshotForMode(mode) {
+      const normalized = normalizeGameMode(mode);
+      const snapshot = state.modeStates[normalized];
+      return snapshot ? cloneData(snapshot) : null;
+    }
+
     function loadSavedGame() {
       const raw = localStorage.getItem("forest-save");
       if (!raw) return false;
       try {
         const save = JSON.parse(raw);
+        const hasModes = save && save.modeStates && typeof save.modeStates === "object";
+        if (hasModes) {
+          state.modeStates.forest = save.modeStates.forest || null;
+          state.modeStates.winter = save.modeStates.winter || null;
+          state.gameMode = normalizeGameMode(save.currentMode || "forest");
+          state.pendingGameMode = state.gameMode;
+          const snapshot = getSnapshotForMode(state.gameMode);
+          if (snapshot) {
+            return applySavedState(snapshot);
+          }
+          resetGame();
+          return true;
+        }
+
+        // Migration path for legacy single-mode saves.
+        state.modeStates.forest = cloneData(save);
+        state.modeStates.winter = null;
+        state.gameMode = "forest";
+        state.pendingGameMode = "forest";
         return applySavedState(save);
       } catch (err) {
         console.warn("Failed to load save:", err);
@@ -3595,7 +3805,13 @@
 
     function saveGameNow() {
       if (!state.saveLoaded) return;
-      const payload = serializeState();
+      captureCurrentModeSnapshot();
+      const payload = {
+        version: 2,
+        currentMode: state.gameMode,
+        pendingGameMode: state.pendingGameMode,
+        modeStates: state.modeStates
+      };
       try {
         localStorage.setItem("forest-save", JSON.stringify(payload));
       } catch (err) {
@@ -3610,6 +3826,33 @@
         state.saveTimer = null;
         saveGameNow();
       }, 2000);
+    }
+
+    function startSelectedMode() {
+      const nextMode = normalizeGameMode(state.pendingGameMode);
+      if (state.saveLoaded) {
+        captureCurrentModeSnapshot();
+      }
+
+      if (nextMode !== state.gameMode) {
+        state.gameMode = nextMode;
+        const snapshot = getSnapshotForMode(nextMode);
+        if (snapshot) {
+          applySavedState(snapshot);
+        } else {
+          resetGame();
+        }
+      }
+
+      if (isWinterMode()) {
+        state.activeTool = "shovel";
+      }
+      syncUI();
+      closeStartOverlay();
+      setMenuOpen(false);
+      if (state.saveLoaded) {
+        saveGameNow();
+      }
     }
 
     function setQuestPanelOpen(open) {
@@ -3794,6 +4037,7 @@
     }
 
     function maybeAdvanceQuest() {
+      if (isWinterMode()) return;
       const current = QUESTS[state.questIndex];
       if (!current) return;
       if (!isQuestUnlocked(current)) return;
@@ -3804,6 +4048,10 @@
     }
 
     function renderQuestList() {
+      if (isWinterMode()) {
+        ui.questList.innerHTML = "";
+        return;
+      }
       ui.questList.innerHTML = QUESTS.map((quest) => {
         const progress = getQuestProgress(quest);
         const complete = isQuestComplete(quest);
@@ -3821,6 +4069,11 @@
     }
 
     function renderQuestWidget() {
+      if (isWinterMode()) {
+        ui.questWidgetList.innerHTML = "";
+        ui.questWidgetToggle.hidden = true;
+        return;
+      }
       ui.questWidgetToggle.hidden = false;
       ui.questWidgetToggle.textContent = state.questWidgetExpanded ? "▴" : "▾";
       ui.questWidgetToggle.setAttribute("aria-expanded", state.questWidgetExpanded ? "true" : "false");
@@ -3873,23 +4126,39 @@
 
     function syncUI() {
       const mobile = isMobileViewport();
+      const winterMode = isWinterMode();
       renderAcornStack();
       renderCleanedStack();
       ui.water.textContent = state.waterCarried ? "Full" : "Empty";
       ui.waterIcon.classList.toggle("full", state.waterCarried);
       ui.trees.textContent = state.planted;
       ui.best.textContent = state.bestScore;
-      ui.ecoHud.textContent = mobile
-        ? "eco: " + Math.round(state.ecoScore) + "%"
-        : "Eco " + Math.round(state.ecoScore) + "%";
+      if (!winterMode) {
+        ui.ecoHud.textContent = mobile
+          ? "eco: " + Math.round(state.ecoScore) + "%"
+          : "Eco " + Math.round(state.ecoScore) + "%";
+      }
       ui.wildlifeHud.textContent = "Wildlife " + getVisibleAnimals().length;
       ui.wildlifeHud.style.display = mobile ? "none" : "";
+      ui.ecoHud.style.display = winterMode ? "none" : "";
+      ui.topStatsHud.style.display = winterMode ? "none" : "";
+      ui.questPanel.style.display = winterMode ? "none" : "";
+      ui.questWidget.style.display = winterMode ? "none" : "";
+      ui.questWidgetToggle.style.display = winterMode ? "none" : "";
+      ui.waterSlot.style.display = winterMode ? "none" : "";
+      ui.treesSlot.style.display = winterMode ? "none" : "";
+      ui.cleanedSlot.style.display = winterMode ? "none" : "";
+      ui.menuTipsText.innerHTML = winterMode
+        ? "Controls: WASD/arrow keys to move, or use on-screen joystick + tap anywhere on touch screens.<br>Use the shovel to crack frozen pond ice and make snowballs on snowy ground.<br>No quests or eco goals in winter yet; this mode is a sandbox."
+        : "Controls: WASD/arrow keys to move, Space to interact, or use on-screen joystick + tap anywhere on touch screens.<br>Start by cleaning nearby litter, collecting acorns, and planting trees in open spots.<br>Keep helping the forest and watch how the world responds over time.";
       renderToolSelector();
       ui.notebookTab.classList.toggle("hint-pulse", state.t < state.notebookHintUntil && !state.inspectExpanded);
       renderMessageLog();
-      maybeAdvanceQuest();
-      renderQuestList();
-      renderQuestWidget();
+      if (!winterMode) {
+        maybeAdvanceQuest();
+        renderQuestList();
+        renderQuestWidget();
+      }
       renderCampsiteList();
       if (state.inspectTarget) {
         const unlocked = unlockObservations(state.inspectTarget);
@@ -3966,15 +4235,18 @@
     function updateAcorns() {
       for (const acorn of state.acornNodes) {
         if (!acorn.active) continue;
-        acorn.pulse += 0.05;
-        if (distance(state.player, acorn) < state.player.r + 12) {
-          acorn.active = false;
+          acorn.pulse += 0.05;
+          if (distance(state.player, acorn) < state.player.r + 12) {
+            acorn.active = false;
       state.acorns += 1;
       state.stats.acornsCollected += 1;
       state.questUnlocks.afterAcorn = true;
-      setBasicActionMessageOnce("acorn", "Acorn found! You can use it to plant a tree.");
+      setBasicActionMessageOnce(
+        "acorn",
+        isWinterMode() ? "Acorn found!" : "Acorn found! You can use it to plant a tree."
+      );
+          }
         }
-      }
 
       if (state.acornNodes.every((a) => !a.active)) {
         const refill = state.acornNodes.slice(0, 10);
@@ -4007,6 +4279,10 @@
     }
 
     function interact() {
+      if (isWinterMode()) {
+        setMessage("Use the shovel with click/tap in winter mode.");
+        return;
+      }
       if (state.waterCarried) {
         for (const spot of state.saplingSpots) {
           if (spot.wilted && distance(state.player, spot) < 32) {
@@ -4059,14 +4335,14 @@
           }
           if (spot.growth >= 0.985 && !spot.acornDropped) {
             spot.acornDropped = true;
-            const growth = spot.growth || 0.04;
-            const trunk = (6 + growth * 12) * 2;
-            const baseY = spot.y + 16 + trunk + rand(6, 16);
             let acornPt = null;
-            for (let attempt = 0; attempt < 8; attempt++) {
+            for (let attempt = 0; attempt < 16; attempt++) {
+              const angle = rand(0, Math.PI * 2);
+              // Wider radial spread so drops feel less clustered near trunk base.
+              const dist = 22 + Math.pow(rand(0, 1), 0.65) * 126;
               const cand = {
-                x: clamp(spot.x + rand(-12, 12), 30, WORLD.w - 30),
-                y: clamp(baseY + rand(-4, 6), 30, WORLD.h - 30)
+                x: clamp(spot.x + Math.cos(angle) * dist, 30, WORLD.w - 30),
+                y: clamp(spot.y + 22 + Math.sin(angle) * dist, 30, WORLD.h - 30)
               };
               if (!isInWater(cand, 10)) {
                 acornPt = cand;
@@ -4159,6 +4435,7 @@
     }
 
     function canCreateSaplingSpotAt(point, excludeSpot = null) {
+      if (isWinterMode()) return false;
       if (!point) return false;
       if (isTreeTrunkOverWater(point)) return false;
       const tooClose = state.saplingSpots.some((spot) => {
@@ -4169,6 +4446,7 @@
     }
 
     function createSaplingSpotAt(point) {
+      if (isWinterMode()) return null;
       const spotPoint = {
         x: clamp(point.x, 80, WORLD.w - 80),
         y: clamp(point.y, 80, WORLD.h - 80)
@@ -4197,6 +4475,7 @@
     }
 
     function attemptPlant(spot) {
+      if (isWinterMode()) return;
       if (state.acorns < 1) {
         setMessage("Planting needs 1 acorn. Gather one first.");
         state.noAcornHintUntil = state.t + 70;
@@ -4290,10 +4569,11 @@
       state.acorns += 1;
       state.stats.acornsCollected += 1;
       state.questUnlocks.afterAcorn = true;
-      setBasicActionMessageOnce("acorn", "Acorn collected.");
+      setBasicActionMessageOnce("acorn", isWinterMode() ? "Acorn found." : "Acorn collected.");
     }
 
     function attemptCollectWater(puddle, sourceLabel = "pond") {
+      if (isWinterMode()) return;
       if (state.waterCarried) {
         setMessage("Your water is already full.");
         return;
@@ -4304,6 +4584,7 @@
     }
 
     function attemptWaterPlant(spot) {
+      if (isWinterMode()) return;
       if (!spot.planted) return;
       if (!spot.wilted) {
         setMessage("This tree looks healthy.");
@@ -4323,6 +4604,135 @@
       state.ecoScore = clamp(state.ecoScore + 1, 5, 100);
       setBasicActionMessageOnce("waterTree", "You watered the tree. It’s perking up!");
       logImpact("Watered " + spot.treeType + " tree.");
+    }
+
+    function findWinterPondAtPoint(point, padding = 0) {
+      for (const pond of state.puddles) {
+        if (distance(point, pond) <= pond.r + padding) return pond;
+      }
+      return null;
+    }
+
+    function addWinterHitEffect(kind, x, y) {
+      state.winterHitEffects.push({
+        kind,
+        x,
+        y,
+        ttl: kind === "ice-break" ? 30 : 18
+      });
+    }
+
+    function getWinterIceCellAtPoint(point, pond, create) {
+      const snapRadius = 22;
+      let best = null;
+      let bestDist = snapRadius;
+      for (const cell of state.winterIceCells) {
+        if (cell.pondId !== pond.id) continue;
+        const d = Math.hypot(point.x - cell.x, point.y - cell.y);
+        if (d < bestDist) {
+          bestDist = d;
+          best = cell;
+        }
+      }
+      if (best || !create) return best;
+      const created = {
+        pondId: pond.id,
+        x: clamp(point.x, pond.x - pond.r + 12, pond.x + pond.r - 12),
+        y: clamp(point.y, pond.y - pond.r * 0.6 + 10, pond.y + pond.r * 0.6 - 10),
+        hits: 0,
+        brokenAt: 0,
+        refreezeAt: 0
+      };
+      state.winterIceCells.push(created);
+      return created;
+    }
+
+    function crackWinterIceAtPoint(point, pond) {
+      const cell = getWinterIceCellAtPoint(point, pond, true);
+      if (!cell) return false;
+      if (cell.brokenAt && state.t < cell.refreezeAt) {
+        addWinterHitEffect("splash", point.x, point.y);
+        setMessage("Tiny splash from the open ice hole.");
+        return true;
+      }
+      if (cell.brokenAt && state.t >= cell.refreezeAt) {
+        cell.hits = 0;
+        cell.brokenAt = 0;
+        cell.refreezeAt = 0;
+      }
+      cell.hits += 1;
+      if (cell.hits >= WINTER.iceHitsToBreak) {
+        cell.hits = WINTER.iceHitsToBreak;
+        cell.brokenAt = state.t;
+        cell.refreezeAt = state.t + WINTER.refreezeFrames;
+        addWinterHitEffect("ice-break", point.x, point.y);
+        setMessage("Crack! The pond ice broke open.");
+      } else {
+        addWinterHitEffect("ice-crack", point.x, point.y);
+        setMessage("Ice crack " + cell.hits + "/" + WINTER.iceHitsToBreak + ".");
+      }
+      scheduleSave();
+      return true;
+    }
+
+    function canCreateWinterSnowballAt(point) {
+      if (!point) return false;
+      if (point.x < 16 || point.x > WORLD.w - 16 || point.y < 16 || point.y > WORLD.h - 16) return false;
+      if (findWinterPondAtPoint(point, 0)) return false;
+      return true;
+    }
+
+    function createWinterSnowballAt(point) {
+      if (!canCreateWinterSnowballAt(point)) return false;
+      state.winterSnowballs.push({
+        x: point.x,
+        y: point.y,
+        r: rand(6.2, 10.8),
+        createdAt: state.t
+      });
+      while (state.winterSnowballs.length > WINTER.snowballCap) {
+        state.winterSnowballs.shift();
+      }
+      addWinterHitEffect("snow", point.x, point.y);
+      setMessage("Snowball made.");
+      scheduleSave();
+      return true;
+    }
+
+    function handleWinterShovelAction(point) {
+      if (!isWinterMode()) return false;
+      if (state.activeTool !== "shovel") return false;
+      const pond = findWinterPondAtPoint(point, 0);
+      if (pond) {
+        return crackWinterIceAtPoint(point, pond);
+      }
+      return createWinterSnowballAt(point);
+    }
+
+    function updateWinterMode() {
+      if (!isWinterMode()) return;
+      for (const flake of state.winterSnowflakes) {
+        flake.y += flake.speed * (state.frameTimeScale || 1);
+        flake.x += (Math.sin((state.t + flake.phase) * 0.03) * 0.3 + flake.drift) * (state.frameTimeScale || 1);
+        if (flake.y > WORLD.h + 6) {
+          flake.y = -6;
+          flake.x = rand(0, WORLD.w);
+        }
+        if (flake.x < -8) flake.x = WORLD.w + 8;
+        if (flake.x > WORLD.w + 8) flake.x = -8;
+      }
+      for (const cell of state.winterIceCells) {
+        if (cell.brokenAt && state.t >= cell.refreezeAt) {
+          cell.hits = 0;
+          cell.brokenAt = 0;
+          cell.refreezeAt = 0;
+          addWinterHitEffect("ice-crack", cell.x, cell.y);
+        }
+      }
+      for (const fx of state.winterHitEffects) {
+        fx.ttl -= 1;
+      }
+      state.winterHitEffects = state.winterHitEffects.filter((fx) => fx.ttl > 0);
     }
 
     function getCanvasPoint(event) {
@@ -4357,10 +4767,12 @@
       }
 
       for (const puddle of state.puddles) {
-        if (distance(point, puddle) <= puddle.r + 8) return { kind: "pond", ref: puddle };
+        if (distance(point, puddle) <= puddle.r + 8) {
+          return { kind: isWinterMode() ? "ice" : "pond", ref: puddle };
+        }
       }
 
-      if (isInStream(point, 12)) return { kind: "stream", ref: point };
+      if (!isWinterMode() && isInStream(point, 12)) return { kind: "stream", ref: point };
 
       return null;
     }
@@ -4410,6 +4822,10 @@
         attemptCollectWater(target.ref, "pond");
       }
 
+      if (target.kind === "ice") {
+        setMessage("Equip the shovel and tap the ice to crack it.");
+      }
+
       if (target.kind === "stream") {
         attemptCollectWater(null, "stream");
       }
@@ -4419,6 +4835,10 @@
       const point = getCanvasPoint(event);
       if (state.buildMode) {
         placeCampsiteItem(point);
+        return;
+      }
+      if (isWinterMode() && state.activeTool === "shovel") {
+        handleWinterShovelAction(point);
         return;
       }
       if (state.activeTool === "shovel") {
@@ -4442,6 +4862,9 @@
       state.hoverTarget = findInteractiveTarget(point);
       if (state.buildMode) {
         canvas.style.cursor = canPlaceCampsiteItem(point) ? "crosshair" : "not-allowed";
+      } else if (isWinterMode() && state.activeTool === "shovel") {
+        const pond = findWinterPondAtPoint(point, 0);
+        canvas.style.cursor = (pond || canCreateWinterSnowballAt(point)) ? "crosshair" : "not-allowed";
       } else if (state.activeTool === "shovel" && !state.hoverTarget) {
         canvas.style.cursor = canCreateSaplingSpotAt(point) ? "crosshair" : "not-allowed";
       } else {
@@ -4549,6 +4972,7 @@
     }
 
     function updateTrashSpawns() {
+      if (isWinterMode()) return;
       if (state.trash.nextSpawnFrame === 0) {
         scheduleNextTrashSpawn();
       }
@@ -4646,6 +5070,7 @@
       if (target.kind === "tree") radius = 30;
       if (target.kind === "acorn") radius = 16;
       if (target.kind === "pond") radius = ref.r + 6;
+      if (target.kind === "ice") radius = ref.r + 6;
       if (target.kind === "stream") radius = 18;
 
       ctx.save();
@@ -4664,7 +5089,9 @@
       const daylight = getDaylightLevel();
       updateBeePopulation();
       if (state.won) ensureButterflies();
-      updateRareWildlife();
+      if (!isWinterMode()) {
+        updateRareWildlife();
+      }
       const activeBirds = state.animals.filter((animal) => animal.type === "bird" && !animal.expiring);
       if (activeBirds.length > 10) {
         for (let i = 10; i < activeBirds.length; i++) {
@@ -5455,6 +5882,7 @@
       drawFlower(530, 180);
     }
     function checkWin() {
+      if (isWinterMode()) return;
       const restored = state.planted >= GOAL.trees &&
                        state.cleaned >= GOAL.cleaned &&
                        state.ecoScore >= GOAL.eco;
@@ -5486,6 +5914,48 @@
     }
 
     function drawGround() {
+      if (isWinterMode()) {
+        const daylight = getDaylightLevel();
+        const nightAmount = 1 - daylight;
+        const snowDay = [201, 213, 228];
+        const snowNight = [78, 93, 118];
+        const driftDay = [224, 232, 242];
+        const driftNight = [98, 112, 136];
+        ctx.fillStyle = mixColor(snowDay, snowNight, nightAmount);
+        ctx.fillRect(0, 0, WORLD.w, WORLD.h);
+
+        for (let i = 0; i < 140; i++) {
+          const x = (i * 67) % WORLD.w;
+          const y = (i * 103) % WORLD.h;
+          const r = 1 + ((i * 19) % 7) * 0.12;
+          ctx.fillStyle = mixColor(driftDay, driftNight, nightAmount);
+          ctx.globalAlpha = 0.08;
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+
+        for (const pond of state.puddles) {
+          ctx.fillStyle = "rgba(116, 132, 154, " + (0.22 + nightAmount * 0.08).toFixed(3) + ")";
+          ctx.beginPath();
+          ctx.ellipse(pond.x, pond.y + 3, pond.r + 10, pond.r * 0.66, 0.18, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = mixColor([172, 193, 214], [86, 106, 132], nightAmount);
+          ctx.beginPath();
+          ctx.ellipse(pond.x, pond.y, pond.r, pond.r * 0.58, 0.18, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = "rgba(240, 248, 255, " + (0.42 - nightAmount * 0.16).toFixed(3) + ")";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.ellipse(pond.x, pond.y, pond.r * 0.76, pond.r * 0.42, 0.18, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        return;
+      }
+
       const daylight = getDaylightLevel();
       const nightAmount = 1 - daylight;
       const ecoBlend = getEcoBlend();
@@ -5558,6 +6028,7 @@
     }
 
     function drawStream() {
+      if (isWinterMode()) return;
       if (!state.stream) return;
       const nightAmount = 1 - getDaylightLevel();
       const ecoBlend = getEcoBlend();
@@ -5760,7 +6231,9 @@
       ctx.fill();
       ctx.stroke();
 
-      ctx.fillStyle = "rgba(115, 170, 98, 0.32)";
+      ctx.fillStyle = isWinterMode()
+        ? "rgba(152, 176, 206, 0.34)"
+        : "rgba(115, 170, 98, 0.32)";
       ctx.fillRect(innerX, innerY, innerW, innerH);
 
       ctx.strokeStyle = "rgba(255, 255, 255, 0.75)";
@@ -5775,6 +6248,7 @@
     }
 
     function drawLeaves() {
+      if (isWinterMode()) return;
       ctx.fillStyle = "rgba(237, 174, 83, 0.8)";
       for (const leaf of state.leaves) {
         ctx.beginPath();
@@ -5798,6 +6272,109 @@
         ctx.fillStyle = "#8a5a2c";
         ctx.fillRect(acorn.x - 7, acorn.y - 7 + bob, 14, 3);
       }
+    }
+
+    function drawWinterSnowballs() {
+      if (!isWinterMode()) return;
+      for (const ball of state.winterSnowballs) {
+        drawShadowEllipse(ball.x + 2, ball.y + ball.r + 2, ball.r * 0.9, Math.max(2, ball.r * 0.28), 0.16);
+        ctx.fillStyle = "#edf5ff";
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "rgba(170, 188, 210, 0.7)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(ball.x - ball.r * 0.2, ball.y - ball.r * 0.2, ball.r * 0.65, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    }
+
+    function drawWinterIceCracks() {
+      if (!isWinterMode()) return;
+      for (const cell of state.winterIceCells) {
+        const broken = cell.brokenAt && state.t < cell.refreezeAt;
+        if (broken) {
+          ctx.fillStyle = "rgba(22, 40, 62, 0.9)";
+          ctx.beginPath();
+          ctx.ellipse(cell.x, cell.y, 8.5, 6.6, 0.15, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = "rgba(208, 224, 242, 0.36)";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.ellipse(cell.x, cell.y, 10.8, 8.1, 0.15, 0, Math.PI * 2);
+          ctx.stroke();
+          continue;
+        }
+        if (cell.hits <= 0) continue;
+        const progress = clamp(cell.hits / WINTER.iceHitsToBreak, 0, 1);
+        const lineCount = 2 + Math.floor(progress * 7);
+        const len = 8 + progress * 16;
+        ctx.strokeStyle = "rgba(60, 82, 106, " + (0.28 + progress * 0.42).toFixed(3) + ")";
+        ctx.lineWidth = 1 + progress * 0.8;
+        for (let i = 0; i < lineCount; i++) {
+          const a = (Math.PI * 2 * i) / lineCount + (cell.x * 0.013 + cell.y * 0.011);
+          ctx.beginPath();
+          ctx.moveTo(cell.x, cell.y);
+          ctx.lineTo(cell.x + Math.cos(a) * len, cell.y + Math.sin(a) * len * 0.78);
+          ctx.stroke();
+        }
+      }
+    }
+
+    function drawWinterSnowfall() {
+      if (!isWinterMode()) return;
+      ctx.fillStyle = "rgba(250, 255, 255, 0.82)";
+      for (const flake of state.winterSnowflakes) {
+        const pulse = 0.85 + Math.sin((state.t + flake.phase) * 0.05) * 0.15;
+        ctx.globalAlpha = 0.55 + pulse * 0.32;
+        ctx.beginPath();
+        ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function drawWinterHitEffects() {
+      if (!isWinterMode()) return;
+      for (const fx of state.winterHitEffects) {
+        const life = clamp(fx.ttl / (fx.kind === "ice-break" ? 30 : 18), 0, 1);
+        ctx.globalAlpha = life;
+        if (fx.kind === "snow") {
+          ctx.strokeStyle = "rgba(245, 250, 255, 0.95)";
+          ctx.lineWidth = 1.2;
+          for (let i = 0; i < 4; i++) {
+            const a = (Math.PI * 2 * i) / 4;
+            ctx.beginPath();
+            ctx.moveTo(fx.x, fx.y);
+            ctx.lineTo(fx.x + Math.cos(a) * (9 - life * 4), fx.y + Math.sin(a) * (9 - life * 4));
+            ctx.stroke();
+          }
+        } else if (fx.kind === "splash") {
+          ctx.strokeStyle = "rgba(167, 204, 236, 0.85)";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.arc(fx.x, fx.y, 2 + (1 - life) * 12, 0, Math.PI * 2);
+          ctx.stroke();
+        } else if (fx.kind === "ice-break") {
+          ctx.strokeStyle = "rgba(228, 241, 255, 0.95)";
+          ctx.lineWidth = 1.6;
+          for (let i = 0; i < 8; i++) {
+            const a = (Math.PI * 2 * i) / 8;
+            ctx.beginPath();
+            ctx.moveTo(fx.x, fx.y);
+            ctx.lineTo(fx.x + Math.cos(a) * (20 - life * 8), fx.y + Math.sin(a) * (20 - life * 8));
+            ctx.stroke();
+          }
+        } else {
+          ctx.strokeStyle = "rgba(198, 221, 244, 0.84)";
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.arc(fx.x, fx.y, 4 + (1 - life) * 8, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
+      ctx.globalAlpha = 1;
     }
 
     function drawSpots(saplingSpots = state.saplingSpots, litterSpots = state.litterSpots) {
@@ -5909,6 +6486,25 @@
         const canopyAltNight = blendRgb(PAPER.canopyNight, [80, 62, 45], wiltBlend);
         const canopyMain = mixColor(canopyMainDay, canopyMainNight, nightAmount);
         const canopyAlt = mixColor(canopyAltDay, canopyAltNight, nightAmount);
+
+        if (isWinterMode() && spot.winterBare) {
+          const trunkTopY = spot.y + crown * 0.08;
+          const branchColor = mixColor([112, 98, 86], [78, 72, 68], nightAmount);
+          ctx.strokeStyle = branchColor;
+          ctx.lineWidth = 1.8;
+          const branchSets = 5;
+          for (let i = 0; i < branchSets; i++) {
+            const yBase = trunkTopY + 2 + i * (trunkTopY > spot.y ? 4 : 3);
+            const spread = 10 + i * 3.2;
+            ctx.beginPath();
+            ctx.moveTo(topX + sway * 0.08, yBase);
+            ctx.lineTo(topX - spread, yBase - (8 + i * 1.5));
+            ctx.moveTo(topX + sway * 0.08, yBase);
+            ctx.lineTo(topX + spread, yBase - (8 + i * 1.5));
+            ctx.stroke();
+          }
+          continue;
+        }
 
         if (spot.treeType === "Pine" || spot.treeType === "Cedar") {
           ctx.fillStyle = canopyAlt;
@@ -6485,6 +7081,7 @@
       updateCamera();
       updateAcorns();
       updateLeaves();
+      updateWinterMode();
       updateEcoSystem();
       updateTrashSpawns();
       updateAnimals();
@@ -6532,8 +7129,11 @@
       ctx.setTransform(zoom, 0, 0, zoom, -camX * zoom, -camY * zoom);
       drawGround();
       drawStream();
+      drawWinterIceCracks();
+      drawWinterSnowfall();
       drawLeaves();
       drawAcorns();
+      drawWinterSnowballs();
       drawEcoDecorations();
       drawFlowers();
       drawGrassTufts();
@@ -6543,6 +7143,7 @@
       drawTreeCanopies();
       drawAnimals();
       drawFireflies();
+      drawWinterHitEffects();
       drawHoverHighlight();
       drawPlayer();
       drawNoAcornHint();
@@ -6554,7 +7155,9 @@
         ctx.restore();
       }
       if (!isMobileViewport()) {
-        drawHudOverlay();
+        if (!isWinterMode()) {
+          drawHudOverlay();
+        }
       } else {
         drawMobileMiniMap();
       }
@@ -6603,6 +7206,8 @@
       setTouchControlsEnabled(state.touchControlsEnabled);
       const loaded = loadSavedGame();
       if (!loaded) {
+        state.gameMode = "forest";
+        state.pendingGameMode = "forest";
         resetGame();
         openStartOverlay();
       } else {
@@ -6674,9 +7279,13 @@
     });
 
     document.getElementById("newGame").addEventListener("click", () => {
-      const ok = window.confirm("Start over and erase your saved forest?");
+      const ok = window.confirm("Start over and erase your saved forest and winter progress?");
       if (!ok) return;
       localStorage.removeItem("forest-save");
+      state.modeStates.forest = null;
+      state.modeStates.winter = null;
+      state.gameMode = "forest";
+      state.pendingGameMode = "forest";
       resetGame();
       state.saveLoaded = true;
       saveGameNow();
@@ -6724,7 +7333,17 @@
     });
     ui.startContinue.addEventListener("click", () => {
       setPlayerName(ui.startPlayerName.value);
-      closeStartOverlay();
+      startSelectedMode();
+    });
+    ui.menuStart.addEventListener("click", () => {
+      setPlayerName(ui.menuPlayerName.value);
+      startSelectedMode();
+    });
+    ui.menuModeSelect.addEventListener("change", (event) => {
+      setPendingGameMode(event.target.value);
+    });
+    ui.startModeSelect.addEventListener("change", (event) => {
+      setPendingGameMode(event.target.value);
     });
     ui.menuToggle.addEventListener("click", () => {
       setMenuOpen(!state.menuOpen);
@@ -6851,7 +7470,11 @@
       if (!state.touchControlsEnabled) return;
       const point = getCanvasPoint(event);
       state.mouseWorld = point;
-      handleCanvasPoint(point);
+      if (isWinterMode() && state.activeTool === "shovel") {
+        handleWinterShovelAction(point);
+      } else {
+        handleCanvasPoint(point);
+      }
       event.preventDefault();
     }, { passive: false });
     canvas.addEventListener("mouseleave", clearCanvasHover);
