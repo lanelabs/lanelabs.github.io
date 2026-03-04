@@ -1982,6 +1982,10 @@
         facing: 1,
         moving: false
       },
+      playerUnderIce: false,
+      playerStillFrames: 0,
+      submergedPondId: null,
+      postFxCanvas: null,
       acornNodes: [],
       saplingSpots: [],
       litterSpots: [],
@@ -3413,6 +3417,9 @@
       state.player.y = 620;
       state.player.step = 0;
       state.player.moving = false;
+      state.playerUnderIce = false;
+      state.playerStillFrames = 0;
+      state.submergedPondId = null;
       state.questIndex = 0;
       state.lastQuestNoticeId = null;
       state.questUnlocks.afterClean = false;
@@ -3600,6 +3607,9 @@
       state.planted = save.planted || 0;
       state.cleaned = save.cleaned || 0;
       state.player = Object.assign(state.player, save.player || {});
+      state.playerUnderIce = false;
+      state.playerStillFrames = 0;
+      state.submergedPondId = null;
       state.acornNodes = save.acornNodes || [];
       state.saplingSpots = save.saplingSpots || [];
       for (const spot of state.saplingSpots) {
@@ -4204,6 +4214,11 @@
 
       state.player.moving = moved;
       if (moved) {
+        state.playerStillFrames = 0;
+      } else {
+        state.playerStillFrames = (state.playerStillFrames || 0) + 1;
+      }
+      if (moved) {
         state.player.step = (state.player.step || 0) + 0.22;
       }
       state.player.x = clamp(state.player.x, state.player.r, WORLD.w - state.player.r);
@@ -4709,6 +4724,41 @@
       return createWinterSnowballAt(point);
     }
 
+    function getActiveWinterHoleAt(point, padding = 0) {
+      for (const cell of state.winterIceCells) {
+        if (!cell.brokenAt || state.t >= cell.refreezeAt) continue;
+        const d = Math.hypot(point.x - cell.x, point.y - cell.y);
+        if (d <= 9 + padding) return cell;
+      }
+      return null;
+    }
+
+    function updateWinterPlayerSubmerge() {
+      if (!isWinterMode()) {
+        state.playerUnderIce = false;
+        state.submergedPondId = null;
+        return;
+      }
+      const feetPoint = {
+        x: state.player.x + 2,
+        y: state.player.y + 15
+      };
+      const hole = getActiveWinterHoleAt(feetPoint, 10);
+      const isOverHole = Boolean(hole);
+      const canSubmergeNow = isOverHole && !state.player.moving && (state.playerStillFrames || 0) >= 6;
+      if (canSubmergeNow && !state.playerUnderIce) {
+        state.playerUnderIce = true;
+        state.submergedPondId = hole ? hole.pondId : null;
+        addWinterHitEffect("splash", feetPoint.x, feetPoint.y);
+        return;
+      }
+      if (state.playerUnderIce && (state.player.moving || !isOverHole)) {
+        state.playerUnderIce = false;
+        state.submergedPondId = null;
+        addWinterHitEffect("splash", feetPoint.x, feetPoint.y);
+      }
+    }
+
     function updateWinterMode() {
       if (!isWinterMode()) return;
       for (const flake of state.winterSnowflakes) {
@@ -4733,6 +4783,7 @@
         fx.ttl -= 1;
       }
       state.winterHitEffects = state.winterHitEffects.filter((fx) => fx.ttl > 0);
+      updateWinterPlayerSubmerge();
     }
 
     function getCanvasPoint(event) {
@@ -6997,6 +7048,7 @@
     }
 
     function drawPlayer() {
+      if (state.playerUnderIce) return;
       const p = state.player;
       drawShadowEllipse(p.x + 3, p.y + 16, 10, 4, 0.2);
 
@@ -7057,6 +7109,113 @@
       ctx.fillText("!", state.player.x - 2, y - 3);
       ctx.textAlign = "start";
       ctx.textBaseline = "alphabetic";
+      ctx.restore();
+    }
+
+    function ensurePostFxCanvas() {
+      if (!state.postFxCanvas) {
+        state.postFxCanvas = document.createElement("canvas");
+      }
+      if (state.postFxCanvas.width !== canvas.width || state.postFxCanvas.height !== canvas.height) {
+        state.postFxCanvas.width = canvas.width;
+        state.postFxCanvas.height = canvas.height;
+      }
+      return state.postFxCanvas;
+    }
+
+    function getSubmergedPond() {
+      if (!isWinterMode() || !state.playerUnderIce) return null;
+      if (state.submergedPondId) {
+        const tagged = state.puddles.find((pond) => pond.id === state.submergedPondId);
+        if (tagged) return tagged;
+      }
+      const feetPoint = {
+        x: state.player.x + 2,
+        y: state.player.y + 15
+      };
+      return findWinterPondAtPoint(feetPoint, 18);
+    }
+
+    function drawSubmergedPondFish(screenX, screenY, rx, ry, pond) {
+      const fishCount = 5;
+      for (let i = 0; i < fishCount; i++) {
+        const drift = state.t * (0.011 + i * 0.0017) + (pond.x + pond.y) * 0.003 + i * 1.73;
+        const ox = Math.cos(drift * 1.13) * rx * (0.2 + (i % 3) * 0.17);
+        const oy = Math.sin(drift * 0.97 + i * 0.44) * ry * (0.22 + (i % 2) * 0.19);
+        const x = screenX + ox;
+        const y = screenY + oy;
+        const size = Math.max(3, (2.4 + (i % 3) * 1.15) * Math.max(rx, ry) * 0.025);
+        const facing = Math.cos(drift * 1.45) >= 0 ? 1 : -1;
+
+        ctx.fillStyle = "rgba(218, 236, 247, 0.7)";
+        ctx.beginPath();
+        ctx.ellipse(x, y, size * 1.4, size * 0.72, 0.15 * facing, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "rgba(193, 220, 238, 0.64)";
+        ctx.beginPath();
+        ctx.moveTo(x - facing * size * 1.25, y);
+        ctx.lineTo(x - facing * size * 2.2, y - size * 0.75);
+        ctx.lineTo(x - facing * size * 2.2, y + size * 0.75);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    function drawSubmergedViewOverlay(camX, camY, zoom) {
+      const pond = getSubmergedPond();
+      if (!pond) return;
+
+      const fxCanvas = ensurePostFxCanvas();
+      const fxCtx = fxCanvas.getContext("2d");
+      fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+      fxCtx.drawImage(canvas, 0, 0);
+
+      const sx = (pond.x - camX) * zoom;
+      const sy = (pond.y - camY) * zoom;
+      const rx = pond.r * zoom;
+      const ry = pond.r * 0.58 * zoom;
+      const rot = 0.18;
+
+      ctx.save();
+      ctx.filter = "blur(5px) saturate(0.84)";
+      ctx.drawImage(fxCanvas, 0, 0);
+      ctx.filter = "none";
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(sx, sy, rx + 3, ry + 3, rot, 0, Math.PI * 2);
+      ctx.clip();
+
+      ctx.drawImage(fxCanvas, 0, 0);
+      ctx.fillStyle = "rgba(24, 58, 82, 0.3)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = "rgba(220, 238, 250, 0.22)";
+      ctx.lineWidth = Math.max(1, 1.5 * zoom);
+      for (let i = 0; i < 5; i++) {
+        const wobble = Math.sin(state.t * 0.045 + i * 1.2) * 5 * zoom;
+        ctx.beginPath();
+        ctx.ellipse(sx + wobble, sy + (i - 2) * 9 * zoom, rx * 0.64, ry * 0.12, rot, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      drawSubmergedPondFish(sx, sy, rx, ry, pond);
+      ctx.restore();
+
+      ctx.fillStyle = "rgba(10, 24, 40, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.beginPath();
+      ctx.ellipse(sx, sy, rx + 6, ry + 6, rot, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalCompositeOperation = "source-over";
+
+      ctx.strokeStyle = "rgba(228, 240, 252, 0.5)";
+      ctx.lineWidth = Math.max(1.3, 2 * zoom);
+      ctx.beginPath();
+      ctx.ellipse(sx, sy, rx + 5, ry + 5, rot, 0, Math.PI * 2);
+      ctx.stroke();
       ctx.restore();
     }
 
@@ -7148,6 +7307,9 @@
       drawPlayer();
       drawNoAcornHint();
       ctx.restore();
+      if (state.playerUnderIce) {
+        drawSubmergedViewOverlay(camX, camY, zoom);
+      }
       if (nightAmount > 0) {
         ctx.save();
         ctx.fillStyle = "rgba(8, 16, 12, " + (nightAmount * 0.22).toFixed(3) + ")";
