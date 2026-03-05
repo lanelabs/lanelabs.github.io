@@ -1,0 +1,14 @@
+{
+  "description": "Feline humanoids driven by insatiable curiosity, trading stories and secrets across every land.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Jaguar Tabaxi", "Powerful, stocky hunters stalking jungle undergrowth and striking from ambush."],
+    ["Leopard Tabaxi", "Lithe climbers equally at home in treetops and city rooftops, favoring stealth over force."],
+    ["Lion Tabaxi", "Maned pride-leaders organizing communal hunts and defending territory with fierce loyalty."],
+    ["Tiger Tabaxi", "Solitary, stripe-marked stalkers renowned for patience and devastating pounces."],
+    ["Lynx Tabaxi", "Tufted-eared trackers adapted to cold forests and snow-covered mountain passes."],
+    ["Cheetah Tabaxi", "Impossibly fast sprinters serving as couriers and scouts across open plains."],
+    ["House Cat Tabaxi", "Small, unassuming urbanites thriving in cities as merchants, spies, and street performers."],
+    ["Panther Tabaxi", "Midnight-black prowlers moving in perfect darkness, favoring nocturnal operations."]
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Winged bird-folk from the Elemental Plane of Air, soaring far above earthbound concerns.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Eagle Aarakocra", "Sharp-eyed mountain sentinels patrolling thermals and diving with talons bared."],
+    ["Hawk Aarakocra", "Swift, aggressive hunters favoring hit-and-run strikes from dizzying heights."],
+    ["Owl Aarakocra", "Silent nocturnal scouts whose broad wings make no sound in the dark."],
+    ["Parrot Aarakocra", "Vibrantly plumed traders and diplomats at home in tropical canopies and bustling ports."]
+  ]
+}

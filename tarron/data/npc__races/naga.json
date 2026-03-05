@@ -1,0 +1,10 @@
+{
+  "description": "Immense serpentine beings with human faces, wielding ancient magic as temple guardians or dark schemers.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Guardian Naga", "Benevolent temple protectors warding holy relics and resurrecting endlessly to fulfill their charge."],
+    ["Spirit Naga", "Malevolent spellcasters reforming after death, driven by spite and hunger for domination."],
+    ["Bone Naga", "Undead husks of fallen naga, stripped of flesh but retaining a ghost of their former power."],
+    ["Water Naga", "River and lake dwellers hoarding sunken treasure and poisoning intruders with venomous bites."]
+  ]
+}

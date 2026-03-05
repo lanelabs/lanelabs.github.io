@@ -1,0 +1,9 @@
+{
+  "description": "Four-armed insectoid nomads never sleeping, communicating through clicks, and viewing other races as potential prey.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Desert Thri-kreen", "Sand-colored hunters ambushing caravans and crafting weapons from the chitin of giant insects."],
+    ["Savanna Thri-kreen", "Pack-hunting grassland stalkers coordinating attacks through pheromone signals."],
+    ["Urban Thri-kreen", "Rare city-adapted individuals suppressing predatory instincts to trade and coexist."]
+  ]
+}

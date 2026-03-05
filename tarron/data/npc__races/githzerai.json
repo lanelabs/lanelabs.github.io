@@ -1,0 +1,9 @@
+{
+  "description": "Monk-ascetics of Limbo shaping raw chaos with disciplined thought and psionic willpower.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Monk Githzerai", "Meditative warriors hardening their fists with psionic focus, shattering stone barehanded."],
+    ["Zerth Githzerai", "Time-bending seers glimpsing possible futures and slipping between moments in combat."],
+    ["Anarch Githzerai", "Reality-shapers powerful enough to carve stable fortresses from the roiling chaos of Limbo."]
+  ]
+}

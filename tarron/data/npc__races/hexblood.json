@@ -1,0 +1,9 @@
+{
+  "description": "Hag-cursed beings marked by eldritch bargains, with living tokens embedded in their transformed flesh.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Hag-touched Hexblood", "Survivors of a hag's ritual bearing crown-like horns and an eerie, fey-lit gaze."],
+    ["Fey-cursed Hexblood", "Victims of wild fey magic, warped by uncontrolled enchantments seeping from their skin."],
+    ["Witch-born Hexblood", "Children raised by hags, absorbing dark magic in the cradle and carrying it in their blood."]
+  ]
+}

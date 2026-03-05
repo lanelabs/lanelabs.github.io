@@ -1,0 +1,33 @@
+{
+  "description": "Landscape-scale regions defined by terrain and geography.",
+  "regions": [
+    ["Borderlands", "Contested frontier where rival banners flutter and no traveler sleeps without a watch."],
+    ["Heartland", "The fertile, well-settled core of a realm, far from danger and rich with harvests."],
+    ["Hinterland", "Remote backcountry seldom visited by merchants, where old ways linger undisturbed."],
+    ["Lowlands", "Broad, flat country of river-fed fields and slow canals, often shrouded in morning mist."],
+    ["Highlands", "Rugged, wind-scoured uplands of thin soil and proud clans who bow to no lowland king."],
+    ["Midlands", "Gently rolling country between mountain and coast, a patchwork of farms and market towns."],
+    ["Outlands", "Distant frontier where maps grow vague and the next settlement is always a day too far."],
+    ["Wastelands", "Blighted, lifeless terrain where nothing thrives and even the wind sounds hollow."],
+    ["Grasslands", "An endless sea of waist-high grass bending under a constant wind, hiding horizon after horizon."],
+    ["Moorlands", "Open, treeless upland of heather and bog, swept by rain and threaded with sheep trails."],
+    ["Drylands", "Parched earth cracked under a merciless sun, where water is worth more than gold."],
+    ["Coastlands", "A windblown strip where salt spray meets plowed earth and fishing villages dot the cliffs."],
+    ["Basin", "A broad depression ringed by higher ground, gathering rivers and settlements at its lowest point."],
+    ["Vale", "A shallow valley of gentle streams and wildflower meadows sheltered by low ridges."],
+    ["Dale", "A wide, sunlit valley with a slow river at its heart and farms climbing the slopes."],
+    ["Glen", "A tight, shadowed valley where streams echo off close stone walls."],
+    ["Taiga", "Endless dark spruce stretching to the frozen north, silent save for wind and distant wolves."],
+    ["Savanna", "Sun-baked grassland dotted with flat-topped trees, alive with herds and the shimmer of heat."],
+    ["Expanse", "A vast, featureless sweep of land where sky and earth blur into a single pale line."],
+    ["Reach", "A long arm of territory stretching outward, connecting heartland to some distant resource or border."],
+    ["Span", "A measured stretch of land linking two landmarks, named for the journey between them."],
+    ["Stretch", "A continuous run of similar terrain, monotonous to cross but vital to hold."],
+    ["Tract", "A defined parcel of land set aside for a particular use, be it timber, grazing, or exile."],
+    ["Swathe", "A broad band of territory cut through different terrain, often following a river or ancient road."],
+    ["Belt", "A narrow ribbon of distinct land running between two unlike regions."],
+    ["Heath", "Open, uncultivated ground of gorse and bracken, lonely and exposed to every sky."],
+    ["Scrubland", "Low, thorny brush clinging to dry soil, offering neither shade nor easy passage."],
+    ["Brushland", "Dense, tangled growth of woody shrubs that snag clothing and slow every step."]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Roles defined by social bonds, obligations, and interpersonal dynamics.",
+  "roles": [
+    ["Benefactor", "A generous hand offering resources with no visible strings -- raising the question of what they truly want in return."],
+    ["Employer", "Clear direction at the cost of autonomy, binding the protagonists to someone else's agenda while the coin holds out."],
+    ["Client", "A personal problem putting individual lives at stake, making success or failure feel intimate rather than epic."],
+    ["Contact", "Doors opened that the protagonists cannot reach alone, traded for favors pulling them deeper into tangled networks."],
+    ["Informant", "Vital information held hostage, each answer bartered for favors that drag the party deeper into shared risk and intrigue."],
+    ["Confidant", "A safe harbor for doubts and fears, grounding the story in emotional truth between the moments of action."],
+    ["Protege", "Eager eyes looking to the protagonists for guidance, creating responsibility that tests whether they can teach what they barely understand."],
+    ["Dependent", "Constant need for protection limiting the protagonists' freedom, forcing them to weigh duty against opportunity at every crossroads."],
+    ["Love Interest", "Something deeply personal to fight for, raising the emotional stakes far beyond the mission itself."],
+    ["Ex-Partner", "Unresolved history dragged into the present, creating tension and divided loyalties that no amount of diplomacy fully settles."]
+  ]
+}

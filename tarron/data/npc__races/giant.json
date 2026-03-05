@@ -1,0 +1,15 @@
+{
+  "description": "Colossal beings who shaped the world in an elder age, still ruling by the Ordning's strict hierarchy.",
+  "tags": ["large"],
+  "subraces": [
+    ["Hill Giant", "Dim-witted gluttons measuring status by girth and hoarding stolen livestock."],
+    ["Stone Giant", "Reclusive cave-artists seeing the surface world as an unsettling dream."],
+    ["Frost Giant", "Viking-like raiders sailing icy seas and testing their worth through combat and plunder."],
+    ["Fire Giant", "Masterful smiths forging weapons in volcanic strongholds and enslaving lesser races."],
+    ["Cloud Giant", "Aristocratic sky-dwellers reclining in floating castles and hoarding treasure and secrets alike."],
+    ["Storm Giant", "Prophetic titans dwelling in ocean trenches or mountain peaks, closest to the gods."],
+    ["Cyclops", "One-eyed loners relying on brute strength and primitive instinct over civilized craft."],
+    ["Ettin", "Two-headed brutes whose twin minds bicker endlessly yet fight with terrifying coordination."],
+    ["Titan", "Godlike paragons of giantkind whose power rivals the divine and reshapes the land."]
+  ]
+}

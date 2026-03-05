@@ -1,0 +1,9 @@
+{
+  "description": "Breathtakingly beautiful nature spirits whose mere presence can blind or enchant mortal onlookers.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Naiad (Water Nymph)", "River and spring guardians drowning the unworthy and blessing those who show reverence."],
+    ["Oread (Mountain Nymph)", "Stone-footed highland spirits shaping caverns and causing avalanches to repel intruders."],
+    ["Hamadryad (Tree Nymph)", "Elder tree spirits more powerful than dryads, whose death fells an entire forest."]
+  ]
+}

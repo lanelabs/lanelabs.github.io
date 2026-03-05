@@ -3,7 +3,7 @@
 ## Creatures vs NPCs
 
 - **Creatures** = encounters and world-building: animals, beasts, monsters, supernatural entities. Things you *find* in the wild, in dungeons, in the sky.
-- **NPCs** (in `npcs/npc__races.json`) = sapient beings with societies, culture, language. Things that could *be* a character.
+- **NPCs** (in `npc__races/`) = sapient beings with societies, culture, language. Things that could *be* a character.
 - **Overlap is OK** when a sapient being also functions as a wild encounter (e.g. Gnoll, Troll, Aboleth appear in both). The creature entry describes the encounter; the NPC entry describes the race/culture.
 
 ## File format

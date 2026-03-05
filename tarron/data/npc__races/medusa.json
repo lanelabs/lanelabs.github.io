@@ -1,0 +1,9 @@
+{
+  "description": "Snake-haired cursed beings whose petrifying gaze turns the living to stone with a single look.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Greater Medusa", "Ancient, fully transformed horrors surrounded by galleries of petrified victims."],
+    ["Lesser Medusa", "Recently cursed individuals still clinging to fragments of their former mortal life."],
+    ["Maedar (Male Medusa)", "Rare stone-phasing males shattering petrified victims and absorbing the minerals within."]
+  ]
+}

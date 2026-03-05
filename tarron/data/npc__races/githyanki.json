@@ -1,0 +1,9 @@
+{
+  "description": "Astral-dwelling warrior-pirates, freed from mind flayer slavery and now conquering across the planes.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Warrior Githyanki", "Silver-sword-wielding soldiers raiding the Material Plane and slaying mind flayers on sight."],
+    ["Mage Githyanki", "Psionic war-casters blending arcane magic with mental discipline to devastating effect."],
+    ["Knight Githyanki", "Red-dragon-mounted champions serving the Lich Queen and leading astral war fleets."]
+  ]
+}

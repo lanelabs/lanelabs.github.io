@@ -1,0 +1,15 @@
+{
+  "description": "Nuanced roles with shifting allegiances, moral ambiguity, or layered motivations.",
+  "roles": [
+    ["Adversarial Ally", "Shared goals wrapped in clashing methods, creating friction that tests whether cooperation can survive fundamental disagreement."],
+    ["Reluctant Helper", "Aid offered through gritted teeth -- a reminder that not everyone who helps the protagonists does so by choice."],
+    ["Reformed Enemy", "A former betrayer extending alliance, forcing the protagonists to decide how much trust a changed heart truly deserves."],
+    ["Double Agent", "Loyalty split across multiple sides, leaving the protagonists never quite sure whether they hold an asset or a trap."],
+    ["Tragic Figure", "An impossible situation where no clean solution exists, forcing choices that cost the protagonists no matter what they decide."],
+    ["Wild Card", "Motives no one fully understands, injecting chaos that can rescue or ruin the protagonists' best-laid plans without warning."],
+    ["Catalyst", "A single irreversible act setting events in motion, dragging the protagonists into conflict they can no longer avoid."],
+    ["Crossroads", "Two paths, both exacting a price -- the choice between them defining who the protagonists are by what they sacrifice."],
+    ["Mirror", "Strengths and flaws reflected back with uncomfortable clarity, demanding growth or denial in moments of sudden self-recognition."],
+    ["Evolution", "A living measure of the protagonists' impact, changing over the story to show that their actions reshape the world around them."]
+  ]
+}

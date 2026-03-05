@@ -1,0 +1,24 @@
+{
+  "description": "Inter-group bonds, diplomatic agreements, and cooperative pacts.",
+  "factions": [
+    ["Alliance", "Multiple powers pledging mutual aid, their fates bound together against a common threat."],
+    ["Coalition", "Rival groups setting aside grudges for a single urgent cause, knowing the truce will not last."],
+    ["Confederation", "Independent groups cooperating loosely under a shared banner, each jealously guarding its own sovereignty."],
+    ["Federation", "Member states yielding some freedom to a central authority while clinging to local autonomy."],
+    ["Bloc", "Nations or factions locked arm in arm to present a unified front, daring outsiders to test their solidarity."],
+    ["Axis", "A dominant partnership anchoring a web of lesser allies and pulling others into its orbit."],
+    ["Front", "Disparate groups merged under one name to project strength, masking their internal fractures."],
+    ["Confederacy", "Sovereign states banded together for survival, each contributing on its own terms and resenting outside orders."],
+    ["Triumvirate", "Three powerful figures sharing rule but each scheming to outmaneuver the other two."],
+    ["League", "Cities or states pledging defense and trade to one another, rising or falling as one."],
+    ["Compact", "Signatories sworn to a binding agreement, their honor staked on every clause."],
+    ["Pact", "A solemn vow between parties, sealed by blood, magic, or mutual desperation."],
+    ["Treaty", "Formal terms hammered out on parchment between nations, the ink barely restraining old hostilities."],
+    ["Accord", "Former adversaries negotiating a fragile peace, each watching for the first sign of betrayal."],
+    ["Concordat", "A sacred agreement between secular and religious powers, backed by faith and political necessity alike."],
+    ["Quorum", "The minimum assembly needed to act, where every absent seat shifts the balance of power."],
+    ["Convention", "Delegates gathering to forge agreements, trading concessions behind closed doors before any public vote."],
+    ["Summit", "The most powerful leaders meeting face to face, where a handshake can avert war or ignite one."],
+    ["Entente", "An unwritten understanding between powers, bound by goodwill rather than parchment -- and easily broken."]
+  ]
+}

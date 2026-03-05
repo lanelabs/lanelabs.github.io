@@ -1,0 +1,14 @@
+{
+  "description": "Region types drawn from specific real-world cultures and traditions.",
+  "regions": [
+    ["Sultanate", "A sun-drenched domain of domed palaces and spice-laden markets, ruled by a sultan's absolute word."],
+    ["Caliphate", "A theocratic expanse united under a caliph's spiritual and temporal authority, spanning deserts and cities alike."],
+    ["Khanate", "Windswept steppe territory claimed by a mounted warlord, its borders shifting with the herds."],
+    ["Emirate", "A jewel of arid civilization governed by an emir, thriving on oasis trade and desert cunning."],
+    ["Tsardom", "A vast, snow-buried realm ruled by an iron-willed tsar from a fortress of onion domes."],
+    ["Thalassocracy", "A maritime empire whose power flows from warships and harbors rather than fields and castles."],
+    ["Satrapy", "A provincial territory administered by a governor answering to a distant imperial throne."],
+    ["Pashalik", "A regional seat of military and civil power, its pasha dispensing justice from a fortified citadel."],
+    ["Beylik", "A chieftain's hard-won territory of hill country and raiding trails, loyal to strength alone."]
+  ]
+}

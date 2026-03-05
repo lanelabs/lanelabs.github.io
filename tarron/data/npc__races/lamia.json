@@ -1,0 +1,9 @@
+{
+  "description": "Lion-bodied, human-torso'd deceivers luring victims with illusions and draining their will to resist.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Desert Lamia", "Dune-stalking mirages posing as oasis guardians to draw in thirsty travelers."],
+    ["Jungle Lamia", "Vine-draped ambushers hiding among ruins and using hypnotic patterns to ensnare explorers."],
+    ["Noble Lamia", "Aristocratic illusionists infiltrating courts by masking their beast-body with powerful glamours."]
+  ]
+}

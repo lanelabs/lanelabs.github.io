@@ -1,0 +1,11 @@
+{
+  "description": "Disciplined, iron-clad goblinoids waging war with military precision and brutal efficiency.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Legion Hobgoblin", "Rank-and-file soldiers drilled from birth in phalanx tactics and siege warfare."],
+    ["Iron Shadow Hobgoblin", "Spy-monks trained in stealth, illusion magic, and silent assassination."],
+    ["Devastator Hobgoblin", "War-mages channeling evocation spells to shatter enemy formations on the battlefield."],
+    ["Koalinth (Aquatic Hobgoblin)", "Gill-bearing raiders patrolling coastal waters and plundering seaside settlements."],
+    ["Amitok (Arctic Hobgoblin)", "Frost-hardened warriors campaigning across tundra and ambushing from blizzard cover."]
+  ]
+}

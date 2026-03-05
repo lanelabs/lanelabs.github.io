@@ -1,0 +1,10 @@
+{
+  "description": "Hulking, fur-covered goblinoids moving with terrifying stealth despite their massive size.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Common Bugbear", "Ambush predators lurking in shadows, crushing victims with a single devastating blow."],
+    ["Ursa Bugbear", "Bear-blooded brutes even larger than their kin, with thick pelts and bone-crushing strength."],
+    ["Yetibear", "White-furred mountain stalkers hunting in blizzards and terrifying alpine travelers."],
+    ["Bugbear Chief", "Cunning warlords ruling through fear, keeping goblinoid tribes in line with raw power."]
+  ]
+}

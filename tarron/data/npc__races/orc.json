@@ -1,0 +1,15 @@
+{
+  "description": "Towering, thick-skinned brutes with jutting tusks and a talent for war.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Mountain Orc", "Highland raiders charging downhill in howling war bands, prizing skull trophies."],
+    ["Gray Orc", "Steppe-roaming nomads guided by shamanic visions and ancestor spirits."],
+    ["Deep Orc", "Underdark tunnel-fighters breeding war beasts and waging endless subterranean campaigns."],
+    ["Scro (Space Orc)", "Disciplined spacefaring soldiers having abandoned tribal chaos for military hierarchy."],
+    ["Half-Orc", "Mixed-blood outcasts walking between two worlds, tempered by both human wit and orcish fury."],
+    ["Orog", "Elite underdark warriors bred for intelligence and tactics -- far deadlier than common orcs."],
+    ["Neo-Orog", "Mind flayer-engineered shock troops with psionic resistance and unflinching obedience."],
+    ["Tanarukk", "Demon-blooded berserkers with fiendish horns and flames licking their scarred skin."],
+    ["Mark of Finding Orc", "Dragonmarked trackers with a supernatural nose for bounty hunting and pathfinding."]
+  ]
+}

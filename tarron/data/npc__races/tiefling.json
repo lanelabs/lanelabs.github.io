@@ -1,0 +1,19 @@
+{
+  "description": "Horned, tail-bearing heirs of infernal pacts, distrusted everywhere yet fiercely self-reliant.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Asmodeus Tiefling", "Silver-tongued schemers touched by the Lord of the Nine, gifted with fire and charm magic."],
+    ["Baalzebul Tiefling", "Corruption-tainted manipulators wielding magic that rots resolve and spreads despair."],
+    ["Dispater Tiefling", "Iron-willed infiltrators blessed with disguise magic and a talent for espionage."],
+    ["Fierna Tiefling", "Seductive charmers whose enchantment magic bends emotions and clouds judgment."],
+    ["Glasya Tiefling", "Roguish tricksters gifted with invisibility and a knack for slipping past any security."],
+    ["Levistus Tiefling", "Ice-touched survivors with frost magic and an instinct for self-preservation above all."],
+    ["Mammon Tiefling", "Gold-obsessed dealmakers whose magic uncovers hidden wealth and compels honest answers."],
+    ["Mephistopheles Tiefling", "Arcane prodigies touched by hellfire, channeling magic through sheer intellectual force."],
+    ["Zariel Tiefling", "War-bred crusaders with smite-like power and an aggressive drive to lead from the front."],
+    ["Feral Tiefling", "Wild-eyed outcasts with bestial features, relying on agility over charm."],
+    ["Devil's Tongue Tiefling", "Honey-voiced deceivers replacing fire magic with enchantments compelling obedience."],
+    ["Hellfire Tiefling", "Blaze-wreathed pyromancers trading subtlety for raw, scorching destructive power."],
+    ["Winged Tiefling", "Bat-winged outcasts having traded innate magic for the freedom of true flight."]
+  ]
+}

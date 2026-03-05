@@ -1,0 +1,9 @@
+{
+  "description": "Goat-legged revelers living for music, wine, and mischief, resisting all attempts at control.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Woodland Satyr", "Pipe-playing forest dwellers luring travelers into enchanted dances under the canopy."],
+    ["Mountain Satyr", "Hardy highland climbers brewing potent spirits and reveling around roaring bonfires."],
+    ["Revelry Satyr", "Wandering hedonists crashing festivals and feasts, leaving chaos and empty casks behind."]
+  ]
+}

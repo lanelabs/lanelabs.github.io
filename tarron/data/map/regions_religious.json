@@ -1,0 +1,12 @@
+{
+  "description": "Territories governed by religious or ecclesiastical authority.",
+  "regions": [
+    ["Diocese", "A broad swath of countryside and towns under a bishop's spiritual care and temporal sway."],
+    ["Parish", "A small circle of homes and fields tended by a single priest, centered on a humble chapel."],
+    ["Priory", "A cloistered enclave of prayer and scholarship, its walls enclosing gardens and quiet courtyards."],
+    ["Abbey", "A great monastic house of vaulted stone, commanding tithes and farmland for leagues around."],
+    ["See", "The seat of a bishop's authority, radiating influence from a cathedral city across the surrounding land."],
+    ["Patriarchate", "A vast ecclesiastical dominion guided by the eldest voice of the faith, spanning many lesser sees."],
+    ["Exarchate", "A distant territory granted special autonomy, governed by a trusted envoy of higher religious authority."]
+  ]
+}

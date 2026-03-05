@@ -1,0 +1,9 @@
+{
+  "description": "Resilient fish-folk enduring centuries of enslavement yet rebuilding their communities with stubborn hope.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Common Locathah", "Shallow-water villagers fishing, farming kelp, and fiercely protecting their hard-won freedom."],
+    ["Deep Locathah", "Pressure-adapted kin dwelling in ocean trenches, rarely surfacing above the twilight zone."],
+    ["Reef Locathah", "Coral-city artisans cultivating living reef structures and crafting tools from shell and bone."]
+  ]
+}

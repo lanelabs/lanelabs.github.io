@@ -1,0 +1,12 @@
+{
+  "description": "Base terrain types painted as hex fill on the map.",
+  "terrain": [
+    ["Ocean", "Vast, wind-churned waters stretching beyond sight, hiding depth and danger beneath every swell."],
+    ["Mountain", "Sheer grey peaks jutting above the treeline, capped with snow year-round and wrapped in cloud."],
+    ["Bog", "Waterlogged ground of black muck and sour reeds, where a wrong step swallows a boot whole."],
+    ["Plains", "Rolling open country of waist-high grass bending under a constant wind beneath an enormous sky."],
+    ["Forest", "Dense, living canopy that swallows light and sound, the air thick with moss and birdsong."],
+    ["Desert", "A vast sweep of sun-scorched sand and cracked rock where shade is scarce and mercy scarcer."],
+    ["Hills", "Gentle, undulating slopes of grass and scattered stone, offering long views from every crest."]
+  ]
+}

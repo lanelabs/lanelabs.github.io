@@ -1,0 +1,8 @@
+{
+  "description": "Blue-skinned perfectionists seeing every flaw as a problem to solve, never satisfied with good enough.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Azorius Vedalken", "Law-obsessed bureaucrats drafting airtight statutes and enforcing civic order with cold precision."],
+    ["Simic Vedalken", "Bio-mage researchers pushing the boundaries of evolution through radical magical experimentation."]
+  ]
+}

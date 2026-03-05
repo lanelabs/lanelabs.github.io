@@ -1,0 +1,17 @@
+{
+  "description": "Wooded regions varying in density, age, and character.",
+  "regions": [
+    ["Woodlands", "A broad canopy of mixed trees where dappled light reaches the mossy forest floor."],
+    ["Thicket", "A snarled tangle of saplings and bramble so dense that even deer must force their way through."],
+    ["Grove", "A small, quiet stand of trees set apart, often sacred or touched by old magic."],
+    ["Copse", "A handful of trees huddled together on open ground, offering brief shelter to passing travelers."],
+    ["Wood", "A modest stretch of forest, old enough to have trails but small enough to cross by noon."],
+    ["Timberland", "Tall, straight trunks rising in ordered ranks, prized by loggers and jealously guarded by foresters."],
+    ["Wildwood", "Untamed forest that has never known an axe, choked with undergrowth and ancient fallen giants."],
+    ["Deepwood", "Primeval forest where the canopy blots out the sky and roots older than memory grip the earth."],
+    ["Greenwood", "Lush, living forest thick with birdsong, fern, and the smell of rain on fresh leaves."],
+    ["Darkwood", "A gloomy woodland of close-set trunks and perpetual shadow, where silence presses like a weight."],
+    ["Deadwood", "A grey, skeletal forest of leafless trunks and ashen soil, killed by blight or cursed ground."],
+    ["Thornwood", "A cruel forest of barbed branches and razor-edged briars that draw blood at every step."]
+  ]
+}

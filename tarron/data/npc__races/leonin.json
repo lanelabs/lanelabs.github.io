@@ -1,0 +1,9 @@
+{
+  "description": "Proud lion-folk guarding their golden savannas, distrusting the gods after centuries of betrayal.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Mane Leonin", "Thick-maned elders whose roar commands obedience and rallies the pride to battle."],
+    ["Pride Leonin", "Community-focused hunters sharing all spoils and defending their kin above all else."],
+    ["Nomad Leonin", "Lone wanderers having left the pride to seek personal glory on distant horizons."]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "description": "Stone-skinned mountain nomads driven by fierce competition and a code valuing strength above all.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Stone Giant-kin", "Stoic artisans carving cliff faces and valuing patience over brute force."],
+    ["Frost Giant-kin", "Ice-veined warriors thriving in killing cold and wrestling glacial beasts for sport."],
+    ["Fire Giant-kin", "Forge-born smiths with heat-resistant skin, crafting weapons in volcanic calderas."],
+    ["Cloud Giant-kin", "High-altitude visionaries dwelling above the clouds and cultivating prophetic dreams."],
+    ["Storm Giant-kin", "Lightning-touched champions hearing the voice of thunder and commanding the sky's fury."],
+    ["Hill Giant-kin", "Broad, slow-witted brutes prizing eating contests and territorial squabbles over craft."]
+  ]
+}

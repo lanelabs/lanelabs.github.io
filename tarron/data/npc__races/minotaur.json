@@ -1,0 +1,9 @@
+{
+  "description": "Bull-headed warriors with a natural sense for mazes and a charge that shatters shield walls.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Labyrinth Minotaur", "Maze-dwelling guardians cursed to patrol endless corridors, hunting any who dare enter."],
+    ["Sea Minotaur", "Salt-spray raiders captaining longships and goring enemies on storm-tossed decks."],
+    ["Skysail Minotaur", "Spelljammer navigators charting courses through wildspace with an unerring sense of direction."]
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Whimsical, wing-borne fey flitting between worlds, bending magic as naturally as breathing.",
+  "tags": ["small"],
+  "subraces": [
+    ["Seelie Fairy", "Bright-hearted servants of the Summer Court, rewarding kindness and punishing rudeness."],
+    ["Unseelie Fairy", "Shadow-touched agents of the Winter Court delighting in cruel bargains and dark humor."],
+    ["Court Fairy", "Political operatives navigating fey aristocracy with charm, glamour, and veiled threats."],
+    ["Wild Fairy", "Untamed wanderers following no court and obeying only their own chaotic impulses."]
+  ]
+}

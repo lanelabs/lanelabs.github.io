@@ -1,0 +1,29 @@
+{
+  "description": "Tall, graceful beings with pointed ears and centuries-long lifespans, prizing magic and tradition.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["High Elf", "Tower-dwelling scholars considering arcane mastery the highest pursuit."],
+    ["Wood Elf", "Fleet-footed forest guardians moving unseen through ancient canopies."],
+    ["Dark Elf (Drow)", "Ashen-skinned underdark outcasts worshipping a spider goddess and scheming in the dark."],
+    ["Sea Elf", "Gill-bearing swimmers building coral palaces and patrolling the ocean depths."],
+    ["Eladrin", "Feywild natives whose appearance and mood shift with the seasons."],
+    ["Wild Elf (Grugach)", "Reclusive xenophobes shunning outsiders and guarding primeval forests with deadly traps."],
+    ["Moon Elf", "Wandering dreamers drawn to moonlight, music, and the open road."],
+    ["Sun Elf", "Proud aristocrats obsessed with preserving ancient lore and arcane bloodlines."],
+    ["Star Elf", "Otherworldly recluses dwelling in a demiplane hidden between the stars."],
+    ["Snow Elf", "Pale-skinned survivors of frozen highlands, carving homes from glacial ice."],
+    ["Shadar-kai", "Shadow-touched servants of the Raven Queen -- gaunt and numb to pain."],
+    ["Avariel (Winged Elf)", "Rare winged elves nesting on mountain peaks and soaring above the clouds."],
+    ["Lythari (Wolf Elf)", "Peaceful shapechangers running as silver wolves through deep wilderness."],
+    ["Astral Elf", "Starfaring wanderers who spent millennia adrift in the Astral Sea, touched by its timelessness."],
+    ["Pallid Elf", "Cave-adapted elves with ghostly pale skin and darkvision far beyond their kin."],
+    ["Mark of Shadow Elf", "Dragonmarked spies gifted with illusion magic and supernatural stealth."],
+    ["Valley Elf", "Isolated lowland dwellers tending fertile farmlands and rarely venturing beyond their borders."],
+    ["Gray Elf", "Aloof perfectionists viewing themselves as the purest elven bloodline."],
+    ["Silver Elf", "Twilight-loving diplomats serving as mediators between elven nations."],
+    ["Gold Elf", "Opulent city-builders whose gleaming spires rival human capitals in grandeur."],
+    ["Silvanesti", "Rigid traditionalists maintaining a magically perfected homeland closed to outsiders."],
+    ["Qualinesti", "Open-hearted kin of the Silvanesti, choosing diplomacy and trade with other races."],
+    ["Kagonesti", "Tattooed wild elves living as one with the forests and resisting outside rule."]
+  ]
+}

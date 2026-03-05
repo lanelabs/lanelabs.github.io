@@ -1,0 +1,9 @@
+{
+  "description": "Fish-tailed ocean dwellers building shimmering undersea kingdoms and singing the tides to sleep.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Saltwater Merfolk", "Open-ocean nomads following whale migrations and trading pearls with coastal settlements."],
+    ["Freshwater Merfolk", "River and lake kin with duller scales, keeping to secluded pools far from the sea."],
+    ["Deep Sea Merfolk", "Bioluminescent abyssal dwellers with needle teeth, adapted to crushing pressure and total darkness."]
+  ]
+}

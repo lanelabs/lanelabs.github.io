@@ -1,0 +1,13 @@
+{
+  "description": "Tiny, bright-eyed tinkerers and illusionists brimming with curiosity and infectious enthusiasm.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Forest Gnome", "Shy woodland dwellers speaking with small animals and weaving minor illusions for fun."],
+    ["Rock Gnome", "Inventive gadgeteers filling their workshops with clockwork toys and alchemical experiments."],
+    ["Deep Gnome (Svirfneblin)", "Stone-gray underdark survivors mining gems in silence, trusting no outsider."],
+    ["Mark of Scribing Gnome", "Dragonmarked scholars magically inscribing, translating, and sending messages across vast distances."],
+    ["Tinker Gnome", "Obsessive engineers building elaborate contraptions that often explode before they work."],
+    ["Whisper Gnome", "Shadow-quiet infiltrators moving in utter silence and gathering secrets for a living."],
+    ["Chaos Gnome", "Wild magic conduits whose very presence warps probability and invites the unexpected."]
+  ]
+}

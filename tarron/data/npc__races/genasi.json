@@ -1,0 +1,16 @@
+{
+  "description": "Half-elemental mortals whose skin, hair, and temperament betray the raw power of the Inner Planes.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Air Genasi", "Breeze-touched wanderers with windswept hair, holding their breath indefinitely."],
+    ["Earth Genasi", "Stone-skinned stoics with crystalline veins, shrugging off tremors and standing immovable."],
+    ["Fire Genasi", "Flame-haired hot-bloods with ember eyes, radiating heat and igniting when angered."],
+    ["Water Genasi", "Blue-skinned swimmers with wave-like hair, breathing underwater and commanding tides."],
+    ["Ice Para-Genasi", "Frost-veined hybrids born of air and water, leaving rime on everything they touch."],
+    ["Magma Para-Genasi", "Molten-skinned brutes born of fire and earth, radiating searing heat from cracked skin."],
+    ["Ooze Para-Genasi", "Slick, damp-skinned hybrids of water and earth seeping through cracks like living mud."],
+    ["Smoke Para-Genasi", "Haze-wreathed drifters born of fire and air -- half-visible and perpetually choking."],
+    ["Lightning Genasi", "Spark-charged live wires crackling with static and shorting out anything they grip."],
+    ["Dust Para-Genasi", "Dry, ashen wanderers born of earth and air whose touch withers plants and cracks stone."]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Owl-faced, feathered humanoids gliding silently through the night on downy wings.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Great Horned Owlin", "Imposing, tufted-eared hunters whose piercing gaze and deep hoot command respect."],
+    ["Barn Owlin", "Heart-faced watchers drawn to farmsteads and villages, serving as night sentries."],
+    ["Snowy Owlin", "White-feathered arctic dwellers navigating blizzards with ease and seeing through whiteout."]
+  ]
+}

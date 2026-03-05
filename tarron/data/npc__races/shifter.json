@@ -1,0 +1,11 @@
+{
+  "description": "Lycanthrope-descended humanoids briefly unleashing the beast within, caught between two natures.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Beasthide Shifter", "Bear-blooded defenders sprouting thick hide and shrugging off blows when shifted."],
+    ["Longtooth Shifter", "Wolf-blooded fighters extending savage fangs and biting through armor mid-battle."],
+    ["Swiftstride Shifter", "Cat-blooded runners gaining blinding speed, dodging away from any attacker."],
+    ["Wildhunt Shifter", "Hound-blooded trackers whose shifted senses pinpoint hidden creatures within miles."],
+    ["Razorclaw Shifter", "Tiger-blooded predators sprouting wicked claws and slashing with feral precision."]
+  ]
+}

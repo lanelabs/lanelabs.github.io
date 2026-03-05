@@ -1,0 +1,9 @@
+{
+  "description": "Serpent-blooded schemers having sacrificed their humanity for cold cunning and ophidian power.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Yuan-ti Pureblood", "Nearly human in appearance, planted as spies and manipulators in unsuspecting societies."],
+    ["Yuan-ti Malison", "Half-serpent hybrids with snake heads or limbs, serving as priests and enforcers."],
+    ["Yuan-ti Abomination", "Massive snake-bodied rulers having shed almost all traces of their former humanity."]
+  ]
+}

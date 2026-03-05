@@ -1,0 +1,9 @@
+{
+  "description": "Souls returned to dead or constructed bodies, haunted by fragmented memories of a former life.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Stitched Reborn", "Flesh-golem patchworks assembled from multiple corpses, struggling to form a single identity."],
+    ["Revenant Reborn", "Vengeance-driven dead rising with a single unfinished purpose burning in their chest."],
+    ["Awakened Reborn", "Gently revived souls remembering little, rebuilding a life from scattered dream-like fragments."]
+  ]
+}

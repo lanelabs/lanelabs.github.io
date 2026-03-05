@@ -1,0 +1,9 @@
+{
+  "description": "Winged predators with hauntingly beautiful voices, luring prey to their death from craggy nests.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Cliff Harpy", "Crag-nesting screechers dive-bombing travelers on mountain passes and coastal bluffs."],
+    ["Sea Harpy", "Salt-crusted hunters circling above ships and dragging sailors from the rigging."],
+    ["Storm Harpy", "Thundercloud riders attacking during gales, their songs lost in the howling wind."]
+  ]
+}

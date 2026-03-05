@@ -1,0 +1,9 @@
+{
+  "description": "Noble ocean warriors from the Elemental Plane of Water, patrolling the deep against abyssal threats.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Deep Sea Triton", "Trench-dwelling sentinels standing vigil against krakens and abyssal horrors in crushing darkness."],
+    ["Coral Reef Triton", "Reef-city builders cultivating living coral architecture and trading with surface folk."],
+    ["Kelp Forest Triton", "Seaweed-cloaked guerrillas ambushing intruders from swaying underwater groves."]
+  ]
+}

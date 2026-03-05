@@ -1,0 +1,13 @@
+{
+  "description": "Living embodiments of primal forces -- fire, water, earth, and air given will and form.",
+  "tags": ["large"],
+  "subraces": [
+    ["Air Elemental", "Invisible whirlwinds speaking in howling gusts and scattering anything not bolted down."],
+    ["Earth Elemental", "Grinding masses of stone and soil rising from the ground to crush with seismic force."],
+    ["Fire Elemental", "Roaring pillars of living flame consuming everything combustible in their path."],
+    ["Water Elemental", "Surging waves given shape, drowning foes in crushing torrents of sentient water."],
+    ["Ice Elemental", "Glacial constructs radiating killing cold, shattering into razor shards when struck."],
+    ["Magma Elemental", "Slow-moving molten giants leaving scorched footprints and igniting the earth beneath them."],
+    ["Lightning Elemental", "Crackling bolts of living electricity arcing between targets in blinding chain strikes."]
+  ]
+}

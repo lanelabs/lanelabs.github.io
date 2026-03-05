@@ -1,0 +1,15 @@
+{
+  "description": "Characters defined by their trade, craft, or professional function in society.",
+  "roles": [
+    ["Merchant", "A gatekeeper of vital supplies, turning every transaction into a negotiation that reveals the local economy and its power players."],
+    ["Craftsman", "Skilled hands capable of forging what the protagonists need, but the price is always time, rare materials, or a favor owed."],
+    ["Scholar", "Locked knowledge the protagonists cannot decipher alone, traded for errands pulling them into academic rivalries or forbidden archives."],
+    ["Healer", "The thin line between the protagonists and death -- a lifeline whose loss would change the calculus of every future battle."],
+    ["Innkeeper", "Every rumor heard and every traveler seen, quietly steering the protagonists toward the next danger through idle gossip."],
+    ["Guide", "Survival in unfamiliar lands held hostage to trust and coin, knowing terrain the protagonists desperately do not."],
+    ["Guard", "Enforced boundaries the protagonists must cross, turning locked gates and patrol routes into puzzles of persuasion or stealth."],
+    ["Spy", "Secrets traded like currency, pulling the protagonists into a web where one whispered name can topple plans or confirm suspicions."],
+    ["Diplomat", "Political tensions navigated where swords cannot reach, opening -- or closing -- doors the protagonists need with a single word."],
+    ["Entertainer", "Reputation spread through song and story, shaping how the world perceives the protagonists before they ever arrive."]
+  ]
+}

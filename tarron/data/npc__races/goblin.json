@@ -1,0 +1,15 @@
+{
+  "description": "Scrappy, sharp-toothed scavengers thriving in swarms and adapting to any environment.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Common Goblin", "The standard green-skinned variety raiding caravans and infesting ruins worldwide."],
+    ["Blue Goblin", "Psionic mutants with blue-tinged skin, stunning prey with a mental shriek."],
+    ["Snow Goblin", "White-furred goblins adapted to frozen wastes, building warrens beneath the permafrost."],
+    ["Desert Goblin", "Sun-bleached burrowers ambushing travelers from beneath the sand."],
+    ["Forest Goblin", "Canopy skulkers riding giant spiders and coating their arrows in tree-frog venom."],
+    ["Cave Goblin", "Pale, blind tunnel-dwellers navigating by echolocation and hoarding phosphorescent fungi."],
+    ["Nilbog", "Chaos-possessed tricksters healing from damage and punishing anyone who tries to harm them."],
+    ["Red Goblin", "Fire-touched raiders immune to flame, branding themselves as marks of courage."],
+    ["Barghest", "Fiend-born infiltrators shapeshifting between goblin and monstrous wolf form."]
+  ]
+}

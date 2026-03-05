@@ -1,0 +1,7 @@
+{
+  "description": "Linear features drawn across hex boundaries.",
+  "terrain": [
+    ["River", "A winding ribbon of current cutting through the land, swelling with rain and narrowing in drought."],
+    ["Road", "A beaten track of packed earth or worn stone linking settlement to settlement across the wilds."]
+  ]
+}

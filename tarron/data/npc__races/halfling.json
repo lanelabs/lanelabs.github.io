@@ -1,0 +1,12 @@
+{
+  "description": "Cheerful, nimble small folk prizing good food, warm hearths, and the courage to face the unexpected.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Lightfoot Halfling", "Naturally stealthy wanderers slipping through crowds and blending into any community."],
+    ["Stout Halfling", "Tougher and broader than their kin, with a dwarven resilience to poison and hardship."],
+    ["Ghostwise Halfling", "Reclusive forest-dwellers communicating through telepathy and distrusting outsiders."],
+    ["Lotusden Halfling", "Druidic guardians of sacred groves weaving nature magic into daily life."],
+    ["Mark of Hospitality Halfling", "Dragonmarked innkeepers whose magical touch creates comfort, warmth, and sanctuary."],
+    ["Mark of Healing Halfling", "Dragonmarked healers mending wounds and curing disease with a laying of hands."]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "description": "Descriptors based on colors and visual hues.",
+  "descriptors": [
+    {"prefixes": ["Beige"], "suffixes": ["Beige"]},
+    {"prefixes": ["Black"], "suffixes": ["Black"]},
+    {"prefixes": ["Blue"], "suffixes": ["Blue"]},
+    {"prefixes": ["Brown"], "suffixes": ["Brown"]},
+    {"prefixes": ["Burgundy"], "suffixes": ["Burgundy"]},
+    {"prefixes": ["Coral"], "suffixes": ["Coral"]},
+    {"prefixes": ["Crimson"], "suffixes": ["Crimson"]},
+    {"prefixes": ["Cyan"], "suffixes": ["Cyan"]},
+    {"prefixes": ["Ebony"], "suffixes": []},
+    {"prefixes": ["Gray"], "suffixes": ["Gray"]},
+    {"prefixes": ["Green"], "suffixes": ["Green"]},
+    {"prefixes": ["Indigo"], "suffixes": ["Indigo"]},
+    {"prefixes": ["Lavender"], "suffixes": ["Lavender"]},
+    {"prefixes": ["Magenta"], "suffixes": ["Magenta"]},
+    {"prefixes": ["Maroon"], "suffixes": ["Maroon"]},
+    {"prefixes": ["Olive"], "suffixes": ["Olive"]},
+    {"prefixes": ["Orange"], "suffixes": ["Orange"]},
+    {"prefixes": ["Pink"], "suffixes": ["Pink"]},
+    {"prefixes": ["Purple"], "suffixes": ["Purple"]},
+    {"prefixes": ["Red"], "suffixes": ["Red"]},
+    {"prefixes": ["Sage"], "suffixes": ["Sage"]},
+    {"prefixes": ["Tan"], "suffixes": ["Tanning"]},
+    {"prefixes": ["Teal"], "suffixes": ["Teal"]},
+    {"prefixes": ["Turquoise"], "suffixes": ["Turquoise"]},
+    {"prefixes": ["Violet"], "suffixes": ["Violet"]},
+    {"prefixes": ["White"], "suffixes": ["White"]},
+    {"prefixes": ["Yellow"], "suffixes": ["Yellow"]}
+  ]
+}

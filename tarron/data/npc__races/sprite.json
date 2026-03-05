@@ -1,0 +1,9 @@
+{
+  "description": "Tiny fey warriors guarding the wild places, judging hearts with enchanted arrows.",
+  "tags": ["small"],
+  "subraces": [
+    ["Common Sprite", "Sword-wielding sentinels of the forest testing intruders with sleep-poisoned arrows."],
+    ["Grig (Cricket Sprite)", "Cricket-legged fiddlers whose enchanted music compels listeners to dance until they collapse."],
+    ["Nixie (Water Sprite)", "Freshwater guardians charming trespassers into servitude beneath lily-pad courts."]
+  ]
+}

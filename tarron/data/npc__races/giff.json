@@ -1,0 +1,9 @@
+{
+  "description": "Hippo-headed spacefaring soldiers obsessed with firearms, military rank, and explosive ordnance.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Military Giff", "Career officers living by the chain of command, polishing their muskets religiously."],
+    ["Mercenary Giff", "Freelance guns-for-hire selling their firepower to the highest bidder across wildspace."],
+    ["Trader Giff", "Retired soldiers turned arms dealers, supplying weapons and smokepowder to any buyer."]
+  ]
+}

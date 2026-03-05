@@ -1,0 +1,9 @@
+{
+  "description": "Tree-bound nature spirits whose life is tied to a single plant, fierce in its defense.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Tree Dryad", "Oak- or elm-bonded guardians charming intruders and commanding roots to entangle enemies."],
+    ["Flower Dryad", "Blossom-bonded charmers tending meadow gardens and luring visitors with intoxicating fragrance."],
+    ["Grove Dryad", "Collective spirits tied to an entire copse, stronger together than any solitary dryad."]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Dream-touched humans bonded to quori spirits -- calm, empathic, and waging a secret war in dreams.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Scholar Kalashtar", "Psionic researchers studying the dream plane and documenting quori lore in guarded monasteries."],
+    ["Warrior Kalashtar", "Psychic soldiers trained to shield their minds and strike nightmare agents in both worlds."],
+    ["Mystic Kalashtar", "Deep meditators communing directly with their quori spirit and channeling its ancient power."]
+  ]
+}

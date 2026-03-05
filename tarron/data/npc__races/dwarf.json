@@ -1,0 +1,18 @@
+{
+  "description": "Stout, bearded mountain folk carving great halls from stone and forging legendary weapons.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Hill Dwarf", "Hardy settlers of the foothills, known for keen intuition and herbal remedies."],
+    ["Mountain Dwarf", "Deep-delving miners and smiths building fortress-cities inside living rock."],
+    ["Duergar (Gray Dwarf)", "Grim underdark exiles hardened by centuries of mind flayer enslavement and psionic discipline."],
+    ["Shield Dwarf", "Battle-scarred defenders of the northern holds, forged by endless wars with orcs and goblins."],
+    ["Gold Dwarf", "Wealthy southern clans ruling vast underground trade empires with proud formality."],
+    ["Wild Dwarf", "Jungle-dwelling outcasts painting their skin and hunting with blowguns and poison."],
+    ["Arctic Dwarf", "Frost-resistant clans thriving in glacial caverns far beyond the tundra line."],
+    ["Jungle Dwarf", "Canopy-dwelling trappers building bridges between giant trees and taming exotic beasts."],
+    ["Mark of Warding Dwarf", "Dragonmarked locksmiths and bankers whose magic seals vaults and binds wards."],
+    ["Gully Dwarf", "Scrawny, simple-minded scavengers surviving in the filthiest places others abandon."],
+    ["Dark Iron Dwarf", "Fire-resistant smiths forging in volcanic heat and serving fiery overlords."],
+    ["Deep Dwarf", "Pale, silent miners who rarely surface, navigating the deepest caverns by sound alone."]
+  ]
+}

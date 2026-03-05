@@ -1,0 +1,9 @@
+{
+  "description": "Foul-smelling cave reptilians whose nauseating stench and savage ambushes terrorize the underdark.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Cave Troglodyte", "Common tunnel dwellers raiding in packs and marking territory with their overwhelming musk."],
+    ["Deep Troglodyte", "Abyssal-tainted kin from the lowest caverns -- larger and more vicious than their surface cousins."],
+    ["Savage Troglodyte", "Feral berserkers abandoning all tool use, attacking with claws, teeth, and raw fury."]
+  ]
+}

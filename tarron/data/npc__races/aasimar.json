@@ -1,0 +1,9 @@
+{
+  "description": "Celestial-touched mortals with luminous eyes, guided by angelic visions toward a divine purpose.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Protector Aasimar", "Radiant guardians sprouting spectral wings to shield the innocent from harm."],
+    ["Scourge Aasimar", "Burning zealots unleashing searing holy light that consumes evil and themselves alike."],
+    ["Fallen Aasimar", "Shadow-winged outcasts whose divine light curdled into necrotic darkness after a spiritual fall."]
+  ]
+}

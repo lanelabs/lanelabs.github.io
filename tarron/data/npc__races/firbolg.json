@@ -1,0 +1,9 @@
+{
+  "description": "Gentle, reclusive giants tending hidden groves and speaking for the voiceless creatures of the wild.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Forest Firbolg", "Deep-wood caretakers shapeshifting into woodland animals and vanishing among ancient trees."],
+    ["Mountain Firbolg", "High-altitude hermits communing with stone and weather, rarely descending below the treeline."],
+    ["Fey Firbolg", "Feywild-touched kin whose innate glamour lets them walk unseen among other races."]
+  ]
+}

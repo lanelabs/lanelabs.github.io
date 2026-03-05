@@ -1,0 +1,9 @@
+{
+  "description": "Half-vampire outcasts hungering for blood yet clinging to mortal will, walking between life and undeath.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Vampire-born Dhampir", "True-blooded children of vampires inheriting the thirst but not the full curse."],
+    ["Moroi Dhampir", "Charming, pale-skinned feeders draining life energy through an intoxicating touch."],
+    ["Strigoi Dhampir", "Feral, corpse-like predators driven more by hunger than reason -- barely holding on."]
+  ]
+}

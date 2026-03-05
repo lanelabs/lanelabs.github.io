@@ -1,0 +1,6 @@
+{
+  "description": "Settlement and landmark markers placed on individual hexes.",
+  "terrain": [
+    ["Town", "A cluster of thatched roofs and chimney smoke behind low walls, straddling a crossroads or ford."]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Shape-shifting humanoids mimicking any face, forever searching for their own identity.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Passer Changeling", "Deep-cover infiltrators adopting a single identity for years, dreading exposure."],
+    ["Becoming Changeling", "Fluid performers shifting personas daily, embracing change as their true nature."],
+    ["Reality Seeker Changeling", "Philosophical wanderers searching for an authentic self beneath all the borrowed faces."]
+  ]
+}

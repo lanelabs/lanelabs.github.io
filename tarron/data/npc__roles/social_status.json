@@ -1,0 +1,15 @@
+{
+  "description": "Roles determined by rank, class, or position within a social hierarchy.",
+  "roles": [
+    ["Noble", "Influence the protagonists need but cannot command, forcing them to play politics or risk making a powerful enemy."],
+    ["Peasant", "The human cost of conflict made visible, grounding epic stakes in the suffering of ordinary lives."],
+    ["Clergy", "Divine authority given a voice, offering blessings or judgment that the faithful around the protagonists take with deadly seriousness."],
+    ["Outcast", "Truths polite society refuses to speak, available to the protagonists -- but only at the cost of association."],
+    ["Refugee", "Living consequences of the conflict the protagonists are trying to resolve, putting a face on what failure truly means."],
+    ["Criminal", "Doors to the underworld opened where lawful means cannot reach, yet every favor accepted deepens the compromise."],
+    ["Veteran", "Scars from battles already fought, offering hard-earned tactical wisdom and a sobering preview of what war costs."],
+    ["Foreigner", "Unfamiliar knowledge and customs reframing problems the protagonists thought they understood, shifting perspective through an outside lens."],
+    ["Servant", "Unseen movement through powerful households, holding overheard secrets that can shift the balance if the protagonists earn their trust."],
+    ["Elder", "Respect the protagonists have not yet earned, gatekeeping community support behind traditions and long memories."]
+  ]
+}

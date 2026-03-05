@@ -1,0 +1,10 @@
+{
+  "description": "Horse-bodied warriors and scholars galloping across open lands, valuing freedom and the herd above all.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Woodland Centaur", "Forest sentinels patrolling ancient groves and guarding sacred springs with bow and spear."],
+    ["Plains Centaur", "Nomadic cavalry racing across grasslands, trading and raiding in equal measure."],
+    ["Mountain Centaur", "Sure-footed highland dwellers with shaggy coats, traversing cliff paths no horse could manage."],
+    ["Pegataur (Winged)", "Rare, winged centaurs soaring above the herd as aerial scouts and messengers."]
+  ]
+}

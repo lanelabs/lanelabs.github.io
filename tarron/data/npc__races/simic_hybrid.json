@@ -1,0 +1,11 @@
+{
+  "description": "Magically bio-engineered beings grafted with animal traits -- living experiments of the Simic Combine.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Crab Hybrid", "Chitinous-armed bruisers with crushing pincers and armored plating across their torsos."],
+    ["Fish Hybrid", "Gill-bearing swimmers with webbed hands and bioluminescent patches for deep-water navigation."],
+    ["Frog Hybrid", "Sticky-fingered leapers scaling walls and snatching prey with an extendable tongue."],
+    ["Jellyfish Hybrid", "Translucent-skinned drifters with trailing tendrils delivering a paralyzing sting."],
+    ["Octopus Hybrid", "Multi-armed contortionists squeezing through impossibly tight spaces and grappling with extra limbs."]
+  ]
+}

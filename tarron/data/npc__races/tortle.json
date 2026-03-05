@@ -1,0 +1,9 @@
+{
+  "description": "Turtle-shelled wanderers spending their short lives seeking experiences before returning home to nest.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Land Tortle", "Plodding overland travelers carrying everything they need inside their domed shells."],
+    ["Sea Tortle", "Ocean-going swimmers with flippered limbs, navigating by the stars and ocean currents."],
+    ["Snapping Tortle", "Aggressive, beak-jawed fighters with spiked shells and a temper to match."]
+  ]
+}

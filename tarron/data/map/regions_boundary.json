@@ -1,0 +1,17 @@
+{
+  "description": "Edges, passages, and transitional zones between regions.",
+  "regions": [
+    ["Isthmus", "A precarious ribbon of land bridging two continents, lashed by waves on either side."],
+    ["Corridor", "A narrow strip of territory threading between hostile lands, vital for trade and troop movement."],
+    ["Passage", "A hard-won route through otherwise impassable terrain, known to guides and smugglers alike."],
+    ["Gateway", "A natural or fortified entry point commanding access to the lands beyond."],
+    ["Threshold", "The liminal boundary where one world ends and another begins, felt before it is seen."],
+    ["Frontier", "The ragged edge of settled land, where farmsteads thin out and wilderness takes hold."],
+    ["Periphery", "The outermost ring of a realm's influence, where loyalty fades and rival powers encroach."],
+    ["Fringe", "The wild, unsettled margin where civilization frays into untamed country."],
+    ["Rim", "A raised or defining edge encircling a region, often a ridge or cliff that marks the border."],
+    ["Edge", "The sharp boundary where one kind of land gives way abruptly to another."],
+    ["Verge", "The narrow transitional strip just before a dramatic change in terrain or rule."],
+    ["Margin", "A thin, contested border zone belonging fully to neither side, shifting with every season."]
+  ]
+}

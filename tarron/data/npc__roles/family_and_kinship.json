@@ -1,0 +1,15 @@
+{
+  "description": "Roles rooted in family ties, blood bonds, and kinship structures.",
+  "roles": [
+    ["Parent", "A binding thread to home and history, giving the protagonist something deeply personal to fight for -- or against."],
+    ["Sibling", "Shared origin yet divergent path, creating a bond laced with rivalry, loyalty, or both in unpredictable measure."],
+    ["Child", "The future made tangible, making every danger feel heavier because what the protagonists are building toward is watching."],
+    ["Grandparent", "Old truths and forgotten debts surfacing through a living link to the past, revealing how history still shapes the present crisis."],
+    ["Uncle/Aunt", "A different lens on the protagonist's family, sometimes unlocking secrets or alliances the parents never would have offered."],
+    ["Cousin", "Familiar enough to trust yet distant enough to surprise -- a peer who can challenge assumptions or conspire in equal measure."],
+    ["In-Law", "Competing loyalties bridging two families, forcing the protagonists to navigate obligations they never chose but cannot escape."],
+    ["Step-Family", "Chosen bonds tested against the weight of blood, creating friction and tenderness that neither side fully expects."],
+    ["Godparent", "Sacred promise existing outside bloodlines but cutting just as deep, introducing duty that transcends mere kinship."],
+    ["Ancestor", "A voice reaching from beyond death to deliver warnings, blessings, or burdens the protagonists never asked to inherit."]
+  ]
+}

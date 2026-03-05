@@ -1,0 +1,13 @@
+{
+  "description": "Archetypal story roles drawn from the Hero's Journey and classic narrative traditions.",
+  "roles": [
+    ["Mentor", "A wellspring of hard-won wisdom, offering cryptic lessons the protagonists only understand when the stakes are highest."],
+    ["Herald", "The bearer of an inciting event dragging the protagonists out of their comfort zone and into danger they cannot ignore."],
+    ["Threshold Guardian", "An impassable barrier demanding proof of worthiness, turning every new stage of the journey into a test."],
+    ["Shapeshifter", "Shifting loyalties and elusive motives, making every interaction a gamble between trust and preparation for betrayal."],
+    ["Shadow", "A dark parallel wielding the protagonists' own abilities with opposite morals, forcing uncomfortable self-reflection about what they could become."],
+    ["Trickster", "Gleeful chaos upending careful plans -- accidental salvation or catastrophic unraveling, never anything predictable."],
+    ["Ally", "Steadfast presence through escalating danger, giving the protagonists someone to lose and raising the emotional cost of every battle."],
+    ["Temptress/Tempter", "An easier path offered at the price of the mission, testing whether desire or duty wins when both cannot survive."]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "description": "Cold-blooded reptilian hunters thinking in terms of survival, not sentiment or morality.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Swamp Lizardfolk", "Marsh-dwelling ambushers crafting weapons from bone and vanishing beneath murky water."],
+    ["Desert Lizardfolk", "Sun-baked survivors conserving water, burrowing into sand, and hunting at dusk."],
+    ["Jungle Lizardfolk", "Canopy stalkers with vivid scales using blowguns and camouflage to lethal effect."],
+    ["Blackscale Lizardfolk", "Towering, dark-scaled brutes serving as shock troops and commanding through sheer size."],
+    ["Poison Dusk Lizardfolk", "Tiny, chameleon-skinned infiltrators whose venomous bite belies their small stature."]
+  ]
+}

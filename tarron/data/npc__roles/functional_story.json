@@ -1,0 +1,15 @@
+{
+  "description": "Utilitarian roles that serve specific narrative or gameplay functions.",
+  "roles": [
+    ["Quest Giver", "The hook launching the protagonists into action, framing the objective and setting the terms of success before they can hesitate."],
+    ["Gatekeeper", "An immovable barrier between the protagonists and what they need, demanding proof of worth before granting passage."],
+    ["Witness", "The only eyes that saw what happened, holding testimony that can confirm the truth or unravel a carefully constructed lie."],
+    ["Victim", "A human face on the threat, giving the protagonists a moral imperative that makes walking away impossible."],
+    ["Messenger", "News arriving like a shockwave, compressing distance and time so distant events land with immediate, unavoidable impact."],
+    ["Trader", "Needs turned into negotiations, creating moments where the protagonists must decide what they are willing to sacrifice."],
+    ["Riddle-Master", "Wit tested instead of strength -- progress blocked behind a puzzle that forces the protagonists to think before they can act."],
+    ["Oracle", "Glimpses of what is coming, seeding dread or hope that colors every decision the protagonists make from that moment on."],
+    ["Collector", "Covetous interest in something the protagonists possess, creating leverage spendable on alliance, information, or safe passage."],
+    ["Chronicler", "A living record of the protagonists' deeds, making reputation a consequence that follows them everywhere the story goes."]
+  ]
+}

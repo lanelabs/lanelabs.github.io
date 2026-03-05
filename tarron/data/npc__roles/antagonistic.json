@@ -1,0 +1,15 @@
+{
+  "description": "Characters who oppose, obstruct, or challenge the protagonists.",
+  "roles": [
+    ["Primary Villain", "An ever-present opposition escalating the stakes until a final confrontation becomes inevitable."],
+    ["Lieutenant", "The visible face of the villain's power, confronting the protagonists directly while the true threat remains out of reach."],
+    ["Rival", "A competitor racing toward the same prize, injecting urgency into every decision and punishing hesitation."],
+    ["Nemesis", "Deeply personal enmity cutting closer than any ordinary enemy could, ensuring the conflict never stays professional."],
+    ["False Friend", "A trusted face concealing a calculated betrayal that shatters the party's assumptions when it lands."],
+    ["Corrupt Authority", "Lawful power turned weapon, transforming the systems the protagonists depend on into traps they cannot fight without becoming outlaws."],
+    ["Fanatic", "Sincerity hardened into something unbreakable -- an enemy who cannot be reasoned with, bought off, or shamed into doubt."],
+    ["Fallen Hero", "Living proof of what ruin awaits the protagonists if they lose their way, embodying the cost of failure."],
+    ["Dark Mirror", "A dark reflection making opposite moral choices, forcing every shortcut the protagonists consider to feel heavier."],
+    ["Puppet Master", "Hidden orchestration leaving the protagonists fighting symptoms while the true disease stays just out of sight."]
+  ]
+}

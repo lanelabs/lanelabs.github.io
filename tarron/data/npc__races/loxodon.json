@@ -1,0 +1,9 @@
+{
+  "description": "Elephant-headed sages with long memories, serene patience, and deep devotion to community.",
+  "tags": ["large", "humanoid"],
+  "subraces": [
+    ["Selesnya Loxodon", "Nature-devoted communalists tending sacred groves and healing through collective prayer."],
+    ["Temple Loxodon", "Monastic guardians of holy sites memorizing entire libraries of scripture."],
+    ["Elder Loxodon", "Venerable patriarchs whose centuries of memory make them living histories of their people."]
+  ]
+}

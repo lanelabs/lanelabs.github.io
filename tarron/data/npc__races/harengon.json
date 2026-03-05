@@ -1,0 +1,9 @@
+{
+  "description": "Rabbit-folk with powerful legs and twitching noses, blessed with luck and an instinct to leap before looking.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Cottontail Harengon", "Gentle meadow-dwellers farming root vegetables and hosting legendary feasts."],
+    ["Jackrabbit Harengon", "Long-eared sprinters built for the open desert, quick enough to outrun almost anything."],
+    ["Arctic Hare Harengon", "White-furred survivors of frozen tundra digging deep burrows and enduring punishing cold."]
+  ]
+}

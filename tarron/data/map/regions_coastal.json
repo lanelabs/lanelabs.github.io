@@ -1,0 +1,14 @@
+{
+  "description": "Shorelines, waterways, and water-adjacent territories.",
+  "regions": [
+    ["Shore", "A narrow strip where wave-smoothed stones meet salt grass and driftwood."],
+    ["Bank", "Muddy, root-laced ground sloping down to a river's edge, carved fresh each spring by floodwater."],
+    ["Strand", "A long, pale beach exposed at low tide, scattered with shells and the wrack of storms."],
+    ["Cove", "A small, sheltered bay tucked between headlands, its calm waters hiding smugglers and secrets."],
+    ["Gulf", "A yawning arm of the sea reaching deep into the continent, its waters dark and restless."],
+    ["Sound", "A wide, protected waterway between mainland and island, busy with sails and shifting currents."],
+    ["Strait", "A treacherous narrows where opposing shores funnel wind and tide into a churning gauntlet."],
+    ["Channel", "A deep-cut passage of swift water carved between land masses, vital for ships and dangerous in fog."],
+    ["Inlet", "A slender finger of sea probing inland, its still waters reflecting overhanging cliffs and pines."]
+  ]
+}

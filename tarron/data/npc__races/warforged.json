@@ -1,0 +1,9 @@
+{
+  "description": "Living constructs forged for war, now seeking purpose and identity beyond the battlefield.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Envoy Warforged", "Diplomatic models built with integrated tools, designed for specialized civilian roles."],
+    ["Juggernaut Warforged", "Heavy-plated siege models built to smash through walls and absorb punishment."],
+    ["Skirmisher Warforged", "Lightweight scout models built for speed, stealth, and hit-and-run tactics."]
+  ]
+}

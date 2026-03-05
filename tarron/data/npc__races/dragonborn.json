@@ -1,0 +1,23 @@
+{
+  "description": "Dragon-blooded warriors with scaled hides and elemental breath, driven by clan honor and personal glory.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Red Dragonborn", "Fire-breathers with crimson scales, quick to anger and fiercely competitive."],
+    ["Blue Dragonborn", "Lightning-breathers with azure scales, prizing order, strategy, and patience."],
+    ["Green Dragonborn", "Poison-breathers with emerald scales -- cunning schemers preferring manipulation over force."],
+    ["Black Dragonborn", "Acid-breathers with dark scales favoring ambush, grudges, and swampy isolation."],
+    ["White Dragonborn", "Frost-breathers with pale scales, primal and savage, thriving in frozen wastelands."],
+    ["Gold Dragonborn", "Fire-breathers with gilded scales -- noble and wise, often drawn to righteous causes."],
+    ["Silver Dragonborn", "Cold-breathers with gleaming scales, befriending other races and championing the weak."],
+    ["Bronze Dragonborn", "Lightning-breathers with warm metallic scales, drawn to the sea and coastal defense."],
+    ["Brass Dragonborn", "Fire-breathers with tawny scales -- gregarious storytellers talking as much as they fight."],
+    ["Copper Dragonborn", "Acid-breathers with ruddy scales, notorious pranksters disarming foes with wit."],
+    ["Amethyst Dragonborn", "Force-breathers with violet scales, introspective psionics studying planar boundaries."],
+    ["Crystal Dragonborn", "Radiant-breathers with sparkling scales -- friendly optimists collecting friendships like gems."],
+    ["Emerald Dragonborn", "Psychic-breathers with translucent green scales, paranoid scholars hoarding forbidden lore."],
+    ["Sapphire Dragonborn", "Thunder-breathers with deep blue scales, militant strategists waging war on aberrations."],
+    ["Topaz Dragonborn", "Necrotic-breathers with amber scales -- cynical loners distrusting the living and the dead alike."],
+    ["Draconblood", "Politically cunning city-dwellers climbing to power through charm and social maneuvering."],
+    ["Ravenite", "Freed slaves hardened by oppression, fierce and communal, forged in shared suffering."]
+  ]
+}

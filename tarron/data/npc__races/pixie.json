@@ -1,0 +1,10 @@
+{
+  "description": "Palm-sized fey pranksters wielding potent magic and vanishing in a shower of sparkling dust.",
+  "tags": ["small"],
+  "subraces": [
+    ["Garden Pixie", "Flower-tending homebodies enchanting hedgerows and befriending pollinating insects."],
+    ["Forest Pixie", "Canopy dwellers guarding ancient trees and leading trespassers in circles for days."],
+    ["Flower Pixie", "Petal-winged charmers brewing love potions and coaxing blossoms to bloom out of season."],
+    ["Frost Pixie", "Ice-winged tricksters painting frost on windows and freezing streams solid for amusement."]
+  ]
+}

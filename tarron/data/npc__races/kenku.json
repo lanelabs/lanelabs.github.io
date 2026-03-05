@@ -1,0 +1,9 @@
+{
+  "description": "Flightless crow-folk cursed to speak only in mimicked sounds, yearning to reclaim stolen wings.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Crow Kenku", "Urban scavengers mimicking city sounds and running thieves' guilds from the rooftops."],
+    ["Raven Kenku", "Darker-plumed kin drawn to omens, graveyards, and the whispered secrets of the dead."],
+    ["Magpie Kenku", "Compulsive hoarders of shiny trinkets whose nests glitter with stolen baubles."]
+  ]
+}

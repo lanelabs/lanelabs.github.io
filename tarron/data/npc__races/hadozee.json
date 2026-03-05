@@ -1,0 +1,9 @@
+{
+  "description": "Gliding simian folk with patagial wing-flaps, crewing spelljammer ships as natural-born riggers.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Deck Hand Hadozee", "Rope-swinging sailors scampering up masts and patching hulls faster than any groundling crew."],
+    ["Explorer Hadozee", "Thrill-seeking scouts gliding into uncharted territory and mapping new worlds firsthand."],
+    ["Trader Hadozee", "Shrewd barterers plying the spacelanes, exchanging exotic goods between crystal spheres."]
+  ]
+}

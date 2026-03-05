@@ -1,0 +1,9 @@
+{
+  "description": "Amorphous ooze-beings reshaping their gelatinous bodies at will, squeezing through any gap.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Transparent Plasmoid", "Glass-clear blobs turning nearly invisible -- ideal for scouting and infiltration."],
+    ["Opaque Plasmoid", "Dense, solidified oozes holding their shape firmly and absorbing physical blows."],
+    ["Colored Plasmoid", "Vibrant, mood-shifting blobs whose hue broadcasts their emotions to everyone around them."]
+  ]
+}

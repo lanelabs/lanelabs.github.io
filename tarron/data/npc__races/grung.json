@@ -1,0 +1,12 @@
+{
+  "description": "Poisonous tree-frog folk with a rigid color-based caste system and a taste for territorial warfare.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Green Grung", "Common laborers and warriors forming the backbone of every grung settlement."],
+    ["Blue Grung", "Artisan caste members crafting weapons, building structures, and raising grung young."],
+    ["Purple Grung", "Administrators and commanders enforcing caste law and directing military campaigns."],
+    ["Red Grung", "Elite scholars and magic-users advising the ruling caste on arcane matters."],
+    ["Orange Grung", "Superior warriors hand-picked as personal bodyguards for the gold-caste rulers."],
+    ["Gold Grung", "Ruling monarchs whose word is absolute law, their skin glittering with sacred authority."]
+  ]
+}

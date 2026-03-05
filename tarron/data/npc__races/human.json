@@ -1,0 +1,21 @@
+{
+  "description": "Endlessly adaptable and ambitious, thriving in every climate and building empires within a single lifetime.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Imperial", "City-bred subjects of sprawling empires, steeped in law, commerce, and courtly intrigue."],
+    ["Nomadic", "Wandering peoples following herds and trade routes, carrying their culture on their backs."],
+    ["Tribal", "Close-knit clans bound by blood oaths, ancestor worship, and sacred hunting grounds."],
+    ["Nordic", "Cold-hardened seafarers and raiders prizing honor, saga, and strength above all."],
+    ["Mediterranean", "Sun-soaked traders and philosophers building their wealth on olive groves and sea lanes."],
+    ["Oriental", "Heirs to ancient dynasties guided by strict codes of honor, calligraphy, and martial discipline."],
+    ["Barbarian", "Fierce warriors from untamed lands scorning civilization and fighting with primal fury."],
+    ["Civilized", "Urban dwellers shaped by written law, guild halls, and the comforts of settled life."],
+    ["Primitive", "Stone-age survivors hunting with flint and bone, reading the land like scripture."],
+    ["Variant Human", "Exceptionally talented individuals whose innate gifts set them apart from birth."],
+    ["Mark of Finding Human", "Dragonmarked hunters with a supernatural gift for tracking quarry across any terrain."],
+    ["Mark of Handling Human", "Dragonmarked beast-tamers forging unbreakable bonds with animals through magical intuition."],
+    ["Mark of Making Human", "Dragonmarked artisans whose touch can mend, shape, and enchant mundane materials."],
+    ["Mark of Passage Human", "Dragonmarked wayfinders gifted with supernatural speed and the magic of teleportation."],
+    ["Mark of Sentinel Human", "Dragonmarked protectors sensing danger before it strikes, shielding those in their care."]
+  ]
+}

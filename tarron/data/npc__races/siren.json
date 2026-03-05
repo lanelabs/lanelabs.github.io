@@ -1,0 +1,9 @@
+{
+  "description": "Enchanting aquatic songstresses whose melodies bewitch sailors and pull ships onto the rocks.",
+  "tags": ["humanoid"],
+  "subraces": [
+    ["Sea Siren", "Deep-ocean singers perching on wave-battered rocks and calling vessels to their doom."],
+    ["River Siren", "Freshwater temptresses haunting river bends and luring fishermen beneath the current."],
+    ["Lake Siren", "Still-water dwellers whose songs echo across misty lake surfaces on quiet nights."]
+  ]
+}

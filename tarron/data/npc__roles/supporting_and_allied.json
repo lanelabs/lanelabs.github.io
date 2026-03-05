@@ -1,0 +1,15 @@
+{
+  "description": "Characters who aid, assist, and stand alongside the protagonists.",
+  "roles": [
+    ["Sidekick", "Unquestioning loyalty following the protagonists into danger, making every risk feel more personal because someone faithful is on the line."],
+    ["Henchman", "Grunt work handled so the protagonists don't have to, freeing them to focus on the larger threat ahead."],
+    ["Backup", "Salvation arriving at the critical moment when defeat seems certain, rewarding the protagonists for building alliances early."],
+    ["Specialist", "A gap the protagonists cannot close on their own, creating dependence on an outside skill they do not control."],
+    ["Cheerleader", "Defiant optimism holding spirits together when the situation looks hopeless, reminding the protagonists why the fight still matters."],
+    ["Network Node", "Connections branching outward to allies and resources, expanding the protagonists' reach far beyond what they could achieve alone."],
+    ["Safe Harbor", "A place to rest between crises, giving the story breathing room and the protagonists a home worth defending."],
+    ["Resource Provider", "A lifeline supplying what the protagonists need to keep going -- whose disruption would leave them dangerously exposed."],
+    ["Advisor", "A second perspective offered before critical decisions, helping the protagonists see angles they would otherwise miss entirely."],
+    ["Champion", "A voice speaking on the protagonists' behalf where their own carries no weight, turning social barriers into open doors."]
+  ]
+}

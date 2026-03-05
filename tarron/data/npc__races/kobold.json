@@ -1,0 +1,11 @@
+{
+  "description": "Tiny, dragon-obsessed reptilians compensating for frailty with cunning traps and fanatical teamwork.",
+  "tags": ["small", "humanoid"],
+  "subraces": [
+    ["Common Kobold", "Tunnel-dwelling swarmers overwhelming intruders with sheer numbers and devious pit traps."],
+    ["Winged Kobold", "Bat-winged scouts dropping rocks and alchemist's fire from above before fleeing."],
+    ["Spellscale Kobold", "Draconic sorcerers whose scales shimmer with latent magic passed down from dragon patrons."],
+    ["Trapmaker Kobold", "Engineering savants designing elaborate mechanical snares that shame many human inventors."],
+    ["Urd (Winged Kobold)", "Membrane-winged outcasts forming their own flocks high above the warrens."]
+  ]
+}
