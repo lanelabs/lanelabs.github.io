@@ -1793,6 +1793,13 @@
         </select>
       </label>
       <button id="startContinue" type="button">Start</button>
+      <hr style="border:none;border-top:1px solid #cfe9c9;margin:12px 0;">
+      <label class="menu-label" id="friendsColorRow" hidden>
+        Your Color
+        <input id="startPlayerColor" type="color" value="#2f8f4a" style="width:48px;height:32px;padding:2px;border:1px solid #cfe9c9;border-radius:6px;cursor:pointer;">
+      </label>
+      <button id="startFriends" type="button" style="background:#1a6e9e;color:#fff;">🌲 Forrest Friends</button>
+      <p id="friendsSignInNote" style="font-size:12px;color:#356a45;margin:4px 0 0;">Sign in with Google to play with others.</p>
     </section>
   </div>
 
@@ -1850,6 +1857,30 @@
       <p class="quest-progress" id="questPopupProgress"></p>
     </section>
   </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+    import { getDatabase, ref, set, onValue, onDisconnect, remove } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDNftdbWgI2sS0R8rdWvkHLAx-4JuXDkN0",
+      authDomain: "lane-labs.firebaseapp.com",
+      databaseURL: "https://lane-labs-default-rtdb.firebaseio.com",
+      projectId: "lane-labs",
+      storageBucket: "lane-labs.firebasestorage.app",
+      messagingSenderId: "437641919466",
+      appId: "1:437641919466:web:c02ea04a073a0ee293d093"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    // Expose to main script
+    window.__firebase = { auth, db, ref, set, onValue, onDisconnect, remove, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged };
+  </script>
 
   <script>
     const canvas = document.getElementById("game");
@@ -4244,7 +4275,9 @@
       state.player.x += dx * speed;
       state.player.y += dy * speed;
       state.player.facing = dx < -0.02 ? -1 : dx > 0.02 ? 1 : state.player.facing;
-      return Math.hypot(state.player.x - oldX, state.player.y - oldY) > 0.01;
+      const moved = Math.hypot(state.player.x - oldX, state.player.y - oldY) > 0.01;
+      if (moved) syncFriendsPosition();
+      return moved;
     }
 
     function updateAcorns() {
@@ -7262,6 +7295,53 @@
       if (state.celebrationFrames > 0) state.celebrationFrames -= 1;
     }
 
+    // ── Forrest Friends: render other players ─────────────────────────────────
+    function drawFriendsPlayers() {
+      if (!window.__friendsActive || !window.__friendsPlayers) return;
+      const myUid = window.__friendsMyUid;
+      for (const [uid, p] of Object.entries(window.__friendsPlayers)) {
+        if (uid === myUid) continue;
+        const x = p.x || 0;
+        const y = p.y || 0;
+        const color = p.color || "#e05a2b";
+        const name = p.name || "Ranger";
+        // Body circle
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.strokeStyle = "rgba(0,0,0,0.3)";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        // Name label
+        ctx.font = "bold 11px 'Trebuchet MS', sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "rgba(0,0,0,0.55)";
+        ctx.fillText(name, x + 1, y - 14);
+        ctx.fillStyle = "#fff";
+        ctx.fillText(name, x, y - 15);
+        ctx.restore();
+      }
+    }
+
+    // ── Forrest Friends: sync position to Firebase (throttled to 5/sec) ───────
+    let __friendsLastSync = 0;
+    function syncFriendsPosition() {
+      if (!window.__friendsActive || !window.__friendsPlayerRef) return;
+      const now = Date.now();
+      if (now - __friendsLastSync < 200) return; // 5 updates/sec
+      __friendsLastSync = now;
+      window.__friendsSet(window.__friendsPlayerRef, {
+        name: state.playerName || "Ranger",
+        color: document.getElementById("startPlayerColor")?.value || "#2f8f4a",
+        x: Math.round(state.player.x),
+        y: Math.round(state.player.y),
+        uid: window.__friendsMyUid,
+        joinedAt: window.__friendsJoinedAt || 0
+      });
+    }
+
     function render() {
       updateMessageReadability();
       const zoom = state.camera.zoom || 1;
@@ -7305,6 +7385,7 @@
       drawWinterHitEffects();
       drawHoverHighlight();
       drawPlayer();
+      drawFriendsPlayers();
       drawNoAcornHint();
       ctx.restore();
       if (state.playerUnderIce) {
@@ -7496,6 +7577,65 @@
     ui.startContinue.addEventListener("click", () => {
       setPlayerName(ui.startPlayerName.value);
       startSelectedMode();
+    });
+
+    // ── Forrest Friends ────────────────────────────────────────────────────────
+    const startFriendsBtn = document.getElementById("startFriends");
+    const friendsColorRow = document.getElementById("friendsColorRow");
+    const friendsSignInNote = document.getElementById("friendsSignInNote");
+    const startPlayerColor = document.getElementById("startPlayerColor");
+
+    startFriendsBtn.addEventListener("click", async () => {
+      const fb = window.__firebase;
+      if (!fb) { alert("Firebase not loaded yet, please try again."); return; }
+      const { auth, db, ref, set, onValue, onDisconnect, remove, GoogleAuthProvider, signInWithPopup } = fb;
+
+      startFriendsBtn.disabled = true;
+      startFriendsBtn.textContent = "Signing in…";
+      try {
+        const provider = new GoogleAuthProvider();
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        const playerName = ui.startPlayerName.value.trim() || user.displayName || "Ranger";
+        const playerColor = startPlayerColor.value;
+
+        // Write player presence to Firebase
+        const playerRef = ref(db, `forrest-friends/players/${user.uid}`);
+        await set(playerRef, {
+          name: playerName,
+          color: playerColor,
+          x: 0,
+          y: 0,
+          uid: user.uid,
+          joinedAt: Date.now()
+        });
+        onDisconnect(playerRef).remove();
+
+        // Listen for other players
+        const playersRef = ref(db, "forrest-friends/players");
+        onValue(playersRef, (snapshot) => {
+          window.__friendsPlayers = snapshot.val() || {};
+          window.__friendsMyUid = user.uid;
+        });
+
+        window.__friendsDb = db;
+        window.__friendsRef = ref;
+        window.__friendsSet = set;
+        window.__friendsPlayerRef = playerRef;
+        window.__friendsActive = true;
+
+        friendsSignInNote.textContent = `Signed in as ${user.displayName}`;
+        startFriendsBtn.textContent = "🌲 Forrest Friends — Joined!";
+        friendsColorRow.hidden = false;
+
+        setPlayerName(playerName);
+        startSelectedMode();
+      } catch (err) {
+        console.error("Sign-in failed:", err);
+        startFriendsBtn.disabled = false;
+        startFriendsBtn.textContent = "🌲 Forrest Friends";
+        friendsSignInNote.textContent = "Sign-in failed. Try again.";
+      }
     });
     ui.menuStart.addEventListener("click", () => {
       setPlayerName(ui.menuPlayerName.value);
