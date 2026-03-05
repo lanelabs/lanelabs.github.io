@@ -1666,6 +1666,8 @@
               <select id="menuModeSelect" class="profile-input" aria-label="Game mode">
                 <option value="forest">Forest</option>
                 <option value="winter">Winter</option>
+                <option value="forest-friends">🌲 Forest Friends (Multiplayer)</option>
+                <option value="winter-friends">❄️ Winter Friends (Multiplayer)</option>
               </select>
             </label>
             <div class="inventory-bar">
@@ -1790,16 +1792,16 @@
         <select id="startModeSelect" class="profile-input" aria-label="Mode at start">
           <option value="forest">Forest</option>
           <option value="winter">Winter</option>
+          <option value="forest-friends">🌲 Forest Friends (Multiplayer)</option>
+          <option value="winter-friends">❄️ Winter Friends (Multiplayer)</option>
         </select>
       </label>
       <button id="startContinue" type="button">Start</button>
-      <hr style="border:none;border-top:1px solid #cfe9c9;margin:12px 0;">
       <label class="menu-label" id="friendsColorRow" hidden>
         Your Color
         <input id="startPlayerColor" type="color" value="#2f8f4a" style="width:48px;height:32px;padding:2px;border:1px solid #cfe9c9;border-radius:6px;cursor:pointer;">
       </label>
-      <button id="startFriends" type="button" style="background:#1a6e9e;color:#fff;">🌲 Forrest Friends</button>
-      <p id="friendsSignInNote" style="font-size:12px;color:#356a45;margin:4px 0 0;">Sign in with Google to play with others.</p>
+      <p id="friendsSignInNote" style="font-size:12px;color:#356a45;margin:4px 0 0;display:none;">Sign in with Google to play with others.</p>
     </section>
   </div>
 
@@ -7574,24 +7576,31 @@
     ui.startPlayerName.addEventListener("input", (event) => {
       setPlayerName(event.target.value);
     });
-    ui.startContinue.addEventListener("click", () => {
-      setPlayerName(ui.startPlayerName.value);
-      startSelectedMode();
-    });
-
     // ── Forrest Friends ────────────────────────────────────────────────────────
-    const startFriendsBtn = document.getElementById("startFriends");
     const friendsColorRow = document.getElementById("friendsColorRow");
     const friendsSignInNote = document.getElementById("friendsSignInNote");
     const startPlayerColor = document.getElementById("startPlayerColor");
 
-    startFriendsBtn.addEventListener("click", async () => {
-      const fb = window.__firebase;
-      if (!fb) { alert("Firebase not loaded yet, please try again."); return; }
-      const { auth, db, ref, set, onValue, onDisconnect, remove, GoogleAuthProvider, signInWithPopup } = fb;
+    function isFriendsMode(mode) {
+      return mode === "forest-friends" || mode === "winter-friends";
+    }
 
-      startFriendsBtn.disabled = true;
-      startFriendsBtn.textContent = "Signing in…";
+    // Show/hide color picker when multiplayer mode selected
+    ui.startModeSelect.addEventListener("change", (event) => {
+      const mode = event.target.value;
+      friendsColorRow.hidden = !isFriendsMode(mode);
+      friendsSignInNote.style.display = isFriendsMode(mode) ? "block" : "none";
+      setPendingGameMode(mode);
+    });
+
+    async function signInAndStartFriends() {
+      const fb = window.__firebase;
+      if (!fb) { alert("Firebase not loaded yet, please try again."); return false; }
+      const { auth, db, ref, set, onValue, onDisconnect, GoogleAuthProvider, signInWithPopup } = fb;
+
+      // Already signed in
+      if (window.__friendsActive) return true;
+
       try {
         const provider = new GoogleAuthProvider();
         const result = await signInWithPopup(auth, provider);
@@ -7599,7 +7608,6 @@
         const playerName = ui.startPlayerName.value.trim() || user.displayName || "Ranger";
         const playerColor = startPlayerColor.value;
 
-        // Write player presence to Firebase
         const playerRef = ref(db, `forrest-friends/players/${user.uid}`);
         await set(playerRef, {
           name: playerName,
@@ -7611,9 +7619,7 @@
         });
         onDisconnect(playerRef).remove();
 
-        // Listen for other players
-        const playersRef = ref(db, "forrest-friends/players");
-        onValue(playersRef, (snapshot) => {
+        onValue(ref(db, "forrest-friends/players"), (snapshot) => {
           window.__friendsPlayers = snapshot.val() || {};
           window.__friendsMyUid = user.uid;
         });
@@ -7622,29 +7628,40 @@
         window.__friendsRef = ref;
         window.__friendsSet = set;
         window.__friendsPlayerRef = playerRef;
+        window.__friendsJoinedAt = Date.now();
         window.__friendsActive = true;
 
         friendsSignInNote.textContent = `Signed in as ${user.displayName}`;
-        startFriendsBtn.textContent = "🌲 Forrest Friends — Joined!";
-        friendsColorRow.hidden = false;
-
         setPlayerName(playerName);
-        startSelectedMode();
+        return true;
       } catch (err) {
         console.error("Sign-in failed:", err);
-        startFriendsBtn.disabled = false;
-        startFriendsBtn.textContent = "🌲 Forrest Friends";
         friendsSignInNote.textContent = "Sign-in failed. Try again.";
+        return false;
       }
-    });
+    }
+
+    // Intercept Start button for multiplayer modes
+    ui.startContinue.addEventListener("click", async () => {
+      const mode = ui.startModeSelect.value;
+      if (isFriendsMode(mode)) {
+        ui.startContinue.disabled = true;
+        ui.startContinue.textContent = "Signing in…";
+        const ok = await signInAndStartFriends();
+        ui.startContinue.disabled = false;
+        ui.startContinue.textContent = "Start";
+        if (!ok) return;
+      } else {
+        window.__friendsActive = false;
+        setPlayerName(ui.startPlayerName.value);
+      }
+      startSelectedMode();
+    }, { capture: true }); // capture to override the existing listener
     ui.menuStart.addEventListener("click", () => {
       setPlayerName(ui.menuPlayerName.value);
       startSelectedMode();
     });
     ui.menuModeSelect.addEventListener("change", (event) => {
-      setPendingGameMode(event.target.value);
-    });
-    ui.startModeSelect.addEventListener("change", (event) => {
       setPendingGameMode(event.target.value);
     });
     ui.menuToggle.addEventListener("click", () => {
