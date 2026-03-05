@@ -1,0 +1,16 @@
+{
+  "description": "Shapeshifters and curse-bearers — werebeasts, mimics, and those who wear other faces.",
+  "creatures": [
+    ["Werewolf","A cursed soul that twists into snarling wolf form under the full moon, remembering nothing by dawn."],
+    ["Werebear","A gentle hermit who becomes a massive, protective bear — one of the few benevolent lycanthropes."],
+    ["Weretiger","A solitary hunter who shifts into a striped killing machine, stalking prey through jungle and shadow."],
+    ["Wererat","A sewer-dwelling shapeshifter that spreads filth disease in rat form and runs thieves' guilds in human form."],
+    ["Wereboar","A snarling brute who shifts into a tusked boar and charges headlong into anything that provokes it."],
+    ["Wereraven","A secretive lycanthrope with raven form who serves as scout, spy, and omen of things to come."],
+    ["Wereshark","An ocean-dwelling shapeshifter that becomes a frenzied shark, drawn unstoppably to blood in the water."],
+    ["Doppelganger","A grey-skinned, featureless mimic that copies faces and memories, replacing people without anyone noticing."],
+    ["Changeling","A pale, blank-featured being that steals faces and lives, never sure which identity is truly its own."],
+    ["Mimic","A glistening predator disguised as an object that sprouts teeth and a sticky pseudopod when touched."],
+    ["Jackalwere","A jackal that takes human form with a hypnotic gaze, luring victims to its waiting pack."]
+  ]
+}

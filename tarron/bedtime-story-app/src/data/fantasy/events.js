@@ -20,4 +20,21 @@ export const events = [
   'A monster hunt',
   'A potion brewing',
   'An enchantment breaking',
+
+  // From RPG-Gen encounters
+  'A wild magic storm',
+  'A ley line convergence',
+  'A mana drought',
+  'A teleportation mishap',
+  'A memory fog',
+  'A divine vision',
+  'A spirit procession',
+  'A miracle healing',
+  'An angel sighting',
+  'An aurora cascade',
+  'A meteor shower',
+  'A golem awakening',
+  'A familiar gathering',
+  'A crystal singing',
+  'An arcane tournament',
 ];

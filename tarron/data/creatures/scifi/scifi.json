@@ -1,0 +1,16 @@
+{
+  "description": "Science fiction creatures — aliens, synthetic life, and entities from beyond the stars.",
+  "creatures": [
+    ["Xenomorph","A jet-black alien predator with acid for blood, an eyeless skull, and a parasitic lifecycle that hijacks hosts."],
+    ["Martian","A thin, large-eyed being from the red wastes, inscrutable and eerily silent."],
+    ["Blob","An ever-growing alien mass that absorbs everything it engulfs and oozes through the smallest gaps."],
+    ["Shapeshifter","An alien horror that copies its victims so perfectly no one knows until it's too late."],
+    ["Star Whale","A colossal, barnacled creature that drifts between stars, singing in frequencies that bend space."],
+    ["Void Crawler","A shadowy entity from deep space that skitters through the gaps between dimensions, trailing madness."],
+    ["Nano Swarm","A shimmering haze of microscopic machines that devours or rebuilds anything in its path."],
+    ["Symbiote","A living alien skin that fuses with its host, amplifying strength while slowly consuming its will."],
+    ["Hologram","A flickering, translucent figure of pure light, alive with artificial thought and unstable, glitching memory."],
+    ["Slime","A gelatinous, self-aware organism that oozes through cracks and dissolves organic matter on contact."],
+    ["Gremlin","A cackling little saboteur that nests in wiring and chews through circuits with gleeful destruction."]
+  ]
+}

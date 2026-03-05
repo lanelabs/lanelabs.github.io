@@ -1,0 +1,17 @@
+{
+  "description": "Alien, unnatural entities from beyond reality — tentacled horrors and mind-bending abominations.",
+  "creatures": [
+    ["Aboleth","An ancient aquatic horror that secretes mind-controlling mucus and remembers the world before gods."],
+    ["Beholder","A floating orb of paranoid malice, its central eye ringed by stalks that each fire a different magical ray."],
+    ["Gibbering Mouther","A crawling heap of eyes and mouths that babbles maddening sounds and melts the ground beneath it."],
+    ["Chuul","A lobster-shelled ambush predator that drags victims underwater with paralytic tentacles."],
+    ["Otyugh","A three-legged, tentacled scavenger that lurks in refuse heaps and devours anything organic."],
+    ["Cloaker","A flat, ray-like predator that hangs from cave ceilings disguised as a cloak until it wraps around a victim."],
+    ["Grick","A worm-bodied predator with tentacle arms and stone-colored hide, nearly invisible against cavern walls."],
+    ["Roper","A cone-shaped ambusher that resembles a stalagmite until its sticky tendrils lash out to reel in prey."],
+    ["Flumph","A gentle, floating jellyfish creature that communicates through telepathy and glows when frightened."],
+    ["Slaad","A chaotic frog-like horror from Limbo that implants eggs in living hosts and mutates without warning."],
+    ["Star Spawn","A writhing emissary of alien gods, its form twisting in ways the eye refuses to follow."],
+    ["Intellect Devourer","A brain on clawed legs that devours a victim's mind and pilots the empty body like a puppet."]
+  ]
+}

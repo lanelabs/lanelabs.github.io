@@ -1,5 +1,4 @@
 export { people } from './people';
-export { animals } from './animals';
 export { settings } from './settings';
 export { items } from './items';
 export { descriptors } from './descriptors';

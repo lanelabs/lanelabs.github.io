@@ -32,4 +32,77 @@ export const settings = [
   'A shrine',
   'A treasury',
   'A stable',
+
+  // Fortifications (from RPG-Gen)
+  'A citadel',
+  'A keep',
+  'A fortress',
+  'A gatehouse',
+  'A bastion',
+
+  // Magical places (from RPG-Gen)
+  'An oracle cave',
+  'A moonlit clearing',
+  'A healing shrine',
+  'A fey glade',
+  'A crystal cavern',
+  'A floating island',
+  'An ice palace',
+  'A jade garden',
+  'A crystal forest',
+  'A unicorn meadow',
+  'A wishing well',
+  'An aurora field',
+  'A nymph spring',
+  'An enchanted garden',
+
+  // Ruins (from RPG-Gen)
+  'A lost library',
+  'A crumbling mansion',
+  'A cracked pyramid',
+  'A fallen tower',
+  'A ruined palace',
+  'A sunken amphitheater',
+
+  // Settlements (from RPG-Gen)
+  'A hamlet',
+  'A trading post',
+  'A harbor',
+  'An oasis',
+  'A floating village',
+
+  // Urban (from RPG-Gen)
+  'A palace',
+  'A guild hall',
+  'A grand bazaar',
+  'An apothecary',
+  'An amphitheater',
+  'An observatory',
+  'A greenhouse',
+  'A mead hall',
+  'A cathedral',
+  'A bell tower',
+  'A bakery',
+  'A tea house',
+
+  // Underground (from RPG-Gen)
+  'A mushroom grove',
+  'A treasure vault',
+  'An enchanted grotto',
+  'A dwarven hall',
+  'A glowing cavern',
+
+  // Natural (from RPG-Gen)
+  'A gorge',
+  'An ancient tree',
+  'A hollow tree',
+  'A thicket',
+  'A petrified forest',
+  'An alpine meadow',
+
+  // Rural (from RPG-Gen)
+  'A hermitage',
+  'An orchard',
+  'A vineyard',
+  'A hunting lodge',
 ];

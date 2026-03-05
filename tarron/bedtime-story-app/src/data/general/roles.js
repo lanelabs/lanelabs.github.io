@@ -80,4 +80,18 @@ export const roles = [
   'Stowaway',
   'Imposter',
   'Helper',
+
+  // From RPG-Gen story roles
+  'Benefactor',
+  'Confidant',
+  'Protégé',
+  'Chronicler',
+  'Wild Card',
+  'Catalyst',
+  'Victim',
+  'Oracle',
+  'Ally',
+  'Specialist',
+  'Love Interest',
+  'Informant',
 ];

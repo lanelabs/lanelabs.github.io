@@ -1,0 +1,26 @@
+{
+  "description": "Farm animals, mounts, and working beasts bred for service to civilization.",
+  "creatures": [
+    ["Horse","A sleek, powerful steed that bonds deeply with its rider and gallops until its heart gives out."],
+    ["Warhorse","A broad-chested destrier trained to charge into spear walls and kick with iron-shod hooves."],
+    ["Pony","A stocky, stubborn mount that picks its way over mountain trails where larger horses stumble."],
+    ["Mule","A tough crossbreed with legendary stubbornness and the endurance to haul loads across deserts."],
+    ["Donkey","A patient pack animal with a braying voice and surprising cleverness behind its mild eyes."],
+    ["Ox","A broad-shouldered draft beast that plods forward with unstoppable, patient strength."],
+    ["Cow","A placid, lowing beast that chews its cud in green fields and startles at sudden noise."],
+    ["Bull","A thick-necked brute with lowered horns that charges anything entering its territory."],
+    ["Goat","A nimble climber that scales near-vertical cliffs and chews through rope, leather, and fences alike."],
+    ["Sheep","A woolly, bleating herd animal that follows its flock blindly, even off a cliff edge."],
+    ["Pig","A keen-nosed, clever beast that roots through anything and can be trained like a dog."],
+    ["Chicken","A clucking barnyard bird that scratches for grubs and squawks in alarm at any shadow overhead."],
+    ["Duck","A quacking waterfowl that paddles across ponds and waddles comically on land."],
+    ["Goose","A loud, hissing waterfowl that attacks intruders with fearless aggression and battering wings."],
+    ["Dog","A loyal canine companion with keen nose and fierce devotion to its chosen human."],
+    ["Cat","An independent feline hunter that keeps vermin away and bestows its affection on its own terms."],
+    ["Falcon","A hooded raptor trained for the hunt, capable of diving at blinding speed to strike its quarry."],
+    ["Pigeon","A reliable messenger bird that finds its way home across kingdoms and through storms."],
+    ["Ferret","A sinuous little hunter that darts into burrows after rabbits and wriggles through impossibly small holes."],
+    ["Mastiff","A barrel-chested guard dog with a deep growl and jaws that clamp down and never let go."],
+    ["Duckling","A tiny ball of yellow down that imprints on the first thing it sees and follows in a wobbling line."]
+  ]
+}

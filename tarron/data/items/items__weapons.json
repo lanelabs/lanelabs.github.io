@@ -1,0 +1,650 @@
+[
+  {
+    "name": "Longsword",
+    "short_description": "Versatile straight blade good at balanced offense and defense; struggles against heavy armor without magical aid."
+  },
+  {
+    "name": "Shortsword",
+    "short_description": "Light one-handed thrusting blade excels at finesse and stealth work; shorter reach limits effectiveness versus polearms."
+  },
+  {
+    "name": "Greatsword",
+    "short_description": "Two-handed blade cleaves through multiple foes with high damage; heavy weight makes it slow and tiring."
+  },
+  {
+    "name": "Claymore",
+    "short_description": "Scottish greatsword with long reach and wide guard ideal for sweeping strikes; poor in cramped quarters."
+  },
+  {
+    "name": "Zweihander",
+    "short_description": "Massive Germanic sword that breaks pikes and halberds; unwieldy for anyone without great strength."
+  },
+  {
+    "name": "Scimitar",
+    "short_description": "Curved single-edge sword excels at slashing from horseback; has trouble penetrating plate armor."
+  },
+  {
+    "name": "Falchion",
+    "short_description": "Heavy cutting sword delivers axe-like blows against unarmored targets; slow recovery after each swing."
+  },
+  {
+    "name": "Rapier",
+    "short_description": "Slim thrusting blade superb for duels and piercing gaps; minimal cutting power against thick hides."
+  },
+  {
+    "name": "Katana",
+    "short_description": "Japanese curved sword famed for sharp draw-cuts and speed; brittle edge can chip on hard armor."
+  },
+  {
+    "name": "Wakizashi",
+    "short_description": "Companion short katana useful in tight spaces and as backup; limited reach in stand-up fights."
+  },
+  {
+    "name": "Nodachi",
+    "short_description": "Oversized katana styled for anti-cavalry sweeps; too long for indoor use."
+  },
+  {
+    "name": "Cutlass",
+    "short_description": "Short naval sabre excels in close ship combat and can hack rigging; light guard offers little hand protection."
+  },
+  {
+    "name": "Sabre",
+    "short_description": "Cavalry curved blade great for hit-and-run slashes; tip lacks thrusting power versus mail."
+  },
+  {
+    "name": "Broadsword",
+    "short_description": "Wide medieval sword balances cut and thrust; mediocre at both compared to specialized blades."
+  },
+  {
+    "name": "Dagger",
+    "short_description": "Compact blade ideal for concealment and backstabs; negligible reach limits open combat use."
+  },
+  {
+    "name": "Dirk",
+    "short_description": "Long dagger suited for parrying and sudden lunges; lacks mass for heavy blows."
+  },
+  {
+    "name": "Stiletto",
+    "short_description": "Triangular spike built to punch through gaps in armor; almost useless for slashing."
+  },
+  {
+    "name": "Kukri",
+    "short_description": "Forward-curved Nepalese knife chops like a hatchet; awkward for fencing."
+  },
+  {
+    "name": "Tanto",
+    "short_description": "Japanese short knife excels at armor piercing thrusts; very short range in melee."
+  },
+  {
+    "name": "Kris",
+    "short_description": "Wavy Indonesian dagger causes horrific wounds and spiritual dread; undulates make straight thrusts harder to aim."
+  },
+  {
+    "name": "Katar",
+    "short_description": "Punch dagger that delivers powerful straight stabs through mail; grip limits reach and flexibility."
+  },
+  {
+    "name": "Push Dagger",
+    "short_description": "Palm-held spike ideal for grappling or underhand strikes; offers no guard for fingers."
+  },
+  {
+    "name": "Handaxe",
+    "short_description": "Light axe doubles as throwing weapon and camp tool; short haft reduces leverage on armored foes."
+  },
+  {
+    "name": "Battleaxe",
+    "short_description": "One-handed axe bites deep into shields; slower recovery than swords."
+  },
+  {
+    "name": "Greataxe",
+    "short_description": "Two-handed axe delivers devastating single swings able to cleave armor; leaves wielder open if swing misses."
+  },
+  {
+    "name": "Bearded Axe",
+    "short_description": "Extended lower blade hooks shields and limbs; beard weakens edge against thick plate."
+  },
+  {
+    "name": "Dane Axe",
+    "short_description": "Long-haft Viking axe for reach over shield walls; requires space and training to control."
+  },
+  {
+    "name": "Bardiche",
+    "short_description": "Pole-axe with crescent blade great for chopping cavalry legs; heavy head makes it tiring."
+  },
+  {
+    "name": "War Pick",
+    "short_description": "Pick hammer concentrates force to punch plate; narrow point can glance off moving targets."
+  },
+  {
+    "name": "Halberd",
+    "short_description": "Polearm with axe, spike, and hook offers versatile reach; ineffective in tight corridors."
+  },
+  {
+    "name": "Poleaxe",
+    "short_description": "Knight-killer combining hammer, spike and beak to shatter armor; weight slows repeated strikes."
+  },
+  {
+    "name": "Glaive",
+    "short_description": "Single-edge pole blade cleaves infantry at reach; cannot thrust as well as spears."
+  },
+  {
+    "name": "Naginata",
+    "short_description": "Japanese glaive balanced for sweeping cuts and nimble footwork; inferior against heavy shields."
+  },
+  {
+    "name": "Guandao",
+    "short_description": "Chinese broad-bladed polearm excels at momentum-driven chops; cumbersome for smaller users."
+  },
+  {
+    "name": "Partisan",
+    "short_description": "Broad-bladed spear mixes thrust and cut; side lugs snag on armor but hinder withdrawal."
+  },
+  {
+    "name": "Spetum",
+    "short_description": "Forked spear good at trapping weapons; prongs reduce penetrating depth."
+  },
+  {
+    "name": "Pike",
+    "short_description": "Very long spear forms infantry hedge against cavalry; useless once line is broken."
+  },
+  {
+    "name": "Lance",
+    "short_description": "Mounted spear designed for charge impact; heavy and unwieldy on foot."
+  },
+  {
+    "name": "Spear",
+    "short_description": "Pole thrusting weapon requires little training and works in formation; shorter than pikes so less reach."
+  },
+  {
+    "name": "Trident",
+    "short_description": "Three-prong spear excels at fishing foes out of water and disarming nets; prongs reduce armor penetration."
+  },
+  {
+    "name": "Bident",
+    "short_description": "Two-prong fork used to pin shields and creatures; limited lethal thrusting depth."
+  },
+  {
+    "name": "Quarterstaff",
+    "short_description": "Six-foot hardwood staff provides reach, defense, and non-lethal options; struggles against plate and blades."
+  },
+  {
+    "name": "Bo Staff",
+    "short_description": "Asia-style flexible grip staff enables rapid spins and sweeps; lacks mass to break armor."
+  },
+  {
+    "name": "Greatclub",
+    "short_description": "Massive wooden cudgel crushes bones through mail; crude shape easily parried by skilled swords."
+  },
+  {
+    "name": "Kanabo",
+    "short_description": "Spiked ogre club shatters armor and morale; extremely heavy for ordinary mortals."
+  },
+  {
+    "name": "Tetsubo",
+    "short_description": "Iron-shod staff smashes through gates and shields; slow swing speed."
+  },
+  {
+    "name": "Mace",
+    "short_description": "Flanged head focuses force to dent armor; short reach versus polearms."
+  },
+  {
+    "name": "Morning Star",
+    "short_description": "Spiked mace inflicts puncture and blunt trauma; heavy head unbalances quick parries."
+  },
+  {
+    "name": "Flail",
+    "short_description": "Chain-linked ball bypasses shields and generates whip power; hard to control and risks self-injury."
+  },
+  {
+    "name": "Warhammer",
+    "short_description": "Hammer-and-pick combo punches plate and hooks riders; tiny striking face easy to miss."
+  },
+  {
+    "name": "Maul",
+    "short_description": "Two-handed sledge cracks bones and doors; slow and telegraphed."
+  },
+  {
+    "name": "Sling",
+    "short_description": "Simple leather pouch hurls stones silently over distance; requires skill and has low armor penetration."
+  },
+  {
+    "name": "Staff Sling",
+    "short_description": "Pole-mounted sling throws heavier shot for siege skirmish; reload time slower than bows."
+  },
+  {
+    "name": "Shortbow",
+    "short_description": "Compact bow fires quickly from cover; limited range compared to longbows."
+  },
+  {
+    "name": "Longbow",
+    "short_description": "Tall bow delivers high-powered arrows that pierce mail at range; demands great strength and space."
+  },
+  {
+    "name": "Composite Bow",
+    "short_description": "Horn-and-sinew recurve bow with high power in small size ideal for cavalry; moisture warps limbs."
+  },
+  {
+    "name": "Recurve Bow",
+    "short_description": "Curved limb bow stores extra energy for fast shots; harder to string and maintain."
+  },
+  {
+    "name": "Greatbow",
+    "short_description": "Massive war bow outranges even longbows; impractical on horseback or in forests."
+  },
+  {
+    "name": "Crossbow",
+    "short_description": "Prod-armed stock weapon easy for novices and packs punch; slow reload exposes shooter."
+  },
+  {
+    "name": "Hand Crossbow",
+    "short_description": "One-hand crossbow suitable for stealth shots and dual wield; scant power and range."
+  },
+  {
+    "name": "Heavy Crossbow",
+    "short_description": "Windlass-draw crossbow that pierces plate; reload times measured in rounds."
+  },
+  {
+    "name": "Repeating Crossbow",
+    "short_description": "Magazine-fed bow fires bolts in quick succession; each shot weaker than standard crossbows."
+  },
+  {
+    "name": "Blowgun",
+    "short_description": "Silent tube weapon delivers poisoned darts unnoticed; ineffective against any armor."
+  },
+  {
+    "name": "Atlatl",
+    "short_description": "Spear-thrower increases javelin velocity for hunting large beasts; cumbersome in melee."
+  },
+  {
+    "name": "Javelin",
+    "short_description": "Light throwing spear useful for skirmish harass; lacks mass for shield wall."
+  },
+  {
+    "name": "Throwing Axe",
+    "short_description": "Balanced axe hurled to disrupt shields; once thrown, wielder is unarmed."
+  },
+  {
+    "name": "Throwing Knife",
+    "short_description": "Balanced blade for silent ranged takedowns; poor penetration and easily deflected."
+  },
+  {
+    "name": "Chakram",
+    "short_description": "Indian throwing ring flies far and slices on return; bounce unpredictably in forests."
+  },
+  {
+    "name": "Shuriken",
+    "short_description": "Small steel star distracts and poisons more than kills; negligible damage by itself."
+  },
+  {
+    "name": "Boomerang",
+    "short_description": "Curved throwing stick returns if it misses; limited lethality but great for signaling."
+  },
+  {
+    "name": "Dart",
+    "short_description": "Weighted throwing spike good for precision poison delivery; short effective range."
+  },
+  {
+    "name": "Net",
+    "short_description": "Weighted mesh entangles foes for follow-up strikes; useless against flyers and large beasts."
+  },
+  {
+    "name": "Trident & Net",
+    "short_description": "Classic gladiator combo pins targets then finishes them; requires high coordination and space."
+  },
+  {
+    "name": "Whip",
+    "short_description": "Flexible lash can disarm and trip at reach with crack; deals little damage to armor."
+  },
+  {
+    "name": "Chain Whip",
+    "short_description": "Segmented metal whip wraps around limbs and parries blades; risks hitting user if mis-timed."
+  },
+  {
+    "name": "Urumi",
+    "short_description": "Flexible sword-whip creates deadly arcs that ignore shields; extremely dangerous to wielder indoors."
+  },
+  {
+    "name": "Kusarigama",
+    "short_description": "Chain-and-sickle weapon entangles then slashes; hard to master and useless in tight crowds."
+  },
+  {
+    "name": "Meteor Hammer",
+    "short_description": "Twin weighted chains deliver momentum impacts from afar; predictable once opponent times swings."
+  },
+  {
+    "name": "Nunchaku",
+    "short_description": "Twin sticks on chain great for rapid strikes and blocking; short reach limits battlefield use."
+  },
+  {
+    "name": "Sai",
+    "short_description": "Pronged baton disarms swords and stabs with tip; minimal cutting edge."
+  },
+  {
+    "name": "Tonfa",
+    "short_description": "Side-handled baton offers rotating blocks and strikes; ineffective against armor."
+  },
+  {
+    "name": "Cestus",
+    "short_description": "Metal-stud glove adds punching damage and can bypass parries; no reach and exposes hand."
+  },
+  {
+    "name": "Spiked Gauntlet",
+    "short_description": "Armor glove with spikes turns grapples lethal; reduces dexterity and tool use."
+  },
+  {
+    "name": "Shield Bash",
+    "short_description": "Using shield edge to strike surprises foes and controls space; lower damage than weapons."
+  },
+  {
+    "name": "Buckler",
+    "short_description": "Tiny fist shield parries incoming blows and punches faces; sacrifices coverage for speed."
+  },
+  {
+    "name": "Tower Shield",
+    "short_description": "Wall-sized shield creates mobile cover; weight slows movement and requires strength."
+  },
+  {
+    "name": "Spiked Shield",
+    "short_description": "Reinforced shield delivers punishing bashes; heavier and may snag on allies."
+  },
+  {
+    "name": "Sap",
+    "short_description": "Lead-filled blackjack knocks targets unconscious quietly; ineffective against helmets."
+  },
+  {
+    "name": "Truncheon",
+    "short_description": "Short hardwood baton favored by guards for crowd control; little stopping power on beasts."
+  },
+  {
+    "name": "Flintlock Pistol",
+    "short_description": "Early firearm with great stopping shock and loud report; single shot then lengthy reload."
+  },
+  {
+    "name": "Musket",
+    "short_description": "Smoothbore long gun delivers armor-ignoring bullet at 150 yards; poor accuracy without volley."
+  },
+  {
+    "name": "Blunderbuss",
+    "short_description": "Trumpet-mouthed gun fires spread of shot ideal for close defense; short range only."
+  },
+  {
+    "name": "Hand Cannon",
+    "short_description": "Primitive black-powder tube hitting like a small cannon; recoil dangerous and ignition slow."
+  },
+  {
+    "name": "Arquebus",
+    "short_description": "Matchlock long gun that revolutionizes sieges; requires rest hook and is useless in rain."
+  },
+  {
+    "name": "Siege Crossbow (Arbalest)",
+    "short_description": "Giant crossbow wins bunker duels with steel bolts; immobilizes crew during crank."
+  },
+  {
+    "name": "Ballista",
+    "short_description": "Torsion siege engine hurls gigantic darts through walls; stationary and needs crew."
+  },
+  {
+    "name": "Catapult",
+    "short_description": "Tension or torsion arm flings stones over battlements; inaccurate and slow to reload."
+  },
+  {
+    "name": "Trebuchet",
+    "short_description": "Counterweight sling throws 90-kg rocks to pulverize castles; massive setup time."
+  },
+  {
+    "name": "Battering Ram",
+    "short_description": "Log reinforced with iron cap breaks gates; requires cover and teamwork against arrows."
+  },
+  {
+    "name": "Siege Tower",
+    "short_description": "Wheeled wooden tower lets troops scale walls safely; vulnerable to fire and moats."
+  },
+  {
+    "name": "Boiling Oil (Cauldron)",
+    "short_description": "Defensive cauldron pours scalding liquid on climbers; limited ammo and dangerous to prepare."
+  },
+  {
+    "name": "Alchemist's Fire",
+    "short_description": "Sticky flask that ignites on impact spreading chaos; difficult to extinguish and risky to carry."
+  },
+  {
+    "name": "Smoke Bomb",
+    "short_description": "Glass orb releases thick obscuring cloud for stealth retreats; useless in strong wind."
+  },
+  {
+    "name": "Flash Powder",
+    "short_description": "Bright alchemical burst blinds nearby eyes; nonlethal and requires dry storage."
+  },
+  {
+    "name": "Poison Needle Ring",
+    "short_description": "Concealed ring prick swiftly delivers toxin in handshake; tiny reservoir and single use."
+  },
+  {
+    "name": "Blowpipe Dart Frog",
+    "short_description": "South-jungle reed pipe fires venom darts silently; wind affects aim and reload is slow."
+  },
+  {
+    "name": "War Scythe",
+    "short_description": "Converted farm scythe with blade upright for sweeping slashes; heavy and unbalanced."
+  },
+  {
+    "name": "Sickle",
+    "short_description": "Curved hand blade hooks tendons at close range; short reach limits dueling value."
+  },
+  {
+    "name": "Guisarme",
+    "short_description": "Medieval pole hook pulls riders from saddles; cutting edge smaller than halberd."
+  },
+  {
+    "name": "Billhook",
+    "short_description": "Agrarian polearm with hook and spike clears pike blocks; mediocre thrust."
+  },
+  {
+    "name": "Mancatcher",
+    "short_description": "Pole with spring prongs captures targets alive; ineffective for lethal combat."
+  },
+  {
+    "name": "Whaling Harpoon",
+    "short_description": "Barbed giant spear launched from deck to tether sea monsters; rope tugs wielder if beast dives."
+  },
+  {
+    "name": "Plasma Glaive",
+    "short_description": "Magitech polearm wreathed in plasma arcs, melts through steel quickly; power cell drains fast and illuminates wielder."
+  },
+  {
+    "name": "Crystal Wand",
+    "short_description": "Focus rod channels spells with precision; fragile if struck and useless without mana."
+  },
+  {
+    "name": "Runic Staff",
+    "short_description": "Long staff engraved with runes enhances spell range and serves as walking aid; mundanely a simple stick if rune circuit is broken."
+  },
+  {
+    "name": "Arcane Orb",
+    "short_description": "Floating globe fires bolts of energy hands-free; shatters if overloaded by disruption magic."
+  },
+  {
+    "name": "Sunblade",
+    "short_description": "Holy sword of pure light burns undead and cuts like a longsword; emits glow that ruins stealth."
+  },
+  {
+    "name": "Frostbrand",
+    "short_description": "Enchanted sword that extinguishes flame and deals cold damage; half as effective in deserts."
+  },
+  {
+    "name": "Thunder Hammer",
+    "short_description": "Dwarven maul releases thunderclap on impact stunning foes; deafens allies in tunnels."
+  },
+  {
+    "name": "Storm Bow",
+    "short_description": "Elven bow that shoots arrows turned to lightning midflight; useless in anti-magic fields."
+  },
+  {
+    "name": "Blood Spear",
+    "short_description": "Accursed spear that heals wielder on kills; corrupts user with each feed."
+  },
+  {
+    "name": "Living Whip",
+    "short_description": "Vine-like whip that can grapple independently and regrow; vulnerable to fire and cold."
+  },
+  {
+    "name": "Clockwork Blade",
+    "short_description": "Gear-driven segmented sword can extend into whip sword for surprise; mechanism jams in sand."
+  },
+  {
+    "name": "Steam Rifle",
+    "short_description": "Boiler-powered rifle fires metal slugs silently via pressure; needs water and time to build steam."
+  },
+  {
+    "name": "Etheric Pistol",
+    "short_description": "Crystal capacitor gun shoots ghost-phase bullets ignoring walls; cannot harm constructs or golems."
+  },
+  {
+    "name": "Dragonlance",
+    "short_description": "Silver inlaid lance pierces dragon scales with resonance magic; heavy and unwieldy against man-sized foes."
+  },
+  {
+    "name": "Chaos Dagger",
+    "short_description": "Shift-shaped blade unpredictably changes length and edge; risk of wounding wielder on critical miss."
+  },
+  {
+    "name": "Graviton Hammer",
+    "short_description": "Runed hammer creates micro-gravity well on strike pinning enemies; cooldown long between blows."
+  },
+  {
+    "name": "Phantom Chakram",
+    "short_description": "Ethereal disc passes through nonliving matter and returns; cannot damage constructs or walls."
+  },
+  {
+    "name": "Shadow Rapier",
+    "short_description": "Blade of condensed darkness bypasses armor to strike life force; dissipates in bright sunlight."
+  },
+  {
+    "name": "Phoenix Talon",
+    "short_description": "Curved dagger ignites in flame when drawn, cauterizing wounds; temperamental and burns scabbard."
+  },
+  {
+    "name": "Sonic Spear",
+    "short_description": "Tip vibrates at high frequency cutting through stone quietly; vibration reveals wielder to bats."
+  },
+  {
+    "name": "Golem Fist",
+    "short_description": "Titanic stone gauntlet worn like a weaponized glove delivering seismic punches; cumbersome and slows spellcasting gestures."
+  },
+  {
+    "name": "Runebound Chain",
+    "short_description": "Chain infused with binding glyphs that tighten on command; ineffective against incorporeal targets."
+  },
+  {
+    "name": "Soul Reaver Scythe",
+    "short_description": "Dark scythe harvests souls restoring wielder’s vigor; offers no parrying ability and scares allies."
+  },
+  {
+    "name": "Celestial Mace",
+    "short_description": "Star-metal mace glows and smites fiends with radiant bursts; heavy cost and brittle against adamantine."
+  },
+  {
+    "name": "Voidstar Flail",
+    "short_description": "Morning star containing miniature black hole that drags targets; unpredictable trajectory near magnetics."
+  },
+  {
+    "name": "Mirror Shield",
+    "short_description": "Polished shield reflects spells back at caster; less durable against brute force weapons."
+  },
+  {
+    "name": "Spectral Net",
+    "short_description": "Ghost-silk net tangles ethereal creatures; passes harmlessly through mundane foes."
+  },
+  {
+    "name": "Grappling Gun",
+    "short_description": "Steam-powered hook launcher grants vertical mobility; limited offensive use and bulky."
+  },
+  {
+    "name": "Exploding Kunai",
+    "short_description": "Thrown knife with timed fuse for area damage; risky if timer fails."
+  },
+  {
+    "name": "Frost Grenade",
+    "short_description": "Alchemical sphere that bursts into freezing shards immobilizing groups; collateral damage to allies."
+  },
+  {
+    "name": "Lightning Rod",
+    "short_description": "Metal pole that channels storm bolts into enemies; useless without weather or magic source."
+  },
+  {
+    "name": "Iron Fan",
+    "short_description": "War fan deflects darts and can slash arteries unseen; limited against plate armor."
+  },
+  {
+    "name": "Whisper Bow",
+    "short_description": "Silent recurve enchanted to mute arrow flight for assassins; lower draw strength than war bows."
+  },
+  {
+    "name": "Gladiator Net",
+    "short_description": "Weighted net for arena captures, reinforced to resist blades; ineffective against beasts bigger than ogres."
+  },
+  {
+    "name": "Bloodletter Saw",
+    "short_description": "Jagged serrated sword causes bleeding overtime; cuts get stuck on bone slowing follow-ups."
+  },
+  {
+    "name": "Spore Bomb",
+    "short_description": "Glass jar of fungal spores blinds and infects lungs; wind unpredictability can backfire."
+  },
+  {
+    "name": "Sun Hammer",
+    "short_description": "Mithril warhammer stores sunlight, releasing blinding flash; needs daylight recharge and dim underground."
+  },
+  {
+    "name": "Drill Spear",
+    "short_description": "Clockwork spear tip spins to bore into tough carapace; gears clog in mud."
+  },
+  {
+    "name": "Serpent Blade",
+    "short_description": "Segmented sword can extend like whip for extra reach; joints weaker to parries."
+  },
+  {
+    "name": "Jet Pike",
+    "short_description": "Rune pike with rear propulsion burst for lunging charges; limited charges and hard to stop."
+  },
+  {
+    "name": "Echo Boomerang",
+    "short_description": "Enchanted returning boomerang that tracks noise; ineffective in silence spells."
+  },
+  {
+    "name": "Hook Sword",
+    "short_description": "Chinese sword with hook guard to trip and link weapons; hook reduces thrust strength."
+  },
+  {
+    "name": "Bladed Tonfa",
+    "short_description": "Tonfa with forearm blade blocks and slices in same motion; risk of self-cut on quick rotations."
+  },
+  {
+    "name": "Energy Glaive",
+    "short_description": "Crystalline polearm projects laser edge able to sever steel; energy lines reveal user’s position."
+  },
+  {
+    "name": "Adamantine Knuckle",
+    "short_description": "Indestructible brass knuckle breaks stone with punches; zero reach and taxing on joints."
+  },
+  {
+    "name": "Storm Trident",
+    "short_description": "Sea-god weapon that summons lightning on impact; conductivity threatens wielder in water."
+  },
+  {
+    "name": "Moon Sickle",
+    "short_description": "Feyblade that glows and heals allies’ wounds while cutting foes; glow spoils ambush and iron dulls it."
+  },
+  {
+    "name": "Sandskimmer Blade",
+    "short_description": "Curved sword enchanted to ignore sand drag letting desert warriors glide blows; worthless on stone."
+  },
+  {
+    "name": "Cobalt Repeater",
+    "short_description": "Gnomish crank rifle auto-fires darts rapidly; jams often and low stopping power."
+  },
+  {
+    "name": "Starforged Lance",
+    "short_description": "Meteor-iron lance pierces magical shields of sky beasts; heavy magnetic pull interferes with compasses."
+  }
+]

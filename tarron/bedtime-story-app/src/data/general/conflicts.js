@@ -74,4 +74,21 @@ export const conflicts = [
   { full: 'A plan that\'s falling apart', verb: 'the plan began falling apart' },
   { full: 'A boundary that\'s been crossed', verb: 'a boundary was crossed' },
   { full: 'A sacrifice no one asked for', verb: 'an unexpected sacrifice was demanded' },
+
+  // Quest-derived (from RPG-Gen)
+  { full: 'A curse that must be broken', verb: 'a curse took hold' },
+  { full: 'A land that is slowly dying', verb: 'the land began to die' },
+  { full: 'A festival disrupted by chaos', verb: 'chaos disrupted the festival' },
+  { full: 'A bridge that has been destroyed', verb: 'the bridge was destroyed' },
+  { full: 'A drought that threatens everyone', verb: 'a drought threatened everyone' },
+  { full: 'A treasure everyone wants', verb: 'a treasure was discovered that everyone wanted' },
+  { full: 'A portal that should not have opened', verb: 'a portal opened that should not have' },
+  { full: 'A pact that binds unwilling parties', verb: 'a pact bound unwilling parties together' },
+  { full: 'A kingdom without an heir', verb: 'the kingdom was left without an heir' },
+  { full: 'A forest that is shrinking', verb: 'the forest began to shrink' },
+  { full: 'A creature that will not leave', verb: 'a creature arrived and would not leave' },
+  { full: 'A song that changes those who hear it', verb: 'a song changed those who heard it' },
+  { full: 'An alliance on the verge of breaking', verb: 'the alliance began to fracture' },
+  { full: 'A secret passage discovered', verb: 'a secret passage was discovered' },
+  { full: 'A missing artifact', verb: 'a vital artifact went missing' },
 ];

@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Tree",
+    "description": "Large woody plant with a single trunk and elevated leafy crown."
+  },
+  {
+    "name": "Shrub",
+    "description": "Multi-stemmed woody plant shorter than trees, dense branching."
+  },
+  {
+    "name": "Bush",
+    "description": "Compact, rounded shrub with thick foliage."
+  },
+  {
+    "name": "Dwarf Shrub",
+    "description": "Very low woody plant under one meter tall."
+  },
+  {
+    "name": "Woody Cushion",
+    "description": "Dense, dome-shaped woody plant adapted to alpine winds."
+  },
+  {
+    "name": "Vine",
+    "description": "Flexible stem climbing plant using tendrils or twining."
+  },
+  {
+    "name": "Liana",
+    "description": "Woody climbing vine reaching canopy by other supports."
+  },
+  {
+    "name": "Creeper",
+    "description": "Low plant spreading across ground or walls."
+  },
+  {
+    "name": "Climber",
+    "description": "Plant ascending supports without woody stiffening."
+  },
+  {
+    "name": "Groundcover",
+    "description": "Low, spreading plants forming continuous carpet."
+  },
+  {
+    "name": "Mat-forming Plant",
+    "description": "Tight interwoven stems forming flat mats."
+  },
+  {
+    "name": "Cushion Plant",
+    "description": "Compact hemispherical plant insulating against cold."
+  },
+  {
+    "name": "Prostrate Plant",
+    "description": "Branches lie flat along ground before tips rise."
+  },
+  {
+    "name": "Ascending Plant",
+    "description": "Stems initially horizontal then curve upward."
+  },
+  {
+    "name": "Erect Plant",
+    "description": "Upright growth habit with vertical stems."
+  },
+  {
+    "name": "Herb",
+    "description": "Non-woody plant dying back after flowering."
+  },
+  {
+    "name": "Forb",
+    "description": "Broad-leaved herbaceous plant, non-grass."
+  },
+  {
+    "name": "Grass",
+    "description": "Narrow-leaved monocot forming clumps or turf."
+  },
+  {
+    "name": "Sedge",
+    "description": "Grasslike plant with triangular stems, moist habitats."
+  },
+  {
+    "name": "Rush",
+    "description": "Round-stemmed grasslike plant of wetlands."
+  },
+  {
+    "name": "Bamboo",
+    "description": "Fast-growing woody grass with hollow culms."
+  },
+  {
+    "name": "Arborescent Grass",
+    "description": "Tree-like grass reaching several meters tall."
+  },
+  {
+    "name": "Cane",
+    "description": "Tall, stiff jointed stem grass or reed."
+  },
+  {
+    "name": "Succulent",
+    "description": "Water-storing fleshy stems or leaves."
+  },
+  {
+    "name": "Cactus",
+    "description": "Spiny succulent adapted to deserts."
+  },
+  {
+    "name": "Aloe-type",
+    "description": "Rosette succulent with thick sword-shaped leaves."
+  },
+  {
+    "name": "Agave-type",
+    "description": "Massive rosette succulent flowering once, then dying."
+  },
+  {
+    "name": "Tree Fern",
+    "description": "Tall trunked fern with crown of fronds."
+  },
+  {
+    "name": "Fern",
+    "description": "Non-flowering vascular plant with fronds and spores."
+  },
+  {
+    "name": "Horsetail",
+    "description": "Jointed reed-like spore plant of wetlands."
+  },
+  {
+    "name": "Moss",
+    "description": "Tiny non-vascular plant forming green cushions."
+  },
+  {
+    "name": "Liverwort",
+    "description": "Flat or leafy non-vascular plant of moist shade."
+  },
+  {
+    "name": "Lichen",
+    "description": "Symbiotic fungus-alga forming crusts on rock or bark."
+  },
+  {
+    "name": "Alga",
+    "description": "Simple aquatic photosynthetic organism."
+  },
+  {
+    "name": "Seaweed",
+    "description": "Large marine alga forming underwater forests."
+  },
+  {
+    "name": "Epiphyte",
+    "description": "Plant living upon other plants, not parasitic."
+  },
+  {
+    "name": "Hemiepiphyte",
+    "description": "Starts life aloft then roots to soil below."
+  },
+  {
+    "name": "Strangler Fig-type",
+    "description": "Seed germinates aloft, envelops host trunk."
+  },
+  {
+    "name": "Parasitic Plant",
+    "description": "Derives nutrients directly from other plants."
+  },
+  {
+    "name": "Carnivorous Plant",
+    "description": "Traps and digests insects for nutrients."
+  },
+  {
+    "name": "Nitrogen Fixer",
+    "description": "Plant hosting bacteria to enrich soils."
+  },
+  {
+    "name": "Geophyte",
+    "description": "Seasonal herb with bulbs or corms underground."
+  },
+  {
+    "name": "Rhizomatous Plant",
+    "description": "Spreads via underground horizontal stems."
+  },
+  {
+    "name": "Stoloniferous Plant",
+    "description": "Spreads via above-ground runners forming clones."
+  },
+  {
+    "name": "Tuberous Plant",
+    "description": "Stores starch in swollen underground organs."
+  },
+  {
+    "name": "Rosette Plant",
+    "description": "Leaves radiate from central point at ground level."
+  },
+  {
+    "name": "Floating Aquatic Plant",
+    "description": "Free-floating on water surface with dangling roots."
+  },
+  {
+    "name": "Submerged Aquatic Plant",
+    "description": "Fully underwater except maybe flowers."
+  },
+  {
+    "name": "Emergent Aquatic Plant",
+    "description": "Roots underwater, stems rise into air."
+  },
+  {
+    "name": "Halophyte",
+    "description": "Thrives in salty soils or coasts."
+  },
+  {
+    "name": "Xerophyte",
+    "description": "Adapted to survive extreme drought."
+  },
+  {
+    "name": "Hydrophyte",
+    "description": "Adapted to saturated or flooded conditions."
+  },
+  {
+    "name": "Helophyte",
+    "description": "Marsh plant rooted in mud, aerial shoots."
+  },
+  {
+    "name": "Desert Shrub",
+    "description": "Woody, drought-adapted plant of arid lands."
+  },
+  {
+    "name": "Evergreen Tree",
+    "description": "Tree retaining green foliage year-round."
+  },
+  {
+    "name": "Deciduous Tree",
+    "description": "Tree shedding leaves seasonally."
+  },
+  {
+    "name": "Conifer",
+    "description": "Cone-bearing needle-leaved evergreen tree."
+  },
+  {
+    "name": "Palm",
+    "description": "Unbranched trunk topped with large frond leaves."
+  },
+  {
+    "name": "Cycad",
+    "description": "Primitive palm-like gymnosperm with stiff leaflets."
+  },
+  {
+    "name": "Palmoid",
+    "description": "Thick columnar stem crowned by rosette leaves."
+  },
+  {
+    "name": "Dwarf Conifer",
+    "description": "Miniature slow-growing cone-bearing shrub or tree."
+  },
+  {
+    "name": "Suckering Plant",
+    "description": "Sends up new shoots from spreading roots."
+  },
+  {
+    "name": "Clump-forming Plant",
+    "description": "Multiple stems rising closely from base."
+  },
+  {
+    "name": "Dense Shrub",
+    "description": "Tightly packed branches forming impenetrable mass."
+  },
+  {
+    "name": "Open Shrub",
+    "description": "Sparse branching with airy form."
+  },
+  {
+    "name": "Arching Shrub",
+    "description": "Graceful outward curving cane habit."
+  },
+  {
+    "name": "Columnar Plant",
+    "description": "Narrow upright pillar-shaped growth."
+  },
+  {
+    "name": "Weeping Plant",
+    "description": "Branches droop downward gracefully."
+  },
+  {
+    "name": "Mound-forming Plant",
+    "description": "Hemisphere of foliage, rounded outline."
+  },
+  {
+    "name": "Virgate Plant",
+    "description": "Wand-like long slender upright shoots."
+  },
+  {
+    "name": "Cushion Dwarf Shrub",
+    "description": "Low woody dome just above ground."
+  },
+  {
+    "name": "Woody Liana",
+    "description": "Thick climbing vine with secondary growth."
+  },
+  {
+    "name": "Semi-woody Half-shrub",
+    "description": "Lower stems woody, upper herbaceous."
+  },
+  {
+    "name": "Annual Herb",
+    "description": "Completes life cycle in one growing season."
+  },
+  {
+    "name": "Biennial Herb",
+    "description": "Grows vegetatively first year, flowers second."
+  },
+  {
+    "name": "Perennial Herb",
+    "description": "Lives multiple years, regrowing each season."
+  },
+  {
+    "name": "Poikilohydric Plant",
+    "description": "Can survive desiccation; rehydrates when water returns."
+  },
+  {
+    "name": "Green-stemmed Woody Plant",
+    "description": "Photosynthetic stems replacing leaves in arid sites."
+  },
+  {
+    "name": "Saprophytic Plant",
+    "description": "Lacks chlorophyll, feeds on decaying matter."
+  },
+  {
+    "name": "Ant Plant",
+    "description": "Hollow-stemmed plant providing housing to ants."
+  }
+]

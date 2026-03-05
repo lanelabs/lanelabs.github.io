@@ -1,0 +1,20 @@
+{
+  "description": "Creatures of the feywild — tricksters, nature spirits, and the beautiful and terrible fey courts.",
+  "creatures": [
+    ["Pixie","A palm-sized sprite with dragonfly wings that turns invisible and delights in bewildering travelers."],
+    ["Sprite","A tiny, sword-wielding forest guardian that reads hearts and puts creatures to sleep with its arrows."],
+    ["Dryad","A hauntingly beautiful woman who steps out of her oak tree to charm or warn trespassers."],
+    ["Satyr","A goat-legged reveler whose panpipe music makes even the dour dance and drink until dawn."],
+    ["Nymph","A breathtaking spirit of spring or grove whose unveiled true form can blind mortal eyes."],
+    ["Treant","A moss-draped ancient tree that uproots itself to crush intruders and command lesser plants."],
+    ["Faerie Dragon","A tiny dragon with butterfly wings that giggles invisibly and casts prank-like illusions."],
+    ["Redcap","A squat, iron-booted fey that murders travelers and soaks its cap in their blood to stay alive."],
+    ["Hag","A hideous crone who bargains in riddles, brews foul potions, and covets children."],
+    ["Wild Hunt","A spectral cavalcade of horns and hounds that thunders through the night sky, claiming souls."],
+    ["Brownies","Tiny household fey that mend shoes and sweep hearths overnight in exchange for a saucer of cream."],
+    ["Boggart","A malicious shapeshifter that takes the form of whatever its victim fears most."],
+    ["Will-o'-Wisp","A bobbing, ghostly lantern-light that drifts through swamps, luring the lost into deep water."],
+    ["Seelie Court Noble","A radiant fey lord or lady who grants boons wrapped in impossible, binding conditions."],
+    ["Unseelie Court Noble","A coldly beautiful fey aristocrat who collects mortal tears and trades in broken promises."]
+  ]
+}

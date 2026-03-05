@@ -1,0 +1,15 @@
+{
+  "description": "Collective threats that overwhelm through sheer numbers — writhing, buzzing, and biting masses.",
+  "creatures": [
+    ["Swarm of Rats","A writhing carpet of disease-carrying rodents that pours over victims like a living flood."],
+    ["Swarm of Bats","A shrieking, churning cloud of leathery wings that blinds and panics anything caught inside."],
+    ["Swarm of Insects","A droning black cloud of biting, crawling bugs that smothers victims and fills every gap."],
+    ["Swarm of Ravens","A screaming murder of black birds that coordinate attacks and peck at eyes."],
+    ["Locust Swarm","A sky-darkening plague of ravenous insects that strips fields bare in minutes."],
+    ["Spider Swarm","A skittering carpet of tiny, venomous spiders that covers victims and bites hundreds of times."],
+    ["Bee Swarm","An angry, humming mass of stinging bees that pursues intruders with single-minded fury."],
+    ["Army Ants","A relentless column of soldier ants that strips flesh from bone and devours everything in its path."],
+    ["Piranha School","A churning frenzy of razor-toothed fish that reduces a body to bare skeleton in seconds."],
+    ["Fairy Swarm","A glittering cloud of tiny fey whose collective magic bewilders, charms, and disorients all at once."]
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "description": "Rare hybrid beasts and magical creatures — chimeras, petrifiers, and other wonders of the wild.",
+  "creatures": [
+    ["Pseudodragon","A cat-sized dragon that purrs, stings with its tail, and speaks directly into your mind."],
+    ["Hippogriff","An eagle-headed steed with powerful wings and a haughty temper that must be earned, not broken."],
+    ["Owlbear","A hulking, feathered beast with an owl's swiveling head and a bear's crushing embrace."],
+    ["Peryton","A stag-headed bird that casts a humanoid shadow and tears out hearts to feed its young."],
+    ["Cockatrice","A rooster-headed lizard whose venomous bite turns warm flesh to cold stone."],
+    ["Basilisk","An eight-legged reptile whose baleful, glowing eyes turn living creatures to stone on contact."],
+    ["Medusa","A snake-haired woman whose direct gaze petrifies, surrounded by the statues of those who looked."],
+    ["Lamia","A lion-bodied temptress with a human torso who lures victims close with honeyed words."],
+    ["Chimera","A three-headed nightmare — lion fangs, goat horns, dragon fire — all sharing one furious body."],
+    ["Wyvern","A two-legged dragon with a venomous barbed tail that dives from cliff nests to snatch livestock."],
+    ["Drake","A wingless, muscular dragon that hunts in packs and breathes elemental fury."],
+    ["Behir","A twelve-legged serpent that crackles with lightning and swallows prey whole."],
+    ["Bulette","A land shark that tunnels beneath the surface and explodes upward under its prey's feet."],
+    ["Gorgon","A metallic bull whose poisonous breath turns flesh and bone to cold stone."],
+    ["Manticore","A human-faced lion with bat wings and a scorpion tail that flings volleys of iron spikes."]
+  ]
+}

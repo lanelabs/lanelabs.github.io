@@ -4,6 +4,7 @@ import * as fantasy from './data/fantasy';
 import * as scifi from './data/scifi';
 import * as modern from './data/modern';
 import * as ocean from './data/ocean';
+import { getCreatureNames } from '@data/creatures';
 import {
   NUM_CHARACTERS, NUM_CONFLICTS, NUM_ITEMS, NUM_MORALS,
   NUM_TONES, NUM_WISHES, NUM_ROLES,
@@ -187,17 +188,25 @@ export default function App() {
       .map(([key]) => key);
 
     let activeMods;
+    let picked;
     if (checked.length === 0) {
       activeMods = [general];
     } else if (singleWorld) {
-      const pick = checked[Math.floor(Math.random() * checked.length)];
-      activeMods = [general, worlds[pick]];
+      picked = checked[Math.floor(Math.random() * checked.length)];
+      activeMods = [general, worlds[picked]];
     } else {
       activeMods = [general, ...checked.map((k) => worlds[k])];
     }
 
+    const creatureWorlds = ['general'];
+    if (singleWorld && picked) {
+      creatureWorlds.push(picked);
+    } else {
+      creatureWorlds.push(...checked);
+    }
+    const allAnimals = getCreatureNames(creatureWorlds);
+
     const allPeople = mergeArrays(activeMods, 'people');
-    const allAnimals = mergeArrays(activeMods, 'animals');
     const allSettings = mergeArrays(activeMods, 'settings');
     const allItems = mergeArrays(activeMods, 'items');
     const allDescriptors = mergeArrays(activeMods, 'descriptors');

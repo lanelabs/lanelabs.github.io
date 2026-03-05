@@ -1,0 +1,17 @@
+{
+  "description": "Intelligent and monstrous sea-dwellers — merfolk, krakens, and the terrors of the deep.",
+  "creatures": [
+    ["Merfolk","Half-human, half-fish beings who build coral cities on the ocean floor and wield tridents of shell and bone."],
+    ["Sahuagin","Shark-toothed sea raiders that attack in frenzied packs when they smell blood in the water."],
+    ["Kuo-toa","Goggle-eyed fish-folk with sticky hands whose collective belief can will a god into existence."],
+    ["Sea Hag","A wretched ocean crone so hideous that meeting her gaze can stop a heart."],
+    ["Siren","A hauntingly beautiful sea creature whose irresistible song lures sailors onto the rocks."],
+    ["Kraken","A colossal, tentacled nightmare from the deepest trenches that drags entire ships beneath the waves."],
+    ["Sea Serpent","A sinuous marine dragon with crushing coils that summons storms and shatters hulls."],
+    ["Aboleth","An ancient psychic horror lurking in sunless depths, its slimy tentacles enslaving minds for millennia."],
+    ["Chuul","A barnacle-crusted, lobster-like predator that paralyzes prey and drags it to its underwater lair."],
+    ["Water Weird","A sentient coil of water that lurks in wells and fountains, drowning anyone who reaches in."],
+    ["Scrag","A webbed, finned troll that lurks in murky depths and heals its wounds as fast as they're dealt."],
+    ["Giant Squid","A deep-dwelling titan with tentacles thick as tree trunks that drags prey down into blackness."]
+  ]
+}

@@ -68,4 +68,31 @@ export const descriptors = [
 
   // Magical quality
   'Prophetic',
+
+  // From RPG-Gen themes
+  'Runic',
+  'Prismatic',
+  'Luminous',
+  'Crystalline',
+  'Ancestral',
+  'Twilight',
+  'Astral',
+  'Sylvan',
+  'Ancient',
+  'Frozen',
+  'Phantom',
+  'Living',
+  'Wild',
+  'Dreamwoven',
+  'Ironbound',
+  'Windswept',
+  'Thundering',
+  'Tidal',
+  'Hollow',
+  'Singing',
+  'Silver',
+  'Ashen',
+  'Spiraling',
+  'Sunken',
+  'Volcanic',
 ];

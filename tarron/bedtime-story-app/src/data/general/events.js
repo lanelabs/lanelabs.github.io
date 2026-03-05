@@ -32,4 +32,21 @@ export const events = [
   'A fair',
   'A dance',
   'An earthquake',
+
+  // From RPG-Gen encounters
+  'A flood',
+  'A solar eclipse',
+  'A drought',
+  'A shipwreck',
+  'A storm',
+  'A masquerade',
+  'A pilgrimage',
+  'A migration',
+  'A harvest',
+  'A discovery',
+  'A homecoming',
+  'A blizzard',
+  'An inheritance',
+  'A fire',
+  'A talent show',
 ];

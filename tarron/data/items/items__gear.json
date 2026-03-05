@@ -1,0 +1,622 @@
+[
+  {
+    "name": "Great Helm",
+    "short_description": "Full coverage helmet worn on the head, completely encases head and face with eye slits"
+  },
+  {
+    "name": "Barbuta",
+    "short_description": "Open-faced helmet worn on the head with distinctive T-shaped opening for eyes and breathing"
+  },
+  {
+    "name": "Sallet",
+    "short_description": "Light helmet worn on the head with extended back protection and optional visor"
+  },
+  {
+    "name": "Bascinet",
+    "short_description": "Pointed helmet worn on the head, evolved from skull cap with extended neck protection"
+  },
+  {
+    "name": "Spangenhelm",
+    "short_description": "Segmented helmet worn on the head with metal framework and leather or metal plates"
+  },
+  {
+    "name": "Nasal Helmet",
+    "short_description": "Helmet worn on the head featuring prominent nose guard for facial protection"
+  },
+  {
+    "name": "Morion",
+    "short_description": "Open helmet worn on the head with distinctive crest and brim, popular with infantry"
+  },
+  {
+    "name": "Corinthian Helmet",
+    "short_description": "Ancient-style full-face helmet worn on the head with distinctive eye and mouth openings"
+  },
+  {
+    "name": "Kettle Hat",
+    "short_description": "Wide-brimmed iron helmet worn on the head, provides rain protection and basic defense"
+  },
+  {
+    "name": "Skull Cap",
+    "short_description": "Simple bowl-shaped helmet worn on the head, covers top of skull only"
+  },
+  {
+    "name": "Horned Helmet",
+    "short_description": "Fantasy helmet worn on the head decorated with horn projections, intimidating appearance"
+  },
+  {
+    "name": "Crown",
+    "short_description": "Ornate headpiece worn on the head, symbol of royal authority and status"
+  },
+  {
+    "name": "Circlet",
+    "short_description": "Simple metal band worn on the forehead, lightweight alternative to crown"
+  },
+  {
+    "name": "Coif",
+    "short_description": "Mail hood worn on the head and neck, protects head while allowing flexibility"
+  },
+  {
+    "name": "Breastplate",
+    "short_description": "Metal chest armor worn on the torso, protects vital organs from frontal attacks"
+  },
+  {
+    "name": "Cuirass",
+    "short_description": "Full torso armor worn on chest and back, consists of breast and back plates"
+  },
+  {
+    "name": "Hauberk",
+    "short_description": "Long mail shirt worn on the torso, extends to knees or mid-thigh"
+  },
+  {
+    "name": "Byrnie",
+    "short_description": "Short mail shirt worn on the torso, lighter alternative to hauberk"
+  },
+  {
+    "name": "Gambeson",
+    "short_description": "Padded cloth armor worn on the torso, quilted layers provide surprising protection"
+  },
+  {
+    "name": "Brigandine",
+    "short_description": "Flexible armor worn on the torso with small metal plates riveted inside fabric"
+  },
+  {
+    "name": "Coat of Plates",
+    "short_description": "Early plate armor worn on the torso, metal plates sewn inside cloth covering"
+  },
+  {
+    "name": "Scale Mail",
+    "short_description": "Armor worn on the torso made of overlapping metal scales attached to backing"
+  },
+  {
+    "name": "Lamellar",
+    "short_description": "Armor worn on the torso of small rectangular plates laced together in rows"
+  },
+  {
+    "name": "Studded Leather",
+    "short_description": "Leather armor worn on the torso reinforced with metal studs or rivets"
+  },
+  {
+    "name": "Chain Mail",
+    "short_description": "Flexible armor worn on the torso made of interlocking metal rings"
+  },
+  {
+    "name": "Leather Armor",
+    "short_description": "Hardened leather protection worn on the torso, lightweight but limited defense"
+  },
+  {
+    "name": "Robe",
+    "short_description": "Long flowing garment worn on the body, often favored by spellcasters and scholars"
+  },
+  {
+    "name": "Tunic",
+    "short_description": "Simple shirt-like garment worn on the torso, basic clothing for most classes"
+  },
+  {
+    "name": "Vest",
+    "short_description": "Sleeveless garment worn over shirts on the torso, provides extra layer of protection"
+  },
+  {
+    "name": "Doublet",
+    "short_description": "Fitted jacket worn on the torso, fashionable garment for nobles and merchants"
+  },
+  {
+    "name": "Jerkin",
+    "short_description": "Sleeveless jacket worn on the torso, practical garment for working folk"
+  },
+  {
+    "name": "Tabard",
+    "short_description": "Sleeveless overgarment worn on the torso, displays heraldry or guild symbols"
+  },
+  {
+    "name": "Gauntlets",
+    "short_description": "Armored gloves worn on the hands, protect fingers and knuckles in combat"
+  },
+  {
+    "name": "Bracers",
+    "short_description": "Armor plates worn on the forearms, protect from elbow to wrist"
+  },
+  {
+    "name": "Vambraces",
+    "short_description": "Forearm guards worn on the arms, lightweight protection for archers and fighters"
+  },
+  {
+    "name": "Rerebraces",
+    "short_description": "Upper arm armor worn from shoulder to elbow, protects bicep area"
+  },
+  {
+    "name": "Pauldrons",
+    "short_description": "Shoulder armor worn on the shoulders, large plates protecting shoulder joint"
+  },
+  {
+    "name": "Spaulders",
+    "short_description": "Small shoulder guards worn on the shoulders, lighter than pauldrons"
+  },
+  {
+    "name": "Couters",
+    "short_description": "Elbow protection worn at the elbow joint, articulated for movement"
+  },
+  {
+    "name": "Besagews",
+    "short_description": "Circular plates worn at the armpit, protect vulnerable joint areas"
+  },
+  {
+    "name": "Leather Gloves",
+    "short_description": "Soft gloves worn on the hands, provide basic protection and grip"
+  },
+  {
+    "name": "Mittens",
+    "short_description": "Fingerless gloves worn on the hands, keep hands warm while maintaining dexterity"
+  },
+  {
+    "name": "Greaves",
+    "short_description": "Shin guards worn on the lower legs, protect from knee to ankle"
+  },
+  {
+    "name": "Sabatons",
+    "short_description": "Articulated foot armor worn on the feet, metal shoes for full protection"
+  },
+  {
+    "name": "Chausses",
+    "short_description": "Mail leggings worn on the legs, flexible leg protection from hip to ankle"
+  },
+  {
+    "name": "Schynbalds",
+    "short_description": "Shin armor worn on the lower legs, simpler alternative to full greaves"
+  },
+  {
+    "name": "Poleyns",
+    "short_description": "Knee guards worn at the knee joint, protect kneecap from strikes"
+  },
+  {
+    "name": "Cuisses",
+    "short_description": "Thigh armor worn on the upper legs, protect from hip to knee"
+  },
+  {
+    "name": "Tassets",
+    "short_description": "Hip protection worn around the waist, hanging plates protecting upper thighs"
+  },
+  {
+    "name": "Faulds",
+    "short_description": "Waist armor worn around the hips, horizontal plates protecting lower torso"
+  },
+  {
+    "name": "Ring",
+    "short_description": "Circular band worn on the finger, may bear gemstones or engravings"
+  },
+  {
+    "name": "Necklace",
+    "short_description": "Chain or cord worn around the neck, often holds pendants or charms"
+  },
+  {
+    "name": "Pendant",
+    "short_description": "Ornamental piece worn hanging from a necklace on the chest"
+  },
+  {
+    "name": "Earrings",
+    "short_description": "Decorative jewelry worn attached to or through the earlobes"
+  },
+  {
+    "name": "Bracelet",
+    "short_description": "Ornamental band worn around the wrist, may be chain or solid band"
+  },
+  {
+    "name": "Anklet",
+    "short_description": "Decorative band worn around the ankle, lightweight jewelry for the foot"
+  },
+  {
+    "name": "Brooch",
+    "short_description": "Decorative pin worn on clothing, often used to fasten cloaks or robes"
+  },
+  {
+    "name": "Fibula",
+    "short_description": "Ancient-style safety pin worn on clothing, functional and decorative"
+  },
+  {
+    "name": "Torc",
+    "short_description": "Rigid neck ring worn around the throat, symbol of status in Celtic cultures"
+  },
+  {
+    "name": "Armband",
+    "short_description": "Metal band worn around the upper arm, display of strength or status"
+  },
+  {
+    "name": "Hair Pin",
+    "short_description": "Decorative pin worn in the hair, keeps hair in place while adding ornamentation"
+  },
+  {
+    "name": "Diadem",
+    "short_description": "Ornate headband worn across the forehead, marks nobility or achievement"
+  },
+  {
+    "name": "Signet Ring",
+    "short_description": "Ring worn on the finger bearing family crest or seal for marking documents"
+  },
+  {
+    "name": "Locket",
+    "short_description": "Small hinged pendant worn on the chest, opens to hold miniatures or mementos"
+  },
+  {
+    "name": "Leather Boots",
+    "short_description": "Sturdy boots worn on the feet, protect from rough terrain and weather"
+  },
+  {
+    "name": "Riding Boots",
+    "short_description": "High boots worn on the feet, designed for horseback riding with heel and cuff"
+  },
+  {
+    "name": "Combat Boots",
+    "short_description": "Reinforced boots worn on the feet, extra protection for warriors and soldiers"
+  },
+  {
+    "name": "Soft Boots",
+    "short_description": "Flexible boots worn on the feet, allow quiet movement for stealth"
+  },
+  {
+    "name": "Sandals",
+    "short_description": "Open footwear worn on the feet, strapped sole suitable for warm climates"
+  },
+  {
+    "name": "Shoes",
+    "short_description": "Basic footwear worn on the feet, simple leather protection for daily wear"
+  },
+  {
+    "name": "Moccasins",
+    "short_description": "Soft leather shoes worn on the feet, comfortable and quiet for forest travel"
+  },
+  {
+    "name": "Sabots",
+    "short_description": "Wooden shoes worn on the feet, sturdy footwear for peasants and workers"
+  },
+  {
+    "name": "Poulaines",
+    "short_description": "Pointed-toe shoes worn on the feet, fashionable footwear showing status"
+  },
+  {
+    "name": "Slippers",
+    "short_description": "Light indoor shoes worn on the feet, comfortable for rest and relaxation"
+  },
+  {
+    "name": "Cloak",
+    "short_description": "Long outer garment worn over the shoulders, provides warmth and weather protection"
+  },
+  {
+    "name": "Cape",
+    "short_description": "Short cloak worn over the shoulders, lighter protection with dramatic flair"
+  },
+  {
+    "name": "Robe",
+    "short_description": "Long loose garment worn on the body, full coverage clothing often for mages"
+  },
+  {
+    "name": "Dress",
+    "short_description": "One-piece garment worn on the body, covers torso and legs in single piece"
+  },
+  {
+    "name": "Skirt",
+    "short_description": "Lower body garment worn around the waist, covers legs while allowing arm freedom"
+  },
+  {
+    "name": "Trousers",
+    "short_description": "Leg covering worn on the lower body, practical garment covering each leg separately"
+  },
+  {
+    "name": "Breeches",
+    "short_description": "Knee-length trousers worn on the lower body, often worn with hose or boots"
+  },
+  {
+    "name": "Hose",
+    "short_description": "Leg covering worn on the lower body, medieval equivalent of stockings"
+  },
+  {
+    "name": "Chemise",
+    "short_description": "Undergarment worn next to the skin, provides base layer beneath other clothing"
+  },
+  {
+    "name": "Surcoat",
+    "short_description": "Sleeveless overgarment worn over armor, displays heraldry and reduces glare"
+  },
+  {
+    "name": "Cowl",
+    "short_description": "Hooded garment worn over the head, provides anonymity and weather protection"
+  },
+  {
+    "name": "Mantle",
+    "short_description": "Ceremonial cloak worn over the shoulders, symbol of authority and rank"
+  },
+  {
+    "name": "Shawl",
+    "short_description": "Rectangular cloth worn over the shoulders, lightweight covering for warmth"
+  },
+  {
+    "name": "Scarf",
+    "short_description": "Long strip of cloth worn around the neck, provides warmth and style"
+  },
+  {
+    "name": "Gloves",
+    "short_description": "Hand covering worn on the hands, protects from cold and provides better grip"
+  },
+  {
+    "name": "Hat",
+    "short_description": "Head covering worn on the head, protects from sun and rain while showing style"
+  },
+  {
+    "name": "Belt",
+    "short_description": "Strap worn around the waist, holds up clothing and carries equipment"
+  },
+  {
+    "name": "Baldric",
+    "short_description": "Diagonal belt worn across the torso, carries sword or other large items"
+  },
+  {
+    "name": "Sash",
+    "short_description": "Decorative band worn around the waist or over the shoulder, shows rank or allegiance"
+  },
+  {
+    "name": "Pouch",
+    "short_description": "Small bag worn on the belt, carries coins and small personal items"
+  },
+  {
+    "name": "Purse",
+    "short_description": "Money container worn on the belt or carried in hand, specifically for coins"
+  },
+  {
+    "name": "Satchel",
+    "short_description": "Shoulder bag worn across the body, carries books, supplies, and equipment"
+  },
+  {
+    "name": "Backpack",
+    "short_description": "Large bag worn on the back, carries extensive supplies for long journeys"
+  },
+  {
+    "name": "Quiver",
+    "short_description": "Arrow container worn on the back or hip, holds ammunition for archery"
+  },
+  {
+    "name": "Scabbard",
+    "short_description": "Sword sheath worn on the belt or back, protects blade and allows quick draw"
+  },
+  {
+    "name": "Shield",
+    "short_description": "Protective barrier held in the off-hand, deflects attacks and provides cover"
+  },
+  {
+    "name": "Buckler",
+    "short_description": "Small round shield worn on the arm, lightweight protection for dueling"
+  },
+  {
+    "name": "Heater Shield",
+    "short_description": "Medium triangular shield held in hand, classic knightly protection"
+  },
+  {
+    "name": "Kite Shield",
+    "short_description": "Large teardrop shield held in hand, provides extensive body coverage"
+  },
+  {
+    "name": "Targe",
+    "short_description": "Small round shield worn on the arm, traditional Highland warrior protection"
+  },
+  {
+    "name": "Pavise",
+    "short_description": "Large rectangular shield planted in ground, mobile cover for crossbowmen"
+  },
+  {
+    "name": "Lantern",
+    "short_description": "Light source carried in hand, provides illumination with protected flame"
+  },
+  {
+    "name": "Torch",
+    "short_description": "Burning stick held in hand, simple but effective portable light source"
+  },
+  {
+    "name": "Rope",
+    "short_description": "Coiled cord carried on belt or in pack, essential for climbing and binding"
+  },
+  {
+    "name": "Blanket",
+    "short_description": "Cloth covering carried in pack, provides warmth and comfort when resting"
+  },
+  {
+    "name": "Bedroll",
+    "short_description": "Portable sleeping gear carried on back, complete camping setup in one bundle"
+  },
+  {
+    "name": "Gorget",
+    "short_description": "Neck armor worn around the throat, protects vulnerable neck area from strikes"
+  },
+  {
+    "name": "Aventail",
+    "short_description": "Mail neck guard worn attached to helmet, protects neck while allowing head movement"
+  },
+  {
+    "name": "Standard",
+    "short_description": "Mail collar worn around the neck, standalone neck protection without helmet"
+  },
+  {
+    "name": "Plackart",
+    "short_description": "Lower chest plate worn on the torso, reinforces breastplate at vital areas"
+  },
+  {
+    "name": "Frog",
+    "short_description": "Leather loop worn on the belt, holds sword or dagger securely while allowing quick draw"
+  },
+  {
+    "name": "Bracer",
+    "short_description": "Archer's arm guard worn on the bow arm, protects from bowstring snap"
+  },
+  {
+    "name": "Finger Guard",
+    "short_description": "Archer's glove worn on drawing fingers, protects from bowstring cuts"
+  },
+  {
+    "name": "Thumb Ring",
+    "short_description": "Archer's ring worn on the thumb, assists with drawing and releasing arrows"
+  },
+  {
+    "name": "Spurs",
+    "short_description": "Metal wheels worn on the heels, used to urge horse forward while riding"
+  },
+  {
+    "name": "Stirrups",
+    "short_description": "Foot rests hanging from saddle, provide stability and leverage while mounted"
+  },
+  {
+    "name": "Wrist Guards",
+    "short_description": "Protective bands worn around the wrists, prevent injury from weapon impacts"
+  },
+  {
+    "name": "Shin Guards",
+    "short_description": "Protective plates worn on the shins, lighter alternative to full greaves"
+  },
+  {
+    "name": "Knee Pads",
+    "short_description": "Cushioned protection worn over the knees, prevent injury during crawling or kneeling"
+  },
+  {
+    "name": "Elbow Pads",
+    "short_description": "Protective cushions worn at the elbows, prevent scrapes and impacts"
+  },
+  {
+    "name": "Gorget Plates",
+    "short_description": "Overlapping throat armor worn around the neck, articulated protection for flexibility"
+  },
+  {
+    "name": "Mage Hood",
+    "short_description": "Enchanted hood worn over the head, channels magical energy and provides mystical protection"
+  },
+  {
+    "name": "Wizard Hat",
+    "short_description": "Pointed hat worn on the head, traditional headwear for practitioners of magic"
+  },
+  {
+    "name": "Elven Cloak",
+    "short_description": "Lightweight cloak worn over the shoulders, provides camouflage and weather resistance"
+  },
+  {
+    "name": "Dwarven Mail",
+    "short_description": "Heavy chainmail worn on the torso, crafted with superior dwarven metalworking techniques"
+  },
+  {
+    "name": "Dragon Scale Armor",
+    "short_description": "Exotic armor worn on the torso, made from actual dragon scales with fire resistance"
+  },
+  {
+    "name": "Orc Hide Armor",
+    "short_description": "Crude leather armor worn on the torso, intimidating appearance with natural toughness"
+  },
+  {
+    "name": "Thieves' Gloves",
+    "short_description": "Fingerless gloves worn on the hands, enhance dexterity for lockpicking and sleight of hand"
+  },
+  {
+    "name": "Assassin's Cloak",
+    "short_description": "Dark hooded cloak worn over the body, aids concealment and silent movement"
+  },
+  {
+    "name": "Paladin's Surcoat",
+    "short_description": "Holy surcoat worn over armor, displays sacred symbols and divine allegiance"
+  },
+  {
+    "name": "Barbarian Furs",
+    "short_description": "Animal pelts worn over the shoulders, provide warmth and intimidating tribal appearance"
+  },
+  {
+    "name": "Ranger's Cloak",
+    "short_description": "Camouflaged cloak worn over the body, blends with natural environments"
+  },
+  {
+    "name": "Monk's Robes",
+    "short_description": "Simple robes worn on the body, allow free movement for martial arts and meditation"
+  },
+  {
+    "name": "Bard's Costume",
+    "short_description": "Colorful outfit worn on the body, designed to catch attention and aid performance"
+  },
+  {
+    "name": "Noble's Doublet",
+    "short_description": "Expensive jacket worn on the torso, displays wealth and social status"
+  },
+  {
+    "name": "Peasant's Garb",
+    "short_description": "Simple clothing worn on the body, practical work clothes for common folk"
+  },
+  {
+    "name": "Component Pouch",
+    "short_description": "Special pouch worn on the belt, holds spell components and magical reagents"
+  },
+  {
+    "name": "Holy Symbol",
+    "short_description": "Sacred pendant worn around the neck, channels divine power for clerics"
+  },
+  {
+    "name": "Arcane Focus",
+    "short_description": "Magical item held in hand, helps channel and focus arcane energies"
+  },
+  {
+    "name": "Spell Component",
+    "short_description": "Material component held in hand, required for casting certain spells"
+  },
+  {
+    "name": "Prayer Beads",
+    "short_description": "String of beads worn around the wrist, aids in meditation and prayer"
+  },
+  {
+    "name": "Amulet",
+    "short_description": "Protective charm worn around the neck, wards against evil or misfortune"
+  },
+  {
+    "name": "Talisman",
+    "short_description": "Magical charm worn on the body, brings good luck or special abilities"
+  },
+  {
+    "name": "Medallion",
+    "short_description": "Large pendant worn on the chest, often displays guild membership or achievement"
+  },
+  {
+    "name": "Badge",
+    "short_description": "Small emblem worn on clothing, shows rank, allegiance, or accomplishment"
+  },
+  {
+    "name": "Insignia",
+    "short_description": "Symbolic ornament worn on uniform, indicates military rank or unit"
+  },
+  {
+    "name": "Crest",
+    "short_description": "Heraldic symbol worn on clothing, displays family lineage or noble house"
+  },
+  {
+    "name": "Seal",
+    "short_description": "Authoritative stamp worn as ring, used to mark official documents"
+  },
+  {
+    "name": "Sigil",
+    "short_description": "Magical symbol worn as pendant, contains power or identifies the wearer"
+  },
+  {
+    "name": "Token",
+    "short_description": "Small memento worn on the body, reminder of important person or event"
+  },
+  {
+    "name": "Charm",
+    "short_description": "Small trinket worn on bracelet or necklace, believed to bring luck or protection"
+  }
+]

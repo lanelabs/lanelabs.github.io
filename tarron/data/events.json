@@ -1,0 +1,739 @@
+{
+    "description": "A comprehensive list of random travel encounters for fantasy TTRPGs. Each encounter includes a 'type' (category), 'name' (brief title), 'details' (expanded description), and 'scale' (trivial/minor/moderate/major) to help DMs quickly assess the encounter's potential impact. Roll randomly or select based on current campaign needs.",
+    "metadata": {
+      "version": "1.0",
+      "total_encounters": 150,
+      "categories": [
+        "Natural Events",
+        "Settlements & Civilization",
+        "Conflicts & Violence",
+        "Magical Phenomena",
+        "Religious & Supernatural",
+        "Trade & Commerce",
+        "Social & Cultural",
+        "Mysteries & Oddities"
+      ],
+      "scales": {
+        "trivial": "Can be mentioned in passing, adds flavor",
+        "minor": "May cause brief interaction or minor detour",
+        "moderate": "Likely to engage party for a scene or two",
+        "major": "Could become focus of entire session"
+      }
+    },
+    "encounters": [
+      {
+        "type": "Natural Events",
+        "name": "Sudden Fog Bank",
+        "details": "Thick fog rolls in reducing visibility to 30 feet, muffling sounds and creating an eerie atmosphere. May hide dangers or opportunities.",
+        "scale": "minor"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Aurora Cascade",
+        "details": "Magical lights dance across the sky in impossible colors. Local folklore claims they predict major events or carry messages from the gods.",
+        "scale": "trivial"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Blood Moon Rising",
+        "details": "The moon turns crimson, empowering lycanthropes and undead. Nocturnal predators become bold and aggressive.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Solar Eclipse",
+        "details": "Unexpected darkness falls as the sun is blotted out. Superstitious locals panic, cultists claim prophecies fulfilled, nocturnal creatures emerge confused.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Meteor Shower",
+        "details": "Falling stars streak across the sky, some impacting nearby with thunderous booms. Impact sites may contain star metal or attracted creatures.",
+        "scale": "minor"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Flash Freeze",
+        "details": "Temperature plummets unnaturally fast, freezing water sources and threatening unprepared travelers with hypothermia.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Mirage Storm",
+        "details": "Extreme heat creates shifting mirages showing distant places, possible futures, or complete illusions. Navigation becomes treacherous.",
+        "scale": "minor"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Acid Rain",
+        "details": "Corrosive precipitation from distant volcanic activity damages equipment and burns exposed skin. Local wildlife flees to shelter.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Gravity Flux",
+        "details": "Local gravity becomes erratic - sometimes half strength, sometimes double. Movement is difficult and disorienting.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Time Distortion Bubble",
+        "details": "A shimmering area where time flows differently. Minutes inside could be hours outside, or vice versa.",
+        "scale": "major"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Lightning Glass Storm",
+        "details": "Intense electrical storm where strikes turn sand to glass. Beautiful but deadly formations litter the landscape.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Wandering Tornado",
+        "details": "Tornado carrying debris from distant lands - foreign coins, exotic seeds, confused animals, or stranger things rain down.",
+        "scale": "major"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Flash Flood",
+        "details": "Sudden wall of water from upstream storms washes out bridges, changes river courses, and threatens camps in low areas.",
+        "scale": "major"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Earthquake Swarm",
+        "details": "Series of tremors crack roads, trigger landslides, and may open fissures revealing underground ruins or creatures.",
+        "scale": "major"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Floating Island Passage",
+        "details": "Massive earthmote drifts overhead, casting moving shadows. Rope ladders or flying creatures might provide access.",
+        "scale": "minor"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Siege in Progress",
+        "details": "Active military siege of a town or fortress. Refugees flee, armies clash, and opportunities arise for mercenaries or heroes.",
+        "scale": "major"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Harvest Festival",
+        "details": "Rural community celebrates successful harvest with games, feasting, and dancing. Strangers are welcomed warmly.",
+        "scale": "minor"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Tax Collector Convoy",
+        "details": "Heavily guarded wagon train collecting taxes from outlying settlements. Locals grumble, bandits plot, guards look nervous.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Plague Village",
+        "details": "Settlement under quarantine due to mysterious illness. Guards turn away visitors, smoke rises from mass pyres, desperate people may attempt escape.",
+        "scale": "major"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Royal Progress",
+        "details": "Monarch and massive entourage travel between holdings. Roads are cleared, inns commandeered, local nobles scramble to impress.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Ghost Town",
+        "details": "Recently abandoned settlement with meals half-eaten, doors ajar, and no signs of violence. An unsettling mystery.",
+        "scale": "major"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Border Checkpoint",
+        "details": "Guards inspect travelers crossing between territories. Bribes expected, smugglers nervous, wanted posters checked carefully.",
+        "scale": "minor"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Public Execution",
+        "details": "Crowd gathers to witness justice (or injustice). The condemned might be criminal, political prisoner, or accused witch.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Market Day",
+        "details": "Weekly market brings traders, farmers, and crafters together. Excellent place for information, supplies, and picking pockets.",
+        "scale": "minor"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Militia Recruitment",
+        "details": "Local lord's agents press-gang able-bodied travelers into military service for upcoming campaign. Resistance meets with force.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Battlefield Aftermath",
+        "details": "Recent battle site littered with dead, dying, and scavengers. Survivors may need aid, valuables lie unclaimed, but dangers lurk.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Bandit Ambush Setup",
+        "details": "Travel through area where bandits are preparing ambush for another group. Party might warn victims, join bandits, or become targets.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Honor Duel",
+        "details": "Two individuals fight to settle dispute while crowd watches. Could be nobles, merchants, or anyone with reputation to defend.",
+        "scale": "minor"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Monster Hunt",
+        "details": "Armed group tracks dangerous creature that's been terrorizing region. They might seek aid or see party as competition for bounty.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Slave Uprising",
+        "details": "Enslaved people revolt against captors. Chaos provides opportunities but also moral dilemmas about intervention.",
+        "scale": "major"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Raiding Party",
+        "details": "Warriors from neighboring land pillage and burn. Smoke columns mark their path, refugees flee in terror.",
+        "scale": "major"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Vigilante Justice",
+        "details": "Mob pursues accused criminal without trial. The accused may be guilty, innocent, or something more complicated.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "War Refugees",
+        "details": "Stream of displaced people fleeing conflict. They carry news, disease, and desperate needs.",
+        "scale": "minor"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Mercenary Company",
+        "details": "Professional soldiers between contracts. Might recruit party, share intelligence for coin, or see them as rivals.",
+        "scale": "minor"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Blood Feud Ambush",
+        "details": "One family attacks another over generations-old grievance. Bystanders risk being caught in crossfire or mistaken for enemies.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Wild Magic Storm",
+        "details": "Chaotic magical energy causes random transmutations, animated objects, and spell misfires in area.",
+        "scale": "major"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Ley Line Convergence",
+        "details": "Intersection of magical energy lines creates power site. Mages seek it out, magical creatures are drawn to it.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Planar Bleed",
+        "details": "Another plane of existence overlaps with material world. Alien landscapes, creatures, or physics intrude temporarily.",
+        "scale": "major"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Spell Plague",
+        "details": "Contagious magical affliction spreads through area. Victims suffer random magical effects or transformations.",
+        "scale": "major"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Arcane Duel Aftermath",
+        "details": "Site of recent magical battle. Reality is scarred, magical energies linger dangerously, valuable components scattered.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Mana Drought",
+        "details": "Magic fails or requires extra effort in this area. Magical items flicker, spells fizzle, casters feel drained.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Familiar Swarm",
+        "details": "Dozens of magical familiars migrate together between masters. Chaos of talking animals, minor magic, and mischief.",
+        "scale": "minor"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Teleportation Mishap",
+        "details": "Someone or something appears suddenly via botched teleport. Could be confused traveler, dangerous creature, or valuable cargo.",
+        "scale": "minor"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Golem Gone Rogue",
+        "details": "Magical construct wanders without purpose after master's death. Follows last orders literally, causing problems.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Memory Fog",
+        "details": "Magical mist that causes those who enter to forget why they came. Only affects short-term memory but very disorienting.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Religious Pilgrimage",
+        "details": "Devoted faithful journey to holy site. They seek miracles, offer blessings, and may need protection from bandits or heretics.",
+        "scale": "minor"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Demonic Possession",
+        "details": "Individual or animal shows signs of evil possession. Local priests are overwhelmed, situation escalates rapidly.",
+        "scale": "major"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Divine Vision",
+        "details": "Someone claims to have received message from deity. Gathering followers, performing miracles, or branded as heretic.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Undead Migration",
+        "details": "Shambling horde of undead moves with purpose toward unknown destination. Not aggressive unless interfered with.",
+        "scale": "major"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Witch Trial",
+        "details": "Community puts accused witch on trial. Evidence is dubious, emotions run high, real magic may or may not be involved.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Spirit Procession",
+        "details": "Ghostly figures march along ancient path. Visible only at certain times, following them leads to mystery.",
+        "scale": "minor"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Miracle Healing",
+        "details": "Reports of healing spring, statue crying healing tears, or blessed individual curing incurable diseases draw desperate crowds.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Cult Recruitment",
+        "details": "Charismatic preacher gathers followers for new religious movement. May be benign, dangerous, or something stranger.",
+        "scale": "minor"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Angel Sighting",
+        "details": "Celestial being appears to deliver message or test mortals. Its presence disrupts evil creatures and inspires good ones.",
+        "scale": "major"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Cursed Ground",
+        "details": "Area where ancient evil was defeated remains tainted. Plants wither, animals flee, and unfortunate travelers suffer nightmares.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Merchant Caravan",
+        "details": "Traders with exotic goods seek protection, share road news, or might be smuggling contraband.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Bridge Toll Dispute",
+        "details": "Travelers argue with toll collectors over excessive fees. May escalate to violence or reveal corruption.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Traveling Auction",
+        "details": "Estate sale of deceased noble or wizard. Rare items, aggressive bidders, and possibly cursed objects.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Counterfeiting Ring",
+        "details": "Discovery of fake coins in circulation. Merchants suspicious, authorities investigate, real criminals still at large.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Guild Enforcement",
+        "details": "Guild enforcers punish someone for practicing trade without membership. Harsh justice that might seem unfair.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Black Market Meeting",
+        "details": "Illicit goods change hands in secret. Stolen artifacts, forbidden magic, or illegal substances traded carefully.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Trade War Blockade",
+        "details": "Competing merchant houses block road to strangle rival's business. Armed standoff affects all travelers.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Traveling Bank",
+        "details": "Heavily guarded wagon serves as mobile money changer and vault. Tempting target for ambitious thieves.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Spice Merchant Accident",
+        "details": "Exotic spice cargo spills, causing magical effects - hallucinations, transformations, or awakening dormant abilities.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Slave Market",
+        "details": "Morally troubling scene of people being sold. Opportunities for heroism, infiltration, or dark choices.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Wedding Procession",
+        "details": "Joyful celebration moving between villages. Invitation to join festivities, but also attracts bandits or jealous rivals.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Funeral Procession",
+        "details": "Somber journey to burial site. May be for commoner, noble, or hero. Grief makes people unpredictable.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Coming of Age Ceremony",
+        "details": "Young adults undergo traditional trials. Outsiders might be asked to help or accidentally interfere with sacred rites.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Political Rally",
+        "details": "Charismatic speaker stirs crowd about change, revolution, or return to old ways. Powder keg waiting for spark.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Traveling Theater",
+        "details": "Performers bring entertainment and news. Their plays might hide political messages or magical secrets.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Gladiatorial Games",
+        "details": "Blood sport attracts crowds and gamblers. Champions might be volunteers, slaves, or condemned criminals.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Book Burning",
+        "details": "Authorities destroy forbidden knowledge. Scholars weep, fanatics cheer, and some try to save what they can.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Diplomatic Embassy",
+        "details": "Foreign dignitaries travel with interpreter and guards. Cultural misunderstandings and political intrigue abound.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Carnival of Fools",
+        "details": "Traditional festival where social rules are inverted. Peasants mock nobles, chaos reigns, anything might happen.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Exile Procession",
+        "details": "Banished individuals forced to leave homeland. May be criminals, political dissidents, or scapegoats.",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Abandoned Camp",
+        "details": "Recent campsite with fire still warm but no one around. Signs of struggle, or did they flee from something?",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Crop Circles",
+        "details": "Elaborate patterns appear overnight in fields. Farmers blame fey, wizards suspect rituals, others see omens.",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Mass Animal Behavior",
+        "details": "All animals of one type act strangely - birds fly in perfect formations, rats flee en masse, dogs howl at nothing.",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Time Loop Village",
+        "details": "Settlement repeats same day endlessly. Residents may or may not be aware. Breaking loop requires solving mystery.",
+        "scale": "major"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Vanishing Road",
+        "details": "Well-traveled path disappears at night or in fog, leading travelers astray. Returns with dawn or clear weather.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Doppelganger Rumors",
+        "details": "Reports of people being in two places at once. Identity confusion, shapeshifter fears, or something stranger.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Singing Stones",
+        "details": "Mineral formation produces haunting melodies. Music might contain messages, magic, or madness.",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Reverse Waterfall",
+        "details": "Water flows upward against gravity. Natural wonder, magical phenomenon, or sign of reality breaking down.",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Memory Merchant",
+        "details": "Mysterious figure claims to buy and sell memories. Clients report gaps in recollection or knowledge they never had.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Probability Storm",
+        "details": "Area where luck goes wild - incredible coincidences, million-to-one chances happen constantly, dice always roll same number.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Sinkhole Opening",
+        "details": "Ground suddenly collapses revealing caves, ruins, or underground waterways. May swallow buildings or travelers.",
+        "scale": "major"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Insect Swarm Migration",
+        "details": "Massive cloud of insects moves across landscape. Blocks out sun, strips plants bare, but usually harmless to people.",
+        "scale": "minor"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Geyser Eruption",
+        "details": "Superheated water explodes from ground at regular intervals. Scalding danger but possible rare minerals in deposits.",
+        "scale": "minor"
+      },
+      {
+        "type": "Natural Events",
+        "name": "Quicksand Field",
+        "details": "Recent rains have created treacherous terrain. Unwary travelers risk becoming trapped. Local guides demand high fees.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Quarantine Checkpoint",
+        "details": "Officials check travelers for signs of disease. Magical detection, physical inspection, or crude methods like vinegar baths.",
+        "scale": "minor"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Debtors' Roundup",
+        "details": "Collectors seize property and people who owe money. Families separated, violence erupts, underground railroad helps some escape.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Veterans' March",
+        "details": "Old soldiers travel to capital demanding promised payments. Some bitter, some proud, all with stories to tell.",
+        "scale": "minor"
+      },
+      {
+        "type": "Settlements & Civilization",
+        "name": "Shantytown",
+        "details": "Makeshift settlement of refugees, outcasts, or poor. Authorities want it cleared, residents have nowhere else to go.",
+        "scale": "minor"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Prison Break",
+        "details": "Escaped convicts flee through area. Guards in pursuit, locals panic, escapees may be desperate or dangerous.",
+        "scale": "major"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Scorched Earth Retreat",
+        "details": "Army destroys everything useful while retreating. Wells poisoned, bridges burned, fields salted, civilians suffer most.",
+        "scale": "major"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Deserter Hideout",
+        "details": "Soldiers who fled battle hide from military justice. May be cowards, conscientious objectors, or pragmatists.",
+        "scale": "minor"
+      },
+      {
+        "type": "Conflicts & Violence",
+        "name": "Trophy Hunters",
+        "details": "Group seeks specific creature for glory or profit. May clash with druids, rangers, or the party over hunting rights.",
+        "scale": "minor"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Enchantment Breakdown",
+        "details": "Permanent magical effect begins failing - bridge of light flickers, flying castle drops altitude, ward weakens.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Summoning Circle Active",
+        "details": "Abandoned ritual site still pulling creatures from other planes. Random beings appear confused and often hostile.",
+        "scale": "major"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Magic Item Graveyard",
+        "details": "Area where magic items lose power and crumble. Desperate owners try to save treasures, scholars study phenomenon.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Magical Phenomena",
+        "name": "Spell Echo",
+        "details": "Powerful magic cast long ago repeats randomly. Might be healing, destruction, transformation, or transportation.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "False Prophet",
+        "details": "Charlatan performs fake miracles to gather followers and wealth. Real divine servant might arrive to expose them.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Sacred Grove Defiled",
+        "details": "Holy natural site has been damaged or corrupted. Nature spirits angry, druids seek vengeance, balance disrupted.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Excommunication Ceremony",
+        "details": "Church casts out member for heresy or crimes. Public shaming, stripping of titles, and social death.",
+        "scale": "minor"
+      },
+      {
+        "type": "Religious & Supernatural",
+        "name": "Vampire Panic",
+        "details": "Community believes vampire stalks them. Exhuming graves, hanging garlic, suspecting neighbors, maybe real vampire amused.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Repossession Squad",
+        "details": "Enforcers reclaim property from loan defaulters. May use violence, magic, or legal trickery. Sob stories abound.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Patent Medicine Show",
+        "details": "Traveling salesman hawks cure-all potions. Mostly harmless herbs, but might have real magic or dangerous ingredients.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Customs Inspection",
+        "details": "Border agents search everything for contraband. Bribes expected, smugglers sweat, innocent items deemed suspicious.",
+        "scale": "minor"
+      },
+      {
+        "type": "Trade & Commerce",
+        "name": "Merchant Prince Convoy",
+        "details": "Incredibly wealthy trader travels with small army. Displays obscene wealth, makes deals that affect kingdoms.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Artistic Competition",
+        "details": "Painters, poets, or musicians compete for patronage. Sabotage common, judges biased, winner gets noble's support.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Honor Suicide",
+        "details": "Someone prepares ritual death to restore family honor. Observers conflicted between tradition and intervention.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Matchmaking Festival",
+        "details": "Annual event where families arrange marriages. Young people scheme to choose own partners, politics interfere.",
+        "scale": "minor"
+      },
+      {
+        "type": "Social & Cultural",
+        "name": "Historical Reenactment",
+        "details": "Community recreates famous battle or event. Old grudges surface, accidents happen, some take it too seriously.",
+        "scale": "minor"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Color Drain",
+        "details": "Area slowly losing all color, becoming grayscale. Spreads slowly, artists panic, wizards investigate.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Dream Plague",
+        "details": "Everyone in area shares same recurring nightmare. Sleep deprivation causing accidents, madness, desperation.",
+        "scale": "major"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Backwards Village",
+        "details": "Settlement where everything runs in reverse - people walk backward, speak in reverse, age backward.",
+        "scale": "major"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Silence Zone",
+        "details": "Area of absolute silence - no sound possible. Sign language necessary, predators hunt soundlessly, magic affected.",
+        "scale": "moderate"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Phantom Smells",
+        "details": "Strong scents with no source - baking bread, rotting flesh, exotic perfumes. May trigger memories or hide real odors.",
+        "scale": "trivial"
+      },
+      {
+        "type": "Mysteries & Oddities",
+        "name": "Shared Thoughts",
+        "details": "Everyone within area can hear surface thoughts of others. Privacy impossible, secrets revealed, chaos ensues.",
+        "scale": "major"
+      }
+    ]
+  }

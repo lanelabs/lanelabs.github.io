@@ -1,0 +1,28 @@
+{
+  "description": "Domestic companions and household animals — dogs, cats, and other beloved pets.",
+  "creatures": [
+    ["Corgi","A small, sturdy herding dog with stubby legs, pointed ears, and an inexhaustible zoomie reserve."],
+    ["Pug","A wrinkly-faced little dog with bulging eyes and a snoring, snorting, endlessly affectionate personality."],
+    ["Beagle","A droopy-eared hound that follows its nose into trouble and bays with a voice bigger than its body."],
+    ["Husky","A thick-furred sled dog with piercing blue eyes that howls at everything and obeys nothing."],
+    ["Dalmatian","A spotted, high-energy dog that runs alongside carriages and never seems to tire."],
+    ["Chihuahua","A palm-sized dog with oversized ears and the unshakeable belief that it is the largest creature in the room."],
+    ["Bulldog","A stocky, flat-faced dog with a courageous heart and a talent for drooling on furniture."],
+    ["Labrador","A tail-wagging retriever with a gentle mouth that lives to fetch, swim, and please its human."],
+    ["Poodle","A curly-coated, deceptively athletic dog with sharp intelligence hidden behind a fancy haircut."],
+    ["Siamese Cat","A sleek, blue-eyed cat with dark-pointed fur and a loud, opinionated yowl."],
+    ["Maine Coon","A massive, tufted-ear cat with a bushy tail and a gentle, dog-like loyalty to its owner."],
+    ["Tabby Cat","A striped domestic cat with watchful eyes and a knack for appearing wherever it shouldn't."],
+    ["Hamster","A tiny, stuffed-cheek ball of fluff that runs endlessly on its wheel and hoards treats."],
+    ["Goldfish","A shimmering orange fish with flowing fins that drifts in lazy, hypnotic circles."],
+    ["Parrot","A vivid, sharp-witted bird that mimics voices, solves puzzles, and demands constant attention."],
+    ["Guinea Pig","A pudgy, squeaking rodent that purrs when petted and popcorn-hops when happy."],
+    ["Gecko","A tiny, wall-climbing lizard with sticky toe pads and a surprisingly loud chirping call."],
+    ["Cockatiel","A crested parrot with rosy cheeks that whistles tunes and bobs its head to music."],
+    ["Canary","A tiny, vibrant songbird whose melodic trills can fill an entire room."],
+    ["Parakeet","A small, chatty parrot with bright plumage that bonds fiercely to its favorite person."],
+    ["Chinchilla","A cloud-soft rodent with enormous ears that bounces off the walls in bursts of chaotic energy."],
+    ["Sugar Glider","A tiny, wide-eyed marsupial that glides between furniture on stretched membranes of skin."],
+    ["Iguana","A scaly, prehistoric-looking lizard that basks under heat lamps with regal indifference."]
+  ]
+}

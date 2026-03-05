@@ -1,0 +1,17 @@
+{
+  "description": "Ancient creatures from before recorded history — dinosaurs, megafauna, and ice age beasts.",
+  "creatures": [
+    ["Tyrannosaurus Rex","A massive apex predator with bone-crushing jaws and laughably tiny arms."],
+    ["Triceratops","A three-horned giant that lowers its armored frill and charges like a living battering ram."],
+    ["Velociraptor","A cunning pack hunter with sickle claws and the tactical intelligence to set ambushes."],
+    ["Pteranodon","A leathery-winged reptile that soars on thermals and snatches fish from the water's surface."],
+    ["Stegosaurus","A plated dinosaur that swings its spiked tail with bone-shattering force."],
+    ["Brontosaurus","A long-necked titan whose footsteps shake the earth like rolling thunder."],
+    ["Allosaurus","A towering predator with jaws like a bear trap and claws that rend flesh in long gashes."],
+    ["Ankylosaurus","A low-slung, armored tank of a dinosaur that shatters legs with its bony tail club."],
+    ["Dire Wolf","A horse-sized wolf whose coordinated pack hunts bring down mammoths."],
+    ["Saber-tooth Tiger","A muscular cat with curved fangs as long as daggers, built to pin and puncture."],
+    ["Mammoth","A shaggy, tusked giant that trudges through blizzards and trumpets across frozen tundra."],
+    ["Giant Beaver","An oversized rodent that gnaws down whole trees and reshapes rivers with its massive dams."]
+  ]
+}

@@ -93,4 +93,73 @@ export const people = [
   'Giant',
   'Pirate',
   'Jester',
+
+  // Nobility (from RPG-Gen)
+  'Duke',
+  'Duchess',
+  'Baron',
+  'Baroness',
+  'Lord',
+  'Lady',
+  'Regent',
+  'Page',
+
+  // Religious & spiritual (from RPG-Gen)
+  'Priest',
+  'Friar',
+  'Acolyte',
+  'Templar',
+  'Cleric',
+  'Paladin',
+
+  // Trades & crafts (from RPG-Gen)
+  'Goldsmith',
+  'Jeweler',
+  'Glassblower',
+  'Brewer',
+  'Cook',
+  'Vintner',
+  'Mason',
+  'Sculptor',
+  'Clockmaker',
+  'Chandler',
+  'Cartographer',
+  'Architect',
+  'Cobbler',
+  'Furrier',
+  'Apothecary',
+
+  // Performers & artists (from RPG-Gen)
+  'Acrobat',
+  'Musician',
+  'Puppeteer',
+  'Poet',
+  'Painter',
+
+  // Magic users (from RPG-Gen)
+  'Enchanter',
+  'Summoner',
+  'Illusionist',
+  'Conjurer',
+  'Runesmith',
+  'Diviner',
+
+  // Fantasy races (from RPG-Gen)
+  'Tiefling',
+  'Aasimar',
+  'Goliath',
+  'Kenku',
+  'Tabaxi',
+  'Tortle',
+  'Dragonborn',
+  'Merfolk',
+
+  // Adventurers & roles (from RPG-Gen)
+  'Admiral',
+  'Ambassador',
+  'Mercenary',
+  'Steward',
+  'Navigator',
+  'Falconer',
+  'Castellan',
 ];

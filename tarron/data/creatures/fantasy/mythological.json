@@ -1,0 +1,32 @@
+{
+  "description": "Legendary creatures from world mythology — dragons, phoenixes, and beasts of ancient lore.",
+  "creatures": [
+    ["Dragon","A vast, winged serpent with furnace breath, ancient cunning, and a hoard it will kill to protect."],
+    ["Unicorn","A pure white horse with a spiraling horn whose touch heals wounds and purifies poison."],
+    ["Griffin","A fierce guardian with an eagle's head and wings on a lion's powerful body, fiercely territorial."],
+    ["Phoenix","A blazing firebird that erupts into ash at death and rises reborn from the cinders."],
+    ["Chimera","A three-headed horror — lion, goat, and dragon — that breathes fire and attacks with every head at once."],
+    ["Sphinx","A lion-bodied riddler with a human face that devours anyone who answers incorrectly."],
+    ["Manticore","A human-faced lion with bat wings and a scorpion tail that flings volleys of venomous spikes."],
+    ["Pegasus","A white winged horse that soars above the clouds, bonding only with the pure of heart."],
+    ["Centaur","Half-human, half-horse wanderers who read the stars and loose arrows with unerring aim."],
+    ["Minotaur","A bull-headed brute of immense strength that stalks the twisting corridors of its labyrinth."],
+    ["Medusa","A snake-haired exile whose anguished gaze turns the living to stone, surrounded by her silent victims."],
+    ["Cyclops","A one-eyed giant that forges weapons in volcanic heat and hurls boulders at intruders."],
+    ["Kraken","A colossal sea monster whose tentacles crush ships to splinters and drag sailors into the abyss."],
+    ["Leviathan","A primordial sea serpent so vast it stirs whirlpools and summons storms with its thrashing."],
+    ["Behemoth","A mountain of living flesh and bone that flattens forests and shrugs off armies."],
+    ["Wendigo","A gaunt, antler-crowned horror driven by cannibalistic hunger that grows the more it eats."],
+    ["Banshee","A wailing spirit whose mournful shriek foretells death and can stop a heart with grief."],
+    ["Kelpie","A shape-shifting water horse that lures riders onto its sticky back and drags them under to drown."],
+    ["Selkie","A seal that sheds its skin to walk on land as a beautiful human, heartbroken if the skin is stolen."],
+    ["Valkyrie","A warrior maiden on a spectral steed who chooses the worthy slain and guides them to glory."],
+    ["Wyrm","A massive, wingless dragon that tunnels through solid rock and coils around its treasure hoard."],
+    ["Thunderbird","A colossal storm bird whose wingbeats crack thunder and whose eyes flash with forked lightning."],
+    ["Hydra","A many-headed serpent that sprouts two new heads for every one hacked away."],
+    ["Harpy","A filthy, winged scavenger with a woman's face that shrieks to stun prey before ripping it apart."],
+    ["Roc","An eagle so enormous it nests on mountaintops and carries elephants in its talons."],
+    ["Warg","A giant, cunning wolf ridden as a war-mount by goblins and orcs."],
+    ["Jackalope","A fleet little jackrabbit sporting antelope horns, more clever and elusive than it has any right to be."]
+  ]
+}

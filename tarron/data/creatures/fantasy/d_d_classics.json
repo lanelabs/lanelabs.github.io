@@ -1,0 +1,19 @@
+{
+  "description": "Iconic D&D monsters — the quintessential dungeon encounters and legendary threats.",
+  "creatures": [
+    ["Gnoll","A cackling, hyena-headed raider that fights in a frothing frenzy driven by endless hunger."],
+    ["Ogre","A dim-witted, lumbering giant that smashes first and never bothers to think at all."],
+    ["Troll","A lanky, rubber-skinned brute that regrows severed limbs and fears only acid and fire."],
+    ["Giant","A towering humanoid that shakes the earth with each stride and hurls boulders like pebbles."],
+    ["Beholder","A floating sphere of paranoid malice, covered in eyes that each fire a different deadly ray."],
+    ["Mind Flayer","A tentacle-faced horror that cracks skulls open and devours brains while its victim still twitches."],
+    ["Gelatinous Cube","A transparent, corridor-filling ooze that dissolves flesh on contact and displays its victims' bones within."],
+    ["Owlbear","A feathered, bear-bodied brute with an owl's swiveling head and a blood-curdling screech."],
+    ["Displacer Beast","A six-legged panther with barbed tentacles that projects illusions of itself a few feet from where it truly stands."],
+    ["Rust Monster","A skittering, antenna-waving insect that corrodes metal on contact — a knight's worst nightmare."],
+    ["Bulette","A massive, armored 'land shark' that burrows underground and explodes upward beneath its prey."],
+    ["Tarrasque","A mountain-sized engine of destruction that levels cities and shrugs off the mightiest magic."],
+    ["Mimic","A shapeshifting ambusher disguised as a treasure chest that sprouts teeth and a sticky tongue when touched."],
+    ["Stirge","A blood-sucking flying pest with a needle-like proboscis that latches on and won't let go."]
+  ]
+}

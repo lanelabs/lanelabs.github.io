@@ -1,0 +1,1282 @@
+[
+  {
+    "name": "Wooden Spoon",
+    "short_description": "Well-worn cooking utensil, smooth from years of stirring soups and stews."
+  },
+  {
+    "name": "Clay Cooking Pot",
+    "short_description": "Large earthenware vessel used for preparing one-pot meals over the hearth."
+  },
+  {
+    "name": "Pewter Goblet",
+    "short_description": "Simple metal drinking cup, often bearing scratches and dents from use."
+  },
+  {
+    "name": "Wooden Bowl",
+    "short_description": "Hand-carved eating vessel, stained dark from countless meals."
+  },
+  {
+    "name": "Iron Kettle",
+    "short_description": "Heavy black cauldron for boiling water or brewing beverages."
+  },
+  {
+    "name": "Woven Basket",
+    "short_description": "Sturdy container made from willow or reed, used for carrying goods."
+  },
+  {
+    "name": "Tallow Candle",
+    "short_description": "Crude waxy cylinder that burns with a smoky flame and strong odor."
+  },
+  {
+    "name": "Oil Lamp",
+    "short_description": "Small ceramic vessel with wick, provides steady light when filled with oil."
+  },
+  {
+    "name": "Wooden Bucket",
+    "short_description": "Water container with iron bands, essential for daily household tasks."
+  },
+  {
+    "name": "Stone Mortar and Pestle",
+    "short_description": "Heavy grinding tools for crushing herbs, spices, and grains."
+  },
+  {
+    "name": "Iron Ladle",
+    "short_description": "Long-handled serving spoon, blackened from use over fires."
+  },
+  {
+    "name": "Ceramic Jug",
+    "short_description": "Glazed vessel for storing water, ale, or wine with cork stopper."
+  },
+  {
+    "name": "Woolen Blanket",
+    "short_description": "Thick woven covering, smelling faintly of sheep and woodsmoke."
+  },
+  {
+    "name": "Straw Mattress",
+    "short_description": "Rough sleeping surface stuffed with dried grass and herbs."
+  },
+  {
+    "name": "Chamber Pot",
+    "short_description": "Ceramic vessel for nighttime necessities, often chipped and stained."
+  },
+  {
+    "name": "Wooden Comb",
+    "short_description": "Simple grooming tool carved from bone or hardwood."
+  },
+  {
+    "name": "Hand Mirror",
+    "short_description": "Polished metal disc in wooden frame, reflects a dim image."
+  },
+  {
+    "name": "Soap Bar",
+    "short_description": "Coarse block made from animal fat and ash, harsh but effective."
+  },
+  {
+    "name": "Lye Solution",
+    "short_description": "Caustic liquid in stoppered bottle, used for cleaning and soap-making."
+  },
+  {
+    "name": "Rushlight Holder",
+    "short_description": "Iron clip for holding dried rush stems dipped in fat as cheap lighting."
+  },
+  {
+    "name": "Blacksmith's Hammer",
+    "short_description": "Heavy iron tool with worn wooden handle, used for shaping hot metal."
+  },
+  {
+    "name": "Wood Chisel",
+    "short_description": "Sharp-edged carving tool for detailed woodwork and joinery."
+  },
+  {
+    "name": "Hand Saw",
+    "short_description": "Toothed metal blade in wooden frame for cutting lumber."
+  },
+  {
+    "name": "Leather Awl",
+    "short_description": "Pointed tool for punching holes in hide and fabric."
+  },
+  {
+    "name": "Whetstone",
+    "short_description": "Flat grinding stone for sharpening blades, often water-stained."
+  },
+  {
+    "name": "Tongs",
+    "short_description": "Iron gripping tool for handling hot metal or coals safely."
+  },
+  {
+    "name": "Plane",
+    "short_description": "Wooden smoothing tool with metal blade for finishing lumber."
+  },
+  {
+    "name": "Draw Knife",
+    "short_description": "Two-handled blade for shaving and shaping wood."
+  },
+  {
+    "name": "Mallet",
+    "short_description": "Wooden hammer for driving chisels without damaging handles."
+  },
+  {
+    "name": "Adze",
+    "short_description": "Curved cutting tool for hollowing and shaping wood."
+  },
+  {
+    "name": "Gimlet",
+    "short_description": "Spiral boring tool for drilling small holes in wood."
+  },
+  {
+    "name": "Square",
+    "short_description": "L-shaped measuring tool for ensuring right angles."
+  },
+  {
+    "name": "Compass",
+    "short_description": "Two-armed tool for drawing circles and measuring distances."
+  },
+  {
+    "name": "Marking Gauge",
+    "short_description": "Wooden tool with metal pin for scribing lines on lumber."
+  },
+  {
+    "name": "File",
+    "short_description": "Rough metal tool for smoothing and shaping harder materials."
+  },
+  {
+    "name": "Anvil",
+    "short_description": "Heavy iron block with flat surface for hammering metal."
+  },
+  {
+    "name": "Bellows",
+    "short_description": "Leather air pump for stoking forge fires to higher temperatures."
+  },
+  {
+    "name": "Crucible",
+    "short_description": "Heat-resistant clay pot for melting metals or brewing potions."
+  },
+  {
+    "name": "Vise",
+    "short_description": "Mechanical clamp for holding work pieces steady."
+  },
+  {
+    "name": "Grindstone",
+    "short_description": "Large rotating stone wheel for sharpening tools and weapons."
+  },
+  {
+    "name": "Quill Pen",
+    "short_description": "Feather writing implement, carefully cut and sharpened for fine lines."
+  },
+  {
+    "name": "Ink Bottle",
+    "short_description": "Small glass vessel containing black or brown writing fluid."
+  },
+  {
+    "name": "Parchment Sheet",
+    "short_description": "Treated animal skin prepared for writing, expensive and durable."
+  },
+  {
+    "name": "Wax Tablet",
+    "short_description": "Reusable writing surface of wax in wooden frame."
+  },
+  {
+    "name": "Stylus",
+    "short_description": "Metal or bone pointed tool for writing on wax tablets."
+  },
+  {
+    "name": "Scroll Case",
+    "short_description": "Leather or wooden cylinder for protecting rolled documents."
+  },
+  {
+    "name": "Blotting Sand",
+    "short_description": "Fine powder for drying wet ink on fresh writing."
+  },
+  {
+    "name": "Seal Wax",
+    "short_description": "Red waxy substance melted to secure and authenticate documents."
+  },
+  {
+    "name": "Signet Ring",
+    "short_description": "Metal ring with carved symbol for pressing into wax seals."
+  },
+  {
+    "name": "Bookstand",
+    "short_description": "Wooden lectern for holding heavy manuscripts while reading."
+  },
+  {
+    "name": "Magnifying Glass",
+    "short_description": "Lens in metal frame for examining small text or details."
+  },
+  {
+    "name": "Ruler",
+    "short_description": "Straight edge marked with measurements for precise writing."
+  },
+  {
+    "name": "Ink Pot",
+    "short_description": "Ceramic well for holding liquid ink, often with lid."
+  },
+  {
+    "name": "Paper Scraps",
+    "short_description": "Rough sheets made from rags, cheaper than parchment."
+  },
+  {
+    "name": "Charcoal Stick",
+    "short_description": "Drawing implement made from burned wood, leaves dark marks."
+  },
+  {
+    "name": "Chalk",
+    "short_description": "White mineral stick for writing on dark surfaces."
+  },
+  {
+    "name": "Reed Pen",
+    "short_description": "Hollow plant stem cut into writing point, simpler than quill."
+  },
+  {
+    "name": "Iron Gall Ink",
+    "short_description": "Durable ink made from oak galls, turns dark black over time."
+  },
+  {
+    "name": "Pumice Stone",
+    "short_description": "Rough stone for preparing parchment surface and erasing mistakes."
+  },
+  {
+    "name": "Penknife",
+    "short_description": "Small sharp blade for cutting and sharpening quill pens."
+  },
+  {
+    "name": "Holy Symbol",
+    "short_description": "Sacred pendant or medallion representing divine faith and protection."
+  },
+  {
+    "name": "Prayer Beads",
+    "short_description": "String of carved wooden or stone spheres for counting devotions."
+  },
+  {
+    "name": "Incense Stick",
+    "short_description": "Fragrant rod that burns slowly, producing aromatic smoke."
+  },
+  {
+    "name": "Censer",
+    "short_description": "Metal container on chains for burning incense during ceremonies."
+  },
+  {
+    "name": "Holy Water",
+    "short_description": "Blessed liquid in small vial, believed to have protective properties."
+  },
+  {
+    "name": "Votive Candle",
+    "short_description": "Small dedicated candle lit as offering or prayer focus."
+  },
+  {
+    "name": "Bell",
+    "short_description": "Bronze chime used to signal prayer times or ward off evil."
+  },
+  {
+    "name": "Altar Cloth",
+    "short_description": "Decorated fabric covering for sacred surfaces and ceremonies."
+  },
+  {
+    "name": "Offering Bowl",
+    "short_description": "Ceramic vessel for holding gifts to deities or spirits."
+  },
+  {
+    "name": "Ritual Dagger",
+    "short_description": "Ceremonial blade used for cutting herbs or symbolic purposes."
+  },
+  {
+    "name": "Crystal",
+    "short_description": "Clear or colored stone believed to focus spiritual energy."
+  },
+  {
+    "name": "Bone Dice",
+    "short_description": "Gaming pieces sometimes used for divination or fortune telling."
+  },
+  {
+    "name": "Tarot Cards",
+    "short_description": "Deck of illustrated cards used for fortune telling and guidance."
+  },
+  {
+    "name": "Rune Stones",
+    "short_description": "Carved symbols on small stones used for divination."
+  },
+  {
+    "name": "Blessed Amulet",
+    "short_description": "Protective charm worn against harm or evil influences."
+  },
+  {
+    "name": "Sacred Text",
+    "short_description": "Religious book containing prayers, stories, and teachings."
+  },
+  {
+    "name": "Meditation Mat",
+    "short_description": "Woven floor covering for kneeling during prayer or contemplation."
+  },
+  {
+    "name": "Shrine Statue",
+    "short_description": "Small carved figure representing a deity or saint."
+  },
+  {
+    "name": "Blessing Oil",
+    "short_description": "Sanctified liquid used in religious ceremonies and healing."
+  },
+  {
+    "name": "Pilgrim's Badge",
+    "short_description": "Metal token proving completion of sacred journey."
+  },
+  {
+    "name": "Glass Vial",
+    "short_description": "Small transparent container for storing liquids or powders."
+  },
+  {
+    "name": "Mortar and Pestle",
+    "short_description": "Stone grinding tools for crushing magical ingredients."
+  },
+  {
+    "name": "Distillation Flask",
+    "short_description": "Glass vessel with long neck for purifying liquids."
+  },
+  {
+    "name": "Measuring Spoon",
+    "short_description": "Precise metal utensil for portioning small amounts."
+  },
+  {
+    "name": "Stirring Rod",
+    "short_description": "Glass or crystal stick for mixing potions without contamination."
+  },
+  {
+    "name": "Alembic",
+    "short_description": "Specialized distillation apparatus with curved spout."
+  },
+  {
+    "name": "Test Tube",
+    "short_description": "Small glass tube for experimenting with chemical reactions."
+  },
+  {
+    "name": "Retort",
+    "short_description": "Bulbous glass vessel with bent neck for heating substances."
+  },
+  {
+    "name": "Balance Scale",
+    "short_description": "Precision weighing device with two pans and weights."
+  },
+  {
+    "name": "Funnel",
+    "short_description": "Cone-shaped tool for transferring liquids without spilling."
+  },
+  {
+    "name": "Crucible Tongs",
+    "short_description": "Metal grippers for handling hot containers safely."
+  },
+  {
+    "name": "Brazier",
+    "short_description": "Metal fire bowl for heating equipment and experiments."
+  },
+  {
+    "name": "Herb Jar",
+    "short_description": "Ceramic container labeled with mysterious symbols and ingredients."
+  },
+  {
+    "name": "Magnifying Lens",
+    "short_description": "Glass disc for examining minute details and tiny writing."
+  },
+  {
+    "name": "Copper Wire",
+    "short_description": "Thin metal strands used in complex alchemical apparatus."
+  },
+  {
+    "name": "Philosopher's Stone Fragment",
+    "short_description": "Small reddish crystal rumored to transmute base metals."
+  },
+  {
+    "name": "Dragon's Blood Resin",
+    "short_description": "Dark red crystalline substance from exotic trees."
+  },
+  {
+    "name": "Mercury",
+    "short_description": "Liquid silver metal that flows like water, highly toxic."
+  },
+  {
+    "name": "Sulfur Powder",
+    "short_description": "Yellow crystalline substance that burns with blue flame."
+  },
+  {
+    "name": "Antimony Rod",
+    "short_description": "Metallic stick used as catalyst in transmutation experiments."
+  },
+  {
+    "name": "Coin Purse",
+    "short_description": "Small leather pouch with drawstring for carrying money."
+  },
+  {
+    "name": "Belt",
+    "short_description": "Leather strap with metal buckle for securing clothing and tools."
+  },
+  {
+    "name": "Cloak Pin",
+    "short_description": "Decorative metal fastener for securing outer garments."
+  },
+  {
+    "name": "Signet Ring",
+    "short_description": "Personal seal ring bearing family crest or initials."
+  },
+  {
+    "name": "Perfume Bottle",
+    "short_description": "Small glass container of fragrant oils and essences."
+  },
+  {
+    "name": "Handkerchief",
+    "short_description": "Square of fine cloth for personal hygiene and courtesy."
+  },
+  {
+    "name": "Sewing Kit",
+    "short_description": "Needles, thread, and thimble in cloth roll for repairs."
+  },
+  {
+    "name": "Pocket Watch",
+    "short_description": "Mechanical timepiece in metal case with chain."
+  },
+  {
+    "name": "Spectacles",
+    "short_description": "Glass lenses in wire frame for improving vision."
+  },
+  {
+    "name": "Walking Stick",
+    "short_description": "Carved wooden staff topped with metal or ivory handle."
+  },
+  {
+    "name": "Tobacco Pouch",
+    "short_description": "Leather bag containing dried leaves for smoking."
+  },
+  {
+    "name": "Pipe",
+    "short_description": "Wooden or clay smoking implement with carved bowl."
+  },
+  {
+    "name": "Snuff Box",
+    "short_description": "Small ornate container for powdered tobacco."
+  },
+  {
+    "name": "Playing Cards",
+    "short_description": "Deck of illustrated cardboard for games and gambling."
+  },
+  {
+    "name": "Dice Set",
+    "short_description": "Carved bone or wood gaming pieces in leather cup."
+  },
+  {
+    "name": "Jewelry Box",
+    "short_description": "Wooden container with compartments for valuable ornaments."
+  },
+  {
+    "name": "Hair Ribbon",
+    "short_description": "Silk or cotton strip for decorating and securing hairstyles."
+  },
+  {
+    "name": "Gloves",
+    "short_description": "Leather hand coverings for protection and warmth."
+  },
+  {
+    "name": "Boots",
+    "short_description": "Sturdy leather footwear reaching to mid-calf."
+  },
+  {
+    "name": "Hat",
+    "short_description": "Felt or cloth head covering with brim for weather protection."
+  },
+  {
+    "name": "Bedroll",
+    "short_description": "Tightly rolled blankets and canvas for sleeping outdoors."
+  },
+  {
+    "name": "Waterskin",
+    "short_description": "Leather container for carrying drinking water on journeys."
+  },
+  {
+    "name": "Trail Rations",
+    "short_description": "Dried meat, hardtack, and nuts packed for long travel."
+  },
+  {
+    "name": "Rope",
+    "short_description": "Fifty feet of hemp cordage for climbing and securing gear."
+  },
+  {
+    "name": "Grappling Hook",
+    "short_description": "Metal anchor with prongs for climbing walls and cliffs."
+  },
+  {
+    "name": "Flint and Steel",
+    "short_description": "Fire-starting kit with striker and tinder in leather pouch."
+  },
+  {
+    "name": "Tinderbox",
+    "short_description": "Metal container with char cloth and spark-making materials."
+  },
+  {
+    "name": "Oil Flask",
+    "short_description": "Clay bottle of lamp fuel that burns with steady flame."
+  },
+  {
+    "name": "Torch",
+    "short_description": "Wooden stick wrapped with oil-soaked rags for lighting."
+  },
+  {
+    "name": "Lantern",
+    "short_description": "Metal and glass enclosure protecting candle or oil flame."
+  },
+  {
+    "name": "Compass",
+    "short_description": "Magnetic needle in case always pointing toward north."
+  },
+  {
+    "name": "Map Case",
+    "short_description": "Waterproof cylinder protecting navigation charts from weather."
+  },
+  {
+    "name": "Spyglass",
+    "short_description": "Collapsible brass tube with lenses for viewing distant objects."
+  },
+  {
+    "name": "Fishing Line",
+    "short_description": "Thin cord with hooks for catching food from streams."
+  },
+  {
+    "name": "Net",
+    "short_description": "Woven mesh for trapping small game or fish."
+  },
+  {
+    "name": "Blanket",
+    "short_description": "Wool covering for warmth during cold nights outdoors."
+  },
+  {
+    "name": "Tent Stakes",
+    "short_description": "Iron pegs for securing temporary shelter to ground."
+  },
+  {
+    "name": "Canvas Tarp",
+    "short_description": "Waterproof cloth for weather protection and ground cover."
+  },
+  {
+    "name": "Pack",
+    "short_description": "Large leather or cloth bag with straps for carrying supplies."
+  },
+  {
+    "name": "Walking Staff",
+    "short_description": "Sturdy wooden pole for support on difficult terrain."
+  },
+  {
+    "name": "Silk Cloth",
+    "short_description": "Luxurious fabric from distant lands, soft and lustrous."
+  },
+  {
+    "name": "Spice Jar",
+    "short_description": "Ceramic container of exotic seasonings worth small fortune."
+  },
+  {
+    "name": "Salt Block",
+    "short_description": "Crystalline mineral essential for food preservation."
+  },
+  {
+    "name": "Ivory Carving",
+    "short_description": "Decorative figurine carved from elephant or walrus tusk."
+  },
+  {
+    "name": "Amber",
+    "short_description": "Fossilized tree resin containing prehistoric insects."
+  },
+  {
+    "name": "Pearl",
+    "short_description": "Lustrous sphere from oyster, symbol of wealth and beauty."
+  },
+  {
+    "name": "Gold Coin",
+    "short_description": "Precious metal currency stamped with ruler's image."
+  },
+  {
+    "name": "Silver Ingot",
+    "short_description": "Bar of refined metal used for large transactions."
+  },
+  {
+    "name": "Copper Wire",
+    "short_description": "Coiled metal useful for crafting and electrical work."
+  },
+  {
+    "name": "Iron Ore",
+    "short_description": "Raw mineral that can be smelted into useful metal."
+  },
+  {
+    "name": "Gemstone",
+    "short_description": "Cut and polished precious stone glinting with inner fire."
+  },
+  {
+    "name": "Perfume",
+    "short_description": "Fragrant oil in decorative bottle from exotic flowers."
+  },
+  {
+    "name": "Dye Powder",
+    "short_description": "Colored mineral for staining cloth and creating artwork."
+  },
+  {
+    "name": "Wool Yarn",
+    "short_description": "Spun sheep fiber ready for weaving into fabric."
+  },
+  {
+    "name": "Fur Pelt",
+    "short_description": "Tanned animal hide still bearing thick winter coat."
+  },
+  {
+    "name": "Feathers",
+    "short_description": "Exotic plumes from rare birds used in fashion."
+  },
+  {
+    "name": "Honey Pot",
+    "short_description": "Clay jar of golden sweetener from distant beehives."
+  },
+  {
+    "name": "Wine Bottle",
+    "short_description": "Glass container of aged grape spirits from renowned vineyard."
+  },
+  {
+    "name": "Tea Leaves",
+    "short_description": "Dried herbs from far-off mountains, steeped for drinking."
+  },
+  {
+    "name": "Tobacco",
+    "short_description": "Cured plant leaves rolled or powdered for smoking."
+  },
+  {
+    "name": "Ball of Yarn",
+    "short_description": "Wound thread ready for knitting or embroidery work."
+  },
+  {
+    "name": "Leather Scraps",
+    "short_description": "Leftover hide pieces useful for small repairs and projects."
+  },
+  {
+    "name": "Metal Shavings",
+    "short_description": "Thin curls of iron or brass from metalworking projects."
+  },
+  {
+    "name": "Wood Chips",
+    "short_description": "Small pieces of carved timber, aromatic and dry."
+  },
+  {
+    "name": "Clay",
+    "short_description": "Malleable earth material for pottery and sculpture."
+  },
+  {
+    "name": "Beeswax",
+    "short_description": "Natural wax from honeycomb, useful for waterproofing."
+  },
+  {
+    "name": "Linseed Oil",
+    "short_description": "Plant extract for preserving wood and mixing paints."
+  },
+  {
+    "name": "Glue Pot",
+    "short_description": "Animal-based adhesive for joining wood and fabric."
+  },
+  {
+    "name": "Dye Bath",
+    "short_description": "Colored liquid for staining cloth and leather goods."
+  },
+  {
+    "name": "Tanning Solution",
+    "short_description": "Chemical mixture for preserving animal hides."
+  },
+  {
+    "name": "Sandstone",
+    "short_description": "Rough rock for smoothing and shaping harder materials."
+  },
+  {
+    "name": "Charcoal",
+    "short_description": "Burnt wood pieces providing intense heat for forges."
+  },
+  {
+    "name": "Flux Powder",
+    "short_description": "Chemical agent helping metals fuse during welding."
+  },
+  {
+    "name": "Pigment",
+    "short_description": "Colored powder for mixing paint and decorating surfaces."
+  },
+  {
+    "name": "Varnish",
+    "short_description": "Clear coating for protecting finished woodwork."
+  },
+  {
+    "name": "Twine",
+    "short_description": "Thin cord for binding packages and light construction."
+  },
+  {
+    "name": "Nails",
+    "short_description": "Iron fasteners in various sizes for building projects."
+  },
+  {
+    "name": "Screws",
+    "short_description": "Threaded metal fasteners for precise assembly work."
+  },
+  {
+    "name": "Hinges",
+    "short_description": "Metal joints allowing doors and boxes to swing open."
+  },
+  {
+    "name": "Lock Mechanism",
+    "short_description": "Complex metal device for securing valuable containers."
+  },
+  {
+    "name": "Bread Loaf",
+    "short_description": "Dense brown bread made from coarse flour and grains."
+  },
+  {
+    "name": "Cheese Wheel",
+    "short_description": "Aged dairy product wrapped in cloth, sharp and crumbly."
+  },
+  {
+    "name": "Dried Fish",
+    "short_description": "Salt-preserved seafood that keeps without spoiling."
+  },
+  {
+    "name": "Smoked Meat",
+    "short_description": "Cured flesh with woody flavor from slow cooking process."
+  },
+  {
+    "name": "Pickled Vegetables",
+    "short_description": "Preserved produce in clay jar with vinegar brine."
+  },
+  {
+    "name": "Ale Barrel",
+    "short_description": "Wooden keg containing fermented grain beverage."
+  },
+  {
+    "name": "Wine Skin",
+    "short_description": "Leather pouch holding grape wine for celebrations."
+  },
+  {
+    "name": "Honey Comb",
+    "short_description": "Waxy structure filled with golden sweet syrup."
+  },
+  {
+    "name": "Nuts",
+    "short_description": "Mixed tree seeds providing protein and healthy fats."
+  },
+  {
+    "name": "Dried Fruit",
+    "short_description": "Preserved seasonal produce concentrated with natural sugars."
+  },
+  {
+    "name": "Grain Sack",
+    "short_description": "Burlap bag containing wheat, barley, or oats."
+  },
+  {
+    "name": "Salt Pork",
+    "short_description": "Preserved meat packed in mineral crystals."
+  },
+  {
+    "name": "Hard Biscuit",
+    "short_description": "Twice-baked bread that resists spoilage during travel."
+  },
+  {
+    "name": "Jerky",
+    "short_description": "Dried meat strips seasoned with salt and herbs."
+  },
+  {
+    "name": "Egg",
+    "short_description": "Fresh poultry product in fragile calcium shell."
+  },
+  {
+    "name": "Butter",
+    "short_description": "Churned cream formed into yellow block."
+  },
+  {
+    "name": "Milk",
+    "short_description": "Fresh dairy liquid in ceramic pitcher."
+  },
+  {
+    "name": "Flour",
+    "short_description": "Ground grain powder for baking bread and pastries."
+  },
+  {
+    "name": "Sugar",
+    "short_description": "Rare crystalline sweetener imported from tropical regions."
+  },
+  {
+    "name": "Herbs",
+    "short_description": "Dried plants for seasoning food and brewing medicine."
+  },
+  {
+    "name": "Lute",
+    "short_description": "Stringed instrument with rounded body for melodic music."
+  },
+  {
+    "name": "Flute",
+    "short_description": "Wooden wind instrument producing sweet, high notes."
+  },
+  {
+    "name": "Drum",
+    "short_description": "Stretched hide over wooden frame creating rhythmic beats."
+  },
+  {
+    "name": "Harp",
+    "short_description": "Multi-stringed instrument played by plucking with fingers."
+  },
+  {
+    "name": "Bell",
+    "short_description": "Bronze chime producing clear, resonant tones."
+  },
+  {
+    "name": "Whistle",
+    "short_description": "Small wind instrument for signals and simple melodies."
+  },
+  {
+    "name": "Tambourine",
+    "short_description": "Hand drum with metal discs creating jingling sounds."
+  },
+  {
+    "name": "Fiddle",
+    "short_description": "Bowed string instrument for folk music and dancing."
+  },
+  {
+    "name": "Horn",
+    "short_description": "Curved wind instrument made from animal horn."
+  },
+  {
+    "name": "Castanets",
+    "short_description": "Paired wooden clappers clicked together rhythmically."
+  },
+  {
+    "name": "Theater Mask",
+    "short_description": "Carved face covering representing dramatic character."
+  },
+  {
+    "name": "Juggling Balls",
+    "short_description": "Cloth spheres filled with sand for entertainment tricks."
+  },
+  {
+    "name": "Puppet",
+    "short_description": "Small cloth figure manipulated by strings or hand."
+  },
+  {
+    "name": "Story Book",
+    "short_description": "Collection of tales and legends in bound manuscript."
+  },
+  {
+    "name": "Chess Set",
+    "short_description": "Strategic board game with carved wooden pieces."
+  },
+  {
+    "name": "Backgammon Board",
+    "short_description": "Ancient racing game with counters and dice."
+  },
+  {
+    "name": "Playing Cards",
+    "short_description": "Illustrated deck for various gambling and skill games."
+  },
+  {
+    "name": "Dice",
+    "short_description": "Carved cubes with numbered faces for games of chance."
+  },
+  {
+    "name": "Knucklebones",
+    "short_description": "Animal bones used in ancient throwing games."
+  },
+  {
+    "name": "Riddle Collection",
+    "short_description": "Manuscript of brain puzzles and word challenges."
+  },
+  {
+    "name": "Sword Scabbard",
+    "short_description": "Leather sheath for protecting blade when not in use."
+  },
+  {
+    "name": "Whetstone",
+    "short_description": "Sharpening stone for maintaining weapon edges."
+  },
+  {
+    "name": "Weapon Oil",
+    "short_description": "Protective lubricant preventing rust on metal surfaces."
+  },
+  {
+    "name": "Bow String",
+    "short_description": "Twisted cord replacement for archery equipment."
+  },
+  {
+    "name": "Quiver",
+    "short_description": "Leather container worn on back or hip for arrows."
+  },
+  {
+    "name": "Arrow Fletchings",
+    "short_description": "Feathers for balancing projectile flight."
+  },
+  {
+    "name": "Shield Strap",
+    "short_description": "Leather harness for securing defensive equipment to arm."
+  },
+  {
+    "name": "Armor Polish",
+    "short_description": "Cleaning compound for maintaining metal protection."
+  },
+  {
+    "name": "Chainmail Repair Kit",
+    "short_description": "Wire links and tools for mending damaged armor."
+  },
+  {
+    "name": "Helmet Liner",
+    "short_description": "Padded cloth insert for comfortable head protection."
+  },
+  {
+    "name": "Gauntlet",
+    "short_description": "Armored glove providing hand protection in combat."
+  },
+  {
+    "name": "Bracer",
+    "short_description": "Forearm guard protecting archer from bow string."
+  },
+  {
+    "name": "Belt Knife",
+    "short_description": "Small utility blade worn for daily tasks."
+  },
+  {
+    "name": "Dagger Sheath",
+    "short_description": "Close-fitting cover for concealed blade."
+  },
+  {
+    "name": "Crossbow Bolt",
+    "short_description": "Short arrow designed for mechanical projectile weapon."
+  },
+  {
+    "name": "Spear Point",
+    "short_description": "Metal tip for long pole weapon or javelin."
+  },
+  {
+    "name": "Mace Head",
+    "short_description": "Heavy metal club end for crushing blows."
+  },
+  {
+    "name": "War Banner",
+    "short_description": "Cloth flag bearing military or family insignia."
+  },
+  {
+    "name": "Horn",
+    "short_description": "Wind instrument for battlefield communication."
+  },
+  {
+    "name": "Standard Pole",
+    "short_description": "Wooden staff for displaying colors and emblems."
+  },
+  {
+    "name": "Bird Nest",
+    "short_description": "Woven twigs and grass abandoned by its builders."
+  },
+  {
+    "name": "Feathers",
+    "short_description": "Colorful plumes shed by various wild birds."
+  },
+  {
+    "name": "Animal Skull",
+    "short_description": "Bleached bone remains of forest creature."
+  },
+  {
+    "name": "Antler",
+    "short_description": "Branched horn shed by deer during mating season."
+  },
+  {
+    "name": "Pine Cone",
+    "short_description": "Seed pod from evergreen tree, woody and scaled."
+  },
+  {
+    "name": "Acorns",
+    "short_description": "Nuts from oak tree in small leather pouch."
+  },
+  {
+    "name": "Pressed Flowers",
+    "short_description": "Dried blooms preserved between book pages."
+  },
+  {
+    "name": "Smooth Stone",
+    "short_description": "River rock polished by water into perfect oval."
+  },
+  {
+    "name": "Crystal Fragment",
+    "short_description": "Clear mineral shard with natural geometric faces."
+  },
+  {
+    "name": "Seashell",
+    "short_description": "Spiral shell from ocean creature, smooth and iridescent."
+  },
+  {
+    "name": "Coral Branch",
+    "short_description": "Calcium skeleton from marine organism."
+  },
+  {
+    "name": "Driftwood",
+    "short_description": "Weathered timber smoothed by waves and salt."
+  },
+  {
+    "name": "Sand Bottle",
+    "short_description": "Vial containing colored grains from distant beach."
+  },
+  {
+    "name": "Mushroom",
+    "short_description": "Dried fungus possibly useful for cooking or alchemy."
+  },
+  {
+    "name": "Lichen",
+    "short_description": "Crusty plant growth scraped from tree bark."
+  },
+  {
+    "name": "Moss",
+    "short_description": "Soft green plant material useful for padding."
+  },
+  {
+    "name": "Tree Sap",
+    "short_description": "Sticky resin collected from wounded bark."
+  },
+  {
+    "name": "Wildflower Seeds",
+    "short_description": "Tiny future blooms wrapped in cloth packet."
+  },
+  {
+    "name": "Butterfly Wing",
+    "short_description": "Delicate membrane with intricate patterns and colors."
+  },
+  {
+    "name": "Snake Skin",
+    "short_description": "Shed outer layer of serpent, papery and translucent."
+  },
+  {
+    "name": "Clockwork Mouse",
+    "short_description": "Mechanical toy that scurries when wound with key."
+  },
+  {
+    "name": "Message in Bottle",
+    "short_description": "Corked glass with mysterious note inside."
+  },
+  {
+    "name": "Puzzle Box",
+    "short_description": "Wooden cube with hidden opening mechanism."
+  },
+  {
+    "name": "Singing Bowl",
+    "short_description": "Metal vessel producing haunting tone when struck."
+  },
+  {
+    "name": "Kaleidoscope",
+    "short_description": "Tube creating changing patterns of colored glass."
+  },
+  {
+    "name": "Mechanical Bird",
+    "short_description": "Clockwork songbird in golden cage that chirps."
+  },
+  {
+    "name": "Dancing Skeleton",
+    "short_description": "Articulated bones on strings for macabre entertainment."
+  },
+  {
+    "name": "Fortune Cookie",
+    "short_description": "Folded pastry containing cryptic written prediction."
+  },
+  {
+    "name": "Magic 8-Ball",
+    "short_description": "Sphere with window showing random answers to questions."
+  },
+  {
+    "name": "Mood Ring",
+    "short_description": "Jewelry that changes color based on body temperature."
+  },
+  {
+    "name": "Worry Stone",
+    "short_description": "Smooth pebble worn by anxious rubbing."
+  },
+  {
+    "name": "Lucky Rabbit's Foot",
+    "short_description": "Preserved animal appendage believed to bring fortune."
+  },
+  {
+    "name": "Four-Leaf Clover",
+    "short_description": "Rare plant specimen pressed under glass."
+  },
+  {
+    "name": "Horseshoe",
+    "short_description": "Iron shoe believed to ward off evil when displayed."
+  },
+  {
+    "name": "Dream Catcher",
+    "short_description": "Woven hoop with feathers to filter nightmares."
+  },
+  {
+    "name": "Perpetual Calendar",
+    "short_description": "Mechanical device showing date without daily adjustment."
+  },
+  {
+    "name": "Sundial",
+    "short_description": "Time-telling device using shadow cast by metal pointer."
+  },
+  {
+    "name": "Weather Glass",
+    "short_description": "Sealed tube predicting storms through liquid levels."
+  },
+  {
+    "name": "Lodestone",
+    "short_description": "Naturally magnetic rock attracting iron objects."
+  },
+  {
+    "name": "Echo Stone",
+    "short_description": "Hollow rock producing strange sounds when shaken."
+  },
+  {
+    "name": "Cracked Mirror",
+    "short_description": "Reflective surface split by web of fracture lines."
+  },
+  {
+    "name": "Bent Spoon",
+    "short_description": "Twisted eating utensil damaged beyond normal use."
+  },
+  {
+    "name": "Torn Map",
+    "short_description": "Navigation chart missing crucial corner sections."
+  },
+  {
+    "name": "Broken Hourglass",
+    "short_description": "Time device with sand spilled from cracked glass."
+  },
+  {
+    "name": "Rusted Key",
+    "short_description": "Corroded metal no longer fitting original lock."
+  },
+  {
+    "name": "Burnt Book",
+    "short_description": "Fire-damaged manuscript with charred edges."
+  },
+  {
+    "name": "Chipped Goblet",
+    "short_description": "Drinking vessel missing piece of rim."
+  },
+  {
+    "name": "Frayed Rope",
+    "short_description": "Cord worn thin with many fibers coming loose."
+  },
+  {
+    "name": "Dented Helmet",
+    "short_description": "Head protection bearing deep impact marks."
+  },
+  {
+    "name": "Cracked Pottery",
+    "short_description": "Ceramic vessel held together by iron bands."
+  },
+  {
+    "name": "Broken Arrow",
+    "short_description": "Snapped projectile with splintered wooden shaft."
+  },
+  {
+    "name": "Torn Banner",
+    "short_description": "Battle standard with holes and missing sections."
+  },
+  {
+    "name": "Melted Candle",
+    "short_description": "Wax light collapsed into shapeless puddle."
+  },
+  {
+    "name": "Scratched Lens",
+    "short_description": "Magnifying glass marred by deep score marks."
+  },
+  {
+    "name": "Leaky Waterskin",
+    "short_description": "Punctured container slowly dripping contents."
+  },
+  {
+    "name": "Worn Sandal",
+    "short_description": "Footwear with sole nearly separated from upper."
+  },
+  {
+    "name": "Tangled Fishing Net",
+    "short_description": "Mesh so knotted it cannot be properly spread."
+  },
+  {
+    "name": "Brittle Parchment",
+    "short_description": "Ancient writing surface crumbling at edges."
+  },
+  {
+    "name": "Corroded Coin",
+    "short_description": "Currency green with age and unreadable."
+  },
+  {
+    "name": "Split Walking Stick",
+    "short_description": "Support staff cracked lengthwise but still usable."
+  },
+  {
+    "name": "Wooden Chest",
+    "short_description": "Large storage box with metal hinges and lock."
+  },
+  {
+    "name": "Leather Satchel",
+    "short_description": "Messenger bag with shoulder strap for documents."
+  },
+  {
+    "name": "Clay Amphora",
+    "short_description": "Large ceramic vessel with narrow neck and handles."
+  },
+  {
+    "name": "Wicker Basket",
+    "short_description": "Woven container with handle for market shopping."
+  },
+  {
+    "name": "Iron Strongbox",
+    "short_description": "Heavy metal container for securing valuable items."
+  },
+  {
+    "name": "Cloth Bag",
+    "short_description": "Simple fabric pouch with drawstring closure."
+  },
+  {
+    "name": "Barrel",
+    "short_description": "Wooden cask bound with iron hoops for liquids."
+  },
+  {
+    "name": "Jewelry Box",
+    "short_description": "Small ornate case with velvet-lined compartments."
+  },
+  {
+    "name": "Scroll Case",
+    "short_description": "Cylindrical tube protecting rolled documents."
+  },
+  {
+    "name": "Medicine Bag",
+    "short_description": "Healer's kit containing vials and implements."
+  },
+  {
+    "name": "Coin Pouch",
+    "short_description": "Small leather purse with metal clasp."
+  },
+  {
+    "name": "Spice Rack",
+    "short_description": "Wooden frame holding multiple seasoning jars."
+  },
+  {
+    "name": "Tool Box",
+    "short_description": "Compartmentalized case for organizing implements."
+  },
+  {
+    "name": "Map Case",
+    "short_description": "Waterproof cylinder for navigation charts."
+  },
+  {
+    "name": "Quiver",
+    "short_description": "Arrow holder worn on back or attached to belt."
+  },
+  {
+    "name": "Backpack",
+    "short_description": "Large pack with straps for carrying supplies."
+  },
+  {
+    "name": "Saddle Bags",
+    "short_description": "Paired pouches draped over horse for travel gear."
+  },
+  {
+    "name": "Flour Sack",
+    "short_description": "Burlap bag originally containing ground grain."
+  },
+  {
+    "name": "Wine Crate",
+    "short_description": "Wooden box with straw padding for bottle storage."
+  },
+  {
+    "name": "Herb Pouch",
+    "short_description": "Cloth bag containing dried medicinal plants."
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "description": "Amorphous, mindless predators — acidic blobs, slimes, and gelatinous dungeon hazards.",
+  "creatures": [
+    ["Black Pudding","A tar-black ooze that dissolves flesh and metal alike and splits into two when struck."],
+    ["Ochre Jelly","A yellow, quivering blob immune to slashing that squeezes through the thinnest cracks to reach prey."],
+    ["Gray Ooze","A puddle of wet-stone camouflage that corrodes metal armor and weapons on contact."],
+    ["Green Slime","A ceiling-clinging horror that drops onto victims and slowly dissolves them alive."],
+    ["Gelatinous Cube","A transparent, corridor-filling cube that engulfs victims whole and displays their bones suspended within."],
+    ["Crystal Ooze","A glittering, translucent slime that refracts light into blinding rainbows and grows crystalline spines."],
+    ["Acid Slime","A sizzling green puddle that eats through stone, metal, and bone without slowing."],
+    ["Frost Ooze","A glacial blue slime that flash-freezes anything it touches and creeps forward in crackling silence."],
+    ["Magma Ooze","A bubbling pool of living lava that oozes forward, charring stone and igniting everything nearby."],
+    ["Psychic Ooze","A shimmering, iridescent slime that drains memories and emotions from nearby minds."]
+  ]
+}

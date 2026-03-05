@@ -1,0 +1,18 @@
+{
+  "description": "Giant vermin and creepy crawlies — oversized bugs, arachnids, and insectoid horrors.",
+  "creatures": [
+    ["Giant Ant","An oversized ant with mandibles that shear through wood, tirelessly serving the colony."],
+    ["Giant Beetle","A massive, glossy-shelled beetle that rams with its horn and shrugs off blows on its armored back."],
+    ["Giant Centipede","A many-legged horror with venomous bite that skitters across walls with alarming speed."],
+    ["Giant Wasp","A buzzing predator with a paralytic stinger that drags victims back to its nest alive."],
+    ["Giant Mantis","A statue-still predator that swivels its alien head, then lashes out with scythe-like forelegs."],
+    ["Giant Locust","A swarming, crop-devouring plague that leaps tremendous distances and darkens fields."],
+    ["Giant Cockroach","A skittering, filth-covered vermin that survives almost anything and spreads disease wherever it nests."],
+    ["Phase Spider","A spider that blinks between dimensions, appearing behind prey and vanishing before they can swing."],
+    ["Stirge","A blood-sucking flying pest with a mosquito-like proboscis that latches on and drinks its fill."],
+    ["Ankheg","A horse-sized burrowing bug that erupts from the soil and sprays acid from its dripping mandibles."],
+    ["Bulezau","A rotting demon-insect hybrid with diseased claws and a stench that wilts plants."],
+    ["Web Golem","A shambling construct woven from animated spider silk that entangles everything it touches."],
+    ["Ant","just a regular ant"]
+  ]
+}

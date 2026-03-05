@@ -1,0 +1,20 @@
+{
+  "description": "Demons and devils from the lower planes — tempters, destroyers, and infernal commanders.",
+  "creatures": [
+    ["Balrog","A towering demon of shadow and flame that cracks a whip of fire and wields a smoldering blade."],
+    ["Succubus","A shape-shifting seducer that drains the life from victims through a single intoxicating kiss."],
+    ["Imp","A bat-winged, barb-tailed little devil that whispers temptation and vanishes in a puff of brimstone."],
+    ["Quasit","A tiny, shape-changing demon that perches on shoulders and corrupts mortals one whispered lie at a time."],
+    ["Pit Fiend","A towering, winged archdevil wreathed in hellfire whose very presence corrupts the ground beneath it."],
+    ["Balor","A flaming demon lord that detonates in a death-blast of fire when finally slain."],
+    ["Vrock","A vulture-headed demon that shrieks to stun its prey and sheds clouds of toxic spores."],
+    ["Hezrou","A hulking, toad-like demon that reeks of filth and spreads plague with its very presence."],
+    ["Glabrezu","A four-armed, pincered demon that offers mortals their deepest wishes — always at a ruinous price."],
+    ["Marilith","A six-armed, snake-bodied demon general that fights with a whirlwind of blades."],
+    ["Bone Devil","A gaunt, skeletal fiend that flicks its scorpion tail and sees through every lie and disguise."],
+    ["Chain Devil","A devil draped in animate chains that lash out to bind, drag, and flay victims alive."],
+    ["Lemure","A mindless, bloblike mass of damned soul-flesh that reforms no matter how many times it is hacked apart."],
+    ["Barbed Devil","A devil covered head to toe in iron barbs that tears flesh from anything it grapples."],
+    ["Ice Devil","A towering, mantis-like fiend that radiates killing cold and impales foes on its frozen spear."]
+  ]
+}

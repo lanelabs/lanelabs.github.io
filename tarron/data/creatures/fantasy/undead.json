@@ -1,0 +1,20 @@
+{
+  "description": "Creatures defying death — restless spirits, animated corpses, and soul-draining horrors.",
+  "creatures": [
+    ["Skeleton","Animated bones that clatter to their feet, gripping rusted weapons from a life long forgotten."],
+    ["Zombie","A shambling, groaning corpse driven by blind hunger, rotting flesh sloughing off with every step."],
+    ["Ghost","A translucent figure bound to the living world by grief or rage, replaying its death endlessly."],
+    ["Vampire","A pale, ageless predator that seduces victims close before draining them of every drop of blood."],
+    ["Lich","A skeletal sorcerer whose soul is locked in a hidden phylactery, immortal and endlessly scheming."],
+    ["Wraith","A dark, howling shade that passes through walls and withers flesh with its freezing touch."],
+    ["Specter","A hateful spirit that phases through solid matter and chills souls to the bone with its grasp."],
+    ["Wight","A cunning, armored corpse that fights with the skill it had in life and drains vitality with each blow."],
+    ["Mummy","A bandage-wrapped corpse that rises from its sarcophagus trailing dust and ancient curses."],
+    ["Ghoul","A hunched, clawed scavenger that paralyzes prey with its raking touch and feasts on the helpless."],
+    ["Revenant","An undead avenger that cannot be stopped, tracking the one who wronged it across any distance."],
+    ["Death Knight","A fallen paladin in blackened armor whose sword burns with hellfire and whose commands raise the dead."],
+    ["Banshee","A wailing spirit whose keening shriek kills the weak-hearted and foretells doom for all who hear."],
+    ["Shadow","A creeping patch of living darkness that saps strength with its touch and spawns copies of the slain."],
+    ["Demilich","A floating, gem-eyed skull — all that remains of a lich — that traps souls in its teeth."]
+  ]
+}

@@ -22,4 +22,21 @@ export const settings = [
   'An abyss',
   'A pearl farm',
   'A fishing village',
+
+  // From RPG-Gen water locations
+  'A sunken city',
+  'A sunken temple',
+  'A ship graveyard',
+  'A seamount',
+  'A fjord',
+  'A cenote',
+  'A sea stack',
+  'An iceberg',
+  'A glacier',
+  'A brine pool',
+  'A coral garden',
+  'A sea arch',
+  'An estuary',
+  'A delta',
+  'A frozen sea',
 ];

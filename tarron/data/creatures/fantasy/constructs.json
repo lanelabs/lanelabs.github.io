@@ -1,0 +1,19 @@
+{
+  "description": "Artificial creatures animated by magic — golems, automatons, and enchanted objects.",
+  "creatures": [
+    ["Clay Golem","A lumbering clay giant that shrugs off spells and crushes walls with slow, deliberate blows."],
+    ["Stone Golem","A statue ground to life, its stone fists cracking floors with every thundering step."],
+    ["Iron Golem","A towering iron hulk that exhales clouds of poisonous gas and shrugs off sword blows like rain."],
+    ["Flesh Golem","A stitched-together patchwork of corpses animated by lightning, prone to mindless berserk rage."],
+    ["Wood Golem","A creaking wooden figure with splintering fists, slow to anger but quick to burn."],
+    ["Glass Golem","A gleaming, transparent figure that reflects spells off its surface and shatters into razor-sharp shrapnel."],
+    ["Animated Armor","Empty plate mail that clanks to life, swinging its weapon with the muscle memory of a dead knight."],
+    ["Animated Weapon","A floating blade that parries and thrusts on its own, guided by an unseen will."],
+    ["Shield Guardian","A hulking stone bodyguard that absorbs blows meant for its bonded master without flinching."],
+    ["Scarecrow","A burlap-faced figure that stands motionless in fields until something draws too close."],
+    ["Gargoyle","A stone grotesque perched on ledges, indistinguishable from architecture until it unfolds its wings and pounces."],
+    ["Homunculus","A palm-sized creature molded from clay and blood, fiercely loyal to its alchemist creator."],
+    ["Clockwork Soldier","A ticking, brass warrior that marches in lockstep and fights with mechanical precision."],
+    ["Automaton","A whirring, gear-driven servant that follows its last command until it winds down or is destroyed."]
+  ]
+}

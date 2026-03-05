@@ -1,0 +1,2573 @@
+{
+  "Human": {
+    "subraces": {
+      "Imperial": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Imperial are a medium subrace of Human known for distinct heritage."
+      },
+      "Nomadic": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Nomadic are a medium subrace of Human known for distinct heritage."
+      },
+      "Tribal": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Tribal are a medium subrace of Human known for distinct heritage."
+      },
+      "Nordic": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Nordic are a medium subrace of Human known for distinct heritage."
+      },
+      "Mediterranean": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mediterranean are a medium subrace of Human known for distinct heritage."
+      },
+      "Oriental": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Oriental are a medium subrace of Human known for distinct heritage."
+      },
+      "Barbarian": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Barbarian are a medium subrace of Human known for distinct heritage."
+      },
+      "Civilized": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Civilized are a medium subrace of Human known for distinct heritage."
+      },
+      "Primitive": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Primitive are a medium subrace of Human known for distinct heritage."
+      },
+      "Variant Human": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Variant Human are a medium subrace of Human known for distinct heritage."
+      },
+      "Mark of Finding Human": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Finding Human are a medium subrace of Human known for distinct heritage."
+      },
+      "Mark of Handling Human": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Handling Human are a medium subrace of Human known for distinct heritage."
+      },
+      "Mark of Making Human": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Making Human are a medium subrace of Human known for distinct heritage."
+      },
+      "Mark of Passage Human": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Passage Human are a medium subrace of Human known for distinct heritage."
+      },
+      "Mark of Sentinel Human": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Sentinel Human are a medium subrace of Human known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Human are medium humanoid beings common in fantasy settings."
+  },
+  "Elf": {
+    "subraces": {
+      "High Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "High Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Wood Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Wood Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Dark Elf (Drow)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Dark Elf (Drow) are a medium subrace of Elf known for distinct heritage."
+      },
+      "Sea Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Sea Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Eladrin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Eladrin are a medium subrace of Elf known for distinct heritage."
+      },
+      "Wild Elf (Grugach)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Wild Elf (Grugach) are a medium subrace of Elf known for distinct heritage."
+      },
+      "Moon Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Moon Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Sun Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Sun Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Star Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Star Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Snow Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Snow Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Shadar-kai": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Shadar-kai are a medium subrace of Elf known for distinct heritage."
+      },
+      "Avariel (Winged Elf)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Avariel (Winged Elf) are a medium subrace of Elf known for distinct heritage."
+      },
+      "Lythari (Wolf Elf)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Lythari (Wolf Elf) are a medium subrace of Elf known for distinct heritage."
+      },
+      "Astral Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Astral Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Pallid Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Pallid Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Mark of Shadow Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Shadow Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Valley Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Valley Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Gray Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Gray Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Silver Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Silver Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Gold Elf": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Gold Elf are a medium subrace of Elf known for distinct heritage."
+      },
+      "Silvanesti": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Silvanesti are a medium subrace of Elf known for distinct heritage."
+      },
+      "Qualinesti": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Qualinesti are a medium subrace of Elf known for distinct heritage."
+      },
+      "Kagonesti": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Kagonesti are a medium subrace of Elf known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Elf are medium humanoid beings common in fantasy settings."
+  },
+  "Dwarf": {
+    "subraces": {
+      "Hill Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Hill Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Mountain Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Mountain Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Duergar (Gray Dwarf)": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Duergar (Gray Dwarf) are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Shield Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Shield Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Gold Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Gold Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Wild Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Wild Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Arctic Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Arctic Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Jungle Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Jungle Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Mark of Warding Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Mark of Warding Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Gully Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Gully Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Dark Iron Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Dark Iron Dwarf are a small subrace of Dwarf known for distinct heritage."
+      },
+      "Deep Dwarf": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Deep Dwarf are a small subrace of Dwarf known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Dwarf are small humanoid beings common in fantasy settings."
+  },
+  "Halfling": {
+    "subraces": {
+      "Lightfoot Halfling": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Lightfoot Halfling are a small subrace of Halfling known for distinct heritage."
+      },
+      "Stout Halfling": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Stout Halfling are a small subrace of Halfling known for distinct heritage."
+      },
+      "Ghostwise Halfling": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Ghostwise Halfling are a small subrace of Halfling known for distinct heritage."
+      },
+      "Lotusden Halfling": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Lotusden Halfling are a small subrace of Halfling known for distinct heritage."
+      },
+      "Mark of Hospitality Halfling": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Mark of Hospitality Halfling are a small subrace of Halfling known for distinct heritage."
+      },
+      "Mark of Healing Halfling": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Mark of Healing Halfling are a small subrace of Halfling known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Halfling are small humanoid beings common in fantasy settings."
+  },
+  "Gnome": {
+    "subraces": {
+      "Forest Gnome": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Forest Gnome are a small subrace of Gnome known for distinct heritage."
+      },
+      "Rock Gnome": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Rock Gnome are a small subrace of Gnome known for distinct heritage."
+      },
+      "Deep Gnome (Svirfneblin)": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Deep Gnome (Svirfneblin) are a small subrace of Gnome known for distinct heritage."
+      },
+      "Mark of Scribing Gnome": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Mark of Scribing Gnome are a small subrace of Gnome known for distinct heritage."
+      },
+      "Tinker Gnome": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Tinker Gnome are a small subrace of Gnome known for distinct heritage."
+      },
+      "Whisper Gnome": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Whisper Gnome are a small subrace of Gnome known for distinct heritage."
+      },
+      "Chaos Gnome": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Chaos Gnome are a small subrace of Gnome known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Gnome are small humanoid beings common in fantasy settings."
+  },
+  "Orc": {
+    "subraces": {
+      "Mountain Orc": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mountain Orc are a medium subrace of Orc known for distinct heritage."
+      },
+      "Gray Orc": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Gray Orc are a medium subrace of Orc known for distinct heritage."
+      },
+      "Deep Orc": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Deep Orc are a medium subrace of Orc known for distinct heritage."
+      },
+      "Scro (Space Orc)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Scro (Space Orc) are a medium subrace of Orc known for distinct heritage."
+      },
+      "Half-Orc": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Half-Orc are a medium subrace of Orc known for distinct heritage."
+      },
+      "Orog": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Orog are a medium subrace of Orc known for distinct heritage."
+      },
+      "Neo-Orog": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Neo-Orog are a medium subrace of Orc known for distinct heritage."
+      },
+      "Tanarukk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Tanarukk are a medium subrace of Orc known for distinct heritage."
+      },
+      "Mark of Finding Orc": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mark of Finding Orc are a medium subrace of Orc known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Orc are medium humanoid beings common in fantasy settings."
+  },
+  "Goblin": {
+    "subraces": {
+      "Common Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Common Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Blue Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Blue Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Snow Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Snow Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Desert Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Desert Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Forest Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Forest Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Cave Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Cave Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Nilbog": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Nilbog are a small subrace of Goblin known for distinct heritage."
+      },
+      "Red Goblin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Red Goblin are a small subrace of Goblin known for distinct heritage."
+      },
+      "Barghest": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Barghest are a small subrace of Goblin known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Goblin are small humanoid beings common in fantasy settings."
+  },
+  "Hobgoblin": {
+    "subraces": {
+      "Legion Hobgoblin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Legion Hobgoblin are a medium subrace of Hobgoblin known for distinct heritage."
+      },
+      "Iron Shadow Hobgoblin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Iron Shadow Hobgoblin are a medium subrace of Hobgoblin known for distinct heritage."
+      },
+      "Devastator Hobgoblin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Devastator Hobgoblin are a medium subrace of Hobgoblin known for distinct heritage."
+      },
+      "Koalinth (Aquatic Hobgoblin)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Koalinth (Aquatic Hobgoblin) are a medium subrace of Hobgoblin known for distinct heritage."
+      },
+      "Amitok (Arctic Hobgoblin)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Amitok (Arctic Hobgoblin) are a medium subrace of Hobgoblin known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Hobgoblin are medium humanoid beings common in fantasy settings."
+  },
+  "Bugbear": {
+    "subraces": {
+      "Common Bugbear": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Common Bugbear are a large subrace of Bugbear known for distinct heritage."
+      },
+      "Ursa Bugbear": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Ursa Bugbear are a large subrace of Bugbear known for distinct heritage."
+      },
+      "Yetibear": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Yetibear are a large subrace of Bugbear known for distinct heritage."
+      },
+      "Bugbear Chief": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Bugbear Chief are a large subrace of Bugbear known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Bugbear are large humanoid beings common in fantasy settings."
+  },
+  "Goliath": {
+    "subraces": {
+      "Stone Giant-kin": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Stone Giant-kin are a large subrace of Goliath known for distinct heritage."
+      },
+      "Frost Giant-kin": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Frost Giant-kin are a large subrace of Goliath known for distinct heritage."
+      },
+      "Fire Giant-kin": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Fire Giant-kin are a large subrace of Goliath known for distinct heritage."
+      },
+      "Cloud Giant-kin": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Cloud Giant-kin are a large subrace of Goliath known for distinct heritage."
+      },
+      "Storm Giant-kin": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Storm Giant-kin are a large subrace of Goliath known for distinct heritage."
+      },
+      "Hill Giant-kin": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Hill Giant-kin are a large subrace of Goliath known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Goliath are large humanoid beings common in fantasy settings."
+  },
+  "Firbolg": {
+    "subraces": {
+      "Forest Firbolg": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Forest Firbolg are a large subrace of Firbolg known for distinct heritage."
+      },
+      "Mountain Firbolg": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Mountain Firbolg are a large subrace of Firbolg known for distinct heritage."
+      },
+      "Fey Firbolg": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Fey Firbolg are a large subrace of Firbolg known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Firbolg are large humanoid beings common in fantasy settings."
+  },
+  "Giant": {
+    "subraces": {
+      "Hill Giant": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Hill Giant are a large subrace of Giant known for distinct heritage."
+      },
+      "Stone Giant": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Stone Giant are a large subrace of Giant known for distinct heritage."
+      },
+      "Frost Giant": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Frost Giant are a large subrace of Giant known for distinct heritage."
+      },
+      "Fire Giant": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Fire Giant are a large subrace of Giant known for distinct heritage."
+      },
+      "Cloud Giant": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Cloud Giant are a large subrace of Giant known for distinct heritage."
+      },
+      "Storm Giant": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Storm Giant are a large subrace of Giant known for distinct heritage."
+      },
+      "Cyclops": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Cyclops are a large subrace of Giant known for distinct heritage."
+      },
+      "Ettin": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Ettin are a large subrace of Giant known for distinct heritage."
+      },
+      "Titan": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Titan are a large subrace of Giant known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large"
+    ],
+    "short_description": "Giant are large humanoid beings common in fantasy settings."
+  },
+  "Tabaxi": {
+    "subraces": {
+      "Jaguar Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Jaguar Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "Leopard Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Leopard Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "Lion Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Lion Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "Tiger Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Tiger Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "Lynx Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Lynx Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "Cheetah Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Cheetah Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "House Cat Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "House Cat Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      },
+      "Panther Tabaxi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Panther Tabaxi are a medium subrace of Tabaxi known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Tabaxi are medium humanoid beings common in fantasy settings."
+  },
+  "Leonin": {
+    "subraces": {
+      "Mane Leonin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mane Leonin are a medium subrace of Leonin known for distinct heritage."
+      },
+      "Pride Leonin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Pride Leonin are a medium subrace of Leonin known for distinct heritage."
+      },
+      "Nomad Leonin": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Nomad Leonin are a medium subrace of Leonin known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Leonin are medium humanoid beings common in fantasy settings."
+  },
+  "Kenku": {
+    "subraces": {
+      "Crow Kenku": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Crow Kenku are a small subrace of Kenku known for distinct heritage."
+      },
+      "Raven Kenku": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Raven Kenku are a small subrace of Kenku known for distinct heritage."
+      },
+      "Magpie Kenku": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Magpie Kenku are a small subrace of Kenku known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Kenku are small humanoid beings common in fantasy settings."
+  },
+  "Aarakocra": {
+    "subraces": {
+      "Eagle Aarakocra": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Eagle Aarakocra are a small subrace of Aarakocra known for distinct heritage."
+      },
+      "Hawk Aarakocra": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Hawk Aarakocra are a small subrace of Aarakocra known for distinct heritage."
+      },
+      "Owl Aarakocra": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Owl Aarakocra are a small subrace of Aarakocra known for distinct heritage."
+      },
+      "Parrot Aarakocra": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Parrot Aarakocra are a small subrace of Aarakocra known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Aarakocra are small humanoid beings common in fantasy settings."
+  },
+  "Owlin": {
+    "subraces": {
+      "Great Horned Owlin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Great Horned Owlin are a small subrace of Owlin known for distinct heritage."
+      },
+      "Barn Owlin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Barn Owlin are a small subrace of Owlin known for distinct heritage."
+      },
+      "Snowy Owlin": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Snowy Owlin are a small subrace of Owlin known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Owlin are small humanoid beings common in fantasy settings."
+  },
+  "Lizardfolk": {
+    "subraces": {
+      "Swamp Lizardfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Swamp Lizardfolk are a medium subrace of Lizardfolk known for distinct heritage."
+      },
+      "Desert Lizardfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Desert Lizardfolk are a medium subrace of Lizardfolk known for distinct heritage."
+      },
+      "Jungle Lizardfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Jungle Lizardfolk are a medium subrace of Lizardfolk known for distinct heritage."
+      },
+      "Blackscale Lizardfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Blackscale Lizardfolk are a medium subrace of Lizardfolk known for distinct heritage."
+      },
+      "Poison Dusk Lizardfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Poison Dusk Lizardfolk are a medium subrace of Lizardfolk known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Lizardfolk are medium humanoid beings common in fantasy settings."
+  },
+  "Tortle": {
+    "subraces": {
+      "Land Tortle": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Land Tortle are a medium subrace of Tortle known for distinct heritage."
+      },
+      "Sea Tortle": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Sea Tortle are a medium subrace of Tortle known for distinct heritage."
+      },
+      "Snapping Tortle": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Snapping Tortle are a medium subrace of Tortle known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Tortle are medium humanoid beings common in fantasy settings."
+  },
+  "Minotaur": {
+    "subraces": {
+      "Labyrinth Minotaur": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Labyrinth Minotaur are a large subrace of Minotaur known for distinct heritage."
+      },
+      "Sea Minotaur": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Sea Minotaur are a large subrace of Minotaur known for distinct heritage."
+      },
+      "Skysail Minotaur": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Skysail Minotaur are a large subrace of Minotaur known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Minotaur are large humanoid beings common in fantasy settings."
+  },
+  "Centaur": {
+    "subraces": {
+      "Woodland Centaur": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Woodland Centaur are a large subrace of Centaur known for distinct heritage."
+      },
+      "Plains Centaur": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Plains Centaur are a large subrace of Centaur known for distinct heritage."
+      },
+      "Mountain Centaur": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Mountain Centaur are a large subrace of Centaur known for distinct heritage."
+      },
+      "Pegataur (Winged)": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Pegataur (Winged) are a large subrace of Centaur known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Centaur are large humanoid beings common in fantasy settings."
+  },
+  "Satyr": {
+    "subraces": {
+      "Woodland Satyr": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Woodland Satyr are a medium subrace of Satyr known for distinct heritage."
+      },
+      "Mountain Satyr": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mountain Satyr are a medium subrace of Satyr known for distinct heritage."
+      },
+      "Revelry Satyr": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Revelry Satyr are a medium subrace of Satyr known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Satyr are medium humanoid beings common in fantasy settings."
+  },
+  "Harengon": {
+    "subraces": {
+      "Cottontail Harengon": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Cottontail Harengon are a small subrace of Harengon known for distinct heritage."
+      },
+      "Jackrabbit Harengon": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Jackrabbit Harengon are a small subrace of Harengon known for distinct heritage."
+      },
+      "Arctic Hare Harengon": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Arctic Hare Harengon are a small subrace of Harengon known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Harengon are small humanoid beings common in fantasy settings."
+  },
+  "Loxodon": {
+    "subraces": {
+      "Selesnya Loxodon": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Selesnya Loxodon are a large subrace of Loxodon known for distinct heritage."
+      },
+      "Temple Loxodon": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Temple Loxodon are a large subrace of Loxodon known for distinct heritage."
+      },
+      "Elder Loxodon": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Elder Loxodon are a large subrace of Loxodon known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Loxodon are large humanoid beings common in fantasy settings."
+  },
+  "Shifter": {
+    "subraces": {
+      "Beasthide Shifter": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Beasthide Shifter are a medium subrace of Shifter known for distinct heritage."
+      },
+      "Longtooth Shifter": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Longtooth Shifter are a medium subrace of Shifter known for distinct heritage."
+      },
+      "Swiftstride Shifter": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Swiftstride Shifter are a medium subrace of Shifter known for distinct heritage."
+      },
+      "Wildhunt Shifter": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Wildhunt Shifter are a medium subrace of Shifter known for distinct heritage."
+      },
+      "Razorclaw Shifter": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Razorclaw Shifter are a medium subrace of Shifter known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Shifter are medium humanoid beings common in fantasy settings."
+  },
+  "Dragonborn": {
+    "subraces": {
+      "Red Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Red Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Blue Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Blue Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Green Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Green Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Black Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Black Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "White Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "White Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Gold Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Gold Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Silver Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Silver Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Bronze Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Bronze Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Brass Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Brass Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Copper Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Copper Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Amethyst Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Amethyst Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Crystal Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Crystal Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Emerald Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Emerald Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Sapphire Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Sapphire Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Topaz Dragonborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Topaz Dragonborn are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Draconblood": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Draconblood are a medium subrace of Dragonborn known for distinct heritage."
+      },
+      "Ravenite": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Ravenite are a medium subrace of Dragonborn known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Dragonborn are medium humanoid beings common in fantasy settings."
+  },
+  "Kobold": {
+    "subraces": {
+      "Common Kobold": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Common Kobold are a small subrace of Kobold known for distinct heritage."
+      },
+      "Winged Kobold": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Winged Kobold are a small subrace of Kobold known for distinct heritage."
+      },
+      "Spellscale Kobold": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Spellscale Kobold are a small subrace of Kobold known for distinct heritage."
+      },
+      "Trapmaker Kobold": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Trapmaker Kobold are a small subrace of Kobold known for distinct heritage."
+      },
+      "Urd (Winged Kobold)": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Urd (Winged Kobold) are a small subrace of Kobold known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Kobold are small humanoid beings common in fantasy settings."
+  },
+  "Yuan-ti": {
+    "subraces": {
+      "Yuan-ti Pureblood": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Yuan-ti Pureblood are a medium subrace of Yuan-ti known for distinct heritage."
+      },
+      "Yuan-ti Malison": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Yuan-ti Malison are a medium subrace of Yuan-ti known for distinct heritage."
+      },
+      "Yuan-ti Abomination": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Yuan-ti Abomination are a medium subrace of Yuan-ti known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Yuan-ti are medium humanoid beings common in fantasy settings."
+  },
+  "Troglodyte": {
+    "subraces": {
+      "Cave Troglodyte": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Cave Troglodyte are a medium subrace of Troglodyte known for distinct heritage."
+      },
+      "Deep Troglodyte": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Deep Troglodyte are a medium subrace of Troglodyte known for distinct heritage."
+      },
+      "Savage Troglodyte": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Savage Troglodyte are a medium subrace of Troglodyte known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Troglodyte are medium humanoid beings common in fantasy settings."
+  },
+  "Pixie": {
+    "subraces": {
+      "Garden Pixie": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Garden Pixie are a small subrace of Pixie known for distinct heritage."
+      },
+      "Forest Pixie": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Forest Pixie are a small subrace of Pixie known for distinct heritage."
+      },
+      "Flower Pixie": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Flower Pixie are a small subrace of Pixie known for distinct heritage."
+      },
+      "Frost Pixie": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Frost Pixie are a small subrace of Pixie known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small"
+    ],
+    "short_description": "Pixie are small humanoid beings common in fantasy settings."
+  },
+  "Sprite": {
+    "subraces": {
+      "Common Sprite": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Common Sprite are a small subrace of Sprite known for distinct heritage."
+      },
+      "Grig (Cricket Sprite)": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Grig (Cricket Sprite) are a small subrace of Sprite known for distinct heritage."
+      },
+      "Nixie (Water Sprite)": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Nixie (Water Sprite) are a small subrace of Sprite known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small"
+    ],
+    "short_description": "Sprite are small humanoid beings common in fantasy settings."
+  },
+  "Fairy": {
+    "subraces": {
+      "Seelie Fairy": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Seelie Fairy are a small subrace of Fairy known for distinct heritage."
+      },
+      "Unseelie Fairy": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Unseelie Fairy are a small subrace of Fairy known for distinct heritage."
+      },
+      "Court Fairy": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Court Fairy are a small subrace of Fairy known for distinct heritage."
+      },
+      "Wild Fairy": {
+        "tags": [
+          "small"
+        ],
+        "short_description": "Wild Fairy are a small subrace of Fairy known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small"
+    ],
+    "short_description": "Fairy are small humanoid beings common in fantasy settings."
+  },
+  "Dryad": {
+    "subraces": {
+      "Tree Dryad": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Tree Dryad are a medium subrace of Dryad known for distinct heritage."
+      },
+      "Flower Dryad": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Flower Dryad are a medium subrace of Dryad known for distinct heritage."
+      },
+      "Grove Dryad": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Grove Dryad are a medium subrace of Dryad known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Dryad are medium humanoid beings common in fantasy settings."
+  },
+  "Nymph": {
+    "subraces": {
+      "Naiad (Water Nymph)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Naiad (Water Nymph) are a medium subrace of Nymph known for distinct heritage."
+      },
+      "Oread (Mountain Nymph)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Oread (Mountain Nymph) are a medium subrace of Nymph known for distinct heritage."
+      },
+      "Hamadryad (Tree Nymph)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Hamadryad (Tree Nymph) are a medium subrace of Nymph known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Nymph are medium humanoid beings common in fantasy settings."
+  },
+  "Genasi": {
+    "subraces": {
+      "Air Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Air Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Earth Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Earth Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Fire Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Fire Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Water Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Water Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Ice Para-Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Ice Para-Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Magma Para-Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Magma Para-Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Ooze Para-Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Ooze Para-Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Smoke Para-Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Smoke Para-Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Lightning Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Lightning Genasi are a medium subrace of Genasi known for distinct heritage."
+      },
+      "Dust Para-Genasi": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Dust Para-Genasi are a medium subrace of Genasi known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Genasi are medium humanoid beings common in fantasy settings."
+  },
+  "Elemental": {
+    "subraces": {
+      "Air Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Air Elemental are a large subrace of Elemental known for distinct heritage."
+      },
+      "Earth Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Earth Elemental are a large subrace of Elemental known for distinct heritage."
+      },
+      "Fire Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Fire Elemental are a large subrace of Elemental known for distinct heritage."
+      },
+      "Water Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Water Elemental are a large subrace of Elemental known for distinct heritage."
+      },
+      "Ice Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Ice Elemental are a large subrace of Elemental known for distinct heritage."
+      },
+      "Magma Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Magma Elemental are a large subrace of Elemental known for distinct heritage."
+      },
+      "Lightning Elemental": {
+        "tags": [
+          "large"
+        ],
+        "short_description": "Lightning Elemental are a large subrace of Elemental known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large"
+    ],
+    "short_description": "Elemental are large humanoid beings common in fantasy settings."
+  },
+  "Tiefling": {
+    "subraces": {
+      "Asmodeus Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Asmodeus Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Baalzebul Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Baalzebul Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Dispater Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Dispater Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Fierna Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Fierna Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Glasya Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Glasya Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Levistus Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Levistus Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Mammon Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mammon Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Mephistopheles Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mephistopheles Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Zariel Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Zariel Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Feral Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Feral Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Devil's Tongue Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Devil's Tongue Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Hellfire Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Hellfire Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      },
+      "Winged Tiefling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Winged Tiefling are a medium subrace of Tiefling known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Tiefling are medium humanoid beings common in fantasy settings."
+  },
+  "Aasimar": {
+    "subraces": {
+      "Protector Aasimar": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Protector Aasimar are a medium subrace of Aasimar known for distinct heritage."
+      },
+      "Scourge Aasimar": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Scourge Aasimar are a medium subrace of Aasimar known for distinct heritage."
+      },
+      "Fallen Aasimar": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Fallen Aasimar are a medium subrace of Aasimar known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Aasimar are medium humanoid beings common in fantasy settings."
+  },
+  "Githyanki": {
+    "subraces": {
+      "Warrior Githyanki": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Warrior Githyanki are a medium subrace of Githyanki known for distinct heritage."
+      },
+      "Mage Githyanki": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mage Githyanki are a medium subrace of Githyanki known for distinct heritage."
+      },
+      "Knight Githyanki": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Knight Githyanki are a medium subrace of Githyanki known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Githyanki are medium humanoid beings common in fantasy settings."
+  },
+  "Githzerai": {
+    "subraces": {
+      "Monk Githzerai": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Monk Githzerai are a medium subrace of Githzerai known for distinct heritage."
+      },
+      "Zerth Githzerai": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Zerth Githzerai are a medium subrace of Githzerai known for distinct heritage."
+      },
+      "Anarch Githzerai": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Anarch Githzerai are a medium subrace of Githzerai known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Githzerai are medium humanoid beings common in fantasy settings."
+  },
+  "Dhampir": {
+    "subraces": {
+      "Vampire-born Dhampir": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Vampire-born Dhampir are a medium subrace of Dhampir known for distinct heritage."
+      },
+      "Moroi Dhampir": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Moroi Dhampir are a medium subrace of Dhampir known for distinct heritage."
+      },
+      "Strigoi Dhampir": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Strigoi Dhampir are a medium subrace of Dhampir known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Dhampir are medium humanoid beings common in fantasy settings."
+  },
+  "Reborn": {
+    "subraces": {
+      "Stitched Reborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Stitched Reborn are a medium subrace of Reborn known for distinct heritage."
+      },
+      "Revenant Reborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Revenant Reborn are a medium subrace of Reborn known for distinct heritage."
+      },
+      "Awakened Reborn": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Awakened Reborn are a medium subrace of Reborn known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Reborn are medium humanoid beings common in fantasy settings."
+  },
+  "Hexblood": {
+    "subraces": {
+      "Hag-touched Hexblood": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Hag-touched Hexblood are a medium subrace of Hexblood known for distinct heritage."
+      },
+      "Fey-cursed Hexblood": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Fey-cursed Hexblood are a medium subrace of Hexblood known for distinct heritage."
+      },
+      "Witch-born Hexblood": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Witch-born Hexblood are a medium subrace of Hexblood known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Hexblood are medium humanoid beings common in fantasy settings."
+  },
+  "Lamia": {
+    "subraces": {
+      "Desert Lamia": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Desert Lamia are a large subrace of Lamia known for distinct heritage."
+      },
+      "Jungle Lamia": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Jungle Lamia are a large subrace of Lamia known for distinct heritage."
+      },
+      "Noble Lamia": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Noble Lamia are a large subrace of Lamia known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Lamia are large humanoid beings common in fantasy settings."
+  },
+  "Medusa": {
+    "subraces": {
+      "Greater Medusa": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Greater Medusa are a medium subrace of Medusa known for distinct heritage."
+      },
+      "Lesser Medusa": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Lesser Medusa are a medium subrace of Medusa known for distinct heritage."
+      },
+      "Maedar (Male Medusa)": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Maedar (Male Medusa) are a medium subrace of Medusa known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Medusa are medium humanoid beings common in fantasy settings."
+  },
+  "Harpy": {
+    "subraces": {
+      "Cliff Harpy": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Cliff Harpy are a medium subrace of Harpy known for distinct heritage."
+      },
+      "Sea Harpy": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Sea Harpy are a medium subrace of Harpy known for distinct heritage."
+      },
+      "Storm Harpy": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Storm Harpy are a medium subrace of Harpy known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Harpy are medium humanoid beings common in fantasy settings."
+  },
+  "Siren": {
+    "subraces": {
+      "Sea Siren": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Sea Siren are a medium subrace of Siren known for distinct heritage."
+      },
+      "River Siren": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "River Siren are a medium subrace of Siren known for distinct heritage."
+      },
+      "Lake Siren": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Lake Siren are a medium subrace of Siren known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Siren are medium humanoid beings common in fantasy settings."
+  },
+  "Naga": {
+    "subraces": {
+      "Guardian Naga": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Guardian Naga are a large subrace of Naga known for distinct heritage."
+      },
+      "Spirit Naga": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Spirit Naga are a large subrace of Naga known for distinct heritage."
+      },
+      "Bone Naga": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Bone Naga are a large subrace of Naga known for distinct heritage."
+      },
+      "Water Naga": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Water Naga are a large subrace of Naga known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Naga are large humanoid beings common in fantasy settings."
+  },
+  "Triton": {
+    "subraces": {
+      "Deep Sea Triton": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Deep Sea Triton are a medium subrace of Triton known for distinct heritage."
+      },
+      "Coral Reef Triton": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Coral Reef Triton are a medium subrace of Triton known for distinct heritage."
+      },
+      "Kelp Forest Triton": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Kelp Forest Triton are a medium subrace of Triton known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Triton are medium humanoid beings common in fantasy settings."
+  },
+  "Merfolk": {
+    "subraces": {
+      "Saltwater Merfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Saltwater Merfolk are a medium subrace of Merfolk known for distinct heritage."
+      },
+      "Freshwater Merfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Freshwater Merfolk are a medium subrace of Merfolk known for distinct heritage."
+      },
+      "Deep Sea Merfolk": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Deep Sea Merfolk are a medium subrace of Merfolk known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Merfolk are medium humanoid beings common in fantasy settings."
+  },
+  "Locathah": {
+    "subraces": {
+      "Common Locathah": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Common Locathah are a medium subrace of Locathah known for distinct heritage."
+      },
+      "Deep Locathah": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Deep Locathah are a medium subrace of Locathah known for distinct heritage."
+      },
+      "Reef Locathah": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Reef Locathah are a medium subrace of Locathah known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Locathah are medium humanoid beings common in fantasy settings."
+  },
+  "Grung": {
+    "subraces": {
+      "Green Grung": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Green Grung are a small subrace of Grung known for distinct heritage."
+      },
+      "Blue Grung": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Blue Grung are a small subrace of Grung known for distinct heritage."
+      },
+      "Purple Grung": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Purple Grung are a small subrace of Grung known for distinct heritage."
+      },
+      "Red Grung": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Red Grung are a small subrace of Grung known for distinct heritage."
+      },
+      "Orange Grung": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Orange Grung are a small subrace of Grung known for distinct heritage."
+      },
+      "Gold Grung": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Gold Grung are a small subrace of Grung known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Grung are small humanoid beings common in fantasy settings."
+  },
+  "Warforged": {
+    "subraces": {
+      "Envoy Warforged": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Envoy Warforged are a medium subrace of Warforged known for distinct heritage."
+      },
+      "Juggernaut Warforged": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Juggernaut Warforged are a medium subrace of Warforged known for distinct heritage."
+      },
+      "Skirmisher Warforged": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Skirmisher Warforged are a medium subrace of Warforged known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Warforged are medium humanoid beings common in fantasy settings."
+  },
+  "Changeling": {
+    "subraces": {
+      "Passer Changeling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Passer Changeling are a medium subrace of Changeling known for distinct heritage."
+      },
+      "Becoming Changeling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Becoming Changeling are a medium subrace of Changeling known for distinct heritage."
+      },
+      "Reality Seeker Changeling": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Reality Seeker Changeling are a medium subrace of Changeling known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Changeling are medium humanoid beings common in fantasy settings."
+  },
+  "Kalashtar": {
+    "subraces": {
+      "Scholar Kalashtar": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Scholar Kalashtar are a medium subrace of Kalashtar known for distinct heritage."
+      },
+      "Warrior Kalashtar": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Warrior Kalashtar are a medium subrace of Kalashtar known for distinct heritage."
+      },
+      "Mystic Kalashtar": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Mystic Kalashtar are a medium subrace of Kalashtar known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Kalashtar are medium humanoid beings common in fantasy settings."
+  },
+  "Simic Hybrid": {
+    "subraces": {
+      "Crab Hybrid": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Crab Hybrid are a medium subrace of Simic Hybrid known for distinct heritage."
+      },
+      "Fish Hybrid": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Fish Hybrid are a medium subrace of Simic Hybrid known for distinct heritage."
+      },
+      "Frog Hybrid": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Frog Hybrid are a medium subrace of Simic Hybrid known for distinct heritage."
+      },
+      "Jellyfish Hybrid": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Jellyfish Hybrid are a medium subrace of Simic Hybrid known for distinct heritage."
+      },
+      "Octopus Hybrid": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Octopus Hybrid are a medium subrace of Simic Hybrid known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Simic Hybrid are medium humanoid beings common in fantasy settings."
+  },
+  "Vedalken": {
+    "subraces": {
+      "Azorius Vedalken": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Azorius Vedalken are a medium subrace of Vedalken known for distinct heritage."
+      },
+      "Simic Vedalken": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Simic Vedalken are a medium subrace of Vedalken known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Vedalken are medium humanoid beings common in fantasy settings."
+  },
+  "Giff": {
+    "subraces": {
+      "Military Giff": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Military Giff are a large subrace of Giff known for distinct heritage."
+      },
+      "Mercenary Giff": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Mercenary Giff are a large subrace of Giff known for distinct heritage."
+      },
+      "Trader Giff": {
+        "tags": [
+          "large",
+          "humanoid"
+        ],
+        "short_description": "Trader Giff are a large subrace of Giff known for distinct heritage."
+      }
+    },
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Giff are large humanoid beings common in fantasy settings."
+  },
+  "Hadozee": {
+    "subraces": {
+      "Deck Hand Hadozee": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Deck Hand Hadozee are a medium subrace of Hadozee known for distinct heritage."
+      },
+      "Explorer Hadozee": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Explorer Hadozee are a medium subrace of Hadozee known for distinct heritage."
+      },
+      "Trader Hadozee": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Trader Hadozee are a medium subrace of Hadozee known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Hadozee are medium humanoid beings common in fantasy settings."
+  },
+  "Thri-kreen": {
+    "subraces": {
+      "Desert Thri-kreen": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Desert Thri-kreen are a medium subrace of Thri-kreen known for distinct heritage."
+      },
+      "Savanna Thri-kreen": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Savanna Thri-kreen are a medium subrace of Thri-kreen known for distinct heritage."
+      },
+      "Urban Thri-kreen": {
+        "tags": [
+          "humanoid"
+        ],
+        "short_description": "Urban Thri-kreen are a medium subrace of Thri-kreen known for distinct heritage."
+      }
+    },
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Thri-kreen are medium humanoid beings common in fantasy settings."
+  },
+  "Plasmoid": {
+    "subraces": {
+      "Transparent Plasmoid": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Transparent Plasmoid are a small subrace of Plasmoid known for distinct heritage."
+      },
+      "Opaque Plasmoid": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Opaque Plasmoid are a small subrace of Plasmoid known for distinct heritage."
+      },
+      "Colored Plasmoid": {
+        "tags": [
+          "small",
+          "humanoid"
+        ],
+        "short_description": "Colored Plasmoid are a small subrace of Plasmoid known for distinct heritage."
+      }
+    },
+    "tags": [
+      "small",
+      "humanoid"
+    ],
+    "short_description": "Plasmoid are small humanoid beings common in fantasy settings."
+  },
+  "Gnoll": {
+    "subraces": {},
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Hyena-like humanoid with tribal society and ravenous hunger."
+  },
+  "Ogre": {
+    "subraces": {},
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Large humanoid with crude societies and tremendous strength."
+  },
+  "Troll": {
+    "subraces": {},
+    "tags": [
+      "large",
+      "humanoid"
+    ],
+    "short_description": "Regenerating humanoid with ravenous appetite and fearsome resilience."
+  },
+  "Mind Flayer": {
+    "subraces": {},
+    "tags": [
+      "aberration"
+    ],
+    "short_description": "Tentacle-faced psionic being with elder brain civilization."
+  },
+  "Aboleth": {
+    "subraces": {},
+    "tags": [
+      "aberration"
+    ],
+    "short_description": "Ancient aquatic being with civilizations predating the gods."
+  },
+  "Sphinx": {
+    "subraces": {},
+    "tags": [
+      "large"
+    ],
+    "short_description": "Riddle-posing guardian with deep wisdom and ancient knowledge."
+  },
+  "Cyclops": {
+    "subraces": {},
+    "tags": [
+      "large"
+    ],
+    "short_description": "One-eyed giant known for craftsmanship and solitary nature."
+  },
+  "Kuo-toa": {
+    "subraces": {},
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Fish-people with underwater cities and belief-made gods."
+  },
+  "Sahuagin": {
+    "subraces": {},
+    "tags": [
+      "humanoid"
+    ],
+    "short_description": "Shark-like humanoids with underwater kingdoms and blood frenzy."
+  },
+  "Sea Hag": {
+    "subraces": {},
+    "tags": [
+      "fey"
+    ],
+    "short_description": "Aquatic crone with death gaze and horrific appearance."
+  },
+  "Treant": {
+    "subraces": {},
+    "tags": [
+      "large",
+      "fey"
+    ],
+    "short_description": "Ancient awakened tree guardian of forests and groves."
+  },
+  "Hag": {
+    "subraces": {},
+    "tags": [
+      "fey"
+    ],
+    "short_description": "Evil fey crone with powerful magic and dark bargains."
+  },
+  "Brownie": {
+    "subraces": {},
+    "tags": [
+      "small",
+      "fey"
+    ],
+    "short_description": "Helpful household fey that aids those who treat them well."
+  },
+  "Seelie Court Noble": {
+    "subraces": {},
+    "tags": [
+      "fey"
+    ],
+    "short_description": "Benevolent fey aristocrat of the Summer Court."
+  },
+  "Unseelie Court Noble": {
+    "subraces": {},
+    "tags": [
+      "fey"
+    ],
+    "short_description": "Malevolent fey aristocrat of the Winter Court."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "description": "Divine beings from the upper planes — angels, holy steeds, and radiant guardians.",
+  "creatures": [
+    ["Angel","A radiant, winged messenger that descends in blinding light to heal the worthy and smite the wicked."],
+    ["Archangel","A blazing war-general of heaven that leads celestial hosts with a flaming sword held high."],
+    ["Deva","A serene celestial that walks among mortals in disguise, dispensing quiet justice."],
+    ["Solar","The mightiest of angels, whose drawn bow fires arrows of pure starlight across the sky."],
+    ["Planetar","A towering warrior angel with emerald skin and a greatsword that hums with divine wrath."],
+    ["Pegasus","A white winged horse with a pure spirit that only permits the righteous to ride."],
+    ["Ki-rin","A golden, antlered beast that walks on clouds and brings good fortune wherever it treads."],
+    ["Couatl","A feathered serpent with iridescent plumage that radiates warmth and speaks in gentle riddles."],
+    ["Unicorn","A silver-horned horse whose touch mends wounds and whose presence purifies corrupted ground."],
+    ["Cherub","A child-faced celestial whose innocent smile belies the terrible divine power it guards."],
+    ["Seraph","A six-winged celestial that burns with holy fire so bright it scorches mortal eyes."],
+    ["Valkyrie","A warrior maiden on a spectral steed who descends onto battlefields to guide worthy souls onward."]
+  ]
+}

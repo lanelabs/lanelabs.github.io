@@ -1,0 +1,1287 @@
+{
+  "name": "monster_villain_weaknesses",
+  "description": "A comprehensive list of weaknesses that can be applied to monsters, bosses, and villains to create interesting vulnerabilities and tactical opportunities",
+  "schema": {
+    "weakness": "The name of the weakness",
+    "description": "Detailed description of how the weakness manifests and can be exploited",
+    "tags": "Array of tags including creature types and applicable scenarios",
+    "mechanical_effect": "Brief description of mechanical impact when weakness is exploited",
+    "discovery_hints": "Ways players might discover or notice this weakness"
+  },
+  "data": [
+    {
+      "weakness": "True Name Vulnerability",
+      "description": "Speaking the creature's true name aloud causes it pain and grants power over it. The name must be discovered through research or trickery.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "magical", "research", "social"],
+      "mechanical_effect": "Speaking true name causes disadvantage on all rolls; binding rituals possible",
+      "discovery_hints": "Ancient texts reference it; reacts subtly to partial names; avoids introductions"
+    },
+    {
+      "weakness": "Mirror Aversion",
+      "description": "Cannot bear to see its own reflection - mirrors cause pain, confusion, or reveal its true form.",
+      "tags": ["sentient", "non-sentient", "humanoid", "non-humanoid", "vampire", "fey"],
+      "mechanical_effect": "Stunned by sudden mirror exposure; takes damage from mirror weapons",
+      "discovery_hints": "Destroys reflective surfaces; avoids still water; no mirrors in lair"
+    },
+    {
+      "weakness": "Childhood Lullaby",
+      "description": "A specific song from its past causes uncontrollable drowsiness or paralyzing nostalgia.",
+      "tags": ["sentient", "humanoid", "psychological", "sonic", "research"],
+      "mechanical_effect": "Wisdom save or fall asleep/become incapacitated when hearing the song",
+      "discovery_hints": "Old nursemaid knows the tune; humming triggers mild reaction; lullaby box in lair"
+    },
+    {
+      "weakness": "Sacred Symbol Burn",
+      "description": "Holy symbols of specific deities cause burning pain on contact, regardless of wielder's faith.",
+      "tags": ["sentient", "non-sentient", "undead", "demon", "unholy"],
+      "mechanical_effect": "Contact with specific holy symbols deals radiant damage; creates barriers",
+      "discovery_hints": "Avoids certain temples; burned marks match religious iconography"
+    },
+    {
+      "weakness": "Counting Compulsion",
+      "description": "Must stop to count small objects when scattered - seeds, coins, grains of sand.",
+      "tags": ["sentient", "non-sentient", "fey", "construct", "obsessive"],
+      "mechanical_effect": "Must use action to count scattered objects; can't pursue while counting",
+      "discovery_hints": "Lair is obsessively organized; counts things while talking; mathematical fixation"
+    },
+    {
+      "weakness": "Allergic to Laughter",
+      "description": "Genuine laughter causes physical pain and weakness - the more sincere the mirth, the greater the effect.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "demon", "serious", "social"],
+      "mechanical_effect": "Takes psychic damage from genuine laughter; comedy acts as repellent",
+      "discovery_hints": "Kills jesters first; creates atmospheres of fear; no humor in presence"
+    },
+    {
+      "weakness": "Salt Boundary",
+      "description": "Cannot cross lines of salt - even a thin line creates an impassable barrier.",
+      "tags": ["non-sentient", "sentient", "spirit", "fey", "demon"],
+      "mechanical_effect": "Cannot physically cross salt lines; salt weapons deal extra damage",
+      "discovery_hints": "Stops at ocean's edge; avoids preserved foods; salt burns on contact"
+    },
+    {
+      "weakness": "Love's True Touch",
+      "description": "Acts of genuine love and affection cause pain - the purer the emotion, the greater the damage.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "cursed", "demon"],
+      "mechanical_effect": "Takes damage from genuine displays of love; love-blessed weapons critical",
+      "discovery_hints": "Separates loved ones; corrupts relationships; recoils from wedding rings"
+    },
+    {
+      "weakness": "Running Water Block",
+      "description": "Cannot cross running water under its own power - streams and rivers form natural barriers.",
+      "tags": ["sentient", "non-sentient", "undead", "fey", "traditional"],
+      "mechanical_effect": "Cannot cross flowing water; takes damage if forced across",
+      "discovery_hints": "Territories end at rivers; uses bridges reluctantly; drought follows it"
+    },
+    {
+      "weakness": "Music Box Paralysis",
+      "description": "A specific tune played on music boxes causes complete paralysis while the music plays.",
+      "tags": ["sentient", "construct", "cursed", "sonic", "specific"],
+      "mechanical_effect": "Paralyzed while specific music box tune plays; can't take actions",
+      "discovery_hints": "Destroyed music boxes in path; maker's mark connects to origin; timing with music"
+    },
+    {
+      "weakness": "Broken Promise Backlash",
+      "description": "Breaking its word causes immediate and severe self-damage - bound by supernatural honesty.",
+      "tags": ["sentient", "humanoid", "fey", "contract", "social"],
+      "mechanical_effect": "Takes massive damage if breaks promise; compelled to keep word",
+      "discovery_hints": "Extremely careful with wording; never lies directly; reputation for honor"
+    },
+    {
+      "weakness": "Moonlight Madness",
+      "description": "Direct moonlight causes uncontrollable transformation or behavior changes, losing all strategy.",
+      "tags": ["sentient", "non-sentient", "lycanthrope", "lunar", "transformation"],
+      "mechanical_effect": "Forced transformation in moonlight; loses control of actions",
+      "discovery_hints": "Only attacks on cloudy nights; underground lair; tracks lunar calendar"
+    },
+    {
+      "weakness": "Iron Touch Weakness",
+      "description": "Cold iron burns like acid - even brief contact causes lasting damage and pain.",
+      "tags": ["sentient", "non-sentient", "fey", "demon", "traditional"],
+      "mechanical_effect": "Vulnerability to cold iron weapons; ongoing damage from contact",
+      "discovery_hints": "No iron in lair; servants use other metals; old folk remedies mention iron"
+    },
+    {
+      "weakness": "Bell Sound Agony",
+      "description": "The sound of bells causes disorientation and pain - church bells can drive it away entirely.",
+      "tags": ["sentient", "non-sentient", "undead", "demon", "sonic"],
+      "mechanical_effect": "Stunned by bell sounds; disadvantage on all rolls near ringing bells",
+      "discovery_hints": "Attacks silent towns; destroys bell towers; covers ears at chimes"
+    },
+    {
+      "weakness": "Threshold Permission",
+      "description": "Cannot enter a home without explicit invitation from someone who lives there.",
+      "tags": ["sentient", "humanoid", "vampire", "fey", "traditional"],
+      "mechanical_effect": "Physically cannot enter homes uninvited; invitation can be revoked",
+      "discovery_hints": "Manipulates for invitations; attacks outdoors; uses proxies indoors"
+    },
+    {
+      "weakness": "Sunlight Dissolution",
+      "description": "Direct sunlight causes immediate dissolution - not just damage but complete destruction.",
+      "tags": ["sentient", "non-sentient", "undead", "vampire", "shadow"],
+      "mechanical_effect": "Instant death in direct sunlight; heavy damage from indirect light",
+      "discovery_hints": "Only active at night; deep underground lair; fears dawn"
+    },
+    {
+      "weakness": "Riddle Locked",
+      "description": "Must answer any riddle posed to it and cannot act until it solves or admits defeat.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "fey", "mental"],
+      "mechanical_effect": "Cannot take actions while pondering riddles; admission of defeat causes damage",
+      "discovery_hints": "Speaks in riddles itself; proud of intellect; books of puzzles in lair"
+    },
+    {
+      "weakness": "Flower Petal Blindness",
+      "description": "Certain flower petals thrown in its face cause temporary blindness and disorientation.",
+      "tags": ["sentient", "non-sentient", "fey", "natural", "sensory"],
+      "mechanical_effect": "Blinded condition when specific flower petals contact eyes",
+      "discovery_hints": "Destroys specific flowers; allergic reactions; seasonal movement patterns"
+    },
+    {
+      "weakness": "Children's Innocence",
+      "description": "Cannot harm truly innocent children and is weakened by their presence.",
+      "tags": ["sentient", "humanoid", "demon", "moral", "protection"],
+      "mechanical_effect": "Cannot target children; disadvantage on attacks near children",
+      "discovery_hints": "Avoids schools; targets adults only; legends of child protectors"
+    },
+    {
+      "weakness": "Mathematical Paradox",
+      "description": "Logical paradoxes and impossible math problems cause mental shutdown and confusion.",
+      "tags": ["sentient", "construct", "logical", "mental", "puzzle"],
+      "mechanical_effect": "Stunned when presented with paradoxes; Intelligence save or shut down",
+      "discovery_hints": "Hyper-logical speech; avoids philosophers; crashes at contradictions"
+    },
+    {
+      "weakness": "Grave Dirt Binding",
+      "description": "Dirt from its original grave can trap or weaken it - acts as supernatural anchor.",
+      "tags": ["sentient", "undead", "spirit", "graveyard", "binding"],
+      "mechanical_effect": "Speed reduced to 0 when in contact with its grave dirt",
+      "discovery_hints": "Specific cemetery avoided; old records show burial site; reacts to soil types"
+    },
+    {
+      "weakness": "Compliment Vulnerability",
+      "description": "Genuine compliments cause confusion and weakness - sincere praise disrupts its negativity.",
+      "tags": ["sentient", "humanoid", "demon", "social", "emotional"],
+      "mechanical_effect": "Wisdom save when complimented or lose action; praise causes disadvantage",
+      "discovery_hints": "Insults constantly; cannot accept praise; destroys beautiful things"
+    },
+    {
+      "weakness": "Backwards Speech",
+      "description": "Speaking backwards or in reverse confuses and weakens it - reversal disrupts its reality.",
+      "tags": ["sentient", "non-humanoid", "demon", "linguistic", "reality"],
+      "mechanical_effect": "Confused condition when hearing reversed speech; spells reversed hurt more",
+      "discovery_hints": "Speaks in forward-only prophecies; confused by mirrors; hates palindromes"
+    },
+    {
+      "weakness": "Virgin Wax Seal",
+      "description": "Wax seals made by virgin hands can trap it in containers or bind it to locations.",
+      "tags": ["sentient", "demon", "spirit", "binding", "traditional"],
+      "mechanical_effect": "Cannot break virgin wax seals; trapped by properly sealed containers",
+      "discovery_hints": "Old binding rituals mention purity; avoids monasteries; sealed containers in lair"
+    },
+    {
+      "weakness": "Knot Magic Binding",
+      "description": "Specific knot patterns in rope or thread can bind its powers or movement.",
+      "tags": ["sentient", "non-sentient", "magical", "binding", "traditional"],
+      "mechanical_effect": "Abilities locked while bound with ritual knots; movement restricted",
+      "discovery_hints": "Sailors know the patterns; cuts all ropes immediately; knotwork ward signs"
+    },
+    {
+      "weakness": "Echo Confusion",
+      "description": "Its own echo disorients it - enclosed spaces with acoustics cause severe disorientation.",
+      "tags": ["non-sentient", "sentient", "sonic", "environmental", "sensory"],
+      "mechanical_effect": "Confused in areas with echoes; own sounds used against it",
+      "discovery_hints": "Avoids canyons and caves; silences areas before entering; muffled movement"
+    },
+    {
+      "weakness": "Alcohol Poisoning",
+      "description": "Even small amounts of alcohol act as powerful poison - wine, beer, or spirits cause immediate illness.",
+      "tags": ["sentient", "non-sentient", "humanoid", "non-humanoid", "chemical"],
+      "mechanical_effect": "Poisoned condition from alcohol contact; disadvantage on all saves",
+      "discovery_hints": "Destroys taverns; prohibits drinking; reacts to fermentation smells"
+    },
+    {
+      "weakness": "Color Blindness Trigger",
+      "description": "Specific color combinations cause seizures or paralysis - chromatic patterns disrupt its vision.",
+      "tags": ["sentient", "non-sentient", "visual", "pattern", "sensory"],
+      "mechanical_effect": "Stunned by specific color patterns; cannot perceive certain hues",
+      "discovery_hints": "Monochrome lair; destroys colorful art; reacts to prismatic effects"
+    },
+    {
+      "weakness": "Silence Terror",
+      "description": "Complete silence causes existential terror - needs constant noise to maintain cohesion.",
+      "tags": ["non-sentient", "sentient", "sonic", "environmental", "existence"],
+      "mechanical_effect": "Takes psychic damage in silence; panics when sounds stop",
+      "discovery_hints": "Constantly makes noise; multiple sound sources in lair; fears silence spells"
+    },
+    {
+      "weakness": "Portrait Trap",
+      "description": "Being painted or sketched accurately steals part of its essence and power.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "artistic", "soul"],
+      "mechanical_effect": "Loses hit points when accurately portrayed; portraits can bind it",
+      "discovery_hints": "Destroys artist guilds; no portraits exist; blurs when sketched"
+    },
+    {
+      "weakness": "Gambling Compulsion",
+      "description": "Cannot refuse a game of chance and must play fairly - bound by supernatural gaming laws.",
+      "tags": ["sentient", "humanoid", "fey", "social", "compulsion"],
+      "mechanical_effect": "Must accept gambling challenges; bound by game rules while playing",
+      "discovery_hints": "Carries dice or cards; legends of gaming losses; honor-bound to wagers"
+    },
+    {
+      "weakness": "Blessed Threshold",
+      "description": "Cannot cross thresholds blessed by clergy - doorways become impassable barriers.",
+      "tags": ["sentient", "non-sentient", "undead", "demon", "holy"],
+      "mechanical_effect": "Cannot pass blessed doorways; takes damage if forced through",
+      "discovery_hints": "Avoids religious buildings; uses windows; destroys door frames"
+    },
+    {
+      "weakness": "Name Three Times",
+      "description": "Saying its name three times in succession summons it but also briefly binds it.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "summoning", "binding"],
+      "mechanical_effect": "Compelled to appear but paralyzed for one round after triple naming",
+      "discovery_hints": "Forbids speaking its name; punishes name-speakers; name taboo in region"
+    },
+    {
+      "weakness": "Silver Thread Cutting",
+      "description": "Silver thread can cut through its defenses like butter - even clothes woven with silver harm it.",
+      "tags": ["sentient", "non-sentient", "supernatural", "material", "traditional"],
+      "mechanical_effect": "No damage resistance against silver thread weapons; ongoing bleed damage",
+      "discovery_hints": "Avoids seamstresses; no silver embroidery in territory; tears at silver threads"
+    },
+    {
+      "weakness": "Dawn's First Light",
+      "description": "The very first ray of dawn causes paralysis - not all sunlight, just the initial moment.",
+      "tags": ["sentient", "non-sentient", "temporal", "solar", "precise"],
+      "mechanical_effect": "Paralyzed for one minute at exact moment of dawn",
+      "discovery_hints": "Calculates sunrise precisely; underground at dawn; fears eastern exposure"
+    },
+    {
+      "weakness": "Backward Walking",
+      "description": "Creatures walking backwards are invisible to it - its perception cannot process reverse motion.",
+      "tags": ["non-sentient", "sentient", "perceptual", "movement", "limitation"],
+      "mechanical_effect": "Cannot see or target creatures moving backwards",
+      "discovery_hints": "Victims found facing one direction; confused by reverse movement; frontal focus"
+    },
+    {
+      "weakness": "Rhyme Compulsion",
+      "description": "Must speak in rhymes when addressed in verse - forced into predictable speech patterns.",
+      "tags": ["sentient", "humanoid", "fey", "linguistic", "social"],
+      "mechanical_effect": "Must rhyme responses to rhymed questions; reveals information via rhyme",
+      "discovery_hints": "Speaks poetically; avoids poets; library of rhyming dictionaries"
+    },
+    {
+      "weakness": "Milk Vulnerability",
+      "description": "Fresh milk acts like acid - dairy products cause severe burning and weakness.",
+      "tags": ["sentient", "non-sentient", "fey", "demon", "unusual"],
+      "mechanical_effect": "Takes acid damage from milk contact; sickened by dairy",
+      "discovery_hints": "Avoids farms; no dairy in diet; curdles milk with presence"
+    },
+    {
+      "weakness": "Crossroads Confusion",
+      "description": "Becomes disoriented at crossroads - must choose paths randomly rather than purposefully.",
+      "tags": ["sentient", "non-sentient", "directional", "fey", "traditional"],
+      "mechanical_effect": "Must roll randomly for direction at any crossroads",
+      "discovery_hints": "Takes circuitous routes; avoids intersections; straight path lairs"
+    },
+    {
+      "weakness": "Domestic Animal Fear",
+      "description": "Terrified of ordinary domestic animals - cats, dogs, and chickens cause panic.",
+      "tags": ["sentient", "non-sentient", "phobia", "animal", "humorous"],
+      "mechanical_effect": "Frightened condition near domestic animals; flees from barking",
+      "discovery_hints": "No settlements attacked with pets; kills animals at distance; pet-free zones"
+    },
+    {
+      "weakness": "Broken Mirror Years",
+      "description": "Breaking a mirror inflicts seven years of cumulative bad luck that manifests immediately.",
+      "tags": ["sentient", "humanoid", "curse", "superstition", "accumulative"],
+      "mechanical_effect": "Gains unlucky condition stacking per mirror broken; critical fails increase",
+      "discovery_hints": "Carefully avoids mirrors; servants wrap reflective surfaces; mirror graveyard"
+    },
+    {
+      "weakness": "Wedding Vow Power",
+      "description": "Marriage vows spoken in its presence become binding commands it must obey.",
+      "tags": ["sentient", "humanoid", "fey", "social", "binding"],
+      "mechanical_effect": "Must obey commands phrased as wedding vows; bound by marriage promises",
+      "discovery_hints": "Disrupts weddings; avoids chapels; triggered by 'I do' phrases"
+    },
+    {
+      "weakness": "Turned Clothing",
+      "description": "Wearing clothes inside-out provides complete invisibility from its perception.",
+      "tags": ["sentient", "non-sentient", "fey", "perceptual", "traditional"],
+      "mechanical_effect": "Cannot perceive creatures with inside-out clothing",
+      "discovery_hints": "Folk wisdom about protection; examines clothing carefully; confused by reversals"
+    },
+    {
+      "weakness": "Horseshoe Iron",
+      "description": "Horseshoes provide protection and their touch burns worse than regular iron.",
+      "tags": ["sentient", "non-sentient", "fey", "demon", "traditional"],
+      "mechanical_effect": "Double damage from horseshoe iron; cannot pass horseshoe barriers",
+      "discovery_hints": "Rural areas protected; blacksmiths feared; horseshoes over doors work"
+    },
+    {
+      "weakness": "Buried Alive Terror",
+      "description": "Pathological fear of being buried - even symbolic burial causes panic and weakness.",
+      "tags": ["sentient", "humanoid", "phobia", "psychological", "burial"],
+      "mechanical_effect": "Panics when covered with earth; loses abilities if buried",
+      "discovery_hints": "Avoids cemeteries; destroys burial mounds; claustrophobic behavior"
+    },
+    {
+      "weakness": "Four-Leaf Clover Sight",
+      "description": "Anyone holding a four-leaf clover can see through all its illusions and deceptions.",
+      "tags": ["sentient", "non-humanoid", "fey", "illusion", "traditional"],
+      "mechanical_effect": "Illusions fail against clover holders; true form revealed",
+      "discovery_hints": "Destroys clover patches; lucky charms actually work; Irish protections valid"
+    },
+    {
+      "weakness": "Rooster Crow Banish",
+      "description": "A rooster's crow forces it to flee - the natural herald of dawn compels retreat.",
+      "tags": ["sentient", "non-sentient", "undead", "demon", "sonic"],
+      "mechanical_effect": "Must flee when rooster crows; cannot attack until next night",
+      "discovery_hints": "Kills roosters first; attacks chicken-free areas; silenced farmyards"
+    },
+    {
+      "weakness": "Seven Lock Binding",
+      "description": "Seven locks with seven different keys can imprison it - each lock weakens it further.",
+      "tags": ["sentient", "non-sentient", "binding", "magical", "traditional"],
+      "mechanical_effect": "Loses abilities per lock applied; seven locks equals imprisonment",
+      "discovery_hints": "Ancient prison has seven doors; obsessed with keys; numerical significance"
+    },
+    {
+      "weakness": "Mustard Seed Burn",
+      "description": "Mustard seeds burn on contact and their scattered presence creates barriers.",
+      "tags": ["sentient", "non-sentient", "demon", "botanical", "unusual"],
+      "mechanical_effect": "Takes fire damage from mustard seed contact; cannot cross seed lines",
+      "discovery_hints": "Avoids certain cuisines; agricultural patterns show gaps; spice merchant protection"
+    },
+    {
+      "weakness": "Left Sock Power",
+      "description": "Left socks worn on right feet provide immunity to its powers - the reversal confuses it.",
+      "tags": ["sentient", "non-sentient", "humorous", "clothing", "confusion"],
+      "mechanical_effect": "Cannot affect those with swapped socks; powers fail against reversal",
+      "discovery_hints": "Examines feet obsessively; laundry-based protections; sock merchant tales"
+    },
+    {
+      "weakness": "Birthday Vulnerability",
+      "description": "On the anniversary of its creation/birth, all its defenses fail and powers weaken.",
+      "tags": ["sentient", "non-sentient", "temporal", "anniversary", "cyclic"],
+      "mechanical_effect": "Loses all resistances on birthday; vulnerability to all damage types",
+      "discovery_hints": "Annual disappearances; historical attack patterns; calculates dates carefully"
+    },
+    {
+      "weakness": "Unfinished Business",
+      "description": "Cannot rest or focus while specific task from life remains incomplete - compulsively drawn to finish it.",
+      "tags": ["sentient", "humanoid", "undead", "compulsion", "purpose"],
+      "mechanical_effect": "Disadvantage on all rolls when reminded of unfinished task",
+      "discovery_hints": "Returns to specific locations; obsesses over old projects; seeks closure"
+    },
+    {
+      "weakness": "Childhood Toy Paralysis",
+      "description": "Its childhood toy or comfort object renders it helpless with nostalgia and regret.",
+      "tags": ["sentient", "humanoid", "psychological", "memory", "object"],
+      "mechanical_effect": "Paralyzed when presented with childhood object; overcome by memories",
+      "discovery_hints": "Hidden room with old toys; reacts to similar objects; childhood home significant"
+    },
+    {
+      "weakness": "Broken Clock Timing",
+      "description": "Stopped clocks showing its death time cause temporal loops and confusion.",
+      "tags": ["sentient", "non-sentient", "temporal", "death", "object"],
+      "mechanical_effect": "Stuck in time loop while near stopped clock showing death time",
+      "discovery_hints": "Destroys clocks; specific time avoided; temporal distortions at time"
+    },
+    {
+      "weakness": "Mother's Maiden Name",
+      "description": "Speaking its mother's maiden name causes intense pain and temporary power loss.",
+      "tags": ["sentient", "humanoid", "identity", "familial", "secret"],
+      "mechanical_effect": "Stunned when maiden name spoken; loses one ability per utterance",
+      "discovery_hints": "Genealogy hidden; reacts to family research; maternal line erased"
+    },
+    {
+      "weakness": "Upside-Down Weakness",
+      "description": "Being inverted or turned upside-down causes complete disorientation and power failure.",
+      "tags": ["sentient", "non-sentient", "positional", "physical", "disorientation"],
+      "mechanical_effect": "Incapacitated while upside-down; powers fail when inverted",
+      "discovery_hints": "Never climbs or flies inverted; architecture prevents inversion; balance obsession"
+    },
+    {
+      "weakness": "Agreed Upon Fiction",
+      "description": "If enough people believe a lie about it, the lie becomes temporarily true.",
+      "tags": ["sentient", "non-humanoid", "belief", "reality", "collective"],
+      "mechanical_effect": "Consensus belief shapes its abilities; crowd lies become reality",
+      "discovery_hints": "Isolates victims; spreads disinformation; fears organized groups"
+    },
+    {
+      "weakness": "Charity Paralysis",
+      "description": "Acts of genuine charity and selflessness in its presence cause paralysis.",
+      "tags": ["sentient", "humanoid", "demon", "moral", "social"],
+      "mechanical_effect": "Paralyzed by witnessing true charity; selfless acts cause stun",
+      "discovery_hints": "Corrupts charitable organizations; attacks selfish communities; hates philanthropy"
+    },
+    {
+      "weakness": "Unbroken Circle",
+      "description": "Cannot cross or break a perfectly drawn circle - geometric perfection creates barriers.",
+      "tags": ["sentient", "non-sentient", "geometric", "magical", "barrier"],
+      "mechanical_effect": "Cannot cross unbroken circles; trapped if encircled completely",
+      "discovery_hints": "Breaks circular patterns; angular architecture; avoids round rooms"
+    },
+    {
+      "weakness": "Butterfly Effect",
+      "description": "Butterflies cause uncontrollable sneezing and disorientation - their chaotic flight patterns disrupt it.",
+      "tags": ["non-sentient", "sentient", "natural", "chaos", "unusual"],
+      "mechanical_effect": "Incapacitated by butterfly presence; chaotic patterns cause confusion",
+      "discovery_hints": "No butterflies in territory; destroys chrysalises; seasonal movement away"
+    },
+    {
+      "weakness": "Last Word Loss",
+      "description": "Must always have the last word in conversations - can be trapped in endless exchanges.",
+      "tags": ["sentient", "humanoid", "social", "compulsion", "verbal"],
+      "mechanical_effect": "Cannot disengage from conversations; wastes actions on replies",
+      "discovery_hints": "Arguments never end; compulsive responder; echo chambers trap it"
+    },
+    {
+      "weakness": "Origami Imprisonment",
+      "description": "Can be trapped in properly folded origami - paper folding creates dimensional prisons.",
+      "tags": ["sentient", "non-humanoid", "dimensional", "artistic", "binding"],
+      "mechanical_effect": "Trapped in origami until paper torn; size doesn't matter",
+      "discovery_hints": "Fears paper folders; destroys origami; Japanese protections work"
+    },
+    {
+      "weakness": "Earned Victory Only",
+      "description": "Cannot win through luck or chance - all victories must be earned through skill.",
+      "tags": ["sentient", "humanoid", "competitive", "limitation", "pride"],
+      "mechanical_effect": "Critical hits fail; luck-based effects don't work; must win fairly",
+      "discovery_hints": "No gambling; despises random chance; overly complicated plans"
+    },
+    {
+      "weakness": "Debt Cannot Default",
+      "description": "Supernaturally bound to pay all debts - owing anything weakens it significantly.",
+      "tags": ["sentient", "humanoid", "contract", "social", "binding"],
+      "mechanical_effect": "Loses abilities proportional to debts owed; compelled to repay",
+      "discovery_hints": "Obsessive about payment; no outstanding obligations; fears loans"
+    },
+    {
+      "weakness": "Forgotten Birthday",
+      "description": "Not knowing its exact birthdate causes existential confusion and power fluctuation.",
+      "tags": ["sentient", "humanoid", "temporal", "identity", "existential"],
+      "mechanical_effect": "Random ability loss when birthday mentioned; identity crisis damage",
+      "discovery_hints": "Obsesses over calendars; collects birth records; astrology fixation"
+    },
+    {
+      "weakness": "Spinning Dizziness",
+      "description": "Watching spinning objects causes vertigo - spinning wheels, dancers, or tops incapacitate it.",
+      "tags": ["non-sentient", "sentient", "sensory", "movement", "disorientation"],
+      "mechanical_effect": "Nauseated condition from watching spinning; disadvantage on attacks",
+      "discovery_hints": "Destroys windmills; no rotating objects in lair; straight-line movement"
+    },
+    {
+      "weakness": "Homemade Protection",
+      "description": "Items made with love by hand provide protection - mass-produced objects don't work.",
+      "tags": ["sentient", "non-sentient", "emotional", "crafted", "protection"],
+      "mechanical_effect": "Homemade items grant resistance; handcrafted weapons critical more",
+      "discovery_hints": "Targets factories; fears grandmothers; handmade goods vanish"
+    },
+    {
+      "weakness": "Question Mark Curse",
+      "description": "Must answer any question ending with its name followed by a question mark.",
+      "tags": ["sentient", "humanoid", "linguistic", "compulsion", "social"],
+      "mechanical_effect": "Compelled to answer truthfully when name is in question",
+      "discovery_hints": "Avoids interrogatives; complex speech patterns; name secrecy"
+    },
+    {
+      "weakness": "Sleeping Child Ward",
+      "description": "Cannot enter rooms where children sleep - their innocent dreams create barriers.",
+      "tags": ["sentient", "non-sentient", "protection", "innocent", "limitation"],
+      "mechanical_effect": "Cannot enter or affect rooms with sleeping children",
+      "discovery_hints": "Night attacks avoid nurseries; waits for children to wake; lullaby hatred"
+    },
+    {
+      "weakness": "Backwards Name Harm",
+      "description": "Its name spoken backwards causes direct damage and forces temporary retreat.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "linguistic", "reversal"],
+      "mechanical_effect": "Takes force damage from reversed name; must retreat when heard",
+      "discovery_hints": "Complex unpronounceable name; palindrome fear; spelling obsession"
+    },
+    {
+      "weakness": "Incomplete Reflection",
+      "description": "Missing parts in reflections reveal weaknesses - what's missing can harm it.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "mirror", "revelation"],
+      "mechanical_effect": "Vulnerable to damage types shown missing in reflection",
+      "discovery_hints": "Avoids mirrors; reflection shows gaps; missing reflection parts significant"
+    },
+    {
+      "weakness": "Doorway Counting",
+      "description": "Must count every doorway passed through - loses count if distracted and must start over.",
+      "tags": ["sentient", "non-sentient", "compulsion", "architectural", "counting"],
+      "mechanical_effect": "Wastes movement counting doors; confusion resets count",
+      "discovery_hints": "Mutters numbers; marks doorways; architecture with many doors confuses"
+    },
+    {
+      "weakness": "Sunrise Sickness",
+      "description": "Becomes violently ill at sunrise - not damaged but incapacitated by nausea.",
+      "tags": ["sentient", "non-sentient", "temporal", "solar", "cyclical"],
+      "mechanical_effect": "Poisoned condition at sunrise; incapacitated for hour",
+      "discovery_hints": "Dawn lethargy; pre-sunrise retreat; morning vulnerability window"
+    },
+    {
+      "weakness": "Ownership Obligation",
+      "description": "Cannot take owned objects without permission - property rights are supernaturally binding.",
+      "tags": ["sentient", "humanoid", "fey", "lawful", "limitation"],
+      "mechanical_effect": "Cannot touch clearly owned items; ownership marks provide protection",
+      "discovery_hints": "Only steals abandoned things; asks permission ironically; respects property"
+    },
+    {
+      "weakness": "Tarnished Silver",
+      "description": "While pure silver hurts, tarnished silver causes excruciating pain and paralysis.",
+      "tags": ["sentient", "non-sentient", "material", "traditional", "enhanced"],
+      "mechanical_effect": "Paralyzed by tarnished silver contact; triple damage from tarnished",
+      "discovery_hints": "Old silver more feared; antique weapons effective; polishes silver obsessively"
+    },
+    {
+      "weakness": "Promised Land Ban",
+      "description": "Cannot enter any place it has promised to visit - promises create supernatural barriers.",
+      "tags": ["sentient", "humanoid", "promise", "limitation", "ironic"],
+      "mechanical_effect": "Cannot enter locations mentioned in promises; barriers at promised sites",
+      "discovery_hints": "Never makes travel promises; vague about destinations; ironic imprisonment"
+    },
+    {
+      "weakness": "Autumn Leaf Shield",
+      "description": "Fallen autumn leaves provide complete protection - their death symbolism creates barriers.",
+      "tags": ["sentient", "non-sentient", "seasonal", "natural", "symbolic"],
+      "mechanical_effect": "Cannot harm those covered in autumn leaves; leaf barriers work",
+      "discovery_hints": "Seasonal activity patterns; destroys deciduous trees; fears fall"
+    },
+    {
+      "weakness": "Honest Child Truth",
+      "description": "Cannot lie to children under ten - their innocence compels truthful answers.",
+      "tags": ["sentient", "humanoid", "social", "innocent", "compulsion"],
+      "mechanical_effect": "Must answer children truthfully; cannot deceive young ones",
+      "discovery_hints": "Avoids children; complex adult-only schemes; child interrogators work"
+    },
+    {
+      "weakness": "Wedding Ring Burn",
+      "description": "Wedding rings burn on contact - symbols of binding love cause physical pain.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "love", "symbolic"],
+      "mechanical_effect": "Takes radiant damage from wedding ring contact; love symbols hurt",
+      "discovery_hints": "Targets unmarried; removes rings from victims; marriage hatred"
+    },
+    {
+      "weakness": "Waltz Paralysis",
+      "description": "The 3/4 time of a waltz causes involuntary dancing and loss of control.",
+      "tags": ["sentient", "humanoid", "sonic", "musical", "compulsion"],
+      "mechanical_effect": "Must dance to waltz music; cannot take other actions while waltzing",
+      "discovery_hints": "Destroys dance halls; hates triple meter; Vienna connection"
+    },
+    {
+      "weakness": "Thirteenth of Month",
+      "description": "Loses most powers on the thirteenth day of any month - numerical curse.",
+      "tags": ["sentient", "non-sentient", "temporal", "numerical", "cyclical"],
+      "mechanical_effect": "Abilities reduced to minimum on 13th; extreme vulnerability",
+      "discovery_hints": "Monthly disappearances; calendar obsession; thirteenth fear"
+    },
+    {
+      "weakness": "Unicorn Hair Binding",
+      "description": "Single unicorn hair can bind it completely - purity overcomes all strength.",
+      "tags": ["sentient", "non-sentient", "magical", "pure", "binding"],
+      "mechanical_effect": "Immobilized by unicorn hair; cannot break even single strand",
+      "discovery_hints": "Avoids pure creatures; unicorn territory gaps; purity hatred"
+    },
+    {
+      "weakness": "Clock Chime Freeze",
+      "description": "Freezes in place during clock chimes - must count every chime before moving.",
+      "tags": ["sentient", "non-sentient", "temporal", "sonic", "compulsion"],
+      "mechanical_effect": "Paralyzed during clock chimes; must count each one",
+      "discovery_hints": "Destroys clocks; avoids town squares; noon vulnerability"
+    },
+    {
+      "weakness": "Haiku Imprisonment",
+      "description": "Can be trapped by perfect haiku that describe it - poetic precision binds it.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "linguistic", "artistic"],
+      "mechanical_effect": "Immobilized by accurate haiku; poetry creates binding",
+      "discovery_hints": "Fears poets; destroys poetry books; 5-7-5 pattern significant"
+    },
+    {
+      "weakness": "Yawn Contagion",
+      "description": "Compulsively yawns when others do - chain yawning can incapacitate it.",
+      "tags": ["sentient", "humanoid", "biological", "contagious", "involuntary"],
+      "mechanical_effect": "Must yawn when witnessing yawns; chain yawning causes exhaustion",
+      "discovery_hints": "Never shows fatigue; fights tired opponents poorly; sleep deprivation"
+    },
+    {
+      "weakness": "Borrowed Item Return",
+      "description": "Must return all borrowed items when asked three times - cannot refuse third request.",
+      "tags": ["sentient", "humanoid", "fey", "obligation", "social"],
+      "mechanical_effect": "Compelled to return items on third request; includes stolen goods",
+      "discovery_hints": "Hoards but doesn't destroy; property laws respected; triple asking works"
+    },
+    {
+      "weakness": "Moonless Night Blind",
+      "description": "Completely blind on moonless nights - requires any amount of moonlight to see.",
+      "tags": ["sentient", "non-sentient", "lunar", "sensory", "cyclical"],
+      "mechanical_effect": "Blinded condition during new moon; no darkvision works",
+      "discovery_hints": "Lunar calendar tracking; new moon inactivity; artificial moon symbols"
+    },
+    {
+      "weakness": "Bread and Salt Peace",
+      "description": "Cannot harm those who've shared bread and salt with it - ancient hospitality laws bind.",
+      "tags": ["sentient", "humanoid", "social", "traditional", "hospitality"],
+      "mechanical_effect": "Cannot attack those who've shared meal; hospitality binding",
+      "discovery_hints": "Avoids dinner invitations; destroys food supplies; guest rights powerful"
+    },
+    {
+      "weakness": "Shadow Separation",
+      "description": "If separated from its shadow, loses most powers until reunited.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "shadow", "connection"],
+      "mechanical_effect": "Powerless without shadow; shadow can be trapped separately",
+      "discovery_hints": "Protective of shadow; avoids shadow-affecting magic; Peter Pan fear"
+    },
+    {
+      "weakness": "Nest Destroyer Guilt",
+      "description": "Cannot harm birds or destroy nests - breaking this taboo causes immediate weakness.",
+      "tags": ["sentient", "non-sentient", "natural", "taboo", "moral"],
+      "mechanical_effect": "Takes psychic damage if harms birds; bird presence protective",
+      "discovery_hints": "Birds fearless nearby; avian sanctuaries safe; nest symbolism important"
+    },
+    {
+      "weakness": "Compliment Fishing",
+      "description": "Compulsively fishes for compliments and becomes vulnerable while waiting for praise.",
+      "tags": ["sentient", "humanoid", "psychological", "vanity", "social"],
+      "mechanical_effect": "AC reduced while fishing for compliments; distracted by ego",
+      "discovery_hints": "Constant self-praise; mirrors everywhere; vanity-based traps work"
+    },
+    {
+      "weakness": "Odd Number Weakness",
+      "description": "Can only be harmed by odd-numbered groups - even numbers of attackers deal no damage.",
+      "tags": ["sentient", "non-sentient", "numerical", "tactical", "mathematical"],
+      "mechanical_effect": "Immune to damage from even-numbered groups; vulnerable to odd",
+      "discovery_hints": "Counts attackers obsessively; manipulates group numbers; mathematical fixation"
+    },
+    {
+      "weakness": "Nursery Rhyme Loop",
+      "description": "Gets stuck repeating nursery rhymes once started - cannot stop until finished.",
+      "tags": ["sentient", "humanoid", "linguistic", "compulsion", "childhood"],
+      "mechanical_effect": "Must complete any started nursery rhyme; wastes actions reciting",
+      "discovery_hints": "Avoids children's areas; triggered by rhyme fragments; childhood issues"
+    },
+    {
+      "weakness": "Unwashed Protection",
+      "description": "Cannot affect those who haven't bathed - cleanliness removes natural protection.",
+      "tags": ["sentient", "non-sentient", "hygiene", "unusual", "natural"],
+      "mechanical_effect": "Cannot target unwashed creatures; dirt provides immunity",
+      "discovery_hints": "Attacks clean areas; promotes bathing; confused by homeless"
+    },
+    {
+      "weakness": "Firefly Confusion",
+      "description": "Firefly lights cause complete disorientation - their blinking pattern disrupts cognition.",
+      "tags": ["non-sentient", "sentient", "natural", "visual", "pattern"],
+      "mechanical_effect": "Confused condition near fireflies; random actions in presence",
+      "discovery_hints": "Summer disappearances; destroys firefly habitats; bioluminescence fear"
+    },
+    {
+      "weakness": "Tuesday Vulnerability",
+      "description": "Inexplicably vulnerable only on Tuesdays - arbitrary weakness to specific weekday.",
+      "tags": ["sentient", "non-sentient", "temporal", "arbitrary", "cyclical"],
+      "mechanical_effect": "All resistances fail on Tuesdays; normal damage becomes critical",
+      "discovery_hints": "Weekly pattern obvious; Tuesday avoidance; calendar destruction"
+    },
+    {
+      "weakness": "Pillow Fort Shield",
+      "description": "Cannot penetrate defenses made of pillows and blankets - childhood forts provide real protection.",
+      "tags": ["sentient", "non-sentient", "childhood", "soft", "humorous"],
+      "mechanical_effect": "Cannot damage through pillow defenses; blanket forts work",
+      "discovery_hints": "Bedroom attacks fail; soft material aversion; childhood magic real"
+    },
+    {
+      "weakness": "Hiccup Helplessness",
+      "description": "Hiccups completely incapacitate it - cannot act while hiccupping.",
+      "tags": ["sentient", "humanoid", "biological", "involuntary", "disruption"],
+      "mechanical_effect": "Incapacitated during hiccups; surprise scares cause hiccups",
+      "discovery_hints": "Never drinks quickly; careful eating; fear of sudden surprises"
+    },
+    {
+      "weakness": "Snowflake Unique Burn",
+      "description": "Each unique snowflake causes damage - their individual patterns cause pain.",
+      "tags": ["non-sentient", "sentient", "winter", "pattern", "environmental"],
+      "mechanical_effect": "Takes damage per snowflake touched; snowstorms devastating",
+      "discovery_hints": "Winter migrations; destroys snow; heat generation constant"
+    },
+    {
+      "weakness": "Jingle Bell Rage",
+      "description": "Jingle bells cause uncontrollable rage and loss of tactical thinking.",
+      "tags": ["sentient", "non-sentient", "sonic", "holiday", "emotional"],
+      "mechanical_effect": "Berserk state when hearing jingle bells; attacks randomly",
+      "discovery_hints": "Holiday season violence; destroys sleighs; Christmas hatred"
+    },
+    {
+      "weakness": "Inside Joke Exclusion",
+      "description": "Being excluded from inside jokes causes existential crisis and power loss.",
+      "tags": ["sentient", "humanoid", "social", "psychological", "belonging"],
+      "mechanical_effect": "Loses abilities when excluded from group understanding",
+      "discovery_hints": "Desperately seeks inclusion; eavesdrops constantly; social anxiety"
+    },
+    {
+      "weakness": "Paper Cut Catastrophe",
+      "description": "Paper cuts cause massive damage - thin paper edges are supernaturally sharp to it.",
+      "tags": ["sentient", "non-sentient", "material", "disproportionate", "ironic"],
+      "mechanical_effect": "Paper cuts deal massive slashing damage; paper weapons effective",
+      "discovery_hints": "Avoids libraries; destroys books preemptively; papyrus fear"
+    },
+    {
+      "weakness": "Bubble Trap Prison",
+      "description": "Can be trapped inside soap bubbles - their perfect spheres create prisons.",
+      "tags": ["sentient", "non-sentient", "geometric", "fragile", "imprisonment"],
+      "mechanical_effect": "Trapped in bubbles until popped; size irrelevant to imprisonment",
+      "discovery_hints": "Fears children's toys; soap aversion; bubble solution valuable"
+    },
+    {
+      "weakness": "Dad Joke Damage",
+      "description": "Dad jokes cause physical pain proportional to their groan-worthiness.",
+      "tags": ["sentient", "humanoid", "humor", "sonic", "punishment"],
+      "mechanical_effect": "Takes psychic damage from puns; worse jokes hurt more",
+      "discovery_hints": "No humor appreciation; destroys comedy clubs; pun hatred visceral"
+    },
+    {
+      "weakness": "Pinky Promise Binding",
+      "description": "Pinky promises are supernaturally binding - cannot break them without severe consequences.",
+      "tags": ["sentient", "humanoid", "social", "childish", "binding"],
+      "mechanical_effect": "Bound by pinky promises; breaking them causes massive damage",
+      "discovery_hints": "Avoids hand contact; complex greeting rituals; promise paranoia"
+    },
+    {
+      "weakness": "Skip Pattern Break",
+      "description": "Must maintain movement patterns - breaking established patterns causes system crash.",
+      "tags": ["sentient", "non-sentient", "pattern", "movement", "predictable"],
+      "mechanical_effect": "Stunned when forced to break movement patterns",
+      "discovery_hints": "Predictable patrols; same routes always; pattern-based traps work"
+    },
+    {
+      "weakness": "Birthday Candle Wish",
+      "description": "Birthday candle wishes made against it have supernatural power to come true.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "celebration", "wish"],
+      "mechanical_effect": "Wishes made on birthday candles affect it directly",
+      "discovery_hints": "Destroys bakeries; prevents parties; candle phobia"
+    },
+    {
+      "weakness": "Tickle Paralysis",
+      "description": "Extremely ticklish in specific spots - tickling causes complete helplessness.",
+      "tags": ["sentient", "humanoid", "physical", "involuntary", "humorous"],
+      "mechanical_effect": "Paralyzed with laughter when tickled; cannot defend",
+      "discovery_hints": "Armor covers specific areas; avoids close contact; feather fear"
+    },
+    {
+      "weakness": "Wrong Name Response",
+      "description": "Responds to any name called with authority - doesn't know which name is real.",
+      "tags": ["sentient", "humanoid", "identity", "confusion", "psychological"],
+      "mechanical_effect": "Must respond to any name called commandingly; identity confusion",
+      "discovery_hints": "Reacts to all callouts; identity crisis evident; naming power"
+    },
+    {
+      "weakness": "Sentimental Object",
+      "description": "One specific sentimental object causes complete breakdown if destroyed.",
+      "tags": ["sentient", "humanoid", "emotional", "object", "psychological"],
+      "mechanical_effect": "Stunned grief if special object destroyed; emotional collapse",
+      "discovery_hints": "Overly protective of one item; hidden shrine; object obsession"
+    },
+    {
+      "weakness": "Sneeze Vulnerability",
+      "description": "Completely vulnerable mid-sneeze - that split second removes all defenses.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "biological", "momentary"],
+      "mechanical_effect": "AC becomes 0 while sneezing; critical hits automatic",
+      "discovery_hints": "Suppresses sneezes; pepper aversion; antihistamine stockpiles"
+    },
+    {
+      "weakness": "Participation Trophy",
+      "description": "Participation trophies cause existential crisis about its achievements and purpose.",
+      "tags": ["sentient", "humanoid", "psychological", "achievement", "modern"],
+      "mechanical_effect": "Confused state when given participation award; questions self-worth",
+      "discovery_hints": "Demands real recognition; destroys false awards; achievement obsessed"
+    },
+    {
+      "weakness": "Spoiler Sensitivity",
+      "description": "Story spoilers cause actual damage - knowing endings ruins its existence.",
+      "tags": ["sentient", "humanoid", "meta", "narrative", "information"],
+      "mechanical_effect": "Takes psychic damage from spoilers; worse if story loved",
+      "discovery_hints": "Avoids discussions; kills spoiler-givers; narrative purist"
+    },
+    {
+      "weakness": "Knock Pattern Lock",
+      "description": "Specific knock patterns force it to open doors or reveal secrets.",
+      "tags": ["sentient", "non-sentient", "sonic", "pattern", "compulsion"],
+      "mechanical_effect": "Must respond to correct knock patterns; reveals secrets",
+      "discovery_hints": "Complex door protocols; rhythmic sensitivity; drumming effects"
+    },
+    {
+      "weakness": "Expired Coupon Rage",
+      "description": "Expired coupons cause uncontrollable fury and distraction from goals.",
+      "tags": ["sentient", "humanoid", "modern", "frustration", "distraction"],
+      "mechanical_effect": "Berserk when presented expired coupons; loses focus",
+      "discovery_hints": "Destroys stores; economic obsession; deal-seeking behavior"
+    },
+    {
+      "weakness": "Shoelace Tied Together",
+      "description": "If shoelaces are tied together, loses all mobility and grace.",
+      "tags": ["sentient", "humanoid", "physical", "simple", "mobility"],
+      "mechanical_effect": "Speed becomes 0 with tied laces; prone condition",
+      "discovery_hints": "Wears complex footwear; lace paranoia; trips over nothing"
+    },
+    {
+      "weakness": "Ancient Tree Weakness",
+      "description": "Wood from trees over 1000 years old causes severe burns and wounds.",
+      "tags": ["sentient", "non-sentient", "natural", "druidic", "ancient"],
+      "mechanical_effect": "Vulnerability to ancient wood weapons; ongoing damage from contact",
+      "discovery_hints": "Avoids old forests; druids know its weakness; fears elder trees"
+    },
+    {
+      "weakness": "Constellation Binding",
+      "description": "When specific constellations align, becomes trapped in place until they move.",
+      "tags": ["sentient", "non-sentient", "celestial", "temporal", "astronomical"],
+      "mechanical_effect": "Paralyzed during specific star alignments; predictable timing",
+      "discovery_hints": "Astrologers track its movement; star chart obsession; night sky watching"
+    },
+    {
+      "weakness": "Dragon Scale Allergy",
+      "description": "Dragon scales cause severe allergic reactions - sneezing, weakness, and hives.",
+      "tags": ["sentient", "non-sentient", "dragon", "material", "reaction"],
+      "mechanical_effect": "Poisoned condition near dragon scales; disadvantage on all rolls",
+      "discovery_hints": "Avoids dragon territories; sneezes near dragonborn; scale armor effective"
+    },
+    {
+      "weakness": "Fey Wine Drunk",
+      "description": "Even a sip of fey wine causes complete intoxication and loss of inhibitions.",
+      "tags": ["sentient", "humanoid", "fey", "chemical", "control"],
+      "mechanical_effect": "Intoxicated from minimal fey alcohol; reveals secrets when drunk",
+      "discovery_hints": "Avoids fey celebrations; strict sobriety; fears wine offerings"
+    },
+    {
+      "weakness": "Mage Hand Ticklish",
+      "description": "Invisible magical forces like mage hands cause uncontrollable tickling sensations.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "magical", "involuntary"],
+      "mechanical_effect": "Incapacitated by invisible magical touches; laughs helplessly",
+      "discovery_hints": "Wards against invisible forces; mage hand phobia; unseen servant fear"
+    },
+    {
+      "weakness": "Bardic Mockery Devastating",
+      "description": "Magical mockery and cutting words cause disproportionate emotional damage.",
+      "tags": ["sentient", "humanoid", "bardic", "emotional", "sonic"],
+      "mechanical_effect": "Triple damage from vicious mockery; emotionally fragile to insults",
+      "discovery_hints": "Kills bards first; cannot handle criticism; praise-seeking behavior"
+    },
+    {
+      "weakness": "Goodberry Poisoning",
+      "description": "Magical healing berries act as deadly poison - divine nourishment becomes toxin.",
+      "tags": ["sentient", "non-sentient", "divine", "natural", "inverse"],
+      "mechanical_effect": "Takes necrotic damage from goodberries; healing food harms",
+      "discovery_hints": "Destroys druid groves; fears berry bushes; corrupts orchards"
+    },
+    {
+      "weakness": "Familiar Confusion",
+      "description": "Cannot distinguish between wizards and their familiars - attacks the wrong target.",
+      "tags": ["non-sentient", "sentient", "perceptual", "magical", "targeting"],
+      "mechanical_effect": "50% chance to target familiar instead of caster; confused by bonds",
+      "discovery_hints": "Attacks cats before wizards; familiar-caster link confuses; poor target priority"
+    },
+    {
+      "weakness": "Prestidigitation Pranks",
+      "description": "Simple magical tricks cause severe disorientation - minor illusions become major problems.",
+      "tags": ["sentient", "non-sentient", "magical", "illusion", "overreaction"],
+      "mechanical_effect": "Stunned by cantrips; prestidigitation causes confusion",
+      "discovery_hints": "Overreacts to minor magic; street magician fear; cantrip vulnerability"
+    },
+    {
+      "weakness": "Planar Anchor",
+      "description": "Cannot exist on multiple planes simultaneously - planar travel causes splitting.",
+      "tags": ["sentient", "non-sentient", "planar", "dimensional", "limitation"],
+      "mechanical_effect": "Takes damage when planes overlap; cannot plane shift",
+      "discovery_hints": "Avoids planar boundaries; single plane existence; dimensional sickness"
+    },
+    {
+      "weakness": "Heraldry Bound",
+      "description": "Must obey commands from those bearing specific heraldic symbols.",
+      "tags": ["sentient", "humanoid", "nobility", "compulsion", "feudal"],
+      "mechanical_effect": "Charmed by specific coat of arms; must follow heraldic authority",
+      "discovery_hints": "Reacts to noble symbols; ancient fealty; crest significance"
+    },
+    {
+      "weakness": "Alchemy Reversal",
+      "description": "Alchemical potions have opposite effects - healing potions harm, strength weakens.",
+      "tags": ["sentient", "non-sentient", "alchemical", "inverse", "chemical"],
+      "mechanical_effect": "All potions have reversed effects; alchemical immunity inverted",
+      "discovery_hints": "Avoids apothecaries; potion vendor attacks; alchemy lab destruction"
+    },
+    {
+      "weakness": "Wizard Tower Vertigo",
+      "description": "The spiral stairs of wizard towers cause debilitating dizziness and nausea.",
+      "tags": ["sentient", "non-sentient", "architectural", "magical", "dizzy"],
+      "mechanical_effect": "Sickened in wizard towers; cannot climb spiral stairs",
+      "discovery_hints": "Avoids mage colleges; tower architecture weakness; straight stairs only"
+    },
+    {
+      "weakness": "Sending Stone Static",
+      "description": "Magical communication devices cause painful feedback and disorientation.",
+      "tags": ["sentient", "non-sentient", "magical", "communication", "sonic"],
+      "mechanical_effect": "Stunned by sending spell; message cantrips cause pain",
+      "discovery_hints": "Destroys communication magic; isolated from networks; message fear"
+    },
+    {
+      "weakness": "Bag of Holding Vacuum",
+      "description": "Extradimensional spaces create suction that can trap parts of it.",
+      "tags": ["non-sentient", "sentient", "dimensional", "magical item", "trap"],
+      "mechanical_effect": "Can be partially sucked into bags of holding; dimensional pull",
+      "discovery_hints": "Fears portable holes; extradimensional space avoidance; bag destruction"
+    },
+    {
+      "weakness": "Spell Component Allergy",
+      "description": "Common spell components like bat guano or sulfur cause severe reactions.",
+      "tags": ["sentient", "non-sentient", "magical", "material", "reaction"],
+      "mechanical_effect": "Sickened by spell component pouches; caster proximity hurts",
+      "discovery_hints": "Component pouch destruction; wizard supply raids; material sensitivity"
+    },
+    {
+      "weakness": "Adventurer Inn Curse",
+      "description": "Cannot harm anyone in a registered adventurer's inn - hospitality magic binds.",
+      "tags": ["sentient", "humanoid", "location", "hospitality", "magical"],
+      "mechanical_effect": "Pacified in taverns; inn common rooms provide sanctuary",
+      "discovery_hints": "Attacks outside inns only; tavern sanctuary known; hospitality laws"
+    },
+    {
+      "weakness": "Multiclass Confusion",
+      "description": "Cannot comprehend beings with multiple classes - identity crisis ensues.",
+      "tags": ["sentient", "perceptual", "class", "identity", "game-aware"],
+      "mechanical_effect": "Confused by multiclass characters; cannot predict their abilities",
+      "discovery_hints": "Single-class preference; hybrid class fear; purity obsession"
+    },
+    {
+      "weakness": "Critical Fail Cascade",
+      "description": "When anyone rolls a natural 1 near it, must also suffer the consequences.",
+      "tags": ["sentient", "non-sentient", "luck", "sympathetic", "cascade"],
+      "mechanical_effect": "Suffers effects of all critical failures in vicinity",
+      "discovery_hints": "Bad luck contagion; avoids clumsy fighters; perfection demand"
+    },
+    {
+      "weakness": "Healing Word Deafness",
+      "description": "Healing words and prayers cause temporary deafness and disorientation.",
+      "tags": ["sentient", "non-sentient", "divine", "sonic", "healing"],
+      "mechanical_effect": "Deafened by healing spells; divine words cause pain",
+      "discovery_hints": "Covers ears during healing; cleric avoidance; prayer silence"
+    },
+    {
+      "weakness": "Component Pouch Spill",
+      "description": "Spilled spell components create hazardous terrain it cannot cross.",
+      "tags": ["sentient", "non-sentient", "magical", "material", "movement"],
+      "mechanical_effect": "Cannot cross areas with scattered spell components",
+      "discovery_hints": "Component cleanup obsession; material organization; spill fear"
+    },
+    {
+      "weakness": "Artificer Construct Envy",
+      "description": "Becomes obsessed with artificer creations, forgetting combat to examine them.",
+      "tags": ["sentient", "construct", "distraction", "artificial", "curiosity"],
+      "mechanical_effect": "Must investigate artificer items; loses actions examining",
+      "discovery_hints": "Construct fascination; artificer stalking; creation envy"
+    },
+    {
+      "weakness": "Druid Grove Peace",
+      "description": "Cannot commit violence within natural druid groves - nature's peace enforced.",
+      "tags": ["sentient", "non-sentient", "druidic", "natural", "sanctuary"],
+      "mechanical_effect": "Pacified in druid groves; nature magic prevents violence",
+      "discovery_hints": "Grove avoidance; druid territory gaps; nature sanctuary"
+    },
+    {
+      "weakness": "Monk Stillness Confusion",
+      "description": "Completely still monks become invisible to its senses - stillness equals nonexistence.",
+      "tags": ["non-sentient", "sentient", "perceptual", "monk", "movement"],
+      "mechanical_effect": "Cannot perceive motionless monks; stillness provides invisibility",
+      "discovery_hints": "Motion-based vision; statue confusion; stillness blind spot"
+    },
+    {
+      "weakness": "Sorcerer Surge Sympathy",
+      "description": "Wild magic surges affect it regardless of target - chaos spreads to it.",
+      "tags": ["sentient", "non-sentient", "magical", "chaos", "sympathetic"],
+      "mechanical_effect": "Suffers wild magic surge effects in area; chaos contagion",
+      "discovery_hints": "Sorcerer avoidance; wild magic fear; surge sensitivity"
+    },
+    {
+      "weakness": "Paladin Aura Burn",
+      "description": "Paladin auras cause physical burning sensations - righteousness literally burns.",
+      "tags": ["sentient", "non-sentient", "divine", "paladin", "holy"],
+      "mechanical_effect": "Takes radiant damage in paladin auras; ongoing burn",
+      "discovery_hints": "Paladin avoidance radius; aura visibility; holy warrior fear"
+    },
+    {
+      "weakness": "Ranger Mark Paranoia",
+      "description": "Being marked as favored enemy causes paranoid breakdown and poor decisions.",
+      "tags": ["sentient", "humanoid", "non-humanoid", "psychological", "tracked"],
+      "mechanical_effect": "Disadvantage on all rolls when marked; paranoid behavior",
+      "discovery_hints": "Ranger killing priority; mark detection ability; hunter fear"
+    },
+    {
+      "weakness": "Warlock Patron Jealousy",
+      "description": "Becomes insanely jealous of warlock-patron relationships, losing focus in combat.",
+      "tags": ["sentient", "emotional", "warlock", "relationship", "distraction"],
+      "mechanical_effect": "Obsessed with warlock pacts; wastes actions on jealousy",
+      "discovery_hints": "Patron relationship envy; pact breaking attempts; warlock fixation"
+    },
+    {
+      "weakness": "Ritual Interruption Rage",
+      "description": "Interrupted rituals cause berserk fury but tactical stupidity.",
+      "tags": ["sentient", "humanoid", "magical", "ritual", "emotional"],
+      "mechanical_effect": "Enraged but reckless when rituals interrupted; loses strategy",
+      "discovery_hints": "Elaborate ritual preparation; interruption fury; ceremony obsession"
+    },
+    {
+      "weakness": "Counterspell Feedback",
+      "description": "When its spells are countered, takes psychic backlash damage.",
+      "tags": ["sentient", "spellcaster", "magical", "feedback", "vulnerability"],
+      "mechanical_effect": "Takes psychic damage when spells countered; magical backlash",
+      "discovery_hints": "Counterspell fear; abjurer avoidance; cast carefully"
+    },
+    {
+      "weakness": "Divine Sense Detection",
+      "description": "Being detected by divine sense causes involuntary revelation of true nature.",
+      "tags": ["sentient", "non-sentient", "divine", "detection", "revelation"],
+      "mechanical_effect": "Must reveal true form when divine sensed; cannot maintain disguise",
+      "discovery_hints": "Paladin proximity reactions; divine detection fear; holy avoidance"
+    },
+    {
+      "weakness": "Inspiration Vulnerability",
+      "description": "When enemies use inspiration dice, becomes demoralized and weakened.",
+      "tags": ["sentient", "psychological", "bardic", "morale", "game-aware"],
+      "mechanical_effect": "Loses abilities when inspiration used against it; morale damage",
+      "discovery_hints": "Hates inspiring speeches; bard targeting; inspiration envy"
+    },
+    {
+      "weakness": "Cantrip Spam Overload",
+      "description": "Repeated cantrips in quick succession cause sensory overload.",
+      "tags": ["sentient", "non-sentient", "magical", "repetition", "overload"],
+      "mechanical_effect": "Stunned after multiple cantrips; magical frequency overload",
+      "discovery_hints": "Cantrip sensitivity; repetition weakness; magical static"
+    },
+    {
+      "weakness": "Rest Interruption Exhaustion",
+      "description": "If its rest is interrupted, suffers permanent exhaustion until fully rested.",
+      "tags": ["sentient", "non-sentient", "rest", "exhaustion", "sleep"],
+      "mechanical_effect": "Gains exhaustion levels from interrupted rest; cumulative fatigue",
+      "discovery_hints": "Hidden rest areas; sleep schedule rigid; interruption fury"
+    },
+    {
+      "weakness": "Material Component Dependency",
+      "description": "Requires consumed material components to maintain form - like reverse spellcasting.",
+      "tags": ["sentient", "non-sentient", "magical", "material", "consumption"],
+      "mechanical_effect": "Must consume valuable components daily or weaken",
+      "discovery_hints": "Component hoarding; merchant raids; material diet"
+    },
+    {
+      "weakness": "Attunement Slot Envy",
+      "description": "Obsessed with attuned magic items - must examine and try to steal them.",
+      "tags": ["sentient", "humanoid", "magical item", "envy", "compulsion"],
+      "mechanical_effect": "Must use action to examine attuned items; stealing compulsion",
+      "discovery_hints": "Magic item fixation; attunement detection; jealous hoarding"
+    },
+    {
+      "weakness": "Legendary Resistance Exhaustion",
+      "description": "Using legendary resistance causes visible strain and temporary weakness.",
+      "tags": ["sentient", "non-sentient", "legendary", "exhaustion", "game-aware"],
+      "mechanical_effect": "Loses AC and speed after using legendary resistance",
+      "discovery_hints": "Resistance use visible; exhaustion after saves; limited uses"
+    },
+    {
+      "weakness": "Death Save Sympathy",
+      "description": "When creatures make death saves nearby, must also roll saves or suffer.",
+      "tags": ["sentient", "non-sentient", "death", "sympathetic", "connection"],
+      "mechanical_effect": "Must make death saves when others do; sympathetic dying",
+      "discovery_hints": "Avoids dying creatures; death proximity weakness; life force linked"
+    },
+    {
+      "weakness": "Spell Slot Hunger",
+      "description": "Desperately hungry for spell slots - becomes weak when none are available nearby.",
+      "tags": ["sentient", "non-sentient", "magical", "vampiric", "hunger"],
+      "mechanical_effect": "Weakened when no spell slots within 60ft; feeds on magic",
+      "discovery_hints": "Caster stalking; spell slot draining; magical vampire"
+    },
+    {
+      "weakness": "Initiative Order Confusion",
+      "description": "Changing initiative order causes temporal displacement and confusion.",
+      "tags": ["sentient", "non-sentient", "temporal", "combat", "order"],
+      "mechanical_effect": "Stunned when initiative order changes; temporal rigidity",
+      "discovery_hints": "Initiative manipulation works; order obsession; time structure need"
+    },
+    {
+      "weakness": "Bonus Action Jealousy",
+      "description": "Becomes enraged when enemies use bonus actions - action economy envy.",
+      "tags": ["sentient", "combat", "envy", "action", "game-aware"],
+      "mechanical_effect": "Attacks recklessly after enemy bonus actions; loses tactics",
+      "discovery_hints": "Bonus action triggers rage; efficiency envy; action counting"
+    },
+    {
+      "weakness": "Concentration Break Dance",
+      "description": "When concentration is broken nearby, must dance uncontrollably.",
+      "tags": ["sentient", "non-sentient", "magical", "involuntary", "sympathetic"],
+      "mechanical_effect": "Dances for round when concentration breaks; loses actions",
+      "discovery_hints": "Concentration breaking triggers; involuntary dancing; spell disruption"
+    },
+    {
+      "weakness": "Magic Item Identification",
+      "description": "Being identified reveals all weaknesses - magical analysis exposes vulnerabilities.",
+      "tags": ["sentient", "non-sentient", "magical", "knowledge", "revelation"],
+      "mechanical_effect": "Identify spell reveals all weaknesses; knowledge vulnerability",
+      "discovery_hints": "Avoids identification magic; legend lore fear; analysis weakness"
+    },
+    {
+      "weakness": "Proficiency Bonus Scaling",
+      "description": "Becomes weaker against lower-level opponents - inverse level scaling.",
+      "tags": ["sentient", "non-sentient", "level", "scaling", "game-aware"],
+      "mechanical_effect": "Lower proficiency enemies deal more damage; newbie powerful",
+      "discovery_hints": "Avoids beginners; level detection ability; experience inverse"
+    },
+    {
+      "weakness": "Character Sheet Visibility",
+      "description": "If someone can see its 'stats,' becomes vulnerable and predictable.",
+      "tags": ["sentient", "meta", "game-aware", "knowledge", "exposure"],
+      "mechanical_effect": "Loses resistances when stats are known; predictability weakness",
+      "discovery_hints": "Hides abilities; stat block secrecy; meta knowledge fear"
+    },
+    {
+      "weakness": "Dice Superstition",
+      "description": "Specific dice results cause irrational behavior - seven fear, thirteen obsession.",
+      "tags": ["sentient", "non-sentient", "numerical", "superstition", "random"],
+      "mechanical_effect": "Specific numbers cause different conditions; dice governed",
+      "discovery_hints": "Number reactions; dice rolling fear; probability awareness"
+    },
+    {
+      "weakness": "Session End Weakness",
+      "description": "Becomes dramatically weaker as 'session time' runs long - meta exhaustion.",
+      "tags": ["sentient", "non-sentient", "meta", "temporal", "game-aware"],
+      "mechanical_effect": "Loses power after 4 hours real time; session fatigue",
+      "discovery_hints": "Time awareness; fourth wall knowledge; session length matters"
+    },
+    {
+      "weakness": "Rule Clarification Paralysis",
+      "description": "Becomes paralyzed during rule disputes - cannot act during arguments.",
+      "tags": ["sentient", "meta", "game-aware", "paralysis", "rules"],
+      "mechanical_effect": "Cannot act during rule discussions; argument paralysis",
+      "discovery_hints": "Rules lawyer weakness; dispute triggering; clarification need"
+    },
+    {
+      "weakness": "New Player Protection",
+      "description": "Cannot harm players in their first three sessions - tutorial protection.",
+      "tags": ["sentient", "meta", "game-aware", "protection", "new player"],
+      "mechanical_effect": "Cannot target new players; tutorial mode active",
+      "discovery_hints": "Newbie avoidance; experience detection; tutorial awareness"
+    },
+    {
+      "weakness": "House Rule Confusion",
+      "description": "Non-standard rules cause breakdown - requires official rules only.",
+      "tags": ["sentient", "non-sentient", "meta", "rules", "rigid"],
+      "mechanical_effect": "Confused by house rules; disadvantage with variants",
+      "discovery_hints": "RAW adherence; house rule hatred; official only"
+    },
+    {
+      "weakness": "Spell Save DC Anxiety",
+      "description": "Becomes anxious about its own save DCs - constantly recalculates.",
+      "tags": ["sentient", "spellcaster", "anxiety", "mathematical", "game-aware"],
+      "mechanical_effect": "Wastes actions calculating DCs; mathematical obsession",
+      "discovery_hints": "Number muttering; DC calculation visible; math anxiety"
+    },
+    {
+      "weakness": "Advantage Paralysis",
+      "description": "When enemies have advantage, freezes up calculating odds.",
+      "tags": ["sentient", "non-sentient", "probability", "paralysis", "game-aware"],
+      "mechanical_effect": "Skip turn when enemies have advantage; probability overload",
+      "discovery_hints": "Advantage fear; disadvantage giving; probability fixation"
+    },
+    {
+      "weakness": "Grid Movement Lock",
+      "description": "Can only move in grid patterns - diagonal movement causes errors.",
+      "tags": ["non-sentient", "sentient", "movement", "restriction", "geometric"],
+      "mechanical_effect": "Cannot move diagonally; grid-locked movement only",
+      "discovery_hints": "Right angle movement; diagonal confusion; grid dependence"
+    },
+    {
+      "weakness": "Encumbrance Reality",
+      "description": "Actually affected by weight limits - carrying capacity matters.",
+      "tags": ["sentient", "humanoid", "physical", "weight", "realistic"],
+      "mechanical_effect": "Movement reduced by carried weight; encumbrance rules apply",
+      "discovery_hints": "Drops heavy items; weight distribution obsession; pack management"
+    },
+    {
+      "weakness": "Line of Sight Literal",
+      "description": "Requires literal lines to see - cannot see around any corner.",
+      "tags": ["non-sentient", "sentient", "vision", "limitation", "geometric"],
+      "mechanical_effect": "No peripheral vision; requires direct line for sight",
+      "discovery_hints": "Straight line vision only; corner blindness; geometric sight"
+    },
+    {
+      "weakness": "Spell Description Literal",
+      "description": "Interprets all spell descriptions literally - creative use confuses it.",
+      "tags": ["sentient", "non-sentient", "magical", "interpretation", "rigid"],
+      "mechanical_effect": "Confused by creative spell use; literal interpretation only",
+      "discovery_hints": "Spell pedantry; creative use confusion; RAW adherence"
+    },
+    {
+      "weakness": "Experience Point Drain",
+      "description": "Loses power when it grants XP - literally spending itself as reward.",
+      "tags": ["sentient", "non-sentient", "meta", "experience", "draining"],
+      "mechanical_effect": "Weakens as it grants XP; power equals unspent experience",
+      "discovery_hints": "XP hoarding behavior; milestone preference; level drain fear"
+    },
+    {
+      "weakness": "Roll Fudging Detection",
+      "description": "Can sense fudged rolls and becomes enraged by dishonesty.",
+      "tags": ["sentient", "meta", "honesty", "dice", "game-aware"],
+      "mechanical_effect": "Berserks when rolls are fudged; honesty enforcement",
+      "discovery_hints": "Dice watching; honesty obsession; fudge detection"
+    },
+    {
+      "weakness": "Miniature Dependent",
+      "description": "Requires physical miniature to exist - representational existence.",
+      "tags": ["sentient", "non-sentient", "meta", "physical", "representation"],
+      "mechanical_effect": "Vanishes without miniature; mini equals existence",
+      "discovery_hints": "Miniature protection; representation need; token fear"
+    },
+    {
+      "weakness": "Theater of Mind Blind",
+      "description": "Cannot function without visual battle map - imagination impaired.",
+      "tags": ["non-sentient", "sentient", "visual", "requirement", "limitation"],
+      "mechanical_effect": "Confused without battle map; requires visual representation",
+      "discovery_hints": "Map dependency; abstract combat confusion; visual need"
+    },
+    {
+      "weakness": "Retcon Vulnerability",
+      "description": "Takes damage when past events are retconned - timeline damage.",
+      "tags": ["sentient", "non-sentient", "temporal", "meta", "continuity"],
+      "mechanical_effect": "Damaged by continuity changes; retcon equals wound",
+      "discovery_hints": "Continuity obsession; timeline protection; retcon fear"
+    },
+    {
+      "weakness": "Metagaming Weakness",
+      "description": "Hurt by player knowledge it shouldn't have - meta knowledge burns.",
+      "tags": ["sentient", "meta", "knowledge", "game-aware", "fourth-wall"],
+      "mechanical_effect": "Takes damage from metagaming; player knowledge hurts",
+      "discovery_hints": "Fourth wall awareness; meta knowledge pain; IC/OOC confusion"
+    },
+    {
+      "weakness": "Homebrew Allergy",
+      "description": "Homebrew content causes system rejection - official content only.",
+      "tags": ["sentient", "non-sentient", "meta", "content", "rejection"],
+      "mechanical_effect": "Sickened by homebrew; unofficial content weakness",
+      "discovery_hints": "Published material only; homebrew detection; official adherence"
+    },
+    {
+      "weakness": "Edition Confusion",
+      "description": "Mixing edition rules causes complete breakdown - version locked.",
+      "tags": ["sentient", "non-sentient", "meta", "rules", "version"],
+      "mechanical_effect": "Confused by edition mixing; single version only",
+      "discovery_hints": "Edition purism; rule set confusion; version lock"
+    },
+    {
+      "weakness": "Campaign Setting Clash",
+      "description": "Elements from different settings cause existential crisis.",
+      "tags": ["sentient", "meta", "setting", "consistency", "world"],
+      "mechanical_effect": "Damaged by setting inconsistency; world integrity need",
+      "discovery_hints": "Setting purism; crossover hatred; world consistency"
+    },
+    {
+      "weakness": "RPG Safety Tool",
+      "description": "X-card or safety tools cause immediate retreat - meta consent.",
+      "tags": ["sentient", "meta", "safety", "consent", "game-aware"],
+      "mechanical_effect": "Must retreat when safety tools used; consent based",
+      "discovery_hints": "Safety tool awareness; X-card fear; consent understanding"
+    }
+  ]
+}

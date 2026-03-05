@@ -1,0 +1,442 @@
+[
+  {
+    "name": "Mentor",
+    "category": "Classic Story Archetypes",
+    "description": "Serves as the wise guide who teaches and protects the party, passing on knowledge and magical gifts that prove crucial to their success. These characters embody wisdom gained through experience and often sacrifice themselves for the greater good."
+  },
+  {
+    "name": "Herald",
+    "category": "Classic Story Archetypes",
+    "description": "Delivers the call to adventure or important news that sets events in motion, serving as the catalyst that draws heroes from their ordinary world into extraordinary circumstances."
+  },
+  {
+    "name": "Threshold Guardian",
+    "category": "Classic Story Archetypes",
+    "description": "They can proceed to new challenges, representing the obstacles that must be overcome to prove heroic capability."
+  },
+  {
+    "name": "Shapeshifter",
+    "category": "Classic Story Archetypes",
+    "description": "Creates uncertainty and mystery through changing loyalties and nature, keeping players guessing about true motivations and allegiances."
+  },
+  {
+    "name": "Shadow",
+    "category": "Classic Story Archetypes",
+    "description": "Represents the dark reflection of the heroes, embodying their suppressed fears, desires, or potential for corruption."
+  },
+  {
+    "name": "Trickster",
+    "category": "Classic Story Archetypes",
+    "description": "Disrupts established order and creates unexpected complications through chaotic behavior that can help or hinder the party."
+  },
+  {
+    "name": "Ally",
+    "category": "Classic Story Archetypes",
+    "description": "Provides ongoing support and companionship, standing with the party through trials and tribulations."
+  },
+  {
+    "name": "Temptress/Tempter",
+    "category": "Classic Story Archetypes",
+    "description": "Uses allure and persuasion to lead the party astray from their mission, representing the seductive power of abandoning duty for personal desires."
+  },
+  {
+    "name": "Primary Villain",
+    "category": "Antagonistic Roles",
+    "description": "Serves as the main antagonist opposing the party's goals, providing the central source of conflict that drives the overarching narrative."
+  },
+  {
+    "name": "Lieutenant",
+    "category": "Antagonistic Roles",
+    "description": "Functions as a secondary villain serving the main antagonist, often serving as the direct threat while the primary villain operates from the shadows."
+  },
+  {
+    "name": "Rival",
+    "category": "Antagonistic Roles",
+    "description": "Competes with the party for similar goals, staying one step ahead and creating a sense of urgency and competition."
+  },
+  {
+    "name": "Nemesis",
+    "category": "Antagonistic Roles",
+    "description": "Maintains a personal enmity with specific party members, driven by past wrongs or fundamental ideological differences."
+  },
+  {
+    "name": "False Friend",
+    "category": "Antagonistic Roles",
+    "description": "Appears as an ally but betrays the party at crucial moments, teaching hard lessons about trust and perception."
+  },
+  {
+    "name": "Corrupt Authority",
+    "category": "Antagonistic Roles",
+    "description": "Abuses official power to oppose the party, representing institutional evil and systemic oppression."
+  },
+  {
+    "name": "Fanatic",
+    "category": "Antagonistic Roles",
+    "description": "Pursues extreme beliefs that put them at odds with the party, creating moral complexity through sincere but misguided conviction."
+  },
+  {
+    "name": "Fallen Hero",
+    "category": "Antagonistic Roles",
+    "description": "Represents a former champion turned to darkness, showing the potential consequences of failure or corruption."
+  },
+  {
+    "name": "Dark Mirror",
+    "category": "Antagonistic Roles",
+    "description": "Serves as an antagonist who represents what the party could become if they made different choices."
+  },
+  {
+    "name": "Puppet Master",
+    "category": "Antagonistic Roles",
+    "description": "Manipulates events from hidden positions, creating the sense of a larger conspiracy working against the heroes."
+  },
+  {
+    "name": "Benefactor",
+    "category": "Social Relationship Roles",
+    "description": "Provides resources and support from positions of wealth or influence, often expecting nothing in return but creating bonds of gratitude."
+  },
+  {
+    "name": "Employer",
+    "category": "Social Relationship Roles",
+    "description": "Hires the party for specific tasks, establishing clear professional relationships with defined expectations and rewards."
+  },
+  {
+    "name": "Client",
+    "category": "Social Relationship Roles",
+    "description": "Seeks the party's services for personal problems, creating intimate stakes where success or failure affects individual lives."
+  },
+  {
+    "name": "Contact",
+    "category": "Social Relationship Roles",
+    "description": "Offers information, connections, or specialized services, serving as a gateway to larger networks and opportunities."
+  },
+  {
+    "name": "Informant",
+    "category": "Social Relationship Roles",
+    "description": "Secretly provides information about enemies or hidden activities, creating relationships built on trust and shared risk."
+  },
+  {
+    "name": "Confidant",
+    "category": "Social Relationship Roles",
+    "description": "Listens to the party's problems and provides emotional support, serving as a safe harbor for personal struggles."
+  },
+  {
+    "name": "Protégé",
+    "category": "Social Relationship Roles",
+    "description": "Looks to the party for guidance and teaching, creating mentorship relationships that develop over time."
+  },
+  {
+    "name": "Dependent",
+    "category": "Social Relationship Roles",
+    "description": "Relies on the party for care or protection, establishing ongoing responsibilities and emotional connections."
+  },
+  {
+    "name": "Love Interest",
+    "category": "Social Relationship Roles",
+    "description": "Provides romantic partnership or potential, adding personal stakes and emotional complexity to adventures."
+  },
+  {
+    "name": "Ex-Partner",
+    "category": "Social Relationship Roles",
+    "description": "Brings complicated history from former romantic or business relationships, creating tension and unresolved issues."
+  },
+  {
+    "name": "Parent",
+    "category": "Family and Kinship Roles",
+    "description": "Serves as father or mother figure, whether biological or adoptive, providing wisdom, protection, and unconditional love."
+  },
+  {
+    "name": "Sibling",
+    "category": "Family and Kinship Roles",
+    "description": "Shares blood ties and common history, creating relationships marked by rivalry, loyalty, and deep understanding."
+  },
+  {
+    "name": "Child",
+    "category": "Family and Kinship Roles",
+    "description": "Represents the party's legacy and future, creating protective instincts and long-term investment in outcomes."
+  },
+  {
+    "name": "Grandparent",
+    "category": "Family and Kinship Roles",
+    "description": "Offers elder wisdom and stories of the past, connecting the party to larger historical narratives."
+  },
+  {
+    "name": "Uncle/Aunt",
+    "category": "Family and Kinship Roles",
+    "description": "Provides extended family support with different perspectives, often serving as alternative mentors or confidants."
+  },
+  {
+    "name": "Cousin",
+    "category": "Family and Kinship Roles",
+    "description": "Shares extended family connections with similar age and experiences, creating peer relationships within family structures."
+  },
+  {
+    "name": "In-Law",
+    "category": "Family and Kinship Roles",
+    "description": "Brings family connections through marriage, creating complex dynamics between different family traditions."
+  },
+  {
+    "name": "Step-Family",
+    "category": "Family and Kinship Roles",
+    "description": "Represents family bonds formed through remarriage, with developing relationships and potential conflicts."
+  },
+  {
+    "name": "Godparent",
+    "category": "Family and Kinship Roles",
+    "description": "Establishes chosen family connections with spiritual or mentoring obligations, creating non-blood family bonds."
+  },
+  {
+    "name": "Ancestor",
+    "category": "Family and Kinship Roles",
+    "description": "Appears as spirits or in flashbacks, connecting the party to their heritage and providing guidance from beyond."
+  },
+  {
+    "name": "Merchant",
+    "category": "Professional Roles",
+    "description": "Trades goods and services while providing equipment and market information, serving as economic hubs in communities."
+  },
+  {
+    "name": "Craftsman",
+    "category": "Professional Roles",
+    "description": "Creates items and shares specialized trade knowledge, representing the skilled artisans who build civilization."
+  },
+  {
+    "name": "Scholar",
+    "category": "Professional Roles",
+    "description": "Provides research capabilities, lore, and intellectual expertise, serving as repositories of knowledge and learning."
+  },
+  {
+    "name": "Healer",
+    "category": "Professional Roles",
+    "description": "Tends to wounds and illnesses while offering medical expertise, representing mercy and restoration in harsh worlds."
+  },
+  {
+    "name": "Innkeeper",
+    "category": "Professional Roles",
+    "description": "Offers lodging and local gossip, serving as community information centers and safe gathering places."
+  },
+  {
+    "name": "Guide",
+    "category": "Professional Roles",
+    "description": "Provides local expertise about terrain and dangers, helping parties navigate unfamiliar territories safely."
+  },
+  {
+    "name": "Guard",
+    "category": "Professional Roles",
+    "description": "Protects people, places, or things professionally, representing order and security in chaotic times."
+  },
+  {
+    "name": "Spy",
+    "category": "Professional Roles",
+    "description": "Gathers intelligence while operating in shadows, providing access to hidden information and covert operations."
+  },
+  {
+    "name": "Diplomat",
+    "category": "Professional Roles",
+    "description": "Handles political and social negotiations, representing civilized discourse and peaceful resolution of conflicts."
+  },
+  {
+    "name": "Entertainer",
+    "category": "Professional Roles",
+    "description": "Lifts spirits and spreads news through artistic expression, serving as cultural ambassadors and morale boosters."
+  },
+  {
+    "name": "Noble",
+    "category": "Social Status Roles",
+    "description": "Wields political power and resources through high birth, representing established authority and aristocratic values."
+  },
+  {
+    "name": "Peasant",
+    "category": "Social Status Roles",
+    "description": "Represents everyday struggles of common folk, providing ground-level perspectives on how grand events affect ordinary lives."
+  },
+  {
+    "name": "Clergy",
+    "category": "Social Status Roles",
+    "description": "Holds spiritual authority and divine connections, serving as intermediaries between mortal and divine realms."
+  },
+  {
+    "name": "Outcast",
+    "category": "Social Status Roles",
+    "description": "Lives on society's margins after exile or rejection, providing alternative perspectives and desperate motivations."
+  },
+  {
+    "name": "Refugee",
+    "category": "Social Status Roles",
+    "description": "Seeks safety and new homes after displacement, representing vulnerability and the costs of conflict."
+  },
+  {
+    "name": "Criminal",
+    "category": "Social Status Roles",
+    "description": "Operates outside social norms as a lawbreaker, providing access to underground networks and illegal activities."
+  },
+  {
+    "name": "Veteran",
+    "category": "Social Status Roles",
+    "description": "Brings combat experience and war stories, representing the personal costs of conflict and martial expertise."
+  },
+  {
+    "name": "Foreigner",
+    "category": "Social Status Roles",
+    "description": "Offers different cultural perspectives as an outsider, providing exotic knowledge and alternative worldviews."
+  },
+  {
+    "name": "Servant",
+    "category": "Social Status Roles",
+    "description": "Works in bound service to others, possibly possessing hidden knowledge from their positions of invisible observation."
+  },
+  {
+    "name": "Elder",
+    "category": "Social Status Roles",
+    "description": "Commands community respect through wisdom and influence, representing tradition and accumulated life experience."
+  },
+  {
+    "name": "Quest Giver",
+    "category": "Functional Story Roles",
+    "description": "Provides missions and objectives for the party to pursue, serving as the primary source of adventure hooks and direction."
+  },
+  {
+    "name": "Gatekeeper",
+    "category": "Functional Story Roles",
+    "description": "Controls access to important locations, information, or people, creating obstacles that must be overcome or negotiated."
+  },
+  {
+    "name": "Witness",
+    "category": "Functional Story Roles",
+    "description": "Has observed important events and can provide crucial testimony, serving as living evidence of past occurrences."
+  },
+  {
+    "name": "Victim",
+    "category": "Functional Story Roles",
+    "description": "Suffers harm and needs the party's help for rescue or justice, providing moral imperatives and emotional stakes."
+  },
+  {
+    "name": "Messenger",
+    "category": "Functional Story Roles",
+    "description": "Delivers important communications between parties, serving as information conduits and plot advancement mechanisms."
+  },
+  {
+    "name": "Trader",
+    "category": "Functional Story Roles",
+    "description": "Facilitates exchanges of goods, services, or information, serving as economic and social connection points."
+  },
+  {
+    "name": "Riddle-Master",
+    "category": "Functional Story Roles",
+    "description": "Poses challenges that test the party's wit and wisdom, providing intellectual obstacles beyond combat."
+  },
+  {
+    "name": "Oracle",
+    "category": "Functional Story Roles",
+    "description": "Provides prophecies, visions, or cryptic guidance about future events, offering foreshadowing and dramatic irony."
+  },
+  {
+    "name": "Collector",
+    "category": "Functional Story Roles",
+    "description": "Seeks specific items or information that the party might possess, creating opportunities for negotiation and exchange."
+  },
+  {
+    "name": "Chronicler",
+    "category": "Functional Story Roles",
+    "description": "Records events and spreads the party's reputation, serving as in-world mechanisms for fame and recognition."
+  },
+  {
+    "name": "Sidekick",
+    "category": "Supporting and Allied Roles",
+    "description": "Serves as loyal companion who follows the party on adventures, providing consistent support and friendship."
+  },
+  {
+    "name": "Henchman",
+    "category": "Supporting and Allied Roles",
+    "description": "Acts as devoted follower serving the party's interests, offering reliable assistance in various endeavors."
+  },
+  {
+    "name": "Backup",
+    "category": "Supporting and Allied Roles",
+    "description": "Provides reliable support when most needed, serving as cavalry that arrives at crucial moments."
+  },
+  {
+    "name": "Specialist",
+    "category": "Supporting and Allied Roles",
+    "description": "Offers expertise in specific skills the party lacks, filling gaps in party capabilities and knowledge."
+  },
+  {
+    "name": "Cheerleader",
+    "category": "Supporting and Allied Roles",
+    "description": "Provides emotional support and encouragement, maintaining morale during difficult times."
+  },
+  {
+    "name": "Network Node",
+    "category": "Supporting and Allied Roles",
+    "description": "Connects the party to larger organizations or groups, providing access to broader resources and influence."
+  },
+  {
+    "name": "Safe Harbor",
+    "category": "Supporting and Allied Roles",
+    "description": "Offers sanctuary and refuge in times of danger, providing secure bases for rest and recovery."
+  },
+  {
+    "name": "Resource Provider",
+    "category": "Supporting and Allied Roles",
+    "description": "Supplies equipment, money, or other material needs, serving as reliable sources for adventuring supplies."
+  },
+  {
+    "name": "Advisor",
+    "category": "Supporting and Allied Roles",
+    "description": "Offers strategic counsel and wisdom, helping the party make better decisions through experienced guidance."
+  },
+  {
+    "name": "Champion",
+    "category": "Supporting and Allied Roles",
+    "description": "Advocates for the party in social or political situations, providing representation and influence in complex scenarios."
+  },
+  {
+    "name": "Adversarial Ally",
+    "category": "Complex Dynamic Roles",
+    "description": "Supports the party while disagreeing with their methods or goals, creating tension between alliance and opposition."
+  },
+  {
+    "name": "Reluctant Helper",
+    "category": "Complex Dynamic Roles",
+    "description": "Assists the party grudgingly due to obligation or coercion, providing aid without enthusiasm or full commitment."
+  },
+  {
+    "name": "Reformed Enemy",
+    "category": "Complex Dynamic Roles",
+    "description": "Represents former foes who now aid the party, with trust still building and past conflicts creating ongoing tension."
+  },
+  {
+    "name": "Double Agent",
+    "category": "Complex Dynamic Roles",
+    "description": "Works for multiple sides with unclear ultimate loyalties, creating uncertainty about true motivations and allegiances."
+  },
+  {
+    "name": "Tragic Figure",
+    "category": "Complex Dynamic Roles",
+    "description": "Embodies circumstances that create moral complexity, forcing the party to grapple with difficult ethical decisions."
+  },
+  {
+    "name": "Wild Card",
+    "category": "Complex Dynamic Roles",
+    "description": "Acts unpredictably in ways that can help or hinder the party, creating uncertainty and forcing adaptability."
+  },
+  {
+    "name": "Catalyst",
+    "category": "Complex Dynamic Roles",
+    "description": "Triggers important events through their presence or actions, serving as the spark that ignites larger conflicts or changes."
+  },
+  {
+    "name": "Crossroads",
+    "category": "Complex Dynamic Roles",
+    "description": "Forces the party to make difficult moral or strategic choices, serving as decision points that define character development."
+  },
+  {
+    "name": "Mirror",
+    "category": "Complex Dynamic Roles",
+    "description": "Reflects the party's qualities back at them for better or worse, providing opportunities for self-examination and growth."
+  },
+  {
+    "name": "Evolution",
+    "category": "Complex Dynamic Roles",
+    "description": "Grows and changes throughout the campaign, creating dynamic relationships that develop alongside the story."
+  }
+]

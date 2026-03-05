@@ -1,0 +1,1910 @@
+{
+  "factions": [
+    {
+      "name": "Republic",
+      "description": "A form of government where power is held by elected representatives"
+    },
+    {
+      "name": "City-State",
+      "description": "An independent sovereign city that controls surrounding territory"
+    },
+    {
+      "name": "Noble House",
+      "description": "A family of aristocrats with hereditary titles and political influence"
+    },
+    {
+      "name": "Alliance",
+      "description": "A formal partnership between multiple groups for mutual benefit"
+    },
+    {
+      "name": "Coalition",
+      "description": "A temporary alliance of different groups united for a specific purpose"
+    },
+    {
+      "name": "Confederation",
+      "description": "A loose association of independent groups that maintain autonomy"
+    },
+    {
+      "name": "Federation",
+      "description": "A union of groups under central authority with some independence"
+    },
+    {
+      "name": "Bloc",
+      "description": "A group of nations or organizations united for common purpose"
+    },
+    {
+      "name": "Axis",
+      "description": "A central alliance around which other groups align"
+    },
+    {
+      "name": "Front",
+      "description": "A united group formed to achieve a common goal"
+    },
+    {
+      "name": "Confederacy",
+      "description": "A loose alliance of independent states united for mutual benefit"
+    },
+    {
+      "name": "Council",
+      "description": "A governing body of representatives who make decisions collectively"
+    },
+    {
+      "name": "Parliament",
+      "description": "A legislative assembly that represents the people"
+    },
+    {
+      "name": "Ministry",
+      "description": "A government department or religious organization"
+    },
+    {
+      "name": "Theocracy",
+      "description": "A government ruled by religious leaders or divine authority"
+    },
+    {
+      "name": "Oligarchy",
+      "description": "A government ruled by a small group of powerful individuals"
+    },
+    {
+      "name": "Democracy",
+      "description": "A government where power is held by the people through voting"
+    },
+    {
+      "name": "Autocracy",
+      "description": "A government with absolute power held by a single ruler"
+    },
+    {
+      "name": "Dictatorship",
+      "description": "A government ruled by a dictator with absolute authority"
+    },
+    {
+      "name": "Monarchy",
+      "description": "A government ruled by a monarch"
+    },
+    {
+      "name": "Junta",
+      "description": "A military group ruling after seizing power"
+    },
+    {
+      "name": "Triumvirate",
+      "description": "A political alliance of three powerful individuals"
+    },
+    {
+      "name": "Regency",
+      "description": "A government acting on behalf of an absent ruler"
+    },
+    {
+      "name": "Aristocracy",
+      "description": "A government ruled by a privileged class of nobles"
+    },
+    {
+      "name": "Plutocracy",
+      "description": "A government ruled by the wealthy elite"
+    },
+    {
+      "name": "Meritocracy",
+      "description": "A government where positions are based on ability"
+    },
+    {
+      "name": "Technocracy",
+      "description": "A government ruled by technical experts and scientists"
+    },
+    {
+      "name": "Commune",
+      "description": "A self-governing community with shared resources"
+    },
+    {
+      "name": "League",
+      "description": "An alliance of cities or states for defense or trade"
+    },
+    {
+      "name": "Union",
+      "description": "A political entity formed by combination of multiple states"
+    },
+    {
+      "name": "Syndicate",
+      "description": "A group of individuals working together for mutual benefit"
+    },
+    {
+      "name": "Consortium",
+      "description": "An association of companies for a common purpose"
+    },
+    {
+      "name": "Cartel",
+      "description": "Independent organizations working to control markets"
+    },
+    {
+      "name": "Hegemony",
+      "description": "A dominant influence or authority over other states"
+    },
+    {
+      "name": "Imperium",
+      "description": "Supreme power or authority, often magical or divine"
+    },
+    {
+      "name": "Magocracy",
+      "description": "A government ruled by powerful magic users"
+    },
+    {
+      "name": "Gerontocracy",
+      "description": "A government ruled by the elderly"
+    },
+    {
+      "name": "Stratocracy",
+      "description": "A government ruled by military leaders"
+    },
+    {
+      "name": "Kleptocracy",
+      "description": "A government ruled by corrupt leaders"
+    },
+    {
+      "name": "Timocracy",
+      "description": "A government where property ownership determines power"
+    },
+    {
+      "name": "Nomocracy",
+      "description": "A government based on rule of law"
+    },
+    {
+      "name": "Polyarchy",
+      "description": "A government with multiple centers of power"
+    },
+    {
+      "name": "Diarchy",
+      "description": "A government ruled by two individuals"
+    },
+    {
+      "name": "Triarchy",
+      "description": "A government ruled by three individuals"
+    },
+    {
+      "name": "Tetrarchy",
+      "description": "A government ruled by four individuals"
+    },
+    {
+      "name": "Pentarchy",
+      "description": "A government ruled by five individuals"
+    },
+    {
+      "name": "Suzerainty",
+      "description": "A relationship where one state controls another's foreign policy"
+    },
+    {
+      "name": "Vassalage",
+      "description": "A relationship of allegiance to a more powerful overlord"
+    },
+    {
+      "name": "Atabegate",
+      "description": "Rule by an atabeg regent or governor"
+    },
+    {
+      "name": "Mamlukate",
+      "description": "Rule by mamluk slave-soldiers who gained power"
+    },
+    {
+      "name": "Timar",
+      "description": "Military service in exchange for land grants"
+    },
+    {
+      "name": "Zamindari",
+      "description": "System of landowners with administrative powers"
+    },
+    {
+      "name": "Jagir",
+      "description": "Noble service in exchange for territorial control"
+    },
+    {
+      "name": "Guild",
+      "description": "An association of craftsmen or merchants"
+    },
+    {
+      "name": "Order",
+      "description": "A religious or military organization with hierarchy"
+    },
+    {
+      "name": "Brotherhood",
+      "description": "A fraternal organization united by common purpose"
+    },
+    {
+      "name": "Sisterhood",
+      "description": "A sororal organization of women"
+    },
+    {
+      "name": "Cabal",
+      "description": "A secret group plotting together"
+    },
+    {
+      "name": "Coven",
+      "description": "A gathering of magic practitioners"
+    },
+    {
+      "name": "Circle",
+      "description": "A group united by common interest or practice"
+    },
+    {
+      "name": "Lodge",
+      "description": "A local chapter of a larger organization"
+    },
+    {
+      "name": "Chapter",
+      "description": "A branch of a larger organization"
+    },
+    {
+      "name": "Enclave",
+      "description": "A distinct group within a larger territory"
+    },
+    {
+      "name": "Sect",
+      "description": "A religious or philosophical subgroup"
+    },
+    {
+      "name": "Cult",
+      "description": "A religious group with particular devotion"
+    },
+    {
+      "name": "Society",
+      "description": "An organized group with shared purpose"
+    },
+    {
+      "name": "Association",
+      "description": "A group organized for a joint purpose"
+    },
+    {
+      "name": "Company",
+      "description": "A commercial or military organization"
+    },
+    {
+      "name": "Corporation",
+      "description": "A large commercial organization"
+    },
+    {
+      "name": "Conglomerate",
+      "description": "A large corporation of diverse businesses"
+    },
+    {
+      "name": "Monopoly",
+      "description": "Exclusive control of a trade or service"
+    },
+    {
+      "name": "Oligopoly",
+      "description": "Market control by a small group"
+    },
+    {
+      "name": "Trust",
+      "description": "A combination of firms for monopolistic purposes"
+    },
+    {
+      "name": "Combine",
+      "description": "An association for commercial or political purposes"
+    },
+    {
+      "name": "Faction",
+      "description": "A dissenting group within a larger group"
+    },
+    {
+      "name": "Party",
+      "description": "A political organization"
+    },
+    {
+      "name": "Movement",
+      "description": "A group working toward social or political change"
+    },
+    {
+      "name": "Resistance",
+      "description": "An underground organization opposing authority"
+    },
+    {
+      "name": "Rebellion",
+      "description": "An organized opposition to established authority"
+    },
+    {
+      "name": "Revolution",
+      "description": "A movement to overthrow existing power"
+    },
+    {
+      "name": "Insurgency",
+      "description": "An active revolt against authority"
+    },
+    {
+      "name": "Underground",
+      "description": "A secret resistance organization"
+    },
+    {
+      "name": "Network",
+      "description": "An interconnected group or system"
+    },
+    {
+      "name": "Web",
+      "description": "A complex system of connections"
+    },
+    {
+      "name": "Ring",
+      "description": "A circular organization, often secretive"
+    },
+    {
+      "name": "Cell",
+      "description": "A small unit of a larger organization"
+    },
+    {
+      "name": "Cadre",
+      "description": "A core group of trained personnel"
+    },
+    {
+      "name": "Vanguard",
+      "description": "The leading part of an advancing force"
+    },
+    {
+      "name": "Elite",
+      "description": "A select group considered superior"
+    },
+    {
+      "name": "Nobility",
+      "description": "The aristocratic class"
+    },
+    {
+      "name": "Gentry",
+      "description": "The landed aristocracy below nobility"
+    },
+    {
+      "name": "Patriciate",
+      "description": "The aristocratic class in republics"
+    },
+    {
+      "name": "Bourgeoisie",
+      "description": "The middle merchant class"
+    },
+    {
+      "name": "Proletariat",
+      "description": "The working class"
+    },
+    {
+      "name": "Peasantry",
+      "description": "The agricultural working class"
+    },
+    {
+      "name": "Clergy",
+      "description": "The religious leadership class"
+    },
+    {
+      "name": "Bureaucracy",
+      "description": "The administrative system of government"
+    },
+    {
+      "name": "Intelligentsia",
+      "description": "The intellectual elite"
+    },
+    {
+      "name": "Militia",
+      "description": "A citizen army"
+    },
+    {
+      "name": "Guard",
+      "description": "A protective military force"
+    },
+    {
+      "name": "Watch",
+      "description": "A civic protective force"
+    },
+    {
+      "name": "Patrol",
+      "description": "A mobile protective unit"
+    },
+    {
+      "name": "Brigade",
+      "description": "A tactical military unit"
+    },
+    {
+      "name": "Regiment",
+      "description": "A military unit"
+    },
+    {
+      "name": "Battalion",
+      "description": "A large military unit"
+    },
+    {
+      "name": "Squadron",
+      "description": "A military or naval unit"
+    },
+    {
+      "name": "Platoon",
+      "description": "A military unit subdivision"
+    },
+    {
+      "name": "Squad",
+      "description": "A small military unit"
+    },
+    {
+      "name": "Crew",
+      "description": "A working team"
+    },
+    {
+      "name": "Gang",
+      "description": "An organized group, often criminal"
+    },
+    {
+      "name": "Band",
+      "description": "A group of people with common purpose"
+    },
+    {
+      "name": "Troupe",
+      "description": "A company of performers"
+    },
+    {
+      "name": "Tribe",
+      "description": "A social division in traditional society"
+    },
+    {
+      "name": "Clan",
+      "description": "A kinship group"
+    },
+    {
+      "name": "House",
+      "description": "A noble or merchant family organization"
+    },
+    {
+      "name": "Dynasty",
+      "description": "A line of hereditary rulers"
+    },
+    {
+      "name": "Lineage",
+      "description": "A line of descent"
+    },
+    {
+      "name": "Bloodline",
+      "description": "A family line of descent"
+    },
+    {
+      "name": "Covenant",
+      "description": "A binding agreement or religious group"
+    },
+    {
+      "name": "Compact",
+      "description": "A formal agreement between parties"
+    },
+    {
+      "name": "Pact",
+      "description": "A formal agreement"
+    },
+    {
+      "name": "Treaty",
+      "description": "A formal agreement between states"
+    },
+    {
+      "name": "Accord",
+      "description": "An agreement or harmony between parties"
+    },
+    {
+      "name": "Concordat",
+      "description": "An agreement, especially with religious authority"
+    },
+    {
+      "name": "Charter",
+      "description": "A written grant of rights"
+    },
+    {
+      "name": "Constitution",
+      "description": "Fundamental principles of governance"
+    },
+    {
+      "name": "Assembly",
+      "description": "A group gathered for common purpose"
+    },
+    {
+      "name": "Congress",
+      "description": "A formal meeting or legislative body"
+    },
+    {
+      "name": "Senate",
+      "description": "An upper legislative chamber"
+    },
+    {
+      "name": "Chamber",
+      "description": "A legislative or judicial body"
+    },
+    {
+      "name": "Court",
+      "description": "A judicial body or royal household"
+    },
+    {
+      "name": "Tribunal",
+      "description": "A court of justice"
+    },
+    {
+      "name": "Inquisition",
+      "description": "An investigation body, often religious"
+    },
+    {
+      "name": "Commission",
+      "description": "A group authorized for specific duties"
+    },
+    {
+      "name": "Committee",
+      "description": "A group appointed for specific function"
+    },
+    {
+      "name": "Board",
+      "description": "A governing body"
+    },
+    {
+      "name": "Panel",
+      "description": "A small group for discussion or judgment"
+    },
+    {
+      "name": "Jury",
+      "description": "A body for making determinations"
+    },
+    {
+      "name": "Quorum",
+      "description": "The minimum members for valid proceedings"
+    },
+    {
+      "name": "Caucus",
+      "description": "A meeting of party members"
+    },
+    {
+      "name": "Convention",
+      "description": "A large meeting or agreement"
+    },
+    {
+      "name": "Symposium",
+      "description": "A conference or meeting"
+    },
+    {
+      "name": "Conclave",
+      "description": "A private meeting"
+    },
+    {
+      "name": "Summit",
+      "description": "A meeting of high-level officials"
+    },
+    {
+      "name": "Forum",
+      "description": "A place or meeting for discussion"
+    },
+    {
+      "name": "Plaza",
+      "description": "A public square or marketplace"
+    },
+    {
+      "name": "Exchange",
+      "description": "A marketplace or trading center"
+    },
+    {
+      "name": "Market",
+      "description": "A regular gathering for trade"
+    },
+    {
+      "name": "Bazaar",
+      "description": "A marketplace, often exotic"
+    },
+    {
+      "name": "Emporium",
+      "description": "A large commercial establishment"
+    },
+    {
+      "name": "Monopoly",
+      "description": "Exclusive control of trade"
+    },
+    {
+      "name": "Franchise",
+      "description": "A license to operate under established brand"
+    },
+    {
+      "name": "Concern",
+      "description": "A business organization"
+    },
+    {
+      "name": "Enterprise",
+      "description": "A business or undertaking"
+    },
+    {
+      "name": "Venture",
+      "description": "A risky or daring undertaking"
+    },
+    {
+      "name": "Undertaking",
+      "description": "A formal pledge or enterprise"
+    },
+    {
+      "name": "Operation",
+      "description": "An organized activity"
+    },
+    {
+      "name": "Campaign",
+      "description": "An organized course of action"
+    },
+    {
+      "name": "Crusade",
+      "description": "A vigorous campaign for a cause"
+    },
+    {
+      "name": "Mission",
+      "description": "An important assignment"
+    },
+    {
+      "name": "Quest",
+      "description": "A long search for something"
+    },
+    {
+      "name": "Expedition",
+      "description": "A journey for a specific purpose"
+    },
+    {
+      "name": "Voyage",
+      "description": "A long journey by sea"
+    },
+    {
+      "name": "Pilgrimage",
+      "description": "A journey to a sacred place"
+    },
+    {
+      "name": "Odyssey",
+      "description": "A long eventful journey"
+    },
+    {
+      "name": "Exodus",
+      "description": "A mass departure"
+    },
+    {
+      "name": "Migration",
+      "description": "Movement from one region to another"
+    },
+    {
+      "name": "Diaspora",
+      "description": "A scattered population"
+    },
+    {
+      "name": "Colony",
+      "description": "A settlement in a new territory"
+    },
+    {
+      "name": "Settlement",
+      "description": "A place where people establish community"
+    },
+    {
+      "name": "Outpost",
+      "description": "A remote settlement or station"
+    },
+    {
+      "name": "Station",
+      "description": "A place established for specific purpose"
+    },
+    {
+      "name": "Post",
+      "description": "A place of duty or trading"
+    },
+    {
+      "name": "Fort",
+      "description": "A fortified military position"
+    },
+    {
+      "name": "Fortress",
+      "description": "A large fortified place"
+    },
+    {
+      "name": "Citadel",
+      "description": "A fortress protecting a city"
+    },
+    {
+      "name": "Stronghold",
+      "description": "A place of security and survival"
+    },
+    {
+      "name": "Bastion",
+      "description": "A stronghold or fortified area"
+    },
+    {
+      "name": "Redoubt",
+      "description": "A temporary fortification"
+    },
+    {
+      "name": "Garrison",
+      "description": "Troops stationed in a fortress"
+    },
+    {
+      "name": "Barracks",
+      "description": "Military housing"
+    },
+    {
+      "name": "Academy",
+      "description": "An institution of learning"
+    },
+    {
+      "name": "Institute",
+      "description": "An organization for promotion of cause"
+    },
+    {
+      "name": "University",
+      "description": "An institution of higher learning"
+    },
+    {
+      "name": "College",
+      "description": "An educational institution"
+    },
+    {
+      "name": "School",
+      "description": "An institution for education"
+    },
+    {
+      "name": "Seminary",
+      "description": "A training institution"
+    },
+    {
+      "name": "Monastery",
+      "description": "A religious community residence"
+    },
+    {
+      "name": "Convent",
+      "description": "A religious community for women"
+    },
+    {
+      "name": "Temple",
+      "description": "A place of worship"
+    },
+    {
+      "name": "Shrine",
+      "description": "A holy or sacred place"
+    },
+    {
+      "name": "Sanctuary",
+      "description": "A place of refuge or worship"
+    },
+    {
+      "name": "Chapel",
+      "description": "A small place of worship"
+    },
+    {
+      "name": "Cathedral",
+      "description": "A principal church"
+    },
+    {
+      "name": "Basilica",
+      "description": "An important church building"
+    },
+    {
+      "name": "Mosque",
+      "description": "An Islamic place of worship"
+    },
+    {
+      "name": "Synagogue",
+      "description": "A Jewish place of worship"
+    },
+    {
+      "name": "Pantheon",
+      "description": "A temple to all gods"
+    },
+    {
+      "name": "Oracle",
+      "description": "A place of divine communication"
+    },
+    {
+      "name": "Hospice",
+      "description": "A place of care and shelter"
+    },
+    {
+      "name": "Hospital",
+      "description": "A place for medical treatment"
+    },
+    {
+      "name": "Infirmary",
+      "description": "A place for the sick"
+    },
+    {
+      "name": "Asylum",
+      "description": "A place of refuge or care"
+    },
+    {
+      "name": "Refuge",
+      "description": "A place of shelter"
+    },
+    {
+      "name": "Haven",
+      "description": "A place of safety"
+    },
+    {
+      "name": "Sanctum",
+      "description": "A sacred or private place"
+    },
+    {
+      "name": "Retreat",
+      "description": "A quiet or secluded place"
+    },
+    {
+      "name": "Hermitage",
+      "description": "A secluded dwelling"
+    },
+    {
+      "name": "Cloister",
+      "description": "A covered walk in a religious building"
+    },
+    {
+      "name": "Archive",
+      "description": "A place for historical records"
+    },
+    {
+      "name": "Library",
+      "description": "A place for books and learning"
+    },
+    {
+      "name": "Museum",
+      "description": "A place for preservation and display"
+    },
+    {
+      "name": "Gallery",
+      "description": "A place for art display"
+    },
+    {
+      "name": "Treasury",
+      "description": "A place for storing wealth"
+    },
+    {
+      "name": "Vault",
+      "description": "A secure storage place"
+    },
+    {
+      "name": "Repository",
+      "description": "A place for storage"
+    },
+    {
+      "name": "Depot",
+      "description": "A storehouse or station"
+    },
+    {
+      "name": "Arsenal",
+      "description": "A place for weapons storage"
+    },
+    {
+      "name": "Armory",
+      "description": "A place for weapons and armor"
+    },
+    {
+      "name": "Forge",
+      "description": "A place for metalworking"
+    },
+    {
+      "name": "Foundry",
+      "description": "A place for casting metal"
+    },
+    {
+      "name": "Mill",
+      "description": "A place for grinding or manufacturing"
+    },
+    {
+      "name": "Factory",
+      "description": "A place for manufacturing"
+    },
+    {
+      "name": "Workshop",
+      "description": "A place for crafting"
+    },
+    {
+      "name": "Studio",
+      "description": "A place for artistic work"
+    },
+    {
+      "name": "Laboratory",
+      "description": "A place for experiments"
+    },
+    {
+      "name": "Observatory",
+      "description": "A place for observation"
+    },
+    {
+      "name": "Lighthouse",
+      "description": "A tower with a beacon"
+    },
+    {
+      "name": "Watchtower",
+      "description": "A tower for observation"
+    },
+    {
+      "name": "Spire",
+      "description": "A tall pointed structure"
+    },
+    {
+      "name": "Minaret",
+      "description": "A tower for prayer calls"
+    },
+    {
+      "name": "Belfry",
+      "description": "A bell tower"
+    },
+    {
+      "name": "Keep",
+      "description": "The strongest tower of a castle"
+    },
+    {
+      "name": "Donjon",
+      "description": "The great tower of a castle"
+    },
+    {
+      "name": "Dungeon",
+      "description": "An underground prison"
+    },
+    {
+      "name": "Prison",
+      "description": "A place of confinement"
+    },
+    {
+      "name": "Jail",
+      "description": "A place for holding prisoners"
+    },
+    {
+      "name": "Penitentiary",
+      "description": "A prison for serious offenders"
+    },
+    {
+      "name": "Stockade",
+      "description": "A prison or defensive barrier"
+    },
+    {
+      "name": "Brig",
+      "description": "A prison, especially on a ship"
+    },
+    {
+      "name": "Oubliette",
+      "description": "A secret dungeon"
+    },
+    {
+      "name": "Guild",
+      "description": "An association of merchants who control trade in specific goods or regions, often wielding significant economic power"
+    },
+    {
+      "name": "Tribe",
+      "description": "A nomadic group that relies on hunting and gathering for sustenance, moving seasonally to find resources"
+    },
+    {
+      "name": "Religion",
+      "description": "A formal religious institution with established hierarchy, doctrine, and widespread influence"
+    },
+    {
+      "name": "Cult",
+      "description": "A small religious group with unconventional beliefs, often secretive and devoted to a specific deity or cause"
+    },
+    {
+      "name": "Order",
+      "description": "A religious community of monks or nuns who live according to specific spiritual rules and vows"
+    },
+    {
+      "name": "Company",
+      "description": "A professional military unit that sells its services to the highest bidder, with no permanent allegiance"
+    },
+    {
+      "name": "Army",
+      "description": "A permanent military force maintained by a state during peacetime and war"
+    },
+    {
+      "name": "Secret Society",
+      "description": "A clandestine organization with hidden membership, goals, and activities, often pursuing power or knowledge"
+    },
+    {
+      "name": "Trading Company",
+      "description": "A commercial enterprise engaged in long-distance trade, often with significant economic and political power"
+    },
+    {
+      "name": "Crew",
+      "description": "A group of maritime criminals who engage in robbery, raiding, and other illegal activities at sea"
+    },
+    {
+      "name": "Gang",
+      "description": "A group of outlaws who prey on travelers, merchants, and settlements through robbery and violence"
+    },
+    {
+      "name": "Circle",
+      "description": "An association of spellcasters who share knowledge, regulate magical practice, and pursue arcane research"
+    },
+    {
+      "name": "College",
+      "description": "An institution where bards learn music, lore, and performance arts, often serving as information networks"
+    },
+    {
+      "name": "University",
+      "description": "An institution of higher learning where scholars study various subjects and conduct research"
+    },
+    {
+      "name": "Coven",
+      "description": "A small group of practitioners of witchcraft or hedge magic, often operating in secret"
+    },
+    {
+      "name": "Cartel",
+      "description": "A criminal organization that controls illegal trade, often in drugs, weapons, or other contraband"
+    },
+    {
+      "name": "Syndicate",
+      "description": "A large criminal organization with extensive networks and influence in both legal and illegal enterprises"
+    },
+    {
+      "name": "Militia",
+      "description": "A part-time military force of citizen-soldiers who defend their community when needed"
+    },
+    {
+      "name": "Inquisition",
+      "description": "A religious or governmental organization dedicated to rooting out heresy, corruption, or other threats"
+    },
+    {
+      "name": "Spy Network",
+      "description": "An intelligence organization that gathers information through espionage and covert operations"
+    },
+    {
+      "name": "Rebels",
+      "description": "A resistance movement fighting against established authority or occupying forces"
+    },
+    {
+      "name": "Separatists",
+      "description": "A political movement seeking independence or autonomy from a larger political entity"
+    },
+    {
+      "name": "Refugees",
+      "description": "A displaced population seeking shelter and safety after fleeing their homeland due to war, disaster, or persecution"
+    },
+    {
+      "name": "Clan",
+      "description": "A wandering family group that moves seasonally across territories, often following trade routes or resources"
+    },
+    {
+      "name": "Commune",
+      "description": "A community living in harmony with forest environments, often skilled in woodcraft and herbalism"
+    },
+    {
+      "name": "Consortium",
+      "description": "A business organization that controls mining operations and the extraction of valuable minerals"
+    },
+    {
+      "name": "Cooperative",
+      "description": "A group of agricultural producers who work together to share resources and market their goods"
+    },
+    {
+      "name": "Collective",
+      "description": "A group of skilled craftspeople who collaborate on projects and share techniques and resources"
+    },
+    {
+      "name": "League",
+      "description": "An organization of adventurers and researchers dedicated to discovering new lands and phenomena"
+    },
+    {
+      "name": "School",
+      "description": "An organization that trains fighters for arena combat and entertainment"
+    },
+    {
+      "name": "Circus",
+      "description": "A mobile entertainment troupe that performs shows while moving from town to town"
+    },
+    {
+      "name": "Troupe",
+      "description": "A group of performers who stage theatrical productions and travel to various venues"
+    },
+    {
+      "name": "Pilgrims",
+      "description": "A religious group undertaking a spiritual journey to sacred sites or shrines"
+    },
+    {
+      "name": "Monastery",
+      "description": "A religious community where monks or nuns live in seclusion, dedicated to prayer and contemplation"
+    },
+    {
+      "name": "Abbey",
+      "description": "A large religious community headed by an abbot or abbess, often controlling significant land and resources"
+    },
+    {
+      "name": "Convent",
+      "description": "A religious community of nuns or sisters dedicated to spiritual life and often charitable works"
+    },
+    {
+      "name": "Hierarchy",
+      "description": "The organizational structure of a major religious institution, with priests, acolytes, and other clergy"
+    },
+    {
+      "name": "Sect",
+      "description": "A religious group whose beliefs deviate from orthodox doctrine, often persecuted by mainstream religion"
+    },
+    {
+      "name": "Elementalists",
+      "description": "A magical organization focused on the study and mastery of elemental forces"
+    },
+    {
+      "name": "Cabal",
+      "description": "A dark magical organization that practices death magic and communication with undead spirits"
+    },
+    {
+      "name": "Pact",
+      "description": "A group of spellcasters bound together by shared patrons or similar sources of otherworldly power"
+    },
+    {
+      "name": "Bloodline",
+      "description": "A family or group connected by shared magical heritage and innate spellcasting abilities"
+    },
+    {
+      "name": "Academy",
+      "description": "An educational institution dedicated to teaching formal magical theory and spellcasting techniques"
+    },
+    {
+      "name": "Workshop",
+      "description": "A group of magical inventors who create mechanical devices enhanced with magical properties"
+    },
+    {
+      "name": "Creature Hunters",
+      "description": "An organization dedicated to hunting and destroying vampires and other undead creatures"
+    },
+    {
+      "name": "Inquisitors",
+      "description": "A religious or governmental organization that investigates and punishes heresy, corruption, or supernatural threats"
+    },
+    {
+      "name": "Knights",
+      "description": "A militant order that serves evil powers, often as the counterpart to paladins"
+    },
+    {
+      "name": "Sellswords",
+      "description": "Individual mercenaries or small groups who sell their martial skills to whoever pays them"
+    },
+    {
+      "name": "War Band",
+      "description": "A loose military formation of warriors united for raiding, conquest, or mutual protection"
+    },
+    {
+      "name": "Unit",
+      "description": "A specialized military formation focused on mounted combat and rapid movement"
+    },
+    {
+      "name": "Engineers",
+      "description": "A military organization specializing in the construction and operation of siege equipment"
+    },
+    {
+      "name": "Fleet",
+      "description": "A military or commercial organization operating multiple ships for warfare, trade, or exploration"
+    },
+    {
+      "name": "Corsairs",
+      "description": "State-sanctioned pirates who attack enemy shipping while technically serving a government"
+    },
+    {
+      "name": "Privateers",
+      "description": "Licensed pirates who operate with government permission to attack specific targets"
+    },
+    {
+      "name": "Ring",
+      "description": "A criminal network specializing in the illegal transportation of goods across borders"
+    },
+    {
+      "name": "Network",
+      "description": "A criminal organization that specializes in buying and selling stolen goods"
+    },
+    {
+      "name": "House",
+      "description": "An organization that operates games of chance and often serves as a front for other criminal activities"
+    },
+    {
+      "name": "Racket",
+      "description": "A criminal organization that extorts money from businesses in exchange for 'protection' from threats"
+    },
+    {
+      "name": "Brokers",
+      "description": "An organization that gathers and sells information, secrets, and intelligence to interested parties"
+    },
+    {
+      "name": "Traders",
+      "description": "A criminal organization involved in the capture, transport, and sale of sentient beings as property"
+    },
+    {
+      "name": "Dealers",
+      "description": "An organization that illegally sells weapons, often to both sides of conflicts for profit"
+    },
+    {
+      "name": "Counterfeiters",
+      "description": "A criminal group specializing in creating fake currency, documents, or valuable items"
+    },
+    {
+      "name": "Con Artists",
+      "description": "A group of criminals who specialize in confidence tricks and elaborate fraudulent schemes"
+    },
+    {
+      "name": "Grave Robbers",
+      "description": "A criminal organization that steals from tombs, crypts, and burial sites for profit"
+    },
+    {
+      "name": "Crime Ring",
+      "description": "A criminal organization that specializes in abducting people for ransom or other purposes"
+    },
+    {
+      "name": "Social Club",
+      "description": "An exclusive gathering of people with shared interests, often serving as a networking hub for the elite"
+    },
+    {
+      "name": "Political Faction",
+      "description": "A group within a larger organization that advocates for specific policies, ideologies, or power structures"
+    },
+    {
+      "name": "Trade Union",
+      "description": "An organization of workers who band together to protect their rights and improve working conditions"
+    },
+    {
+      "name": "Academic Circle",
+      "description": "A group of scholars and researchers who collaborate on specific fields of study or intellectual pursuits"
+    },
+    {
+      "name": "Noble Faction",
+      "description": "A coalition of aristocratic families who work together to advance their political and economic interests"
+    },
+    {
+      "name": "Religious Sect",
+      "description": "A subgroup within a larger religion that follows specific interpretations of doctrine or practices"
+    },
+    {
+      "name": "Criminal Syndicate",
+      "description": "A large-scale criminal organization with multiple operations and significant influence in illegal enterprises"
+    },
+    {
+      "name": "Cultural Enclave",
+      "description": "A community of people who share ethnic, cultural, or linguistic heritage, often living in concentrated areas"
+    },
+    {
+      "name": "Merchant Consortium",
+      "description": "A powerful alliance of wealthy traders who control major trade routes and economic resources"
+    },
+    {
+      "name": "Artistic Movement",
+      "description": "A group of artists, writers, and performers who share aesthetic philosophies and creative goals"
+    },
+    {
+      "name": "Philosophical School",
+      "description": "A group of thinkers who follow and develop specific philosophical traditions or worldviews"
+    },
+    {
+      "name": "Revolutionary Cell",
+      "description": "A secretive group dedicated to overthrowing the current social or political order"
+    },
+    {
+      "name": "Conservation Society",
+      "description": "An organization dedicated to preserving natural resources, historical sites, or cultural traditions"
+    },
+    {
+      "name": "Innovation Collective",
+      "description": "A group of inventors, engineers, and visionaries pushing the boundaries of technology and knowledge"
+    },
+    {
+      "name": "Traditionalist League",
+      "description": "A group that resists change and seeks to preserve established customs, values, and ways of life"
+    },
+    {
+      "name": "Relief Organization",
+      "description": "A group dedicated to providing aid, medical care, and support to those in need"
+    },
+    {
+      "name": "Entertainment Troupe",
+      "description": "A traveling group of performers, musicians, or entertainers who bring culture and diversion to communities"
+    },
+    {
+      "name": "Sports League",
+      "description": "An organization that regulates competitive activities and fosters community through athletic competition"
+    },
+    {
+      "name": "Literary Society",
+      "description": "A group of writers, poets, and bibliophiles who promote literature and intellectual discourse"
+    },
+    {
+      "name": "Research Expedition",
+      "description": "A team of researchers and explorers dedicated to uncovering ancient ruins and historical artifacts"
+    },
+    {
+      "name": "Medical Association",
+      "description": "A professional organization of healers, doctors, and medical researchers who share knowledge and standards"
+    },
+    {
+      "name": "Legal Consortium",
+      "description": "A group of lawyers, judges, and legal scholars who work together on complex cases and legal reforms"
+    },
+    {
+      "name": "Agricultural Cooperative",
+      "description": "A group of farmers who work together to share resources, knowledge, and market their products"
+    },
+    {
+      "name": "Banking Cartel",
+      "description": "A powerful alliance of financial institutions that control lending, currency, and economic policy"
+    },
+    {
+      "name": "Mining Syndicate",
+      "description": "A powerful organization that controls mineral extraction and often wields significant economic and political influence"
+    },
+    {
+      "name": "Association",
+      "description": "An organization of ale-makers and vintners who control the production and distribution of alcoholic beverages"
+    },
+    {
+      "name": "Brotherhood",
+      "description": "A guild of bread-makers and pastry chefs who provide essential food services to communities"
+    },
+    {
+      "name": "Union",
+      "description": "An organization of woodworkers who build structures, furniture, and other wooden goods"
+    },
+    {
+      "name": "Caravan",
+      "description": "A mobile group of merchants who travel between settlements to buy, sell, and transport goods"
+    },
+    {
+      "name": "Service",
+      "description": "An organization that provides communication and delivery services across distances"
+    },
+    {
+      "name": "Courier Network",
+      "description": "A system of trusted individuals who transport important documents, packages, and information"
+    },
+    {
+      "name": "Wardens",
+      "description": "An organization that maintains and patrols major travel routes"
+    },
+    {
+      "name": "Keepers",
+      "description": "A group responsible for maintaining coastal navigation aids and warning systems"
+    },
+    {
+      "name": "Guild",
+      "description": "A group that provides loans in exchange for valuable items as collateral"
+    },
+    {
+      "name": "Money Changers",
+      "description": "An organization that exchanges different currencies and provides financial services"
+    },
+    {
+      "name": "Compact",
+      "description": "A formal agreement or contract between multiple parties"
+    },
+    {
+      "name": "Covenant",
+      "description": "A solemn agreement or promise, often with religious or moral implications"
+    },
+    {
+      "name": "Accord",
+      "description": "A formal agreement or treaty between parties"
+    },
+    {
+      "name": "Entente",
+      "description": "A friendly understanding or informal alliance between groups"
+    },
+    {
+      "name": "Movement",
+      "description": "A group of people working together to advance a shared cause or ideology"
+    },
+    {
+      "name": "Initiative",
+      "description": "A group formed to take action on a specific issue or goal"
+    },
+    {
+      "name": "Project",
+      "description": "A collaborative effort focused on achieving a specific objective"
+    },
+    {
+      "name": "Enterprise",
+      "description": "A business or undertaking, often involving risk and innovation"
+    },
+    {
+      "name": "Venture",
+      "description": "A risky or daring undertaking, often commercial in nature"
+    },
+    {
+      "name": "Operation",
+      "description": "A coordinated effort or mission with specific objectives"
+    },
+    {
+      "name": "Mission",
+      "description": "A group sent to accomplish a specific task or represent an organization"
+    },
+    {
+      "name": "Expedition",
+      "description": "A journey or voyage undertaken for a specific purpose"
+    },
+    {
+      "name": "Crusade",
+      "description": "A vigorous campaign or movement for a cause, often religious or moral"
+    },
+    {
+      "name": "Jihad",
+      "description": "A struggle or campaign, often religious in nature"
+    },
+    {
+      "name": "Denomination",
+      "description": "A recognized branch of a larger religious tradition"
+    },
+    {
+      "name": "Sisterhood",
+      "description": "A fraternal organization or association of women"
+    },
+    {
+      "name": "Fraternity",
+      "description": "A brotherhood or association, often social or academic"
+    },
+    {
+      "name": "Sorority",
+      "description": "A sisterhood or association, often social or academic"
+    },
+    {
+      "name": "Clique",
+      "description": "A small exclusive group of people with shared interests"
+    },
+    {
+      "name": "Coterie",
+      "description": "A small group of people with shared interests or tastes"
+    },
+    {
+      "name": "Cohort",
+      "description": "A group of people banded together or treated as a group"
+    },
+    {
+      "name": "Legion",
+      "description": "A large group of people, often military in nature"
+    },
+    {
+      "name": "Brigade",
+      "description": "A military unit or organized group"
+    },
+    {
+      "name": "Regiment",
+      "description": "A military unit or organized group with specific training"
+    },
+    {
+      "name": "Battalion",
+      "description": "A military unit consisting of several companies"
+    },
+    {
+      "name": "Squad",
+      "description": "A small group of people working together"
+    },
+    {
+      "name": "Team",
+      "description": "A group of people working together toward a common goal"
+    },
+    {
+      "name": "Mob",
+      "description": "A large disorderly crowd or group"
+    },
+    {
+      "name": "Horde",
+      "description": "A large group of people, often aggressive or destructive"
+    },
+    {
+      "name": "Swarm",
+      "description": "A large group of people moving together"
+    },
+    {
+      "name": "Pack",
+      "description": "A group of people working together, often predatory"
+    },
+    {
+      "name": "Pride",
+      "description": "A group with a sense of dignity and self-respect"
+    },
+    {
+      "name": "Nest",
+      "description": "A group that provides shelter or protection"
+    },
+    {
+      "name": "Hive",
+      "description": "A group working together in organized activity"
+    },
+    {
+      "name": "Foundation",
+      "description": "An organization established to fund or support a cause"
+    },
+    {
+      "name": "Institute",
+      "description": "An organization having a particular purpose"
+    },
+    {
+      "name": "Academy",
+      "description": "An institution of higher learning"
+    },
+    {
+      "name": "Seminary",
+      "description": "A college that prepares students to be priests, ministers, or rabbis"
+    },
+    {
+      "name": "Conservatory",
+      "description": "A school for the study of music or other arts"
+    },
+    {
+      "name": "Agency",
+      "description": "An organization providing a particular service",
+      "reason": "Too generic organizational structure"
+    },
+    {
+      "name": "Bureau",
+      "description": "An office or department for transacting particular business",
+      "reason": "Too generic organizational structure"
+    },
+    {
+      "name": "Armada",
+      "description": "A large fleet of warships under unified command for naval warfare and conquest"
+    },
+    {
+      "name": "Lodge",
+      "description": "A local branch or meeting place of a fraternal organization or secret society"
+    },
+    {
+      "name": "Court",
+      "description": "A formal assembly of nobles, advisors, or officials who govern and administer justice"
+    },
+    {
+      "name": "Conclave",
+      "description": "A private meeting or assembly, especially of religious leaders or political officials"
+    },
+    {
+      "name": "Foundry",
+      "description": "A workshop or factory where metal objects are cast and forged"
+    },
+    {
+      "name": "Hold",
+      "description": "A fortified stronghold or fortress that serves as a base of operations"
+    },
+    {
+      "name": "Scholars",
+      "description": "A group of learned individuals dedicated to research, study, and the pursuit of knowledge"
+    },
+    {
+      "name": "Choir",
+      "description": "A group of singers who perform together, often in religious or ceremonial contexts"
+    },
+    {
+      "name": "Vanguards",
+      "description": "An elite group that leads the way in military campaigns or social movements"
+    },
+    {
+      "name": "Sapphire Magi",
+      "description": "A group of magical practitioners specializing in blue crystal magic and divination"
+    },
+    {
+      "name": "Nomads",
+      "description": "A wandering people who move from place to place without permanent settlements"
+    },
+    {
+      "name": "Seekers",
+      "description": "A group dedicated to searching for knowledge, artifacts, or spiritual enlightenment"
+    },
+    {
+      "name": "Sanctuary",
+      "description": "A place of refuge and protection for those seeking safety or healing"
+    },
+    {
+      "name": "Hand",
+      "description": "A secretive organization that operates as the hidden agents of a larger power"
+    },
+    {
+      "name": "Riders",
+      "description": "A mounted group specializing in rapid movement, scouting, or cavalry tactics"
+    },
+    {
+      "name": "Guard",
+      "description": "A protective force responsible for defending people, places, or valuable items"
+    },
+    {
+      "name": "Companions",
+      "description": "A close-knit group bound by friendship, shared purpose, or mutual loyalty"
+    },
+    {
+      "name": "Chantry",
+      "description": "A religious or magical institution, often focused on study and practice"
+    },
+    {
+      "name": "Shelter",
+      "description": "A place providing temporary accommodation for the homeless"
+    },
+    {
+      "name": "Chapter",
+      "description": "A local branch of a larger organization"
+    },
+    {
+      "name": "Post",
+      "description": "A local branch of a veterans' organization"
+    },
+    {
+      "name": "Temple",
+      "description": "A place of worship for a specific religion"
+    },
+    {
+      "name": "Congregation",
+      "description": "A group of people assembled for religious worship"
+    },
+    {
+      "name": "Flock",
+      "description": "A group of people under the care of a religious leader"
+    },
+    {
+      "name": "Fellowship",
+      "description": "A group of people with shared interests or beliefs"
+    },
+    {
+      "name": "Companionship",
+      "description": "A group of people who keep each other company"
+    },
+    {
+      "name": "Partnership",
+      "description": "A relationship between two or more people or organizations"
+    },
+    {
+      "name": "Club",
+      "description": "A group of people organized for a common interest"
+    },
+    {
+      "name": "Group",
+      "description": "A number of people or things located, gathered, or classed together"
+    },
+    {
+      "name": "Band",
+      "description": "A group of people with a common interest or purpose"
+    },
+    {
+      "name": "Ensemble",
+      "description": "A group of musicians, actors, or dancers who perform together"
+    },
+    {
+      "name": "Orchestra",
+      "description": "A large group of musicians who play together"
+    },
+    {
+      "name": "Chorus",
+      "description": "A group of singers or dancers who perform together"
+    },
+    {
+      "name": "Cast",
+      "description": "The actors in a play, movie, or television show"
+    },
+    {
+      "name": "Staff",
+      "description": "A group of people employed by an organization"
+    },
+    {
+      "name": "Workforce",
+      "description": "The people employed in a particular industry or organization"
+    },
+    {
+      "name": "Force",
+      "description": "The people who are available for work"
+    },
+    {
+      "name": "Reserves",
+      "description": "A military force that is not on active duty"
+    },
+    {
+      "name": "Garrison",
+      "description": "A body of troops stationed in a fortress or town"
+    },
+    {
+      "name": "Outfit",
+      "description": "A group of people working together"
+    },
+    {
+      "name": "Organization",
+      "description": "A group of people organized for a particular purpose"
+    },
+    {
+      "name": "Institution",
+      "description": "An organization founded for a religious, educational, professional, or social purpose"
+    },
+    {
+      "name": "Establishment",
+      "description": "An organization or institution"
+    },
+    {
+      "name": "Concern",
+      "description": "A business or company"
+    },
+    {
+      "name": "Firm",
+      "description": "A business organization"
+    },
+    {
+      "name": "Corporation",
+      "description": "A large company or group of companies"
+    },
+    {
+      "name": "Conglomerate",
+      "description": "A large corporation consisting of several companies"
+    },
+    {
+      "name": "Dynasty",
+      "description": "A succession of rulers from the same family"
+    },
+    {
+      "name": "Lineage",
+      "description": "A sequence of species each of which is considered to have evolved from its predecessor"
+    },
+    {
+      "name": "Haven",
+      "description": "A safe place or refuge for those seeking protection"
+    },
+    {
+      "name": "Refuge",
+      "description": "A place of safety and protection for those in need"
+    },
+    {
+      "name": "Asylum",
+      "description": "A place of safety and protection, often for the mentally ill or persecuted"
+    },
+    {
+      "name": "Faction",
+      "description": "A group within a larger organization that advocates for specific policies, ideologies, or power structures"
+    },
+    {
+      "name": "Camp",
+      "description": "A temporary settlement or gathering place for a group of people"
+    },
+    {
+      "name": "Party",
+      "description": "A group of people united for a common purpose, often political or social"
+    },
+    {
+      "name": "Caucus",
+      "description": "A meeting of members of a political party or group to select candidates or decide policy"
+    },
+    {
+      "name": "Caste",
+      "description": "A social class or group defined by hereditary status, occupation, or other characteristics"
+    },
+    {
+      "name": "Class",
+      "description": "A group of people sharing similar social, economic, or educational status"
+    },
+    {
+      "name": "Corp",
+      "description": "A business organization or corporation, often abbreviated form"
+    },
+    {
+      "name": "Society",
+      "description": "An academic organization dedicated to the pursuit and preservation of knowledge in various fields"
+    },
+    {
+      "name": "Corps",
+      "description": "A government organization responsible for maintaining foreign relations and conducting negotiations"
+    },
+    {
+      "name": "Royal Guard",
+      "description": "An elite military unit specifically tasked with protecting royalty and important government officials"
+    },
+    {
+      "name": "Patrol",
+      "description": "A military or paramilitary force responsible for monitoring and controlling territorial boundaries"
+    },
+    {
+      "name": "Watch",
+      "description": "A local law enforcement organization responsible for maintaining order within urban areas"
+    },
+    {
+      "name": "Rangers",
+      "description": "A semi-military organization that patrols wilderness areas, protects travelers, and monitors threats"
+    },
+    {
+      "name": "Military Division",
+      "description": "A specialized unit within a larger armed force, often with specific training and combat roles"
+    },
+    {
+      "name": "Diplomatic Mission",
+      "description": "A group of envoys and officials representing a foreign power or organization"
+    },
+    {
+      "name": "Intelligence Agency",
+      "description": "A government or organizational body dedicated to gathering information and conducting covert operations"
+    },
+    {
+      "name": "Colony",
+      "description": "A group of people living together in a new territory"
+    },
+    {
+      "name": "Settlement",
+      "description": "A community established in a new area"
+    },
+    {
+      "name": "Outpost",
+      "description": "A remote settlement or station"
+    },
+    {
+      "name": "Enclave",
+      "description": "A distinct territorial, cultural, or social unit enclosed within foreign territory"
+    },
+    {
+      "name": "Nation",
+      "description": "A large body of people united by common descent, history, culture, or language"
+    },
+    {
+      "name": "People",
+      "description": "A group of humans with a common culture, history, or language"
+    },
+    {
+      "name": "Race",
+      "description": "A group of people with similar physical characteristics"
+    },
+    {
+      "name": "Ethnicity",
+      "description": "A group of people with a common cultural or national tradition"
+    },
+    {
+      "name": "Culture",
+      "description": "A group of people with shared customs, arts, and social institutions"
+    },
+    {
+      "name": "Civilization",
+      "description": "A society with a high level of cultural and technological development"
+    },
+    {
+      "name": "Community",
+      "description": "A group of people living in the same place or having a particular characteristic in common"
+    },
+    {
+      "name": "Population",
+      "description": "All the inhabitants of a particular place"
+    },
+    {
+      "name": "Citizenry",
+      "description": "The citizens of a place"
+    },
+    {
+      "name": "Electorate",
+      "description": "All the people in a country or area who are entitled to vote"
+    },
+    {
+      "name": "Constituency",
+      "description": "A group of voters in a specified area"
+    },
+    {
+      "name": "District",
+      "description": "An area of a country or city"
+    },
+    {
+      "name": "Monopoly",
+      "description": "A business monopoly that operates as a distinct organizational entity"
+    },
+    {
+      "name": "Trust",
+      "description": "A business trust that operates as a distinct organizational entity"
+    },
+    {
+      "name": "Holding Company",
+      "description": "A business holding company that operates as a distinct organizational entity"
+    },
+    {
+      "name": "Subsidiary",
+      "description": "A business subsidiary that operates as a distinct organizational entity"
+    },
+    {
+      "name": "Duchy",
+      "description": "A territory ruled by a duke or duchess"
+    },
+    {
+      "name": "Alchemists' Circle",
+      "description": "A secretive organization of practitioners who study the transformation of matter and magical substances"
+    },
+    {
+      "name": "Branch",
+      "description": "An organizational branch within a larger group or institution"
+    },
+    {
+      "name": "Department",
+      "description": "An organizational department within a larger group or institution"
+    },
+    {
+      "name": "Division",
+      "description": "An organizational division within a larger group or institution"
+    },
+    {
+      "name": "Section",
+      "description": "An organizational section within a larger group or institution"
+    }
+  ]
+}

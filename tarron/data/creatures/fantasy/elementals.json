@@ -1,0 +1,19 @@
+{
+  "description": "Living manifestations of the primal elements — fire, water, earth, air, and their hybrid forms.",
+  "creatures": [
+    ["Fire Elemental","A roaring pillar of living flame that sets everything it touches ablaze and leaves scorched earth behind."],
+    ["Water Elemental","A surging column of water that crashes forward with tidal force, drowning anything in its path."],
+    ["Earth Elemental","A grinding mass of stone and soil that rises from the ground and hammers with boulder fists."],
+    ["Air Elemental","A screaming vortex of wind that hurls debris and rips the breath from lungs."],
+    ["Ice Elemental","A jagged, crystalline figure that freezes the air around it and leaves killing frost in its wake."],
+    ["Lightning Elemental","A blinding, crackling arc of living electricity that leaps between targets in searing chains."],
+    ["Magma Elemental","A lurching mass of molten rock that drips lava and sets stone floors glowing cherry-red."],
+    ["Mud Elemental","A sucking, heaving mound of wet earth that engulfs victims and slowly suffocates them."],
+    ["Steam Elemental","A billowing cloud of scalding vapor that blisters skin and fills rooms with blinding haze."],
+    ["Dust Elemental","A choking, swirling column of grit and sand that scours flesh and blinds eyes."],
+    ["Salamander","A serpentine, flame-wreathed lizard that coils in lava pools and wields a white-hot spear."],
+    ["Undine","A luminous water spirit with flowing hair that heals wounds with a touch of cool rain."],
+    ["Sylph","A nearly invisible wind spirit whose laughter sounds like chimes and whose breath stirs storms."],
+    ["Gnome","A small, stony-skinned burrower that knows every gem vein and hidden tunnel in the deep earth."]
+  ]
+}

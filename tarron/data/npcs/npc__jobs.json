@@ -1,0 +1,4806 @@
+[
+  {
+    "name": "Emperor",
+    "short_description": "Supreme ruler of an empire, highest rank among monarchs"
+  },
+  {
+    "name": "Empress",
+    "short_description": "Female emperor or wife of an emperor, supreme female ruler"
+  },
+  {
+    "name": "King",
+    "short_description": "Male monarch ruling a kingdom, sovereign head of state"
+  },
+  {
+    "name": "Queen",
+    "short_description": "Female monarch or wife of a king, royal sovereign"
+  },
+  {
+    "name": "High King",
+    "short_description": "King ruling over other kings, supreme royal authority"
+  },
+  {
+    "name": "High Queen",
+    "short_description": "Female equivalent of High King, supreme queen"
+  },
+  {
+    "name": "Prince",
+    "short_description": "Son of a monarch or nobleman of high rank"
+  },
+  {
+    "name": "Princess",
+    "short_description": "Daughter of a monarch or noblewoman of high rank"
+  },
+  {
+    "name": "Archduke",
+    "short_description": "High-ranking nobleman, typically ruling an archduchy"
+  },
+  {
+    "name": "Archduchess",
+    "short_description": "Female archduke or wife of an archduke"
+  },
+  {
+    "name": "Grand Duke",
+    "short_description": "Sovereign duke ranking above ordinary dukes"
+  },
+  {
+    "name": "Grand Duchess",
+    "short_description": "Female grand duke or wife of a grand duke"
+  },
+  {
+    "name": "Duke",
+    "short_description": "High-ranking nobleman ruling a duchy under the monarch"
+  },
+  {
+    "name": "Duchess",
+    "short_description": "Female duke or wife of a duke"
+  },
+  {
+    "name": "Marquis",
+    "short_description": "Nobleman ranking above count, often governing border territories"
+  },
+  {
+    "name": "Marchioness",
+    "short_description": "Female marquis or wife of a marquis"
+  },
+  {
+    "name": "Count",
+    "short_description": "Nobleman governing a county, ranking below marquis"
+  },
+  {
+    "name": "Countess",
+    "short_description": "Female count or wife of a count"
+  },
+  {
+    "name": "Earl",
+    "short_description": "English nobleman equivalent to count, governing a shire"
+  },
+  {
+    "name": "Viscount",
+    "short_description": "Nobleman ranking below count but above baron"
+  },
+  {
+    "name": "Viscountess",
+    "short_description": "Female viscount or wife of a viscount"
+  },
+  {
+    "name": "Baron",
+    "short_description": "Lowest rank of nobility, holding land directly from the crown"
+  },
+  {
+    "name": "Baroness",
+    "short_description": "Female baron or wife of a baron"
+  },
+  {
+    "name": "Baronet",
+    "short_description": "Hereditary title below baron but above knight"
+  },
+  {
+    "name": "Knight",
+    "short_description": "Warrior granted title for military service, lowest noble rank"
+  },
+  {
+    "name": "Dame",
+    "short_description": "Female equivalent of knight, honorary title for women"
+  },
+  {
+    "name": "Lord",
+    "short_description": "General noble title, master of lands or holding authority"
+  },
+  {
+    "name": "Lady",
+    "short_description": "Female lord or wife of a lord, noblewoman"
+  },
+  {
+    "name": "Esquire",
+    "short_description": "Landed gentry above gentleman but below knight"
+  },
+  {
+    "name": "Gentleman",
+    "short_description": "Man of good social position, lowest rank of gentry"
+  },
+  {
+    "name": "Squire",
+    "short_description": "Knight's attendant training for knighthood"
+  },
+  {
+    "name": "Page",
+    "short_description": "Young noble serving in a household, first step to knighthood"
+  },
+  {
+    "name": "Regent",
+    "short_description": "Person ruling on behalf of monarch who is minor or absent"
+  },
+  {
+    "name": "Heir Apparent",
+    "short_description": "Person next in line to inherit a throne or title"
+  },
+  {
+    "name": "Consort",
+    "short_description": "Spouse of a reigning monarch, queen or king consort"
+  },
+  {
+    "name": "Pope",
+    "short_description": "Head of the Catholic Church, Bishop of Rome"
+  },
+  {
+    "name": "Cardinal",
+    "short_description": "High-ranking Catholic official, advisor to the Pope"
+  },
+  {
+    "name": "Archbishop",
+    "short_description": "Senior bishop overseeing multiple dioceses"
+  },
+  {
+    "name": "Bishop",
+    "short_description": "Senior Christian cleric overseeing a diocese"
+  },
+  {
+    "name": "Abbot",
+    "short_description": "Male head of a monastery, elected leader of monks"
+  },
+  {
+    "name": "Abbess",
+    "short_description": "Female head of a nunnery, leader of nuns"
+  },
+  {
+    "name": "Prior",
+    "short_description": "Second-in-command of a monastery under the abbot"
+  },
+  {
+    "name": "Prioress",
+    "short_description": "Female prior, deputy head of a nunnery"
+  },
+  {
+    "name": "Archdeacon",
+    "short_description": "Senior cleric assisting a bishop with administration"
+  },
+  {
+    "name": "Dean",
+    "short_description": "Senior cleric in charge of a cathedral or college"
+  },
+  {
+    "name": "Canon",
+    "short_description": "Member of cathedral clergy, follows canonical rules"
+  },
+  {
+    "name": "Priest",
+    "short_description": "Ordained cleric authorized to perform religious ceremonies"
+  },
+  {
+    "name": "Chaplain",
+    "short_description": "Cleric serving a specific institution or noble household"
+  },
+  {
+    "name": "Friar",
+    "short_description": "Traveling preacher belonging to mendicant religious order"
+  },
+  {
+    "name": "Monk",
+    "short_description": "Man living in religious community under monastic vows"
+  },
+  {
+    "name": "Nun",
+    "short_description": "Woman living in religious community under sacred vows"
+  },
+  {
+    "name": "Novice",
+    "short_description": "Person in training period before taking religious vows"
+  },
+  {
+    "name": "Acolyte",
+    "short_description": "Assistant to priests during religious ceremonies"
+  },
+  {
+    "name": "Deacon",
+    "short_description": "Ordained minister ranking below priest"
+  },
+  {
+    "name": "Sexton",
+    "short_description": "Church caretaker responsible for maintenance and ceremonies"
+  },
+  {
+    "name": "Vicar",
+    "short_description": "Parish priest representing higher church authority"
+  },
+  {
+    "name": "Curate",
+    "short_description": "Assistant priest in charge of parish church"
+  },
+  {
+    "name": "Hermit",
+    "short_description": "Religious person living in solitude for spiritual reasons"
+  },
+  {
+    "name": "Pilgrim",
+    "short_description": "Person traveling to holy places for religious reasons"
+  },
+  {
+    "name": "Crusader",
+    "short_description": "Warrior fighting in religious wars for the faith"
+  },
+  {
+    "name": "Templar",
+    "short_description": "Member of military religious order protecting pilgrims"
+  },
+  {
+    "name": "Hospitaller",
+    "short_description": "Member of military order caring for sick pilgrims"
+  },
+  {
+    "name": "Inquisitor",
+    "short_description": "Church official investigating and prosecuting heresy"
+  },
+  {
+    "name": "Theologian",
+    "short_description": "Scholar studying religious doctrine and divine matters"
+  },
+  {
+    "name": "Missionary",
+    "short_description": "Religious person spreading faith to new territories"
+  },
+  {
+    "name": "General",
+    "short_description": "High-ranking military officer commanding large forces"
+  },
+  {
+    "name": "Marshal",
+    "short_description": "Senior military officer, often highest field rank"
+  },
+  {
+    "name": "Field Marshal",
+    "short_description": "Highest military rank, commanding entire armies"
+  },
+  {
+    "name": "Admiral",
+    "short_description": "High-ranking naval officer commanding fleets"
+  },
+  {
+    "name": "Colonel",
+    "short_description": "Military officer commanding a regiment"
+  },
+  {
+    "name": "Captain",
+    "short_description": "Military officer commanding a company of soldiers"
+  },
+  {
+    "name": "Lieutenant",
+    "short_description": "Junior military officer serving under captain"
+  },
+  {
+    "name": "Sergeant",
+    "short_description": "Non-commissioned officer leading small groups of soldiers"
+  },
+  {
+    "name": "Corporal",
+    "short_description": "Junior non-commissioned officer leading squads"
+  },
+  {
+    "name": "Commander",
+    "short_description": "Military officer with command authority"
+  },
+  {
+    "name": "Commodore",
+    "short_description": "Naval rank between captain and rear admiral"
+  },
+  {
+    "name": "Major",
+    "short_description": "Military officer ranking above captain, below colonel"
+  },
+  {
+    "name": "Centurion",
+    "short_description": "Roman officer commanding approximately 100 soldiers"
+  },
+  {
+    "name": "Legionnaire",
+    "short_description": "Professional soldier serving in a legion"
+  },
+  {
+    "name": "Guardsman",
+    "short_description": "Soldier serving in elite guard units"
+  },
+  {
+    "name": "Archer",
+    "short_description": "Soldier specializing in ranged combat with bows"
+  },
+  {
+    "name": "Crossbowman",
+    "short_description": "Soldier using crossbows for ranged warfare"
+  },
+  {
+    "name": "Spearman",
+    "short_description": "Soldier wielding spears as primary weapon"
+  },
+  {
+    "name": "Pikeman",
+    "short_description": "Soldier armed with long pikes for infantry combat"
+  },
+  {
+    "name": "Cavalry",
+    "short_description": "Mounted soldier fighting on horseback"
+  },
+  {
+    "name": "Horseman",
+    "short_description": "Soldier skilled in mounted combat and horsemanship"
+  },
+  {
+    "name": "Scout",
+    "short_description": "Soldier gathering intelligence and reconnaissance"
+  },
+  {
+    "name": "Sentry",
+    "short_description": "Guard posted to watch for enemies or intruders"
+  },
+  {
+    "name": "Watchman",
+    "short_description": "Guard responsible for security and patrol duties"
+  },
+  {
+    "name": "Town Guard",
+    "short_description": "Local soldier protecting town from threats"
+  },
+  {
+    "name": "City Watch",
+    "short_description": "Urban security force maintaining order in cities"
+  },
+  {
+    "name": "Border Guard",
+    "short_description": "Soldier protecting frontier territories"
+  },
+  {
+    "name": "Royal Guard",
+    "short_description": "Elite soldier protecting monarch and royal family"
+  },
+  {
+    "name": "Bodyguard",
+    "short_description": "Personal protector assigned to important individuals"
+  },
+  {
+    "name": "Mercenary",
+    "short_description": "Professional soldier fighting for payment"
+  },
+  {
+    "name": "Sellsword",
+    "short_description": "Mercenary warrior offering services for coin"
+  },
+  {
+    "name": "Warrior",
+    "short_description": "Professional fighter skilled in combat"
+  },
+  {
+    "name": "Soldier",
+    "short_description": "Regular military personnel serving in armed forces"
+  },
+  {
+    "name": "Veteran",
+    "short_description": "Experienced soldier with long military service"
+  },
+  {
+    "name": "Recruit",
+    "short_description": "New soldier in training or recently enlisted"
+  },
+  {
+    "name": "Bannerman",
+    "short_description": "Soldier carrying and protecting unit standards"
+  },
+  {
+    "name": "Standard Bearer",
+    "short_description": "Soldier responsible for carrying battle flags"
+  },
+  {
+    "name": "Siege Engineer",
+    "short_description": "Military specialist in siege warfare and engines"
+  },
+  {
+    "name": "Sapper",
+    "short_description": "Military engineer specializing in tunneling and demolition"
+  },
+  {
+    "name": "Quartermaster",
+    "short_description": "Military officer responsible for supplies and logistics"
+  },
+  {
+    "name": "Chancellor",
+    "short_description": "Chief minister and advisor to the monarch"
+  },
+  {
+    "name": "Steward",
+    "short_description": "Manager of royal household and estate affairs"
+  },
+  {
+    "name": "Chamberlain",
+    "short_description": "Officer managing royal living quarters and ceremonies"
+  },
+  {
+    "name": "Seneschal",
+    "short_description": "Administrative official overseeing royal household"
+  },
+  {
+    "name": "Constable",
+    "short_description": "Chief military officer of royal castle or region"
+  },
+  {
+    "name": "Treasurer",
+    "short_description": "Official managing royal finances and treasury"
+  },
+  {
+    "name": "Exchequer",
+    "short_description": "Financial administrator handling royal revenues"
+  },
+  {
+    "name": "Ambassador",
+    "short_description": "Diplomatic representative to foreign courts"
+  },
+  {
+    "name": "Diplomat",
+    "short_description": "Official conducting negotiations between nations"
+  },
+  {
+    "name": "Envoy",
+    "short_description": "Diplomatic messenger carrying official communications"
+  },
+  {
+    "name": "Herald",
+    "short_description": "Official messenger and keeper of royal ceremonies"
+  },
+  {
+    "name": "Bailiff",
+    "short_description": "Local administrator enforcing law and collecting taxes"
+  },
+  {
+    "name": "Reeve",
+    "short_description": "Local official overseeing village or manor affairs"
+  },
+  {
+    "name": "Sheriff",
+    "short_description": "Royal official maintaining law and order in counties"
+  },
+  {
+    "name": "Magistrate",
+    "short_description": "Local judge with authority to try minor cases"
+  },
+  {
+    "name": "Judge",
+    "short_description": "Official with authority to hear and decide legal cases"
+  },
+  {
+    "name": "Justiciar",
+    "short_description": "Chief judicial officer administering royal justice"
+  },
+  {
+    "name": "Coroner",
+    "short_description": "Official investigating suspicious or violent deaths"
+  },
+  {
+    "name": "Notary",
+    "short_description": "Official authorized to witness and authenticate documents"
+  },
+  {
+    "name": "Scribe",
+    "short_description": "Professional writer and keeper of records"
+  },
+  {
+    "name": "Clerk",
+    "short_description": "Administrative assistant handling correspondence and records"
+  },
+  {
+    "name": "Secretary",
+    "short_description": "Administrative official managing correspondence"
+  },
+  {
+    "name": "Advisor",
+    "short_description": "Counselor providing guidance to rulers"
+  },
+  {
+    "name": "Counselor",
+    "short_description": "Trusted advisor offering wisdom and guidance"
+  },
+  {
+    "name": "Vizier",
+    "short_description": "High-ranking political advisor, especially in Eastern courts"
+  },
+  {
+    "name": "Minister",
+    "short_description": "Government official heading administrative department"
+  },
+  {
+    "name": "Prefect",
+    "short_description": "Administrative official governing a district or region"
+  },
+  {
+    "name": "Governor",
+    "short_description": "Ruler appointed to govern province or territory"
+  },
+  {
+    "name": "Viceroy",
+    "short_description": "Ruler governing in the name of distant monarch"
+  },
+  {
+    "name": "Mayor",
+    "short_description": "Elected head of town or city government"
+  },
+  {
+    "name": "Alderman",
+    "short_description": "Senior member of town council or municipal government"
+  },
+  {
+    "name": "Burgher",
+    "short_description": "Citizen of a borough with full municipal rights"
+  },
+  {
+    "name": "Tax Collector",
+    "short_description": "Official gathering taxes and royal revenues"
+  },
+  {
+    "name": "Customs Officer",
+    "short_description": "Official collecting duties on imports and exports"
+  },
+  {
+    "name": "Toll Keeper",
+    "short_description": "Officer collecting fees for passage on roads or bridges"
+  },
+  {
+    "name": "Gatekeeper",
+    "short_description": "Guard controlling access through city or castle gates"
+  },
+  {
+    "name": "Warden",
+    "short_description": "Guardian or keeper of specific territory or institution"
+  },
+  {
+    "name": "Castellan",
+    "short_description": "Governor or constable of a castle"
+  },
+  {
+    "name": "Seneschalty",
+    "short_description": "Administrative official managing lord's affairs"
+  },
+  {
+    "name": "Provost",
+    "short_description": "Senior administrative official in charge of discipline"
+  },
+  {
+    "name": "Blacksmith",
+    "short_description": "Metalworker forging tools, weapons, and iron goods"
+  },
+  {
+    "name": "Weaponsmith",
+    "short_description": "Specialized smith crafting swords, spears, and weapons"
+  },
+  {
+    "name": "Armorer",
+    "short_description": "Craftsman creating and repairing armor and protective gear"
+  },
+  {
+    "name": "Goldsmith",
+    "short_description": "Artisan working with gold to create jewelry and ornaments"
+  },
+  {
+    "name": "Silversmith",
+    "short_description": "Craftsman working with silver for decorative items"
+  },
+  {
+    "name": "Coppersmith",
+    "short_description": "Metalworker specializing in copper vessels and tools"
+  },
+  {
+    "name": "Tinsmith",
+    "short_description": "Craftsman working with tin and light metals"
+  },
+  {
+    "name": "Locksmith",
+    "short_description": "Artisan creating and repairing locks and keys"
+  },
+  {
+    "name": "Carpenter",
+    "short_description": "Woodworker building structures, furniture, and tools"
+  },
+  {
+    "name": "Woodcarver",
+    "short_description": "Artisan creating decorative and functional wooden objects"
+  },
+  {
+    "name": "Cooper",
+    "short_description": "Barrel maker crafting wooden containers and casks"
+  },
+  {
+    "name": "Wheelwright",
+    "short_description": "Craftsman making and repairing wooden wheels"
+  },
+  {
+    "name": "Cartwright",
+    "short_description": "Builder of carts, wagons, and wheeled vehicles"
+  },
+  {
+    "name": "Shipwright",
+    "short_description": "Craftsman building and repairing ships and boats"
+  },
+  {
+    "name": "Mason",
+    "short_description": "Stone worker building walls, foundations, and structures"
+  },
+  {
+    "name": "Stonemason",
+    "short_description": "Skilled craftsman cutting and shaping stone"
+  },
+  {
+    "name": "Sculptor",
+    "short_description": "Artist carving decorative and artistic stonework"
+  },
+  {
+    "name": "Bricklayer",
+    "short_description": "Worker laying bricks to construct walls and buildings"
+  },
+  {
+    "name": "Thatcher",
+    "short_description": "Roofer using straw, reed, or similar materials"
+  },
+  {
+    "name": "Roofer",
+    "short_description": "Craftsman building and repairing building roofs"
+  },
+  {
+    "name": "Glazier",
+    "short_description": "Craftsman working with glass for windows and vessels"
+  },
+  {
+    "name": "Potter",
+    "short_description": "Artisan creating ceramic vessels, pots, and containers"
+  },
+  {
+    "name": "Weaver",
+    "short_description": "Craftsperson creating cloth by interlacing threads"
+  },
+  {
+    "name": "Spinner",
+    "short_description": "Worker creating thread and yarn from raw fibers"
+  },
+  {
+    "name": "Dyer",
+    "short_description": "Craftsperson coloring cloth and textiles"
+  },
+  {
+    "name": "Tailor",
+    "short_description": "Clothing maker creating fitted garments"
+  },
+  {
+    "name": "Seamstress",
+    "short_description": "Female clothing maker specializing in sewing"
+  },
+  {
+    "name": "Cobbler",
+    "short_description": "Shoemaker creating and repairing footwear"
+  },
+  {
+    "name": "Cordwainer",
+    "short_description": "Luxury shoemaker using fine leather"
+  },
+  {
+    "name": "Tanner",
+    "short_description": "Leather worker processing animal hides"
+  },
+  {
+    "name": "Leatherworker",
+    "short_description": "Craftsperson creating goods from processed leather"
+  },
+  {
+    "name": "Furrier",
+    "short_description": "Craftsperson working with animal fur and pelts"
+  },
+  {
+    "name": "Chandler",
+    "short_description": "Candle maker creating illumination sources"
+  },
+  {
+    "name": "Soap Maker",
+    "short_description": "Craftsperson producing soap for cleaning"
+  },
+  {
+    "name": "Perfumer",
+    "short_description": "Artisan creating fragrances and scented products"
+  },
+  {
+    "name": "Glassblower",
+    "short_description": "Craftsperson shaping molten glass into vessels"
+  },
+  {
+    "name": "Jeweler",
+    "short_description": "Artisan creating decorative items with precious materials"
+  },
+  {
+    "name": "Clockmaker",
+    "short_description": "Craftsman building and repairing timepieces"
+  },
+  {
+    "name": "Instrument Maker",
+    "short_description": "Artisan crafting musical instruments"
+  },
+  {
+    "name": "Bowyer",
+    "short_description": "Craftsman specializing in making bows"
+  },
+  {
+    "name": "Fletcher",
+    "short_description": "Arrow maker crafting shafts, fletching, and points"
+  },
+  {
+    "name": "Saddler",
+    "short_description": "Leather worker making horse tack and saddles"
+  },
+  {
+    "name": "Rope Maker",
+    "short_description": "Craftsperson creating cordage and rope"
+  },
+  {
+    "name": "Net Maker",
+    "short_description": "Craftsperson weaving nets for fishing and hunting"
+  },
+  {
+    "name": "Basket Weaver",
+    "short_description": "Artisan creating containers from woven materials"
+  },
+  {
+    "name": "Broom Maker",
+    "short_description": "Craftsperson creating cleaning tools and brushes"
+  },
+  {
+    "name": "Farmer",
+    "short_description": "Person cultivating crops and raising livestock"
+  },
+  {
+    "name": "Peasant",
+    "short_description": "Rural farmer working land, often bound to manor"
+  },
+  {
+    "name": "Serf",
+    "short_description": "Bound agricultural worker tied to the land"
+  },
+  {
+    "name": "Villein",
+    "short_description": "Feudal tenant farmer with obligations to lord"
+  },
+  {
+    "name": "Shepherd",
+    "short_description": "Person tending and herding sheep"
+  },
+  {
+    "name": "Cowherd",
+    "short_description": "Person responsible for caring for cattle"
+  },
+  {
+    "name": "Swineherd",
+    "short_description": "Person tending pigs and swine"
+  },
+  {
+    "name": "Goatherd",
+    "short_description": "Person herding and caring for goats"
+  },
+  {
+    "name": "Dairy Maid",
+    "short_description": "Worker milking cows and processing dairy products"
+  },
+  {
+    "name": "Stable Hand",
+    "short_description": "Worker caring for horses in stables"
+  },
+  {
+    "name": "Groom",
+    "short_description": "Person responsible for horse care and maintenance"
+  },
+  {
+    "name": "Ostler",
+    "short_description": "Inn worker caring for travelers' horses"
+  },
+  {
+    "name": "Falconer",
+    "short_description": "Person training and hunting with birds of prey"
+  },
+  {
+    "name": "Huntsman",
+    "short_description": "Professional hunter tracking and killing game"
+  },
+  {
+    "name": "Gamekeeper",
+    "short_description": "Person managing wildlife on noble estates"
+  },
+  {
+    "name": "Forester",
+    "short_description": "Guardian and manager of forest lands"
+  },
+  {
+    "name": "Woodcutter",
+    "short_description": "Person cutting and harvesting timber"
+  },
+  {
+    "name": "Charcoal Burner",
+    "short_description": "Person making charcoal from wood"
+  },
+  {
+    "name": "Baker",
+    "short_description": "Person baking bread and other baked goods"
+  },
+  {
+    "name": "Miller",
+    "short_description": "Person operating mills to grind grain"
+  },
+  {
+    "name": "Brewer",
+    "short_description": "Person making beer and alcoholic beverages"
+  },
+  {
+    "name": "Vintner",
+    "short_description": "Person making wine from grapes"
+  },
+  {
+    "name": "Butcher",
+    "short_description": "Person slaughtering animals and preparing meat"
+  },
+  {
+    "name": "Cook",
+    "short_description": "Person preparing meals and managing kitchens"
+  },
+  {
+    "name": "Chef",
+    "short_description": "Head cook managing kitchen and creating dishes"
+  },
+  {
+    "name": "Kitchen Boy",
+    "short_description": "Young male assistant working in kitchens"
+  },
+  {
+    "name": "Scullery Maid",
+    "short_description": "Kitchen worker washing dishes and cleaning"
+  },
+  {
+    "name": "Fisherman",
+    "short_description": "Person catching fish for food and trade"
+  },
+  {
+    "name": "Fisher",
+    "short_description": "Person engaged in catching fish"
+  },
+  {
+    "name": "Net Mender",
+    "short_description": "Person repairing fishing nets and equipment"
+  },
+  {
+    "name": "Beekeeper",
+    "short_description": "Person maintaining bee hives for honey"
+  },
+  {
+    "name": "Herbalist",
+    "short_description": "Person gathering and using plants for medicine"
+  },
+  {
+    "name": "Gardener",
+    "short_description": "Person cultivating gardens and ornamental plants"
+  },
+  {
+    "name": "Orchardist",
+    "short_description": "Person cultivating fruit trees and orchards"
+  },
+  {
+    "name": "Vintager",
+    "short_description": "Person harvesting grapes for wine making"
+  },
+  {
+    "name": "Thresher",
+    "short_description": "Farm worker separating grain from chaff"
+  },
+  {
+    "name": "Reaper",
+    "short_description": "Farm worker harvesting crops with tools"
+  },
+  {
+    "name": "Plowman",
+    "short_description": "Farm worker operating plows for soil preparation"
+  },
+  {
+    "name": "Hayward",
+    "short_description": "Official responsible for common grazing land"
+  },
+  {
+    "name": "Granary Keeper",
+    "short_description": "Person managing grain storage facilities"
+  },
+  {
+    "name": "Merchant",
+    "short_description": "Trader buying and selling goods for profit"
+  },
+  {
+    "name": "Trader",
+    "short_description": "Person engaged in commercial exchange of goods"
+  },
+  {
+    "name": "Peddler",
+    "short_description": "Traveling merchant selling goods door-to-door"
+  },
+  {
+    "name": "Shopkeeper",
+    "short_description": "Person owning and operating a retail shop"
+  },
+  {
+    "name": "Grocer",
+    "short_description": "Merchant selling food and household supplies"
+  },
+  {
+    "name": "Spice Merchant",
+    "short_description": "Trader dealing in exotic spices and seasonings"
+  },
+  {
+    "name": "Cloth Merchant",
+    "short_description": "Trader specializing in textiles and fabrics"
+  },
+  {
+    "name": "Wine Merchant",
+    "short_description": "Trader buying and selling wines and spirits"
+  },
+  {
+    "name": "Grain Merchant",
+    "short_description": "Trader dealing in cereals and food grains"
+  },
+  {
+    "name": "Livestock Dealer",
+    "short_description": "Merchant trading in cattle, horses, and animals"
+  },
+  {
+    "name": "Money Changer",
+    "short_description": "Person exchanging currencies and handling finances"
+  },
+  {
+    "name": "Banker",
+    "short_description": "Person managing money, loans, and financial services"
+  },
+  {
+    "name": "Money Lender",
+    "short_description": "Person lending money at interest"
+  },
+  {
+    "name": "Caravan Master",
+    "short_description": "Leader organizing and leading merchant caravans"
+  },
+  {
+    "name": "Caravan Guard",
+    "short_description": "Armed protector of merchant trading expeditions"
+  },
+  {
+    "name": "Teamster",
+    "short_description": "Person driving teams of animals pulling wagons"
+  },
+  {
+    "name": "Carter",
+    "short_description": "Person transporting goods with carts"
+  },
+  {
+    "name": "Ferryman",
+    "short_description": "Person operating ferry service across water"
+  },
+  {
+    "name": "Boatman",
+    "short_description": "Person operating boats for transport or trade"
+  },
+  {
+    "name": "Sailor",
+    "short_description": "Seaman working on ships and maritime vessels"
+  },
+  {
+    "name": "Ship Captain",
+    "short_description": "Leader commanding merchant or military vessels"
+  },
+  {
+    "name": "Navigator",
+    "short_description": "Person skilled in determining position and direction"
+  },
+  {
+    "name": "Dock Worker",
+    "short_description": "Laborer loading and unloading ships at ports"
+  },
+  {
+    "name": "Warehouse Keeper",
+    "short_description": "Person managing storage facilities for goods"
+  },
+  {
+    "name": "Guild Master",
+    "short_description": "Leader of professional trade organization"
+  },
+  {
+    "name": "Apprentice",
+    "short_description": "Young person learning trade under master craftsman"
+  },
+  {
+    "name": "Journeyman",
+    "short_description": "Skilled worker who has completed apprenticeship"
+  },
+  {
+    "name": "Master Craftsman",
+    "short_description": "Expert artisan teaching and leading others"
+  },
+  {
+    "name": "Factor",
+    "short_description": "Agent managing business affairs for merchants"
+  },
+  {
+    "name": "Broker",
+    "short_description": "Agent arranging deals between buyers and sellers"
+  },
+  {
+    "name": "Auctioneer",
+    "short_description": "Person conducting public sales of goods"
+  },
+  {
+    "name": "Market Supervisor",
+    "short_description": "Official overseeing marketplace activities"
+  },
+  {
+    "name": "Weigher",
+    "short_description": "Official measuring goods for fair trade"
+  },
+  {
+    "name": "Assayer",
+    "short_description": "Person testing purity of metals and coins"
+  },
+  {
+    "name": "Innkeeper",
+    "short_description": "Person owning and operating lodging establishment"
+  },
+  {
+    "name": "Tavern Keeper",
+    "short_description": "Person running drinking establishment"
+  },
+  {
+    "name": "Barkeep",
+    "short_description": "Person serving drinks in tavern or inn"
+  },
+  {
+    "name": "Stable Master",
+    "short_description": "Person managing inn or manor stables"
+  },
+  {
+    "name": "Toll Collector",
+    "short_description": "Person collecting fees for road or bridge use"
+  },
+  {
+    "name": "Market Vendor",
+    "short_description": "Person selling goods at market stalls"
+  },
+  {
+    "name": "Butler",
+    "short_description": "Senior male servant managing household staff"
+  },
+  {
+    "name": "Housekeeper",
+    "short_description": "Senior female servant overseeing domestic affairs"
+  },
+  {
+    "name": "Steward",
+    "short_description": "Senior servant managing estate and household"
+  },
+  {
+    "name": "Chamberlain",
+    "short_description": "Servant managing private chambers and ceremonies"
+  },
+  {
+    "name": "Valet",
+    "short_description": "Male personal servant attending to gentleman"
+  },
+  {
+    "name": "Lady's Maid",
+    "short_description": "Female personal servant attending to noblewoman"
+  },
+  {
+    "name": "Footman",
+    "short_description": "Liveried male servant attending nobles"
+  },
+  {
+    "name": "Page Boy",
+    "short_description": "Young male servant running errands"
+  },
+  {
+    "name": "Maid",
+    "short_description": "Female servant performing household cleaning duties"
+  },
+  {
+    "name": "Chambermaid",
+    "short_description": "Female servant cleaning and maintaining bedrooms"
+  },
+  {
+    "name": "Parlor Maid",
+    "short_description": "Female servant attending to reception rooms"
+  },
+  {
+    "name": "Kitchen Maid",
+    "short_description": "Female servant working in kitchen"
+  },
+  {
+    "name": "Laundry Maid",
+    "short_description": "Female servant washing and caring for linens"
+  },
+  {
+    "name": "Nurse Maid",
+    "short_description": "Female servant caring for children"
+  },
+  {
+    "name": "Wet Nurse",
+    "short_description": "Woman hired to breastfeed another's child"
+  },
+  {
+    "name": "Governess",
+    "short_description": "Female employee teaching and supervising children"
+  },
+  {
+    "name": "Tutor",
+    "short_description": "Private teacher providing education to children"
+  },
+  {
+    "name": "Companion",
+    "short_description": "Person hired to provide company to elderly or lonely"
+  },
+  {
+    "name": "Porter",
+    "short_description": "Servant carrying luggage and guarding entrances"
+  },
+  {
+    "name": "Doorkeeper",
+    "short_description": "Servant controlling access to buildings"
+  },
+  {
+    "name": "Gatekeeper",
+    "short_description": "Servant managing entry through gates"
+  },
+  {
+    "name": "Groundskeeper",
+    "short_description": "Servant maintaining gardens and estate grounds"
+  },
+  {
+    "name": "Kennel Master",
+    "short_description": "Servant caring for hunting dogs and kennels"
+  },
+  {
+    "name": "Falconer",
+    "short_description": "Servant training and hunting with birds of prey"
+  },
+  {
+    "name": "Master of Horse",
+    "short_description": "Senior servant overseeing stables and horses"
+  },
+  {
+    "name": "Coachman",
+    "short_description": "Servant driving horse-drawn vehicles"
+  },
+  {
+    "name": "Groom",
+    "short_description": "Servant caring for horses and stable work"
+  },
+  {
+    "name": "Stable Boy",
+    "short_description": "Young servant working in stables"
+  },
+  {
+    "name": "Messenger",
+    "short_description": "Servant carrying messages and communications"
+  },
+  {
+    "name": "Runner",
+    "short_description": "Servant making deliveries and quick errands"
+  },
+  {
+    "name": "Sentry",
+    "short_description": "Guard keeping watch over property"
+  },
+  {
+    "name": "Bodyguard",
+    "short_description": "Personal protector assigned to important person"
+  },
+  {
+    "name": "Ladies in Waiting",
+    "short_description": "Female attendants serving noblewoman"
+  },
+  {
+    "name": "Gentleman Usher",
+    "short_description": "Male attendant managing ceremonies and guests"
+  },
+  {
+    "name": "Cup Bearer",
+    "short_description": "Servant serving wine and drinks to nobles"
+  },
+  {
+    "name": "Carver",
+    "short_description": "Servant skilled in cutting and serving meat"
+  },
+  {
+    "name": "Pantler",
+    "short_description": "Servant managing bread and pantry supplies"
+  },
+  {
+    "name": "Ewerer",
+    "short_description": "Servant providing water for washing hands"
+  },
+  {
+    "name": "Almoner",
+    "short_description": "Servant distributing charity on behalf of master"
+  },
+  {
+    "name": "Clerk of Works",
+    "short_description": "Servant overseeing construction and repairs"
+  },
+  {
+    "name": "Jester",
+    "short_description": "Court entertainer providing comedy and amusement"
+  },
+  {
+    "name": "Fool",
+    "short_description": "Comic entertainer, often with social commentary privilege"
+  },
+  {
+    "name": "Minstrel",
+    "short_description": "Traveling musician and storyteller"
+  },
+  {
+    "name": "Troubadour",
+    "short_description": "Poet-musician composing songs about courtly love"
+  },
+  {
+    "name": "Bard",
+    "short_description": "Storyteller and musician preserving oral traditions"
+  },
+  {
+    "name": "Musician",
+    "short_description": "Person skilled in playing musical instruments"
+  },
+  {
+    "name": "Harper",
+    "short_description": "Musician specializing in playing the harp"
+  },
+  {
+    "name": "Lute Player",
+    "short_description": "Musician playing stringed lute instruments"
+  },
+  {
+    "name": "Drummer",
+    "short_description": "Musician playing percussion instruments"
+  },
+  {
+    "name": "Piper",
+    "short_description": "Musician playing pipe or wind instruments"
+  },
+  {
+    "name": "Singer",
+    "short_description": "Performer entertaining with vocal music"
+  },
+  {
+    "name": "Dancer",
+    "short_description": "Performer entertaining through choreographed movement"
+  },
+  {
+    "name": "Acrobat",
+    "short_description": "Performer displaying feats of agility and balance"
+  },
+  {
+    "name": "Juggler",
+    "short_description": "Entertainer skilled in keeping objects in motion"
+  },
+  {
+    "name": "Tumbler",
+    "short_description": "Performer executing gymnastic feats and somersaults"
+  },
+  {
+    "name": "Fire Eater",
+    "short_description": "Performer appearing to consume flames"
+  },
+  {
+    "name": "Sword Swallower",
+    "short_description": "Performer inserting blades down throat"
+  },
+  {
+    "name": "Magician",
+    "short_description": "Entertainer performing illusions and tricks"
+  },
+  {
+    "name": "Conjurer",
+    "short_description": "Performer creating magical illusions"
+  },
+  {
+    "name": "Puppeteer",
+    "short_description": "Entertainer manipulating puppets for shows"
+  },
+  {
+    "name": "Storyteller",
+    "short_description": "Person entertaining through oral narratives"
+  },
+  {
+    "name": "Mime",
+    "short_description": "Silent performer using gestures and expressions"
+  },
+  {
+    "name": "Jongleur",
+    "short_description": "Versatile entertainer combining multiple performance skills"
+  },
+  {
+    "name": "Animal Trainer",
+    "short_description": "Person training animals for entertainment"
+  },
+  {
+    "name": "Bear Trainer",
+    "short_description": "Person training bears for public performances"
+  },
+  {
+    "name": "Snake Charmer",
+    "short_description": "Performer appearing to control snakes with music"
+  },
+  {
+    "name": "Street Performer",
+    "short_description": "Entertainer performing in public spaces"
+  },
+  {
+    "name": "Court Musician",
+    "short_description": "Professional musician employed by noble court"
+  },
+  {
+    "name": "Theater Actor",
+    "short_description": "Performer acting in dramatic presentations"
+  },
+  {
+    "name": "Playwright",
+    "short_description": "Writer creating dramatic works for performance"
+  },
+  {
+    "name": "Poet",
+    "short_description": "Writer composing verse and literary works"
+  },
+  {
+    "name": "Chronicler",
+    "short_description": "Writer recording historical events and stories"
+  },
+  {
+    "name": "Illuminator",
+    "short_description": "Artist decorating manuscripts with images"
+  },
+  {
+    "name": "Painter",
+    "short_description": "Artist creating images with pigments"
+  },
+  {
+    "name": "Portrait Artist",
+    "short_description": "Painter specializing in depicting people"
+  },
+  {
+    "name": "Sculptor",
+    "short_description": "Artist carving three-dimensional works"
+  },
+  {
+    "name": "Engraver",
+    "short_description": "Artist carving designs into hard surfaces"
+  },
+  {
+    "name": "Calligrapher",
+    "short_description": "Artist creating decorative writing and lettering"
+  },
+  {
+    "name": "Scribe",
+    "short_description": "Professional writer copying texts and documents"
+  },
+  {
+    "name": "Composer",
+    "short_description": "Musician creating original musical works"
+  },
+  {
+    "name": "Scholar",
+    "short_description": "Learned person studying academic subjects"
+  },
+  {
+    "name": "Philosopher",
+    "short_description": "Thinker studying nature of existence and knowledge"
+  },
+  {
+    "name": "Astronomer",
+    "short_description": "Scholar studying celestial bodies and movements"
+  },
+  {
+    "name": "Astrologer",
+    "short_description": "Person practicing divination through star positions"
+  },
+  {
+    "name": "Alchemist",
+    "short_description": "Early chemist seeking to transform base metals"
+  },
+  {
+    "name": "Natural Philosopher",
+    "short_description": "Early scientist studying natural world"
+  },
+  {
+    "name": "Mathematician",
+    "short_description": "Person skilled in numerical calculation and theory"
+  },
+  {
+    "name": "Physician",
+    "short_description": "Medical practitioner treating illnesses and injuries"
+  },
+  {
+    "name": "Surgeon",
+    "short_description": "Medical practitioner performing operations"
+  },
+  {
+    "name": "Apothecary",
+    "short_description": "Medical practitioner preparing and dispensing medicines"
+  },
+  {
+    "name": "Herbalist",
+    "short_description": "Healer using plants for medicinal purposes"
+  },
+  {
+    "name": "Midwife",
+    "short_description": "Person assisting women during childbirth"
+  },
+  {
+    "name": "Barber Surgeon",
+    "short_description": "Practitioner combining hair cutting with minor surgery"
+  },
+  {
+    "name": "Dentist",
+    "short_description": "Healer specializing in teeth and oral health"
+  },
+  {
+    "name": "Veterinarian",
+    "short_description": "Healer treating animals and livestock"
+  },
+  {
+    "name": "Lawyer",
+    "short_description": "Legal professional representing clients in court"
+  },
+  {
+    "name": "Attorney",
+    "short_description": "Legal representative acting for clients"
+  },
+  {
+    "name": "Advocate",
+    "short_description": "Legal professional pleading cases in court"
+  },
+  {
+    "name": "Barrister",
+    "short_description": "Lawyer qualified to argue cases in higher courts"
+  },
+  {
+    "name": "Solicitor",
+    "short_description": "Lawyer handling legal paperwork and advice"
+  },
+  {
+    "name": "Notary",
+    "short_description": "Legal official authenticating documents"
+  },
+  {
+    "name": "Legal Clerk",
+    "short_description": "Assistant handling legal paperwork"
+  },
+  {
+    "name": "Teacher",
+    "short_description": "Person instructing others in knowledge or skills"
+  },
+  {
+    "name": "Professor",
+    "short_description": "Senior academic teaching at university level"
+  },
+  {
+    "name": "Lecturer",
+    "short_description": "Academic giving formal educational talks"
+  },
+  {
+    "name": "Tutor",
+    "short_description": "Private instructor teaching individual students"
+  },
+  {
+    "name": "Schoolmaster",
+    "short_description": "Male teacher running or teaching in school"
+  },
+  {
+    "name": "Grammar Master",
+    "short_description": "Teacher specializing in language and writing"
+  },
+  {
+    "name": "Music Master",
+    "short_description": "Teacher instructing in musical skills"
+  },
+  {
+    "name": "Dancing Master",
+    "short_description": "Instructor teaching dance and movement"
+  },
+  {
+    "name": "Librarian",
+    "short_description": "Person managing collection of books and manuscripts"
+  },
+  {
+    "name": "Archivist",
+    "short_description": "Person preserving and organizing historical records"
+  },
+  {
+    "name": "Cartographer",
+    "short_description": "Mapmaker creating geographical representations"
+  },
+  {
+    "name": "Surveyor",
+    "short_description": "Person measuring and mapping land boundaries"
+  },
+  {
+    "name": "Engineer",
+    "short_description": "Person designing and building structures"
+  },
+  {
+    "name": "Architect",
+    "short_description": "Designer of buildings and structures"
+  },
+  {
+    "name": "Master Builder",
+    "short_description": "Expert craftsman overseeing major construction"
+  },
+  {
+    "name": "Translator",
+    "short_description": "Person converting text between languages"
+  },
+  {
+    "name": "Interpreter",
+    "short_description": "Person providing oral translation between languages"
+  },
+  {
+    "name": "Copyist",
+    "short_description": "Person making copies of manuscripts and documents"
+  },
+  {
+    "name": "Wizard",
+    "short_description": "Learned practitioner of arcane magic through study"
+  },
+  {
+    "name": "Sorcerer",
+    "short_description": "Magic user born with innate magical abilities"
+  },
+  {
+    "name": "Sorceress",
+    "short_description": "Female magic practitioner with innate powers"
+  },
+  {
+    "name": "Witch",
+    "short_description": "Female practitioner of folk magic and herbalism"
+  },
+  {
+    "name": "Warlock",
+    "short_description": "Male practitioner gaining power through pacts"
+  },
+  {
+    "name": "Mage",
+    "short_description": "General term for magic practitioner"
+  },
+  {
+    "name": "Archmage",
+    "short_description": "Highest-ranking magical practitioner"
+  },
+  {
+    "name": "Court Wizard",
+    "short_description": "Magic practitioner serving noble household"
+  },
+  {
+    "name": "Battle Mage",
+    "short_description": "Magic practitioner specializing in combat"
+  },
+  {
+    "name": "Necromancer",
+    "short_description": "Dark magic practitioner dealing with death"
+  },
+  {
+    "name": "Druid",
+    "short_description": "Nature magic practitioner connected to natural world"
+  },
+  {
+    "name": "Shaman",
+    "short_description": "Spiritual guide communicating with spirit world"
+  },
+  {
+    "name": "Oracle",
+    "short_description": "Seer predicting future through divine insight"
+  },
+  {
+    "name": "Prophet",
+    "short_description": "Person receiving and communicating divine revelations"
+  },
+  {
+    "name": "Seer",
+    "short_description": "Person with supernatural ability to see future"
+  },
+  {
+    "name": "Fortune Teller",
+    "short_description": "Person predicting future through various methods"
+  },
+  {
+    "name": "Diviner",
+    "short_description": "Person practicing magical foresight and revelation"
+  },
+  {
+    "name": "Enchanter",
+    "short_description": "Magic practitioner imbuing objects with magical properties"
+  },
+  {
+    "name": "Enchantress",
+    "short_description": "Female magic practitioner specializing in enchantments"
+  },
+  {
+    "name": "Conjurer",
+    "short_description": "Magic practitioner summoning beings or objects"
+  },
+  {
+    "name": "Summoner",
+    "short_description": "Magic practitioner calling forth creatures"
+  },
+  {
+    "name": "Elementalist",
+    "short_description": "Magic practitioner controlling elemental forces"
+  },
+  {
+    "name": "Illusionist",
+    "short_description": "Magic practitioner creating false perceptions"
+  },
+  {
+    "name": "Transmuter",
+    "short_description": "Magic practitioner changing form of objects"
+  },
+  {
+    "name": "Healer",
+    "short_description": "Magic practitioner using supernatural healing"
+  },
+  {
+    "name": "Cleric",
+    "short_description": "Divine magic practitioner serving deity"
+  },
+  {
+    "name": "Paladin",
+    "short_description": "Holy warrior combining martial and divine abilities"
+  },
+  {
+    "name": "Templar",
+    "short_description": "Religious knight with divine powers"
+  },
+  {
+    "name": "Inquisitor",
+    "short_description": "Religious investigator with divine authority"
+  },
+  {
+    "name": "Exorcist",
+    "short_description": "Spiritual practitioner banishing evil spirits"
+  },
+  {
+    "name": "Demon Hunter",
+    "short_description": "Warrior specializing in fighting demonic forces"
+  },
+  {
+    "name": "Vampire Hunter",
+    "short_description": "Professional hunter of undead creatures"
+  },
+  {
+    "name": "Monster Hunter",
+    "short_description": "Professional tracker and killer of monsters"
+  },
+  {
+    "name": "Dragon Slayer",
+    "short_description": "Legendary warrior specializing in killing dragons"
+  },
+  {
+    "name": "Beast Master",
+    "short_description": "Person with supernatural control over animals"
+  },
+  {
+    "name": "Animal Speaker",
+    "short_description": "Person with ability to communicate with animals"
+  },
+  {
+    "name": "Ranger",
+    "short_description": "Wilderness guardian with some magical abilities"
+  },
+  {
+    "name": "Dragonrider",
+    "short_description": "Person who bonds with and rides dragons"
+  },
+  {
+    "name": "Familiar Keeper",
+    "short_description": "Magic practitioner bonded with magical creature"
+  },
+  {
+    "name": "Runesmith",
+    "short_description": "Craftsman inscribing magical symbols"
+  },
+  {
+    "name": "Spellsword",
+    "short_description": "Warrior combining swordplay with magic"
+  },
+  {
+    "name": "Warmage",
+    "short_description": "Military magic practitioner specializing in battlefield spells"
+  },
+  {
+    "name": "War Priest",
+    "short_description": "Religious warrior blessed with divine power"
+  },
+  {
+    "name": "Spirit Medium",
+    "short_description": "Person communicating with deceased spirits"
+  },
+  {
+    "name": "Curse Breaker",
+    "short_description": "Specialist in removing magical curses"
+  },
+  {
+    "name": "Ward Keeper",
+    "short_description": "Person maintaining magical protective barriers"
+  },
+  {
+    "name": "Spell Scribe",
+    "short_description": "Scholar recording and copying magical knowledge"
+  },
+  {
+    "name": "Spellmonger",
+    "short_description": "Merchant specializing in magical goods and spell components"
+  },
+  {
+    "name": "Magical Scholar",
+    "short_description": "Academic studying nature of magic"
+  },
+  {
+    "name": "Planar Walker",
+    "short_description": "Person able to travel between dimensional planes"
+  },
+  {
+    "name": "Time Keeper",
+    "short_description": "Guardian or manipulator of temporal forces"
+  },
+  {
+    "name": "Dream Walker",
+    "short_description": "Person able to enter and influence dreams"
+  },
+  {
+    "name": "Thief",
+    "short_description": "Person stealing property from others"
+  },
+  {
+    "name": "Burglar",
+    "short_description": "Criminal breaking into buildings to steal"
+  },
+  {
+    "name": "Pickpocket",
+    "short_description": "Thief stealing from people's pockets"
+  },
+  {
+    "name": "Cutpurse",
+    "short_description": "Thief cutting purse strings to steal money"
+  },
+  {
+    "name": "Highwayman",
+    "short_description": "Robber attacking travelers on roads"
+  },
+  {
+    "name": "Bandit",
+    "short_description": "Outlaw robbing travelers and settlements"
+  },
+  {
+    "name": "Brigand",
+    "short_description": "Member of bandit gang living outside law"
+  },
+  {
+    "name": "Outlaw",
+    "short_description": "Person declared outside protection of law"
+  },
+  {
+    "name": "Fugitive",
+    "short_description": "Person fleeing from justice or authority"
+  },
+  {
+    "name": "Pirate",
+    "short_description": "Sea robber attacking ships and ports"
+  },
+  {
+    "name": "Corsair",
+    "short_description": "Pirate operating under government license"
+  },
+  {
+    "name": "Smuggler",
+    "short_description": "Person illegally transporting contraband goods"
+  },
+  {
+    "name": "Fence",
+    "short_description": "Person buying and selling stolen goods"
+  },
+  {
+    "name": "Assassin",
+    "short_description": "Professional killer murdering for payment"
+  },
+  {
+    "name": "Hired Killer",
+    "short_description": "Person paid to murder specific targets"
+  },
+  {
+    "name": "Poisoner",
+    "short_description": "Person killing with toxic substances"
+  },
+  {
+    "name": "Spy",
+    "short_description": "Person secretly gathering information"
+  },
+  {
+    "name": "Double Agent",
+    "short_description": "Spy working for multiple opposing sides"
+  },
+  {
+    "name": "Saboteur",
+    "short_description": "Person deliberately destroying property or operations"
+  },
+  {
+    "name": "Arsonist",
+    "short_description": "Person deliberately setting fires"
+  },
+  {
+    "name": "Forger",
+    "short_description": "Person creating false documents or currency"
+  },
+  {
+    "name": "Counterfeiter",
+    "short_description": "Person making fake money or goods"
+  },
+  {
+    "name": "Con Artist",
+    "short_description": "Criminal using deception to steal money"
+  },
+  {
+    "name": "Swindler",
+    "short_description": "Person using fraud to cheat others"
+  },
+  {
+    "name": "Charlatan",
+    "short_description": "Fake professional deceiving people for money"
+  },
+  {
+    "name": "Quack",
+    "short_description": "Fake medical practitioner selling false cures"
+  },
+  {
+    "name": "Card Sharp",
+    "short_description": "Professional cheater at card games"
+  },
+  {
+    "name": "Gambler",
+    "short_description": "Person making living through games of chance"
+  },
+  {
+    "name": "Loan Shark",
+    "short_description": "Money lender charging extremely high interest"
+  },
+  {
+    "name": "Extortionist",
+    "short_description": "Person obtaining money through threats"
+  },
+  {
+    "name": "Blackmailer",
+    "short_description": "Person demanding payment to hide secrets"
+  },
+  {
+    "name": "Kidnapper",
+    "short_description": "Person abducting others for ransom"
+  },
+  {
+    "name": "Slaver",
+    "short_description": "Person trading in human beings"
+  },
+  {
+    "name": "Human Trafficker",
+    "short_description": "Person illegally transporting people"
+  },
+  {
+    "name": "Brothel Keeper",
+    "short_description": "Person operating house of prostitution"
+  },
+  {
+    "name": "Procurer",
+    "short_description": "Person obtaining others for prostitution"
+  },
+  {
+    "name": "Drug Dealer",
+    "short_description": "Person selling illegal substances"
+  },
+  {
+    "name": "Poacher",
+    "short_description": "Person illegally hunting protected game"
+  },
+  {
+    "name": "Grave Robber",
+    "short_description": "Person stealing from burial sites"
+  },
+  {
+    "name": "Body Snatcher",
+    "short_description": "Person stealing corpses for medical schools"
+  },
+  {
+    "name": "Cattle Rustler",
+    "short_description": "Person stealing livestock"
+  },
+  {
+    "name": "Horse Thief",
+    "short_description": "Person stealing horses"
+  },
+  {
+    "name": "Deserter",
+    "short_description": "Soldier abandoning military service"
+  },
+  {
+    "name": "Mutineer",
+    "short_description": "Person rebelling against lawful authority"
+  },
+  {
+    "name": "Rebel",
+    "short_description": "Person fighting against established authority"
+  },
+  {
+    "name": "Revolutionary",
+    "short_description": "Person seeking to overthrow government"
+  },
+  {
+    "name": "Cultist",
+    "short_description": "Member of forbidden religious group"
+  },
+  {
+    "name": "Heretic",
+    "short_description": "Person holding beliefs contrary to church doctrine"
+  },
+  {
+    "name": "Witch Hunter",
+    "short_description": "Person hunting practitioners of forbidden magic"
+  },
+  {
+    "name": "Dark Cultist",
+    "short_description": "Worshipper of evil or forbidden deities"
+  },
+  {
+    "name": "Necromancer",
+    "short_description": "Practitioner of forbidden death magic"
+  },
+  {
+    "name": "Executioner",
+    "short_description": "Official carrying out death sentences"
+  },
+  {
+    "name": "Hangman",
+    "short_description": "Executioner specializing in hanging"
+  },
+  {
+    "name": "Headsman",
+    "short_description": "Executioner using axe or sword for beheading"
+  },
+  {
+    "name": "Torturer",
+    "short_description": "Person extracting information through pain"
+  },
+  {
+    "name": "Jailer",
+    "short_description": "Person guarding prisoners in jail"
+  },
+  {
+    "name": "Prison Keeper",
+    "short_description": "Person managing prison facility"
+  },
+  {
+    "name": "Dungeon Master",
+    "short_description": "Person overseeing castle dungeon"
+  },
+  {
+    "name": "Town Crier",
+    "short_description": "Person making public announcements"
+  },
+  {
+    "name": "Herald",
+    "short_description": "Official messenger making proclamations"
+  },
+  {
+    "name": "Lamp Lighter",
+    "short_description": "Person lighting and maintaining street lamps"
+  },
+  {
+    "name": "Night Soil Man",
+    "short_description": "Person collecting human waste for disposal"
+  },
+  {
+    "name": "Gong Farmer",
+    "short_description": "Person cleaning latrines and cesspits"
+  },
+  {
+    "name": "Rat Catcher",
+    "short_description": "Person controlling rodent infestations"
+  },
+  {
+    "name": "Pest Controller",
+    "short_description": "Person eliminating unwanted animals"
+  },
+  {
+    "name": "Gravedigger",
+    "short_description": "Person digging graves for burial"
+  },
+  {
+    "name": "Undertaker",
+    "short_description": "Person preparing bodies for burial"
+  },
+  {
+    "name": "Mortician",
+    "short_description": "Person embalming and preparing corpses"
+  },
+  {
+    "name": "Sin Eater",
+    "short_description": "Person ritually consuming sins of deceased"
+  },
+  {
+    "name": "Professional Mourner",
+    "short_description": "Person hired to grieve at funerals"
+  },
+  {
+    "name": "Hermit",
+    "short_description": "Person living in isolation from society"
+  },
+  {
+    "name": "Wanderer",
+    "short_description": "Person traveling without fixed destination"
+  },
+  {
+    "name": "Pilgrim",
+    "short_description": "Religious traveler visiting sacred sites"
+  },
+  {
+    "name": "Beggar",
+    "short_description": "Person asking for charity to survive"
+  },
+  {
+    "name": "Vagrant",
+    "short_description": "Homeless person wandering without employment"
+  },
+  {
+    "name": "Leper",
+    "short_description": "Person suffering from leprosy, social outcast"
+  },
+  {
+    "name": "Madman",
+    "short_description": "Person with mental illness, often wandering"
+  },
+  {
+    "name": "Fool",
+    "short_description": "Person with mental disability, sometimes entertainer"
+  },
+  {
+    "name": "Dwarf",
+    "short_description": "Person of small stature, often entertainer"
+  },
+  {
+    "name": "Giant",
+    "short_description": "Person of unusual height, often curiosity"
+  },
+  {
+    "name": "Freak",
+    "short_description": "Person with physical abnormalities displayed publicly"
+  },
+  {
+    "name": "Miracle Worker",
+    "short_description": "Person claiming supernatural healing powers"
+  },
+  {
+    "name": "Faith Healer",
+    "short_description": "Person using religious methods to heal"
+  },
+  {
+    "name": "Snake Oil Salesman",
+    "short_description": "Person selling fake medicines and cures"
+  },
+  {
+    "name": "Traveling Salesman",
+    "short_description": "Person selling goods while moving between towns"
+  },
+  {
+    "name": "Tinker",
+    "short_description": "Traveling craftsman repairing household items"
+  },
+  {
+    "name": "Knife Grinder",
+    "short_description": "Person sharpening blades and tools"
+  },
+  {
+    "name": "Chimney Sweep",
+    "short_description": "Person cleaning soot from chimneys"
+  },
+  {
+    "name": "Rag Picker",
+    "short_description": "Person collecting discarded materials for reuse"
+  },
+  {
+    "name": "Bone Collector",
+    "short_description": "Person gathering bones for various purposes"
+  },
+  {
+    "name": "Dung Collector",
+    "short_description": "Person gathering animal waste for fertilizer"
+  },
+  {
+    "name": "Tallow Maker",
+    "short_description": "Person making candles from animal fat"
+  },
+  {
+    "name": "Soap Boiler",
+    "short_description": "Person making soap from fats and oils"
+  },
+  {
+    "name": "Lime Burner",
+    "short_description": "Person burning limestone to make lime"
+  },
+  {
+    "name": "Salt Maker",
+    "short_description": "Person extracting salt from sea water"
+  },
+  {
+    "name": "Honey Gatherer",
+    "short_description": "Person collecting wild honey from bees"
+  },
+  {
+    "name": "Mushroom Gatherer",
+    "short_description": "Person collecting edible fungi from forests"
+  },
+  {
+    "name": "Pearl Diver",
+    "short_description": "Person diving underwater to collect pearls"
+  },
+  {
+    "name": "Treasure Hunter",
+    "short_description": "Person searching for valuable hidden objects"
+  },
+  {
+    "name": "Relic Hunter",
+    "short_description": "Person seeking religious artifacts and relics"
+  },
+  {
+    "name": "Adventurer",
+    "short_description": "Person seeking excitement and treasure"
+  },
+  {
+    "name": "Explorer",
+    "short_description": "Person discovering new lands and territories"
+  },
+  {
+    "name": "Guide",
+    "short_description": "Person leading others through unfamiliar territory"
+  },
+  {
+    "name": "Scout",
+    "short_description": "Person exploring ahead to gather information"
+  },
+  {
+    "name": "Tracker",
+    "short_description": "Person following trails and finding hidden things"
+  },
+  {
+    "name": "Mountain Climber",
+    "short_description": "Person scaling peaks and dangerous heights"
+  },
+  {
+    "name": "Cave Explorer",
+    "short_description": "Person venturing into underground caverns"
+  },
+  {
+    "name": "Swamp Guide",
+    "short_description": "Person navigating dangerous wetland areas"
+  },
+  {
+    "name": "Desert Nomad",
+    "short_description": "Person living and traveling in arid regions"
+  },
+  {
+    "name": "Ship Builder",
+    "short_description": "Craftsman constructing maritime vessels"
+  },
+  {
+    "name": "Bridge Builder",
+    "short_description": "Engineer constructing spans across water"
+  },
+  {
+    "name": "Road Builder",
+    "short_description": "Worker constructing paths for travel"
+  },
+  {
+    "name": "Well Digger",
+    "short_description": "Person digging wells to access groundwater"
+  },
+  {
+    "name": "Miner",
+    "short_description": "Person extracting minerals from underground"
+  },
+  {
+    "name": "Quarryman",
+    "short_description": "Person extracting stone from quarries"
+  },
+  {
+    "name": "Prospector",
+    "short_description": "Person searching for valuable minerals"
+  },
+  {
+    "name": "Smelter",
+    "short_description": "Person melting ore to extract metals"
+  },
+  {
+    "name": "Charcoal Maker",
+    "short_description": "Person converting wood into charcoal"
+  },
+  {
+    "name": "Glassmaker",
+    "short_description": "Craftsman creating glass objects"
+  },
+  {
+    "name": "Mirror Maker",
+    "short_description": "Craftsman creating reflective surfaces"
+  },
+  {
+    "name": "Lens Grinder",
+    "short_description": "Craftsman making optical lenses"
+  },
+  {
+    "name": "Clock Maker",
+    "short_description": "Craftsman building timepieces"
+  },
+  {
+    "name": "Toy Maker",
+    "short_description": "Craftsman creating children's playthings"
+  },
+  {
+    "name": "Doll Maker",
+    "short_description": "Craftsman creating human figurines"
+  },
+  {
+    "name": "Mask Maker",
+    "short_description": "Craftsman creating face coverings"
+  },
+  {
+    "name": "Costume Maker",
+    "short_description": "Person creating elaborate clothing for performances"
+  },
+  {
+    "name": "Banner Maker",
+    "short_description": "Craftsman creating flags and standards"
+  },
+  {
+    "name": "Sign Painter",
+    "short_description": "Artist creating business and directional signs"
+  },
+  {
+    "name": "Tattoo Artist",
+    "short_description": "Person marking skin with permanent designs"
+  },
+  {
+    "name": "Body Painter",
+    "short_description": "Artist decorating skin with temporary designs"
+  },
+  {
+    "name": "Beard Trimmer",
+    "short_description": "Person grooming facial hair"
+  },
+  {
+    "name": "Tooth Puller",
+    "short_description": "Person extracting damaged teeth"
+  },
+  {
+    "name": "Bone Setter",
+    "short_description": "Person treating broken bones without formal training"
+  },
+  {
+    "name": "Bloodletter",
+    "short_description": "Person drawing blood for medical purposes"
+  },
+  {
+    "name": "Leech Gatherer",
+    "short_description": "Person collecting leeches for medical use"
+  },
+  {
+    "name": "Herb Gatherer",
+    "short_description": "Person collecting wild plants for medicine"
+  },
+  {
+    "name": "Poison Maker",
+    "short_description": "Person creating toxic substances"
+  },
+  {
+    "name": "Antidote Maker",
+    "short_description": "Person creating remedies for poisons"
+  },
+  {
+    "name": "Love Potion Maker",
+    "short_description": "Person creating substances to inspire romance"
+  },
+  {
+    "name": "Curse Maker",
+    "short_description": "Person creating magical hexes and curses"
+  },
+  {
+    "name": "Charm Maker",
+    "short_description": "Person creating magical protective items"
+  },
+  {
+    "name": "Amulet Crafter",
+    "short_description": "Person making magical protective jewelry"
+  },
+  {
+    "name": "Crystal Reader",
+    "short_description": "Person divining future through crystal gazing"
+  },
+  {
+    "name": "Palm Reader",
+    "short_description": "Person reading palms to predict future"
+  },
+  {
+    "name": "Card Reader",
+    "short_description": "Person using cards to tell fortunes"
+  },
+  {
+    "name": "Bone Reader",
+    "short_description": "Person divining future by casting bones"
+  },
+  {
+    "name": "Tea Leaf Reader",
+    "short_description": "Person reading patterns in tea leaves"
+  },
+  {
+    "name": "Dream Interpreter",
+    "short_description": "Person explaining meaning of dreams"
+  },
+  {
+    "name": "Omen Reader",
+    "short_description": "Person interpreting supernatural signs"
+  },
+  {
+    "name": "Weather Prophet",
+    "short_description": "Person predicting weather patterns"
+  },
+  {
+    "name": "Doomsayer",
+    "short_description": "Person predicting disasters and calamities"
+  },
+  {
+    "name": "Mystic",
+    "short_description": "Person claiming supernatural insight"
+  },
+  {
+    "name": "Sage",
+    "short_description": "Wise person offering counsel and knowledge"
+  },
+  {
+    "name": "Wise Woman",
+    "short_description": "Female healer and advisor in rural communities"
+  },
+  {
+    "name": "Wise Man",
+    "short_description": "Male elder offering wisdom and guidance"
+  },
+  {
+    "name": "Counselor",
+    "short_description": "Person offering advice and emotional support"
+  },
+  {
+    "name": "Mediator",
+    "short_description": "Person helping resolve disputes between parties"
+  },
+  {
+    "name": "Negotiator",
+    "short_description": "Person arranging agreements between parties"
+  },
+  {
+    "name": "Peacemaker",
+    "short_description": "Person working to end conflicts"
+  },
+  {
+    "name": "Diplomat",
+    "short_description": "Person conducting negotiations between groups"
+  },
+  {
+    "name": "Translator",
+    "short_description": "Person converting between languages"
+  },
+  {
+    "name": "Code Breaker",
+    "short_description": "Person deciphering secret messages"
+  },
+  {
+    "name": "Puzzle Solver",
+    "short_description": "Person specializing in solving complex problems"
+  },
+  {
+    "name": "Riddle Master",
+    "short_description": "Person creating and solving riddles"
+  },
+  {
+    "name": "Game Master",
+    "short_description": "Person organizing and overseeing games"
+  },
+  {
+    "name": "Contest Judge",
+    "short_description": "Person evaluating competitions"
+  },
+  {
+    "name": "Tournament Marshal",
+    "short_description": "Person organizing martial competitions"
+  },
+  {
+    "name": "Race Organizer",
+    "short_description": "Person arranging competitive events"
+  },
+  {
+    "name": "Festival Coordinator",
+    "short_description": "Person organizing community celebrations"
+  },
+  {
+    "name": "Wedding Planner",
+    "short_description": "Person organizing marriage ceremonies"
+  },
+  {
+    "name": "Funeral Director",
+    "short_description": "Person organizing burial ceremonies"
+  },
+  {
+    "name": "Matchmaker",
+    "short_description": "Person arranging marriages between others"
+  },
+  {
+    "name": "Go-Between",
+    "short_description": "Person facilitating communication between parties"
+  },
+  {
+    "name": "Message Runner",
+    "short_description": "Person carrying communications quickly"
+  },
+  {
+    "name": "Courier",
+    "short_description": "Person delivering messages and packages"
+  },
+  {
+    "name": "Post Rider",
+    "short_description": "Person carrying mail on horseback"
+  },
+  {
+    "name": "Signal Fire Keeper",
+    "short_description": "Person maintaining communication beacons"
+  },
+  {
+    "name": "Bell Ringer",
+    "short_description": "Person operating church or town bells"
+  },
+  {
+    "name": "Horn Blower",
+    "short_description": "Person using horns for communication"
+  },
+  {
+    "name": "Drum Beater",
+    "short_description": "Person using drums for communication"
+  },
+  {
+    "name": "Flag Bearer",
+    "short_description": "Person carrying banners for communication"
+  },
+  {
+    "name": "Lighthouse Keeper",
+    "short_description": "Person maintaining beacon for ships"
+  },
+  {
+    "name": "Harbor Master",
+    "short_description": "Person managing port activities"
+  },
+  {
+    "name": "Bridge Keeper",
+    "short_description": "Person controlling access across bridges"
+  },
+  {
+    "name": "Ferry Operator",
+    "short_description": "Person transporting people across water"
+  },
+  {
+    "name": "River Guide",
+    "short_description": "Person navigating river transportation"
+  },
+  {
+    "name": "Mountain Guide",
+    "short_description": "Person leading travelers through dangerous peaks"
+  },
+  {
+    "name": "Forest Guide",
+    "short_description": "Person navigating woodland areas"
+  },
+  {
+    "name": "Wilderness Survivor",
+    "short_description": "Person skilled in living off the land"
+  },
+  {
+    "name": "Hermit",
+    "short_description": "Person choosing to live alone in wilderness"
+  },
+  {
+    "name": "Monk",
+    "short_description": "Religious person living in monastery"
+  },
+  {
+    "name": "Anchorite",
+    "short_description": "Religious hermit living in seclusion"
+  },
+  {
+    "name": "Stylite",
+    "short_description": "Religious ascetic living on pillar"
+  },
+  {
+    "name": "Flagellant",
+    "short_description": "Religious person practicing self-mortification"
+  },
+  {
+    "name": "Penitent",
+    "short_description": "Person performing religious penance"
+  },
+  {
+    "name": "Confessor",
+    "short_description": "Priest hearing confessions and giving absolution"
+  },
+  {
+    "name": "Spiritual Director",
+    "short_description": "Religious guide for spiritual development"
+  },
+  {
+    "name": "Soul Keeper",
+    "short_description": "Person responsible for spiritual welfare"
+  },
+  {
+    "name": "Guardian Angel",
+    "short_description": "Person protecting others from spiritual harm"
+  },
+  {
+    "name": "Demon Fighter",
+    "short_description": "Person battling evil supernatural forces"
+  },
+  {
+    "name": "Ghost Hunter",
+    "short_description": "Person seeking and dealing with spirits"
+  },
+  {
+    "name": "Vampire Slayer",
+    "short_description": "Person hunting undead blood drinkers"
+  },
+  {
+    "name": "Werewolf Hunter",
+    "short_description": "Person tracking and killing lycanthropes"
+  },
+  {
+    "name": "Monster Slayer",
+    "short_description": "Person making living killing dangerous beasts"
+  },
+  {
+    "name": "Dragon Hunter",
+    "short_description": "Person brave enough to hunt great wyrms"
+  },
+  {
+    "name": "Giant Killer",
+    "short_description": "Person specializing in fighting large humanoids"
+  },
+  {
+    "name": "Troll Slayer",
+    "short_description": "Person hunting regenerating monsters"
+  },
+  {
+    "name": "Orc Hunter",
+    "short_description": "Person tracking and killing savage humanoids"
+  },
+  {
+    "name": "Goblin Exterminator",
+    "short_description": "Person clearing areas of small hostile creatures"
+  },
+  {
+    "name": "Pest Eliminator",
+    "short_description": "Person removing dangerous animals"
+  },
+  {
+    "name": "Exterminator",
+    "short_description": "Person removing unwanted creatures"
+  },
+  {
+    "name": "Animal Controller",
+    "short_description": "Person managing dangerous wildlife"
+  },
+  {
+    "name": "Beast Tamer",
+    "short_description": "Person training wild animals"
+  },
+  {
+    "name": "Circus Master",
+    "short_description": "Person organizing traveling entertainment"
+  },
+  {
+    "name": "Carnival Barker",
+    "short_description": "Person attracting customers to shows"
+  },
+  {
+    "name": "Sideshow Performer",
+    "short_description": "Person displaying unusual abilities"
+  },
+  {
+    "name": "Strongman",
+    "short_description": "Person displaying feats of strength"
+  },
+  {
+    "name": "Contortionist",
+    "short_description": "Person bending body into unusual positions"
+  },
+  {
+    "name": "Knife Thrower",
+    "short_description": "Person accurately throwing blades"
+  },
+  {
+    "name": "Fire Breather",
+    "short_description": "Person exhaling flames safely"
+  },
+  {
+    "name": "Tightrope Walker",
+    "short_description": "Person walking on narrow elevated ropes"
+  },
+  {
+    "name": "Acrobat",
+    "short_description": "Person performing aerial gymnastics"
+  },
+  {
+    "name": "Clown",
+    "short_description": "Comic performer entertaining audiences"
+  },
+  {
+    "name": "Buffoon",
+    "short_description": "Person acting silly for entertainment"
+  },
+  {
+    "name": "Mimic",
+    "short_description": "Person imitating others for entertainment"
+  },
+  {
+    "name": "Impressionist",
+    "short_description": "Person copying voices and mannerisms"
+  },
+  {
+    "name": "Ventriloquist",
+    "short_description": "Person speaking without moving lips"
+  },
+  {
+    "name": "Puppet Master",
+    "short_description": "Person controlling puppet performances"
+  },
+  {
+    "name": "Shadow Puppeteer",
+    "short_description": "Person creating entertainment with shadows"
+  },
+  {
+    "name": "Magic Lantern Operator",
+    "short_description": "Person projecting images for entertainment"
+  },
+  {
+    "name": "Peep Show Operator",
+    "short_description": "Person operating viewing entertainment"
+  },
+  {
+    "name": "Theater Manager",
+    "short_description": "Person organizing dramatic performances"
+  },
+  {
+    "name": "Stage Manager",
+    "short_description": "Person coordinating theatrical productions"
+  },
+  {
+    "name": "Costume Designer",
+    "short_description": "Person creating clothing for performances"
+  },
+  {
+    "name": "Set Builder",
+    "short_description": "Person constructing theatrical scenery"
+  },
+  {
+    "name": "Props Master",
+    "short_description": "Person managing theatrical objects"
+  },
+  {
+    "name": "Prompter",
+    "short_description": "Person helping actors remember lines"
+  },
+  {
+    "name": "Understudy",
+    "short_description": "Person ready to replace main performer"
+  },
+  {
+    "name": "Chorus Member",
+    "short_description": "Person singing or dancing in group"
+  },
+  {
+    "name": "Orchestra Leader",
+    "short_description": "Person directing musical ensemble"
+  },
+  {
+    "name": "Conductor",
+    "short_description": "Person leading musical performances"
+  },
+  {
+    "name": "Composer",
+    "short_description": "Person creating original musical works"
+  },
+  {
+    "name": "Lyricist",
+    "short_description": "Person writing words for songs"
+  },
+  {
+    "name": "Music Copyist",
+    "short_description": "Person transcribing musical notation"
+  },
+  {
+    "name": "Instrument Tuner",
+    "short_description": "Person adjusting musical instruments"
+  },
+  {
+    "name": "Instrument Repairer",
+    "short_description": "Person fixing damaged musical instruments"
+  },
+  {
+    "name": "Sheet Music Seller",
+    "short_description": "Person trading in written music"
+  },
+  {
+    "name": "Music Teacher",
+    "short_description": "Person instructing in musical skills"
+  },
+  {
+    "name": "Dance Instructor",
+    "short_description": "Person teaching movement and choreography"
+  },
+  {
+    "name": "Choreographer",
+    "short_description": "Person creating dance sequences"
+  },
+  {
+    "name": "Ballet Master",
+    "short_description": "Person training classical dancers"
+  },
+  {
+    "name": "Folk Dance Teacher",
+    "short_description": "Person preserving traditional dances"
+  },
+  {
+    "name": "Court Dancer",
+    "short_description": "Person performing dances for nobility"
+  },
+  {
+    "name": "Street Dancer",
+    "short_description": "Person performing dances in public"
+  },
+  {
+    "name": "Ritual Dancer",
+    "short_description": "Person performing sacred dances"
+  },
+  {
+    "name": "Exotic Dancer",
+    "short_description": "Person performing sensual dances"
+  },
+  {
+    "name": "Belly Dancer",
+    "short_description": "Person performing Middle Eastern dance"
+  },
+  {
+    "name": "Fire Dancer",
+    "short_description": "Person dancing with flames"
+  },
+  {
+    "name": "Sword Dancer",
+    "short_description": "Person performing martial dances"
+  },
+  {
+    "name": "Morris Dancer",
+    "short_description": "Person performing English folk dance"
+  },
+  {
+    "name": "May Pole Dancer",
+    "short_description": "Person performing seasonal celebration dance"
+  },
+  {
+    "name": "Wedding Dancer",
+    "short_description": "Person performing at marriage celebrations"
+  },
+  {
+    "name": "Funeral Dancer",
+    "short_description": "Person performing at burial ceremonies"
+  },
+  {
+    "name": "Rain Dancer",
+    "short_description": "Person performing weather summoning dance"
+  },
+  {
+    "name": "War Dancer",
+    "short_description": "Person performing pre-battle rituals"
+  },
+  {
+    "name": "Victory Dancer",
+    "short_description": "Person celebrating successful battles"
+  },
+  {
+    "name": "Harvest Dancer",
+    "short_description": "Person celebrating successful crops"
+  },
+  {
+    "name": "Seasonal Celebrant",
+    "short_description": "Person organizing seasonal festivals"
+  },
+  {
+    "name": "Holiday Organizer",
+    "short_description": "Person arranging special celebrations"
+  },
+  {
+    "name": "Feast Master",
+    "short_description": "Person organizing large meals"
+  },
+  {
+    "name": "Banquet Coordinator",
+    "short_description": "Person arranging formal dinners"
+  },
+  {
+    "name": "Wine Steward",
+    "short_description": "Person managing wine service"
+  },
+  {
+    "name": "Sommelier",
+    "short_description": "Person expert in wine selection"
+  },
+  {
+    "name": "Ale Conner",
+    "short_description": "Person testing quality of beer"
+  },
+  {
+    "name": "Tavern Keeper",
+    "short_description": "Person operating drinking establishment"
+  },
+  {
+    "name": "Innkeeper",
+    "short_description": "Person providing lodging for travelers"
+  },
+  {
+    "name": "Hostess",
+    "short_description": "Person welcoming and entertaining guests"
+  },
+  {
+    "name": "Hospitality Manager",
+    "short_description": "Person overseeing guest services"
+  },
+  {
+    "name": "Travel Guide",
+    "short_description": "Person assisting visitors to area"
+  },
+  {
+    "name": "Tour Leader",
+    "short_description": "Person guiding groups of travelers"
+  },
+  {
+    "name": "Pilgrimage Guide",
+    "short_description": "Person leading religious journeys"
+  },
+  {
+    "name": "Caravan Leader",
+    "short_description": "Person organizing merchant expeditions"
+  },
+  {
+    "name": "Expedition Leader",
+    "short_description": "Person leading exploration ventures"
+  },
+  {
+    "name": "Safari Guide",
+    "short_description": "Person leading hunting expeditions"
+  },
+  {
+    "name": "Treasure Map Maker",
+    "short_description": "Person creating guides to hidden wealth"
+  },
+  {
+    "name": "Secret Keeper",
+    "short_description": "Person trusted with confidential information"
+  },
+  {
+    "name": "Confidant",
+    "short_description": "Person trusted with personal secrets"
+  },
+  {
+    "name": "Personal Assistant",
+    "short_description": "Person helping with daily tasks"
+  },
+  {
+    "name": "Valet",
+    "short_description": "Personal male servant to gentleman"
+  },
+  {
+    "name": "Lady in Waiting",
+    "short_description": "Female attendant to noblewoman"
+  },
+  {
+    "name": "Companion",
+    "short_description": "Person providing company to lonely individual"
+  },
+  {
+    "name": "Caregiver",
+    "short_description": "Person tending to sick or elderly"
+  },
+  {
+    "name": "Nursemaid",
+    "short_description": "Person caring for children"
+  },
+  {
+    "name": "Governess",
+    "short_description": "Female teacher and guardian of children"
+  },
+  {
+    "name": "Tutor",
+    "short_description": "Private instructor for individuals"
+  },
+  {
+    "name": "Mentor",
+    "short_description": "Person guiding development of another"
+  },
+  {
+    "name": "Life Coach",
+    "short_description": "Person helping others improve their lives"
+  },
+  {
+    "name": "Spiritual Advisor",
+    "short_description": "Person providing religious guidance"
+  },
+  {
+    "name": "Confessor",
+    "short_description": "Person hearing admissions of wrongdoing"
+  },
+  {
+    "name": "Counselor",
+    "short_description": "Person providing advice and support"
+  },
+  {
+    "name": "Therapist",
+    "short_description": "Person treating emotional problems"
+  },
+  {
+    "name": "Healer",
+    "short_description": "Person treating physical ailments"
+  },
+  {
+    "name": "Miracle Worker",
+    "short_description": "Person performing supernatural healing"
+  },
+  {
+    "name": "Faith Healer",
+    "short_description": "Person using belief to cure illness"
+  },
+  {
+    "name": "Bone Setter",
+    "short_description": "Person treating bone injuries"
+  },
+  {
+    "name": "Wound Dresser",
+    "short_description": "Person treating cuts and injuries"
+  },
+  {
+    "name": "Plague Doctor",
+    "short_description": "Person treating epidemic diseases"
+  },
+  {
+    "name": "Quarantine Officer",
+    "short_description": "Person enforcing disease isolation"
+  },
+  {
+    "name": "Public Health Officer",
+    "short_description": "Person maintaining community health"
+  },
+  {
+    "name": "Water Inspector",
+    "short_description": "Person ensuring clean water supply"
+  },
+  {
+    "name": "Food Inspector",
+    "short_description": "Person checking food safety"
+  },
+  {
+    "name": "Market Inspector",
+    "short_description": "Person ensuring fair trade practices"
+  },
+  {
+    "name": "Quality Controller",
+    "short_description": "Person checking goods meet standards"
+  },
+  {
+    "name": "Standards Keeper",
+    "short_description": "Person maintaining quality measures"
+  },
+  {
+    "name": "Weights and Measures",
+    "short_description": "Person ensuring accurate trading"
+  },
+  {
+    "name": "Fair Trade Monitor",
+    "short_description": "Person preventing cheating in commerce"
+  },
+  {
+    "name": "Price Setter",
+    "short_description": "Person determining cost of goods"
+  },
+  {
+    "name": "Market Crier",
+    "short_description": "Person announcing prices and goods"
+  },
+  {
+    "name": "Auction Caller",
+    "short_description": "Person conducting public sales"
+  },
+  {
+    "name": "Bid Taker",
+    "short_description": "Person recording offers at auctions"
+  },
+  {
+    "name": "Deal Maker",
+    "short_description": "Person arranging business agreements"
+  },
+  {
+    "name": "Contract Negotiator",
+    "short_description": "Person arranging business terms"
+  },
+  {
+    "name": "Business Agent",
+    "short_description": "Person representing commercial interests"
+  },
+  {
+    "name": "Trade Representative",
+    "short_description": "Person promoting commercial exchange"
+  },
+  {
+    "name": "Sales Agent",
+    "short_description": "Person promoting goods for others"
+  },
+  {
+    "name": "Commission Agent",
+    "short_description": "Person earning percentage of sales"
+  },
+  {
+    "name": "Traveling Merchant",
+    "short_description": "Person selling goods while traveling"
+  },
+  {
+    "name": "Pack Trader",
+    "short_description": "Person carrying goods on foot"
+  },
+  {
+    "name": "Wagon Driver",
+    "short_description": "Person transporting goods by cart"
+  },
+  {
+    "name": "Mule Driver",
+    "short_description": "Person leading pack animals"
+  },
+  {
+    "name": "Ox Driver",
+    "short_description": "Person controlling oxen for transport"
+  },
+  {
+    "name": "Horse Trader",
+    "short_description": "Person buying and selling horses"
+  },
+  {
+    "name": "Cattle Driver",
+    "short_description": "Person moving herds of cattle"
+  },
+  {
+    "name": "Sheep Driver",
+    "short_description": "Person moving flocks of sheep"
+  },
+  {
+    "name": "Goat Herder",
+    "short_description": "Person tending goats"
+  },
+  {
+    "name": "Pig Farmer",
+    "short_description": "Person raising swine"
+  },
+  {
+    "name": "Chicken Farmer",
+    "short_description": "Person raising poultry"
+  },
+  {
+    "name": "Duck Farmer",
+    "short_description": "Person raising waterfowl"
+  },
+  {
+    "name": "Goose Herder",
+    "short_description": "Person tending geese"
+  },
+  {
+    "name": "Turkey Raiser",
+    "short_description": "Person breeding turkeys"
+  },
+  {
+    "name": "Rabbit Breeder",
+    "short_description": "Person raising rabbits"
+  },
+  {
+    "name": "Deer Keeper",
+    "short_description": "Person maintaining deer parks"
+  },
+  {
+    "name": "Wild Boar Hunter",
+    "short_description": "Person hunting dangerous swine"
+  },
+  {
+    "name": "Bear Hunter",
+    "short_description": "Person hunting large predators"
+  },
+  {
+    "name": "Wolf Hunter",
+    "short_description": "Person eliminating pack predators"
+  },
+  {
+    "name": "Fox Hunter",
+    "short_description": "Person hunting small predators"
+  },
+  {
+    "name": "Bird Catcher",
+    "short_description": "Person trapping birds"
+  },
+  {
+    "name": "Fowler",
+    "short_description": "Person hunting birds"
+  },
+  {
+    "name": "Trapper",
+    "short_description": "Person catching animals in traps"
+  },
+  {
+    "name": "Snare Setter",
+    "short_description": "Person creating animal traps"
+  },
+  {
+    "name": "Net Thrower",
+    "short_description": "Person using nets to catch animals"
+  },
+  {
+    "name": "Pit Digger",
+    "short_description": "Person creating trap holes"
+  },
+  {
+    "name": "Animal Trainer",
+    "short_description": "Person teaching animals behaviors"
+  },
+  {
+    "name": "Dog Trainer",
+    "short_description": "Person training canines"
+  },
+  {
+    "name": "Horse Trainer",
+    "short_description": "Person training equines"
+  },
+  {
+    "name": "Falcon Trainer",
+    "short_description": "Person training birds of prey"
+  },
+  {
+    "name": "Bear Trainer",
+    "short_description": "Person training performing bears"
+  },
+  {
+    "name": "Monkey Trainer",
+    "short_description": "Person training performing primates"
+  },
+  {
+    "name": "Dancing Bear Leader",
+    "short_description": "Person leading performing bears"
+  },
+  {
+    "name": "Organ Grinder",
+    "short_description": "Person playing music with trained monkey"
+  },
+  {
+    "name": "Puppet Show Operator",
+    "short_description": "Person entertaining with marionettes"
+  },
+  {
+    "name": "Peep Show Owner",
+    "short_description": "Person operating viewing entertainment"
+  },
+  {
+    "name": "Curiosity Displayer",
+    "short_description": "Person showing unusual objects"
+  },
+  {
+    "name": "Oddity Collector",
+    "short_description": "Person gathering strange items"
+  },
+  {
+    "name": "Relic Collector",
+    "short_description": "Person gathering religious artifacts"
+  },
+  {
+    "name": "Antique Dealer",
+    "short_description": "Person trading in old valuable items"
+  },
+  {
+    "name": "Curiosity Shop Owner",
+    "short_description": "Person selling unusual objects"
+  },
+  {
+    "name": "Pawn Broker",
+    "short_description": "Person lending money against goods"
+  },
+  {
+    "name": "Second Hand Dealer",
+    "short_description": "Person selling used goods"
+  },
+  {
+    "name": "Rag and Bone Man",
+    "short_description": "Person collecting discarded materials"
+  },
+  {
+    "name": "Scrap Collector",
+    "short_description": "Person gathering waste materials"
+  },
+  {
+    "name": "Junk Dealer",
+    "short_description": "Person trading in discarded items"
+  },
+  {
+    "name": "Waste Collector",
+    "short_description": "Person gathering refuse"
+  },
+  {
+    "name": "Street Cleaner",
+    "short_description": "Person maintaining public cleanliness"
+  },
+  {
+    "name": "Chimney Cleaner",
+    "short_description": "Person removing soot from flues"
+  },
+  {
+    "name": "Window Cleaner",
+    "short_description": "Person washing glass surfaces"
+  },
+  {
+    "name": "Floor Scrubber",
+    "short_description": "Person cleaning floor surfaces"
+  },
+  {
+    "name": "Pot Washer",
+    "short_description": "Person cleaning cooking vessels"
+  },
+  {
+    "name": "Dish Washer",
+    "short_description": "Person cleaning eating utensils"
+  },
+  {
+    "name": "Laundry Worker",
+    "short_description": "Person washing clothes and linens"
+  },
+  {
+    "name": "Clothes Washer",
+    "short_description": "Person cleaning garments"
+  },
+  {
+    "name": "Dyer",
+    "short_description": "Person coloring fabrics"
+  },
+  {
+    "name": "Fabric Bleacher",
+    "short_description": "Person whitening textiles"
+  },
+  {
+    "name": "Cloth Presser",
+    "short_description": "Person smoothing wrinkled fabrics"
+  },
+  {
+    "name": "Seamstress",
+    "short_description": "Person sewing garments"
+  },
+  {
+    "name": "Embroiderer",
+    "short_description": "Person decorating fabric with thread"
+  },
+  {
+    "name": "Lace Maker",
+    "short_description": "Person creating delicate fabric trim"
+  },
+  {
+    "name": "Ribbon Maker",
+    "short_description": "Person creating decorative strips"
+  },
+  {
+    "name": "Button Maker",
+    "short_description": "Person creating clothing fasteners"
+  },
+  {
+    "name": "Pin Cushion Maker",
+    "short_description": "Person creating sewing accessories"
+  },
+  {
+    "name": "Thimble Maker",
+    "short_description": "Person creating finger protectors"
+  },
+  {
+    "name": "Needle Maker",
+    "short_description": "Person creating sewing tools"
+  },
+  {
+    "name": "Thread Spinner",
+    "short_description": "Person creating sewing thread"
+  },
+  {
+    "name": "Yarn Maker",
+    "short_description": "Person creating knitting material"
+  },
+  {
+    "name": "Rope Spinner",
+    "short_description": "Person creating cordage"
+  },
+  {
+    "name": "Twine Maker",
+    "short_description": "Person creating thin rope"
+  },
+  {
+    "name": "String Maker",
+    "short_description": "Person creating thin cordage"
+  },
+  {
+    "name": "Cord Maker",
+    "short_description": "Person creating medium rope"
+  },
+  {
+    "name": "Cable Maker",
+    "short_description": "Person creating thick rope"
+  },
+  {
+    "name": "Chain Maker",
+    "short_description": "Person creating metal links"
+  },
+  {
+    "name": "Nail Maker",
+    "short_description": "Person creating metal fasteners"
+  },
+  {
+    "name": "Screw Maker",
+    "short_description": "Person creating threaded fasteners"
+  },
+  {
+    "name": "Bolt Maker",
+    "short_description": "Person creating large fasteners"
+  },
+  {
+    "name": "Rivet Maker",
+    "short_description": "Person creating permanent fasteners"
+  },
+  {
+    "name": "Hinge Maker",
+    "short_description": "Person creating door hardware"
+  },
+  {
+    "name": "Lock Maker",
+    "short_description": "Person creating security devices"
+  },
+  {
+    "name": "Key Maker",
+    "short_description": "Person creating lock openers"
+  },
+  {
+    "name": "Safe Maker",
+    "short_description": "Person creating secure storage"
+  },
+  {
+    "name": "Strongbox Maker",
+    "short_description": "Person creating armored containers"
+  },
+  {
+    "name": "Chest Maker",
+    "short_description": "Person creating storage boxes"
+  },
+  {
+    "name": "Trunk Maker",
+    "short_description": "Person creating travel containers"
+  },
+  {
+    "name": "Box Maker",
+    "short_description": "Person creating containers"
+  },
+  {
+    "name": "Crate Maker",
+    "short_description": "Person creating shipping containers"
+  },
+  {
+    "name": "Barrel Maker",
+    "short_description": "Person creating cylindrical containers"
+  },
+  {
+    "name": "Keg Maker",
+    "short_description": "Person creating small barrels"
+  },
+  {
+    "name": "Cask Maker",
+    "short_description": "Person creating wine containers"
+  },
+  {
+    "name": "Tub Maker",
+    "short_description": "Person creating washing vessels"
+  },
+  {
+    "name": "Bucket Maker",
+    "short_description": "Person creating carrying containers"
+  },
+  {
+    "name": "Pail Maker",
+    "short_description": "Person creating small buckets"
+  },
+  {
+    "name": "Pot Maker",
+    "short_description": "Person creating cooking vessels"
+  },
+  {
+    "name": "Pan Maker",
+    "short_description": "Person creating flat cooking vessels"
+  },
+  {
+    "name": "Kettle Maker",
+    "short_description": "Person creating water heating vessels"
+  },
+  {
+    "name": "Cauldron Maker",
+    "short_description": "Person creating large cooking pots"
+  },
+  {
+    "name": "Brazier Maker",
+    "short_description": "Person creating portable fire bowls"
+  },
+  {
+    "name": "Lantern Maker",
+    "short_description": "Person creating portable light sources"
+  },
+  {
+    "name": "Candle Maker",
+    "short_description": "Person creating wax light sources"
+  },
+  {
+    "name": "Torch Maker",
+    "short_description": "Person creating flame light sources"
+  },
+  {
+    "name": "Oil Lamp Maker",
+    "short_description": "Person creating fuel-burning lights"
+  },
+  {
+    "name": "Wick Maker",
+    "short_description": "Person creating lamp components"
+  },
+  {
+    "name": "Tinder Maker",
+    "short_description": "Person creating fire-starting material"
+  },
+  {
+    "name": "Flint Knapper",
+    "short_description": "Person shaping stone for fire starting"
+  },
+  {
+    "name": "Fire Steel Maker",
+    "short_description": "Person creating spark-making tools"
+  },
+  {
+    "name": "Fire Starter",
+    "short_description": "Person expert at creating flames"
+  },
+  {
+    "name": "Hearth Keeper",
+    "short_description": "Person maintaining household fires"
+  },
+  {
+    "name": "Forge Tender",
+    "short_description": "Person maintaining smithy fires"
+  },
+  {
+    "name": "Bellows Operator",
+    "short_description": "Person working forge air supply"
+  },
+  {
+    "name": "Anvil Striker",
+    "short_description": "Person assisting blacksmith"
+  },
+  {
+    "name": "Tool Maker",
+    "short_description": "Person creating implements"
+  },
+  {
+    "name": "Implement Maker",
+    "short_description": "Person creating working tools"
+  },
+  {
+    "name": "Utensil Maker",
+    "short_description": "Person creating eating tools"
+  },
+  {
+    "name": "Cutlery Maker",
+    "short_description": "Person creating cutting tools"
+  },
+  {
+    "name": "Knife Maker",
+    "short_description": "Person creating bladed tools"
+  },
+  {
+    "name": "Blade Smith",
+    "short_description": "Person forging cutting edges"
+  },
+  {
+    "name": "Sword Smith",
+    "short_description": "Person forging long blades"
+  },
+  {
+    "name": "Dagger Smith",
+    "short_description": "Person forging short blades"
+  },
+  {
+    "name": "Spear Maker",
+    "short_description": "Person creating long weapons"
+  },
+  {
+    "name": "Pike Maker",
+    "short_description": "Person creating very long weapons"
+  },
+  {
+    "name": "Halberd Maker",
+    "short_description": "Person creating combination weapons"
+  },
+  {
+    "name": "Axe Maker",
+    "short_description": "Person creating chopping weapons"
+  },
+  {
+    "name": "Mace Maker",
+    "short_description": "Person creating blunt weapons"
+  },
+  {
+    "name": "Hammer Maker",
+    "short_description": "Person creating striking tools"
+  },
+  {
+    "name": "Flail Maker",
+    "short_description": "Person creating hinged weapons"
+  },
+  {
+    "name": "Club Maker",
+    "short_description": "Person creating simple weapons"
+  },
+  {
+    "name": "Staff Maker",
+    "short_description": "Person creating long walking sticks"
+  },
+  {
+    "name": "Wand Maker",
+    "short_description": "Person creating magical implements"
+  },
+  {
+    "name": "Rod Maker",
+    "short_description": "Person creating authority symbols"
+  },
+  {
+    "name": "Scepter Maker",
+    "short_description": "Person creating royal symbols"
+  },
+  {
+    "name": "Crown Maker",
+    "short_description": "Person creating royal headwear"
+  },
+  {
+    "name": "Tiara Maker",
+    "short_description": "Person creating decorative headwear"
+  },
+  {
+    "name": "Diadem Maker",
+    "short_description": "Person creating simple crowns"
+  },
+  {
+    "name": "Circlet Maker",
+    "short_description": "Person creating head bands"
+  },
+  {
+    "name": "Helm Maker",
+    "short_description": "Person creating head protection"
+  },
+  {
+    "name": "Helmet Smith",
+    "short_description": "Person forging head armor"
+  },
+  {
+    "name": "Mask Maker",
+    "short_description": "Person creating face coverings"
+  },
+  {
+    "name": "Visor Maker",
+    "short_description": "Person creating face protection"
+  },
+  {
+    "name": "Shield Maker",
+    "short_description": "Person creating body protection"
+  },
+  {
+    "name": "Buckler Maker",
+    "short_description": "Person creating small shields"
+  },
+  {
+    "name": "Targe Maker",
+    "short_description": "Person creating round shields"
+  },
+  {
+    "name": "Pavise Maker",
+    "short_description": "Person creating large shields"
+  },
+  {
+    "name": "Mail Maker",
+    "short_description": "Person creating chain armor"
+  },
+  {
+    "name": "Scale Maker",
+    "short_description": "Person creating scale armor"
+  },
+  {
+    "name": "Plate Maker",
+    "short_description": "Person creating plate armor"
+  },
+  {
+    "name": "Gauntlet Maker",
+    "short_description": "Person creating hand armor"
+  },
+  {
+    "name": "Sabaton Maker",
+    "short_description": "Person creating foot armor"
+  },
+  {
+    "name": "Greave Maker",
+    "short_description": "Person creating leg armor"
+  },
+  {
+    "name": "Cuirass Maker",
+    "short_description": "Person creating chest armor"
+  },
+  {
+    "name": "Brigandine Maker",
+    "short_description": "Person creating fabric armor"
+  },
+  {
+    "name": "Gambeson Maker",
+    "short_description": "Person creating padded armor"
+  },
+  {
+    "name": "Leather Armor Maker",
+    "short_description": "Person creating hide protection"
+  },
+  {
+    "name": "Studded Armor Maker",
+    "short_description": "Person creating reinforced leather"
+  },
+  {
+    "name": "Banded Armor Maker",
+    "short_description": "Person creating striped protection"
+  },
+  {
+    "name": "Splint Armor Maker",
+    "short_description": "Person creating segmented protection"
+  },
+  {
+    "name": "Ring Armor Maker",
+    "short_description": "Person creating ringed protection"
+  },
+  {
+    "name": "Lamellar Armor Maker",
+    "short_description": "Person creating layered protection"
+  },
+  {
+    "name": "Scale Armor Maker",
+    "short_description": "Person creating overlapping protection"
+  },
+  {
+    "name": "Chain Armor Maker",
+    "short_description": "Person creating linked protection"
+  },
+  {
+    "name": "Mesh Armor Maker",
+    "short_description": "Person creating woven protection"
+  },
+  {
+    "name": "Padded Armor Maker",
+    "short_description": "Person creating cushioned protection"
+  },
+  {
+    "name": "Quilted Armor Maker",
+    "short_description": "Person creating stitched protection"
+  },
+  {
+    "name": "Reinforced Clothing Maker",
+    "short_description": "Person creating strengthened garments"
+  },
+  {
+    "name": "Battle Garb Maker",
+    "short_description": "Person creating combat clothing"
+  },
+  {
+    "name": "War Paint Mixer",
+    "short_description": "Person creating combat cosmetics"
+  },
+  {
+    "name": "Victory Banner Maker",
+    "short_description": "Person creating celebration flags"
+  },
+  {
+    "name": "Battle Standard Maker",
+    "short_description": "Person creating military flags"
+  },
+  {
+    "name": "Regimental Flag Maker",
+    "short_description": "Person creating unit banners"
+  },
+  {
+    "name": "National Flag Maker",
+    "short_description": "Person creating country symbols"
+  },
+  {
+    "name": "Heraldic Banner Maker",
+    "short_description": "Person creating family symbols"
+  },
+  {
+    "name": "Guild Banner Maker",
+    "short_description": "Person creating organization flags"
+  },
+  {
+    "name": "Tournament Banner Maker",
+    "short_description": "Person creating competition flags"
+  },
+  {
+    "name": "Ceremonial Flag Maker",
+    "short_description": "Person creating ritual banners"
+  },
+  {
+    "name": "Religious Banner Maker",
+    "short_description": "Person creating sacred flags"
+  },
+  {
+    "name": "Funeral Banner Maker",
+    "short_description": "Person creating mourning flags"
+  },
+  {
+    "name": "Wedding Banner Maker",
+    "short_description": "Person creating celebration flags"
+  },
+  {
+    "name": "Festival Banner Maker",
+    "short_description": "Person creating holiday decorations"
+  },
+  {
+    "name": "Seasonal Banner Maker",
+    "short_description": "Person creating time-based decorations"
+  },
+  {
+    "name": "Market Banner Maker",
+    "short_description": "Person creating commercial flags"
+  },
+  {
+    "name": "Shop Banner Maker",
+    "short_description": "Person creating business signs"
+  },
+  {
+    "name": "Trade Banner Maker",
+    "short_description": "Person creating craft symbols"
+  },
+  {
+    "name": "Professional Banner Maker",
+    "short_description": "Person creating occupation symbols"
+  },
+  {
+    "name": "Status Banner Maker",
+    "short_description": "Person creating rank symbols"
+  },
+  {
+    "name": "Achievement Banner Maker",
+    "short_description": "Person creating accomplishment symbols"
+  },
+  {
+    "name": "Memorial Banner Maker",
+    "short_description": "Person creating remembrance symbols"
+  },
+  {
+    "name": "Honor Banner Maker",
+    "short_description": "Person creating respect symbols"
+  },
+  {
+    "name": "Glory Banner Maker",
+    "short_description": "Person creating fame symbols"
+  },
+  {
+    "name": "Pride Banner Maker",
+    "short_description": "Person creating dignity symbols"
+  },
+  {
+    "name": "Hope Banner Maker",
+    "short_description": "Person creating inspiration symbols"
+  },
+  {
+    "name": "Peace Banner Maker",
+    "short_description": "Person creating harmony symbols"
+  },
+  {
+    "name": "War Banner Maker",
+    "short_description": "Person creating conflict symbols"
+  },
+  {
+    "name": "Victory Banner Maker",
+    "short_description": "Person creating triumph symbols"
+  },
+  {
+    "name": "Defeat Banner Maker",
+    "short_description": "Person creating loss symbols"
+  },
+  {
+    "name": "Surrender Banner Maker",
+    "short_description": "Person creating capitulation symbols"
+  },
+  {
+    "name": "Truce Banner Maker",
+    "short_description": "Person creating ceasefire symbols"
+  },
+  {
+    "name": "Negotiation Banner Maker",
+    "short_description": "Person creating diplomacy symbols"
+  },
+  {
+    "name": "Alliance Banner Maker",
+    "short_description": "Person creating partnership symbols"
+  },
+  {
+    "name": "Treaty Banner Maker",
+    "short_description": "Person creating agreement symbols"
+  },
+  {
+    "name": "Contract Banner Maker",
+    "short_description": "Person creating deal symbols"
+  },
+  {
+    "name": "Agreement Banner Maker",
+    "short_description": "Person creating accord symbols"
+  },
+  {
+    "name": "Covenant Banner Maker",
+    "short_description": "Person creating promise symbols"
+  },
+  {
+    "name": "Oath Banner Maker",
+    "short_description": "Person creating vow symbols"
+  },
+  {
+    "name": "Pledge Banner Maker",
+    "short_description": "Person creating commitment symbols"
+  },
+  {
+    "name": "Bond Banner Maker",
+    "short_description": "Person creating connection symbols"
+  },
+  {
+    "name": "Unity Banner Maker",
+    "short_description": "Person creating togetherness symbols"
+  },
+  {
+    "name": "Brotherhood Banner Maker",
+    "short_description": "Person creating fraternity symbols"
+  },
+  {
+    "name": "Sisterhood Banner Maker",
+    "short_description": "Person creating sorority symbols"
+  },
+  {
+    "name": "Family Banner Maker",
+    "short_description": "Person creating kinship symbols"
+  },
+  {
+    "name": "Clan Banner Maker",
+    "short_description": "Person creating tribal symbols"
+  },
+  {
+    "name": "House Banner Maker",
+    "short_description": "Person creating dynasty symbols"
+  },
+  {
+    "name": "Lineage Banner Maker",
+    "short_description": "Person creating bloodline symbols"
+  },
+  {
+    "name": "Heritage Banner Maker",
+    "short_description": "Person creating ancestry symbols"
+  },
+  {
+    "name": "Legacy Banner Maker",
+    "short_description": "Person creating inheritance symbols"
+  },
+  {
+    "name": "Tradition Banner Maker",
+    "short_description": "Person creating custom symbols"
+  },
+  {
+    "name": "Culture Banner Maker",
+    "short_description": "Person creating society symbols"
+  },
+  {
+    "name": "Community Banner Maker",
+    "short_description": "Person creating group symbols"
+  },
+  {
+    "name": "Neighborhood Banner Maker",
+    "short_description": "Person creating local symbols"
+  },
+  {
+    "name": "Village Banner Maker",
+    "short_description": "Person creating settlement symbols"
+  },
+  {
+    "name": "Town Banner Maker",
+    "short_description": "Person creating municipality symbols"
+  },
+  {
+    "name": "City Banner Maker",
+    "short_description": "Person creating urban symbols"
+  },
+  {
+    "name": "Province Banner Maker",
+    "short_description": "Person creating regional symbols"
+  },
+  {
+    "name": "Kingdom Banner Maker",
+    "short_description": "Person creating realm symbols"
+  },
+  {
+    "name": "Empire Banner Maker",
+    "short_description": "Person creating dominion symbols"
+  },
+  {
+    "name": "World Banner Maker",
+    "short_description": "Person creating universal symbols"
+  },
+  {
+    "name": "Cosmos Banner Maker",
+    "short_description": "Person creating cosmic symbols"
+  },
+  {
+    "name": "Divine Banner Maker",
+    "short_description": "Person creating godly symbols"
+  },
+  {
+    "name": "Sacred Banner Maker",
+    "short_description": "Person creating holy symbols"
+  },
+  {
+    "name": "Blessed Banner Maker",
+    "short_description": "Person creating favored symbols"
+  },
+  {
+    "name": "Cursed Banner Maker",
+    "short_description": "Person creating damned symbols"
+  },
+  {
+    "name": "Magical Banner Maker",
+    "short_description": "Person creating enchanted symbols"
+  },
+  {
+    "name": "Mystical Banner Maker",
+    "short_description": "Person creating mysterious symbols"
+  },
+  {
+    "name": "Arcane Banner Maker",
+    "short_description": "Person creating secret symbols"
+  },
+  {
+    "name": "Occult Banner Maker",
+    "short_description": "Person creating hidden symbols"
+  },
+  {
+    "name": "Forbidden Banner Maker",
+    "short_description": "Person creating banned symbols"
+  },
+  {
+    "name": "Secret Banner Maker",
+    "short_description": "Person creating concealed symbols"
+  },
+  {
+    "name": "Hidden Banner Maker",
+    "short_description": "Person creating obscured symbols"
+  },
+  {
+    "name": "Lost Banner Maker",
+    "short_description": "Person creating forgotten symbols"
+  },
+  {
+    "name": "Ancient Banner Maker",
+    "short_description": "Person creating old symbols"
+  },
+  {
+    "name": "Primordial Banner Maker",
+    "short_description": "Person creating original symbols"
+  },
+  {
+    "name": "Eternal Banner Maker",
+    "short_description": "Person creating timeless symbols"
+  },
+  {
+    "name": "Immortal Banner Maker",
+    "short_description": "Person creating undying symbols"
+  },
+  {
+    "name": "Legendary Banner Maker",
+    "short_description": "Person creating mythic symbols"
+  },
+  {
+    "name": "Epic Banner Maker",
+    "short_description": "Person creating heroic symbols"
+  },
+  {
+    "name": "Heroic Banner Maker",
+    "short_description": "Person creating champion symbols"
+  },
+  {
+    "name": "Noble Banner Maker",
+    "short_description": "Person creating honorable symbols"
+  },
+  {
+    "name": "Royal Banner Maker",
+    "short_description": "Person creating kingly symbols"
+  },
+  {
+    "name": "Imperial Banner Maker",
+    "short_description": "Person creating emperor symbols"
+  },
+  {
+    "name": "Sovereign Banner Maker",
+    "short_description": "Person creating ruler symbols"
+  },
+  {
+    "name": "Supreme Banner Maker",
+    "short_description": "Person creating ultimate symbols"
+  },
+  {
+    "name": "Ultimate Banner Maker",
+    "short_description": "Person creating final symbols"
+  },
+  {
+    "name": "Perfect Banner Maker",
+    "short_description": "Person creating flawless symbols"
+  },
+  {
+    "name": "Ideal Banner Maker",
+    "short_description": "Person creating perfect symbols"
+  },
+  {
+    "name": "Pure Banner Maker",
+    "short_description": "Person creating clean symbols"
+  },
+  {
+    "name": "True Banner Maker",
+    "short_description": "Person creating genuine symbols"
+  },
+  {
+    "name": "Real Banner Maker",
+    "short_description": "Person creating actual symbols"
+  },
+  {
+    "name": "Authentic Banner Maker",
+    "short_description": "Person creating original symbols"
+  },
+  {
+    "name": "Genuine Banner Maker",
+    "short_description": "Person creating real symbols"
+  },
+  {
+    "name": "Honest Banner Maker",
+    "short_description": "Person creating truthful symbols"
+  },
+  {
+    "name": "Faithful Banner Maker",
+    "short_description": "Person creating loyal symbols"
+  },
+  {
+    "name": "Devoted Banner Maker",
+    "short_description": "Person creating dedicated symbols"
+  },
+  {
+    "name": "Committed Banner Maker",
+    "short_description": "Person creating pledged symbols"
+  },
+  {
+    "name": "Dedicated Banner Maker",
+    "short_description": "Person creating devoted symbols"
+  },
+  {
+    "name": "Loyal Banner Maker",
+    "short_description": "Person creating faithful symbols"
+  },
+  {
+    "name": "True Banner Maker",
+    "short_description": "Person creating honest symbols"
+  },
+  {
+    "name": "Steadfast Banner Maker",
+    "short_description": "Person creating unwavering symbols"
+  },
+  {
+    "name": "Constant Banner Maker",
+    "short_description": "Person creating unchanging symbols"
+  },
+  {
+    "name": "Reliable Banner Maker",
+    "short_description": "Person creating dependable symbols"
+  },
+  {
+    "name": "Dependable Banner Maker",
+    "short_description": "Person creating trustworthy symbols"
+  },
+  {
+    "name": "Trustworthy Banner Maker",
+    "short_description": "Person creating reliable symbols"
+  },
+  {
+    "name": "Responsible Banner Maker",
+    "short_description": "Person creating accountable symbols"
+  },
+  {
+    "name": "Accountable Banner Maker",
+    "short_description": "Person creating responsible symbols"
+  },
+  {
+    "name": "Dutiful Banner Maker",
+    "short_description": "Person creating obligated symbols"
+  },
+  {
+    "name": "Obligated Banner Maker",
+    "short_description": "Person creating duty-bound symbols"
+  },
+  {
+    "name": "Bound Banner Maker",
+    "short_description": "Person creating tied symbols"
+  },
+  {
+    "name": "Tied Banner Maker",
+    "short_description": "Person creating connected symbols"
+  },
+  {
+    "name": "Connected Banner Maker",
+    "short_description": "Person creating linked symbols"
+  },
+  {
+    "name": "Linked Banner Maker",
+    "short_description": "Person creating joined symbols"
+  },
+  {
+    "name": "Joined Banner Maker",
+    "short_description": "Person creating united symbols"
+  },
+  {
+    "name": "United Banner Maker",
+    "short_description": "Person creating unified symbols"
+  },
+  {
+    "name": "Unified Banner Maker",
+    "short_description": "Person creating whole symbols"
+  },
+  {
+    "name": "Whole Banner Maker",
+    "short_description": "Person creating complete symbols"
+  },
+  {
+    "name": "Complete Banner Maker",
+    "short_description": "Person creating finished symbols"
+  },
+  {
+    "name": "Finished Banner Maker",
+    "short_description": "Person creating done symbols"
+  },
+  {
+    "name": "Done Banner Maker",
+    "short_description": "Person creating accomplished symbols"
+  },
+  {
+    "name": "Accomplished Banner Maker",
+    "short_description": "Person creating achieved symbols"
+  },
+  {
+    "name": "Achieved Banner Maker",
+    "short_description": "Person creating successful symbols"
+  },
+  {
+    "name": "Successful Banner Maker",
+    "short_description": "Person creating victorious symbols"
+  },
+  {
+    "name": "Victorious Banner Maker",
+    "short_description": "Person creating winning symbols"
+  },
+  {
+    "name": "Winning Banner Maker",
+    "short_description": "Person creating champion symbols"
+  },
+  {
+    "name": "Champion Banner Maker",
+    "short_description": "Person creating victor symbols"
+  },
+  {
+    "name": "Victor Banner Maker",
+    "short_description": "Person creating conqueror symbols"
+  },
+  {
+    "name": "Conqueror Banner Maker",
+    "short_description": "Person creating triumphant symbols"
+  },
+  {
+    "name": "Triumphant Banner Maker",
+    "short_description": "Person creating glorious symbols"
+  },
+  {
+    "name": "Glorious Banner Maker",
+    "short_description": "Person creating magnificent symbols"
+  },
+  {
+    "name": "Magnificent Banner Maker",
+    "short_description": "Person creating splendid symbols"
+  },
+  {
+    "name": "Splendid Banner Maker",
+    "short_description": "Person creating wonderful symbols"
+  },
+  {
+    "name": "Wonderful Banner Maker",
+    "short_description": "Person creating marvelous symbols"
+  },
+  {
+    "name": "Marvelous Banner Maker",
+    "short_description": "Person creating amazing symbols"
+  },
+  {
+    "name": "Amazing Banner Maker",
+    "short_description": "Person creating incredible symbols"
+  },
+  {
+    "name": "Incredible Banner Maker",
+    "short_description": "Person creating unbelievable symbols"
+  },
+  {
+    "name": "Unbelievable Banner Maker",
+    "short_description": "Person creating fantastic symbols"
+  },
+  {
+    "name": "Fantastic Banner Maker",
+    "short_description": "Person creating extraordinary symbols"
+  },
+  {
+    "name": "Extraordinary Banner Maker",
+    "short_description": "Person creating exceptional symbols"
+  },
+  {
+    "name": "Exceptional Banner Maker",
+    "short_description": "Person creating outstanding symbols"
+  },
+  {
+    "name": "Outstanding Banner Maker",
+    "short_description": "Person creating remarkable symbols"
+  },
+  {
+    "name": "Remarkable Banner Maker",
+    "short_description": "Person creating notable symbols"
+  },
+  {
+    "name": "Notable Banner Maker",
+    "short_description": "Person creating noteworthy symbols"
+  },
+  {
+    "name": "Noteworthy Banner Maker",
+    "short_description": "Person creating significant symbols"
+  },
+  {
+    "name": "Significant Banner Maker",
+    "short_description": "Person creating important symbols"
+  },
+  {
+    "name": "Important Banner Maker",
+    "short_description": "Person creating vital symbols"
+  },
+  {
+    "name": "Vital Banner Maker",
+    "short_description": "Person creating essential symbols"
+  },
+  {
+    "name": "Essential Banner Maker",
+    "short_description": "Person creating necessary symbols"
+  },
+  {
+    "name": "Necessary Banner Maker",
+    "short_description": "Person creating required symbols"
+  },
+  {
+    "name": "Required Banner Maker",
+    "short_description": "Person creating needed symbols"
+  },
+  {
+    "name": "Needed Banner Maker",
+    "short_description": "Person creating wanted symbols"
+  },
+  {
+    "name": "Wanted Banner Maker",
+    "short_description": "Person creating desired symbols"
+  },
+  {
+    "name": "Desired Banner Maker",
+    "short_description": "Person creating wished symbols"
+  },
+  {
+    "name": "Wished Banner Maker",
+    "short_description": "Person creating hoped symbols"
+  },
+  {
+    "name": "Hoped Banner Maker",
+    "short_description": "Person creating dreamed symbols"
+  },
+  {
+    "name": "Dreamed Banner Maker",
+    "short_description": "Person creating imagined symbols"
+  },
+  {
+    "name": "Imagined Banner Maker",
+    "short_description": "Person creating envisioned symbols"
+  },
+  {
+    "name": "Envisioned Banner Maker",
+    "short_description": "Person creating conceived symbols"
+  },
+  {
+    "name": "Conceived Banner Maker",
+    "short_description": "Person creating created symbols"
+  },
+  {
+    "name": "Created Banner Maker",
+    "short_description": "Person creating made symbols"
+  },
+  {
+    "name": "Made Banner Maker",
+    "short_description": "Person creating formed symbols"
+  },
+  {
+    "name": "Formed Banner Maker",
+    "short_description": "Person creating shaped symbols"
+  },
+  {
+    "name": "Shaped Banner Maker",
+    "short_description": "Person creating molded symbols"
+  },
+  {
+    "name": "Molded Banner Maker",
+    "short_description": "Person creating crafted symbols"
+  },
+  {
+    "name": "Crafted Banner Maker",
+    "short_description": "Person creating built symbols"
+  },
+  {
+    "name": "Built Banner Maker",
+    "short_description": "Person creating constructed symbols"
+  },
+  {
+    "name": "Constructed Banner Maker",
+    "short_description": "Person creating assembled symbols"
+  },
+  {
+    "name": "Assembled Banner Maker",
+    "short_description": "Person creating produced symbols"
+  },
+  {
+    "name": "Produced Banner Maker",
+    "short_description": "Person creating manufactured symbols"
+  },
+  {
+    "name": "Manufactured Banner Maker",
+    "short_description": "Person creating generated symbols"
+  },
+  {
+    "name": "Generated Banner Maker",
+    "short_description": "Person creating originated symbols"
+  },
+  {
+    "name": "Originated Banner Maker",
+    "short_description": "Person creating started symbols"
+  },
+  {
+    "name": "Started Banner Maker",
+    "short_description": "Person creating begun symbols"
+  },
+  {
+    "name": "Begun Banner Maker",
+    "short_description": "Person creating initiated symbols"
+  },
+  {
+    "name": "Initiated Banner Maker",
+    "short_description": "Person creating commenced symbols"
+  },
+  {
+    "name": "Commenced Banner Maker",
+    "short_description": "Person creating launched symbols"
+  },
+  {
+    "name": "Launched Banner Maker",
+    "short_description": "Person creating introduced symbols"
+  },
+  {
+    "name": "Introduced Banner Maker",
+    "short_description": "Person creating presented symbols"
+  },
+  {
+    "name": "Presented Banner Maker",
+    "short_description": "Person creating displayed symbols"
+  },
+  {
+    "name": "Displayed Banner Maker",
+    "short_description": "Person creating shown symbols"
+  },
+  {
+    "name": "Shown Banner Maker",
+    "short_description": "Person creating exhibited symbols"
+  },
+  {
+    "name": "Exhibited Banner Maker",
+    "short_description": "Person creating demonstrated symbols"
+  },
+  {
+    "name": "Demonstrated Banner Maker",
+    "short_description": "Person creating revealed symbols"
+  },
+  {
+    "name": "Revealed Banner Maker",
+    "short_description": "Person creating exposed symbols"
+  },
+  {
+    "name": "Exposed Banner Maker",
+    "short_description": "Person creating uncovered symbols"
+  },
+  {
+    "name": "Uncovered Banner Maker",
+    "short_description": "Person creating discovered symbols"
+  },
+  {
+    "name": "Discovered Banner Maker",
+    "short_description": "Person creating found symbols"
+  },
+  {
+    "name": "Found Banner Maker",
+    "short_description": "Person creating located symbols"
+  },
+  {
+    "name": "Located Banner Maker",
+    "short_description": "Person creating positioned symbols"
+  },
+  {
+    "name": "Positioned Banner Maker",
+    "short_description": "Person creating placed symbols"
+  },
+  {
+    "name": "Placed Banner Maker",
+    "short_description": "Person creating situated symbols"
+  },
+  {
+    "name": "Situated Banner Maker",
+    "short_description": "Person creating established symbols"
+  },
+  {
+    "name": "Established Banner Maker",
+    "short_description": "Person creating settled symbols"
+  },
+  {
+    "name": "Settled Banner Maker",
+    "short_description": "Person creating fixed symbols"
+  },
+  {
+    "name": "Fixed Banner Maker",
+    "short_description": "Person creating set symbols"
+  },
+  {
+    "name": "Set Banner Maker",
+    "short_description": "Person creating arranged symbols"
+  },
+  {
+    "name": "Arranged Banner Maker",
+    "short_description": "Person creating organized symbols"
+  },
+  {
+    "name": "Organized Banner Maker",
+    "short_description": "Person creating ordered symbols"
+  },
+  {
+    "name": "Ordered Banner Maker",
+    "short_description": "Person creating structured symbols"
+  },
+  {
+    "name": "Structured Banner Maker",
+    "short_description": "Person creating systematic symbols"
+  },
+  {
+    "name": "Systematic Banner Maker",
+    "short_description": "Person creating methodical symbols"
+  },
+  {
+    "name": "Methodical Banner Maker",
+    "short_description": "Person creating planned symbols"
+  },
+  {
+    "name": "Planned Banner Maker",
+    "short_description": "Person creating designed symbols"
+  },
+  {
+    "name": "Designed Banner Maker",
+    "short_description": "Person creating intended symbols"
+  },
+  {
+    "name": "Intended Banner Maker",
+    "short_description": "Person creating purposed symbols"
+  },
+  {
+    "name": "Purposed Banner Maker",
+    "short_description": "Person creating aimed symbols"
+  },
+  {
+    "name": "Aimed Banner Maker",
+    "short_description": "Person creating targeted symbols"
+  },
+  {
+    "name": "Targeted Banner Maker",
+    "short_description": "Person creating focused symbols"
+  },
+  {
+    "name": "Focused Banner Maker",
+    "short_description": "Person creating concentrated symbols"
+  },
+  {
+    "name": "Concentrated Banner Maker",
+    "short_description": "Person creating intensified symbols"
+  },
+  {
+    "name": "Intensified Banner Maker",
+    "short_description": "Person creating strengthened symbols"
+  },
+  {
+    "name": "Strengthened Banner Maker",
+    "short_description": "Person creating reinforced symbols"
+  },
+  {
+    "name": "Reinforced Banner Maker",
+    "short_description": "Person creating supported symbols"
+  },
+  {
+    "name": "Supported Banner Maker",
+    "short_description": "Person creating backed symbols"
+  },
+  {
+    "name": "Backed Banner Maker",
+    "short_description": "Person creating endorsed symbols"
+  },
+  {
+    "name": "Endorsed Banner Maker",
+    "short_description": "Person creating approved symbols"
+  },
+  {
+    "name": "Approved Banner Maker",
+    "short_description": "Person creating accepted symbols"
+  },
+  {
+    "name": "Accepted Banner Maker",
+    "short_description": "Person creating recognized symbols"
+  },
+  {
+    "name": "Recognized Banner Maker",
+    "short_description": "Person creating acknowledged symbols"
+  },
+  {
+    "name": "Acknowledged Banner Maker",
+    "short_description": "Person creating admitted symbols"
+  },
+  {
+    "name": "Admitted Banner Maker",
+    "short_description": "Person creating confessed symbols"
+  },
+  {
+    "name": "Confessed Banner Maker",
+    "short_description": "Person creating declared symbols"
+  },
+  {
+    "name": "Declared Banner Maker",
+    "short_description": "Person creating announced symbols"
+  },
+  {
+    "name": "Announced Banner Maker",
+    "short_description": "Person creating proclaimed symbols"
+  },
+  {
+    "name": "Proclaimed Banner Maker",
+    "short_description": "Person creating published symbols"
+  },
+  {
+    "name": "Published Banner Maker",
+    "short_description": "Person creating released symbols"
+  },
+  {
+    "name": "Released Banner Maker",
+    "short_description": "Person creating issued symbols"
+  },
+  {
+    "name": "Issued Banner Maker",
+    "short_description": "Person creating distributed symbols"
+  },
+  {
+    "name": "Distributed Banner Maker",
+    "short_description": "Person creating spread symbols"
+  },
+  {
+    "name": "Spread Banner Maker",
+    "short_description": "Person creating scattered symbols"
+  },
+  {
+    "name": "Scattered Banner Maker",
+    "short_description": "Person creating dispersed symbols"
+  },
+  {
+    "name": "Dispersed Banner Maker",
+    "short_description": "Person creating disseminated symbols"
+  },
+  {
+    "name": "Disseminated Banner Maker",
+    "short_description": "Person creating broadcast symbols"
+  },
+  {
+    "name": "Broadcast Banner Maker",
+    "short_description": "Person creating transmitted symbols"
+  },
+  {
+    "name": "Transmitted Banner Maker",
+    "short_description": "Person creating communicated symbols"
+  },
+  {
+    "name": "Communicated Banner Maker",
+    "short_description": "Person creating conveyed symbols"
+  },
+  {
+    "name": "Conveyed Banner Maker",
+    "short_description": "Person creating delivered symbols"
+  },
+  {
+    "name": "Delivered Banner Maker",
+    "short_description": "Person creating transported symbols"
+  },
+  {
+    "name": "Transported Banner Maker",
+    "short_description": "Person creating carried symbols"
+  },
+  {
+    "name": "Carried Banner Maker",
+    "short_description": "Person creating moved symbols"
+  },
+  {
+    "name": "Moved Banner Maker",
+    "short_description": "Person creating shifted symbols"
+  },
+  {
+    "name": "Shifted Banner Maker",
+    "short_description": "Person creating transferred symbols"
+  },
+  {
+    "name": "Transferred Banner Maker",
+    "short_description": "Person creating relocated symbols"
+  },
+  {
+    "name": "Relocated Banner Maker",
+    "short_description": "Person creating repositioned symbols"
+  },
+  {
+    "name": "Repositioned Banner Maker",
+    "short_description": "Person creating rearranged symbols"
+  },
+  {
+    "name": "Rearranged Banner Maker",
+    "short_description": "Person creating reorganized symbols"
+  },
+  {
+    "name": "Reorganized Banner Maker",
+    "short_description": "Person creating restructured symbols"
+  },
+  {
+    "name": "Restructured Banner Maker",
+    "short_description": "Person creating reformed symbols"
+  },
+  {
+    "name": "Reformed Banner Maker",
+    "short_description": "Person creating revised symbols"
+  },
+  {
+    "name": "Revised Banner Maker",
+    "short_description": "Person creating updated symbols"
+  },
+  {
+    "name": "Updated Banner Maker",
+    "short_description": "Person creating modernized symbols"
+  },
+  {
+    "name": "Modernized Banner Maker",
+    "short_description": "Person creating renewed symbols"
+  },
+  {
+    "name": "Renewed Banner Maker",
+    "short_description": "Person creating refreshed symbols"
+  },
+  {
+    "name": "Refreshed Banner Maker",
+    "short_description": "Person creating revitalized symbols"
+  },
+  {
+    "name": "Revitalized Banner Maker",
+    "short_description": "Person creating rejuvenated symbols"
+  },
+  {
+    "name": "Rejuvenated Banner Maker",
+    "short_description": "Person creating restored symbols"
+  },
+  {
+    "name": "Restored Banner Maker",
+    "short_description": "Person creating rehabilitated symbols"
+  },
+  {
+    "name": "Rehabilitated Banner Maker",
+    "short_description": "Person creating recovered symbols"
+  },
+  {
+    "name": "Recovered Banner Maker",
+    "short_description": "Person creating reclaimed symbols"
+  },
+  {
+    "name": "Reclaimed Banner Maker",
+    "short_description": "Person creating retrieved symbols"
+  },
+  {
+    "name": "Retrieved Banner Maker",
+    "short_description": "Person creating regained symbols"
+  },
+  {
+    "name": "Regained Banner Maker",
+    "short_description": "Person creating recaptured symbols"
+  },
+  {
+    "name": "Recaptured Banner Maker",
+    "short_description": "Person creating retaken symbols"
+  },
+  {
+    "name": "Retaken Banner Maker",
+    "short_description": "Person creating reacquired symbols"
+  },
+  {
+    "name": "Reacquired Banner Maker",
+    "short_description": "Person creating repossessed symbols"
+  },
+  {
+    "name": "Repossessed Banner Maker",
+    "short_description": "Person creating reclaimed symbols"
+  },
+  {
+    "name": "Reclaimed Banner Maker",
+    "short_description": "Person creating reoccupied symbols"
+  }
+]
