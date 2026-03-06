@@ -2455,29 +2455,29 @@
       }
     }
 
-    const VALID_MODES = ["forest", "winter", "forest-friends", "winter-friends"];
-
-    function normalizeGameMode(mode) {
-      return VALID_MODES.includes(mode) ? mode : "forest";
-    }
-
-    function isWinterMode() {
-      return state.gameMode === "winter" || state.gameMode === "winter-friends";
-    }
-
     function isFriendsMode(mode) {
       return mode === "forest-friends" || mode === "winter-friends";
     }
 
+    function normalizeGameMode(mode) {
+      // Strip friends suffix — game state only uses forest/winter
+      if (mode === "winter" || mode === "winter-friends") return "winter";
+      return "forest";
+    }
+
+    function isWinterMode() {
+      return state.gameMode === "winter";
+    }
+
     function setPendingGameMode(mode) {
-      state.pendingGameMode = normalizeGameMode(mode);
-      ui.menuModeSelect.value = state.pendingGameMode;
-      ui.startModeSelect.value = state.pendingGameMode;
-      friendsColorRow.hidden = !isFriendsMode(state.pendingGameMode);
-      ui.startModeDescription.textContent =
-        state.pendingGameMode === "winter" || state.pendingGameMode === "winter-friends"
-          ? "Winter sandbox mode: crack frozen pond ice and make snowballs."
-          : "Cleanup and planting gradually heal the forest. Watch life return in real time.";
+      state.pendingGameMode = mode; // keep full mode string (e.g. "forest-friends")
+      ui.menuModeSelect.value = mode;
+      ui.startModeSelect.value = mode;
+      const colorRow = document.getElementById("friendsColorRow");
+      if (colorRow) colorRow.hidden = !isFriendsMode(mode);
+      ui.startModeDescription.textContent = normalizeGameMode(mode) === "winter"
+        ? "Winter sandbox mode: crack frozen pond ice and make snowballs."
+        : "Cleanup and planting gradually heal the forest. Watch life return in real time.";
     }
 
     function syncNameInputs() {
