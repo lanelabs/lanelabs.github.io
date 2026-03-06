@@ -2455,21 +2455,29 @@
       }
     }
 
+    const VALID_MODES = ["forest", "winter", "forest-friends", "winter-friends"];
+
     function normalizeGameMode(mode) {
-      return mode === "winter" ? "winter" : "forest";
+      return VALID_MODES.includes(mode) ? mode : "forest";
     }
 
     function isWinterMode() {
-      return state.gameMode === "winter";
+      return state.gameMode === "winter" || state.gameMode === "winter-friends";
+    }
+
+    function isFriendsMode(mode) {
+      return mode === "forest-friends" || mode === "winter-friends";
     }
 
     function setPendingGameMode(mode) {
       state.pendingGameMode = normalizeGameMode(mode);
       ui.menuModeSelect.value = state.pendingGameMode;
       ui.startModeSelect.value = state.pendingGameMode;
-      ui.startModeDescription.textContent = state.pendingGameMode === "winter"
-        ? "Winter sandbox mode: crack frozen pond ice and make snowballs."
-        : "Cleanup and planting gradually heal the forest. Watch life return in real time.";
+      friendsColorRow.hidden = !isFriendsMode(state.pendingGameMode);
+      ui.startModeDescription.textContent =
+        state.pendingGameMode === "winter" || state.pendingGameMode === "winter-friends"
+          ? "Winter sandbox mode: crack frozen pond ice and make snowballs."
+          : "Cleanup and planting gradually heal the forest. Watch life return in real time.";
     }
 
     function syncNameInputs() {
@@ -7581,14 +7589,9 @@
     const friendsSignInNote = document.getElementById("friendsSignInNote");
     const startPlayerColor = document.getElementById("startPlayerColor");
 
-    function isFriendsMode(mode) {
-      return mode === "forest-friends" || mode === "winter-friends";
-    }
-
     // Show/hide color picker when multiplayer mode selected
     ui.startModeSelect.addEventListener("change", (event) => {
       const mode = event.target.value;
-      friendsColorRow.hidden = !isFriendsMode(mode);
       friendsSignInNote.style.display = isFriendsMode(mode) ? "block" : "none";
       setPendingGameMode(mode);
     });
