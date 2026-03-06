@@ -1,0 +1,23 @@
+{
+  "description": "Mind, emotion, fear, dream, and memory manipulation.",
+  "traits": [
+    ["Emotion Feeder", "It feeds on what you feel. Fear, anger, joy, all of it is sustenance. It engineers situations to harvest the emotions it craves, leaving victims hollow."],
+    ["Memory Thief", "A touch steals what you remember. Knowledge, names, the faces of loved ones, all gone. It collects stolen memories like trophies while victims wander lost."],
+    ["Fear Sculptor", "It studies your deepest fears like an artist studying form, then gives them flesh. Its lair is a gallery of crystallized nightmares from past victims."],
+    ["Guilt Manifest", "It smells guilt the way a predator smells blood. Drawn to the conscience-stricken, it drags buried sins into the open and forces a reckoning."],
+    ["Sorrow Crystallizer", "Tears shed in its presence harden into gemstones. It has learned that sadness is profitable, and crafts elaborate sorrows like an artist working in grief."],
+    ["Pain Librarian", "Every kind of suffering, physical, emotional, spiritual, is cataloged in its vast mental archive. It approaches agony with academic precision, always seeking new entries."],
+    ["Regret Harvester", "It feeds on roads not taken, showing victims the lives they could have lived. Surrounded by echoes of what might have been, it offers second chances nobody should accept."],
+    ["Nightmare Surgeon", "It operates on dreams with delicate precision, implanting new fears or excising old traumas for a price. A black market exists for its services."],
+    ["Fear Farmer", "It plants phobias like seeds and tends them patiently over years. When the terror finally ripens, it harvests what it has cultivated."],
+    ["Memory Walker", "It steps physically into remembered experiences and rewrites them from within. It hides inside traumatic memories, changing the past one mind at a time."],
+    ["Memory Maze", "Its mind is a labyrinth built from stolen recollections. Anyone who touches its thoughts risks becoming lost among corridors of other people's lives."],
+    ["Schadenfreude Incarnate", "Misfortune is its only food. It follows the unlucky and engineers elaborate failures, growing fat on the suffering of others' mistakes."],
+    ["Emotion Plague", "Whatever it feels spreads like a disease to everyone nearby. A flash of its rage can ignite a riot. A wave of its despair can drown a city."],
+    ["Pain Transferer", "It redirects every wound it receives into someone else, or stores agony for later release. Its body is covered in scars that were never its own."],
+    ["Dream Walker", "It slips between sleeping minds like a traveler between towns. Whole villages suffer the same nightmare, and dream logic bleeds into waking life near it."],
+    ["Dream Plague Carrier", "Its nightmares are contagious. Dream of it once and you carry the infection to the next sleeper. Entire cities have gone afraid to close their eyes."],
+    ["Infectious Laughter", "Its laughter spreads on contact, leaving villages in fits of uncontrollable mirth. The sound is genuine, joyful, and completely impossible to stop."],
+    ["Truth Burn", "Honesty is poison to it. True words blister its skin, so it speaks only in lies and wraps itself in deception to survive."]
+  ]
+}

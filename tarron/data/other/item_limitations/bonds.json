@@ -1,0 +1,24 @@
+{
+  "description": "Cursed bindings, sentience, possession, and inseparable attachments. How the item clings to you and refuses to let go.",
+  "limitations": [
+    ["Fused Grip", "It bonds to the dominant hand like a second skin. Only powerful magic can pry it loose."],
+    ["Awakening", "After enough use, something stirs inside it. Opinions form. Disagreements follow. The item begins to talk back."],
+    ["Victor's Chain", "It locks onto its current owner until a worthy opponent falls. Only triumph earns the right to pass it on."],
+    ["Coward's Bane", "Turn your back on a fight and it vanishes from your hands. It does not tolerate retreat."],
+    ["Peacekeeper", "Start a fight and it abandons you. It will not serve an aggressor, only a defender."],
+    ["Eternal Burden", "It cannot be sold, traded, or discarded. The only way to be rid of it is to destroy it completely."],
+    ["Willful", "It has a mind of its own and acts on impulse. Sometimes it cooperates. Sometimes it has other plans."],
+    ["Living Shell", "It is not an item at all. It is a creature wearing the shape of one, watching and waiting."],
+    ["Quest Bound", "It serves a single purpose and refuses all others. Stray from the mission and the item goes inert."],
+    ["Death Bond", "It chose you, and only death will break the pact. No transfer, no trade, no escape while breath remains."],
+    ["Cursed", "Something dark lives inside it. The item clings to its owner and punishes every attempt to break free."],
+    ["Dark Leash", "A malicious entity watches through it. The item is a window, and something on the other side is paying attention."],
+    ["Watched", "Interdimensional powers monitor its every use. Misuse it and they intervene, swiftly and without mercy."],
+    ["Awakened", "It thinks. It watches. It has opinions about how it is used and who holds it. Not all of those opinions are friendly."],
+    ["Bonded", "It melds to the bearer's body at first touch. Letting go stops being an option the moment skin meets surface."],
+    ["Slow Trust", "It does nothing at first. The item must grow accustomed to a new bearer before it reveals what it can do."],
+    ["Proving Ground", "It demands to be impressed before it cooperates. Show it something remarkable, or carry dead weight."],
+    ["Shadow Hunger", "A quiet pull toward darkness lives inside it. Given time, it will try to drag the wielder along."],
+    ["Tender Care", "Mistreat it and it locks down. Speak harshly, handle it roughly, and it refuses to work until amends are made."]
+  ]
+}

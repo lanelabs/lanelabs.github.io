@@ -1,0 +1,21 @@
+{
+  "description": "Forced behaviors, personality changes, and social effects. What the item compels you to do against your better judgment.",
+  "limitations": [
+    ["Tongue Bound", "The wielder's native language vanishes from their lips. Familiar words become foreign, and only other tongues remain."],
+    ["Duel Sworn", "Every formal challenge must be accepted. The item will not allow its bearer to refuse a fight offered with honor."],
+    ["Magpie Urge", "Shiny things become irresistible. Coins, gems, buttons, anything that catches light fills the wielder with desperate need."],
+    ["Spendthrift", "The wielder overpays for everything and cannot stop themselves. Merchants love them. Companions do not."],
+    ["Truth Spill", "Ask a direct question after use and the truth pours out, unfiltered and unstoppable, for an uncomfortable stretch."],
+    ["Poet's Curse", "Every word must rhyme while the bond holds. Casual conversation becomes performance, and stumbling over verse draws the item's displeasure."],
+    ["Humor Ban", "Jokes die on the tongue. Puns twist into silence. The item has no patience for levity and enforces its preference."],
+    ["Hooked", "The first taste is free. After that, going without it feels wrong, then painful, then unbearable."],
+    ["Fixation", "The item occupies more and more of the wielder's thoughts. Other priorities shrink. Only the item matters."],
+    ["Daily Demand", "Miss a day and it punishes. The item insists on being used, and it has ways of making its displeasure known."],
+    ["Battle Hungry", "It demands to be drawn in every fight. Leaving it sheathed during combat feels like holding your breath underwater."],
+    ["Withdrawal", "Use it often or suffer. The shaking starts first, then the headaches, then the desperate need that drowns out reason."],
+    ["Honest Burden", "Lies become impossible. The wielder speaks only truth, whether they want to or not, no matter the cost."],
+    ["Craven Heart", "Courage drains away slowly. Danger that once seemed manageable now feels overwhelming. The urge to flee grows louder."],
+    ["Silver Tongue", "The item whispers that lies are easier, kinder, smarter. The wielder finds deception rolling off their tongue before they realize."],
+    ["Reckless Abandon", "Restraint dissolves. The wielder pushes harder, goes further, and risks more than they should, drunk on the item's power."]
+  ]
+}

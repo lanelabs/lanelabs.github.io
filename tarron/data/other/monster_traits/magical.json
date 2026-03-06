@@ -1,0 +1,17 @@
+{
+  "description": "Spell-related abilities, curses, anti-magic, and arcane binding.",
+  "traits": [
+    ["Curse Weaver", "It crafts curses the way a tailor cuts cloth, custom fitted to the victim. It sells misfortune for profit, and may itself be the product of a curse."],
+    ["Luck Vampire", "Fortune drains toward it like water downhill. Everyone nearby stumbles, fumbles, and fails while it glides through life untouched. Casinos ban it on sight."],
+    ["Living Spell", "A spell that woke up and grew a body. It casts variations of itself endlessly, searching for purpose beyond its original incantation. It fears being unraveled."],
+    ["Living Curse Word", "A word of power given flesh. Speaking its true name warps reality, so entire cultures have forbidden it. It wanders, trying to spread its name to new tongues."],
+    ["Sanctuary Violator", "Holy ground curdles in its presence. Temples become traps, healing places cause harm, and refugees flee the sanctuaries that were meant to protect them."],
+    ["Chain of Screams", "Spectral chains link it to every soul it has claimed. The dead scream endlessly around it, and it grows more protected with every kill added to the chain."],
+    ["Mnemonic Virus", "It spreads through knowledge of itself. Think about it too deeply and it takes root in your mind. The safest defense is to forget it completely."],
+    ["Echo Virus", "Temporal copies of itself crowd the present, each from a different moment in time. Destroying one creates a paradox that may birth another."],
+    ["Living Loophole", "It exists as an exception to natural law. A cosmic lawyer exploiting reality's own contradictions, it teaches others to cheat the universe for a price."],
+    ["Miracle Thief", "It intercepts divine blessings meant for others, hoarding stolen grace. Prayers go unanswered near it, and its collection of pilfered miracles grows ever larger."],
+    ["Covenant Breaker", "Oaths dissolve in its presence. Marriages, treaties, magical contracts, all crumble. A walking diplomatic disaster, it is also sought by those desperate to escape bad deals."],
+    ["Debt Collector of Souls", "It enforces cosmic debts: broken promises, unpaid kindnesses, moral failures made manifest. It appears when the bill comes due, ledger in hand."]
+  ]
+}

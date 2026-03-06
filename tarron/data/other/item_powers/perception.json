@@ -1,0 +1,25 @@
+{
+  "description": "Detection, divination, and enhanced senses that reveal what others miss.",
+  "powers": [
+    ["Wall Sight", "Stone and wood become translucent to the wielder's gaze. Secrets hidden behind walls have nowhere left to hide."],
+    ["Far Hearing", "Distant conversations arrive as clearly as whispers in the ear. Focus, and the miles between collapse to nothing."],
+    ["Aura Reading", "Enchanted objects betray themselves. Their magical nature glows visible, each school of magic a different hue."],
+    ["Object Memory", "Touch something and feel its past. Every hand that held it, every room it sat in, rising like a dream."],
+    ["Hostile Sense", "Ill intent registers like a cold wind. The item warns of enemies before they reveal themselves."],
+    ["Bloodhound", "Once touched, a creature cannot hide. The trail burns bright in the wielder's mind no matter where it leads."],
+    ["Hidden Script", "Invisible ink, concealed runes, secret messages. All of them surface under this item's knowing gaze."],
+    ["Night Eyes", "Darkness becomes a different shade of light. The wielder sees as clearly in shadow as in the noonday sun."],
+    ["Perfect Recall", "Everything seen is remembered with absolute clarity. No detail fades, no face is forgotten."],
+    ["Empathic Lens", "Emotions become visible. Fear, joy, deceit. They radiate from every creature like colored smoke."],
+    ["Danger Mirror", "A conjured looking glass that shows not the viewer's face, but the nearest threat drawing close."],
+    ["Borrowed Wings", "The wielder sees through the eyes of birds overhead. A stolen vantage from the sky, effortless and silent."],
+    ["Inner Clock", "Time becomes tangible. Dawn, midnight, the exact second. The wielder always knows precisely when they are."],
+    ["Thought Skim", "Surface thoughts drift upward like bubbles, readable to the wielder. Only the top layer, but that is often enough."],
+    ["True Sight", "Disguises and shifted forms unravel. The wielder sees what hides beneath every borrowed shape."],
+    ["Ley Compass", "The item tugs gently toward the nearest current of raw magic. Follow it and find where power pools."],
+    ["Echo Sense", "Sound becomes sight. The wielder reads the shape of rooms, the presence of bodies, all through returning echoes."],
+    ["Keen Senses", "Every sense sharpens. Colors brighten, faint sounds clarify, distant scents arrive. The world reveals its hidden layers."],
+    ["Faerie Veil", "Invisible things are betrayed by a clinging luminescence. What cannot be seen begins to glow."],
+    ["Emotion Tide", "The strongest feeling in any nearby creature washes over the wielder like a wave. Joy, rage, sorrow, all laid bare."]
+  ]
+}

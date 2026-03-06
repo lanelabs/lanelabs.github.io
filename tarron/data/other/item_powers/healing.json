@@ -1,0 +1,21 @@
+{
+  "description": "Restoration, wellness, and protection from harm. Mending what is broken and shielding what remains.",
+  "powers": [
+    ["Restorative", "Each use mends what is broken. Wounds close, pain fades, and the body remembers what it felt like before the damage."],
+    ["Venom Purge", "Poison recoils from this item's touch. It draws the toxin out like pulling a thorn, leaving clean blood behind."],
+    ["Plague Ward", "Disease cannot take root in the wielder's body. Sickness circles but never lands, turned away by something unseen."],
+    ["Healing Amplifier", "Restoration magic hits harder. What would mend a scratch now mends a gash. The item multiplies every kindness the body receives."],
+    ["Quick Stitch", "Wounds seal themselves shut as if stitched by invisible hands. Fast, clean, and without a scar."],
+    ["Heart Mender", "Grief and despair loosen their grip. The item cannot erase sorrow, but it lifts the weight enough to breathe again."],
+    ["Courage Song", "A soothing melody drifts from the item. Fear withers in its presence, and allies stand a little taller."],
+    ["Breath Adaptor", "Lungs adapt to anything. Toxic fumes, liquid, thin mountain air. The wielder breathes easy where others would choke."],
+    ["Altitude Lungs", "The air at any height feels rich and full. Mountain peaks and high passes hold no threat to the wielder's breath."],
+    ["Gill Gift", "Water becomes as breathable as air. The wielder descends into the deep without worry, lungs pulling life from the current."],
+    ["Void Breath", "Even in the absence of air, the wielder breathes. The vacuum holds no terror for one who carries this item."],
+    ["Clean Air", "Toxins in the surrounding air simply vanish. The item filters what is harmful, leaving only what sustains."],
+    ["Death's Leash", "The item will not let the wielder die easily. It pulls them back from the edge, though the cost is fragility."],
+    ["Insect Veil", "A barrier of subtle force surrounds the wielder. Biting, stinging things bounce away as if striking glass."],
+    ["Breath Pocket", "A bubble of fresh air forms underwater around the wielder. A sanctuary beneath the waves, calm and breathable."],
+    ["Guardian Shadow", "A dark shape follows the wielder, hovering at the periphery. It offers no words, only silent protection."]
+  ]
+}

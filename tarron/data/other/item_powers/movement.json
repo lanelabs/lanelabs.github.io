@@ -1,0 +1,21 @@
+{
+  "description": "Traversal, teleportation, flight, and enhanced mobility for getting where you need to be.",
+  "powers": [
+    ["Water Stride", "Lakes and rivers become solid ground beneath the wielder's feet. The surface dimples but never breaks."],
+    ["Phase Walk", "Walls lose their meaning. The wielder steps through stone and wood as though passing through heavy curtains."],
+    ["Phantom Steed", "A ghostly mount appears at the wielder's call, tireless and swift, gone like mist when no longer needed."],
+    ["Blink Step", "The wielder vanishes and reappears wherever their gaze falls. The distance between is simply erased."],
+    ["Sky Climb", "The air itself becomes a staircase. Each step finds invisible purchase, carrying the wielder upward."],
+    ["Waygate", "Two distant places become one doorway. Step through here, arrive there. The space between ceases to exist."],
+    ["Diminish", "The wielder shrinks but loses nothing. Smaller body, same strength. A dangerous thing in a tiny package."],
+    ["Featherfall", "Gravity forgets the wielder exists. Falls from any height end gently, boots touching down like settling dust."],
+    ["Light Ladder", "Rungs of pure light materialize against any surface, climbing toward wherever the wielder needs to be."],
+    ["Stepping Stones", "Shimmering platforms appear across empty space, each one solid enough to bear weight, each one patient."],
+    ["Canopy Dance", "The wielder moves across treetops like wind. Branches bend but never break beneath those weightless steps."],
+    ["Perfect Poise", "Balance becomes effortless. Knife edges, wet rope, crumbling ledges. The wielder stands steady on all of them."],
+    ["Fog Walker", "Mist and fog part like curtains. What blinds others becomes an open road for the wielder."],
+    ["Briar Pass", "Living walls of vine and thorn open willingly. The green things recognize the wielder and step aside."],
+    ["Stone Bridge", "Solid stone erupts from nothing to span the gap. It holds long enough and asks nothing in return."],
+    ["Cloud Step", "The clouds harden underfoot into solid platforms. Walking on sky feels exactly like walking on earth."]
+  ]
+}

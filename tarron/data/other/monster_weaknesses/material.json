@@ -1,0 +1,26 @@
+{
+  "description": "Specific substances, objects, and physical items that exploit vulnerabilities.",
+  "weaknesses": [
+    ["Flower Petal Blindness", "Certain petals thrown in its face steal its sight. It destroys specific flower beds on contact and shifts territory with the blooming seasons."],
+    ["Alcohol Poisoning", "Even a splash of wine or spirits poisons it instantly. It razes taverns, forbids drinking in its territory, and recoils from the smell of fermentation."],
+    ["Virgin Wax Seal", "Wax seals pressed by innocent hands can trap it in any container. Old binding rituals mention purity, and sealed jars appear throughout its lair."],
+    ["Knot Magic Binding", "Specific knot patterns in rope or thread lock away its powers. Sailors know the patterns by heart, and it cuts every rope it finds on sight."],
+    ["Seven Lock Binding", "Seven locks with seven different keys can imprison it completely. An ancient prison with seven doors holds the clue, and it obsesses over keys."],
+    ["Portrait Trap", "An accurate portrait steals part of its essence. It destroys artist guilds, no paintings of it exist, and its image blurs when sketched."],
+    ["Left Sock Power", "A left sock worn on the right foot grants immunity to its powers. The reversal baffles it. It examines feet obsessively, and traveling sock merchants tell knowing tales."],
+    ["Turned Clothing", "Clothes worn inside out make the wearer invisible to it. Old folk wisdom confirms it. The creature inspects clothing with suspicious attention."],
+    ["Origami Imprisonment", "Properly folded paper can trap it regardless of its size. It fears paper folders, destroys origami on sight, and avoids stationery shops."],
+    ["Tarnished Silver", "While pure silver stings, tarnished silver is agony. Old, blackened silver is far more dangerous than polished. It cleans silver compulsively wherever it goes."],
+    ["Promised Land Ban", "It cannot enter any place it has promised to visit. Its own words build the walls of its prison, and it never makes travel promises."],
+    ["Pillow Fort Shield", "Blankets and pillows form real defenses it cannot breach. Childhood forts provide genuine protection, and bedroom attacks always fail."],
+    ["Bubble Trap Prison", "A soap bubble can trap it inside, regardless of its size. It fears children's toys, avoids soap, and bubble solution is worth its weight in gold nearby."],
+    ["Buried Alive Terror", "Even symbolic burial sends it into blind panic. It avoids cemeteries, destroys burial mounds, and its claustrophobia is visible and exploitable."],
+    ["Unwashed Protection", "Those who have not bathed carry a natural ward it cannot penetrate. Dirt and grime are armor against it, and it promotes cleanliness for a reason."],
+    ["Borrowed Item Return", "Ask three times for the return of a borrowed item and it must comply. It hoards but never destroys, and the rule of three extends even to stolen goods."],
+    ["Domestic Animal Fear", "Ordinary cats, dogs, and chickens send it into a panic. No settlement with household pets has ever been attacked, and it kills animals only from a safe distance."],
+    ["Color Blindness Trigger", "Certain color patterns cause it to seize up. Its lair is monochrome, it destroys colorful art, and prismatic displays are a reliable weapon."],
+    ["Silence Terror", "Complete silence unravels it. It needs constant noise to hold itself together, fills its lair with sound, and dreads the sudden absence of all noise."],
+    ["Mirror Aversion", "Its own reflection causes pain and reveals its true form. It shatters reflective surfaces, avoids still water, and keeps no mirrors in its domain."],
+    ["Broken Mirror Years", "Each mirror it breaks compounds its misfortune. Servants wrap every reflective surface in advance, and a graveyard of shattered glass marks where it has been."]
+  ]
+}

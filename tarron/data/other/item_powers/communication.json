@@ -1,0 +1,22 @@
+{
+  "description": "Languages, telepathy, voice, and social influence for reaching others across any barrier.",
+  "powers": [
+    ["Tongues", "Every language becomes the wielder's own. Foreign words arrive already translated, as natural as breathing."],
+    ["Voice Thief", "Any voice once heard can be perfectly reproduced. The mimicry is flawless, down to the breath between words."],
+    ["Silver Tongue", "Words land with unusual weight on a chosen subject. Persuasion comes easily when the item lends its influence."],
+    ["Liar's Mask", "Falsehoods sound like gospel truth. The wielder's lies carry the weight and warmth of honest conviction."],
+    ["Mind Mark", "Messages pressed into an object linger like ghosts. Touch the same surface later and the words resurface."],
+    ["Thundervoice", "The wielder's words carry impossibly far. A whisper becomes a declaration that reaches distant ears."],
+    ["Inner Voice", "The item speaks directly into the wielder's mind. Its counsel arrives as thought, private and unheard by others."],
+    ["Vocal Shift", "The wielder's voice becomes anything. Deep as a cavern, light as a child, alien and unrecognizable."],
+    ["Swift Letter", "Written words vanish from the page and reappear before their intended reader, no matter the distance."],
+    ["Oath Grip", "A handshake becomes a binding truth. Lies wither in the clasped hands and only honesty survives."],
+    ["Living Script", "Written words reshape themselves for any reader. Each sees the text in their own tongue, clear and fluent."],
+    ["Binding Ink", "Contracts signed with this item carry weight beyond paper. Breaking the terms invites consequences."],
+    ["Green Speech", "Plants respond to the wielder's words as if they understand. They share what they have witnessed in their slow, patient way."],
+    ["Spirit Whisper", "The dead answer one question. Their voice arrives thin and distant, carrying truths only the departed know."],
+    ["Beast Charm", "A specific kind of animal finds the wielder irresistible. They approach without fear, eager and trusting."],
+    ["Creature Command", "Small animals obey simple instructions. They carry, fetch, scout, and return with earnest loyalty."],
+    ["Messenger Flock", "Birds gather at the wielder's call, ready to carry parcels across any distance with unerring direction."]
+  ]
+}

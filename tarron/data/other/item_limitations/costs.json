@@ -1,0 +1,23 @@
+{
+  "description": "Resource drain, maintenance, sacrifice, and upkeep. What the item demands from its wielder to keep functioning.",
+  "limitations": [
+    ["Gem Hunger", "It eats precious stones like candy. After every encounter, it demands to be fed, and its appetite is expensive."],
+    ["Vitality Tap", "Each activation draws from the wielder's deepest reserves. The body pays what the mind commands."],
+    ["Spell Drain", "It siphons the wielder's strongest magic to fuel itself. The most potent incantation vanishes first."],
+    ["Coin Bleed", "Currency vanishes into thin air with each use. The gold does not fall, it simply ceases to exist."],
+    ["Moonbathed", "It must drink moonlight every night or its power fades by morning. Cloudy skies are its worst enemy."],
+    ["Jewel Socket", "A fresh gemstone must be set into its surface each dawn. The stone is consumed, and the item demands another."],
+    ["Blood Tithe", "A vial of the wielder's own blood each dawn. The item will not negotiate, and it can tell if you cheat."],
+    ["Generous Toll", "A portion of every treasure must go to the poor, or the item shuts down. Greed is the one thing it will not abide."],
+    ["Rare Polish", "Weekly care with costly oils and rare compounds. Neglect the maintenance and watch the magic tarnish and die."],
+    ["Energy Siphon", "It feeds on the wielder's stamina, leaving them breathless and shaking after each burst of power."],
+    ["Material Cost", "Something from the pack disappears each time. A potion, a ration, a keepsake. The item consumes without asking."],
+    ["Stamina Thief", "It steals energy from the wielder in sudden jolts. One moment full of vigor, the next gasping and weak."],
+    ["Life Debt", "It demands the ultimate price. A living sacrifice to fuel its deepest power. The item does not care whose."],
+    ["Soul Scar", "Something permanent is taken with each use. The marks do not show on the skin but they never heal."],
+    ["Recharge Ritual", "After each use, a specific ritual must be performed to restore its abilities. Skip it and carry a paperweight."],
+    ["Costly Upkeep", "Maintaining it drains the purse at an alarming rate. The item's appetite for expensive care never diminishes."],
+    ["Memory Tax", "A treasured memory dissolves with each use. The wielder forgets a face, a name, a moment that mattered."],
+    ["Borrowed Luck", "It pulls fortune from the wielder's future to power the present. Tomorrow's good luck fuels today's miracle."]
+  ]
+}

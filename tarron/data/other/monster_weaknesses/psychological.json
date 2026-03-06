@@ -1,0 +1,27 @@
+{
+  "description": "Emotions, compulsions, behavioral triggers, and mental vulnerabilities.",
+  "weaknesses": [
+    ["Counting Compulsion", "Scatter seeds or coins and it must stop to count every one. Its lair is obsessively organized, and it mutters numbers even in casual conversation."],
+    ["Broken Promise Backlash", "Breaking its word causes immediate, devastating harm to itself. It chooses every phrase with surgical care and has a reputation for keeping promises to the letter."],
+    ["Riddle Locked", "Pose it a riddle and it cannot act until it solves or surrenders. It speaks in riddles itself, hoards puzzle books, and its pride will not let it admit defeat easily."],
+    ["Gambling Compulsion", "It cannot refuse a game of chance and must play fairly. It carries dice or cards, and old legends tell of fortunes lost at its own table."],
+    ["Compliment Vulnerability", "Sincere praise disrupts it completely. It insults constantly, cannot accept a kind word, and destroys beautiful things rather than risk admiring them."],
+    ["Unfinished Business", "One task from its former life remains incomplete, and the reminder consumes it. It returns to the same locations, obsessing over old work it can never finish."],
+    ["Childhood Toy Paralysis", "Its childhood comfort object renders it helpless with grief and longing. A hidden room holds old toys, and it reacts strongly to objects that resemble them."],
+    ["Mother's Maiden Name", "Speaking its mother's maiden name causes it visible pain. Its genealogy has been carefully erased, and the maternal line is nowhere in the records."],
+    ["Upside-Down Weakness", "Inversion strips it of all power. It never climbs inverted, builds architecture that prevents it, and keeps obsessive track of its own balance."],
+    ["Sentimental Object", "One cherished object holds its heart. If that object is destroyed, grief overwhelms it completely. It guards one item above all others, hidden in a private shrine."],
+    ["Forgotten Birthday", "It does not know its own birthdate, and the uncertainty gnaws at it. It obsesses over calendars, hoards birth records, and fixates on astrology for answers."],
+    ["Spinning Dizziness", "Spinning objects sicken it. Spinning wheels, dancers, whirling tops, all leave it reeling. It destroys windmills and keeps nothing that rotates in its lair."],
+    ["Doorway Counting", "It must count every doorway it passes through and starts over if it loses count. Architecture with many doors traps it in an endless, muttering loop."],
+    ["Ownership Obligation", "It cannot take what is owned without permission. Property marks are supernatural shields, and it only steals what has been abandoned."],
+    ["Odd Number Weakness", "Only odd-numbered groups can harm it. It counts its attackers obsessively and manipulates situations to ensure even numbers."],
+    ["Compliment Fishing", "It compulsively fishes for praise and drops its guard while waiting. Mirrors line its walls, it speaks of itself constantly, and vanity is a lever anyone can pull."],
+    ["Debt Cannot Default", "It is supernaturally bound to repay every debt. Owing anything weakens it, and it settles accounts with frantic urgency, terrified of carrying a balance."],
+    ["Shadow Separation", "Separated from its shadow, it loses nearly all its power. It guards its shadow fiercely and avoids anything that might sever the connection."],
+    ["Waltz Paralysis", "The rhythm of a waltz compels it to dance uncontrollably. It destroys dance halls, despises triple meter, and cannot resist the count of three."],
+    ["Yawn Contagion", "It yawns when others do, and the chain reaction can leave it incapacitated. It avoids fatigued company and fights poorly against the visibly tired."],
+    ["Hiccup Helplessness", "Hiccups render it completely helpless. It eats and drinks with exaggerated care and dreads sudden surprises that might trigger an episode."],
+    ["Wrong Name Response", "Call any name with authority and it must respond, uncertain which name is truly its own. It reacts to every callout, and the confusion runs deep."]
+  ]
+}

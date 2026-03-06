@@ -1,0 +1,17 @@
+{
+  "description": "Damage, defense, initiative, and tactical advantages in battle.",
+  "powers": [
+    ["First Strike", "Always the first to act, even in an ambush. The item senses danger before its wielder does and moves the hand that holds it."],
+    ["Riposte", "Every blow answered in kind. Strike this item's bearer and feel the sting of your own violence returned."],
+    ["Widening Arc", "The force of each swing ripples outward. What was aimed at one finds many."],
+    ["Thorn Response", "Dormant until the wielder bleeds. Pain wakes something in the item, and it answers with fury."],
+    ["Radiant Arsenal", "Allied weapons nearby catch the light and hold it. Every edge gleams with something holy and hungry."],
+    ["Splinter Shot", "The next arrow loosed becomes three. Each one finds its own path, its own prey."],
+    ["True Aim", "Arrows bend toward their mark as if pulled by invisible thread. Missing becomes almost impossible."],
+    ["Shadow Flanker", "A dark twin rises from the wielder's shadow to circle behind the enemy. It moves with borrowed purpose."],
+    ["Searing Flash", "A blinding burst erupts on impact. Those struck see nothing but white, then nothing at all."],
+    ["Spectral Aegis", "A translucent shield materializes from thin air, hovering between the wielder and harm."],
+    ["Fate Denied", "The killing blow never lands. Once, when death is certain, this item swallows the strike whole."],
+    ["Force Cage", "A shimmering cube of solid force snaps into existence, trapping everything within its walls."]
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Fire, ice, water, air, earth, and weather. Harnessing nature's forces for practical ends.",
+  "powers": [
+    ["Lightning Rod", "The item drinks lightning. Bolts bend toward it, pulled from the sky and swallowed whole before they can strike elsewhere."],
+    ["Purifying Flow", "Foul water runs clean at this item's touch. Mud, poison, rot. All of it washed away, leaving only what is pure."],
+    ["Petal Rain", "Rainfall transforms into drifting flower petals around the wielder. A gentle beauty that replaces the storm."],
+    ["Climate Warden", "The air obeys. A room grows warmer or cooler at the wielder's wish, as if the seasons answer to them."],
+    ["Verdant Surge", "Nearby plants grow with reckless speed. Seedlings stretch into saplings, buds burst open, roots dig deep."],
+    ["Temperate Shell", "Heat and cold lose their grip on the wielder. Deserts and tundras feel the same, like a mild afternoon."],
+    ["Rainmaker", "A small cloud appears and delivers gentle rain exactly where it is needed. A farmer's quiet miracle."],
+    ["Dew Gather", "Moisture collects from thin air, condensing into clean drinking water. Even the driest air yields its hidden reserve."],
+    ["Heat Sink", "The item devours flame. Fires gutter and die in its presence as it absorbs their warmth into itself."],
+    ["Hearthglow", "A comforting warmth radiates from the item. The cold retreats, and frostbite finds no purchase nearby."],
+    ["Cool Mantle", "The wielder carries their own shade. Scorching heat slides off them, unable to take hold."],
+    ["Flame Walk", "Mundane fire parts around the wielder like water around stone. They pass through unburned and unbothered."],
+    ["Wind Sculptor", "The wielder shapes gusts into solid forms. Walls of air, steps of breeze, brief and beautiful."],
+    ["Storm Quell", "Raging weather relents. Winds calm, rain softens, thunder falls silent. The storm simply decides to stop."],
+    ["Fertile Touch", "Barren dirt darkens and softens beneath this item. Dead soil remembers how to grow things."],
+    ["Insect Shepherd", "Beneficial insects swarm to nearby crops, pollinating and protecting. A silent alliance between item and hive."],
+    ["Flash Freeze", "Water turns to ice in an instant. Still pools, rushing streams. All of it locked solid between one breath and the next."],
+    ["Thaw Touch", "Ice surrenders at contact. Frozen locks, iced-over paths, winter's grip. All of it melts away willingly."],
+    ["Clearing Breeze", "A gentle wind rises from nowhere, sweeping away smoke, fog, and foul air. Only clean breath remains."],
+    ["Spark Shower", "Harmless sparks cascade from the item like tiny stars. They burn nothing, but they light up the night beautifully."]
+  ]
+}

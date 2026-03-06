@@ -1,0 +1,16 @@
+{
+  "description": "Time-based cycles, calendar triggers, celestial events, and dawn-to-dusk vulnerabilities.",
+  "weaknesses": [
+    ["Moonlight Madness", "Direct moonlight strips away all control. It transforms involuntarily, losing strategy and self. It only hunts on cloudy nights and tracks the lunar calendar obsessively."],
+    ["Dawn's First Light", "Not sunlight, but the very first ray of dawn freezes it completely. It calculates sunrise to the second and never faces east at the wrong moment."],
+    ["Rooster Crow Banish", "A rooster's crow compels immediate retreat. It kills roosters first when entering a region, and silenced farmyards are a warning sign."],
+    ["Birthday Vulnerability", "On the anniversary of its creation, all its defenses fail. It vanishes on the same date each year, and old attack records reveal the pattern."],
+    ["Broken Clock Timing", "A stopped clock showing the hour of its death traps it in a loop. It smashes clocks wherever it goes, and one particular hour makes it flinch."],
+    ["Sunrise Sickness", "Dawn brings violent illness, not destruction. It retreats before first light and is sluggish in the early morning, a window the watchful can exploit."],
+    ["Thirteenth of Month", "On the thirteenth day of any month its powers wane to almost nothing. It disappears monthly on a schedule, and its calendar is full of anxious markings."],
+    ["Clock Chime Freeze", "It freezes at the sound of clock chimes, compelled to count every one before it can move. It destroys clock towers and dreads the stroke of noon."],
+    ["Moonless Night Blind", "Without moonlight it is completely blind. It goes still on moonless nights and keeps artificial moon symbols close, a poor substitute for the real thing."],
+    ["Tuesday Vulnerability", "Every Tuesday its defenses simply fail. The pattern is obvious to anyone tracking its weekly movements, and it destroys calendars to hide the cycle."],
+    ["Four-Leaf Clover Sight", "A four-leaf clover held in hand pierces all its illusions. It tramples clover patches and avoids meadows. Old lucky charms work for a reason."]
+  ]
+}

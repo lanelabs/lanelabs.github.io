@@ -1,0 +1,15 @@
+{
+  "description": "Unusual activation methods and behavioral demands. Ritual-like hoops to jump through before the item cooperates.",
+  "limitations": [
+    ["True Name", "Seventy-seven syllables, perfectly pronounced. Miss one and the item pretends you never spoke at all."],
+    ["Held Breath", "The lungs must be still. One gasp, one stolen breath, and the power scatters before it forms."],
+    ["Blind Draw", "Reach for it with your eyes shut. Open them too soon and the moment is lost, the magic scattered."],
+    ["Grateful Hand", "Sincerity is the key. Thank it and mean it, or it sits cold in your palm like a dead thing."],
+    ["Dancer's Stance", "It wakes to rhythm. The wielder must move, must sway, must dance. Stillness earns nothing from this item."],
+    ["Herald's Call", "It insists on being announced. Loudly. By name. Every single time, no matter how inconvenient."],
+    ["Vow of Silence", "One spoken word and the effect dies. The item demands absolute quiet from the moment of activation."],
+    ["Deep Soak", "It must drink first. A full minute submerged in water before it will consent to do anything at all."],
+    ["Grudge Holder", "It remembers the last foe it struck and refuses to strike the same one again immediately. Variety or nothing."],
+    ["Riddle Gate", "A new riddle every time, spoken aloud, solved correctly. Wrong answers earn nothing but the item's contempt."]
+  ]
+}

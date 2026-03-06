@@ -1,0 +1,19 @@
+{
+  "description": "Words, songs, names, rhymes, sounds, and vocal triggers.",
+  "weaknesses": [
+    ["True Name Vulnerability", "Its true name spoken aloud is agony. The creature avoids introductions and reacts to partial names. Ancient texts hold the key, if you know where to look."],
+    ["Childhood Lullaby", "A specific song from its past drowns it in paralyzing nostalgia. An old nursemaid knows the tune, and a lullaby box sits hidden in its lair."],
+    ["Bell Sound Agony", "The ringing of bells disorients and pains it. Church bells can drive it away entirely. It attacks silent towns first and destroys bell towers on sight."],
+    ["Name Three Times", "Say its name three times and it must appear, briefly bound in place. It forbids anyone from speaking its name and punishes those who try."],
+    ["Rhyme Compulsion", "Address it in verse and it must respond in kind. Rhyming traps it in predictable speech, and clever poets can force it to reveal what it would rather hide."],
+    ["Backwards Speech", "Reversed words confuse and weaken it. It speaks only in forward prophecies, hates palindromes, and grows disoriented near mirrors."],
+    ["Backwards Name Harm", "Its name spoken in reverse forces immediate retreat. It chose a complex, unpronounceable name for a reason, and it watches spelling with paranoid attention."],
+    ["Haiku Imprisonment", "A perfect haiku that describes it truly can bind it in place. It fears poets, destroys books of verse, and dreads precise observation."],
+    ["Echo Confusion", "Its own echo turns against it. Enclosed spaces with strong acoustics leave it staggering. It avoids canyons and caves, and silences rooms before entering."],
+    ["Music Box Paralysis", "One specific tune played on a music box holds it perfectly still. Smashed music boxes litter its path, and the maker's mark connects to its origin."],
+    ["Nursery Rhyme Loop", "Once a nursery rhyme begins it cannot stop reciting until the verse is done. It avoids children's rooms and is triggered by even fragments of familiar rhymes."],
+    ["Question Mark Curse", "Any question that ends with its name compels a truthful answer. It guards its name jealously and speaks in tortured patterns to avoid interrogation."],
+    ["Last Word Loss", "It must always have the last word. It cannot disengage from conversation, and a patient speaker can trap it in endless exchange while others act."],
+    ["Knock Pattern Lock", "The right sequence of knocks forces it to open doors and reveal what it hides. It uses elaborate door protocols and flinches at rhythmic tapping."]
+  ]
+}

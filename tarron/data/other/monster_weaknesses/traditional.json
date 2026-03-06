@@ -1,0 +1,21 @@
+{
+  "description": "Classic folklore vulnerabilities: iron, salt, sunlight, running water, and ancient protections.",
+  "weaknesses": [
+    ["Salt Boundary", "A thin line of salt is an impassable wall. It stops at the ocean's edge, avoids preserved foods, and flinches from the grain in a traveler's pocket."],
+    ["Running Water Block", "Streams and rivers form barriers it cannot cross. Its territory ends at the riverbank, and drought follows in its wake."],
+    ["Iron Touch Weakness", "Cold iron burns like acid on contact. No iron exists in its lair, its servants carry other metals, and old folk remedies all mention the same cure."],
+    ["Sunlight Dissolution", "Direct sunlight does not wound it. It unmakes it entirely. It keeps deep underground and fears the dawn like a living thing."],
+    ["Grave Dirt Binding", "Soil from its original burial plot anchors it like a chain. Old cemetery records hint at the site, and it avoids one particular graveyard without explanation."],
+    ["Silver Thread Cutting", "Silver thread slices through its defenses like wire through clay. It avoids seamstresses, and no silver embroidery exists anywhere in its domain."],
+    ["Milk Vulnerability", "Fresh milk burns it like acid. It avoids farms, keeps no dairy, and its mere presence curdles milk in the pail."],
+    ["Crossroads Confusion", "At any crossroads it loses all sense of direction, forced to wander aimlessly. It takes circuitous routes and never builds its lair near an intersection."],
+    ["Horseshoe Iron", "A horseshoe over the door is more than superstition. Its touch burns worse than common iron, and rural blacksmiths have always known why."],
+    ["Mustard Seed Burn", "Scattered mustard seeds form a barrier it cannot cross. It avoids certain cuisines, and spice merchants in the region sleep soundly."],
+    ["Unbroken Circle", "A perfectly drawn circle is an impenetrable cage. It breaks circular patterns wherever it finds them and builds only in sharp angles."],
+    ["Threshold Permission", "It cannot enter a home without invitation from someone who lives there. It manipulates, flatters, and begs at the doorstep, but it cannot step inside uninvited."],
+    ["Bread and Salt Peace", "Ancient hospitality laws bind it. Those who have shared bread and salt with it are untouchable, and it avoids dinner invitations at all costs."],
+    ["Homemade Protection", "Items crafted by loving hands ward it off. Mass production means nothing, but a grandmother's knitting is armor. It fears hearths where things are made by hand."],
+    ["Autumn Leaf Shield", "Fallen autumn leaves grant complete protection. It destroys deciduous trees when it can and retreats when the leaves begin to turn."],
+    ["Ancient Tree Weakness", "Wood from ancient trees burns it on contact. It avoids old-growth forests, and druids have always known which groves to protect."]
+  ]
+}

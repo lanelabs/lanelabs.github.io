@@ -1,0 +1,17 @@
+{
+  "description": "Holy symbols, blessed objects, moral triggers, and virtue-based vulnerabilities.",
+  "weaknesses": [
+    ["Sacred Symbol Burn", "Holy symbols of the right deity burn on contact, regardless of the wielder's faith. Scorch marks on its skin match temple iconography."],
+    ["Children's Innocence", "It cannot harm a truly innocent child. It avoids schools, targets only adults, and weakens in the presence of the young."],
+    ["Blessed Threshold", "A doorway blessed by clergy becomes a wall it cannot pass. It avoids temples, prefers windows, and has been known to tear door frames apart in frustration."],
+    ["Wedding Vow Power", "Marriage vows spoken in its presence become commands it must obey. It disrupts weddings, avoids chapels, and flinches at the words 'I do.'"],
+    ["Charity Paralysis", "Witnessing a genuine act of selflessness freezes it in place. It corrupts charitable organizations and preys only on the selfish."],
+    ["Earned Victory Only", "It cannot win by luck or chance. Every victory must be earned through skill. It never gambles, despises randomness, and lays overly complicated plans."],
+    ["Honest Child Truth", "It cannot lie to a child under ten. Their innocence compels honest answers, and clever children can pry loose its deepest secrets."],
+    ["Wedding Ring Burn", "The touch of a wedding ring sears its flesh. It targets the unmarried, strips rings from its victims, and recoils from symbols of binding love."],
+    ["Love's True Touch", "Genuine love causes it pain. The purer the feeling, the worse the wound. It separates loved ones, corrupts bonds, and cannot stand near wedding rings."],
+    ["Sleeping Child Ward", "It cannot enter a room where a child sleeps. Innocent dreams form a barrier it cannot breach. It waits for children to wake and despises lullabies."],
+    ["Nest Destroyer Guilt", "It cannot harm birds or destroy their nests. Birds perch fearlessly on its shoulders, and avian sanctuaries are safe ground."],
+    ["Unicorn Hair Binding", "A single strand of unicorn hair can hold it completely still. Purity overcomes all its strength, and it avoids pure creatures with visible dread."]
+  ]
+}

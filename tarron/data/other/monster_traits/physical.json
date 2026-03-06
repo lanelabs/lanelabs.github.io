@@ -1,0 +1,18 @@
+{
+  "description": "Body, form, regeneration, symbiosis, and physical transformation.",
+  "traits": [
+    ["Regenerating Limbs", "Severed limbs grow back mid-fight, and the pieces left behind keep moving on their own. Previous victims' weapons jut from constantly regrowing flesh."],
+    ["Living Hive", "Its body crawls with smaller creatures nesting inside, spilling out to scout and defend. A trail of insects marks every path it has walked."],
+    ["Crystalline Blood", "It bleeds liquid crystal that hardens on contact, leaving jagged formations wherever it is wounded. Beautiful and valuable, but lethal to harvest."],
+    ["Unstable Form", "Its body shifts between solid, liquid, gas, and plasma without warning. The environment warps around each transformation, and nothing it does is predictable."],
+    ["Living Weapon Symbiosis", "The weapon fused to its hand has a mind and hunger of its own. Neither can be parted from the other, and the blade grows stronger with every kill."],
+    ["Wound Collector", "Every injury it has ever suffered is preserved like a trophy in its flesh. It remembers every attacker, and can open old wounds on new victims."],
+    ["Swarm Consciousness", "One mind spread across many bodies, holding conversations with itself. It experiences everything simultaneously, but suffers when its pieces are pulled too far apart."],
+    ["Healing Overdriver", "Healing magic goes haywire in its presence, turning restoration into cancerous overgrowth of tissue and bone. Healers fear it more than any blade."],
+    ["Storm Heart", "A living tempest trapped in a body. Its mood changes the weather for miles, and communities either beg for its calm or blame it for the drought."],
+    ["Dimensional Stomach", "Its belly opens into a pocket dimension vast enough to swallow whole buildings. What goes in rarely comes back out the same, if it comes back at all."],
+    ["Sound Eater", "It feeds on noise, leaving trails of unnatural silence behind it. Music, laughter, conversation, all devoured. The louder the world, the stronger it grows."],
+    ["Inverse Healer", "Damage restores it while healing tears it apart. It begs to be struck and flees from gentle hands. Clerics terrify it more than any warrior."],
+    ["Silence Breaker", "It cannot survive in quiet. A constant cacophony pours from it, and silence is the only thing that causes it real pain."]
+  ]
+}
