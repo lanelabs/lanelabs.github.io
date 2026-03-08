@@ -1,0 +1,14 @@
+{
+  "description": "Rolling green rises and gentle slopes where the land breathes easy, though what hides in the folds is another matter.",
+  "rarity": 1,
+  "biomes": [
+    ["Highland", "Bare hilltops above the mist where the grass is short and the wind carries the smell of rain."],
+    ["Plateau", "A broad flat expanse raised above the surrounding land. The edges offer wide views and the center feels oddly exposed."],
+    ["Rolling Hills", "Green swells rising and falling like a frozen sea. The paths wind between them, and each crest reveals a new horizon."],
+    ["Terraced", "Stepped hillsides carved by old hands, now overgrown. The flat shelves hold pools of rainwater and forgotten purpose."],
+    ["Chalk Downs", "White soil showing through thin grass on rounded hills. The ground is dry and pale, and ancient figures are cut into the slopes."],
+    ["Moorland", "Open, treeless hills under heavy skies. The heather is dark purple and the ground is soft and sodden beneath it."],
+    ["Heathland", "Low shrubs and gorse stretching across gentle hills. The air smells of dry wood and wildflowers, and the paths are narrow."],
+    ["Windswept", "Hills stripped bare by relentless gales. The grass grows sideways and the few trees lean permanently away from the wind."]
+  ]
+}

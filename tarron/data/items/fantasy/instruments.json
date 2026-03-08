@@ -1,0 +1,15 @@
+{
+  "description": "Musical instruments and tools of the bard's trade.",
+  "items": [
+    ["Flute", "A slender pipe that sings with a clear, bright voice."],
+    ["Harp", "A stringed frame that fills a room with shimmering music."],
+    ["Lyre", "A small, hand-held harp strummed while singing."],
+    ["Lute", "A rounded stringed instrument for accompaniment and solo."],
+    ["Drum", "A stretched skin over a frame, struck to keep rhythm."],
+    ["Bell", "A metal cup that rings with a clear tone when struck."],
+    ["Fiddle", "A bowed string instrument that wails and dances."],
+    ["Trumpet", "A brass tube that sounds calls and fanfares."],
+    ["Horn", "A curved instrument that bellows across valleys and fields."],
+    ["Chalice", "A ceremonial drinking cup used in rites and toasts."]
+  ]
+}

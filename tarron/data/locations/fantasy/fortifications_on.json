@@ -1,0 +1,57 @@
+{
+    "description": "Walls of stone and steel raised against what lurks beyond. Every battlement tells a story of siege, sacrifice, and the stubborn refusal to fall.",
+    "locations": [
+        [
+            "Wall",
+            "Cold stone stretching from cliff to cliff across the valley. Whatever it was built to keep out, the guards still watch for it."
+        ],
+        [
+            "Drawbridge",
+            "Heavy oak planks on iron chains. When it rises, the gap beneath becomes a killing ground. The mechanism groans with age."
+        ],
+        [
+            "Motte",
+            "A steep earthen mound crowned with timber walls. Simple to build, hard to storm. The height decides most fights."
+        ],
+        [
+            "Rampart",
+            "A broad earthen ridge topped with stone. Defenders walk its length at all hours, watching the ground below for movement."
+        ],
+        [
+            "Parapet",
+            "A low wall along the rampart edge, just tall enough to crouch behind. Arrow scars pock its surface like old wounds."
+        ],
+        [
+            "Curtain Wall",
+            "The long connecting stretch of wall between towers. It takes the brunt of every siege and bears the scars to prove it."
+        ],
+        [
+            "Battlement",
+            "The fortified top of a wall, worn smooth by generations of boots. Wind and rain are the only constants here."
+        ],
+        [
+            "Dragon Roost",
+            "A massive stone platform scorched black and worn smooth by heavy landings. The heat is felt from fifty paces away."
+        ],
+        [
+            "Griffin Aerie",
+            "A high platform of timber and stone, open to the sky, littered with feathers and old bones. The wind carries a sharp, wild scent."
+        ],
+        [
+            "Pegasus Stable",
+            "An open-air stable on a high terrace where winged horses fold their wings and rest. The grooms handle them gently."
+        ],
+        [
+            "Hippogriff Nest",
+            "A sheltered ledge high on a cliff face, accessible only by a narrow stair. The creatures inside are proud, territorial, and fast."
+        ],
+        [
+            "Wyvern Perch",
+            "A reinforced tower top built for the weight and temper of wyverns. The railings are scored with claw marks, and the smell is terrible."
+        ],
+        [
+            "Bridge",
+            "Stone arches or rope and plank span a gap that demands crossing. The view below reminds you how far you could fall."
+        ]
+    ]
+}

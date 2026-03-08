@@ -1,0 +1,16 @@
+{
+  "description": "Scorched earth and relentless sun where water is worth more than gold and the horizon shimmers with heat.",
+  "rarity": 1,
+  "biomes": [
+    ["Arid", "Cracked earth and sparse scrub under a merciless sun. The heat radiates from the ground and nothing offers shade."],
+    ["Rocky", "Fields of broken stone baking in the sun. Sharp edges and loose footing make every step a negotiation."],
+    ["Wasteland", "Flat, featureless ground stretching in every direction. Nothing grows, nothing moves, and the silence presses against your ears."],
+    ["Tundra", "A cold desert where dry wind strips the moisture from everything it touches. The ground is hard and the sky is white."],
+    ["Badlands", "Eroded ridges and gullies of crumbling earth in shades of rust and grey. The terrain changes with every rainstorm."],
+    ["Dunes", "Rolling hills of fine sand that shift overnight. The wind sculpts new ridges by morning, burying yesterday's tracks."],
+    ["Salt Flats", "A blinding white plain of crusted salt stretching to the horizon. The ground crunches underfoot and nothing survives here long."],
+    ["Glass Desert", "Sand fused into sheets of dark glass by some ancient heat. The surface reflects the sky and cracks like ice underfoot."],
+    ["Oasis", "A patch of green and cool water surrounded by endless sand. Beautiful and inviting, though not everything here is as kind as it seems."],
+    ["Mirage Fields", "The air warps with heat, showing lakes and cities that do not exist. Even your own shadow seems to lie."]
+  ]
+}

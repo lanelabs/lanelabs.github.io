@@ -1,0 +1,26 @@
+{
+  "description": "Wearable items, jewelry, and ceremonial objects.",
+  "items": [
+    ["Amulet", "A protective charm hanging from a chain around the neck."],
+    ["Crown", "A circlet of metal worn on the head as a mark of authority."],
+    ["Cloak", "A sweeping garment that drapes from the shoulders."],
+    ["Ring", "A band of metal worn on the finger, sometimes holding power."],
+    ["Helm", "A metal cap that guards the head in battle."],
+    ["Gauntlet", "An armored glove that protects and empowers the hand."],
+    ["Armor", "Layered plates of metal fitted to protect the body."],
+    ["Boots", "Sturdy footwear that carries the wearer through any terrain."],
+    ["Circlet", "A thin band of metal worn across the brow."],
+    ["Brooch", "An ornamental pin that clasps a cloak or collar."],
+    ["Pendant", "A decorative charm hanging from a chain."],
+    ["Locket", "A small case worn on a chain, holding something precious inside."],
+    ["Diadem", "A jeweled headpiece worn by royalty."],
+    ["Talisman", "A carved figure believed to bring luck or ward off evil."],
+    ["Mantle", "A ceremonial cloak that marks rank or power."],
+    ["Mask", "A covering for the face that hides identity or grants power."],
+    ["Medallion", "A large decorative disc worn on a chain."],
+    ["Crest", "An emblazoned symbol of family or faction."],
+    ["Token", "A small object given as a pledge or proof of identity."],
+    ["Relic", "An ancient object of religious or historical significance."],
+    ["Banner", "A cloth bearing a symbol, carried or displayed with pride."]
+  ]
+}

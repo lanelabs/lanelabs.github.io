@@ -1,0 +1,13 @@
+{
+  "description": "Characters who perform, create art, or entertain others.",
+  "characters": [
+    ["Storyteller", "A captivating voice who spins tales that make people forget the time."],
+    ["Musician", "A gifted player whose melodies can lift spirits or bring tears."],
+    ["Dancer", "A graceful figure who speaks through movement and rhythm."],
+    ["Singer", "A voice that can fill a hall or hush a crowd to silence."],
+    ["Painter", "A color-stained artist who captures the world on canvas."],
+    ["Sculptor", "A patient shaper who finds forms hidden inside stone or clay."],
+    ["Poet", "A word-weaver who distills feelings into verses that linger."],
+    ["Artist", "A creative soul who sees beauty others overlook."]
+  ]
+}

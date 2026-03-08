@@ -1,0 +1,637 @@
+{
+    "description": "Places built by thinking hands but found far from city walls. Farmland, frontier posts, lonely roads, and the quiet structures that hold rural life together.",
+    "locations": [
+        [
+            "Windmill",
+            "Creaking sails turn against a grey sky, grinding grain to dust. The hilltop is bare and wind-scoured, and the miller rarely comes to the door."
+        ],
+        [
+            "Farmstead",
+            "Woodsmoke and fresh-turned earth hang in the morning air. The fields stretch in neat rows, but the dog on the porch watches the treeline, not the road."
+        ],
+        [
+            "Corral",
+            "Dust rises from stamping hooves behind rough-hewn fencing. Sun-cracked saddles hang on the rail. The horses are restless today."
+        ],
+        [
+            "Pasture",
+            "Long grass bends under a slow wind, and grazing animals drift like clouds. A lone tree offers the only shade for acres. Something spooked the herd last night."
+        ],
+        [
+            "Villa",
+            "Lavender and old money on the breeze. Arched windows gleam above groomed gardens, but the servants avoid the east wing and will not say why."
+        ],
+        [
+            "Undertaker's Hut",
+            "Lye and cedar sting the nose. The door is never locked, the lantern never dark. Set apart from everything, this place stays busy in hard seasons."
+        ],
+        [
+            "Barn",
+            "Hay dust floats in slanted light and the stalls creak with shifting weight. Swallows dart through gaps in the boards. Something larger nests in the loft."
+        ],
+        [
+            "Shepherd's Hut",
+            "A stone shelter barely big enough for one, perched on a windswept hillside. The floor is worn smooth from long, watchful nights. The flock knows dangers you don't."
+        ],
+        [
+            "Ranch",
+            "Cattle low at dawn and riders patrol the fence line in pairs. The main house sits low and wide, built for weather. The foreman trusts no strangers."
+        ],
+        [
+            "Plantation",
+            "Rows of crops vanish into the heat-shimmer. Workers bend under a punishing sun while overseers watch from shaded porches. The soil here demands a price."
+        ],
+        [
+            "Outhouse",
+            "Leaning wood and lichen, downwind of everything. Nobody lingers. But someone carved a warning into the inside of the door."
+        ],
+        [
+            "Manor House",
+            "Chimneys rise above the treeline and servants move behind leaded glass. The grounds are manicured, the gates heavy. Visitors are expected to state their business."
+        ],
+        [
+            "Hermitage",
+            "Dried herbs brush your head in the low doorway. Books fill every surface. Whoever lives here chose silence, and the silence chose them back."
+        ],
+        [
+            "Druid Hut",
+            "Living branches form the walls, moss covers the roof, and strange carvings ring the doorway. The forest breathes through this place. It watches you enter."
+        ],
+        [
+            "Dockhouse",
+            "Rope and fish oil soak the air. Nets hang drying on hooks outside, and a small boat bobs at the pilings. The tide line creeps higher each year."
+        ],
+        [
+            "Crossroads",
+            "Two roads meet in open country beside a carved signpost. Travelers pause here to decide. Old stories say bargains are struck at crossroads after dark."
+        ],
+        [
+            "Boundary Markers",
+            "Mossy stones etched with old symbols mark where one claim ends and another begins. Everyone knows what they mean. Crossing them uninvited has consequences."
+        ],
+        [
+            "Mine Entrance",
+            "Cold mineral air breathes from a dark mouth in the hillside. Timber shores up the opening and rail tracks lead inside. The last shift came up short a man."
+        ],
+        [
+            "Wagon Tracks",
+            "Deep ruts scar the earth where countless carts have passed. Grass grows between the grooves. Fresh tracks overlay the old, and some veer sharply off the road."
+        ],
+        [
+            "Dirt Road",
+            "Packed earth, dusty in summer, treacherous in rain. Boot prints and hoof marks overlap in every direction. The road remembers everyone who travels it."
+        ],
+        [
+            "Roadside Inn",
+            "Warm light spills onto the road after dark and the smell of stew reaches the yard. The sign swings in the wind. Not every traveler inside is friendly."
+        ],
+        [
+            "Nomad Caravan",
+            "Painted wagons circled for the night, campfire smoke rising between them. Children run barefoot while elders mend harnesses. They will be gone by morning."
+        ],
+        [
+            "Merchant Caravan",
+            "Heavily loaded carts creak along the trade road, guarded by hired swords. The merchant counts miles and coin alike. Bandits count the guards."
+        ],
+        [
+            "Path",
+            "A narrow way beaten through tall grass by years of walking feet. It follows the shape of the land without hurry. Not all paths lead where you expect."
+        ],
+        [
+            "Trail",
+            "Broken branches and scuffed stones mark the way through wild country. Only those who know the land walk it with confidence. The rest get lost."
+        ],
+        [
+            "Milepost",
+            "A weathered stone pillar carved with distances, moss filling the letters. Travelers rest against it to check their bearings. Someone has scratched a fresh warning below."
+        ],
+        [
+            "Boat House",
+            "Slick planks over dark water, sheltering a vessel or two. Oars lean against the walls and the hull knocks gently at its moorings. The lock has been forced."
+        ],
+        [
+            "Water Mill",
+            "The great wheel churns in the current and the building shudders with each turn. Flour haze fills the air inside. The miller works alone now."
+        ],
+        [
+            "Gristmill",
+            "Heavy stones grind grain in a rhythm that never stops. The building hums with it and the miller's hands are always dusty. The debt collectors come monthly."
+        ],
+        [
+            "Sawmill",
+            "The high whine of the blade carries across the valley. Stacks of fresh-cut lumber line the yard and sawdust coats everything golden. Fingers go missing here."
+        ],
+        [
+            "Lumber Mill",
+            "Logs float downriver to the cutting floor, filling the air with pine sap and sweat. The saws scream from dawn to dusk. The forest shrinks visibly each season."
+        ],
+        [
+            "Blacksmith Shop",
+            "Iron rings on iron and sparks scatter across stone. The heat from the forge reaches the road. Horseshoes hang by the door, but the smith makes blades too."
+        ],
+        [
+            "Forge",
+            "Heat ripples the air and the furnace roars with each bellows stroke. The smith shapes glowing metal in silence. What is being made here is not for sale."
+        ],
+        [
+            "Smokehouse",
+            "Thin blue smoke leaks from every crack in the low stone walls. Meats and fish hang in rows inside, curing slowly. The door is always warm to the touch."
+        ],
+        [
+            "Granary",
+            "A squat building raised on stone pillars to keep the rats out. The heavy door is locked tight and the air inside smells of dry grain. Wars start over less."
+        ],
+        [
+            "Silo",
+            "A tall round tower packed tight with the season's harvest, rising above the farm buildings. Ladders climb the outside. The whole community depends on what is stored here."
+        ],
+        [
+            "Dairy",
+            "Cool stone walls keep the milk fresh and the butter firm. Work starts before dawn, and the scent of cream hangs in the still morning air."
+        ],
+        [
+            "Apiary",
+            "Rows of hives hum with thousands of wings in the warm months. The beekeeper moves among them trailing sweet smoke. Even the bold keep their distance."
+        ],
+        [
+            "Orchard",
+            "Gnarled trees stand heavy with fruit, and fallen apples soften in the grass. The rows stretch on, quiet and shaded. Things hide easily among the branches."
+        ],
+        [
+            "Vineyard",
+            "Neat rows of grapevines climb the sunny hillside on wooden trellises. The soil is sandy and the air smells of ripening fruit. The vintage draws thieves."
+        ],
+        [
+            "Hop Field",
+            "Tall poles strung with twine support climbing vines heavy with papery green cones. The bitter scent thickens at harvest. Workers vanish into the leafy rows."
+        ],
+        [
+            "Wheat Field",
+            "A golden sea of grain ripples under the wind. At harvest the whole community turns out with sickles. Until then, anything could be hiding in those rows."
+        ],
+        [
+            "Cotton Field",
+            "White bolls burst open across low green plants, bright against dark soil. The picking is slow work under a punishing sky. The field stretches further than it should."
+        ],
+        [
+            "Tobacco Field",
+            "Broad leaves grow waist-high in humid air while drying barns nearby hang heavy with golden-brown harvest. The sweet-sharp smell clings to everything and everyone."
+        ],
+        [
+            "Vegetable Garden",
+            "A patchwork of greens and climbing beans fenced against rabbits. Someone tends this daily with care. The soil is rich and dark and worth protecting."
+        ],
+        [
+            "Herb Garden",
+            "Rosemary, thyme, and sage sharpen in the afternoon heat near the kitchen door. Not every plant here is meant for cooking. Some are meant for darker purposes."
+        ],
+        [
+            "Chicken Coop",
+            "Clucking and scratching from a ramshackle hutch, feathers drifting in the breeze. Eggs wait in straw-lined boxes. Something got into the coop last night."
+        ],
+        [
+            "Pig Pen",
+            "The smell announces it long before you see the muddy enclosure. Pigs root and wallow behind sturdy fencing. They will eat anything. Anything at all."
+        ],
+        [
+            "Sheep Fold",
+            "Tufts of wool cling to every rough stone in the low circular wall. The sheep huddle here at night. The fold keeps things out as much as in."
+        ],
+        [
+            "Stable",
+            "Hay and warm horse fill the dim interior. Tack hangs on pegs and a lantern sways from the beam. The best mount here could save your life."
+        ],
+        [
+            "Paddock",
+            "Cropped grass inside a leaning fence where horses stretch their legs between rides. The posts are chewed ragged. One animal watches you with unsettling focus."
+        ],
+        [
+            "Horse Pasture",
+            "Rolling green fields where horses graze at will. The fence line vanishes over the hill, and a water trough sits by the gate. Not all these horses are tame."
+        ],
+        [
+            "Cattle Pen",
+            "Lowing cattle press against heavy timber fencing. The ground is churned to mud and drovers count heads from the rails. The count keeps coming up short."
+        ],
+        [
+            "Goat Pen",
+            "Bells clatter as goats test every weak point in the fence, climbing and chewing. They watch you with those sideways eyes, always scheming."
+        ],
+        [
+            "Fish Pond",
+            "A still green pool fed by a narrow stream, its surface dotted with dragonflies. The water is deeper than it looks, and the biggest fish stay near the bottom."
+        ],
+        [
+            "Hunting Lodge",
+            "Antlers mounted above the door, a wide hearth, and a larder stocked for long stays. The woods press close, and the trophies on the walls have stories."
+        ],
+        [
+            "Ranger Station",
+            "Maps and supplies fill a sturdy outbuilding at the forest edge. Trails radiate outward and boot prints crowd the threshold. The ranger left in a hurry."
+        ],
+        [
+            "Toll Booth",
+            "A chain blocks the road and the collector watches every traveler approach with patient eyes. The fee is negotiable. What happens if you refuse is not."
+        ],
+        [
+            "Customs House",
+            "Wagons line up outside while clerks scratch in ledgers within. Every crate is opened, every sack weighed. Smugglers learn the guards' shift changes by heart."
+        ],
+        [
+            "Checkpoint",
+            "Armed guards and a barricade across the road. Papers and cargo are checked slowly and thoroughly. The wait grows longer as the day wears on."
+        ],
+        [
+            "Waystation",
+            "A shelter, a water trough, and a hitching post, placed a day's ride from the nearest town. Travelers share the fire and the news. Trust is optional."
+        ],
+        [
+            "Trading Post",
+            "Where trails cross and strangers are welcome as long as they have coin. The shelves hold everything from rope to relics. Prices shift with the wind."
+        ],
+        [
+            "Roadhouse",
+            "A rough tavern on a long stretch of empty road, built for travelers who cannot be choosy. The ale is warm and the beds are straw. Beggars and thieves welcome."
+        ],
+        [
+            "Coach House",
+            "A covered yard where stagecoaches rest between runs. Horses are swapped, wheels greased, and passengers stretch stiff legs. Gossip from distant towns arrives with each coach."
+        ],
+        [
+            "Relay Station",
+            "Fresh horses wait and riders exchange messages at speed. The grooms keep animals ready at all hours. Whatever news comes through here, it comes fast."
+        ],
+        [
+            "Post Office",
+            "Cubbyholes stuffed with letters and parcels crowd the small building. The postmaster knows every name in the district and most of their secrets."
+        ],
+        [
+            "Schoolhouse",
+            "Children's voices carry through open windows on warm days. A single room, rows of benches, a slate board. The lessons taught here shape the next generation."
+        ],
+        [
+            "Chapel",
+            "A single bell, a peaked roof, and a door that stands open to anyone. Candles burn low on the altar. Some prayers here are desperate ones."
+        ],
+        [
+            "Shrine",
+            "A stone figure worn smooth by weather and the touch of passing hands. Wildflowers and copper coins pile at its feet. The faithful say it listens."
+        ],
+        [
+            "Monastery",
+            "The bell tolls the hours behind thick walls where robed figures walk in contemplation. The gardens are immaculate. The library holds knowledge others want buried."
+        ],
+        [
+            "Convent",
+            "Soft footsteps and murmured prayers echo behind high walls. The gardens are lush and the silence runs deep. The sisters keep secrets as well as vows."
+        ],
+        [
+            "Abbey",
+            "Grand stone walls surrounded by orchards tended by the faithful. The library holds centuries of careful handwriting on vellum. Some pages are kept under lock."
+        ],
+        [
+            "Cemetery",
+            "Iron gates open to rows of weathered headstones among untrimmed grass. Old names fade on the stones. The ground at the back has been freshly turned."
+        ],
+        [
+            "Graveyard",
+            "Wooden markers lean with age beside the chapel, and wildflowers grow between the plots. The village buries its own here. Not all of them stay buried."
+        ],
+        [
+            "Mausoleum",
+            "Cold stone sealed against time, housing the honored dead. Carved names ring the entrance. The door was built to keep the living out, or something in."
+        ],
+        [
+            "Crypt",
+            "Steps descend into cool darkness beneath the chapel. Stone coffins line the walls. The silence down here is older than anyone alive and heavier than the stone."
+        ],
+        [
+            "Watchtower",
+            "A tall stone column above the trees, manned day and night. The view reaches miles in every direction. The watchers have been lighting extra fires lately."
+        ],
+        [
+            "Signal Tower",
+            "A high platform built to relay fire across great distances. The woodpile at the top is always dry and ready. Lighting it means something terrible is coming."
+        ],
+        [
+            "Lighthouse",
+            "A beam sweeps the dark water in a slow circle from the rocky shore. The keeper climbs the spiral stairs each evening. Ships still wreck here."
+        ],
+        [
+            "Beacon",
+            "Pitch-soaked wood piled on a hilltop, ready to burn at the first sign of trouble. Someone watches nearby, waiting and hoping it stays cold."
+        ],
+        [
+            "Guard Post",
+            "A small fortified position where soldiers keep watch over a road or crossing. The routine is dull. Dull guards make careless guards."
+        ],
+        [
+            "Outpost",
+            "A remote station at the edge of settled land where a handful of soldiers watch the wilderness. Supply wagons arrive less often than promised. Morale is thin."
+        ],
+        [
+            "Frontier Fort",
+            "Sharpened logs form a palisade around barracks and a muddy yard. The soldiers are far from home and know it. The frontier pushes back."
+        ],
+        [
+            "Palisade",
+            "Thick wooden stakes driven into the earth encircle a small settlement. The gates close at dusk and sentries walk the perimeter. Something tests the walls at night."
+        ],
+        [
+            "Stockade",
+            "Heavy timbers thrown up fast against an immediate threat. The space inside is cramped and supplies are rationed. Whatever is out there has not left."
+        ],
+        [
+            "Cottage",
+            "Thatched roof, low garden wall, smoke from the chimney. A cat watches from the windowsill. The warmth inside feels earned and easily lost."
+        ],
+        [
+            "Cabin",
+            "Hand-built and chinked with clay, standing alone in the woods. Firewood stacked high against the wall. The door is sturdy for a reason."
+        ],
+        [
+            "Log Cabin",
+            "Rough-hewn logs notched tight against the cold. A single room warmed by a stone hearth and lit by tallow candles. The nearest neighbor is a day's walk."
+        ],
+        [
+            "Stone Cottage",
+            "Fieldstone walls hold the weather out and the warmth in. Lichen creeps over the lintels. Whoever built this meant it to outlast them."
+        ],
+        [
+            "Thatched Hut",
+            "A round dwelling of woven sticks and bundled straw, low to the ground. The packed-earth floor is swept clean. Simple does not mean undefended."
+        ],
+        [
+            "Homestead",
+            "Outbuildings, fences, and a well-worn path between them. Everything here was built by the people who live in it. They protect what is theirs."
+        ],
+        [
+            "Estate",
+            "Gardens, stables, and tenant farms spread across the valley. The family name is carved into the gate and known for miles. Power has a mailing address."
+        ],
+        [
+            "Country House",
+            "A handsome house among rolling grounds where someone of means escapes the city. The rooms are large and the staff discreet. Secrets are the real crop here."
+        ],
+        [
+            "Hunting Cabin",
+            "Pelts on the walls and a skinning rack outside. The shelter is rough and stocked with traps and dried meat. The owner knows these woods like a predator."
+        ],
+        [
+            "Fisherman's Hut",
+            "Salt and brine soak into everything. Nets drape the walls and a skiff rests on shore. The tide marks climb higher each season."
+        ],
+        [
+            "Woodcutter's Cabin",
+            "Stumps and stacked cordwood surround a small home where the forest thins. An axe rests in the chopping block. The woodcutter has not been seen in days."
+        ],
+        [
+            "Charcoal Burner's Hut",
+            "Everything is stained black near the smoldering mound of earth-covered wood. The smoke never clears. The burner's eyes are the only bright thing here."
+        ],
+        [
+            "Quarry",
+            "Chisels ring off exposed rock faces in a great wound cut into the hillside. Stone has been carved away in blocks. The pit goes deeper than planned."
+        ],
+        [
+            "Stone Quarry",
+            "Terraced walls of pale stone descend into a wide pit. Dust hangs like dry fog. Workers pry slabs free, and the quarry swallows sound."
+        ],
+        [
+            "Clay Pit",
+            "Reddish earth squelches underfoot in a muddy depression. Workers dig by the cartload. Everything nearby is smeared with clay, including the line between yours and theirs."
+        ],
+        [
+            "Brick Kiln",
+            "A squat beehive of baked clay radiates heat, stacked with drying bricks. Workers' faces glow red in the firelight. The kiln never cools down."
+        ],
+        [
+            "Lime Kiln",
+            "Acrid white smoke rises from a stone furnace burning chalky rock to powder. The ground around it is bleached pale. Breathe shallow near the kiln."
+        ],
+        [
+            "Pottery Workshop",
+            "Shelves of drying bowls crowd every surface and the wheel turns with a steady hum. The potter's hands are caked with slip. Commissions arrive from far away."
+        ],
+        [
+            "Tannery",
+            "The stench hits first, sharp and sour. Hides stretch on frames and vats of dark liquid steam in the open air. No one visits without a reason."
+        ],
+        [
+            "Brewery",
+            "Rich malt and hops thicken the air. Barrels line the walls and fermentation bubbles in the dark. The brewer guards the recipe like a state secret."
+        ],
+        [
+            "Distillery",
+            "Copper coils and glass vessels crowd a warm room smelling of grain and alcohol. The still drips slowly. The master tastes each batch and trusts no one else to."
+        ],
+        [
+            "Cider Mill",
+            "Bruised apples fill the press and golden juice runs into waiting barrels. The air is sweet and sharp with fermentation. The strongest batch is kept out of sight."
+        ],
+        [
+            "Oil Press",
+            "A heavy stone wheel crushes olives into fragrant paste. The press groans with each turn and oil trickles into clay jars. Liquid gold, if you know the buyer."
+        ],
+        [
+            "Well",
+            "Cold clear water drawn up from deep underground through a circle of stacked stones. The bucket swings on a rope. Wells like this are worth killing for in dry country."
+        ],
+        [
+            "Pump House",
+            "A hand-cranked pump squeaks with each stroke, drawing water from deep below. The trough overflows and the ground turns to mud. The mechanism needs constant upkeep."
+        ],
+        [
+            "Aqueduct",
+            "Stone arches march across the valley carrying water from distant hills. A feat of old engineering, steady and cool. Whoever built this is long gone but the water flows."
+        ],
+        [
+            "Ford Crossing",
+            "Ankle-deep water over firm ground in summer. Spring melt changes everything. Carts have been swept downstream here, and not all the drivers made it to shore."
+        ],
+        [
+            "Ferry Crossing",
+            "A flat barge on a taut rope, poled across by steady arms. The ferryman charges by the head and the load. He has heard every story and believes none."
+        ],
+        [
+            "Dock",
+            "Weathered pilings and boats tied alongside, planks slick with spray. The water laps beneath with a hollow sound. Cargo arrives here that never appears on any manifest."
+        ],
+        [
+            "Wharf",
+            "Barrels roll across busy boards and gulls fight over scraps. A long platform extending over the water, loud with commerce. Deals are struck in the open and in shadow."
+        ],
+        [
+            "Pier",
+            "A narrow walkway over the water where boats moor at the end. Fishermen sit along its length with lines in the current. Patient people hear useful things here."
+        ],
+        [
+            "Jetty",
+            "A tumble of rocks and timbers jutting into the water, breaking the current. Small boats shelter in its lee. The stones shift in heavy storms."
+        ],
+        [
+            "Landing",
+            "A cleared spot on the riverbank where hulls drag across gravel. The mud is scuffed and boot-printed. What comes ashore here does not always go through customs."
+        ],
+        [
+            "Market Square",
+            "Stalls go up at dawn and come down at dusk in an open clearing where farmers and traders gather. The haggling carries far. So do the pickpockets."
+        ],
+        [
+            "Fairgrounds",
+            "A broad field trampled flat by festivals, with posts for tents standing year-round. The ground remembers every gathering. Between fairs, the empty field feels watchful."
+        ],
+        [
+            "Pilgrimage Site",
+            "Tokens and prayers pile around a worn central stone where the faithful arrive footsore and reverent. Old events made this place sacred. The devoted believe it still is."
+        ],
+        [
+            "Rest Stop",
+            "A fire ring and a lean-to beside the road. Travelers pause here to eat and sleep. The ashes are warm, so someone left recently. Check the treeline."
+        ],
+        [
+            "Campsite",
+            "Blackened stones and trampled grass in a clearing. Someone left dry wood and the ashes are still warm. Convenient, unless it was left as bait."
+        ],
+        [
+            "Bandit Hideout",
+            "A concealed camp in the rocks, watched by sharp-eyed lookouts. Stolen goods are stacked under oilcloth and the horses kept quiet. You were not meant to find this."
+        ],
+        [
+            "Smuggler's Cave",
+            "A hidden hollow where contraband waits between runs. The entrance is concealed and only a few know the way. The goods here belong to dangerous people."
+        ],
+        [
+            "Abandoned Farmhouse",
+            "The roof sags and weeds choke the yard. The well still holds water and the walls still hold the wind. Something drove the family out fast."
+        ],
+        [
+            "Ruined Cottage",
+            "Only stone walls remain, open to the sky. Ivy crawls through empty windows and the hearth stands cold in the rubble. Someone has been sleeping here recently."
+        ],
+        [
+            "Old Mill Ruins",
+            "The wheel has stopped and the channel silted over. The building leans dangerously, but the grinding stones inside are intact. So is whatever moved in after."
+        ],
+        [
+            "Collapsed Barn",
+            "Rotting timbers and rusted iron in an overgrown field. Something once thrived here. The land is taking it back, but the cellar beneath is still accessible."
+        ],
+        [
+            "Stone Road",
+            "Flat slabs laid arrow-straight across the landscape, built by an empire that no longer exists. Grass pushes through the joints, but the surface still holds."
+        ],
+        [
+            "Wagon Station",
+            "A fenced yard with sheltered space for carts and draft animals. Wheelwrights and farriers keep the trade roads moving. Information passes through here as fast as cargo."
+        ],
+        [
+            "Smuggler Tunnel",
+            "A narrow passage shored up with stolen timber, dug beneath a road or border. Candle stubs mark the turns. The air is close and the exit is not guaranteed."
+        ],
+        [
+            "Parsonage",
+            "A modest house beside the chapel with a tidy garden and full bookshelves. The kettle is always warm. The cleric hears confessions and remembers every one."
+        ],
+        [
+            "Necromancer's Crypt",
+            "Cold steps descend into a chamber smelling of old wax and turned earth. Strange symbols are scratched into the walls. The silence here feels deliberate and hungry."
+        ],
+        [
+            "Thoroughfare",
+            "A wide busy road connecting major settlements, packed with foot traffic and carts. Inns and stalls cluster along its length. Easy to follow someone here. Easy to be followed."
+        ],
+        [
+            "Hidden Path",
+            "A faint trail concealed by undergrowth, known only to locals. It leads somewhere others are not meant to find. The branches close behind you as you walk."
+        ],
+        [
+            "Miller's House",
+            "Flour dust coats the walls of this solid home beside the mill. The family lives to the rhythm of the grinding stones. They hear everything that passes on the road."
+        ],
+        [
+            "Signpost",
+            "Carved directions point to distant towns from a wooden post at the junction. Birds perch on top, indifferent. Someone has added a new destination in fresh paint."
+        ],
+        [
+            "Tavern",
+            "The door is always open and laughter carries outside. The ale is local, the food simple, and every stranger has a story. Not all of them are true."
+        ],
+        [
+            "Major Paved Road",
+            "Fitted stone broad enough for armies, with milestones marking the distances. Patrols pass regularly. The road is safe, which makes it predictable, which makes it dangerous."
+        ],
+        [
+            "Waterway Lock",
+            "Heavy wooden gates hold back the water while a vessel rises to the next level. The lockkeeper cranks the iron mechanism. Control the locks and you control the river."
+        ],
+        [
+            "Irrigation Ditch",
+            "A narrow channel directing water from stream to field. The muddy banks are carefully maintained and small gates control the flow. Sabotage a ditch and you starve a village."
+        ],
+        [
+            "Imperial Canal",
+            "A wide straight waterway dug by order and labor on a grand scale. Barges drift along its length. What the empire built, others now fight to control."
+        ],
+        [
+            "Horse Trader",
+            "A fenced yard of animals for sale where a shrewd dealer sizes up every buyer. The horses are brushed and shown at their best. Buyer beware."
+        ],
+        [
+            "Herbalist's Hut",
+            "Dried plants hang from every rafter and competing scents thicken the air. The herbalist knows what cures and what kills. The difference is often just the dose."
+        ],
+        [
+            "Wizard's Tower",
+            "Strange light flickers in the upper windows of a solitary spire above the treeline. The locals give it a wide berth after dark. They are right to."
+        ],
+        [
+            "Pit",
+            "A deep hole in the ground with crumbling edges and a bottom lost in shadow. Whether dug by hand or left by collapse, something is down there."
+        ],
+        [
+            "Tomb Entrance",
+            "A stone doorway half-buried in the hillside, its frame carved beyond reading. The air from within is stale and cold. The seal has been broken recently."
+        ],
+        [
+            "Thieves' Hideout",
+            "A hidden shelter behind a false wall, stocked with stolen goods and escape routes. The lookout changes every few hours. You were not supposed to see this."
+        ],
+        [
+            "Rail Line",
+            "Iron tracks cut straight across the countryside on wooden ties. The ground trembles when a hauling cart passes. Workers maintain it daily. The line is someone's lifeline."
+        ],
+        [
+            "Minor Road",
+            "A narrow unpaved track connecting smaller settlements. Weeds crowd the edges and travelers are few, making every encounter out here notable and worth remembering."
+        ],
+        [
+            "Garden",
+            "Neat rows of flowers and herbs behind a low wall. Butterflies drift between blooms, and the soil is dark with careful tending."
+        ],
+        [
+            "Marketplace",
+            "Stalls go up at dawn and voices rise with the sun. The air smells of bread and fruit and dust, and everyone has something to sell."
+        ],
+        [
+            "Village Square",
+            "An open space at the heart of things where paths meet and news spreads. A fountain or well stands at the center, worn smooth by generations."
+        ],
+        [
+            "Farmhouse",
+            "Stone walls and a smoking chimney at the end of a dirt track. The garden is fenced, the dog is watchful, and the door opens slowly."
+        ],
+        [
+            "Clocktower",
+            "The tallest thing in town, its face visible from every street. The mechanism ticks behind stone walls, and the bell marks the hours for everyone."
+        ],
+        [
+            "Mill",
+            "Heavy stones grind in a building that shudders with every turn. Flour dust hangs in the air, and the waterwheel or windmill never rests."
+        ],
+        [
+            "Inn",
+            "Warm light and the smell of stew spill from the doorway. The rooms are small, the beds are straw, and the stories at the bar are free."
+        ]
+    ]
+}

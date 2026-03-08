@@ -1,0 +1,13 @@
+{
+  "description": "Modern-world professions and character types.",
+  "characters": [
+    ["Doctor", "A dedicated healer who diagnoses illness and mends the body."],
+    ["Firefighter", "A brave first responder who rushes toward danger to save lives."],
+    ["Programmer", "A code-writing problem-solver who builds things in the digital world."],
+    ["Chef", "A culinary artist who transforms ingredients into memorable meals."],
+    ["Journalist", "A truth-seeking reporter who chases stories wherever they lead."],
+    ["Athlete", "A disciplined competitor who pushes the limits of physical ability."],
+    ["Detective", "A sharp-minded investigator who follows clues to uncover the truth."],
+    ["Architect", "A visionary designer who shapes the buildings people live in."]
+  ]
+}

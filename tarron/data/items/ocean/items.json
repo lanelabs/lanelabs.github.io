@@ -1,0 +1,26 @@
+{
+  "description": "Items from ocean and coastal settings.",
+  "items": [
+    ["Shell", "A spiraling calcium home left behind by a sea creature."],
+    ["Trident", "A three-pronged spear of the deep, fit for a sea ruler."],
+    ["Coral", "A branching growth from the reef, hard and colorful."],
+    ["Pearl", "A luminous sphere grown inside an oyster over years."],
+    ["Conch", "A large spiral shell that bellows when blown."],
+    ["Sea Glass", "A smooth, frosted shard polished by years of tumbling waves."],
+    ["Anchor", "A heavy hooked weight that holds a vessel in place."],
+    ["Barnacle", "A crusty growth that clings to rocks and hulls."],
+    ["Sand Dollar", "A flat, round shell etched with a star pattern."],
+    ["Driftwood", "A sun-bleached piece of wood shaped by the sea."],
+    ["Anemone", "A flowering sea creature with waving tentacles."],
+    ["Kelp Rope", "A braided line of dried seaweed, tough and flexible."],
+    ["Harpoon", "A barbed spear on a line, thrown at large sea creatures."],
+    ["Net", "A mesh of knotted cord for catching fish."],
+    ["Buoy", "A floating marker that bobs on the surface."],
+    ["Oar", "A flat-bladed pole for rowing a boat."],
+    ["Spyglass", "A tube of lenses for spotting ships and land on the horizon."],
+    ["Treasure Chest", "A salt-stained box rumored to hold sunken riches."],
+    ["Sextant", "A navigation tool that measures the angle of stars."],
+    ["Sail", "A wide sheet of cloth that catches the wind."],
+    ["Figurehead", "A carved figure mounted on a ship's prow for luck."]
+  ]
+}

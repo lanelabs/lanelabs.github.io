@@ -1,0 +1,15 @@
+{
+  "description": "Cooked meals and hearty dishes common across most settings.",
+  "foods": [
+    ["Stew", "A thick bubbling pot of whatever was on hand, the kind of meal that fixes most problems."],
+    ["Soup", "Thin and hot and honest, served in deep bowls that warm your hands before your stomach."],
+    ["Roast", "Slow-cooked until the meat falls apart at a look, filling the room with a smell that draws everyone in."],
+    ["Meat Pie", "A golden-topped pie with steam escaping from a slit in the crust, hiding something rich underneath."],
+    ["Fried Fish", "Crisp on the outside and flaky within, eaten with fingers and best near the water where it was caught."],
+    ["Grilled Skewer", "Chunks of meat and vegetables threaded on a stick and charred over open flame until the edges blacken."],
+    ["Stuffed Pepper", "A bright pepper hollowed out and packed with seasoned grain and herbs, roasted until it softens."],
+    ["Bean Stew", "Humble and thick, flavored with whatever herbs grew nearby, the meal of people who waste nothing."],
+    ["Savory Pancake", "A thin crispy cake folded around fillings, eaten standing up at market stalls."],
+    ["Pot Roast", "Cooked low and slow in a covered pot until the vegetables dissolve into the sauce."]
+  ]
+}

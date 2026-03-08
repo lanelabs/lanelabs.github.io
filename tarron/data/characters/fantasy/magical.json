@@ -1,0 +1,22 @@
+{
+  "description": "Characters who wield or study magic.",
+  "characters": [
+    ["Wizard", "A learned spellcaster who bends reality through study and will."],
+    ["Witch", "A practitioner of old magic, feared and respected in equal measure."],
+    ["Sorcerer", "A wielder of raw magical power drawn from within."],
+    ["Enchantress", "A spellweaver whose magic charms and beguiles."],
+    ["Druid", "A keeper of nature's balance who draws power from the living world."],
+    ["Alchemist", "A bubbling-flask experimenter who transforms one substance into another."],
+    ["Warlock", "A spellcaster who draws power from a pact with something greater."],
+    ["Seer", "A visionary who glimpses what has not yet come to pass."],
+    ["Shaman", "A spirit-speaker who bridges the seen and unseen worlds."],
+    ["Enchanter", "A craftsperson who weaves magic into objects and places."],
+    ["Summoner", "A caller of creatures from other planes and realms."],
+    ["Illusionist", "A trickster who makes the unreal seem perfectly real."],
+    ["Conjurer", "A spellcaster who pulls something from nothing."],
+    ["Runesmith", "A carver of magical symbols that hold power in their lines."],
+    ["Diviner", "A reader of signs, stars, and hidden patterns."],
+    ["Herbalist", "A gatherer and mixer of plants with hidden properties."],
+    ["Apothecary", "A maker of remedies, tonics, and subtle poisons."]
+  ]
+}

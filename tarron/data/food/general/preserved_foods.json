@@ -1,0 +1,13 @@
+{
+  "description": "Preserved, dried, and stored foods good for travel and long keeping.",
+  "foods": [
+    ["Jerky", "Tough strips of dried meat that take forever to chew and taste like campfire smoke and salt."],
+    ["Pickles", "Crunchy and sour and impossible to eat quietly, pulled dripping from a jar."],
+    ["Jam", "Thick and sweet and jewel-colored, spread on anything that holds still long enough."],
+    ["Dried Fruit", "Chewy and shriveled and sweeter than the fresh kind, perfect for pockets and long walks."],
+    ["Honey", "Golden and slow, stolen from bees who haven't forgiven anyone yet."],
+    ["Cheese", "A wedge of something sharp and crumbly, wrapped in cloth and carried until the edges go soft."],
+    ["Smoked Fish", "Salt-cured and smoke-dried until it turns the color of dark wood, flaking apart in thin sheets."],
+    ["Salted Nuts", "Roasted and salted and eaten by the handful, the sound of crunching giving away anyone who tries to sneak them."]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "description": "Plants and plant-like organisms found in ocean and coastal environments.",
+  "plants": [
+    ["Giant Kelp", "A towering underwater forest swaying with the current, its fronds reaching from the seafloor to the surface."],
+    ["Coral", "A living reef built by tiny creatures over centuries, forming an underwater city of color and texture."],
+    ["Sea Grass", "Long green blades carpeting the sandy bottom, sheltering seahorses and small fish in their gentle sway."],
+    ["Mangrove", "A tree walking into the sea on stilted roots, its tangled legs trapping sediment and sheltering young fish."],
+    ["Tide Pool Algae", "Green and red films coating rocks exposed at low tide, slick underfoot and teeming with tiny life."],
+    ["Dune Grass", "Tough wiry stalks binding shifting sand together, holding the coastline in place through every storm."],
+    ["Sargassum", "Floating mats of golden-brown seaweed drifting on the open ocean, a world unto themselves."],
+    ["Sea Lettuce", "Thin translucent sheets of bright green waving in shallow water, delicate as wet paper."],
+    ["Deep Sea Tube Worm Garden", "Clusters of tall white tubes swaying near volcanic vents, thriving in absolute darkness on chemical heat."],
+    ["Bioluminescent Plankton", "Microscopic organisms that light up the water with blue-green fire when disturbed, turning waves into liquid light."],
+    ["Salt Marsh Cordgrass", "Dense stands of tough grass in brackish water, the quiet border between land and sea."],
+    ["Coconut Palm", "A tall palm leaning over the shore, dropping its heavy fruit into the surf to drift to new islands."]
+  ]
+}

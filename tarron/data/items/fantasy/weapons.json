@@ -1,0 +1,24 @@
+{
+  "description": "Weapons specific to fantasy settings.",
+  "items": [
+    ["Sword", "A keen-edged blade balanced for cutting and thrusting."],
+    ["Dagger", "A short, sharp blade made for close work."],
+    ["Shield", "A broad guard of wood and metal carried on the arm."],
+    ["Bow", "A curved stave strung with sinew that launches arrows."],
+    ["Spear", "A long shaft tipped with a sharp point."],
+    ["Axe", "A heavy head on a stout handle made for chopping."],
+    ["Hammer", "A blunt weapon that delivers crushing blows."],
+    ["Arrow", "A feathered shaft with a sharp point."],
+    ["Trident", "A three-pronged spear forged for fighting on sea or land."],
+    ["Scimitar", "A curved blade designed for slashing from horseback."],
+    ["Rapier", "A thin, elegant blade built for precise thrusting."],
+    ["Katana", "A gently curved sword of folded steel and razor edge."],
+    ["Cutlass", "A short, heavy blade favored by sailors and pirates."],
+    ["Mace", "A flanged metal head on a handle, made to crush armor."],
+    ["Lance", "A long weapon designed for charging on horseback."],
+    ["Flail", "A spiked ball on a chain, swung in devastating arcs."],
+    ["Crossbow", "A mechanical bow mounted on a stock, easy to aim."],
+    ["Whip", "A long, flexible strip of leather that cracks through the air."],
+    ["Harpoon", "A barbed spear attached to a line, thrown at sea creatures."]
+  ]
+}

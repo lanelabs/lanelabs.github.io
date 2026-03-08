@@ -1,0 +1,9 @@
+{
+  "description": "Characters who work in homes, kitchens, and gardens.",
+  "characters": [
+    ["Cook", "A flavor-chasing kitchen master who feeds everyone around them."],
+    ["Baker", "An early riser whose hands are always dusted with flour."],
+    ["Gardener", "A green-thumbed caretaker who coaxes life from the soil."],
+    ["Brewer", "A patient craftsperson who transforms grain and water into drink."]
+  ]
+}

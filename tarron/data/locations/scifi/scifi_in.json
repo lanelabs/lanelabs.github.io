@@ -1,0 +1,81 @@
+{
+    "description": "Stations, ships, and strange frontiers where technology shapes every horizon.",
+    "locations": [
+        [
+            "Space Station",
+            "Metal corridors hum with recycled air and the soft glow of status panels. Outside the viewport, stars drift in silence that never ends."
+        ],
+        [
+            "Starship",
+            "The bridge stretches wide beneath a canopy of stars. Engines thrum through the deck plates, and every corridor leads somewhere new."
+        ],
+        [
+            "Moon Base",
+            "Low ceilings and filtered light beneath a sky that never changes. Footprints in the dust outside last forever, and the Earth hangs like a blue marble."
+        ],
+        [
+            "Mars Colony",
+            "Red dust coats every surface outside the pressurized domes. The sky is a thin pink, and the silence between buildings is alien and vast."
+        ],
+        [
+            "Cyber City",
+            "Neon signs flicker in a dozen languages above crowded streets. Data streams flow like rivers overhead, and the city never sleeps."
+        ],
+        [
+            "Orbital Lab",
+            "Weightlessness makes everything float, including the experiments. The view through the porthole rotates slowly between ocean, cloud, and starfield."
+        ],
+        [
+            "Wormhole",
+            "Space folds and light bends in spirals that make the eyes water. The passage between here and there takes a heartbeat and feels like forever."
+        ],
+        [
+            "Quantum Realm",
+            "Scale collapses. Particles shimmer in and out of existence, and the rules of the world above simply stop applying."
+        ],
+        [
+            "Colony Ship",
+            "Generations have lived and died aboard this vessel, crossing the dark between stars. The destination is a promise no one alive remembers making."
+        ],
+        [
+            "Cryovault",
+            "Rows of frosted pods line a corridor kept just above absolute zero. The sleepers inside dream slowly, if they dream at all."
+        ],
+        [
+            "Spaceport",
+            "Ships of every shape crowd the landing pads, and the air smells of fuel and foreign atmospheres. Travelers from a dozen worlds pass without a glance."
+        ],
+        [
+            "Abandoned Outpost",
+            "Dust coats the consoles and the lights flicker on emergency power. The last log entry ended mid-sentence. Something made the crew leave fast."
+        ],
+        [
+            "Cargo Bay",
+            "Crates stamped with colony codes stack floor to ceiling. The bay doors open onto vacuum, and the magnetic clamps hum with quiet tension."
+        ],
+        [
+            "Control Room",
+            "Screens line every wall, casting blue light across intent faces. Every switch matters, and the readouts change faster than anyone can track."
+        ],
+        [
+            "Terraformed World",
+            "The sky is almost the right color, and the trees grow in patterns that feel just slightly off. This world was shaped by hand, and it remembers."
+        ],
+        [
+            "Virtual Reality",
+            "The world renders around you in perfect detail, but the edges shimmer if you look too long. Nothing here can hurt you. Probably."
+        ],
+        [
+            "Junkyard",
+            "Scrapped ships and broken machines pile in rusting mountains under an open sky. Parts from a hundred worlds lie scattered, waiting to be useful again."
+        ],
+        [
+            "Quarantine Zone",
+            "Warning lights pulse along sealed corridors. The air is filtered twice, and the hazmat suits hanging by the door are not optional."
+        ],
+        [
+            "Space Elevator",
+            "A cable stretches from the ground to the sky and beyond, impossibly thin and impossibly strong. The car climbs in silence as the horizon curves."
+        ]
+    ]
+}

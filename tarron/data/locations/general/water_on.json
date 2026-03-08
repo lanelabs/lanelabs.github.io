@@ -1,0 +1,37 @@
+{
+    "description": "Rivers, lakes, seas, and frozen waters. Places where currents pull, depths hide old secrets, and the surface never tells the whole story.",
+    "locations": [
+        [
+            "Island",
+            "A low green shape on the horizon, ringed in white surf. Birds wheel above its treeline. No smoke, no docks, no sign anyone has been here before."
+        ],
+        [
+            "Sandbar",
+            "A pale ridge of sand barely breaks the surface, exposed only at low tide. The water on both sides is deeper than it looks. A temporary place that the sea will erase."
+        ],
+        [
+            "Atoll",
+            "A ring of coral and sand circles a shallow lagoon, barely above the waves. Palm trees lean in the wind. The nearest land is a memory on the horizon."
+        ],
+        [
+            "Sea Stack",
+            "A pillar of stone stands alone in the surf, severed from the cliff by centuries of waves. Birds nest on its flat top. The climb is sheer and the rock is wet."
+        ],
+        [
+            "Iceberg",
+            "A mountain of blue-white ice drifts in the open water, most of its mass hidden below. It groans and cracks as it moves. The water around it is deathly cold."
+        ],
+        [
+            "Ice Shelf",
+            "A vast platform of ice extends from the shore over deep water, creaking with every swell. Cracks web across its surface. The edge drops straight into black ocean."
+        ],
+        [
+            "Ice Floe",
+            "A flat slab of ice drifts on the current, rocking gently. It is large enough to stand on but not to trust. The water between the floes is dark and freezing."
+        ],
+        [
+            "Island",
+            "A low green shape on the horizon, ringed in white surf. Birds wheel above its treeline, and no sign anyone has been here before."
+        ]
+    ]
+}

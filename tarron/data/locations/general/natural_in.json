@@ -1,0 +1,545 @@
+{
+    "description": "natural locations are places that are part of the natural world, without specific magical or supernatural elements or created by sapient beings. These should be single locations, not biomes, something an adventuring party would encounter in the wild that they could investigate to find dangers or opportunities.",
+    "locations": [
+        [
+            "Volcano",
+            "The mountain breathes. Ash drifts like snow, the ground trembles underfoot, and the air tastes of sulfur and the end of things."
+        ],
+        [
+            "Spider Nest",
+            "Silk threads catch the light between the trees. The webs grow thicker the deeper you go. Something large is patient here."
+        ],
+        [
+            "Animal Den",
+            "Claw marks score the rock around the entrance, and the smell of musk rolls out in waves. Whatever lives here is not far."
+        ],
+        [
+            "Beast Lair",
+            "Bones litter the ground outside a dark overhang. The stench of old meat hangs in the still air, and something growls from within."
+        ],
+        [
+            "Monster Den",
+            "The earth is torn apart around a cavern mouth too large for anything natural. Whatever gouged these marks did it recently."
+        ],
+        [
+            "Flame Vents",
+            "Fire hisses from cracks in the scorched earth. The heat blisters skin from ten paces, and the ground could give way at any step."
+        ],
+        [
+            "Oasis",
+            "Cool water in the killing heat. Palm shade and birdsong where nothing should survive. Not every gift in the desert is what it seems."
+        ],
+        [
+            "Mud Volcano",
+            "Hot gray mud bubbles and belches from a low mound, spattering the surrounding rocks. The sulfur stink is thick enough to taste."
+        ],
+        [
+            "Ravine",
+            "The ground splits open without warning. Loose stones tumble into shadow far below, and the only way forward is down or across."
+        ],
+        [
+            "Deer Trail",
+            "A narrow path worn into the hillside by generations of hooves. It winds through dense brush toward water, quiet and well-traveled."
+        ],
+        [
+            "Meadow",
+            "Tall grass ripples in the wind under open sky. It looks peaceful, but the grass is high enough to hide anything crouching within it."
+        ],
+        [
+            "Mangroves",
+            "Twisted roots rise from brackish water, forming a tangled maze at the waterline. The mud sucks at your boots and the insects never stop."
+        ],
+        [
+            "Geothermal Vents",
+            "Steam rises from fissures in mineral-stained rock. The ground is warm, the pools are boiling, and the colors are beautiful and toxic."
+        ],
+        [
+            "Geysers",
+            "The earth hisses and spits columns of scalding water on no schedule you can predict. The ground between eruptions is treacherously thin."
+        ],
+        [
+            "Lava Fields",
+            "Black rock stretches in every direction, sharp enough to shred leather. Heat still radiates from beneath the crust, and cracks glow red at night."
+        ],
+        [
+            "Hive",
+            "A low, resonant hum fills the air before you see the structure. Thousands of insects crawl across a mound of waxy comb the size of a house."
+        ],
+        [
+            "Craters",
+            "Circular depressions scar the landscape like old wounds. The soil at the bottom is different, darker, and nothing grows in the deepest parts."
+        ],
+        [
+            "Caldera",
+            "A vast bowl where a mountain used to be. The walls are sheer, the floor is flat and eerily still, and steam leaks from a dozen cracks."
+        ],
+        [
+            "Sinkhole",
+            "The ground simply vanished here, leaving a gaping pit with sheer walls. Roots dangle into darkness, and the bottom is lost to shadow."
+        ],
+        [
+            "Gorge",
+            "A deep gash in the earth where a river carved through stone over ages. The walls are slick, the echoes strange, and the water fast."
+        ],
+        [
+            "Canyon",
+            "Towering walls of layered stone rise on either side, narrowing the sky to a ribbon. Sound carries far, and there is nowhere to hide."
+        ],
+        [
+            "Boulder Field",
+            "Massive stones lie scattered like a giant's abandoned game. The footing is treacherous, and the gaps between rocks could hide anything."
+        ],
+        [
+            "Scree Slope",
+            "A steep hillside of loose, broken stone that shifts underfoot with every step. One wrong move sends a cascade of rock tumbling down."
+        ],
+        [
+            "Crevasse",
+            "A crack in the ice or stone, narrow at the top and widening into nothing below. Snow or moss hides the edge until you're on it."
+        ],
+        [
+            "Fissure",
+            "The rock split clean, leaving a gap just wide enough to slip through. Cool air rises from below, carrying a smell like wet stone."
+        ],
+        [
+            "Landslide",
+            "A hillside gave way here, leaving a raw scar of exposed earth and toppled trees. The ground is still settling, and it groans at night."
+        ],
+        [
+            "Talus Pile",
+            "Broken rock heaps at the base of a cliff, sharp-edged and unstable. Scrambling over it is slow work, and the stones shift without warning."
+        ],
+        [
+            "Salt Flats",
+            "A blinding white expanse stretches under a merciless sun. The cracked surface crunches underfoot, and nothing lives here but the heat."
+        ],
+        [
+            "Tar Pits",
+            "Black pools of sticky pitch bubble lazily in the sun. Bones poke from the surface, preserved for ages. The smell is sharp and old."
+        ],
+        [
+            "Quicksand",
+            "The ground looks solid until you're already sinking. By the time you notice, the earth has you by the ankles and doesn't let go."
+        ],
+        [
+            "Bog",
+            "Dark water seeps through carpets of sphagnum moss. The ground gives way with each step, and the mist never fully lifts here."
+        ],
+        [
+            "Fen",
+            "Reeds and sedge grass grow thick in the shallow, mineral-rich water. The footing is uncertain, and strange lights flicker at dusk."
+        ],
+        [
+            "Ancient Tree",
+            "Its trunk is wider than a house, its bark furrowed deep as valleys. The canopy blocks all sky, and the roots have swallowed boulders whole."
+        ],
+        [
+            "Hollow Tree",
+            "A massive trunk, dead and standing, with an opening at its base large enough to enter. Inside smells of rot, rain, and something that nests here."
+        ],
+        [
+            "Fallen Log",
+            "A forest giant lies where it crashed, moss-covered and slowly returning to earth. The gap it tore in the canopy lets rare light through."
+        ],
+        [
+            "Thicket",
+            "A wall of tangled branches and thorns blocks the path. It is too dense to see through and too thick to push past without bleeding."
+        ],
+        [
+            "Bramble Patch",
+            "Thorns as long as fingers guard these tangled vines. Berries hang ripe between the barbs, tempting you deeper into the snare."
+        ],
+        [
+            "Mushroom Circle",
+            "A perfect ring of pale mushrooms marks the damp forest floor. The grass inside is greener, the air sweeter, and the silence complete."
+        ],
+        [
+            "Bird Rookery",
+            "Hundreds of nests crowd the treetops, and the noise is deafening. Feathers and droppings coat everything below, and the birds guard their young fiercely."
+        ],
+        [
+            "Bat Roost",
+            "They cling to the rock overhang in a breathing, shifting carpet. At dusk they pour out in a river of wings that blocks the fading light."
+        ],
+        [
+            "Wasp Nest",
+            "A papery gray mass hangs from a branch, humming with purpose. The sentries are already circling. Getting closer would be a serious mistake."
+        ],
+        [
+            "Termite Mound",
+            "A tower of hardened earth rises taller than a person, riddled with tunnels. Thousands of pale bodies work ceaselessly inside its walls."
+        ],
+        [
+            "Ant Hill",
+            "A dome of churned soil crawls with purpose. Columns of workers march in disciplined lines, and the mound is larger underground than above."
+        ],
+        [
+            "Glacier Crevasse",
+            "Blue ice walls plunge into shadow, the crack too deep to see the bottom. The glacier groans and shifts, and the gap could close as easily as it opened."
+        ],
+        [
+            "Avalanche Zone",
+            "Broken snow and shattered timber mark the path of something that already fell. The slope above is loaded and waiting for a sound."
+        ],
+        [
+            "Rockslide",
+            "A fresh scar of tumbled stone blocks the trail. Dust still hangs in the air, and the boulders are not yet settled."
+        ],
+        [
+            "Fault Line",
+            "The earth cracked and one side rose while the other sank. The exposed stone tells a story of violence, and the ground still trembles."
+        ],
+        [
+            "Natural Chimney",
+            "A tall, narrow column of rock stands alone where softer stone eroded around it. Wind whistles through gaps at its base."
+        ],
+        [
+            "Sandstone Formation",
+            "Wind and time carved the stone into impossible shapes, towers and arches and hollows. The rock is warm to the touch and the color of old bone."
+        ],
+        [
+            "Petrified Forest",
+            "Stone trees stand where living ones fell ages ago. Their bark is crystal, their grain is mineral, and the silence here is absolute."
+        ],
+        [
+            "Fossil Bed",
+            "Ancient bones and shells press from exposed rock, creatures from a world nothing alive remembers. The stone crumbles, and the past falls out."
+        ],
+        [
+            "Natural Amphitheater",
+            "A curved bowl of rock open to the sky, shaped by water and wind. Sound carries perfectly here, every whisper reaching the far wall."
+        ],
+        [
+            "Box Canyon",
+            "Three walls of sheer stone and one way in. The floor is flat, the shade is deep, and anything that enters can only leave the way it came."
+        ],
+        [
+            "Slot Canyon",
+            "The passage narrows until your shoulders brush both walls. Light filters down from a sky that is just a thin bright line far above."
+        ],
+        [
+            "Hanging Valley",
+            "A high meadow ends abruptly at a cliff, the stream pouring off into mist far below. The valley feels suspended, separate from the world beneath it."
+        ],
+        [
+            "Moraine",
+            "A ridge of rubble left behind by a retreating glacier. Boulders sit where ice dropped them, and the land beyond is scraped bare."
+        ],
+        [
+            "Eagle Nest",
+            "A massive tangle of branches crowns a high ledge, bleached white by sun and wind. The parents circle overhead, watching with sharp golden eyes."
+        ],
+        [
+            "Wolf Den",
+            "A shallow cave beneath a rocky outcrop, the entrance worn smooth by countless comings and goings. Paw prints press deep into the mud outside."
+        ],
+        [
+            "Rabbit Warren",
+            "Dozens of holes dot a sandy hillside, the grass cropped short around each entrance. The ground is hollow underfoot, a maze of tunnels below."
+        ],
+        [
+            "Badger Sett",
+            "A mound of freshly dug earth marks the entrance to something old and deep. Claw marks score the tunnel mouth, and the occupant is not friendly."
+        ],
+        [
+            "Fox Burrow",
+            "A small, neat hole beneath a hedgerow, the earth packed smooth by careful paws. The faint smell of musk gives away what the eye might miss."
+        ],
+        [
+            "Snake Pit",
+            "A natural depression in the rock where dozens of serpents coil together for warmth. They shift and hiss in a slow, tangled mass."
+        ],
+        [
+            "Lizard Den",
+            "Sun-baked stones are stacked by chance into a maze of warm crevices. Small, quick shapes dart between the gaps, vanishing before you blink."
+        ],
+        [
+            "Turtle Nesting Ground",
+            "Sandy earth pocked with shallow pits along the shore. Broken shells litter the ground, and tracks lead from the waterline to the dunes."
+        ],
+        [
+            "Migration Path",
+            "The ground is trampled flat by thousands of hooves, the grass stripped bare in a wide, well-worn band. They will come through again."
+        ],
+        [
+            "Salt Lick",
+            "A patch of mineral-crusted earth where the soil has been licked and pawed to bare rock. Animals come here, and predators know it."
+        ],
+        [
+            "Mud Wallows",
+            "Wide, shallow depressions of churned mud hold the shape of large bodies. The water is warm, the banks trampled, and the tracks are fresh."
+        ],
+        [
+            "Fumaroles",
+            "Vents in the cracked earth exhale hot, foul-smelling gas. The ground is stained yellow and white with mineral deposits, and nothing grows nearby."
+        ],
+        [
+            "Volcanic Glass Field",
+            "Shards of obsidian litter the ground, black and razor-sharp. They catch the light like dark mirrors, and every step risks a deep cut."
+        ],
+        [
+            "Pumice Field",
+            "Pale, porous stone covers the ground in light, hollow chunks. It crunches underfoot like bone, the remnant of a volcanic fury long past."
+        ],
+        [
+            "Stone Spires",
+            "Narrow towers of rock rise from the earth like crooked fingers. Wind moans between them, and their shadows move in unsettling patterns."
+        ],
+        [
+            "Rock Formations",
+            "Erosion shaped the stone into figures that almost look deliberate. Faces and arches and pillars stand in the weathered landscape like forgotten monuments."
+        ],
+        [
+            "Natural Pillar",
+            "A single column of harder stone stands where everything around it wore away. It looks impossible, too tall and thin to remain standing."
+        ],
+        [
+            "Wind-Carved Rocks",
+            "The stone here has been sculpted by centuries of relentless wind into smooth, flowing shapes. They look almost soft, but the grit stings your skin."
+        ],
+        [
+            "Eroded Badlands",
+            "A maze of gullies and ridges cut from soft, banded stone. The colors shift from red to gray, and there is no shade and no water."
+        ],
+        [
+            "Desert Pavement",
+            "A flat expanse of tightly fitted stones, polished by wind and sun. Nothing breaks the surface, and the horizon shimmers with heat."
+        ],
+        [
+            "Dune Field",
+            "Sand dunes roll in repeating waves, their crests sharp as blades. The wind reshapes them constantly, and what was buried yesterday is exposed today."
+        ],
+        [
+            "Prairie",
+            "Grass as far as you can see, rippling under an enormous sky. The openness is beautiful and exposed. There is nothing to hide behind."
+        ],
+        [
+            "Savanna",
+            "Scattered trees dot the golden grassland, their broad canopies casting the only shade for miles. The dry grass rustles with things unseen."
+        ],
+        [
+            "Grassland Clearing",
+            "A gap in the tall grass where the ground is beaten flat. Something uses this place regularly, and the crushed stems are still fresh."
+        ],
+        [
+            "Wildflower Field",
+            "Color spills across the hillside in every direction, blossoms thick as carpet. Bees drone in clouds, and the perfume is almost overwhelming."
+        ],
+        [
+            "Berry Patch",
+            "Bushes hang heavy with ripe fruit, staining the air sweet. Bear tracks circle the patch. You are not the first to find this place."
+        ],
+        [
+            "Nut Grove",
+            "Mature trees drop their bounty across a shaded clearing. Shells litter the ground, cracked open by teeth and stones. Squirrels chatter warnings above."
+        ],
+        [
+            "Fruit Trees",
+            "Branches sag under the weight of ripe fruit, the air thick with the smell of sweetness turning. Wasps circle the windfalls below."
+        ],
+        [
+            "Flowering Meadow",
+            "Blossoms blanket the ground between the grasses, drawing butterflies in drifting clouds. The beauty is real, but the pollen makes your eyes water."
+        ],
+        [
+            "Wild Herb Garden",
+            "Fragrant plants grow in thick clusters along a sunny hillside. The air smells of rosemary and thyme, and the soil is rich and dark."
+        ],
+        [
+            "Butterfly Sanctuary",
+            "Hundreds of wings fill the air in a sheltered hollow where flowers bloom out of season. They land on your shoulders without fear."
+        ],
+        [
+            "Bee Meadow",
+            "The hum hits you before you see them. Thousands of bees work the clover in a sun-drenched field, and their hives hang heavy in the nearest trees."
+        ],
+        [
+            "Spider Web Grove",
+            "Every gap between the trees is threaded with silk. Morning dew turns the webs into curtains of glass. The spiders wait at every center."
+        ],
+        [
+            "Cocoon Cluster",
+            "Dozens of pale cocoons hang from the branches in papery bundles. Some are still. Others twitch and bulge. Something inside is almost ready."
+        ],
+        [
+            "Owl Roost",
+            "Pellets and feathers litter the base of a tall, hollow tree. Wide eyes watch from the dark cavity above, patient and unblinking."
+        ],
+        [
+            "Hawk Perch",
+            "A bare, high branch overlooks open ground, scarred by talons. Tufts of fur cling to the wood, and the bird above tracks your every step."
+        ],
+        [
+            "Vulture Roost",
+            "Dark shapes hunch on the dead branches of a lightning-struck tree, waiting. Their patience is legendary, and their presence means something died nearby."
+        ],
+        [
+            "Raven Gathering",
+            "Black birds crowd the branches, filling the air with harsh, knowing calls. They watch with sharp intelligence, and they remember faces."
+        ],
+        [
+            "Songbird Sanctuary",
+            "The canopy rings with layered melody, dozens of species calling at once. The sound is beautiful and disorienting, and it masks all other noise."
+        ],
+        [
+            "Woodpecker Grove",
+            "The rhythmic hammering echoes through the trees like distant drumming. Bark chips litter the ground, and the trunks are riddled with holes."
+        ],
+        [
+            "Squirrel Drey",
+            "A messy ball of leaves and twigs wedges in a high fork. Angry chattering erupts when you pass beneath, and small things are thrown at your head."
+        ],
+        [
+            "Chipmunk Burrow",
+            "A small, tidy hole at the base of a rock, surrounded by scattered seed husks. Tiny eyes watch from just inside, deciding whether to bolt."
+        ],
+        [
+            "Mole Tunnels",
+            "The lawn is heaved into ridges and mounds where something below has been busy. The ground collapses under your heel with every other step."
+        ],
+        [
+            "Groundhog Den",
+            "A wide burrow mouth opens on a sunny hillside, the dirt mound packed firm. A plump shape vanishes inside at your approach."
+        ],
+        [
+            "Prairie Dog Town",
+            "A field of small mounds stretches across the flat ground, each with a sentinel standing tall. Their barking alarm ripples outward in a wave."
+        ],
+        [
+            "Lizard Rocks",
+            "Flat stones soak up the midday heat, and small reptiles bask in motionless rows. They scatter in a flash when your shadow falls across them."
+        ],
+        [
+            "Snake Sunning Rocks",
+            "Broad, warm stones along a south-facing slope where serpents stretch out in lazy coils. They are sluggish in the warmth but still dangerous."
+        ],
+        [
+            "Turtle Basking Log",
+            "A half-submerged log in still water holds a row of shelled bodies soaking up the sun. They slide into the water one by one as you approach."
+        ],
+        [
+            "Frog Chorus",
+            "At dusk the water's edge erupts in a wall of sound, dozens of voices singing for mates. The noise is staggering for creatures so small."
+        ],
+        [
+            "Insect Swarm",
+            "A dark cloud of buzzing, biting things fills the air in a humming mass. They move together like a single creature with no good intentions."
+        ],
+        [
+            "Butterfly Migration Route",
+            "The air fills with drifting wings, thousands moving in the same direction on some ancient cue. They flow like a river of color above the grass."
+        ],
+        [
+            "Animal Crossing",
+            "A muddy stretch where trails converge at a shallow ford. Tracks of every size overlap, and the banks are trampled to bare earth."
+        ],
+        [
+            "Game Trail",
+            "A narrow path worn through the undergrowth by generations of animals heading to water. It is the easiest route, and everything knows it."
+        ],
+        [
+            "Predator Kill Site",
+            "Scattered fur, dark stains on the ground, and drag marks leading into the brush. Flies circle lazily. This happened not long ago."
+        ],
+        [
+            "Bone Yard",
+            "Bleached bones lie scattered across dry ground, accumulated over many seasons. Wind whistles through empty ribcages, and the scavengers have picked them clean."
+        ],
+        [
+            "Elephant Graveyard",
+            "Massive bones and curving tusks rest half-buried in the dust, gathered here by some instinct no one fully understands. The place feels sacred and heavy."
+        ],
+        [
+            "Fossil Exposure",
+            "Rain and erosion peeled back the hillside, revealing bones turned to stone. Ancient teeth and vertebrae jut from the rock like a warning from deep time."
+        ],
+        [
+            "Meteorite Crater",
+            "A perfect bowl punched into the earth by something from the sky. The soil is fused to glass at the center, and nothing has grown back."
+        ],
+        [
+            "Lightning Strike Tree",
+            "A great tree split down the middle, charred black and still smoking. The bark is peeled away in spirals, and the air smells of ozone."
+        ],
+        [
+            "Wind Gap",
+            "A notch in the ridgeline where the wind screams through at brutal speed. The trees on either side grow bent and twisted away from the pass."
+        ],
+        [
+            "Saddle Pass",
+            "A low dip between two peaks, the easiest crossing for miles. Snow lingers in the shade, and the path is worn deep by centuries of travel."
+        ],
+        [
+            "Alpine Meadow",
+            "Wildflowers bloom in a high, sheltered bowl above the tree line. The air is thin and cold, and the beauty feels borrowed from a world that doesn't last."
+        ],
+        [
+            "Tree Line",
+            "The forest simply stops. Beyond this altitude the wind and cold allow nothing tall to grow, only rock, lichen, and the open sky."
+        ],
+        [
+            "Frost Hollow",
+            "Cold air pools in this low depression on clear nights, coating everything in thick white rime. Mornings here are brittle, silent, and beautiful."
+        ],
+        [
+            "Snow Field",
+            "An unbroken blanket of white stretches across the high ground. The glare is blinding, the silence total, and the surface hides whatever lies beneath."
+        ],
+        [
+            "Ice Field",
+            "A vast, frozen plain groans and cracks underfoot. The blue-white surface is beautiful and treacherous, and the cold goes through everything you wear."
+        ],
+        [
+            "Permafrost Mound",
+            "A dome of frozen earth pushes up from the tundra, cracked at the crown. The ice inside is ancient, and the ground around it is slowly heaving."
+        ],
+        [
+            "Solifluction Lobe",
+            "The saturated soil has been creeping downhill in slow, tongue-shaped waves. The ground buckles and ripples, and nothing stands straight on the slope."
+        ],
+        [
+            "Patterned Ground",
+            "The frost sorted the stones into rings and stripes, a geometry too perfect to look natural. The ground is frozen a few inches down, even in summer."
+        ],
+        [
+            "Stone Polygon",
+            "Rocks arranged themselves into geometric shapes by the freeze and thaw of countless seasons. The precision is eerie, as if placed by careful hands."
+        ],
+        [
+            "Frost Crack",
+            "A sharp split in the frozen earth runs straight as a ruled line. Ice fills the gap, and the edges are clean and deep. The tundra is breaking."
+        ],
+        [
+            "Thermal Fracture",
+            "Heat from below cracked the frozen ground open. Steam curls from the fissure, melting the frost in a narrow band of impossible warmth."
+        ],
+        [
+            "Valley",
+            "Green slopes fold together around a quiet floor. A stream threads through the bottom, and the ridges above frame a narrow slice of sky."
+        ],
+        [
+            "Field",
+            "Open ground under a wide sky, the grass trampled flat by wind or hooves. Nothing hides here, and the edges feel far away."
+        ],
+        [
+            "Glade",
+            "A circle of soft light where the canopy opens. The grass is thick and the air is still, as if the forest is holding its breath."
+        ],
+        [
+            "Glen",
+            "A narrow valley tucked between wooded hills. Ferns crowd the floor and a brook runs cold over smooth stones in the dappled shade."
+        ],
+        [
+            "Hollow",
+            "A low dip in the land where mist gathers and sound travels strangely. The trees lean inward, and the quiet here has weight."
+        ],
+        [
+            "Clearing",
+            "The trees step back and the sky opens up. The ground is level and the grass is green, as if something keeps this space deliberately empty."
+        ],
+        [
+            "Cave",
+            "A dark mouth in the rock breathing cool air. The ceiling drips, the walls narrow, and the silence deepens the further you go."
+        ]
+    ]
+}

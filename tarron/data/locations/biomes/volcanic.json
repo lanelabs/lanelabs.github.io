@@ -1,0 +1,14 @@
+{
+  "description": "Land born from fire where the earth still bleeds heat and the ground reminds you it was molten not so long ago.",
+  "rarity": 3,
+  "biomes": [
+    ["Active Volcano", "A mountain that growls and smokes. The ground trembles underfoot and rivers of orange glow trace lines down the dark slopes."],
+    ["Lava Flows", "Rivers of molten rock creeping across the land, consuming everything in their path. The heat is unbearable from ten paces."],
+    ["Obsidian Fields", "Vast stretches of black volcanic glass, smooth and razor-sharp. The surface reflects the sky like a dark mirror."],
+    ["Pumice Plains", "Light grey stone covering the ground, porous and brittle. It crunches like dry bone and the dust gets into everything."],
+    ["Thermal Vents", "Jets of superheated steam hissing from cracks in the scorched earth. The air ripples with heat and smells of rotten eggs."],
+    ["Sulfur Springs", "Yellow-crusted pools of hot, acrid water. The stench burns your nostrils and the ground around them is stained and fragile."],
+    ["Ash Wastes", "Grey powder covering everything as far as you can see. The air is hazy, the sky is dull, and each step kicks up choking clouds."],
+    ["Magma Tubes", "Tunnels carved by flowing lava, their walls still warm. A faint orange glow pulses deep within, and the air shimmers with heat."]
+  ]
+}

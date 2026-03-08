@@ -1,18 +1,23 @@
 import { useState } from 'react';
-import * as general from './data/general';
-import * as fantasy from './data/fantasy';
-import * as scifi from './data/scifi';
-import * as modern from './data/modern';
-import * as ocean from './data/ocean';
+import { templates } from './data/general/templates/index';
+import { flavorLines } from './data/general/flavorLines';
 import { getCreatureNames } from '@data/creatures';
+import { getSettingNames } from '@data/locations';
+import { getCharacterNames } from '@data/characters';
+import { getItemNames } from '@data/items';
+import { getAdjectiveNames } from '@data/descriptors';
+import { getWeather } from '@data/weather';
+import { getEventNames } from '@data/events';
+import { getPlantNames } from '@data/plants';
+import { getFoodNames } from '@data/food';
+import { getFactionNames } from '@data/character__factions';
+import { getRoleNames } from '@data/character__roles';
+import { conflicts, mysteries, morals, tones, wishes, preEmotions, postEmotions } from '@data/narrative';
 import {
   NUM_CHARACTERS, NUM_CONFLICTS, NUM_ITEMS, NUM_MORALS,
-  NUM_TONES, NUM_WISHES, NUM_ROLES,
+  NUM_TONES, NUM_WISHES, NUM_ROLES, NUM_CREATURES, NUM_PLANTS, NUM_FOODS, NUM_FACTIONS,
 } from './config';
-import { flavorLines } from './data/general/flavorLines';
 import './App.css';
-
-const worlds = { fantasy, scifi, modern, ocean };
 
 const worldLabels = {
   fantasy: 'Fantasy',
@@ -24,10 +29,6 @@ const worldLabels = {
 function pickRandom(array, count) {
   const shuffled = [...array].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count);
-}
-
-function mergeArrays(modules, key) {
-  return modules.flatMap((mod) => mod[key] || []);
 }
 
 // Strip a leading article ("A ", "An ", "The ") from a string.
@@ -86,6 +87,12 @@ function addForms(values, key, rawValue) {
       }
     }
   }
+
+  // Auto-generate .placed if not explicitly provided.
+  // Settings from @data/locations provide their own; events/strings default to "in".
+  if (!values[`${key}.placed`]) {
+    values[`${key}.placed`] = `in ${full}`;
+  }
 }
 
 // Default placeholder → CSS label-color class mapping.
@@ -100,6 +107,10 @@ const placeholderColors = {
   item: 'label-items',
   hook: 'label-conflicts',
   role: 'label-roles',
+  creature: 'label-creatures',
+  plant: 'label-plants',
+  food: 'label-foods',
+  faction: 'label-factions',
 
   wish: 'label-wishes',
   tone: 'label-tones',
@@ -187,40 +198,37 @@ export default function App() {
       .filter(([, on]) => on)
       .map(([key]) => key);
 
-    let activeMods;
     let picked;
+    const dataWorlds = ['general'];
     if (checked.length === 0) {
-      activeMods = [general];
+      // no worlds selected — general only
     } else if (singleWorld) {
       picked = checked[Math.floor(Math.random() * checked.length)];
-      activeMods = [general, worlds[picked]];
+      dataWorlds.push(picked);
     } else {
-      activeMods = [general, ...checked.map((k) => worlds[k])];
+      dataWorlds.push(...checked);
     }
 
-    const creatureWorlds = ['general'];
-    if (singleWorld && picked) {
-      creatureWorlds.push(picked);
-    } else {
-      creatureWorlds.push(...checked);
-    }
-    const allAnimals = getCreatureNames(creatureWorlds);
-
-    const allPeople = mergeArrays(activeMods, 'people');
-    const allSettings = mergeArrays(activeMods, 'settings');
-    const allItems = mergeArrays(activeMods, 'items');
-    const allDescriptors = mergeArrays(activeMods, 'descriptors');
-    const allWeather = mergeArrays(activeMods, 'weather');
-    const allEvents = mergeArrays(activeMods, 'events');
+    const allAnimals = getCreatureNames(dataWorlds);
+    const allSettings = getSettingNames(dataWorlds);
+    const allPeople = getCharacterNames(dataWorlds);
+    const allItems = getItemNames(dataWorlds);
+    const allDescriptors = getAdjectiveNames(dataWorlds);
+    const allWeather = getWeather(dataWorlds);
+    const allEvents = getEventNames(dataWorlds);
+    const allPlants = getPlantNames(dataWorlds);
+    const allFoods = getFoodNames(dataWorlds);
+    const allFactions = getFactionNames(dataWorlds);
+    const allRoles = getRoleNames(dataWorlds);
 
     const isMystery = Math.random() < 0.5;
     const hookType = isMystery ? 'Mystery' : 'Conflict';
-    const hookPool = isMystery ? general.mysteries : general.conflicts;
+    const hookPool = isMystery ? mysteries : conflicts;
 
     // Pick emotion from combined pre + post list (equal odds per item).
     const allEmotions = [
-      ...general.preEmotions.map((e) => ({ text: e, position: 'before' })),
-      ...general.postEmotions.map((e) => ({ text: e, position: 'after' })),
+      ...preEmotions.map((e) => ({ text: e, position: 'before' })),
+      ...postEmotions.map((e) => ({ text: e, position: 'after' })),
     ];
     const pickedEmotion = pickRandom(allEmotions, 1)[0];
 
@@ -233,7 +241,7 @@ export default function App() {
     // Resolve pipe choices in the template (e.g. {setting|event} → {setting}
     // or {event}). This runs once at generation time so the choice is stable
     // across re-renders.
-    let templateStr = pickRandom(general.templates, 1)[0];
+    let templateStr = pickRandom(templates, 1)[0];
     templateStr = templateStr.replace(
       /\{([\w.]+(?:\|[\w.]+)+)\}/g,
       (_, pipeGroup) => {
@@ -243,8 +251,8 @@ export default function App() {
     );
 
     setResult({
-      tones: pickRandom(general.tones, NUM_TONES),
-      wishes: pickRandom(general.wishes, NUM_WISHES),
+      tones: pickRandom(tones, NUM_TONES),
+      wishes: pickRandom(wishes, NUM_WISHES),
       characters,
       emotion: pickedEmotion,
       setting: settingVal,
@@ -255,8 +263,12 @@ export default function App() {
       ),
       hookType,
       hooks: pickRandom(hookPool, NUM_CONFLICTS),
-      morals: pickRandom(general.morals, NUM_MORALS),
-      role: pickRandom(general.roles, NUM_ROLES)[0],
+      morals: pickRandom(morals, NUM_MORALS),
+      role: pickRandom(allRoles, NUM_ROLES)[0],
+      creature: pickRandom(allAnimals, NUM_CREATURES)[0],
+      plant: pickRandom(allPlants, NUM_PLANTS)[0],
+      food: pickRandom(allFoods, NUM_FOODS)[0],
+      faction: pickRandom(allFactions, NUM_FACTIONS)[0],
       template: templateStr,
       flavorLine: pickRandom(flavorLines, 1)[0],
     });
@@ -276,6 +288,10 @@ export default function App() {
     const toneWord = values.tone;
     values.aTone = `${aOrAn(toneWord)} ${toneWord}`;
     addForms(values, 'role', result.role);
+    addForms(values, 'creature', result.creature);
+    addForms(values, 'plant', result.plant);
+    addForms(values, 'food', result.food);
+    addForms(values, 'faction', result.faction);
     addForms(values, 'moral', result.morals[0]);
     if (!values['moral.about']) values['moral.about'] = values['moral.bare'];
     values.character1 = formatCharacterPlain(result.characters[0]);
@@ -332,6 +348,10 @@ export default function App() {
     lines.push(`Wish: ${displayValue(result.wishes[0])}`);
     result.characters.forEach((c) => lines.push(`Character: ${c}`));
     lines.push(`Role: ${result.role}`);
+    lines.push(`Creature: ${result.creature}`);
+    lines.push(`Plant: ${result.plant}`);
+    lines.push(`Food: ${result.food}`);
+    lines.push(`Faction: ${result.faction}`);
     lines.push(`Emotion: ${result.emotion.text}`);
     lines.push(`Setting: ${displayValue(result.setting)}`);
     lines.push(`Event: ${displayValue(result.event)}`);
@@ -352,7 +372,7 @@ Guidelines:
 - The prompt below is a back-cover-style teaser. Use it as a springboard, not a script \u2014 surprise me with where the story actually goes.
 - Read the entire prompt first so you have the full picture before writing. Establish the setting, weather, and atmosphere from the very first scene \u2014 don\u2019t introduce them halfway through and make the reader re-imagine everything. If it\u2019s a rainy night, the reader should feel that from sentence one, not get blindsided five paragraphs in.
 - The prompt was generated randomly, so its elements may not obviously connect. Your job is to weave them into a story that feels like it was planned from the start \u2014 find the thread that ties everything together into one cohesive narrative.
-- Every element in the prompt (characters, role, setting, event, weather, item, emotion, moral) must matter to the plot. Don\u2019t just mention them in passing \u2014 let their unique qualities shape what happens. The item should do something only that item could do. The setting should create problems or possibilities that wouldn\u2019t exist anywhere else. The weather should change how a scene feels or what\u2019s possible. The story should feel like it couldn\u2019t exist with different elements swapped in.
+- Every element in the prompt (characters, role, creature, plant, food, faction, setting, event, weather, item, emotion, moral) must matter to the plot. Don\u2019t just mention them in passing \u2014 let their unique qualities shape what happens. The item should do something only that item could do. The setting should create problems or possibilities that wouldn\u2019t exist anywhere else. The weather should change how a scene feels or what\u2019s possible. The story should feel like it couldn\u2019t exist with different elements swapped in.
 - Give the characters distinct voices and at least one small, specific detail that makes them feel real (a habit, a favorite thing, a way of speaking).
 - Let the story breathe. Not every sentence needs to advance the plot \u2014 a moment of wonder, a silly aside, or a quiet pause can make a story feel alive.
 - Avoid AI-story clich\u00e9s: no \u201clittle did they know,\u201d no \u201cand from that day on,\u201d no tidy moral bow at the end. If the theme comes through, the reader will feel it without being told.
@@ -404,7 +424,7 @@ ${prompt}`;
         {settingsOpen && (
           <div className="settings-dropdown">
             <h3 className="settings-heading">Worlds</h3>
-            {Object.keys(worlds).map((key) => (
+            {Object.keys(worldLabels).map((key) => (
               <label key={key} className="settings-checkbox">
                 <input
                   type="checkbox"
@@ -469,6 +489,10 @@ ${prompt}`;
                     </p>
                   ))}
                   <p className="line-item"><span className="line-label label-roles">Role:</span> {result.role}</p>
+                  <p className="line-item"><span className="line-label label-creatures">Creature:</span> {result.creature}</p>
+                  <p className="line-item"><span className="line-label label-plants">Plant:</span> {result.plant}</p>
+                  <p className="line-item"><span className="line-label label-foods">Food:</span> {result.food}</p>
+                  <p className="line-item"><span className="line-label label-factions">Faction:</span> {result.faction}</p>
                   <p className="line-item"><span className="line-label label-emotions">Emotion:</span> {result.emotion.text}</p>
                   <p className="line-item"><span className="line-label label-settings">Setting:</span> {displayValue(result.setting)}</p>
                   <p className="line-item"><span className="line-label label-settings">Event:</span> {displayValue(result.event)}</p>

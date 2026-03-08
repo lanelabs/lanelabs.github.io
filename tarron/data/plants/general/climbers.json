@@ -1,0 +1,10 @@
+{
+  "description": "Vines, climbers, and trailing plants.",
+  "plants": [
+    ["Climber", "Soft-stemmed and determined, climbing anything it can reach without ever growing rigid enough to stand alone."],
+    ["Creeper", "Spreads flat across ground and up walls, covering surfaces so gradually you do not notice until it is everywhere."],
+    ["Liana", "A thick woody rope hanging from the canopy, having climbed there using the trees around it as ladders."],
+    ["Vine", "A ropey stem that coils and climbs, finding a way up no matter what stands in its path."],
+    ["Woody Liana", "Heavy as a cable and tough as wood, draped between trunks high above the forest floor."]
+  ]
+}

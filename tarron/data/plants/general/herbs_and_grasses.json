@@ -1,0 +1,16 @@
+{
+  "description": "Herbs, grasses, and non-woody plants.",
+  "plants": [
+    ["Annual Herb", "Lives fast and dies with the frost, pouring everything into a single season of growth and seed."],
+    ["Arborescent Grass", "Grass grown to the height of a tree, its blades broad as swords and its stalks thick as wrists."],
+    ["Bamboo", "Hollow-stemmed and fast as rumor, a grove can appear where bare ground stood a season ago."],
+    ["Biennial Herb", "Patient enough to spend its first year just growing, saving all its color and seed for the second."],
+    ["Cane", "Tall stiff stalks standing in dense ranks, jointed like fingers and rattling when the wind picks up."],
+    ["Forb", "A soft broad-leaved plant that fills the spaces between grasses, often the first to show color in a meadow."],
+    ["Grass", "Thin blades rising in countless numbers, bending together under wind like a single living surface."],
+    ["Herb", "Soft-stemmed and temporary, dying back after it flowers but often leaving a scent that lingers."],
+    ["Perennial Herb", "Returns year after year from the same roots, a little larger each time, as if remembering where it left off."],
+    ["Rush", "Round hollow stems standing stiff in shallow water, marking where the wet ground begins."],
+    ["Sedge", "Looks like grass until you feel the three-sided stem. It grows where the soil stays damp and rich."]
+  ]
+}

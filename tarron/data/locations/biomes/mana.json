@@ -1,0 +1,13 @@
+{
+  "description": "Land saturated with raw magical energy where the air crackles, reality is thin, and power flows like water through the ground.",
+  "rarity": 3,
+  "biomes": [
+    ["Raw Magic", "Visible streams of energy flowing through the air like luminous ribbons. The ground hums and anything metal vibrates in your hand."],
+    ["Spell Residue", "The lingering aftermath of great magic. The air tastes of copper, the colors are slightly wrong, and echoes of old incantations murmur."],
+    ["Arcane Storms", "Crackling bolts of raw energy arcing across a sky that shifts between impossible colors. The ground is scarred with glowing impact marks."],
+    ["Mana Springs", "Pools of liquid light bubbling up from the earth. The water glows and the plants around the edges grow twice their natural size."],
+    ["Enchanted Air", "A shimmer in the atmosphere where every breath carries a faint tingle. Thoughts come faster here and dreams bleed into waking."],
+    ["Reality Tears", "Thin spots where the fabric of the world has worn through. Other places are visible through the gaps, flickering and unstable."],
+    ["Wild Magic Zone", "A place where spells twist into unexpected forms and the laws of nature rewrite themselves on a whim. Nothing is predictable."]
+  ]
+}

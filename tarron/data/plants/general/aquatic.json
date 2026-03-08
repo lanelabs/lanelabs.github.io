@@ -1,0 +1,13 @@
+{
+  "description": "Water-dwelling and wetland plants.",
+  "plants": [
+    ["Alga", "A green film or trailing strand in the water, simple and ancient, thriving wherever light reaches."],
+    ["Emergent Aquatic Plant", "Rooted in the mud below but pushing its stems and leaves up into the air, living in two worlds at once."],
+    ["Floating Aquatic Plant", "Drifting on the surface with roots trailing like threads beneath, going wherever the current decides."],
+    ["Halophyte", "Tough and fleshy, growing in salt-crusted soil where the taste of the sea is in everything."],
+    ["Helophyte", "Rooted in black mud with its shoots rising into the air, marking the border between water and land."],
+    ["Hydrophyte", "Thriving in waterlogged ground that would drown anything else, its roots at home in the muck."],
+    ["Seaweed", "Long ribbons swaying in the current, forming underwater forests where small things hide and drift."],
+    ["Submerged Aquatic Plant", "Living entirely beneath the surface, waving gently in the current, only its flowers sometimes breaking into the air."]
+  ]
+}

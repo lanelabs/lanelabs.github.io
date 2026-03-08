@@ -1,0 +1,28 @@
+{
+  "description": "Modern-world items and everyday objects.",
+  "items": [
+    ["Car", "A four-wheeled vehicle that carries people along roads."],
+    ["Laptop", "A portable computer that opens like a book."],
+    ["Phone", "A pocket-sized device that connects people across any distance."],
+    ["Bicycle", "A two-wheeled machine powered by pedaling."],
+    ["Backpack", "A fabric bag worn on the shoulders for carrying gear."],
+    ["Camera", "A device that captures moments as photographs."],
+    ["Headphones", "Padded speakers worn over the ears for private listening."],
+    ["Skateboard", "A board on wheels ridden for tricks and transportation."],
+    ["Drone", "A small flying machine controlled from the ground."],
+    ["3D Printer", "A machine that builds solid objects layer by layer."],
+    ["Watch", "A small timepiece strapped to the wrist."],
+    ["Journal", "A bound book of blank pages for writing thoughts."],
+    ["Guitar", "A six-stringed instrument played with fingers or a pick."],
+    ["Sneakers", "Lightweight shoes with rubber soles for running and play."],
+    ["Toolbox", "A case of tools for fixing and building."],
+    ["Telescope", "A tube of lenses for studying the stars."],
+    ["Radio", "A device that picks up invisible signals and turns them into sound."],
+    ["Badge", "A small pin or card that proves who someone is."],
+    ["Umbrella", "A folding canopy on a stick that keeps the rain off."],
+    ["Sunglasses", "Tinted lenses that shield the eyes from bright light."],
+    ["Flashlight", "A battery-powered tube that throws a beam of light."],
+    ["Walkie-Talkie", "A handheld radio for talking over short distances."],
+    ["Binoculars", "Twin lenses that make faraway things look close."]
+  ]
+}

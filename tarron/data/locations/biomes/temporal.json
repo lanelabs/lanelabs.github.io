@@ -1,0 +1,13 @@
+{
+  "description": "Places where time itself has broken, folding past and future into a present that cannot be trusted.",
+  "rarity": 3,
+  "biomes": [
+    ["Time Storm", "Rippling waves of distortion roll across the land, aging stone to dust in one moment and sprouting new growth the next."],
+    ["Chrono Anomaly", "A pocket where time runs at the wrong speed. Hours pass in heartbeats, or a single step takes a day to complete."],
+    ["Past Echo", "Ghostly images of what once stood here flicker in and out of view. Buildings rise and fall, and old voices carry on the wind."],
+    ["Future Glimpse", "The landscape shifts between what is and what will be. Strange structures appear and vanish, and the sky shows stars not yet born."],
+    ["Temporal Rift", "A visible tear in the air through which different eras bleed together. The edges crackle and the light bends strangely."],
+    ["Frozen Moment", "Everything caught mid-motion. Rain hangs in the air, birds are fixed in flight, and the silence is the silence of stopped time."],
+    ["Accelerated Growth", "Plants sprout, bloom, fruit, and die in minutes. The forest floor churns with constant renewal and the air smells of green and rot at once."]
+  ]
+}

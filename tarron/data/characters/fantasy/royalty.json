@@ -1,0 +1,12 @@
+{
+  "description": "Characters of royal blood or noble station.",
+  "characters": [
+    ["King", "A crowned ruler who bears the weight of a kingdom."],
+    ["Queen", "A crowned ruler whose word is law across the realm."],
+    ["Princess", "A royal heir whose destiny is yet to be written."],
+    ["Prince", "A royal heir navigating duty, expectation, and ambition."],
+    ["Emperor", "A supreme ruler whose dominion spans many lands."],
+    ["Empress", "A supreme ruler who commands a vast empire."],
+    ["Noble", "A person of high birth and privilege in the feudal order."]
+  ]
+}

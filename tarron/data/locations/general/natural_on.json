@@ -1,0 +1,37 @@
+{
+    "description": "natural locations are places that are part of the natural world, without specific magical or supernatural elements or created by sapient beings. These should be single locations, not biomes, something an adventuring party would encounter in the wild that they could investigate to find dangers or opportunities.",
+    "locations": [
+        [
+            "Cliff Face",
+            "A sheer wall of exposed rock stretching high above. Nesting birds wheel and scream at the heights, and the wind never lets up."
+        ],
+        [
+            "Natural Bridge",
+            "An arch of stone spans a dizzying drop, worn thin by wind and water. It holds for now, but it will not hold forever."
+        ],
+        [
+            "Stone Arch",
+            "Wind and rain sculpted this curve of rock over countless centuries. It frames the sky like a doorway, beautiful and strangely deliberate."
+        ],
+        [
+            "Mesa",
+            "A flat-topped tower of rock rising above the surrounding plain. The climb is steep, the summit exposed, and the view stretches to the horizon."
+        ],
+        [
+            "Escarpment",
+            "The land drops away in a sudden, long cliff face. Below lies a different world, hazy with distance. The edge crumbles if you stand too close."
+        ],
+        [
+            "Balanced Rock",
+            "A massive boulder perches on a narrow pedestal of stone, defying sense. It looks like a breath could topple it, but it has stood for ages."
+        ],
+        [
+            "Ridge Line",
+            "A narrow spine of rock with steep drops on both sides. The wind is relentless, the view is endless, and one stumble is the last."
+        ],
+        [
+            "Mountain Shoulder",
+            "A broad, sloping shelf partway up the peak, exposed to weather but offering a place to rest. The world below looks small and far away."
+        ]
+    ]
+}

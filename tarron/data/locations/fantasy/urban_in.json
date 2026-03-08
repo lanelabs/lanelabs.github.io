@@ -1,0 +1,1921 @@
+{
+    "description": "Urban locations are places that are inhabited by sapient beings, that only make sense to exist within a city or village. These should be varied and interesting to make for a colorful and diverse world, and provide good ideas for an urban fantasy setting",
+    "locations": [
+        [
+            "Wizards Quarter",
+            "The air hums with residual enchantment. Signs glow without flame. Cats watch from windowsills with too-knowing eyes."
+        ],
+        [
+            "Wheelwright",
+            "Wooden spokes lean against every wall. The sharp scent of fresh-cut oak mingles with axle grease and honest sweat."
+        ],
+        [
+            "Wet Market",
+            "Voices haggle over glistening fish and still-warm bread. Water runs between the stalls, carrying the smell of salt and offal."
+        ],
+        [
+            "Weaver's Workshop",
+            "Looms clack in steady rhythm behind thin walls. Threads of every color hang drying in the doorway like a curtain of rainbows."
+        ],
+        [
+            "Warehouse",
+            "Crates stacked to the rafters, stamped with symbols from a dozen ports. Dust motes drift through shafts of light from high windows."
+        ],
+        [
+            "University",
+            "Robed students argue on the steps. The smell of old paper drifts from open windows, and bells mark the hours with solemn regularity."
+        ],
+        [
+            "Forge",
+            "Heat rolls out the open door in waves. The hammer rings steady as a heartbeat, and sparks scatter across the stone floor like stars."
+        ],
+        [
+            "Blacksmith",
+            "Soot darkens the doorframe. Inside, iron glows cherry-red on the anvil and the smith's arms move with practiced certainty."
+        ],
+        [
+            "Trinket Shop",
+            "Every shelf groans with oddities. Glass eyes, tin soldiers, carved bone dice. The shopkeeper remembers what you looked at last time."
+        ],
+        [
+            "Library",
+            "Tall shelves vanish into shadow overhead. The silence here has weight to it, broken only by turning pages and careful footsteps."
+        ],
+        [
+            "Toy Store",
+            "Painted wooden soldiers line the window. Wind-up birds hop in circles on the counter. Children press their faces to the glass outside."
+        ],
+        [
+            "Town Hall",
+            "Polished floors echo with the footsteps of clerks and petitioners. Notices paper the walls, each one a small crisis seeking resolution."
+        ],
+        [
+            "Town Square",
+            "Cobblestones worn smooth by a thousand years of feet. Pigeons scatter and regroup around the central fountain."
+        ],
+        [
+            "Town Crier Post",
+            "A raised stone platform at the crossroads, scuffed by boots. News good and bad has been shouted from this spot for generations."
+        ],
+        [
+            "Stockades",
+            "Heavy timber frames stand in the open, stained by weather and worse. Passersby quicken their step or slow to stare."
+        ],
+        [
+            "Pillory",
+            "A wooden frame in the square, built for public shame. Rotten vegetables crust the base, and the flies never quite leave."
+        ],
+        [
+            "Statue",
+            "Green with age, the bronze figure gazes across the square. Pigeons nest in its outstretched hand. Few remember who it honors."
+        ],
+        [
+            "Tinker's Workshop",
+            "Gears, springs, and half-finished mechanisms cover every surface. The tinker squints through a magnifying lens, muttering measurements."
+        ],
+        [
+            "Thrifter's Shop",
+            "Second-hand coats hang from the rafters. Everything here had a previous owner and maybe a story. Prices are negotiable."
+        ],
+        [
+            "Palace",
+            "Towers gleam above high walls. Guards in polished armor flank the gate, and petitioners wait in a line that never seems to shorten."
+        ],
+        [
+            "Guard Post",
+            "A stone hut by the road, smelling of boot polish and cold tea. The guards know every face that passes, or think they do."
+        ],
+        [
+            "Thieves Quarter",
+            "Narrow alleys twist back on themselves. Eyes follow you from shuttered windows. Even the rats here seem to work for someone."
+        ],
+        [
+            "Merchant Guild",
+            "Ledgers and scales fill the hall. Every word spoken here carries the weight of coin, and debts are remembered longer than favors."
+        ],
+        [
+            "Theatre",
+            "Velvet curtains frame a stage worn smooth by performers' feet. The smell of greasepaint and sawdust lingers between shows."
+        ],
+        [
+            "Textile Shop",
+            "Bolts of silk, linen, and wool stand in colorful rows. The shopkeeper runs fabric between thumb and finger, quoting thread counts."
+        ],
+        [
+            "Temple District",
+            "Incense drifts between competing spires. Priests of rival faiths nod to each other on the street with careful courtesy."
+        ],
+        [
+            "Temple Complex",
+            "Courtyards connect prayer halls to dormitories to kitchens. Chanting echoes off stone walls at all hours."
+        ],
+        [
+            "Tea House",
+            "Steam curls from ceramic cups. Conversations drop to whispers here, and the walls are thick enough to keep them."
+        ],
+        [
+            "Tax Collector's Office",
+            "Ink-stained ledgers tower on every desk. Nobody visits willingly, and the clerks have perfected the art of the unsympathetic stare."
+        ],
+        [
+            "Tannery",
+            "The smell hits before the building does. Vats of acid and stretched hides. Nobody lingers here without business."
+        ],
+        [
+            "Tailor's Shop",
+            "Measuring tapes drape over every surface. Fabric swatches pin the walls like mosaic tiles. The tailor circles you with an appraising eye."
+        ],
+        [
+            "Street Market",
+            "Awnings of every color crowd the lane. Vendors call out their wares, each louder than the last, as shoppers squeeze between the stalls."
+        ],
+        [
+            "Stone Mason's Shop",
+            "Dust coats everything in pale gray. Half-carved gargoyles stare from the workbench, their faces caught mid-expression."
+        ],
+        [
+            "Stables",
+            "Hay and horse sweat thicken the air. Saddles hang on wooden pegs, and hooves stamp impatiently on the packed-earth floor."
+        ],
+        [
+            "Stadium",
+            "Stone benches rise in tiers around the open field. The roar of past crowds seems to linger in the walls."
+        ],
+        [
+            "Arena",
+            "Sand covers the floor, raked smooth between bouts. Stains darken the ground near the walls. The crowd's seats loom overhead."
+        ],
+        [
+            "Spice Merchant",
+            "The air burns with cinnamon, saffron, and peppers from lands most customers will never see. Tiny drawers line the walls floor to ceiling."
+        ],
+        [
+            "Speakeasy",
+            "A door behind a door behind a curtain. Inside, the rules of the surface don't apply and the drinks remember your secrets."
+        ],
+        [
+            "Snack Shop",
+            "Fried dough and roasted nuts scent the street for half a block. The vendor works fast, wrapping orders in brown paper."
+        ],
+        [
+            "Slums",
+            "Laundry strings between leaning buildings. Puddles never dry here. The people watch strangers with guarded, knowing expressions."
+        ],
+        [
+            "Metalsmith",
+            "Tongs and crucibles crowd the workbench. Molten metal glows in small pots, and the smith's hands are mapped with old burn scars."
+        ],
+        [
+            "Goldsmith",
+            "Velvet-lined cases display rings and chains under careful lamplight. A loupe rests on the counter. The door has three locks."
+        ],
+        [
+            "Silversmith",
+            "Polished pieces catch the light like small mirrors. The artisan works with fine tools and steady hands, shaping metal into elegance."
+        ],
+        [
+            "Jeweler",
+            "Gems rest on dark cloth under glass. The jeweler peers through a loupe, and a small hammer taps with surgical precision."
+        ],
+        [
+            "Treasury",
+            "Iron doors, iron locks, iron guards. The wealth of the city rests behind walls thick enough to muffle a siege."
+        ],
+        [
+            "Guild Hall",
+            "Banners hang from the rafters, each one marking a trade. Voices echo off stone walls as members debate dues and disputes."
+        ],
+        [
+            "Shipyard",
+            "Timber skeletons of half-built hulls line the waterfront. Tar and sawdust perfume the salt air, and hammers ring from dawn to dusk."
+        ],
+        [
+            "Sheriff's Office",
+            "Wanted posters curl on the wall. A heavy desk sits between the door and the cells. The sheriff's chair faces both."
+        ],
+        [
+            "Sewer Entrance",
+            "A rusted grate set into the cobblestones, breathing damp air from below. Something down there echoes that isn't quite water."
+        ],
+        [
+            "Seamstress",
+            "Pins bristle from a cushion on the worktable. Half-finished garments hang from hooks, waiting for their owners to return for fittings."
+        ],
+        [
+            "Scribe's Office",
+            "Quills scratch on parchment behind a wooden counter. Ink bottles line the shelf like small soldiers. Every word here costs coin."
+        ],
+        [
+            "Schoolhouse",
+            "Chalk dust drifts in the light from tall windows. Small desks face a slate board, and the teacher's voice carries into the yard."
+        ],
+        [
+            "Scholars Quarter",
+            "Bookshops lean against one another on cramped lanes. Students argue philosophy over cheap wine, and candles burn late into the night."
+        ],
+        [
+            "Saloon",
+            "Swinging doors open onto sawdust floors. A piano sits in the corner, and the bartender pours without being asked twice."
+        ],
+        [
+            "Chapel",
+            "A single room of quiet stone. Candles flicker near a modest altar, and the pews are worn smooth by generations of prayer."
+        ],
+        [
+            "Sawmill",
+            "The blade screams through timber in a spray of pale dust. Logs wait stacked in the yard, and the river turns the wheel."
+        ],
+        [
+            "Inn",
+            "A fire crackles in the common room. The smell of stew drifts from the kitchen, and keys hang on hooks behind the counter."
+        ],
+        [
+            "Job Board",
+            "Parchment notices overlap on weathered cork. Some offer honest work. Others ask fewer questions and pay more coin."
+        ],
+        [
+            "Refinery",
+            "Smoke rises from brick chimneys. Raw ore enters one end and something more valuable leaves the other. The workers' faces are streaked gray."
+        ],
+        [
+            "Jail",
+            "Iron bars and stone walls. A guard watches from a stool, keys jangling at the belt. The air smells of damp and regret."
+        ],
+        [
+            "Residential Quarter",
+            "Shuttered windows and flower boxes line quiet streets. Laundry dries on lines overhead, and the smell of cooking spills from doorways."
+        ],
+        [
+            "Bounty Board",
+            "Torn edges and fresh ink share the same cork board. Names, sums, and rough sketches of faces that would rather not be found."
+        ],
+        [
+            "Public House",
+            "Low beams and loud voices. Ale sloshes on scarred tables, and strangers become friends before the second round is poured."
+        ],
+        [
+            "Bathhouse",
+            "Steam billows through tiled rooms. Warm water fills stone basins, and conversation drifts between the pools in lazy murmurs."
+        ],
+        [
+            "Pub",
+            "Dark wood and dim light. The same regulars occupy the same stools. The barkeep nods when you enter, already reaching for your usual."
+        ],
+        [
+            "Potter's Wheel",
+            "Clay-smeared hands shape spinning earth into bowls and jars. Shelves of drying pots line the walls, each one slightly different."
+        ],
+        [
+            "Potion Shop",
+            "Glass bottles of every color crowd the shelves. Labels in cramped handwriting promise cures, enhancements, and things best not asked about."
+        ],
+        [
+            "Port",
+            "Masts crowd the skyline. Sailors haul cargo along the quay while gulls wheel and scream overhead. Salt crusts everything."
+        ],
+        [
+            "Port District",
+            "Rope and tar scent the air. Warehouses and taverns jostle for space along the waterfront, and foreign tongues mix in the streets."
+        ],
+        [
+            "Plaza",
+            "An open expanse of fitted stone where three streets meet. Musicians play near the fountain, and pigeons strut between the benches."
+        ],
+        [
+            "Pavilion",
+            "An open-sided roof on carved pillars, offering shade and a gathering place. Merchants set up beneath it when the weather turns."
+        ],
+        [
+            "Plague Pit",
+            "Lime-dusted earth in a roped-off hollow. Flowers are sometimes left at the edge. The ground here is never built upon."
+        ],
+        [
+            "Philosopher's Garden",
+            "Stone paths wind between trimmed hedges and quiet benches. Thinkers pace the gravel walks, lost in arguments with themselves."
+        ],
+        [
+            "Philosopher's Forum",
+            "A circle of stone seats under an open sky. Voices carry well here, and debates have been known to last until dawn."
+        ],
+        [
+            "Pet Shop",
+            "Cages chirp, squawk, and chitter. Feathers float in the air. Something in the back tank watches you with unblinking eyes."
+        ],
+        [
+            "Pawn Shop",
+            "Every shelf tells someone's hard luck story. Wedding rings, family swords, heirlooms traded for rent money. The broker remembers nothing."
+        ],
+        [
+            "Orphanage",
+            "Small faces peer from upper windows. The yard is worn bare by running feet, and a bell calls them in for supper."
+        ],
+        [
+            "Refuse Pit",
+            "Flies buzz over mounded waste at the city's edge. Scavengers pick through it at dawn, finding what others have discarded."
+        ],
+        [
+            "Old Town",
+            "Crooked streets follow paths older than the city's name. The stones are cracked and the buildings lean, but the roots run deep."
+        ],
+        [
+            "Offices",
+            "Rows of doors with painted names. Clerks shuffle paper and stamp seals. The corridor smells of ink and mild desperation."
+        ],
+        [
+            "Noble Quarter",
+            "Wide avenues and iron gates. Carriages roll over clean cobblestones, and servants hurry between grand houses with practiced discretion."
+        ],
+        [
+            "Music Shop",
+            "Lutes hang from the ceiling. A dulcimer leans in the corner. The owner plucks strings idly, tuning by ear, always listening."
+        ],
+        [
+            "Mansion",
+            "Tall windows look out over manicured grounds. Servants move through the halls with quiet efficiency, and every room has a fireplace."
+        ],
+        [
+            "Mosque",
+            "Tiles of blue and gold catch the light. The call to prayer carries over the rooftops, and shoes line up neatly at the door."
+        ],
+        [
+            "Morgue",
+            "Cold stone and colder silence. Covered forms rest on slabs, and the air carries the sharp sweetness of preserving herbs."
+        ],
+        [
+            "Money Exchange",
+            "Coins from every realm clink on the counter. The changer weighs each one with practiced fingers, calculating rates without looking up."
+        ],
+        [
+            "Coin Mint",
+            "The press stamps metal into currency with a rhythmic thud. Armed guards stand at every door, and the scales never lie."
+        ],
+        [
+            "Military Quarter",
+            "Boots march on packed earth. Barracks and drill yards fill the block, and orders carry sharp and clear through the morning air."
+        ],
+        [
+            "Mercenary Guild",
+            "Battle-worn gear hangs on the walls like trophies. Contracts are pinned to a board, and every drink at the bar comes with a story."
+        ],
+        [
+            "Mead Hall",
+            "Long tables run the length of the room. Voices boom off the rafters, and honey-sweet drink flows from barrels that never seem to empty."
+        ],
+        [
+            "Mayor's Office",
+            "Maps and petitions cover the desk. The mayor's chair faces the door, and the calendar on the wall is marked with too many appointments."
+        ],
+        [
+            "Mayor's Hall",
+            "A grand room where the city's business is conducted. Portraits of predecessors line the walls, each one looking slightly disappointed."
+        ],
+        [
+            "City Hall",
+            "Columns frame the entrance. Inside, bureaucracy grinds forward in ordered lines, stamped forms, and the patient shuffle of waiting citizens."
+        ],
+        [
+            "Market",
+            "Noise and color in every direction. Haggling voices, clinking coin, the press of the crowd. You can find almost anything if you look."
+        ],
+        [
+            "Marina",
+            "Small boats bob in sheltered water. Ropes creak against cleats, and the wooden docks smell of salt and sun-warmed pitch."
+        ],
+        [
+            "Mail Courier's Office",
+            "Pigeonholes stuffed with letters line the wall. A bell sits on the counter, and maps of every route hang behind the desk."
+        ],
+        [
+            "Mage Lift",
+            "A glowing platform rises silently between floors. Runes pulse along the shaft walls, and passengers grip the railing out of habit."
+        ],
+        [
+            "Longhouse",
+            "Smoke rises through a hole in the thatched roof. Inside, a fire pit runs the length of the hall and the walls are hung with shields."
+        ],
+        [
+            "Locksmith",
+            "Keys of every size and shape hang from hooks. The locksmith peers into a mechanism with a thin pick, listening for the click."
+        ],
+        [
+            "Royal Gardens",
+            "Hedges trimmed to geometric precision surround beds of rare flowers. Fountains murmur, and guards patrol paths that only the privileged may walk."
+        ],
+        [
+            "Livery Yard",
+            "Horses stamp and nicker behind wooden fences. Grooms carry saddles and brushes, and the air is thick with hay and leather."
+        ],
+        [
+            "Leatherworker",
+            "Hides stretch on frames along the wall. The sharp smell of curing oil fills the shop, and awls and needles line the bench."
+        ],
+        [
+            "Ironmonger",
+            "Pots, pans, nails, and hinges hang from every beam. The shop clanks when the door opens, and everything here is built to last."
+        ],
+        [
+            "Industrial District",
+            "Chimneys smudge the sky. The clang of machinery carries down soot-darkened streets, and workers file in and out at the sound of bells."
+        ],
+        [
+            "Hospital",
+            "Linen curtains divide rows of cots. Healers move between patients with quiet urgency, and the air smells of herb poultices and boiled bandages."
+        ],
+        [
+            "High Altar",
+            "Gold leaf catches candlelight in a vaulted chamber. The faithful kneel on worn stone, and the silence feels heavy with devotion."
+        ],
+        [
+            "Harbour",
+            "Ships of every size crowd the waterfront. Longshoremen shout over the creak of cranes, and the tide marks the rhythm of commerce."
+        ],
+        [
+            "Haberdashery",
+            "Hats and ribbons fill the window display. Inside, buttons sort by size and color in narrow drawers, and the proprietor knows fashion."
+        ],
+        [
+            "Gymnasium",
+            "Sand floors and wooden beams for climbing. The smell of sweat and chalk hangs in the air, and grunts echo off the high ceiling."
+        ],
+        [
+            "Grist Mill",
+            "The millstone turns with a low rumble. Flour dust whitens everything, and sacks of grain wait their turn in neat rows."
+        ],
+        [
+            "Greenhouse",
+            "Warm glass walls fog with moisture. Vines climb iron frames, and flowers bloom out of season in soil that smells of loam and life."
+        ],
+        [
+            "Grand Bazaar",
+            "A roofed maze of stalls stretching beyond sight. Silks, spices, blades, and baubles. A hundred languages spoken under one vaulted ceiling."
+        ],
+        [
+            "General Store",
+            "A little of everything on crowded shelves. Rope, flour, nails, lantern oil. The shopkeeper knows what you need before you say it."
+        ],
+        [
+            "Gallows",
+            "A wooden frame stands on a raised platform. The trapdoor is oiled and the rope is new. Crows perch on the crossbar, waiting."
+        ],
+        [
+            "Garden District",
+            "Trellised roses climb whitewashed walls. The streets here smell of jasmine and fresh earth, and birdsong replaces the noise of commerce."
+        ],
+        [
+            "Fuller",
+            "Cloth soaks in vats of lye and clay. Workers stomp fabric in shallow troughs, and the sharp chemical smell clings to the neighborhood."
+        ],
+        [
+            "Furrier",
+            "Pelts hang soft and thick from ceiling hooks. The shop smells of tanning oil and pine, and the prices rise with the cold weather."
+        ],
+        [
+            "Fortune Teller",
+            "Beaded curtains part into a dim room. Incense smoke curls around a draped table, and a voice from within already knows your question."
+        ],
+        [
+            "Fletcher",
+            "Arrow shafts bundle in racks along the wall. Feathers sort by color and type. The fletcher tests each one for straightness by eye."
+        ],
+        [
+            "Rat Catcher",
+            "Cages and traps hang from the ceiling. A wiry figure in stained clothes counts tails for the bounty, a terrier at their heels."
+        ],
+        [
+            "Fighting Pit",
+            "A sunken ring of packed dirt, ringed by shouting faces. Blood stains the sand. Coin changes hands faster than the blows."
+        ],
+        [
+            "Farmers Market",
+            "Carts heaped with root vegetables and fresh herbs line the square at dawn. Mud on every boot and honest dirt under every nail."
+        ],
+        [
+            "Embassy",
+            "A foreign flag hangs above a guarded door. Inside, diplomats speak carefully, and every room is assumed to have listeners."
+        ],
+        [
+            "Foreign Quarter",
+            "Signs in unfamiliar scripts. The smell of cooking you cannot name. A neighborhood that is both part of the city and apart from it."
+        ],
+        [
+            "Animal Breeders",
+            "Pens of prize stock fill a fenced yard. Bloodlines are recorded in thick ledgers, and the breeder knows every animal by name."
+        ],
+        [
+            "Kennels",
+            "Barking erupts at every visitor. Hounds strain at their leads, and the kennel master walks among them with calm authority."
+        ],
+        [
+            "Gambling Hall",
+            "Dice rattle on green felt. Cards snap and chip stacks grow or vanish. Fortune turns on a single draw, and the house always profits."
+        ],
+        [
+            "Divine Reliquary",
+            "Glass cases hold bones, cloth fragments, and objects that glow faintly. Pilgrims kneel before them, and the air feels dense with reverence."
+        ],
+        [
+            "Courthouse",
+            "Heavy doors open into a paneled chamber. The judge's bench sits raised above the gallery, and truth is weighed like evidence."
+        ],
+        [
+            "Cooperage",
+            "Iron hoops clang against oak staves. The cooper shapes barrels with mallet and plane, and the workshop smells of fresh-shaved wood."
+        ],
+        [
+            "Constabulary",
+            "A sturdy stone building with iron-barred windows. Officers come and go with purpose, and a duty roster hangs beside the door."
+        ],
+        [
+            "Council Chambers",
+            "A round table fills the center of the room. High-backed chairs surround it, each one carved with a different sigil."
+        ],
+        [
+            "Fountain",
+            "Water arcs from a carved figure into a broad basin. Children splash at the edges, and locals fill their jugs each morning."
+        ],
+        [
+            "Coffee House",
+            "The bitter, roasted scent pulls you through the door. Conversations hum at every table, and ideas ferment faster than the drinks cool."
+        ],
+        [
+            "Cobbler",
+            "Lasts and leather scraps cover the workbench. The cobbler taps tiny nails with practiced aim, a mouthful of pins at the ready."
+        ],
+        [
+            "Citadel",
+            "Thick walls and narrow windows overlook the city below. The stone has weathered sieges, and the garrison never fully sleeps."
+        ],
+        [
+            "Cistern",
+            "Columns rise from dark water in a vaulted underground chamber. Dripping echoes in the stillness. The city drinks from this silence."
+        ],
+        [
+            "Church",
+            "Wooden pews face a simple altar beneath stained glass. Hymns drift through the nave on Sundays, and the door is never locked."
+        ],
+        [
+            "Cathedral",
+            "Spires pierce the sky above a vast nave. Light falls through colored glass in long beams, and footsteps echo like prayers."
+        ],
+        [
+            "Chariot Racing Track",
+            "A long oval of packed earth, banked at the turns. The starting gates are painted bright, and hoofprints gouge the straightaway."
+        ],
+        [
+            "Cartwright",
+            "Unfinished wagon frames lean against the workshop walls. Wood shavings curl on the floor, and the smell of varnish is strong."
+        ],
+        [
+            "Cartographer",
+            "Maps cover every surface, pinned, rolled, or framed. The cartographer squints at coastline details, brush in hand, the world taking shape in ink."
+        ],
+        [
+            "Carpenter",
+            "Sawdust softens the floor. Planes and chisels hang in neat rows, and the clean smell of cut wood fills the workshop."
+        ],
+        [
+            "Caravanserai",
+            "A walled courtyard where trade roads meet. Camels and pack horses rest beside loaded wagons, and merchants swap news over shared fires."
+        ],
+        [
+            "Vegetable Vendor",
+            "Crates of turnips, onions, and greens spill onto the pavement. The vendor shouts prices to anyone passing within earshot."
+        ],
+        [
+            "Buttercross Market",
+            "A stone cross marks the center of the market square. Dairy and produce sellers gather in its shadow every market day."
+        ],
+        [
+            "Butcher",
+            "Cuts of meat hang from iron hooks in the window. Sawdust covers the floor, and the butcher's apron tells the story of the day."
+        ],
+        [
+            "Brothel",
+            "Red lanterns glow above a painted door. Laughter and music filter through the walls. Discretion is the most expensive service offered."
+        ],
+        [
+            "Bookbinder",
+            "The press clamps shut on fresh pages. Leather, thread, and bone folders line the bench. Every book here begins as loose sheets and glue."
+        ],
+        [
+            "Bookstore",
+            "Shelves sag under the weight of collected knowledge. The owner can find any title by memory alone, and the shop smells of old paper."
+        ],
+        [
+            "Beer Garden",
+            "Long tables sit under spreading trees. Tankards clatter and voices rise in song. Lanterns sway from the branches as evening settles in."
+        ],
+        [
+            "Bank",
+            "Marble floors and iron vaults. Clerks count coin behind barred windows, and the silence is the kind that money buys."
+        ],
+        [
+            "Bakery",
+            "Warm bread scent drifts down the street before dawn. Flour dusts the counter, and the ovens glow orange through their iron doors."
+        ],
+        [
+            "Barber",
+            "A leather chair faces a spotted mirror. Razors gleam on a folded cloth, and the barber knows every rumor in the quarter."
+        ],
+        [
+            "Aviary",
+            "Wire cages rise floor to ceiling, alive with color and song. Feathers drift in the air, and the keeper whistles back to the birds."
+        ],
+        [
+            "Auction House",
+            "A raised platform and a fast-talking caller. Paddles rise in the crowd, and fortunes change ownership in the space of a breath."
+        ],
+        [
+            "Artisan Quarter",
+            "Workshops crowd narrow streets. The ring of hammers, whir of lathes, and smell of lacquer blend into a symphony of making."
+        ],
+        [
+            "Art Gallery",
+            "Paintings hang in gilded frames on white walls. Patrons drift through in silence, tilting their heads. The prices are never displayed."
+        ],
+        [
+            "Colosseum",
+            "Towering stone arches ring a vast arena floor. The seats hold thousands, and the echoes of old spectacles never fully fade."
+        ],
+        [
+            "Laboratory",
+            "Glass vessels bubble over low flames. Stained notebooks lie open beside scales and measures. Something in the corner flask is changing color."
+        ],
+        [
+            "Aquarium",
+            "Glass tanks line the walls, lit from within. Strange fish drift through blue water, and the room hums with the sound of pumps."
+        ],
+        [
+            "Alchemist Workshop",
+            "Bubbling retorts and copper tubing crowd the bench. The air tastes metallic, and stains on the ceiling hint at past experiments."
+        ],
+        [
+            "Apothecary",
+            "Dried herbs hang from the rafters in fragrant bundles. Jars of powders and tinctures line the shelves, labeled in careful script."
+        ],
+        [
+            "Apiary",
+            "Wooden hives stand in neat rows behind a low fence. Bees hum through the clover, and the keeper moves among them without fear."
+        ],
+        [
+            "Antique Shop",
+            "Dust settles on objects older than the shopkeeper's memory. Every piece has a provenance, or at least a convincing story."
+        ],
+        [
+            "Park",
+            "Old trees shade gravel paths. Benches face a quiet pond, and the noise of the city dims to a murmur beyond the hedgerow."
+        ],
+        [
+            "Observatory",
+            "A domed roof opens to the stars. Brass instruments track the heavens, and the astronomer's notes fill ledgers that span decades."
+        ],
+        [
+            "Amphitheater",
+            "Stone seats descend in half-circles toward an open stage. Actors' voices carry to the last row without effort. The acoustics are perfect."
+        ],
+        [
+            "Abbey",
+            "Thick stone walls enclose a life of quiet discipline. The garden is immaculate, the bells are punctual, and the silence is chosen."
+        ],
+        [
+            "Clockmaker",
+            "Ticking fills the shop like a pulse. Gears and springs lie under magnifying lenses, and every wall holds a face that tells the time."
+        ],
+        [
+            "Glassblower",
+            "The furnace roars orange. Molten glass stretches and turns on the end of a pipe, taking shape with each breath and twist."
+        ],
+        [
+            "Candlemaker",
+            "Wax drips from hanging wicks in long rows. The air is thick with beeswax and tallow. Colors range from bone white to deep red."
+        ],
+        [
+            "Perfumer",
+            "Tiny bottles crowd a marble counter. The perfumer dabs samples on paper strips, and the shop shifts between rose, cedar, and something unnamed."
+        ],
+        [
+            "Mapmaker",
+            "Ink-stained fingers trace coastlines onto stretched vellum. Compasses and rulers fan across the desk, and half the world hangs on the walls."
+        ],
+        [
+            "Instrument Maker",
+            "Unfinished lutes and half-strung harps lean against the bench. Wood shavings curl on the floor, and every surface hums if you tap it."
+        ],
+        [
+            "Armor Shop",
+            "Breastplates and greaves gleam on wooden stands. Chain links cascade from hooks, and the shopkeeper raps the steel to prove its quality."
+        ],
+        [
+            "Weapon Shop",
+            "Blades line the walls from floor to ceiling. The steel catches light in clean edges. The owner handles each one like an old friend."
+        ],
+        [
+            "Rope Maker",
+            "Fibers twist on a long frame in the yard. The rope maker walks backward, feeding hemp strand by strand into the growing braid."
+        ],
+        [
+            "Dyer",
+            "Vats of vivid color steam in the open air. The dyer's hands are stained indigo to the wrist, and cloth hangs drying in bright ribbons."
+        ],
+        [
+            "Pottery Shop",
+            "Glazed bowls and vases sit on every shelf, each one catching light in its own way. The smell of kiln-fired earth lingers."
+        ],
+        [
+            "Brick Kiln",
+            "Heat shimmers above the long, low ovens. Stacked bricks dry in the sun before firing, and the air tastes of hot clay."
+        ],
+        [
+            "Lime Kiln",
+            "White dust coats the ground for yards around. The kiln glows dull red inside, and the sharp smell of burning limestone bites the air."
+        ],
+        [
+            "Lawyer's Office",
+            "Leather-bound volumes line the shelves. The lawyer leans back in a high chair, weighing words more carefully than any scale weighs gold."
+        ],
+        [
+            "Notary Public",
+            "Seals and stamps sit in a neat row. The notary witnesses, signs, and makes things official. Every document leaves with a wax impression."
+        ],
+        [
+            "Messenger Service",
+            "Runners wait on a bench by the door, legs stretched, ready to sprint. Sealed letters fill a sorting rack, arranged by urgency."
+        ],
+        [
+            "Banking House",
+            "Chandeliers hang above polished desks. Senior bankers receive clients in private rooms, and vaults descend two stories beneath the floor."
+        ],
+        [
+            "Insurance Office",
+            "Ledgers record every ship, cargo, and warehouse in the city. Premiums are calculated with cold precision, and claims are paid slowly."
+        ],
+        [
+            "Architect's Office",
+            "Blueprints unroll across a drafting table. Wooden models of buildings occupy every flat surface, and the walls display elevation drawings."
+        ],
+        [
+            "Surveyor's Office",
+            "Measuring chains and theodolites lean in the corner. Boundary maps paper the walls, and disputes over property lines keep the office busy."
+        ],
+        [
+            "Customs House",
+            "Officials weigh, inspect, and stamp every crate that enters the city. The smell of foreign goods mixes with bureaucratic ink."
+        ],
+        [
+            "Exchequer",
+            "Heavy ledgers track every coin the crown collects and spends. Counters click behind closed doors, and the totals are never shared."
+        ],
+        [
+            "Registry Office",
+            "Births, deaths, marriages, and property transfers fill shelves of bound records. The clerk flips to the correct page without hesitation."
+        ],
+        [
+            "Public Works Department",
+            "Plans for roads, bridges, and sewers cover long tables. Engineers argue over routes while the city slowly reshapes itself outside."
+        ],
+        [
+            "Fire Station",
+            "A brass bell hangs ready. Buckets, ladders, and pumps stand lined against the wall. The crew sleeps light, boots at the bedside."
+        ],
+        [
+            "Watch Tower",
+            "A narrow stair climbs to an open platform above the rooftops. The watchman scans the horizon, and a signal horn rests within reach."
+        ],
+        [
+            "Armory",
+            "Racks of spears, shields, and swords line the walls in military order. The quartermaster logs every piece taken and returned."
+        ],
+        [
+            "Barracks",
+            "Rows of cots fill a long hall. Boots stand at the foot of each bed, and the bugle call comes early and without mercy."
+        ],
+        [
+            "Opera House",
+            "Crystal chandeliers hang above tiered balconies. The stage is deep, the curtain heavy, and opening night fills every seat in the city."
+        ],
+        [
+            "Concert Hall",
+            "Polished wood and curved walls shape the sound. Every note reaches the back row as clearly as the front. The audience holds its breath."
+        ],
+        [
+            "Dance Hall",
+            "A sprung wooden floor gleams under warm lamplight. Music drifts in from the band, and couples turn in practiced, graceful circles."
+        ],
+        [
+            "Puppet Theatre",
+            "A small curtained stage faces rows of low benches. Painted puppets hang backstage, and children lean forward, utterly convinced."
+        ],
+        [
+            "Street Performers Corner",
+            "A cobblestoned clearing where jugglers, fire-eaters, and musicians compete for coins. The crowd shifts with the acts, and the hat always goes around."
+        ],
+        [
+            "Storyteller's Circle",
+            "Worn stone benches ring a low firepit. When the storyteller speaks, even the wind seems to listen. Embers pop in the silences."
+        ],
+        [
+            "Bard College",
+            "Music leaks from every window. Students practice lute, voice, and verse in competing keys. The walls have absorbed centuries of melody."
+        ],
+        [
+            "Art Studio",
+            "Paint-spattered floors and canvases in every stage of completion. Brushes soak in jars, and the north light falls steady and cool."
+        ],
+        [
+            "Craftsman Quarter",
+            "Workshops open to the street on both sides. Sawdust, metal filings, and paint smells mingle. Every block has its own trade."
+        ],
+        [
+            "Harbor District",
+            "Salt air and the creak of rigging. Chandlers, taverns, and sail lofts crowd the waterfront, and the tides set the daily rhythm."
+        ],
+        [
+            "Warehouse District",
+            "Tall, windowless buildings stand in rows. Carts rattle over cobblestones, and longshoremen haul crates through wide loading doors."
+        ],
+        [
+            "Diplomatic Quarter",
+            "Flags of foreign nations hang from stately facades. Guards in unfamiliar uniforms stand at attention, and conversations happen behind closed curtains."
+        ],
+        [
+            "Financial District",
+            "Stone buildings with columned facades line broad streets. Runners dash between firms, and the sound of coin is both constant and muted."
+        ],
+        [
+            "Entertainment District",
+            "Bright lanterns and painted signs compete for attention after dark. Music spills from open doorways, and the crowd swells with the evening."
+        ],
+        [
+            "Foreign Quarter",
+            "Unfamiliar architecture and foreign tongues fill these streets. Temples to unknown gods stand beside noodle shops and silk traders."
+        ],
+        [
+            "Red Light District",
+            "Colored lanterns sway above narrow lanes. Barkers call from doorways, and the district comes alive after the rest of the city sleeps."
+        ],
+        [
+            "Monastery",
+            "A walled compound of prayer and labor. The monks keep gardens, copy manuscripts, and observe silence. Visitors must wait at the gate."
+        ],
+        [
+            "Shrine",
+            "A small stone alcove holds a carved figure, worn smooth by touching hands. Fresh offerings sit at its feet. Someone always tends it."
+        ],
+        [
+            "Pilgrim's Lodge",
+            "Simple beds in rows, a shared meal, and a roof for those traveling to holy places. The guest book holds names from distant lands."
+        ],
+        [
+            "Cemetery",
+            "Headstones lean at angles between old trees. Ivy creeps over the older markers, and the groundskeeper works in quiet, unhurried routine."
+        ],
+        [
+            "Mausoleum",
+            "A stone vault sealed with heavy doors. Names are chiseled above the entrance, and the inside is cold regardless of the season."
+        ],
+        [
+            "Healing Sanctuary",
+            "Soft light filters through muslin curtains. The air smells of chamomile and clean linen, and the healers speak in gentle, measured tones."
+        ],
+        [
+            "Aqueduct",
+            "Stone arches carry water high above the streets. Moss grows in the channel, and the sound of flowing water carries for blocks."
+        ],
+        [
+            "Public Well",
+            "A stone rim surrounds deep water. Neighbors gather with buckets each morning, trading news while the winch creaks and the rope drips."
+        ],
+        [
+            "Watchtower",
+            "A tall stone cylinder rising above the wall. Arrow slits face outward, and the duty watchman has the best view in the city."
+        ],
+        [
+            "City Gates",
+            "Massive oak doors bound in iron stand open at dawn, closed at dusk. Guards check wagons and faces, waving most through with a nod."
+        ],
+        [
+            "Drawbridge",
+            "Heavy chains hold the bridge level over dark water. The winch mechanism is housed in the gatehouse, and the wood groans under every cart."
+        ],
+        [
+            "Bell Tower",
+            "The bells hang in an open belfry high above the street. They mark the hours, sound alarms, and ring for occasions both joyful and grave."
+        ],
+        [
+            "Lighthouse",
+            "A tall tower on the harbor's edge, its lamp visible for miles. The keeper climbs the spiral stair each evening to light the flame."
+        ],
+        [
+            "Granary",
+            "Thick walls and a dry roof protect the city's grain reserves. Cats patrol for mice, and the air is sweet with stored wheat."
+        ],
+        [
+            "Public Baths",
+            "Tiled pools steam in vaulted rooms. Towels fold in neat stacks, and the conversation echoes pleasantly off the wet stone."
+        ],
+        [
+            "Menagerie",
+            "Caged beasts from distant lands pace behind iron bars. Children stare wide-eyed, and the keepers carry buckets of raw meat at feeding time."
+        ],
+        [
+            "Dovecote",
+            "A round stone tower with hundreds of nesting holes. White birds flutter in and out, carrying messages tied to their legs."
+        ],
+        [
+            "Windmill",
+            "The sails turn slowly against the sky. Inside, millstones grind grain to flour, and the whole building trembles gently with the motion."
+        ],
+        [
+            "Fishmonger",
+            "Ice and silver scales glitter on the slab. The vendor shouts the morning's catch, and the smell of brine carries down the lane."
+        ],
+        [
+            "Cheese Shop",
+            "Wheels and wedges age on wooden shelves. The smell is sharp and warm. The cheesemonger offers samples with a knowing smile."
+        ],
+        [
+            "Wine Merchant",
+            "Bottles rest in cool, dark racks. The merchant swirls and sniffs, describing vineyards the buyer will never visit. The corks pop softly."
+        ],
+        [
+            "Herbalist",
+            "Bundles of dried plants hang from every rafter. The herbalist grinds leaves with a mortar and pestle, prescribing remedies by smell and instinct."
+        ],
+        [
+            "Scribe Guild",
+            "Copyists work at long desks, quills moving in unison. Ink pots fill and empty, and the guild takes pride in flawless penmanship."
+        ],
+        [
+            "Courier Station",
+            "Horses rest in stalls behind the office. Saddlebags hang ready, and a board lists routes, distances, and delivery times."
+        ],
+        [
+            "Soap Maker",
+            "Kettles of rendered fat bubble on low fires. The lye stings your eyes from the doorway. Finished bars dry on wooden racks."
+        ],
+        [
+            "Candle Shop",
+            "Rows of tapers, pillars, and votives in every color. Beeswax and tallow scent the air, and the shopkeeper trims wicks as you browse."
+        ],
+        [
+            "Print Shop",
+            "The press clanks with mechanical rhythm. Ink-stained apprentices arrange type, and freshly printed pages hang to dry on lines like laundry."
+        ],
+        [
+            "Bookbinding Workshop",
+            "Needle and thread stitch through folded signatures. Leather covers are tooled with hot stamps, and the smell of paste fills the room."
+        ],
+        [
+            "Ink Maker",
+            "Soot, gum, and pigment grind together in stone bowls. The ink maker tests each batch on scrap paper, judging the blackness by eye."
+        ],
+        [
+            "Paper Mill",
+            "Water-powered hammers pound rags to pulp. Wet sheets press flat on wire screens, and the whole building smells of damp linen."
+        ],
+        [
+            "Seal Maker",
+            "Tiny chisels carve reversed letters into metal and stone. A press of hot wax proves the work. Every seal here is unique."
+        ],
+        [
+            "Flag Maker",
+            "Bright cloth cuts into shapes on a wide table. The sewing machine hums, and finished banners hang from the rafters in bold colors."
+        ],
+        [
+            "Banner Workshop",
+            "Fabric stretches on frames while artisans paint heraldic devices with steady hands. Gold leaf and bright dyes give each banner its authority."
+        ],
+        [
+            "Herald's Office",
+            "Rolls of parchment record every noble family's arms and lineage. The herald settles disputes of precedence with ancient reference books."
+        ],
+        [
+            "Town Crier's Hall",
+            "A small room where the day's announcements are drafted and rehearsed. The crier's bell sits polished on a hook by the door."
+        ],
+        [
+            "Public Notice Board",
+            "A weathered board at the crossroads, layered with overlapping notices. New ones cover old ones, and the nail holes multiply."
+        ],
+        [
+            "Lost and Found",
+            "Shelves of forgotten gloves, umbrellas, and odd shoes. The clerk records each item in a ledger and waits, mostly in vain."
+        ],
+        [
+            "City Archives",
+            "Rows of bound records disappear into the dim back stacks. The archivist fetches volumes by memory, and the dust is centuries old."
+        ],
+        [
+            "Records Office",
+            "Filing cabinets and deed boxes line the walls. Every property, birth, and transaction has a paper trail that begins and ends here."
+        ],
+        [
+            "Census Bureau",
+            "Maps pin on the walls, dotted with colored pins. Every household counted, every mouth tallied. The clerks knock on doors for a living."
+        ],
+        [
+            "Tax Assessor",
+            "Ledgers track the value of every parcel in the district. The assessor peers over spectacles, and appeals are rarely successful."
+        ],
+        [
+            "Public Weighing Station",
+            "A great iron scale stands on a stone platform in the market. Disputes over quantity end here, and the weights are inspected monthly."
+        ],
+        [
+            "Grain Exchange",
+            "Traders shout bids across a crowded floor. Prices chalk on a tall board, and fortunes rise and fall with the harvest reports."
+        ],
+        [
+            "Wool Exchange",
+            "Bales of raw wool stack high in the trading hall. Buyers pinch the fibers for quality, and the bidding gets sharp before shearing season."
+        ],
+        [
+            "Slave Market",
+            "A raised platform in a walled yard. Chains hang from iron posts, and the auctioneer's voice carries without emotion over the assembled buyers."
+        ],
+        [
+            "Livestock Market",
+            "Pens of cattle, sheep, and goats fill a muddy yard. Farmers haggle while animals low and bleat, and the smell is overwhelming."
+        ],
+        [
+            "Auction Yard",
+            "Lots line up for inspection before the bidding starts. The auctioneer's gavel cracks, and the crowd surges forward with each new item."
+        ],
+        [
+            "Peddler's Corner",
+            "A patch of street where traveling sellers spread their wares on blankets. The goods change daily, and bargains reward the early riser."
+        ],
+        [
+            "Night Market",
+            "Lanterns sway between the stalls after dark. The air fills with sizzling food and hushed bargaining. Some goods are only sold by moonlight."
+        ],
+        [
+            "Festival Grounds",
+            "An open field at the city's edge, trampled flat by celebrations. Tent poles mark where the stages stood, and confetti still blows in the gutters."
+        ],
+        [
+            "Execution Square",
+            "A raised stone platform stained dark. The crowd gathers in grim silence, and the executioner waits with professional patience."
+        ],
+        [
+            "Whipping Post",
+            "A scarred wooden pillar stands in the open, iron rings set at wrist height. The cobblestones around it are worn by shuffling feet."
+        ],
+        [
+            "Stocks",
+            "Wooden frames with holes for wrists and neck stand in the market square. Passersby pause to jeer or pity, depending on the crime."
+        ],
+        [
+            "Ducking Stool",
+            "A long beam pivots over the river, a chair lashed to the end. The mechanism is crude, the punishment public, the crowd always gathered."
+        ],
+        [
+            "Pillory Square",
+            "An open courtyard centered on a wooden frame of public shame. Market day brings the biggest audiences, and rotten produce sells briskly."
+        ],
+        [
+            "Gibbet",
+            "An iron cage hangs from a tall post at the crossroads. What it holds is a warning. Crows circle above, and travelers walk faster."
+        ],
+        [
+            "Bone Yard",
+            "Discarded bones from the butcher and the battlefield bleach in the sun. The ground is chalky white, and scavenger birds own this place."
+        ],
+        [
+            "Potter's Field",
+            "Unmarked graves in rough rows, covered with thin grass. No headstones, no flowers. The dead here had no one to claim them."
+        ],
+        [
+            "Pest House",
+            "A shuttered building at the city's edge. Yellow flags mark it. The sick go in, and the healthy stay well away."
+        ],
+        [
+            "Quarantine Station",
+            "A walled compound outside the gates where newcomers wait and are inspected. The stay is mandatory, and the guards wear cloth over their faces."
+        ],
+        [
+            "City Morgue",
+            "A cold basement of stone slabs and zinc tables. Bodies wait here for identification, and the attendant keeps meticulous, dispassionate records."
+        ],
+        [
+            "Undertaker",
+            "Dark curtains and polished wood. The undertaker measures with a soft tape and speaks in tones meant to comfort. Arrangements are made quietly."
+        ],
+        [
+            "Coffin Maker",
+            "Pine and oak boards lean against the walls. The saw runs steady, and finished boxes stand waiting in a row. Business never slows."
+        ],
+        [
+            "Gravedigger's Shed",
+            "Shovels and lanterns hang inside a small stone hut at the cemetery's edge. The digger knows every plot by feel, even in the dark."
+        ],
+        [
+            "Memorial Garden",
+            "Stone benches sit among flowering trees planted in memory of the fallen. Name plaques line the path, and the silence here is deliberate."
+        ],
+        [
+            "Veterans Hall",
+            "Faded banners and retired weapons decorate the walls. Old soldiers share drinks and stories, and every scar has been earned."
+        ],
+        [
+            "Guildhall Plaza",
+            "An open square before the guild's grand entrance. Apprentices gather, merchants negotiate, and the guild's banner snaps in the wind above."
+        ],
+        [
+            "Journeyman Quarters",
+            "Simple rooms above the workshop, shared by those who have finished training but not yet earned a master's title. The work never stops."
+        ],
+        [
+            "Apprentice Dormitory",
+            "Narrow beds in shared rooms. Tools and study materials pile on small desks. The bell wakes them early and the masters keep them late."
+        ],
+        [
+            "Master's Workshop",
+            "The finest tools and rarest materials fill this private workroom. Only the master enters uninvited, and the pieces made here set the standard."
+        ],
+        [
+            "Trade School",
+            "Workbenches fill the classroom. Students practice cuts, joins, and measurements under a watchful instructor. Mistakes are expected and corrected."
+        ],
+        [
+            "Merchant Academy",
+            "Ledgers and abacuses replace weapons. Students learn to read contracts, calculate interest, and spot a counterfeit coin at a glance."
+        ],
+        [
+            "Finishing School",
+            "Deportment, etiquette, and conversation. Students walk with books balanced on their heads, and every meal is a lesson in table manners."
+        ],
+        [
+            "Charm School",
+            "Mirrors line the practice room. Students rehearse introductions, compliments, and the art of persuasion. Confidence is the real curriculum."
+        ],
+        [
+            "Etiquette Academy",
+            "Proper form for every occasion, taught with exacting repetition. Place settings, bowing depths, and modes of address for every rank."
+        ],
+        [
+            "Dancing Academy",
+            "A polished floor and a wall of mirrors. The instructor counts time, and students practice steps until the movement becomes instinct."
+        ],
+        [
+            "Fencing School",
+            "Blunted blades ring in a whitewashed hall. Students lunge and parry in paired lines, and the instructor corrects footwork with a tap."
+        ],
+        [
+            "Riding Academy",
+            "A fenced ring of packed sand. Students circle on horseback, learning posture and rein before they ever leave the yard."
+        ],
+        [
+            "Naval Academy",
+            "Ship models and navigation charts fill the classrooms. Cadets learn knots, stars, and tactics before they ever board a real vessel."
+        ],
+        [
+            "War College",
+            "Sand tables display miniature battlefields. Officers study campaigns of the past, debating strategy over maps and cold coffee."
+        ],
+        [
+            "Diplomatic Academy",
+            "Students practice negotiation in mock summits. Languages, customs, and the art of saying nothing while appearing to agree are the core subjects."
+        ],
+        [
+            "Spy Training Facility",
+            "An unmarked building with no sign. Those who train here learn to watch, listen, and disappear. Graduates never speak of the curriculum."
+        ],
+        [
+            "Thieves Academy",
+            "Behind a legitimate front, students learn locks, pockets, and rooftops. The tuition is steep, but the skills pay for themselves quickly."
+        ],
+        [
+            "Assassin Guild",
+            "No sign marks the entrance. Those who find it were meant to. Contracts are accepted in silence, and the guild's reputation is its only advertisement."
+        ],
+        [
+            "Informant Network Hub",
+            "A back room in an ordinary shop. Messages pass through coded drops, and the people who work here know more than anyone suspects."
+        ],
+        [
+            "Fence Operation",
+            "A cluttered shop where stolen goods gain new histories. No questions asked, and every item is priced to move quickly."
+        ],
+        [
+            "Smuggler's Den",
+            "Hidden behind a false wall in a dockside warehouse. Contraband stacks in crates without markings, and the exit leads somewhere unexpected."
+        ],
+        [
+            "Black Market",
+            "No fixed address. It moves through basements and back alleys. If you know the password, you can buy things that officially do not exist."
+        ],
+        [
+            "Contraband Warehouse",
+            "Unmarked crates behind a locked door. The guards are not city watch, and the inventory is never written down."
+        ],
+        [
+            "Secret Meeting Room",
+            "A windowless chamber reached through a hidden door. The chairs are arranged in a circle, and the walls are thick enough to keep secrets."
+        ],
+        [
+            "Underground Tunnels",
+            "Passages older than the city twist beneath the streets. Some carry water, some carry people, and some have not been mapped in generations."
+        ],
+        [
+            "Hidden Passage",
+            "A narrow corridor behind the walls, connecting rooms that were never meant to be connected. Dust records every footprint."
+        ],
+        [
+            "Safe House",
+            "An unremarkable building on an unremarkable street. Inside, the locks are heavy, the windows are reinforced, and no names are used."
+        ],
+        [
+            "Resistance Hideout",
+            "A cellar beneath a sympathetic merchant's shop. Plans are drawn in charcoal on the walls, and the entrance changes regularly."
+        ],
+        [
+            "Revolutionary Cell",
+            "A cramped room above a print shop. Pamphlets stack on every surface, and the members speak in whispers even when they are alone."
+        ],
+        [
+            "Propaganda Press",
+            "A hidden printing press churns out broadsheets by candlelight. The ink is still wet when the runners carry the pages into the streets."
+        ],
+        [
+            "Rumor Mill",
+            "Not a place you can point to on a map. Where gossip concentrates and speculation hardens into certainty over repeated tellings."
+        ],
+        [
+            "Gossip Parlor",
+            "A comfortable sitting room where visitors trade stories over tea. Reputations are built and destroyed between the first cup and the last."
+        ],
+        [
+            "Social Club",
+            "Leather chairs and quiet conversation. Membership is by invitation, and the discussions here influence decisions made elsewhere."
+        ],
+        [
+            "Gentleman's Club",
+            "Oak panels and cigar smoke. Members drink brandy in wing-backed chairs, and business is conducted without ever appearing to conduct business."
+        ],
+        [
+            "Ladies Circle",
+            "An elegant parlor where women of standing gather to exchange news, arrange alliances, and shape society over embroidery and refreshments."
+        ],
+        [
+            "Reading Room",
+            "Tall windows and deep chairs. Newspapers drape over wooden rods, and the only sound is the turning of pages and the ticking of a clock."
+        ],
+        [
+            "Chess Parlor",
+            "Small tables, each with a board set and ready. Players lean forward in concentration, and spectators watch in respectful silence."
+        ],
+        [
+            "Card Room",
+            "Green baize tables under low lamplight. Cards whisper across the felt, and fortunes shift quietly with each hand dealt."
+        ],
+        [
+            "Billiards Hall",
+            "The crack of ivory on ivory echoes off paneled walls. Cues stand in racks, and chalk dust drifts in the lamplight."
+        ],
+        [
+            "Smoking Lounge",
+            "Blue haze fills the room. Pipes and cigars glow in dim corners, and conversation drifts as slowly as the smoke."
+        ],
+        [
+            "Wine Cellar",
+            "Cool stone stairs descend to racks of dusty bottles. The vintages stretch back decades, and the temperature never changes."
+        ],
+        [
+            "Beer Hall",
+            "Long communal tables and high ceilings built for noise. Steins slam down, voices boom in toast, and the taps never stop flowing."
+        ],
+        [
+            "Distillery",
+            "Copper stills gleam in a warm room. The sharp, sweet smell of fermenting grain fills the air, and the master tastes each batch."
+        ],
+        [
+            "Brewery",
+            "Vats taller than a person line the floor. Steam rises from the mash, and the yeasty, warm smell drifts for blocks downwind."
+        ],
+        [
+            "Vineyard Office",
+            "A small stone building among the rows of vines. Ledgers of vintages and yields share desk space with a half-empty bottle."
+        ],
+        [
+            "Spirits Shop",
+            "Bottles of amber, gold, and clear liquor line the shelves. The shopkeeper pours samples with a careful hand and knows every distiller by name."
+        ],
+        [
+            "Tobacco Shop",
+            "Jars of cured leaf line the shelves. The shop smells rich and earthy, and the tobacconist blends custom mixes by request."
+        ],
+        [
+            "Pipe Shop",
+            "Carved pipes of briar, clay, and meerschaum rest in glass cases. The craftsman shapes a bowl at the workbench, shavings curling to the floor."
+        ],
+        [
+            "Hookah Lounge",
+            "Low cushions ring brass water pipes. Flavored smoke curls toward the ceiling, and the conversation is slow, easy, and unhurried."
+        ],
+        [
+            "Confectionery",
+            "Sugar and butter scent the air. Trays of caramels, toffees, and crystallized fruits gleam behind the glass counter."
+        ],
+        [
+            "Sweet Shop",
+            "Jars of bright candy line the shelves. Children press against the counter, choosing carefully, counting coins in their palms."
+        ],
+        [
+            "Candy Maker",
+            "Sugar boils in copper pots, pulled and stretched into ribbons on a marble slab. The workshop is warm, sweet, and slightly sticky."
+        ],
+        [
+            "Ice House",
+            "Thick walls packed with straw surround blocks of winter ice. The cold hits you at the door, and the sawdust crunches underfoot."
+        ],
+        [
+            "Cold Storage",
+            "A below-ground vault kept frigid by thick stone and packed ice. Perishable goods wait on shelves, and your breath clouds instantly."
+        ],
+        [
+            "Preservation Facility",
+            "Salt, smoke, and vinegar keep meat and fish from spoiling. Racks of cured provisions hang in dry, cool rooms behind sealed doors."
+        ],
+        [
+            "Spice Warehouse",
+            "The air is sharp with pepper and clove. Barrels and sacks from distant lands crowd the floor, each one stamped with its origin."
+        ],
+        [
+            "Exotic Goods Trader",
+            "Objects you cannot name sit on shelves you cannot reach. The trader has been everywhere, and every item comes with a story and a price."
+        ],
+        [
+            "Curiosity Shop",
+            "Shelves crammed with the strange and the unexplained. A shrunken head sits next to a compass that points somewhere other than north."
+        ],
+        [
+            "Relic Dealer",
+            "Faded tapestries and chipped artifacts rest under glass. The dealer swears each piece is genuine, and some of them actually are."
+        ],
+        [
+            "Antiquarian",
+            "Books and objects older than the city fill a cramped shop. The owner handles each piece with cotton gloves and speaks in hushed reverence."
+        ],
+        [
+            "Rare Books Shop",
+            "Volumes behind locked glass, their spines cracked and pages foxed with age. The bookseller knows the provenance of every copy."
+        ],
+        [
+            "Manuscript Dealer",
+            "Illuminated pages framed on the wall, and rolled scrolls rest in felt-lined cases. The prices reflect centuries of careful preservation."
+        ],
+        [
+            "Scroll Shop",
+            "Cubby holes of rolled parchment fill the wall behind the counter. Spells, histories, and recipes, each one sealed with a ribbon."
+        ],
+        [
+            "Magical Components Shop",
+            "Jars of powdered horn, dried eyes, and crushed crystal sit in labeled rows. The shopkeeper weighs each order on a silver scale."
+        ],
+        [
+            "Enchanted Items Store",
+            "Objects behind warded glass cases glow faintly. The shopkeeper handles the merchandise with thick gloves and very specific warnings."
+        ],
+        [
+            "Ward Workshop",
+            "Chalk circles and inscribed stones cover every surface. The ward maker works in silence, and the finished pieces hum with quiet protection."
+        ],
+        [
+            "Blessing Chamber",
+            "A clean room lit by white candles. The walls are inscribed with prayers, and those who enter leave feeling lighter than when they arrived."
+        ],
+        [
+            "Curse Removal Service",
+            "A shuttered room where desperate people bring objects they wish they had never touched. The practitioner charges by the severity."
+        ],
+        [
+            "Divination Parlor",
+            "Velvet drapes and dim candlelight. The reader waits behind a small table, and the future arranges itself in cards, stones, or smoke."
+        ],
+        [
+            "Crystal Ball Reader",
+            "A glass sphere sits on a cloth of midnight blue. The reader gazes into it with unfocused eyes, describing shapes only they can see."
+        ],
+        [
+            "Palm Reader",
+            "A warm hand takes yours and turns it upward. Fingers trace the lines of your palm, and the reader speaks of journeys and choices."
+        ],
+        [
+            "Card Reader",
+            "A worn deck spreads across a velvet table. The images are faded but the meanings remain sharp. Each card turned changes the story."
+        ],
+        [
+            "Bone Thrower",
+            "Carved bones clatter across a marked cloth. The reader studies where they fall, reading fate in the angles and distances between them."
+        ],
+        [
+            "Rune Caster",
+            "Polished stones etched with old symbols spill from a leather pouch. The caster reads the pattern in silence before speaking."
+        ],
+        [
+            "Dream Interpreter",
+            "A quiet room with a low couch and soft light. The interpreter listens to your night visions and finds the meaning buried within."
+        ],
+        [
+            "Medium's Parlor",
+            "Cold spots drift through the room unbidden. The medium sits with closed eyes, speaking in voices that are not entirely their own."
+        ],
+        [
+            "Spirit Guide Center",
+            "Incense and silence fill a windowless chamber. The guide bridges the gap between the living and whatever waits on the other side."
+        ],
+        [
+            "Exorcist Office",
+            "Holy symbols line the walls. Chains and restraints hang from hooks, and the exorcist keeps a journal of every case, successful or not."
+        ],
+        [
+            "Demon Hunter Guild",
+            "Weapons of silver and cold iron rack the walls. Members bear scars they don't explain, and the contracts here pay well for good reason."
+        ],
+        [
+            "Holy Warrior Chapel",
+            "A chapel for those who fight in their god's name. Armor stands beside the altar, and prayers are said with clenched fists."
+        ],
+        [
+            "Paladin Order Hall",
+            "Polished armor and sacred oaths define this hall. The paladins gather at a long table, and the code of conduct hangs on the wall."
+        ],
+        [
+            "Cleric Seminary",
+            "Students study scripture and healing arts in quiet classrooms. The library holds sacred texts, and the courtyard is used for prayer."
+        ],
+        [
+            "Monk Training Ground",
+            "A bare courtyard of raked gravel. Students practice forms in slow, deliberate motion, and the master watches without speaking."
+        ],
+        [
+            "Meditation Garden",
+            "Raked sand and placed stones create patterns of stillness. The only sound is wind through bamboo, and the only purpose is presence."
+        ],
+        [
+            "Prayer Wheel Hall",
+            "Rows of brass cylinders spin on wooden spindles. The faithful walk between them, giving each a turn, and the hall fills with soft clicking."
+        ],
+        [
+            "Incense Shop",
+            "Bundles and cones of every scent crowd narrow shelves. Sandalwood, myrrh, and frankincense layer in the air like invisible curtains."
+        ],
+        [
+            "Holy Symbol Maker",
+            "Small hammers tap sacred shapes from silver and gold. Each symbol is blessed before leaving the workshop, and no two are identical."
+        ],
+        [
+            "Religious Art Studio",
+            "Icons dry on easels, their gold leaf catching candlelight. The artist works in prayer, and every brushstroke is an act of devotion."
+        ],
+        [
+            "Icon Painter",
+            "A single artist works at a tilted desk, layering gold and pigment onto wooden panels. The faces that emerge seem to watch you back."
+        ],
+        [
+            "Stained Glass Workshop",
+            "Colored glass fragments sort by hue in wooden trays. The artisan cuts and leads each piece, assembling light itself into images."
+        ],
+        [
+            "Bell Foundry",
+            "Molten bronze pours into sand molds with a hiss. The finished bells hang in rows, and the founder tests each one's voice with a tap."
+        ],
+        [
+            "Organ Builder",
+            "Pipes of tin and wood stand in ordered ranks. The builder voices each one by hand, coaxing the right tone from metal and air."
+        ],
+        [
+            "Choir Practice Room",
+            "Voices rise and blend in a vaulted room. The choirmaster conducts with precise hands, and harmonies settle into place like stones in an arch."
+        ],
+        [
+            "Sermon Hall",
+            "Rows of pews face a raised pulpit. The speaker's voice fills the room without effort, and the congregation listens with bowed heads."
+        ],
+        [
+            "Confessional",
+            "A wooden booth divided by a latticed screen. Whispers pass through the partition, and what is said here stays between three parties."
+        ],
+        [
+            "Baptistry",
+            "A stone basin of still water stands beneath a painted dome. The ritual is simple, the meaning vast, and the water is always cold."
+        ],
+        [
+            "Wedding Chapel",
+            "Flowers and white cloth dress a small sanctuary. Two chairs face the officiant, and the room holds the quiet anticipation of vows."
+        ],
+        [
+            "Funeral Home",
+            "Quiet rooms arranged for grief. The undertaker speaks softly, flowers mask the air, and arrangements are handled with practiced compassion."
+        ],
+        [
+            "Wake Parlor",
+            "A room where the departed lies in state. Mourners sit in quiet circles, sharing memories. Candles burn through the night without guttering."
+        ],
+        [
+            "Grief Counselor",
+            "A small, warm office with soft chairs. The counselor listens more than speaks, and the tissue box is always within reach."
+        ],
+        [
+            "Charity House",
+            "Donated goods sort into piles on long tables. Volunteers distribute food, clothing, and blankets to anyone who walks through the door."
+        ],
+        [
+            "Alms House",
+            "A simple building where the city's poor find shelter and a meal. The roof leaks, but the doors are open and the welcome is real."
+        ],
+        [
+            "Soup Kitchen",
+            "A long counter and steaming pots. The hungry line up with bowls, and the servers ladle without judgment. No one is turned away."
+        ],
+        [
+            "Bread Line",
+            "A queue stretches down the block before dawn. Loaves are handed out one per person, and the supply never quite meets the demand."
+        ],
+        [
+            "Orphan School",
+            "A single room where parentless children learn letters and numbers. The teacher stretches thin resources with determination and warmth."
+        ],
+        [
+            "Foundling Home",
+            "A stone building with a basket by the door. Inside, cribs line the nursery, and the caretakers give each child a name."
+        ],
+        [
+            "Widow's Refuge",
+            "A house of quiet solidarity. Women who lost their partners find shelter, work, and the company of others who understand."
+        ],
+        [
+            "Veteran's Shelter",
+            "Old soldiers with nowhere else to go find beds and brotherhood here. The walls hold faded campaign maps and shared understanding."
+        ],
+        [
+            "Poor House",
+            "Crowded rooms and thin blankets. The poor house offers survival, not comfort, and its residents work for their keep."
+        ],
+        [
+            "Workhouse",
+            "Looms and spinning wheels fill a drafty hall. The inmates labor from dawn to dusk, earning their bread one thread at a time."
+        ],
+        [
+            "Debtors Prison",
+            "A jail where the crime is poverty. Inmates wait for someone to pay their way out, and the walls press closer with each passing day."
+        ],
+        [
+            "Halfway House",
+            "A place between confinement and freedom. Residents follow strict rules and earn privileges back slowly, rebuilding trust one day at a time."
+        ],
+        [
+            "Rehabilitation Center",
+            "A structured house where those battling their demons find routine, counsel, and a second chance. The path out is longer than the path in."
+        ],
+        [
+            "Redemption House",
+            "A quiet refuge run by those who have been where you are. No judgment inside these walls, only the hard work of starting over."
+        ],
+        [
+            "Second Chance Shop",
+            "A storefront staffed by people rebuilding their lives. The goods are donated, the prices fair, and every purchase helps someone move forward."
+        ],
+        [
+            "Community Center",
+            "A shared hall for gatherings, dances, and town meetings. The calendar on the wall is always full, and the doors are open to everyone."
+        ],
+        [
+            "Town Commons",
+            "An open green at the heart of the settlement. Festivals, markets, and public debates all claim this ground in their turn."
+        ],
+        [
+            "Public Garden",
+            "Neat paths wind through beds of flowers and herbs tended by the city. Benches invite rest, and the gardeners know every plant by name."
+        ],
+        [
+            "Children's Playground",
+            "Rope swings and wooden climbing frames fill a fenced yard. Laughter carries over the wall, and muddy knees are the uniform."
+        ],
+        [
+            "Elderly Care Home",
+            "A warm house where the aged are tended with patience. Rocking chairs line the porch, and the pace of life here is deliberately slow."
+        ],
+        [
+            "Infirmary",
+            "Cots line a whitewashed room. The healer moves between patients with poultice and bandage, and the air smells of camphor and clean linen."
+        ],
+        [
+            "Healing House",
+            "Herbs steep in warm water, and hands press gently on wounds. The healers here rely on knowledge passed down through generations."
+        ],
+        [
+            "Medicine Shop",
+            "Bottles and jars of prepared remedies line the shelves. The pharmacist measures doses with careful precision, explaining each one."
+        ],
+        [
+            "Herb Garden",
+            "Raised beds of mint, sage, lavender, and thyme grow in ordered rows. The gardener pinches leaves between thumb and finger, checking potency."
+        ],
+        [
+            "Healing Spring",
+            "Water rises from the earth into a shallow stone basin, warm and faintly mineral. Pilgrims bathe here and leave their crutches against the wall."
+        ],
+        [
+            "Wellness Center",
+            "Clean rooms and calm attendants offer treatments for body and mind. The air smells of eucalyptus, and tension dissolves at the threshold."
+        ],
+        [
+            "Fitness Ground",
+            "Pull-up bars, stone weights, and running tracks laid out in an open field. The regulars train at dawn, and the dirt is packed hard."
+        ],
+        [
+            "Training Yard",
+            "Wooden practice dummies stand scarred by a thousand strikes. The drill instructor's voice rings across the packed-earth courtyard."
+        ],
+        [
+            "Sparring Ring",
+            "A roped circle of sand where fighters test each other. Bruises are earned honestly, and the watchers learn by studying every bout."
+        ],
+        [
+            "Archery Range",
+            "Straw targets stand at measured distances. Arrows thud into them in steady rhythm, and the range master corrects form with a word."
+        ],
+        [
+            "Crossbow Range",
+            "Bolts punch into wooden targets with sharp cracks. The range is shorter but the stopping power is evident in every splintered bullseye."
+        ],
+        [
+            "Throwing Range",
+            "Axes, knives, and javelins stick in wooden targets at the far end. The throwers retrieve, return, and throw again in steady practice."
+        ],
+        [
+            "Combat School",
+            "Padded armor and training weapons rack the walls. Students drill forms under a scarred instructor who has forgotten more fights than they have seen."
+        ],
+        [
+            "Gladiator Training",
+            "A walled yard of sand and sweat. Fighters train with weighted weapons, building strength for the arena. Every day is preparation for the crowd."
+        ],
+        [
+            "Warrior Academy",
+            "Discipline and tactics taught from dawn to dusk. Students learn blade, bow, and formation, and the washout rate is deliberately high."
+        ],
+        [
+            "Champion's Hall",
+            "Trophies and weapons of past victors line the walls in glass cases. The current champion's name is carved above the door in fresh letters."
+        ],
+        [
+            "Trophy Room",
+            "Shelves of cups, medals, and ribbons from competitions past. Each one marks a victory, and the dust on some shows how long ago."
+        ],
+        [
+            "Hall of Fame",
+            "Portraits and plaques honor those who shaped the city. Visitors walk slowly through, reading names that have become legends."
+        ],
+        [
+            "Victory Monument",
+            "A stone column rises above the square, carved with scenes of a battle won. Wreaths are laid at its base on the anniversary."
+        ],
+        [
+            "Peace Memorial",
+            "A simple stone in a quiet garden, inscribed with the names of those lost. Visitors stand in silence, and fresh flowers appear without explanation."
+        ],
+        [
+            "Founder's Statue",
+            "A bronze figure stands in the main square, hand raised toward the horizon. The plaque at the base tells the city's origin story."
+        ],
+        [
+            "Hero's Shrine",
+            "A small alcove holds the likeness of a local legend. Offerings of coin and flowers accumulate, and children are told the story on holy days."
+        ],
+        [
+            "Beacon Tower",
+            "A tall stone tower at the city's highest point. Fire or mirror signals flash from its top, carrying messages faster than any rider."
+        ],
+        [
+            "Tollbooth",
+            "A small hut straddles the road. The toll keeper holds out a hand, and no one passes without paying. The rates are posted on a board."
+        ],
+        [
+            "Waystation",
+            "A stone building where the road meets another. Travelers rest, swap news, and water their horses before choosing which direction to continue."
+        ],
+        [
+            "Milestone Marker",
+            "A carved stone pillar by the road, listing distances to the nearest towns. Moss grows in the chiseled letters, but the numbers are still clear."
+        ],
+        [
+            "Border Stone",
+            "A weathered marker where one territory ends and another begins. The grass is the same on both sides, but the laws are not."
+        ],
+        [
+            "Signal Tower",
+            "A stone platform with a fire basket at its peak. By night the flame carries messages across the hills from tower to tower."
+        ],
+        [
+            "Altar",
+            "A flat stone slab in a sacred space, worn smooth by offerings. Candle wax layers the surface, and the faithful come at all hours."
+        ],
+        [
+            "Market Stall",
+            "A canvas awning over a wooden counter. The vendor arranges the day's goods with practiced care, calling to passersby with well-rehearsed charm."
+        ],
+        [
+            "Garrison Outpost",
+            "A fortified post at the city's edge. Soldiers rotate through in shifts, and the duty log records every movement on the road."
+        ],
+        [
+            "Checkpoint",
+            "A barrier across the road flanked by armed guards. Papers are checked, wagons are inspected, and the line moves slowly."
+        ],
+        [
+            "Messenger Station",
+            "Fresh horses wait in the stalls. Riders arrive dusty and leave at a gallop. The dispatches pinned to the board are always urgent."
+        ],
+        [
+            "Carpenter Workshop",
+            "Workbenches line the walls, cluttered with planes, clamps, and hand saws. The apprentice sweeps shavings while the master fits a joint."
+        ],
+        [
+            "Stone Mason Yard",
+            "Blocks of raw stone wait in the open air. Chisels ring against granite, and half-finished columns lie on wooden supports."
+        ],
+        [
+            "Ferry Dock",
+            "A flat-bottomed boat waits at a muddy bank. The ferryman sits on a post, watching the current, ready to pole across for a coin."
+        ],
+        [
+            "Caravan Rest Stop",
+            "A cleared area off the main road, ringed with hitching posts and fire pits. Wagons circle here for the night, and traders share a fire."
+        ],
+        [
+            "Cobblestone Path",
+            "Fitted stones wind between buildings, worn smooth by centuries of foot traffic. Rain fills the gaps between them, and boots echo in the quiet."
+        ],
+        [
+            "Covered Bridge",
+            "Wooden walls and a shingled roof span the river. Inside, the light filters through gaps in the planks, and the water rumbles below."
+        ],
+        [
+            "Toll Gate",
+            "An iron gate blocks the road. The gatekeeper emerges from a hut, quotes the fee, and lifts the bar only when the coin lands in the box."
+        ],
+        [
+            "Waymarker",
+            "A carved stone post where paths diverge, pointing travelers toward their destination. Lichen fills the letters, but the arrows are still clear."
+        ],
+        [
+            "Pillar",
+            "A single column of carved stone stands in the square, commemorating an event now half-forgotten. Pigeons rest on its capital."
+        ],
+        [
+            "Obelisk",
+            "A tall, tapered stone rises above the plaza, covered in inscriptions. The shadow it casts has marked the hours for generations."
+        ],
+        [
+            "Sundial",
+            "A bronze gnomon casts its shadow across a stone face etched with numerals. The time is approximate, but reliable on clear days."
+        ],
+        [
+            "Hitching Post",
+            "An iron ring set in a stone post by the road. Horses wait here, tails swishing, while their riders conduct business inside."
+        ],
+        [
+            "Blacksmith Forge",
+            "Coals glow white-hot in the bellows-fed hearth. Iron sings under the hammer, and the smith's shadow dances on the soot-darkened walls."
+        ],
+        [
+            "Pottery Kiln",
+            "A dome of brick radiates heat. Clay pieces wait inside, transforming in the fire. The potter checks the temperature by the color of the glow."
+        ],
+        [
+            "Border Crossing",
+            "A gate between territories. Flags of two nations flank the road, and officials on both sides examine documents with careful suspicion."
+        ],
+        [
+            "Customs Station",
+            "A fortified building where trade goods are catalogued and taxed. Inspectors pry open crates, and merchants argue the value of their cargo."
+        ],
+        [
+            "Merchant Camp",
+            "Tents and wagons circle a shared fire outside the city walls. Traders rest before market day, mending gear and tallying inventory."
+        ],
+        [
+            "Trading Circle",
+            "A ring of flat stones where merchants gather to barter. The traditions here predate the city, and deals are sealed with a handshake."
+        ],
+        [
+            "Village Green",
+            "A grassy commons surrounded by low cottages. Children play, goats graze, and the whole community gathers here when the weather is fine."
+        ],
+        [
+            "Junction",
+            "Where two roads meet. A signpost leans at the center, and the ground is worn by the wheels and feet of those choosing their way."
+        ],
+        [
+            "Rest Area",
+            "A cleared patch beside the road with a bench and a water trough. Travelers stop here briefly, grateful for shade and flat ground."
+        ],
+        [
+            "Campground",
+            "Fire rings and flat patches of cleared earth. Travelers pitch tents under the trees, and the smell of woodsmoke means you are close."
+        ],
+        [
+            "Shelter",
+            "A rough roof on four posts, open on all sides. It keeps the rain off and nothing more, but on a bad night that is enough."
+        ],
+        [
+            "Lean-To",
+            "Three walls and a sloped roof built against a larger structure. The wind still finds its way in, but the worst of the weather stays out."
+        ],
+        [
+            "Pavilion",
+            "A roofed platform in the park, open to the breeze. Musicians play here on summer evenings, and lovers meet beneath its arches."
+        ],
+        [
+            "Gazebo",
+            "A small, round structure of lattice and climbing roses. It offers shade, a view of the garden, and a seat meant for two."
+        ],
+        [
+            "Stone Causeway",
+            "A raised road of fitted stones crosses low, marshy ground. The surface holds firm above the mud, and wagon ruts groove the center."
+        ],
+        [
+            "Suspension Bridge",
+            "Rope and plank span a gorge, swaying with every step. The view down is dizzying, and the cables creak under the weight of crossing."
+        ],
+        [
+            "Stone Road",
+            "Flat slabs laid end to end, ancient and enduring. Wagon wheels have worn shallow ruts, and the road runs straight to the horizon."
+        ],
+        [
+            "Wagon Station",
+            "A yard where freight wagons load and unload. Teamsters check axles and harness, and the schedule board lists departures and destinations."
+        ],
+        [
+            "Parsonage",
+            "A modest house beside the church, home to the local cleric. The garden is tidy, the door is always open, and tea is always ready."
+        ],
+        [
+            "Thoroughfare",
+            "The widest street in the district, busy from dawn to dark. Carts, carriages, and pedestrians compete for space in an orderly chaos."
+        ],
+        [
+            "Signpost",
+            "A wooden pole at the crossroads, its arms pointing in every direction. Distances are carved or painted, and travelers pause to read and decide."
+        ],
+        [
+            "Major Paved Road",
+            "Broad and well-maintained, this road carries the city's commerce. The surface is smooth stone, and the traffic never fully stops."
+        ],
+        [
+            "Waterway Lock",
+            "Massive wooden gates hold back the water. The lock keeper turns the wheel, and the level rises or falls to let boats pass through."
+        ],
+        [
+            "Irrigation Ditch",
+            "A narrow channel of flowing water cuts between fields. Sluice gates control the flow, and the crops on either side grow green and even."
+        ],
+        [
+            "Imperial Canal",
+            "A wide, straight waterway built by the empire's engineers. Barges glide along its surface, and towpaths run level on both banks."
+        ],
+        [
+            "Horse Trader",
+            "A fenced paddock where horses trot for inspection. The trader knows bloodlines and temperament, and the price depends on how well you haggle."
+        ],
+        [
+            "Rope Bridge",
+            "Braided fiber stretches between two points over a drop. The planks sway and the ropes groan, and crossing requires steady nerves."
+        ],
+        [
+            "Wizard Tower",
+            "A slender tower rising above the rooftops, its upper windows glowing at odd hours. The door is locked by means more than mechanical."
+        ],
+        [
+            "Tomb Entrance",
+            "A carved stone doorway set into a hillside, dark beyond the threshold. The air from within smells of dust and centuries of silence."
+        ],
+        [
+            "Rail Line",
+            "Iron tracks run straight and level on a gravel bed. The schedule is posted at the platform, and the whistle announces arrivals from miles away."
+        ],
+        [
+            "Minor Road",
+            "A narrow, unpaved track winding between hedgerows. Grass grows in the center, and only foot traffic and light carts use it regularly."
+        ],
+        [
+            "Forest",
+            "Trees older than memory crowd together, their canopy blocking the sky. The floor is soft with fallen needles, and every sound carries."
+        ],
+        [
+            "Mountain",
+            "Rock and wind and thin air above the treeline. The path switchbacks upward, and the world below shrinks with every step."
+        ],
+        [
+            "Desert",
+            "Sand and heat stretch to every horizon. The sun is relentless, the shade is rare, and the distances are longer than they look."
+        ],
+        [
+            "Harbor",
+            "Masts crowd the waterline and salt spray stings the air. Cargo and voices move in steady rhythm along the docks."
+        ]
+    ]
+}

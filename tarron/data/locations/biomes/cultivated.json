@@ -1,0 +1,14 @@
+{
+  "description": "Land shaped by patient hands over generations, where the earth gives back what has been carefully sown and tended.",
+  "rarity": 1,
+  "biomes": [
+    ["Orchards", "Rows of fruit trees heavy with harvest, their branches low and bending. The air is sweet and bees drift lazily between the blossoms."],
+    ["Vineyards", "Neat lines of grapevines climbing wooden stakes across sun-warmed hillsides. The soil is stony and the fruit is dark and fragrant."],
+    ["Crop Fields", "Broad stretches of grain rippling in the wind like a golden sea. The furrows are straight and the work is never finished."],
+    ["Herb Gardens", "Small, carefully tended plots bursting with rosemary, thyme, and lavender. The scents mingle in the warm air and the bees are fat."],
+    ["Terraced Farms", "Stepped hillsides carved into flat growing beds, each one irrigated from the one above. The green is vivid against the brown earth."],
+    ["Pastures", "Fenced grassland where livestock graze under open sky. The ground is clipped short and the fences stretch to the horizon."],
+    ["Plantation", "Vast ordered rows of a single crop stretching in every direction. The scale is impressive but the sameness makes the land feel hollow."],
+    ["Market Gardens", "Small plots packed with vegetables and herbs close to a settlement. The soil is dark from compost and the harvest is always close."]
+  ]
+}

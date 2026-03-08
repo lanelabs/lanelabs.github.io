@@ -1,0 +1,14 @@
+{
+  "description": "Trees and tree-like plants with trunks and elevated crowns.",
+  "plants": [
+    ["Conifer", "Dark needles and rough bark rising in a spire, holding its green through the coldest months when everything else has given up."],
+    ["Cycad", "Stiff, fanning leaves atop a squat trunk, looking like something left over from an age before flowers existed."],
+    ["Deciduous Tree", "Bare branches in winter, blazing color in autumn, and thick shade in summer. It marks the passing year better than any calendar."],
+    ["Dwarf Conifer", "A miniature evergreen growing so slowly that decades pass before it reaches your knee."],
+    ["Evergreen Tree", "Green in every season, standing bright against snow and grey sky when the rest of the world has gone dormant."],
+    ["Palm", "A single smooth trunk crowned with broad fronds that rattle in the wind like dry applause."],
+    ["Palmoid", "A thick, unbranching column topped with a burst of stiff leaves, standing like a sentinel in dry heat."],
+    ["Tree", "A tall trunk rising from the earth, spreading its crown wide. Old enough to have witnessed what came before."],
+    ["Tree Fern", "A slender trunk crowned with unfurling fronds, looking like something from a world much older than this one."]
+  ]
+}

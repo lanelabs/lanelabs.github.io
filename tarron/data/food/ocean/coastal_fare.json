@@ -1,0 +1,11 @@
+{
+  "description": "Undersea and coastal foods from ocean settings.",
+  "foods": [
+    ["Seaweed Wrap", "Briny sheets of kelp rolled around rice and whatever the tide brought in."],
+    ["Pearl Broth", "A shimmering soup made from crushed shell and sea herbs, glowing faintly in the bowl."],
+    ["Shell-Baked Fish", "A whole fish sealed inside a giant clamshell and steamed over volcanic vents until it flakes."],
+    ["Coral Candy", "Hard little sweets shaped like coral branches, tasting of salt and something faintly sweet underneath."],
+    ["Tide Cake", "Flat cakes made from sea-grain and pressed kelp, dense enough to survive a current."],
+    ["Brine Berries", "Small translucent berries that grow on underwater vines, bursting with a salty-sweet juice when bitten."]
+  ]
+}

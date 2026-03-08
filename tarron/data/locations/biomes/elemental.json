@@ -1,0 +1,14 @@
+{
+  "description": "Raw elemental power given form as landscape, where the forces that built the world still rage unchecked and untamed.",
+  "rarity": 4,
+  "biomes": [
+    ["Fire Realm", "The ground is ember and the sky is smoke. Flames leap from cracks in the stone and the heat bends the air into waves."],
+    ["Water Realm", "An endless expanse of living water with no shore in sight. Currents pull in every direction and the surface breathes."],
+    ["Earth Realm", "Towering columns of raw stone and veins of ore exposed to the air. The ground pulses like a slow heartbeat beneath your feet."],
+    ["Air Realm", "Nothing solid in any direction. Winds carry you forward and the clouds below are the closest thing to ground."],
+    ["Lightning Fields", "Bolts strike the ground in constant, crackling barrages. The earth is scorched in branching patterns and the air smells of ozone."],
+    ["Ice Realm", "Frozen stillness in every direction, with spires of blue ice rising into a sky that has never seen the sun."],
+    ["Storm Lands", "Perpetual thunder rolling across a land lashed by rain and wind. The sky is black and the lightning never stops."],
+    ["Prismatic Valleys", "Light bends through mineral-rich air, painting every surface in shifting bands of color. The ground sparkles and the wind hums with resonance."]
+  ]
+}

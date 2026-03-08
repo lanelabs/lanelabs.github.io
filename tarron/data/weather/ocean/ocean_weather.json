@@ -1,0 +1,21 @@
+{
+  "description": "Underwater and ocean atmospheric conditions.",
+  "weather": [
+    ["during a strong current", "swift", "the current", "A powerful flow of water pulling everything along."],
+    ["as the tide shifts", "tidal", "the tide", "The massive pull of the moon moving water in and out."],
+    ["in the deepest dark", "pitch-dark", "the darkness", "A crushing blackness where no sunlight reaches."],
+    ["under shimmering sunbeams", "sun-dappled", "the sunbeams", "Columns of golden light filtering down through the water."],
+    ["as bubbles rise from below", "bubbling", "the bubbles", "Streams of air escaping from somewhere deep."],
+    ["during a plankton bloom", "glowing", "the plankton bloom", "Billions of tiny organisms lighting the water with life."],
+    ["in a whirlpool's pull", "swirling", "the whirlpool", "A spinning vortex of water dragging everything toward its center."],
+    ["as warm water meets cold", "shimmering", "the shifting water", "A visible boundary where two temperatures collide."],
+    ["during a surface storm", "storm-churned", "the surface storm", "Violent waves crashing far above, sending tremors below."],
+    ["as bioluminescence lights the way", "bioluminescent", "the bioluminescence", "Living creatures painting the darkness with blue-green glow."],
+    ["in the stillest water", "still", "the still water", "Water so calm and clear it feels like floating in glass."],
+    ["as a school of fish swirls past", "teeming", "the fish", "Thousands of silver bodies moving as one."],
+    ["during a red tide", "crimson", "the red tide", "Water stained red by a bloom of tiny organisms."],
+    ["under drifting ice", "ice-cold", "the ice", "Frozen sheets floating overhead, filtering the light."],
+    ["as sand swirls in the current", "sand-swept", "the swirling sand", "Fine grains carried by the water, reducing visibility."],
+    ["in water so clear you can see forever", "crystal-clear", "the crystal water", "Perfectly transparent water revealing every detail."]
+  ]
+}

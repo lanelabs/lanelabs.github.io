@@ -1,0 +1,19 @@
+{
+  "description": "Magical artifacts, enchanted objects, and arcane instruments.",
+  "items": [
+    ["Orb", "A smooth sphere of crystal that pulses with inner light."],
+    ["Wand", "A slender rod of carved wood that channels magical energy."],
+    ["Scroll", "A rolled parchment inscribed with glowing runes of power."],
+    ["Crystal", "A faceted gem that hums with stored arcane energy."],
+    ["Potion", "A bubbling liquid in a stoppered vial with mysterious effects."],
+    ["Staff", "A tall rod of ancient wood crowned with a glowing focus."],
+    ["Rune", "A carved symbol radiating magical force."],
+    ["Tome", "A heavy book of bound leather containing arcane knowledge."],
+    ["Totem", "A carved figure imbued with spiritual power."],
+    ["Charm", "A small enchanted trinket that wards off harm."],
+    ["Sigil", "A magical symbol etched into metal or stone."],
+    ["Grimoire", "A spellbook of dark and forbidden magic."],
+    ["Scepter", "A jeweled rod of authority crackling with power."],
+    ["Crystal Ball", "A clear sphere that reveals visions of distant places."]
+  ]
+}

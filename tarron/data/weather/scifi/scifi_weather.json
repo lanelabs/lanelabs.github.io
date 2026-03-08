@@ -1,0 +1,20 @@
+{
+  "description": "Alien or futuristic atmospheric conditions for sci-fi settings.",
+  "weather": [
+    ["during a solar flare", "flare-lit", "the solar flare", "A burst of stellar energy washing over everything."],
+    ["in zero gravity", "weightless", "the weightlessness", "No up or down, everything floating freely."],
+    ["during an ion storm", "storm-battered", "the ion storm", "Charged particles battering shields and disrupting systems."],
+    ["as radiation levels spike", "irradiated", "the radiation", "Invisible energy saturating the environment."],
+    ["in artificial daylight", "artificially-lit", "the artificial light", "Synthetic sunshine from ceiling panels mimicking a sky."],
+    ["during a meteor shower", "meteor-lit", "the meteor shower", "Rocks from space burning bright across the sky."],
+    ["under an alien sky", "alien", "the alien sky", "A sky the wrong color with unfamiliar constellations."],
+    ["during a gravity fluctuation", "gravity-warped", "the gravity fluctuation", "Weight shifting unpredictably as gravity pulses."],
+    ["as the atmosphere generator hums", "humming", "the humming generator", "The constant drone of machines keeping the air breathable."],
+    ["in the vacuum of space", "airless", "the vacuum", "Silent, cold emptiness with no atmosphere at all."],
+    ["under a binary sunset", "twin-lit", "the binary sunset", "Two suns sinking below the horizon at once."],
+    ["as the holographic sky glitches", "glitching", "the glitching sky", "The artificial sky stuttering and revealing the ceiling behind it."],
+    ["in the dim glow of emergency lighting", "red-lit", "the emergency lights", "Harsh red light from backup systems casting angular shadows."],
+    ["as the ship enters a nebula", "nebula-lit", "the nebula", "Swirling clouds of cosmic gas painting the viewports."],
+    ["during a cosmic dust storm", "dust-choked", "the dust storm", "Fine particles from space clogging filters and scouring hulls."]
+  ]
+}

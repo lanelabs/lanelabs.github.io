@@ -1,0 +1,18 @@
+{
+  "description": "Clean water flowing and pooling through the land, giving life to everything it touches and drawing creatures to its banks.",
+  "rarity": 2,
+  "biomes": [
+    ["Spring", "Clear water bubbling up from the earth, cold and pure. The rocks around it are green with moss and the air is cool."],
+    ["Lake", "A wide, still body of water reflecting the sky like a mirror. The far shore is hazy and the depths are dark and quiet."],
+    ["River", "A steady current carving its path through the land. The water rushes over stones and the banks are worn smooth by its passage."],
+    ["Pond", "A small, still pool ringed by cattails and lily pads. Dragonflies hover above the surface and frogs watch from the edges."],
+    ["Stream", "A narrow ribbon of water winding through rocks and roots. The sound is constant and gentle, easy to follow through the trees."],
+    ["Creek", "Shallow water trickling over a bed of smooth pebbles. Small fish dart in the current and the banks are soft with mud."],
+    ["Geothermal Vents", "Steam rising from cracks in the wet earth. The water is warm and smells of sulfur, and the rocks are stained bright orange."],
+    ["Geysers", "Columns of boiling water erupting from the ground at unpredictable intervals. The earth rumbles before each blast."],
+    ["Waterfall", "Water plunging over a cliff edge into a churning pool below. The roar drowns all conversation and the mist soaks everything nearby."],
+    ["Rapids", "White water crashing over boulders in a furious rush. The current is fast enough to sweep anything downstream in seconds."],
+    ["Hot Springs", "Steaming pools of warm water nestled among rocks. The heat soothes but the mineral smell is sharp and the edges are slippery."],
+    ["Frozen Lake", "A sheet of grey ice over still water. Snow dusts the surface and the silence is broken only by deep, resonant cracks."]
+  ]
+}

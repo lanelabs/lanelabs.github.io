@@ -1,0 +1,17 @@
+{
+  "description": "Enchanted and magical plants found in fantasy settings.",
+  "plants": [
+    ["Moonpetal", "Silver-white flowers that bloom only under moonlight, their petals glowing faintly as if holding a piece of the night sky."],
+    ["Whisperleaf", "Broad papery leaves that rustle with what sounds like murmured words, even when the air is perfectly still."],
+    ["Bloodthorn", "Dark crimson thorns that weep red sap, growing thicker wherever old battles were fought."],
+    ["Starbloom", "Tiny flowers that open at dusk and glow like scattered embers, dotting the forest floor with their own constellation."],
+    ["Dreamvine", "A slow-creeping vine whose pollen brings vivid dreams to anyone who sleeps nearby."],
+    ["Spellroot", "Gnarled roots that pulse with a faint inner light, prized by herbalists for their potent magical properties."],
+    ["Crystalwort", "Translucent leaves that chime softly when touched, each one veined with something that catches light like glass."],
+    ["Witchwood", "Twisted dark trees whose branches move on their own, slowly closing gaps as if guarding what lies beyond."],
+    ["Fae Blossom", "Flowers that shift color throughout the day, never quite the same shade twice, said to mark where fae have danced."],
+    ["Shadowmoss", "Black moss that grows in places sunlight refuses to reach, cold to the touch and faintly damp."],
+    ["Phoenix Fern", "Burns to ash every autumn and regrows from the same spot each spring, its fronds tinged with orange and gold."],
+    ["Soulwood", "Ancient trees whose heartwood hums with a low resonance, as though something is dreaming inside the trunk."]
+  ]
+}

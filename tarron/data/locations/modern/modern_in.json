@@ -1,0 +1,81 @@
+{
+    "description": "Everyday places in the modern world where stories unfold between school bells and streetlights.",
+    "locations": [
+        [
+            "School",
+            "Chalk dust and squeaky shoes on waxed floors. The bell rings and hallways flood with voices, laughter, and the rustle of backpacks."
+        ],
+        [
+            "Hospital",
+            "Bright lights hum above clean tile. Nurses move with quiet urgency, and the intercom calls names that someone is waiting to hear."
+        ],
+        [
+            "Airport",
+            "Rolling luggage and departure boards clicking over. The terminal stretches in both directions, full of people going somewhere else."
+        ],
+        [
+            "Skyscraper",
+            "Glass and steel climb until the clouds sit level with the windows. The elevator hums between floors, and the city below looks like a toy."
+        ],
+        [
+            "Shopping Mall",
+            "Escalators glide between levels of bright storefronts. Music drifts from every doorway, and the food court smells of a dozen countries."
+        ],
+        [
+            "Subway Station",
+            "Warm wind pushes through the tunnel before the train arrives. Tiles echo with footsteps, and the platform hums with waiting."
+        ],
+        [
+            "Amusement Park",
+            "Roller coasters twist against the sky and carousel music plays on loop. Cotton candy sweetens the air, and every ride promises a thrill."
+        ],
+        [
+            "Stadium",
+            "Rows of seats climb toward the sky in a concrete bowl. The crowd roars as one, and the grass below is impossibly green under the floodlights."
+        ],
+        [
+            "Museum",
+            "Hushed voices and careful footsteps on marble floors. Glass cases hold things older than memory, and every room opens onto another century."
+        ],
+        [
+            "Cafe",
+            "Steam curls from cups on small round tables. The espresso machine hisses, conversation hums, and the window seat watches the world walk by."
+        ],
+        [
+            "Park",
+            "Benches line winding paths beneath old trees. Dogs chase squirrels, children shout from the swings, and the grass is soft enough to nap on."
+        ],
+        [
+            "Train Station",
+            "The platform vibrates as the train pulls in. Schedules hang overhead, and travelers clutch tickets and coffee, watching the clock."
+        ],
+        [
+            "Theater",
+            "Velvet seats face a dark stage where a single spotlight waits. The curtain hangs heavy, and the audience hushes as the lights go down."
+        ],
+        [
+            "Fire Station",
+            "Red trucks gleam behind open bay doors. Boots stand ready in a row, and the pole drops through a hole in the ceiling, waiting for the alarm."
+        ],
+        [
+            "Laboratory",
+            "Glass beakers and blinking screens fill a room that smells of chemicals and concentration. Every surface is labeled, and nothing is left to chance."
+        ],
+        [
+            "Bookstore",
+            "Shelves climb the walls in narrow aisles that smell of paper and ink. A reading chair sits in the corner, and the quiet here is comfortable."
+        ],
+        [
+            "Playground",
+            "Swings creak and the slide gleams in the sun. Woodchips scatter underfoot, and laughter bounces off every surface."
+        ],
+        [
+            "Art Gallery",
+            "White walls and careful lighting frame paintings that watch you back. Footsteps echo softly, and every room holds a different mood."
+        ],
+        [
+            "Factory",
+            "Machines clank in steady rhythm behind safety lines. The air tastes of metal and oil, and the floor vibrates with purpose."
+        ]
+    ]
+}

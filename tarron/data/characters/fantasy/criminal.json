@@ -1,0 +1,8 @@
+{
+  "description": "Characters who operate outside the law in fantasy settings.",
+  "characters": [
+    ["Thief", "A nimble-fingered rogue who takes what isn't theirs."],
+    ["Pirate", "A lawless sailor who plunders ships on the open sea."],
+    ["Smuggler", "A cunning operator who moves forbidden goods past watchful eyes."]
+  ]
+}

@@ -1,0 +1,725 @@
+{
+    "description": "Walls of stone and steel raised against what lurks beyond. Every battlement tells a story of siege, sacrifice, and the stubborn refusal to fall.",
+    "locations": [
+        [
+            "Watchtower",
+            "A lone spire on the horizon, wind howling through the shutters. The signal fire at the top has never been lit. Yet."
+        ],
+        [
+            "Fort",
+            "Squat and heavy, built to hold ground. The walls are thick, the gates iron-bound, and the garrison has nowhere to retreat."
+        ],
+        [
+            "Armory",
+            "Racks of oiled steel behind locked doors. The quartermaster counts every blade twice and sleeps with the key around his neck."
+        ],
+        [
+            "Barracks",
+            "Rows of bunks, the smell of boot oil and sweat. Off-duty soldiers play cards while the watch bell counts the hours."
+        ],
+        [
+            "Prison",
+            "Iron doors, narrow windows, and the constant echo of chains. The guards here look almost as miserable as the inmates."
+        ],
+        [
+            "War Camp",
+            "Cook smoke and trampled mud stretch to the tree line. Banners snap overhead and scouts ride in at all hours."
+        ],
+        [
+            "Military Patrol",
+            "A column of soldiers on the march, armor dull in the light. They move with purpose, eyes scanning every tree line."
+        ],
+        [
+            "Castle",
+            "Towering curtain walls surround a central keep. Generations of lords have added towers, each grander and more paranoid than the last."
+        ],
+        [
+            "Keep",
+            "The innermost stronghold where the lord retreats when all else falls. The walls are thickest here, and so is the silence."
+        ],
+        [
+            "Guard Post",
+            "A small stone shelter at a crossroads, big enough for two sentries and a brazier. The logbook goes back decades."
+        ],
+        [
+            "Gatehouse",
+            "Twin towers flanking iron-bound doors. Murder holes line the ceiling of the passage between. Visitors are welcome but watched."
+        ],
+        [
+            "Garrison",
+            "Home to a standing company of soldiers. The courtyard rings with drill commands at dawn and drinking songs after dark."
+        ],
+        [
+            "Frontier Outpost",
+            "The last friendly roof before the wilds. Supplies arrive monthly if the road stays clear. Sometimes it does not."
+        ],
+        [
+            "Citadel",
+            "A fortress within a fortress, perched on the highest ground. When the outer walls fall, the defenders retreat here and hold."
+        ],
+        [
+            "Alarm Beacon",
+            "Oil-soaked timber stacked on a hilltop, ready to burn. One match could summon an army, so the sentries guard it well."
+        ],
+        [
+            "Buried Ziggurat",
+            "The top tier barely clears the earth. Soldiers patrol the exposed stonework, unaware of how deep the structure truly goes."
+        ],
+        [
+            "Blockhouse",
+            "A squat timber strongpoint controlling a road or river crossing. Simple, ugly, and effective at what it does."
+        ],
+        [
+            "Training Grounds",
+            "Packed earth stained with sweat and blood. Wooden dummies stand battered but upright, waiting for the next recruit."
+        ],
+        [
+            "Bastion",
+            "A massive stone projection jutting from the wall, angled so defenders can fire along its face. No blind spots."
+        ],
+        [
+            "Palisade",
+            "Sharpened logs driven into the earth in a tight ring. Simple and quick to build, but enough to turn a charge."
+        ],
+        [
+            "Moat",
+            "Dark water circles the walls, deeper than it looks. The things living in it were not placed there on purpose, but they serve."
+        ],
+        [
+            "Portcullis",
+            "An iron grate that drops like a guillotine. The chains holding it are thick as a wrist and always greased."
+        ],
+        [
+            "Barbican",
+            "An outer gatehouse ahead of the main wall. Attackers who breach the first door find themselves trapped in a stone box."
+        ],
+        [
+            "Bailey",
+            "The open yard within the castle walls where daily life unfolds. Chickens wander between supply carts and drilling soldiers."
+        ],
+        [
+            "Crenellation",
+            "Tooth-shaped stonework atop the wall. Defenders fire from the gaps and duck behind the merlons, a rhythm of kill and cover."
+        ],
+        [
+            "Arrow Slit",
+            "A narrow vertical opening in thick stone. The archer inside sees the whole field, but the field can barely see the archer."
+        ],
+        [
+            "Murder Hole",
+            "An opening in the gatehouse ceiling. Boiling oil and worse rain down on anyone foolish enough to enter uninvited."
+        ],
+        [
+            "Sally Port",
+            "A small hidden door in the outer wall. When the siege tightens, soldiers slip out to strike and vanish."
+        ],
+        [
+            "Postern Gate",
+            "A rear entrance, narrow and unadorned. It exists for retreat, supply, or the kind of visitor who should not be seen."
+        ],
+        [
+            "Embrasure",
+            "A splayed opening in the wall, wider inside than out. It gives the defender room to aim while offering attackers nothing."
+        ],
+        [
+            "Glacis",
+            "A long smooth slope of packed earth before the walls. No cover, no hiding. Crossing it under fire is a death sentence."
+        ],
+        [
+            "Ravelin",
+            "A triangular outwork before the main gate, splitting any assault in two. Attackers must go around it or through it."
+        ],
+        [
+            "Redoubt",
+            "A small enclosed defensive position, often the last to fall. The soldiers posted here know they are not expected to retreat."
+        ],
+        [
+            "Star Fort",
+            "Angular walls jutting outward in sharp points, each face covering another. Geometry turned into a weapon."
+        ],
+        [
+            "Pentagonal Fort",
+            "Five walls, five bastions, no blind angles. The symmetry is almost beautiful until you realize every line was drawn to kill."
+        ],
+        [
+            "Mountain Fortress",
+            "Carved into living rock on a high peak. The air is thin, the wind cuts deep, and the only approach is a narrow switchback."
+        ],
+        [
+            "Cliff Fortress",
+            "Perched on a sheer rock face, reachable only by a stair cut into stone. Defenders drop rocks on climbers below."
+        ],
+        [
+            "Island Stronghold",
+            "Dark water on every side. The only approach is by boat, and the garrison watches every vessel from the moment it launches."
+        ],
+        [
+            "Floating Citadel",
+            "A fortress suspended above the ground by ancient means. The anchor chains creak in the wind, and shadows pool beneath."
+        ],
+        [
+            "Underground Bunker",
+            "Tunneled deep beneath the surface, reinforced with stone and iron. The air is stale, the lamps flicker, and silence presses close."
+        ],
+        [
+            "Cave Fortress",
+            "Natural caverns shaped into defensive positions. The stone does most of the work. The narrow passages do the rest."
+        ],
+        [
+            "Tree Fortress",
+            "Built high in the canopy of ancient trees, connected by rope bridges. The forest floor is a long way down."
+        ],
+        [
+            "Watchtower Ruins",
+            "The upper floors collapsed long ago, but someone has barricaded the ground level. Fresh boot prints lead to the makeshift door."
+        ],
+        [
+            "Abandoned Castle",
+            "Vines climb the walls and birds nest in the great hall. But the gates still close, and someone has oiled the hinges recently."
+        ],
+        [
+            "Siege Tower",
+            "A wooden hulk on wheels, tall as the wall it was built to breach. Scorch marks and embedded arrows tell its story."
+        ],
+        [
+            "Trebuchet Platform",
+            "A reinforced timber frame built to absorb the shock of heavy throws. The ground around it is cratered from near misses."
+        ],
+        [
+            "Ballista Emplacement",
+            "A bolted-down war engine aimed at the only road in. The loaded bolt is as long as a man is tall."
+        ],
+        [
+            "Catapult Station",
+            "Stone ammunition stacked in neat pyramids beside a cocked arm. The ropes creak under tension even when the wind is still."
+        ],
+        [
+            "Archer's Tower",
+            "Tall and slim, bristling with arrow slits on every face. A spiral staircase climbs to a commanding view at the top."
+        ],
+        [
+            "Crossbow Turret",
+            "A small armored platform built for a heavy crossbow. The bolts stored inside are tipped with barbed steel that does not come out clean."
+        ],
+        [
+            "Cannon Battery",
+            "A row of iron tubes behind earthen ramparts, muzzles blackened with soot. The ground shakes when they speak."
+        ],
+        [
+            "Gun Emplacement",
+            "A reinforced position for heavy ranged weapons. Sandbags and timber shore up the walls. Spent casings litter the floor."
+        ],
+        [
+            "Signal Tower",
+            "Tall and bare, built for visibility above all else. A fire at the top can be seen for miles on a clear night."
+        ],
+        [
+            "Lighthouse Fortress",
+            "The beacon guides ships to harbor, but thick walls and an armed garrison suggest not every visitor arrives by invitation."
+        ],
+        [
+            "Border Checkpoint",
+            "A gate across the road and soldiers who ask too many questions. The line of waiting travelers stretches around the bend."
+        ],
+        [
+            "Toll Booth",
+            "A stone booth straddling the only bridge for miles. The toll is reasonable. Refusing to pay is not recommended."
+        ],
+        [
+            "Bridge Fortress",
+            "A fortified span controlling a river crossing. Towers anchor each end, and the bridge itself withstands rams and fire."
+        ],
+        [
+            "River Fort",
+            "Built where the river narrows, walls descending into the current. Chains can be raised across the water to block passage."
+        ],
+        [
+            "Coastal Battery",
+            "Heavy weapons aimed seaward from behind stone walls. Salt spray coats everything, and the garrison squints into the glare."
+        ],
+        [
+            "Harbor Defense",
+            "Towers flanking the harbor mouth with chains between them and engines on the walls. Ships enter at the garrison's pleasure."
+        ],
+        [
+            "Naval Base",
+            "Piers, warehouses, and barracks at the waterfront. War galleys bob at anchor while sailors load provisions for the next patrol."
+        ],
+        [
+            "Dry Dock",
+            "A long stone trench drained of water with a warship resting in its cradle. Workers crawl over the hull like ants."
+        ],
+        [
+            "Shipyard",
+            "Hammers and saws from dawn to dusk. Half-finished hulls line the shore like the ribs of great beasts."
+        ],
+        [
+            "Admiralty",
+            "A stone building overlooking the harbor where officers plan campaigns over charts and wine. The maps are covered in pins."
+        ],
+        [
+            "Port Authority",
+            "Clerks record every cargo, every passenger, every coin that passes through. The ledgers hold more secrets than any spy."
+        ],
+        [
+            "Customs House",
+            "A busy stone building near the docks where goods are inspected and taxed. The inspectors miss nothing, or so they claim."
+        ],
+        [
+            "Quarantine Station",
+            "A walled compound on the harbor's edge where arriving ships wait. No one leaves until the healers give the word."
+        ],
+        [
+            "Prison Tower",
+            "A single spire with cells stacked upward. The higher the floor, the worse the crime. The top cell has only a hatch."
+        ],
+        [
+            "Dungeon Complex",
+            "Underground cells connected by low corridors. Torchlight barely reaches the walls. Some passages have not been opened in years."
+        ],
+        [
+            "Torture Chamber",
+            "Stone walls stained dark with old fear. Iron devices line the room, each designed to persuade. The drain sees regular use."
+        ],
+        [
+            "Execution Ground",
+            "An open yard with a raised platform at its center. The wood is stained, the ravens know the schedule."
+        ],
+        [
+            "Pillory",
+            "A wooden frame in the square where offenders stand locked for public scorn. Rotten vegetables pile at its base."
+        ],
+        [
+            "Stocks",
+            "Heavy timber restraints bolted to the ground in a public place. The sentenced sit in full view, enduring weather and ridicule."
+        ],
+        [
+            "Gibbet",
+            "An iron cage hanging from a post at the crossroads. Its occupant is long past caring, but the message remains clear."
+        ],
+        [
+            "Gallows",
+            "A simple wooden frame with a trapdoor and a rope. The executioner tests the drop weight each morning, just in case."
+        ],
+        [
+            "Scaffold",
+            "A raised wooden platform in the square, erected for a purpose everyone understands. The carpenter who built it refused to sign his name."
+        ],
+        [
+            "Watchtower Network",
+            "A chain of towers within sight of one another, each relaying signals down the line. News of trouble travels faster than trouble itself."
+        ],
+        [
+            "Signal Relay",
+            "A hilltop station where coded messages are received and passed along. The operators work in shifts, and accuracy matters more than speed."
+        ],
+        [
+            "Communication Post",
+            "A small fortified building where dispatches are written, decoded, and filed. The couriers who arrive here rarely stay long."
+        ],
+        [
+            "Courier Station",
+            "A waypoint on the message road with fresh horses and a locked dispatch box. Riders change here and push on without rest."
+        ],
+        [
+            "Messenger Tower",
+            "A tall structure where birds are kept and trained to carry notes. The loft smells of feathers and grain and quiet urgency."
+        ],
+        [
+            "Diplomatic Compound",
+            "A walled estate flying foreign banners. The guards are polite but firm. What happens inside is not discussed outside."
+        ],
+        [
+            "Embassy",
+            "A grand building on neutral ground, staffed by diplomats who smile too much. The wine is excellent. The conversations are careful."
+        ],
+        [
+            "Consulate",
+            "A smaller outpost of a foreign power handling trade and travel papers. The staff are courteous and record everything they hear."
+        ],
+        [
+            "Safe House",
+            "An unremarkable building on an unremarkable street. The door has three locks, the windows are shuttered, and the neighbors never ask."
+        ],
+        [
+            "Secret Base",
+            "Hidden behind a false wall or beneath a trapdoor. The people who work here officially do not exist."
+        ],
+        [
+            "Spy Network",
+            "Not a building but a web of whispered contacts and dead drops. The hub is wherever the spymaster happens to be."
+        ],
+        [
+            "Intelligence Hub",
+            "A nondescript building where information is gathered, sorted, and acted upon. The clerks inside know more than most generals."
+        ],
+        [
+            "Reconnaissance Post",
+            "A concealed position near enemy lines, manned by scouts who watch and report. They carry no banners and light no fires."
+        ],
+        [
+            "Observation Deck",
+            "A high platform with a clear view in every direction. Telescopes and maps are bolted to the railing. Sentries log every movement."
+        ],
+        [
+            "Lookout Point",
+            "A rocky outcrop offering a commanding view for miles. A single watcher is all it takes, which is exactly the point."
+        ],
+        [
+            "Crow's Nest",
+            "A small platform high on a mast or tower, exposed to wind and weather. The view is unmatched, and so is the loneliness."
+        ],
+        [
+            "Sniper Nest",
+            "A concealed position with a narrow field of fire and a clear retreat. Someone spent time making this spot invisible."
+        ],
+        [
+            "Ambush Point",
+            "A bend in the road where terrain favors the hidden. Fallen logs and loose stone suggest this spot has been used before."
+        ],
+        [
+            "Checkpoint",
+            "A barrier across the road with armed guards and a list of names. Passage requires the right answers or the right paperwork."
+        ],
+        [
+            "Roadblock",
+            "Felled trees and overturned carts blocking the path. Whether it is bandits or soldiers depends on which side you stand."
+        ],
+        [
+            "Tank Trap",
+            "Heavy obstacles arranged to stop anything large from passing. The gaps between them are just wide enough for a person on foot."
+        ],
+        [
+            "Dragon Trap",
+            "A massive concealed pit lined with enchanted chains and laced with bait. Building it cost a fortune. Failure would cost more."
+        ],
+        [
+            "Pit Trap",
+            "A hole covered with brush and dirt. The stakes at the bottom are sharpened and angled inward."
+        ],
+        [
+            "Spike Pit",
+            "A deep trench filled with upright iron spikes, hidden beneath a false floor. The fall alone is enough, but the spikes make sure."
+        ],
+        [
+            "Fire Trap",
+            "Oil channels carved into the floor, connected to a hidden trigger. One wrong step and the corridor becomes an oven."
+        ],
+        [
+            "Magic Ward",
+            "The air hums faintly across the threshold. Those who cross without permission feel it in their bones before they see anything."
+        ],
+        [
+            "Runic Barrier",
+            "Carved symbols glow faintly along the doorframe, pulsing in a slow rhythm. The barrier holds as long as the runes remain unbroken."
+        ],
+        [
+            "Spell Wall",
+            "A shimmering curtain of energy between two anchor stones. What passes through from one side does not always arrive on the other."
+        ],
+        [
+            "Crystal Shield",
+            "A dome of pale light radiating from a central gem. Blows strike it and ripple outward like stones dropped in still water."
+        ],
+        [
+            "Force Field",
+            "An invisible barrier that stops steel and flesh alike. The air tastes faintly of copper and burnt ozone."
+        ],
+        [
+            "Energy Barrier",
+            "A crackling wall of raw power that hums and sparks where debris touches it. Nothing living has crossed it and remained whole."
+        ],
+        [
+            "Temporal Shield",
+            "Time moves differently on either side. Arrows slow to a crawl and fall harmlessly. The effect is deeply unsettling."
+        ],
+        [
+            "Dimensional Anchor",
+            "A stone pillar inscribed with spiraling formulas. It holds this place firmly in one reality and prevents slipping into another."
+        ],
+        [
+            "Teleport Blocker",
+            "A squat iron device humming with restrained energy. Within its range, no one vanishes and no one arrives unannounced."
+        ],
+        [
+            "Scrying Ward",
+            "Counter-enchantments woven into the walls. Those inside cannot be watched from afar. Even mirrors behave strangely here."
+        ],
+        [
+            "Anti-Magic Zone",
+            "A dead space where spells unravel and enchantments go silent. Mages who enter feel suddenly, terribly ordinary."
+        ],
+        [
+            "Silence Field",
+            "No sound enters or leaves this space. Conversations happen in gestures and footsteps make no noise. The quiet is absolute."
+        ],
+        [
+            "Detection Grid",
+            "Thin lines of enchantment stretched across a perimeter, invisible to the eye. Anything that crosses them rings a bell somewhere inside."
+        ],
+        [
+            "Alarm Network",
+            "Tripwires, pressure plates, and enchanted sensors linked across a wide area. The first warning gives the defenders just enough time."
+        ],
+        [
+            "Warning System",
+            "Bells, horns, and signal fires connected by rope pulls and watchful eyes. Crude but reliable, and faster than any runner."
+        ],
+        [
+            "Early Warning Post",
+            "A remote station manned by sharp-eyed sentries whose only job is to see trouble first. They report, and then they run."
+        ],
+        [
+            "Radar Station",
+            "A tall structure topped with a slowly turning array that sweeps the horizon. The operators read patterns in the returns others cannot."
+        ],
+        [
+            "Watchtower Chain",
+            "Towers built within line of sight, each relaying the next signal. A threat at the border reaches the capital in minutes."
+        ],
+        [
+            "Beacon Network",
+            "Hilltop pyres in sequence, each visible from the next. When the first lights, the rest follow like a lit fuse across the land."
+        ],
+        [
+            "Fire Signal",
+            "A prepared pyre on a hilltop, soaked in pitch and ready to burn. One spark and the entire frontier knows something is wrong."
+        ],
+        [
+            "Smoke Signal",
+            "A controlled fire and a wet blanket. The pattern of smoke says more than words, readable from a day's ride away."
+        ],
+        [
+            "Mirror Signal",
+            "Polished metal angled to catch the sun, flashing coded bursts across the distance. Useless on cloudy days, invaluable on clear ones."
+        ],
+        [
+            "Flag Signal",
+            "Colored banners raised and lowered in sequence from a tower. Each combination carries a meaning known only to the trained."
+        ],
+        [
+            "Horn Tower",
+            "A tower housing a massive curved horn pointed across the valley. Its blast carries for miles and turns the blood cold."
+        ],
+        [
+            "Bell Tower",
+            "A tall stone tower with a great iron bell at the top. It rings for danger, for assembly, and sometimes for the dead."
+        ],
+        [
+            "Drum Tower",
+            "A wide round tower where massive drums hang from timber frames. The rhythm of their beat carries orders faster than a rider."
+        ],
+        [
+            "Gong Tower",
+            "A bronze disc the size of a cart hangs in an open frame. When struck, the sound rolls across the landscape like thunder."
+        ],
+        [
+            "War Horn",
+            "A massive curved instrument mounted on the battlements. Its deep note signals the start of battle and is felt as much as heard."
+        ],
+        [
+            "Battle Standard",
+            "A tall banner planted on the highest point, visible above dust and chaos. As long as it stands, the line holds."
+        ],
+        [
+            "Command Post",
+            "A fortified tent behind the lines where officers gather around maps and argue. Decisions made here cost lives."
+        ],
+        [
+            "Headquarters",
+            "The central building of a military operation, thick with maps and dispatches. Messengers come and go at all hours."
+        ],
+        [
+            "War Room",
+            "A windowless chamber deep inside the keep. The table holds a scale model of surrounding terrain, and every piece represents lives."
+        ],
+        [
+            "Strategy Center",
+            "A room lined with charts where campaigns are planned months ahead. The officers here fight wars on paper before steel."
+        ],
+        [
+            "Tactical Hub",
+            "A busy room where field reports arrive and orders go out. The information changes by the hour, and so do the plans."
+        ],
+        [
+            "Operations Base",
+            "Tents and structures behind the front lines. Supplies flow forward, wounded flow back, and the machinery of war turns."
+        ],
+        [
+            "Supply Depot",
+            "Crates and barrels in long rows behind guarded fences. An army marches on its stomach, and this is where it gets filled."
+        ],
+        [
+            "Ammunition Dump",
+            "Locked bunkers dug into hillsides, filled with volatile stores. Smoking is forbidden within a hundred yards. The guards enforce this."
+        ],
+        [
+            "Weapon Cache",
+            "A hidden stockpile of arms buried or walled away for future need. The map to its location is worth more than its contents."
+        ],
+        [
+            "Equipment Storage",
+            "A warehouse of military gear, maintained and cataloged. Everything from boots to blades, organized by size and ready to issue."
+        ],
+        [
+            "Provisions Store",
+            "Sacks of grain, barrels of salt meat, and casks of water stacked to the ceiling. The smell is practical rather than pleasant."
+        ],
+        [
+            "Quartermaster",
+            "A fortified building where all supplies are tracked and distributed. The officer in charge has more real power than most captains."
+        ],
+        [
+            "Logistics Center",
+            "A compound where supply routes are planned and shortages solved. The clerks here keep the army alive."
+        ],
+        [
+            "Staging Area",
+            "A wide cleared space where troops and equipment gather before deployment. Tension hangs in the air like smoke before a storm."
+        ],
+        [
+            "Assembly Point",
+            "A marked location where scattered units regroup after action. The rally flag flies high, and the roll call reveals who is missing."
+        ],
+        [
+            "Muster Ground",
+            "A broad field outside the walls where soldiers gather at the call to arms. The ground is beaten flat by thousands of boots."
+        ],
+        [
+            "Parade Ground",
+            "A paved courtyard where formations march in review. Polished armor gleams in the sun, and officers watch for anyone out of step."
+        ],
+        [
+            "Drill Field",
+            "A flat expanse of packed earth where recruits learn to march, fight, and follow orders. The sergeants here have no patience."
+        ],
+        [
+            "Obstacle Course",
+            "Walls to climb, trenches to cross, ropes to swing. Designed to break comfort and build resilience. The record time is posted at the start."
+        ],
+        [
+            "Target Range",
+            "Straw figures and wooden shields at measured distances. The thud of arrows and crack of bolts fill the air from dawn on."
+        ],
+        [
+            "Archery Range",
+            "A long fenced lane with targets at increasing distances. Archers practice in silence, and the best barely seem to aim."
+        ],
+        [
+            "Jousting Field",
+            "A fenced lane of packed earth with viewing stands on either side. Lance splinters and hoofbeats tell the crowd everything."
+        ],
+        [
+            "Tournament Ground",
+            "A grand arena of packed earth and wooden stands built for spectacle. Banners fly, crowds cheer, and reputations are made or broken."
+        ],
+        [
+            "Gladiator Arena",
+            "A sand-floored pit surrounded by high walls and roaring spectators. The gates open, and only one fighter needs to leave."
+        ],
+        [
+            "Combat Pit",
+            "A rough circle dug into the earth where fights are settled without rules. The crowd presses close and coin changes hands with every blow."
+        ],
+        [
+            "Sparring Circle",
+            "A chalked ring in the training yard where soldiers test each other with blunted weapons. Bruises are expected. Grudges are discouraged."
+        ],
+        [
+            "Duel Ground",
+            "A quiet clearing chosen for affairs of honor. Seconds stand at the edges, and the morning mist has not yet burned away."
+        ],
+        [
+            "Honor Field",
+            "A sacred patch of ground where disputes are settled by combat. The rules are old, the witnesses formal, and the outcome final."
+        ],
+        [
+            "Ceremonial Ground",
+            "A paved circle surrounded by banners and torches, used for oaths and remembrance. The stones have witnessed generations of service."
+        ],
+        [
+            "Memorial Wall",
+            "A long stone surface carved with names of the fallen. Fresh flowers appear each morning, though no one sees who leaves them."
+        ],
+        [
+            "Trophy Hall",
+            "Captured banners and broken weapons hang from the rafters. Each one tells a story the veterans remember differently."
+        ],
+        [
+            "Victory Monument",
+            "A tall column in the square, carved with scenes of battle. The pigeons on top are indifferent to its meaning."
+        ],
+        [
+            "War Memorial",
+            "A stone figure in a quiet courtyard, sword lowered, gaze distant. The inscription lists a date and a cost."
+        ],
+        [
+            "Fallen Heroes Shrine",
+            "Candles burn in a quiet alcove lined with small portraits. The names are spoken softly, and the door is never locked."
+        ],
+        [
+            "Veterans Hall",
+            "A gathering place for those who served and returned. The stories grow larger with each telling, and no one minds."
+        ],
+        [
+            "Officers Club",
+            "Leather chairs, a hearth, and a bar stocked with good spirits. Rank has its privileges, and this is one."
+        ],
+        [
+            "Mess Hall",
+            "Long tables and the clatter of tin plates. The food is plain but hot, and the company makes up for the seasoning."
+        ],
+        [
+            "Field Kitchen",
+            "Smoking cook fires behind the lines with pots large enough to bathe in. The cooks work fast and the line never shrinks."
+        ],
+        [
+            "Quartermaster Store",
+            "Shelves of blankets, rope, nails, and everything else an army needs. The clerk behind the counter has heard every excuse."
+        ],
+        [
+            "Stable Complex",
+            "A long row of stalls, warm with the smell of hay and horse. Grooms check hooves and fill water troughs in steady rhythm."
+        ],
+        [
+            "Cavalry Barracks",
+            "Bunks on one side, tack and saddles on the other. The riders here sleep lightly and can be mounted in minutes."
+        ],
+        [
+            "Warhorse Stable",
+            "Larger stalls for larger animals, bred for strength and trained not to flinch. The horses here are as disciplined as their riders."
+        ],
+        [
+            "Mount Pen",
+            "A fenced enclosure for riding beasts that do not fit in a stable. The handlers approach with caution and calm, steady tones."
+        ],
+        [
+            "Beast Pen",
+            "A reinforced enclosure holding creatures trained for war. The chains are thick, the handlers scarred, and the beasts watch with hungry eyes."
+        ],
+        [
+            "Aerial Cavalry Base",
+            "Roosts, runways, and wind-worn platforms where flying mounts and riders train. The sky above is never empty."
+        ],
+        [
+            "Tower",
+            "Stone walls spiral upward around a narrow stair. Each floor opens to a different purpose, and the view from the top commands the landscape."
+        ],
+        [
+            "Dungeon",
+            "Iron doors and low ceilings below the keep. The air is stale, the chains are cold, and the walls remember every prisoner."
+        ],
+        [
+            "Fortress",
+            "Walls thick enough to stop a battering ram surround a courtyard bristling with guards. Built to endure, and it has."
+        ],
+        [
+            "Throne Room",
+            "A high-ceilinged chamber where the seat of power sits on a raised dais. Banners hang from the rafters, and every word echoes."
+        ],
+        [
+            "Courtyard",
+            "An open square enclosed by high stone walls. Training grounds, gardens, and stables share the space, and every door leads somewhere different."
+        ]
+    ]
+}

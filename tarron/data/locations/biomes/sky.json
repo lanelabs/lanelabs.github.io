@@ -1,0 +1,13 @@
+{
+  "description": "The open heavens above the world, where the ground is far below and the wind is the only thing holding you up.",
+  "rarity": 4,
+  "biomes": [
+    ["Cloud Islands", "Dense banks of cloud solid enough to stand on, drifting slowly through a blue so deep it hurts to look at."],
+    ["Wind Bridges", "Narrow currents of compressed air spanning the gaps between floating landmasses. One wrong step and there is nothing below."],
+    ["Storm Eye", "A circle of perfect calm surrounded by a wall of screaming wind and black cloud. The sky above is clear and impossibly bright."],
+    ["Aurora Realm", "Curtains of shimmering light you can walk through. The colors shift and pulse, and the air tingles against your skin."],
+    ["Celestial Garden", "Flowers and trees growing on platforms of light high above the world. The petals glow softly and the fruit tastes like starlight."],
+    ["Star Fields", "Open darkness scattered with points of brilliant light close enough to touch. The ground is gone and direction has no meaning."],
+    ["Aerial Currents", "Rivers of fast-moving air that carry anything caught in them across vast distances. Riding them is exhilarating and not entirely safe."]
+  ]
+}

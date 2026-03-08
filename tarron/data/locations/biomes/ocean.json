@@ -1,0 +1,16 @@
+{
+  "description": "Vast open water stretching beyond sight, where the depths hold more secrets than any land and the surface is never truly still.",
+  "rarity": 2,
+  "biomes": [
+    ["Deep Sea", "Black water pressing in from all sides. No light reaches here, and the creatures that drift past glow with their own cold fire."],
+    ["Tidal Flat", "A wide expanse of wet sand and shallow pools exposed by the retreating tide. The sea will return, and quickly."],
+    ["Coast", "Where the waves meet the land in a restless line of foam. Salt spray hangs in the air and gulls wheel overhead."],
+    ["Jagged Rocks", "Sharp stone teeth jutting from the surf, slick with spray. The waves crash and split around them with furious force."],
+    ["Whirlpools", "Spinning columns of water that drag everything downward. The surface swirls in lazy circles that hide the violence beneath."],
+    ["Islands", "Small patches of land rising from the open sea. Each one is its own world, isolated and full of surprises."],
+    ["Coral Reef", "Bright formations of living stone beneath clear water. Fish dart in clouds of color, but the edges are sharp enough to cut."],
+    ["Abyssal Trench", "A crack in the ocean floor plunging into lightless depths. The pressure builds and the water grows colder with every fathom."],
+    ["Kelp Forest", "Tall fronds of brown and green swaying in the current like an underwater woodland. The light filters through in golden shafts."],
+    ["Floating Debris", "A drifting field of wreckage and driftwood rocking on the swells. Something useful might be tangled in there, or something worse."]
+  ]
+}

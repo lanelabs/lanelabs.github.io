@@ -1,0 +1,15 @@
+{
+  "description": "Characters involved in combat, defense, and military service.",
+  "characters": [
+    ["Knight", "An armored warrior bound by oath and honor."],
+    ["Squire", "A young trainee serving a knight and learning the ways of chivalry."],
+    ["Ranger", "A woodland protector who patrols the wild borders."],
+    ["Archer", "A keen-eyed marksman who strikes from a distance."],
+    ["Warrior", "A battle-hardened fighter who lives by the sword."],
+    ["Scout", "A quick and quiet observer who ventures ahead of the group."],
+    ["Mercenary", "A sword-for-hire who fights for coin, not cause."],
+    ["Admiral", "A commander of fleets who rules the waves."],
+    ["Castellan", "A guardian of the castle who keeps its walls secure."],
+    ["Falconer", "A trained handler who hunts with birds of prey."]
+  ]
+}

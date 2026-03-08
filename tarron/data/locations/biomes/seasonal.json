@@ -1,0 +1,13 @@
+{
+  "description": "Places trapped in a single season or cycling through them in unnatural ways, where time and weather follow their own strange rules.",
+  "rarity": 2,
+  "biomes": [
+    ["Eternal Spring", "Blossoms that never fall and soft rain that comes each afternoon like clockwork. The air is sweet and the green is impossibly fresh."],
+    ["Endless Summer", "Golden heat that never breaks and long days that stretch on without relief. The grass is dry and the cicadas never stop singing."],
+    ["Perpetual Autumn", "Leaves always falling in shades of amber and rust but the branches never go bare. The air is crisp and smells of wet earth."],
+    ["Endless Winter", "Snow that never melts under a sky that never brightens past grey. The cold is patient and thorough, and spring is only a rumor."],
+    ["Shifting Seasons", "Spring, summer, autumn, and winter cycling in hours instead of months. The land cannot settle, and neither can anything living on it."],
+    ["Time Locked", "A single perfect moment preserved in amber light. The leaves hang mid-fall, the rain hovers mid-drop, and nothing changes."],
+    ["Weather Chaos", "Sun, rain, snow, and wind arriving in rapid succession with no pattern. The sky changes color every few minutes and the ground cannot keep up."]
+  ]
+}

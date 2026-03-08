@@ -1,0 +1,20 @@
+{
+  "description": "Atmospheric conditions with a modern, urban feel.",
+  "weather": [
+    ["during a power outage", "pitch-dark", "the power outage", "All lights go out, leaving only darkness and uncertainty."],
+    ["on the hottest day of summer", "scorching", "the summer heat", "Pavement shimmers and everyone seeks shade."],
+    ["during a freak blizzard", "blizzard-swept", "the blizzard", "An unexpected wall of snow burying roads and cars."],
+    ["as sirens echo in the distance", "siren-filled", "the sirens", "Wailing emergency sounds bouncing off buildings."],
+    ["on a rainy rush hour", "rain-soaked", "the rain", "Umbrellas collide on crowded sidewalks as traffic crawls."],
+    ["during a flash flood warning", "flooded", "the flood", "Water rising fast, turning streets into rivers."],
+    ["on a picture-perfect afternoon", "sun-drenched", "the sunshine", "Clear blue sky and warm light on every surface."],
+    ["under flickering streetlights", "flickering", "the flickering lights", "Faulty lamps buzzing and cutting in and out."],
+    ["on the first day of spring", "spring-fresh", "the spring air", "Warm breezes carrying the scent of new growth."],
+    ["during a late-night thunderstorm", "thunder-shaken", "the thunderstorm", "Lightning cracks and thunder rattles windows after midnight."],
+    ["as autumn fog rolls through the streets", "fog-choked", "the fog", "Dense mist turning familiar streets into mazes."],
+    ["as the first snow of winter falls", "snow-dusted", "the first snow", "Delicate flakes settling on rooftops and shoulders."],
+    ["on a muggy summer evening", "muggy", "the muggy air", "Thick, humid air that clings to the skin."],
+    ["during a surprise hailstorm", "hail-battered", "the hailstorm", "Ice pellets bouncing off cars and sidewalks."],
+    ["under neon lights in the rain", "neon-lit", "the neon-lit rain", "Colorful reflections streaking across wet pavement."]
+  ]
+}

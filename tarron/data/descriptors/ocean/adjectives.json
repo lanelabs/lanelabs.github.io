@@ -1,0 +1,27 @@
+{
+  "description": "Ocean-themed adjectives for describing underwater and coastal items.",
+  "adjectives": [
+    ["Sunken", "Lost beneath the waves, resting on the sea floor."],
+    ["Barnacled", "Encrusted with tiny shell creatures."],
+    ["Tidal", "Rising and falling with the rhythm of the ocean."],
+    ["Bioluminescent", "Glowing with living light from the deep."],
+    ["Deep-sea", "From the lightless depths far below the surface."],
+    ["Pearlescent", "Shimmering with the soft iridescence of mother-of-pearl."],
+    ["Seafoam", "Light and frothy, the color of breaking waves."],
+    ["Coral-crusted", "Covered in colorful reef growths."],
+    ["Shimmering", "Flickering with shifting underwater light."],
+    ["Saltwater", "Brined and preserved by the sea."],
+    ["Luminous", "Softly glowing in the underwater dark."],
+    ["Abyssal", "From the deepest, darkest trenches of the ocean."],
+    ["Fossilized", "Turned to stone over millions of years."],
+    ["Drifting", "Floating freely on the currents."],
+    ["Waterlogged", "Saturated with water, heavy and swollen."],
+    ["Translucent", "Partially see-through, like frosted glass."],
+    ["Kelp-wrapped", "Tangled in ribbons of green-brown seaweed."],
+    ["Sand-worn", "Smoothed and rounded by years of tumbling sand."],
+    ["Iridescent", "Flashing with rainbow colors that shift with the angle."],
+    ["Phosphorescent", "Glowing with a ghostly light after dark."],
+    ["Floating", "Buoyant and bobbing on the surface."],
+    ["Wave-polished", "Smoothed to a shine by the action of the sea."]
+  ]
+}

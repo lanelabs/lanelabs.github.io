@@ -1,0 +1,13 @@
+{
+  "description": "Enchanted dishes and magical fare found in fantasy settings.",
+  "foods": [
+    ["Faerie Cake", "A tiny cake dusted with sugar that glows faintly, said to taste like whatever the eater misses most."],
+    ["Moonberry Tart", "Baked with berries that only ripen under a full moon, filling the room with silver-white light when cut."],
+    ["Dragon-Spiced Stew", "A fiery broth seasoned with peppers that grow near dragon lairs, hot enough to make your ears steam."],
+    ["Enchanted Bread", "A loaf that never goes stale, each slice tasting freshly baked no matter how long it's been sitting."],
+    ["Starlight Honey", "Harvested from bees that feed on night-blooming flowers, it glows faintly and hums when you open the jar."],
+    ["Witchfire Jam", "Dark purple preserves that tingle on the tongue and leave a warmth in the chest that lasts for hours."],
+    ["Dreamfruit", "A soft strange fruit that tastes different to everyone who bites it, and nobody can quite describe how."],
+    ["Spell-risen Pastry", "A pastry leavened with a whispered charm instead of yeast, impossibly light and warm long after baking."]
+  ]
+}

@@ -1,0 +1,701 @@
+{
+    "description": "Magical sites, both natural and crafted, where the impossible becomes ordinary. Places of wonder, peril, and power that shape the world around them.",
+    "locations": [
+        [
+            "World Tree",
+            "Its roots drink from the underworld and its canopy brushes the sky beyond the sky. Every leaf holds a whispered secret from another age."
+        ],
+        [
+            "Waystone",
+            "A carved pillar standing where no road leads. Touch its face and feel the tug of distant places pulling at your bones."
+        ],
+        [
+            "Unstable Rift",
+            "The air tears like wet cloth, showing glimpses of somewhere else. Step too close and the ground shifts beneath you."
+        ],
+        [
+            "Timeline Rupture",
+            "Past and future bleed together in this shimmering wound. Conversations that ended centuries ago still echo here."
+        ],
+        [
+            "Teleportation Circles",
+            "Concentric rings scored into bare stone, still faintly glowing. The air above them smells of ozone and somewhere far away."
+        ],
+        [
+            "Eye of the Storm",
+            "Perfect silence at the center of howling wind. The sky above is impossibly clear while destruction spirals all around."
+        ],
+        [
+            "Starfall Crater",
+            "The stone here is fused to glass. Whatever fell from the sky left behind a warmth the earth has not forgotten."
+        ],
+        [
+            "Meteor Crater",
+            "A vast bowl punched into the landscape, its rim still sharp after ages. Strange minerals glint in the exposed rock walls."
+        ],
+        [
+            "Portal",
+            "A doorway standing free of any wall, its edges rippling like heat haze. The view through it does not match the land behind."
+        ],
+        [
+            "Wode",
+            "An ancient forest where the trees grow too close and the paths shift between visits. The locals do not enter after dark."
+        ],
+        [
+            "Grove",
+            "Old trees arranged in a circle no wind has ever broken. The light here falls differently, softer and greener than it should."
+        ],
+        [
+            "Spirit Tree",
+            "One pale trunk rising alone in a clearing, its bark carved with faces that watch. Sap runs from it like slow tears."
+        ],
+        [
+            "Singing Stones",
+            "Tall stones planted in the earth that hum when the wind passes through them. The melody changes with the season."
+        ],
+        [
+            "Gateway",
+            "Two pillars frame an opening to somewhere the eye refuses to focus on. Those who pass through do not always arrive together."
+        ],
+        [
+            "Petrified Tree",
+            "A great tree turned entirely to stone, its branches still reaching. Birds refuse to land on it and moss will not grow there."
+        ],
+        [
+            "Oracle Cave",
+            "The cave mouth breathes warm air that carries fragments of speech. Those who listen too long hear their own future spoken aloud."
+        ],
+        [
+            "Haunted Shack",
+            "Boards creak without footsteps. A candle burns in the window though no one has lived here for years. The door is always open."
+        ],
+        [
+            "Moonlit Clearing",
+            "Silver light gathers here even on cloudy nights. The grass grows in spirals and small creatures watch from the tree line."
+        ],
+        [
+            "Maze",
+            "Hedges that rearrange when you are not looking. The center can be seen from above but never reached by the same path twice."
+        ],
+        [
+            "Mana Well",
+            "A hole in the ground that glows faintly blue. The air near it tastes metallic and makes the hair on your arms rise."
+        ],
+        [
+            "Mana Spring",
+            "Clear water rises from stone and gives off a pale shimmer. Drink from it and your thoughts run faster than your mouth can follow."
+        ],
+        [
+            "Living Garden",
+            "Every plant here moves on its own, slowly turning to face visitors. Flowers open and close like breathing. The vines reach gently for warmth."
+        ],
+        [
+            "Lightning Field",
+            "Blackened earth and the permanent smell of storms. Lightning strikes here far more often than it should, never in the same place."
+        ],
+        [
+            "Leyline Convergence",
+            "The ground hums where the lines cross. Magic pools here like rainwater in a low field. Spells cast at the junction behave strangely."
+        ],
+        [
+            "Infernal Gate",
+            "Heat pours from a crack in the stone floor. The light below is red and shifting, and something down there knows you are looking."
+        ],
+        [
+            "Holy Spring",
+            "Water so clear it seems to glow, rising from deep beneath a weathered shrine. Wounds washed here close faster than they should."
+        ],
+        [
+            "Healing Shrine",
+            "A small stone structure draped in offerings. The air inside is warm and smells of herbs. Pain quiets near the altar."
+        ],
+        [
+            "Fey Glade",
+            "Colors are brighter here and time slips sideways. You can hear laughter with no source. The flowers watch you back."
+        ],
+        [
+            "Fairy Circle",
+            "A perfect ring of mushrooms in the grass. Step inside and the world outside goes quiet, as if it has forgotten you entirely."
+        ],
+        [
+            "Evernight Forest",
+            "A stretch of wood where the sun never reaches the floor. The darkness is thick and warm and full of soft rustling."
+        ],
+        [
+            "Dream Pool",
+            "The water shows things that have not happened yet, or things that happened long ago. Drink from it and the visions follow you home."
+        ],
+        [
+            "Arcane Sanctuary",
+            "Walls that shimmer with layered wards. Inside, the air is still and charged. This place was built to keep the world out."
+        ],
+        [
+            "Astral Beacon",
+            "A pillar of pale light rising from bare stone into the sky, visible only at night. It calls to things that drift between the stars."
+        ],
+        [
+            "Banshee Hollow",
+            "A low place where fog never lifts. The wailing starts at dusk and does not stop until dawn. The trees here have no leaves."
+        ],
+        [
+            "Blessed Fountain",
+            "Clear water arcs from a carved figure into a wide basin. The stone is warm to the touch and the water tastes of sunlight."
+        ],
+        [
+            "Crystal Cavern",
+            "Every surface catches and bends the light until the cave glows from within. The crystals sing a low note when touched."
+        ],
+        [
+            "Cursed Battlefield",
+            "Rusted weapons still jut from the earth. The ground is cold even in summer and shapes move in the mist at twilight."
+        ],
+        [
+            "Dimensional Anchor",
+            "A massive iron spike driven into bedrock, chains radiating outward. The air around it is heavy and still, as if nailed in place."
+        ],
+        [
+            "Dragon's Roost",
+            "Claw marks scar the stone ledge and the air reeks of sulfur. Scales glint among the rubble. The bones are not all animal."
+        ],
+        [
+            "Echo Chamber",
+            "A domed cave where every sound returns changed. Whisper a question and the echoes answer in a voice that is not yours."
+        ],
+        [
+            "Elemental Forge",
+            "Heat and cold war at the threshold. Inside, raw elements churn in a crucible that nothing mortal built. The metal sings as it shapes itself."
+        ],
+        [
+            "Enchanted Grove",
+            "The trees bear fruit in every season and the flowers never wilt. A sweetness hangs in the air that makes you want to stay."
+        ],
+        [
+            "Forgotten Temple",
+            "Vines split the columns and the roof has fallen in, but the altar still stands. Something still answers prayers spoken here."
+        ],
+        [
+            "Ghost Town",
+            "Empty buildings with doors that swing open on their own. Footprints appear in the dust ahead of you, leading nowhere."
+        ],
+        [
+            "Golem Workshop",
+            "Clay dust and chisel marks cover every surface. Half-finished figures stand in rows. One of them turned its head when you entered."
+        ],
+        [
+            "Harpy's Perch",
+            "A high ledge littered with bones and scraps of cloth. The wind carries a song that is beautiful until you listen to the words."
+        ],
+        [
+            "Ice Palace",
+            "Walls of blue ice carved into arches and spires. The cold is absolute. Light refracts through every surface in pale rainbows."
+        ],
+        [
+            "Invisible Tower",
+            "The door stands in open air with no walls around it. Open it and stairs climb upward into nothing you can see."
+        ],
+        [
+            "Jade Garden",
+            "Every plant here is carved from green stone, yet they sway in a breeze you cannot feel. Petals of jade fall and shatter softly."
+        ],
+        [
+            "Knight's Tomb",
+            "A stone sarcophagus beneath a vaulted ceiling. The carved knight atop it grips a real sword. The armor shows no dust."
+        ],
+        [
+            "Labyrinth Entrance",
+            "A dark archway yawns in the hillside. Scratches on the stone mark where others tried to find their way back out."
+        ],
+        [
+            "Memory Vault",
+            "A sealed chamber where thoughts take visible form, drifting like smoke. Breathe them in and you remember things that belong to strangers."
+        ],
+        [
+            "Necromancer's Lair",
+            "The smell reaches you first. Cold earth and old blood and something sweet beneath it. The candles burn black and the books are bound in skin."
+        ],
+        [
+            "Obelisk of Power",
+            "A single dark spire rising from cracked earth. The air vibrates near its surface and your shadow bends toward it."
+        ],
+        [
+            "Phoenix Nest",
+            "A mound of ash and embers that never cools. Fragments of golden shell crunch underfoot. The heat is fierce and smells of cinnamon."
+        ],
+        [
+            "Quantum Lake",
+            "The water flickers between states, here and not here. Your reflection moves before you do and sometimes does not move at all."
+        ],
+        [
+            "Shadow Realm Gate",
+            "A pool of darkness on flat stone that swallows light completely. Drop something in and it falls forever without a sound."
+        ],
+        [
+            "Time Vortex",
+            "The air twists visibly, like water going down a drain. Leaves caught in it age to dust in seconds or sprout green again."
+        ],
+        [
+            "Underwater Palace",
+            "Towers and domes of coral and pearl visible through clear water. Lights glow in the windows and figures move behind the glass."
+        ],
+        [
+            "Vampire's Crypt",
+            "The stone lid is pushed aside and the silk lining is still fresh. The air is cold and sweet and the shadows are too dark."
+        ],
+        [
+            "Wizard's Tower",
+            "A tall spire that should not stand at that angle. Lights burn in windows that face directions the tower does not have."
+        ],
+        [
+            "Xenolith Shrine",
+            "A boulder of foreign stone sits in a cradle of roots, clearly not from this land. Offerings pile at its base. The rock is warm."
+        ],
+        [
+            "Yggdrasil Branch",
+            "A single branch thicker than most trees, fallen from impossible height. It still bears green leaves and hums with distant life."
+        ],
+        [
+            "Zone of Silence",
+            "Sound dies here completely. You can see your companion's mouth move but hear nothing. Even your own heartbeat disappears."
+        ],
+        [
+            "Abandoned Observatory",
+            "The dome is cracked open to the sky and the great lens is clouded with age. The star charts on the walls still glow faintly at night."
+        ],
+        [
+            "Ancient Runes",
+            "Symbols cut deep into a rock face, still sharp after ages of rain. They pulse with faint warmth and shift when you look away."
+        ],
+        [
+            "Crystal Forest",
+            "Trees of solid crystal rise from a glassy floor. Light fractures through them in all directions. Walking here is like moving through a prism."
+        ],
+        [
+            "Druidic Circle",
+            "Stones arranged by careful hands long gone. Moss covers everything and wildflowers grow only inside the ring. The earth is softer here."
+        ],
+        [
+            "Ethereal Mist",
+            "A bank of fog that does not move with the wind. Shapes drift inside it, translucent and slow. Those who enter lose direction."
+        ],
+        [
+            "Frozen Waterfall",
+            "A cascade stopped mid-fall, ice blue and silent. The water inside still moves, visible through the frozen shell, trapped and patient."
+        ],
+        [
+            "Giant's Hearth",
+            "A firepit the size of a house, its stones blackened and cracked. The coals went cold long ago but the ground stays warm."
+        ],
+        [
+            "Haunted Library",
+            "Shelves stretch into darkness and books open themselves to pages you needed. The dust moves in patterns and a quill writes on its own."
+        ],
+        [
+            "Illusory Oasis",
+            "Palm trees and clear water shimmer in the heat. It looks real from every angle. Step into the pool and your foot hits dry sand."
+        ],
+        [
+            "Jeweled Cavern",
+            "Gems stud every wall, catching torchlight in bursts of color. The beauty is obvious. So is the fact that no one has taken one and left."
+        ],
+        [
+            "Karma Wheel",
+            "A great stone wheel turning slowly on its own axis. Stand near it and you feel the weight of every choice you have made."
+        ],
+        [
+            "Lunar Altar",
+            "A flat white stone that glows brighter as the moon rises. Blood spilled here evaporates instantly and the surface is always cold."
+        ],
+        [
+            "Mirage City",
+            "Towers and streets float above the horizon, vivid and detailed. They belong to no city anyone has ever found on a map."
+        ],
+        [
+            "Nexus Point",
+            "A place where paths from many realms cross. The air tastes different in every direction and the sky cannot settle on one color."
+        ],
+        [
+            "Oracle's Pool",
+            "Still water in a stone basin that clouds when you ask a question. The answer forms in the murk, clear for a moment, then gone."
+        ],
+        [
+            "Phantom Ship",
+            "A vessel sailing with no crew and no wind. Its hull is solid but your hand passes through the rigging. It comes and goes with the fog."
+        ],
+        [
+            "Quicksand Pit",
+            "The ground looks firm but gives way without warning. Something beneath the sand pulls harder than weight alone can explain."
+        ],
+        [
+            "Runic Gateway",
+            "An arch of carved stone with symbols that glow in sequence. Step through when the pattern completes and you are somewhere else entirely."
+        ],
+        [
+            "Spectral Battlefield",
+            "Ghostly armies clash in silence across a barren field. The fight replays endlessly and the dead never stay down."
+        ],
+        [
+            "Temporal Anomaly",
+            "A pocket where time runs at a different speed. Flowers bloom and die in minutes while clouds overhead hang perfectly still."
+        ],
+        [
+            "Unicorn Meadow",
+            "Grass that sparkles with dew that never dries. A single set of hoofprints circles the clearing, always fresh, never leading away."
+        ],
+        [
+            "Void Portal",
+            "A tear in the air showing absolute nothing. No light, no sound, no depth. It pulls gently at everything nearby, patient and constant."
+        ],
+        [
+            "Wishing Well",
+            "A moss-covered well with coins glinting far below. Drop one in and listen. Sometimes the splash comes back as a whisper."
+        ],
+        [
+            "Crystal Spire",
+            "A translucent column rising from the ground, humming with trapped energy. The light inside shifts and pulses like a slow heartbeat."
+        ],
+        [
+            "Floating Stones",
+            "Boulders hang motionless in the air, some spinning slowly. Moss grows on their undersides and rain collects in their hollows."
+        ],
+        [
+            "Magic Mirror",
+            "A tall looking glass standing alone in the open. Your reflection does not mimic you. It shows you as something else entirely."
+        ],
+        [
+            "Singing Crystal",
+            "A formation that resonates in the wind, producing clear, haunting tones. The melody changes as you move around it, as if it knows where you stand."
+        ],
+        [
+            "Weeping Statue",
+            "A stone figure with real tears running down its face that never stop. The expression changes with the light."
+        ],
+        [
+            "Blood Altar",
+            "Dark stains soak deep into the stone and nothing will wash them out. The air is heavy and the flies circle but never land."
+        ],
+        [
+            "Bone Garden",
+            "Ribs and femurs grow from the earth like pale stalks. Skulls bloom at their tips. Something planted them here with care and purpose."
+        ],
+        [
+            "Cursed Mirror",
+            "An ornate frame around glass that shows a room behind you that does not exist. The reflection beckons. Do not step closer."
+        ],
+        [
+            "Demon Circle",
+            "Scorch marks and salt trace a careful pattern on the stone floor. The bindings held once. The cracks suggest they may not again."
+        ],
+        [
+            "Eldritch Shrine",
+            "A structure built to geometries that hurt to look at. The angles do not meet where they should and the shadows fall wrong."
+        ],
+        [
+            "Fire Fountain",
+            "Flames pour upward from a stone basin like burning water. The heat is real but the stone stays cool. Nothing fuels it that you can see."
+        ],
+        [
+            "Gravity Well",
+            "A patch of ground where weight means nothing. Stones drift upward and rain falls sideways. Your stomach lurches before your feet leave the earth."
+        ],
+        [
+            "Hellmouth",
+            "A ragged hole in the ground breathing hot, sulfurous air. The glow from below is red and flickering. Something far down is moving."
+        ],
+        [
+            "Ice Throne",
+            "A chair carved from a single block of blue ice that never melts. Frost spreads from its legs across the floor. Sit and the cold speaks."
+        ],
+        [
+            "Jungle Temple",
+            "Stone walls strangled by vines and roots. The carvings depict rites no living culture remembers. The altar inside is freshly cleaned."
+        ],
+        [
+            "Kraken Pool",
+            "A still, dark pool far deeper than it should be. Sucker marks ring the stone edge and the water occasionally moves on its own."
+        ],
+        [
+            "Lich Phylactery",
+            "A sealed vessel pulsing with cold light, hidden in a trapped alcove. The air hums with bound life and bitter intent."
+        ],
+        [
+            "Mage College",
+            "Towers of mismatched stone and impossible architecture connected by bridges that bend through empty air. The sound of chanting never stops."
+        ],
+        [
+            "Nightmare Realm",
+            "The air warps and colors bleed. Familiar shapes twist into wrong versions of themselves. Your fears take form here, walking beside you."
+        ],
+        [
+            "Owlbear Den",
+            "Claw marks gouge the cave entrance and feathers mix with fur in deep nests. The smell is rank. The growling comes from the darkness."
+        ],
+        [
+            "Petrified Forest",
+            "Every tree is stone, frozen mid-sway. Birds turned to rock still sit on branches. The silence here has a weight to it."
+        ],
+        [
+            "Quicksilver Lake",
+            "A lake of liquid metal that moves like water but reflects nothing. Things dropped into it sink slowly and do not come back."
+        ],
+        [
+            "Ruined Colosseum",
+            "Crumbling tiers surround an arena floor still stained dark. The crowd is long gone but echoes of cheering surface at dusk."
+        ],
+        [
+            "Storm Eye",
+            "A column of calm surrounded by perpetual gale. Inside the eye the air is warm and still, and stars are visible even at midday."
+        ],
+        [
+            "Underdark Entrance",
+            "A crack in the hillside that exhales cold, stale air. The darkness inside is absolute and the stone stairs descend beyond what torchlight reaches."
+        ],
+        [
+            "Volcanic Shrine",
+            "Built into a smoking mountain, its walls warm to the touch. Offerings melt on the altar. The priests here worship heat itself."
+        ],
+        [
+            "Warlock's Pact Site",
+            "A scorched clearing where two sets of footprints face each other. One set is human. The other sinks deeper and ends in claws."
+        ],
+        [
+            "Xenophobic Barrier",
+            "An invisible wall that stops only the unwelcome. Birds pass through freely. You feel it as pressure, then pain, then refusal."
+        ],
+        [
+            "Yeti Cave",
+            "Ice coats the walls and the air bites. Enormous tracks lead inside but none lead out. The darkness at the back breathes."
+        ],
+        [
+            "Zombie Graveyard",
+            "Freshly turned earth and open coffins. The headstones are cracked from below. Something is pulling itself out, slowly and without hurry."
+        ],
+        [
+            "Aurora Field",
+            "Curtains of colored light sweep across the ground here, not the sky. Walk through them and your skin tingles with forgotten magic."
+        ],
+        [
+            "Basilisk Lair",
+            "A cave littered with stone figures caught mid-stride, their faces frozen in recognition. The real danger is somewhere you have not looked yet."
+        ],
+        [
+            "Centaur Grove",
+            "Broad paths worn between ancient oaks. Hoofprints mark the soft earth and arrows are embedded high in the trunks, placed as warnings."
+        ],
+        [
+            "Doppelganger Maze",
+            "Mirrored walls that do not reflect you accurately. Your face shifts in the glass. Turn a corner and you might meet yourself."
+        ],
+        [
+            "Elemental Plane Rift",
+            "A wound in the world where raw elements pour through. Fire, ice, stone, and wind clash violently at the edges of the tear."
+        ],
+        [
+            "Fairy Mound",
+            "A grass-covered hill with a hidden door. Music drifts from inside, faint and sweet. Time moves differently within, and not in your favor."
+        ],
+        [
+            "Giant Mushroom Ring",
+            "Fungi taller than houses arranged in a wide circle. Spores drift in the still air, glowing faintly. Breathing here brings strange dreams."
+        ],
+        [
+            "Hobgoblin Fort",
+            "A stockade of sharpened logs surrounding packed-earth barracks. The discipline is visible. Patrols run on schedule and the watchtowers are never empty."
+        ],
+        [
+            "Immortal's Garden",
+            "Flowers that have bloomed for a thousand years without wilting. The gardener is gone but the enchantment remains, keeping everything perfectly alive."
+        ],
+        [
+            "Jinni Lamp",
+            "A tarnished brass vessel half-buried in sand, still warm to the touch. The air above it shimmers and a voice inside offers bargains."
+        ],
+        [
+            "Kelpie Pond",
+            "A lovely pool surrounded by soft grass, with inviting water and beautiful lilies. The bones at the bottom tell a different story."
+        ],
+        [
+            "Lich Tower",
+            "A black spire that casts no shadow. The windows glow with cold green light and the door opens only from the inside."
+        ],
+        [
+            "Minotaur Labyrinth",
+            "Walls of stone taller than anything that walks upright. The passages echo with heavy breathing and hooves on stone. Thread will not save you."
+        ],
+        [
+            "Nymph Spring",
+            "Crystal water in a mossy basin, surrounded by flowers that bloom at night. The beauty here is sharp enough to wound. Visitors forget to leave."
+        ],
+        [
+            "Ogre Stronghold",
+            "Rough stone piled into crude walls smeared with fat and ash. The stink reaches you before the shouting does. They are always hungry."
+        ],
+        [
+            "Pegasus Stable",
+            "An open meadow on a high cliff where the wind is constant. Feathers litter the grass and hoofprints end abruptly at the edge."
+        ],
+        [
+            "Quasar Pool",
+            "A basin of water burning with inner light, shifting between colors that have no name. Stare too long and it stares back."
+        ],
+        [
+            "Roc Nest",
+            "A nest of whole tree trunks woven together on a mountain peak. The eggs inside are the size of boulders. The shadow overhead is growing."
+        ],
+        [
+            "Siren Cove",
+            "A sheltered inlet where the water is calm and the singing is sweet. Wreckage lines the shore. The rocks beneath are sharp."
+        ],
+        [
+            "Treant Grove",
+            "An ancient stand of trees that move when they choose. The bark faces watch with patient eyes. They have been here longer than any kingdom."
+        ],
+        [
+            "Unicorn Glade",
+            "A sunlit clearing where the grass is impossibly green. The air smells of rain and wildflowers. Only the pure of heart find the path."
+        ],
+        [
+            "Vampire Castle",
+            "A fortress of dark stone perched on a cliff. No lights burn in the windows but the gates stand open. The invitation is the trap."
+        ],
+        [
+            "Wraith Cemetery",
+            "Gravestones lean at angles and cold fog clings to the ground. Shapes trail wisps of gray between the markers. They remember being alive."
+        ],
+        [
+            "Xorn Mine",
+            "Tunnels bored through solid rock without tools. The walls are smooth and warm. Something that eats stone lives here and is still hungry."
+        ],
+        [
+            "Yuan-Ti Temple",
+            "Serpentine columns frame an altar slick with oil. The carvings show people slowly becoming snakes. The priests here have cold eyes."
+        ],
+        [
+            "Zealot Shrine",
+            "A crude altar covered in frantic carvings and desperate offerings. The faith here is raw and fierce. Something answers it, though perhaps not a god."
+        ],
+        [
+            "Alchemical Laboratory",
+            "Glass vessels bubble with colored liquids over flames that need no fuel. The air stings your nose and wall stains change color as you watch."
+        ],
+        [
+            "Binding Circle",
+            "A ring of silver inlaid in stone, etched with names that should not be spoken aloud. The air inside the circle is colder."
+        ],
+        [
+            "Conjuration Chamber",
+            "A round room with a single circle on the floor, blackened from repeated use. The walls are scratched by things called from elsewhere."
+        ],
+        [
+            "Divination Pool",
+            "A shallow basin of dark water that ripples without being touched. Lean over it and the surface shows a face, but not always yours."
+        ],
+        [
+            "Enchantment Garden",
+            "Every flower here whispers when you pass. The scent changes to match your deepest desire. Leaving is harder than arriving."
+        ],
+        [
+            "Frost Giant Hall",
+            "A longhouse carved from a glacier, its pillars thick as towers. The benches could seat a hundred and the cold inside is alive."
+        ],
+        [
+            "Geomantic Node",
+            "A place where the earth's power rises close to the surface. The soil is warm, plants grow faster, and compasses spin in circles."
+        ],
+        [
+            "Hexing Ground",
+            "A patch of bare earth where nothing grows and birds do not land. Dolls and knotted cord hang from stakes around the perimeter."
+        ],
+        [
+            "Invocation Altar",
+            "A raised platform of polished stone with channels cut for offerings. The words carved into its face are in no known language."
+        ],
+        [
+            "Jinx Crossing",
+            "A place where two paths meet and luck turns sour. Travelers leave coins and charms at the junction, hoping to pass unnoticed."
+        ],
+        [
+            "Karmic Balance",
+            "Massive stone scales tipping slowly back and forth on their own. Stand near them and you feel the weight of your past decisions."
+        ],
+        [
+            "Lunar Eclipse Site",
+            "A stone platform built to frame the moon at its darkest. The carvings activate only during an eclipse. The doorway beneath opens to somewhere cold."
+        ],
+        [
+            "Mind Flayer Colony",
+            "Smooth tunnels carved in a spiral descent. The walls pulse faintly and a pressure builds behind your eyes the deeper you go."
+        ],
+        [
+            "Necrotic Fountain",
+            "Dark water bubbles up from cracked stone, killing everything it touches. The grass around it is gray and the trees lean away."
+        ],
+        [
+            "Oracular Chamber",
+            "A domed room where every whisper echoes and overlaps into prophecy. The ceiling is painted with stars that match no known sky."
+        ],
+        [
+            "Planar Convergence",
+            "A place where multiple realities overlap. The landscape flickers between versions of itself. You can feel the ground trying to decide what it is."
+        ],
+        [
+            "Ritual Ground",
+            "A cleared circle of packed earth surrounded by torches. The ash pattern in the center is fresh. The chanting ended only moments ago."
+        ],
+        [
+            "Scrying Bowl",
+            "A stone basin of still black water on a pedestal in an empty room. Look into it and it shows you what you fear most."
+        ],
+        [
+            "Transmutation Circle",
+            "Symbols drawn in chalk on a workshop floor, surrounded by failed experiments. Some of the failures are still moving."
+        ],
+        [
+            "Umbral Gateway",
+            "A door-shaped darkness hanging in empty air. No light passes through and no sound comes from the other side. It is patient."
+        ],
+        [
+            "Vortex Chamber",
+            "A round room where the air spirals inward toward a point of brilliant light at the center. Everything loose drifts slowly toward it."
+        ],
+        [
+            "Witching Hour Grove",
+            "A ring of twisted trees that comes alive only at midnight. Between the strokes of twelve, the paths lead to places that vanish by day."
+        ],
+        [
+            "Xenial Sanctuary",
+            "A place that welcomes all travelers with warmth and rest. The magic here refuses violence. Weapons grow heavy and anger fades at the threshold."
+        ],
+        [
+            "Yawning Abyss",
+            "A chasm so deep the bottom is beyond sight or sound. Drop a stone and wait. You will not hear it land. Something down there might."
+        ],
+        [
+            "Zealous Shrine",
+            "A shrine maintained by no one, yet always clean and lit. The offerings vanish by morning and the prayers are answered too quickly."
+        ],
+        [
+            "Ruins",
+            "Broken walls and fallen arches half-swallowed by wild growth. The stones still hold the shape of what was, and the silence asks what happened."
+        ],
+        [
+            "Fairy Ring",
+            "A perfect circle of pale mushrooms in the grass. The air inside is sweeter, the light softer, and time does not move the same way."
+        ],
+        [
+            "Wizard's Study",
+            "Books tower on every surface and strange instruments crowd the shelves. Ink stains the desk, candle wax pools on old wood, and knowledge hums in the walls."
+        ],
+        [
+            "Enchanted Garden",
+            "Every flower here turns to face you. The perfume changes with your mood, and the paths rearrange themselves to lead you where you need to go."
+        ],
+        [
+            "Dwarven Hall",
+            "Grand columns hold up a mountain. The stonework is flawless, the forges still warm, and the echoes carry the memory of hammer and song."
+        ],
+        [
+            "Glowing Cavern",
+            "Soft light seeps from the walls and ceiling, cast by moss or crystal or something stranger. The glow is steady and warm, and the darkness has been banished."
+        ]
+    ]
+}

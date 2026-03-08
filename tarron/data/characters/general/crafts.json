@@ -1,0 +1,13 @@
+{
+  "description": "Characters who build, create, or repair things with their hands.",
+  "characters": [
+    ["Blacksmith", "A broad-shouldered worker who shapes metal over roaring flame."],
+    ["Weaver", "A patient craftsperson who turns thread into cloth on a loom."],
+    ["Carpenter", "A sawdust-covered builder who shapes wood into useful things."],
+    ["Inventor", "A restless tinkerer always building something new."],
+    ["Cobbler", "A careful worker stitching leather into sturdy shoes."],
+    ["Mapmaker", "A detail-obsessed artist who charts lands both known and unknown."],
+    ["Clockmaker", "A precise craftsperson who builds tiny machines that mark time."],
+    ["Jeweler", "A careful artisan who sets precious stones in gleaming metal."]
+  ]
+}

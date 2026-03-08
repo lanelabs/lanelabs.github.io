@@ -62,7 +62,7 @@ Entries are grouped by theme across these files:
 
 ## Data origin
 
-These entries were consolidated from two source files:
+These entries were consolidated from two legacy source files (both now removed):
 
-- `attributes.json` -- 1,306 grouped concept entries (primary source)
+- `attributes.json` -- 1,306 grouped concept entries (primary source, removed after full categorization into the 16 thematic files above)
 - `legacy/attributes_generated.json` -- 3,908 flat word entries with prefix/suffix tags (superset of the above, contributed ~33 new words that were merged in as new concept groups)

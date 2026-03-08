@@ -1,0 +1,18 @@
+{
+  "description": "The restless edge where land meets sea, shaped by tides and salt wind into something neither fully solid nor fully water.",
+  "rarity": 1,
+  "biomes": [
+    ["Beach", "Warm sand curving along the waterline. Shells crunch underfoot and the tide leaves new treasures with every retreat."],
+    ["Cliff", "A sheer wall of stone dropping straight into crashing surf. The wind is fierce at the top and the view is staggering."],
+    ["Jagged Rocks", "Rough black stone carved into sharp edges by the sea. Spray erupts with every wave and the footing is treacherous."],
+    ["Rocky Shore", "A tumble of smooth boulders and tide pools stretching to the waterline. Crabs scuttle in the crevices and seaweed clings to everything."],
+    ["Bay", "A sheltered curve of calm water protected from the open sea. The shore is gentle here, and the waves arrive tired and small."],
+    ["Peninsula", "A narrow arm of land reaching into the ocean, battered on three sides by wind and waves. The end feels like standing at the edge of the world."],
+    ["Lagoon", "Shallow turquoise water separated from the sea by a thin strip of sand. The surface is calm and the bottom is visible."],
+    ["Estuary", "Where river meets ocean and the water shifts between fresh and salt. The mud is rich and the birds gather in vast flocks."],
+    ["Delta", "A maze of branching waterways spreading through flat, silty land. The channels shift with the seasons and the ground is never dry."],
+    ["Tidal Pool", "Small rocky basins left behind by the retreating sea, each one a tiny world of anemones, urchins, and darting fish."],
+    ["Sea Stack", "A tall column of stone standing alone in the surf, cut off from the mainland by centuries of erosion."],
+    ["Fjord", "A deep, narrow inlet carved by glaciers and flanked by towering cliffs. The water is dark and still and impossibly deep."]
+  ]
+}

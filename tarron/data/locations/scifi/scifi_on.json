@@ -1,0 +1,13 @@
+{
+    "description": "Sci-fi places experienced from the surface or exterior.",
+    "locations": [
+        [
+            "Asteroid Belt",
+            "Rocks tumble in slow silence through the void, each one a small world of dust and ice. The gaps between them are wider than they look."
+        ],
+        [
+            "Alien Planet",
+            "The ground is the wrong color and the air tastes strange. Two suns set at different speeds, and the shadows here don't behave."
+        ]
+    ]
+}

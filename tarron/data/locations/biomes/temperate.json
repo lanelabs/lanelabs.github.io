@@ -1,0 +1,13 @@
+{
+  "description": "Gentle land of mild seasons and green plenty, where life grows easily and the countryside feels like it was made for settling.",
+  "rarity": 2,
+  "biomes": [
+    ["Deciduous Forest", "Broad-leafed trees that shift with the seasons, carpeting the ground in gold each autumn and greening again come spring."],
+    ["Mixed Woodland", "Oak and pine growing side by side on gentle slopes. The undergrowth is thick and the birdsong changes with every hundred paces."],
+    ["River Valley", "Rich bottomland fed by a winding river. The soil is dark, the grass is tall, and the water never runs dry."],
+    ["Pastoral Lands", "Rolling green fields dotted with grazing animals and low stone walls. Smoke rises from distant chimneys and the pace is slow."],
+    ["Flowering Fields", "A blanket of color spreading across soft hills. The air hums with bees and the scent changes with every breeze."],
+    ["Gentle Slopes", "Easy hills covered in soft grass that invite you to keep walking. The views are pleasant and the paths well-worn."],
+    ["Park Lands", "Scattered old trees standing in open grass, spaced as if planted by a careful hand. Dappled shade falls in wide circles."]
+  ]
+}

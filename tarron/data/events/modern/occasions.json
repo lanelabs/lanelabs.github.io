@@ -1,0 +1,26 @@
+{
+  "description": "Modern-world events and occasions.",
+  "occasions": [
+    ["A school play", "Students performing on stage for proud families."],
+    ["A championship game", "The final match where everything is on the line."],
+    ["A graduation", "A milestone marking the end of one chapter and the start of another."],
+    ["A grand opening", "A new business throwing its doors wide for the first time."],
+    ["A field trip", "Students venturing beyond the classroom to learn by doing."],
+    ["A neighborhood block party", "A street closed for food, music, and neighbors."],
+    ["A talent show", "Ordinary people revealing extraordinary abilities."],
+    ["A harvest festival", "A community celebrating the season's bounty."],
+    ["A pilgrimage", "A meaningful journey to a place of personal significance."],
+    ["A birthday party", "Balloons, cake, and friends gathered for celebration."],
+    ["A moving day", "Everything packed in boxes, a new home waiting."],
+    ["A road trip", "An open road and the promise of adventure ahead."],
+    ["A science fair", "Young minds presenting discoveries and inventions."],
+    ["A first day of school", "New backpack, new classroom, new beginnings."],
+    ["A summer camp", "Weeks of outdoor adventure and lifelong friendships."],
+    ["A garage sale", "Old treasures finding new homes across folding tables."],
+    ["A marathon", "Thousands running together through streets and exhaustion."],
+    ["A movie premiere", "A red carpet and the first screening of something new."],
+    ["A prom", "A formal dance marking the end of school years."],
+    ["A recital", "A performance of practiced skill before an audience."],
+    ["A camping trip", "Tents, campfires, and sleeping under the stars."]
+  ]
+}

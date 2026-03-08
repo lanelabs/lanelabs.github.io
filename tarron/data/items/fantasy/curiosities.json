@@ -1,0 +1,20 @@
+{
+  "description": "Unusual and wondrous objects, trinkets, and oddities.",
+  "items": [
+    ["Puzzle Box", "A mechanical cube that opens only to the clever."],
+    ["Dream Catcher", "A woven hoop that snares nightmares and lets good dreams through."],
+    ["Music Box", "A tinkling mechanism that plays a haunting melody."],
+    ["Lodestone", "A magnetic stone that pulls at metal and compasses alike."],
+    ["Prism", "A glass shape that splits white light into a rainbow."],
+    ["Hourglass", "A glass vessel measuring time with falling sand."],
+    ["Tapestry", "A woven hanging that tells a story in thread and color."],
+    ["Cauldron", "A heavy iron pot used for brewing and boiling."],
+    ["Goblet", "A footed drinking cup of metal or crystal."],
+    ["Brazier", "A metal bowl for burning coals or incense."],
+    ["Inkwell", "A small pot of dark ink for writing with quill."],
+    ["Parchment", "A sheet of treated animal skin ready for writing."],
+    ["Cage", "A barred enclosure for holding small creatures."],
+    ["Satchel", "A leather bag slung over the shoulder for carrying essentials."],
+    ["Sundial", "A flat plate with a shadow-casting spike that tells the hour."]
+  ]
+}

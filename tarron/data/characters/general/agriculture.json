@@ -1,0 +1,9 @@
+{
+  "description": "Characters who work the land, tend animals, or harvest from nature.",
+  "characters": [
+    ["Farmer", "A sun-weathered figure who works the land from dawn to dusk."],
+    ["Shepherd", "A patient wanderer guiding flocks to fresh pasture."],
+    ["Fisher", "A barefoot figure casting lines and hauling nets with practiced ease."],
+    ["Hunter", "A quiet tracker who reads the forest like a book."]
+  ]
+}

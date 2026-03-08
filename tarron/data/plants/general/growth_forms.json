@@ -1,0 +1,23 @@
+{
+  "description": "General growth habits and spreading forms.",
+  "plants": [
+    ["Ascending Plant", "Stems that start low and flat before curving upward, as if changing their mind about staying on the ground."],
+    ["Clump-forming Plant", "A tight cluster of stems rising together from the same spot, growing outward a little more each year."],
+    ["Columnar Plant", "A narrow green pillar rising straight up, taking almost no space on the ground but visible from a distance."],
+    ["Cushion Plant", "A tight dome pressed close to the earth, trapping warmth inside itself to survive the cold."],
+    ["Erect Plant", "Stems that grow straight up without leaning or sprawling, standing at attention in any weather."],
+    ["Geophyte", "Disappears entirely above ground when its season ends, waiting as a bulb in the dark soil until the time is right."],
+    ["Groundcover", "A low carpet of green spreading across bare earth, filling every gap until the ground itself disappears."],
+    ["Mat-forming Plant", "Stems woven together into a flat, tight mat that lies across the ground like a living rug."],
+    ["Mound-forming Plant", "A rounded heap of leaves and stems that looks almost deliberate, like someone shaped it on purpose."],
+    ["Prostrate Plant", "Branches pressed flat against the ground, only the tips lifting up, as if crawling forward on its belly."],
+    ["Rhizomatous Plant", "Spreads underground through hidden stems, surfacing in new spots so you never quite know where it will appear next."],
+    ["Rosette Plant", "Leaves fanning out from a single center point like a green star pressed flat against the earth."],
+    ["Stoloniferous Plant", "Sends runners across the surface, each one rooting down to start a new copy of itself."],
+    ["Suckering Plant", "New shoots push up from the roots at a distance, so what looks like many plants is really one connected underground."],
+    ["Tuberous Plant", "Swollen roots packed with starch hidden beneath the soil, a buried pantry waiting for the next growing season."],
+    ["Virgate Plant", "Long slender shoots rising straight and unbranched, swaying like wands in the wind."],
+    ["Weeping Plant", "Branches that curve and hang downward, swaying like curtains and hiding whatever is underneath."],
+    ["Woody Cushion", "A hard woody dome shaped by relentless alpine wind into something that looks carved from the mountainside."]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Characters involved in governance and diplomacy in fantasy settings.",
+  "characters": [
+    ["Steward", "A trusted keeper who manages lands and resources in another's name."],
+    ["Ambassador", "A silver-tongued diplomat who speaks for their realm in foreign courts."],
+    ["Duke", "A powerful noble who rules a duchy with authority."],
+    ["Duchess", "A powerful noble who governs a duchy with command."],
+    ["Baron", "A titled landholder who oversees a rural domain."],
+    ["Baroness", "A titled noble who rules her barony with firm hand."],
+    ["Lord", "A noble of rank and influence in the feudal order."],
+    ["Lady", "A noble of standing and influence in the feudal order."],
+    ["Regent", "A temporary ruler standing in for an absent monarch."],
+    ["Page", "A young noble-in-training serving at court."]
+  ]
+}

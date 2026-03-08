@@ -1,0 +1,13 @@
+{
+  "description": "The bones of civilizations that came before, slowly being reclaimed by the world they once tried to shape.",
+  "rarity": 2,
+  "biomes": [
+    ["Overgrown City", "Vines split the cobblestones and trees grow through rooftops. The streets are quiet now, but the buildings remember when they were not."],
+    ["Sunken Temple", "Stone columns rising from dark water, half-submerged and draped in algae. The carvings are worn but the scale still inspires awe."],
+    ["Broken Towers", "Shattered spires jutting from the earth like broken teeth. Rubble surrounds them and the wind whistles through the gaps."],
+    ["Shattered Keep", "A fortress torn apart by siege or time. The walls lean at wrong angles and the courtyard is open to the sky."],
+    ["Fallen Bridge", "A massive span of stone collapsed into the gorge below. The pieces are enormous, and crossing requires climbing through the wreckage."],
+    ["Crumbling Walls", "Long stretches of ancient stonework, cracked and leaning. Whatever they once enclosed is open ground now, but the outline remains."],
+    ["Ancient Roads", "Paved stone cutting straight through wilderness, still level after centuries. The trees crowd the edges but cannot reclaim the path."]
+  ]
+}

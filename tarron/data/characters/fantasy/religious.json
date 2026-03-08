@@ -1,0 +1,14 @@
+{
+  "description": "Characters devoted to faith, spiritual practice, and divine service.",
+  "characters": [
+    ["Monk", "A disciplined soul devoted to contemplation and inner peace."],
+    ["Priest", "A servant of the divine who tends to the faithful."],
+    ["Oracle", "A mystic who speaks truths from beyond mortal understanding."],
+    ["Pilgrim", "A devout traveler journeying to a sacred place."],
+    ["Friar", "A wandering holy person who serves the poor and forgotten."],
+    ["Acolyte", "A young initiate learning the ways of a sacred order."],
+    ["Templar", "A holy warrior who fights for faith and justice."],
+    ["Cleric", "A divine servant who channels holy power to heal and protect."],
+    ["Paladin", "A champion of righteousness sworn to uphold a sacred oath."]
+  ]
+}

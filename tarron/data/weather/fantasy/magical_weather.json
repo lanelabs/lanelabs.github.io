@@ -1,0 +1,19 @@
+{
+  "description": "Magical or otherworldly atmospheric conditions for fantasy settings.",
+  "weather": [
+    ["under a sky full of shooting stars", "starlit", "the shooting stars", "Streaks of light blazing across the heavens in a celestial display."],
+    ["during an aurora that touches the ground", "glowing", "the aurora", "Curtains of colored light rippling down to brush the earth."],
+    ["as glowing embers drift through the air", "ember-filled", "the embers", "Tiny points of orange light floating like fireflies."],
+    ["in an unnatural darkness", "shadow-wrapped", "the darkness", "A darkness deeper than night that swallows even torchlight."],
+    ["during a rain of flower petals", "petal-covered", "the petal rain", "Soft petals falling from nowhere, carpeting the ground."],
+    ["under twin moons", "moonlit", "the twin moons", "Two moons casting overlapping silver light on the world."],
+    ["as the sky turns an impossible color", "strange", "the strange sky", "The sky shifting to a color that has no name."],
+    ["as the trees whisper in unison", "whispering", "the whispering", "Every tree murmuring the same words at once."],
+    ["during a rain of golden light", "gilded", "the golden rain", "Drops of liquid light falling from the sky."],
+    ["under a sky that hums with magic", "enchanted", "the humming sky", "A low vibration in the air that makes magic stronger."],
+    ["as frost creeps across everything it touches", "frost-bound", "the frost", "Magical ice spreading in crystalline patterns across every surface."],
+    ["as fireflies fill the air", "firefly-lit", "the fireflies", "Thousands of tiny lights drifting and swirling in the dark."],
+    ["during an eclipse", "eclipsed", "the eclipse", "The sun blotted out, plunging the world into eerie twilight."],
+    ["in a warm wind that carries voices", "murmuring", "the warm wind", "A gentle breeze that seems to speak in half-heard words."]
+  ]
+}

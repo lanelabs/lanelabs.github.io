@@ -1,0 +1,13 @@
+{
+  "description": "Agricultural and garden plants found in modern settings.",
+  "plants": [
+    ["Greenhouse Orchid", "An exotic flower kept alive under glass, its delicate blooms requiring more attention than most pets."],
+    ["Lawn Grass", "A uniform carpet of green maintained by sprinklers and mowers, the pride and burden of suburbia."],
+    ["Rose Bush", "Thorned canes bearing blooms in every shade from white to near-black, beautiful and ready to draw blood."],
+    ["Fruit Tree", "A backyard tree heavy with fruit in summer, dropping more than anyone can eat onto the grass below."],
+    ["Garden Tomato", "A sprawling vine tied to a stake, bearing red fruit warm from the sun."],
+    ["Houseplant", "A green thing in a ceramic pot on a shelf, surviving on irregular watering and indirect light."],
+    ["Bonsai", "A miniature tree shaped by decades of patient pruning, old beyond what its size suggests."],
+    ["Hanging Fern", "A basket of trailing fronds suspended from a porch ceiling, dripping after every watering."]
+  ]
+}

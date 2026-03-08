@@ -1,0 +1,11 @@
+{
+  "description": "Succulents and drought-adapted fleshy plants.",
+  "plants": [
+    ["Agave-type", "A massive rosette of thick leaves that waits years to flower, then sends up a single towering stalk and dies."],
+    ["Aloe-type", "Thick sword-shaped leaves arranged in a spiral, filled with gel that soothes burns and heals cuts."],
+    ["Cactus", "Armored in spines and swollen with hoarded water, standing alone where nothing else will."],
+    ["Green-stemmed Woody Plant", "Its green stems do the work of leaves, having given up on foliage entirely to survive the drought."],
+    ["Succulent", "Plump and fleshy, storing water in its leaves like a living canteen in a dry land."],
+    ["Xerophyte", "Built for thirst, with every part reduced or hardened to hold onto whatever moisture it can find."]
+  ]
+}

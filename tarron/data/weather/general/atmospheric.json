@@ -1,0 +1,28 @@
+{
+  "description": "General atmospheric conditions suitable for any world setting.",
+  "weather": [
+    ["during a thunderstorm", "stormy", "the thunderstorm", "A violent electrical storm with crashing thunder and driving rain."],
+    ["on a foggy morning", "foggy", "the fog", "A thick blanket of mist that muffles sound and hides the distance."],
+    ["under a blazing sun", "sun-scorched", "the blazing sun", "A merciless sun beating down from a cloudless sky."],
+    ["in the pouring rain", "rain-soaked", "the rain", "Heavy, steady rain that drenches everything it touches."],
+    ["on a perfectly still night", "still", "the stillness", "An eerie calm where nothing moves and no wind stirs."],
+    ["during a snowfall", "snowy", "the snow", "Soft white flakes drifting down to blanket the world."],
+    ["as the wind picks up", "windswept", "the wind", "A rising wind that tugs at clothes and bends the trees."],
+    ["under heavy clouds", "overcast", "the clouds", "A low, gray sky pressing down like a heavy lid."],
+    ["on a crisp, clear day", "clear", "the clear sky", "Bright air with perfect visibility to the horizon."],
+    ["during a heatwave", "sweltering", "the heatwave", "Oppressive heat that shimmers off every surface."],
+    ["in a thick mist", "misty", "the mist", "A damp haze that blurs the edges of the world."],
+    ["as a storm rolls in", "stormy", "the storm", "Dark clouds gathering on the horizon, promising fury."],
+    ["on the coldest night of the year", "freezing", "the cold", "A biting cold that seeps through every layer."],
+    ["under a full moon", "moonlit", "the full moon", "Silver light flooding the landscape from a round moon."],
+    ["at golden hour", "golden", "the golden light", "The warm, amber glow just before sunset."],
+    ["at dawn", "dawn-lit", "the dawn", "The first pale light breaking over the edge of the world."],
+    ["at dusk", "dusky", "the dusk", "The last fading light as day surrenders to night."],
+    ["during a gentle breeze", "breezy", "the breeze", "A soft wind that carries scents and cools the skin."],
+    ["in the first frost", "frosty", "the frost", "A thin layer of ice crystals coating every surface."],
+    ["as autumn leaves fall", "autumn", "the falling leaves", "Crimson and gold leaves drifting down from bare branches."],
+    ["on a drizzly evening", "drizzly", "the drizzle", "A fine, persistent rain that soaks through slowly."],
+    ["under a starless sky", "dark", "the darkness", "Complete darkness with no stars or moon to light the way."],
+    ["in the twilight", "twilit", "the twilight", "The dim, blue-grey light between sunset and full dark."]
+  ]
+}

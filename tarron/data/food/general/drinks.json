@@ -1,0 +1,15 @@
+{
+  "description": "Beverages and drinkable comforts found across settings.",
+  "foods": [
+    ["Tea", "Steeped until it turns the color of amber, poured into a cup that warms both hands at once."],
+    ["Cider", "Pressed from autumn apples, sweet enough to drink cold and warm enough to drink hot."],
+    ["Milk", "Fresh and cool, still tasting faintly of the morning and the meadow where it came from."],
+    ["Broth", "Clear and golden, sipped from a mug when everything else feels like too much."],
+    ["Berry Juice", "Dark and tart, staining lips and fingers and the front of anyone's shirt who drinks it carelessly."],
+    ["Honeyed Water", "Plain water stirred with a spoonful of honey, simple enough for anyone and sweet enough for everyone."],
+    ["Mint Water", "Cold water with crushed mint leaves drifting in it, sharp and bright and good for hot days."],
+    ["Warm Cocoa", "Rich and dark and poured too hot, the kind of drink that makes you sit down and stay."],
+    ["Ginger Brew", "Spicy and fizzing slightly, it bites the tongue and warms the chest on the way down."],
+    ["Lemonade", "Sour and sweet in equal measure, the drink of long afternoons and nothing to do but sit."]
+  ]
+}

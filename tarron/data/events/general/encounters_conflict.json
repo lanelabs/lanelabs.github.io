@@ -1,0 +1,89 @@
+{
+  "description": "Conflicts & Violence encounters.",
+  "encounters": [
+    {
+      "type": "Conflicts & Violence",
+      "name": "Battlefield Aftermath",
+      "details": "Recent battle site littered with dead, dying, and scavengers. Survivors may need aid, valuables lie unclaimed, but dangers lurk.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Bandit Ambush Setup",
+      "details": "Travel through area where bandits are preparing ambush for another group. Party might warn victims, join bandits, or become targets.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Honor Duel",
+      "details": "Two individuals fight to settle dispute while crowd watches. Could be nobles, merchants, or anyone with reputation to defend.",
+      "scale": "minor"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Monster Hunt",
+      "details": "Armed group tracks dangerous creature that's been terrorizing region. They might seek aid or see party as competition for bounty.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Slave Uprising",
+      "details": "Enslaved people revolt against captors. Chaos provides opportunities but also moral dilemmas about intervention.",
+      "scale": "major"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Raiding Party",
+      "details": "Warriors from neighboring land pillage and burn. Smoke columns mark their path, refugees flee in terror.",
+      "scale": "major"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Vigilante Justice",
+      "details": "Mob pursues accused criminal without trial. The accused may be guilty, innocent, or something more complicated.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "War Refugees",
+      "details": "Stream of displaced people fleeing conflict. They carry news, disease, and desperate needs.",
+      "scale": "minor"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Mercenary Company",
+      "details": "Professional soldiers between contracts. Might recruit party, share intelligence for coin, or see them as rivals.",
+      "scale": "minor"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Blood Feud Ambush",
+      "details": "One family attacks another over generations-old grievance. Bystanders risk being caught in crossfire or mistaken for enemies.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Prison Break",
+      "details": "Escaped convicts flee through area. Guards in pursuit, locals panic, escapees may be desperate or dangerous.",
+      "scale": "major"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Scorched Earth Retreat",
+      "details": "Army destroys everything useful while retreating. Wells poisoned, bridges burned, fields salted, civilians suffer most.",
+      "scale": "major"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Deserter Hideout",
+      "details": "Soldiers who fled battle hide from military justice. May be cowards, conscientious objectors, or pragmatists.",
+      "scale": "minor"
+    },
+    {
+      "type": "Conflicts & Violence",
+      "name": "Trophy Hunters",
+      "details": "Group seeks specific creature for glory or profit. May clash with druids, rangers, or the party over hunting rights.",
+      "scale": "minor"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+    "description": "Ocean and coastal places experienced from the surface.",
+    "locations": [
+        [
+            "Atoll",
+            "A ring of coral and sand circles a shallow lagoon, barely above the waves. Palm trees lean in the wind."
+        ],
+        [
+            "Sea Stack",
+            "A pillar of stone stands alone in the surf, severed from the cliff by centuries of waves. Birds nest on its flat top."
+        ],
+        [
+            "Sea Arch",
+            "The sea has eaten through a headland, leaving a bridge of stone over crashing water. The span is narrow and the wind tears through."
+        ],
+        [
+            "Iceberg",
+            "A mountain of blue-white ice drifts in the open water, most of its mass hidden below. It groans and cracks as it moves."
+        ]
+    ]
+}

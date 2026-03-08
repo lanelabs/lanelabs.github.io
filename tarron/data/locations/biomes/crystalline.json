@@ -1,0 +1,13 @@
+{
+  "description": "A landscape of living stone and light where crystals grow like trees and the air vibrates with a frequency you feel in your teeth.",
+  "rarity": 3,
+  "biomes": [
+    ["Gem Caves", "Rough walls studded with uncut gems that catch torchlight and throw it back in a thousand colored sparks."],
+    ["Crystal Spires", "Towering pillars of translucent crystal rising from the ground like frozen lightning. They ring when the wind blows."],
+    ["Resonant Fields", "Flat ground covered in low crystal formations that hum at different pitches. Walking through feels like crossing a vast instrument."],
+    ["Prism Valleys", "Deep channels cut through crystal bedrock where the sunlight splits into permanent rainbows hanging motionless in the air."],
+    ["Singing Stones", "Formations that produce haunting tones as the wind passes through them. The melody shifts with the weather, never quite repeating."],
+    ["Mineral Gardens", "Clusters of mineral growth in delicate branching patterns, fragile and beautiful. The colors are vivid and the shapes defy nature."],
+    ["Geode Chambers", "Hollow spaces lined with amethyst and quartz. The interior glitters in any light and the acoustics are startlingly perfect."]
+  ]
+}

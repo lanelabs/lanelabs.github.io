@@ -1,0 +1,14 @@
+{
+  "description": "Synthetic beings and alien archetypes in sci-fi settings.",
+  "characters": [
+    ["Android", "A human-shaped machine struggling with questions of consciousness."],
+    ["Cyborg", "A being enhanced with mechanical parts, neither fully human nor machine."],
+    ["Robot", "A mechanical servant built for a purpose, sometimes outgrowing it."],
+    ["Clone", "A genetic copy searching for identity beyond their original."],
+    ["Alien Ambassador", "An extraterrestrial diplomat bridging the gap between species."],
+    ["Insectoid", "A many-limbed alien with compound eyes and a hive mind."],
+    ["Reptilian", "A cold-blooded alien with ancient patience and sharp senses."],
+    ["Telepath", "A mind-reading being who hears thoughts whether they want to or not."],
+    ["Empath", "A feeling-sensitive being who absorbs the emotions of those nearby."]
+  ]
+}

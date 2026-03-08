@@ -1,0 +1,14 @@
+{
+  "description": "Characters who work as guides, messengers, and general laborers.",
+  "characters": [
+    ["Guide", "A knowledgeable local who knows every trail and shortcut."],
+    ["Messenger", "A swift runner who carries news between distant places."],
+    ["Sailor", "A salt-crusted seafarer who reads wind and wave by instinct."],
+    ["Explorer", "A fearless wanderer who seeks what lies beyond the map's edge."],
+    ["Navigator", "A star-reading wayfinder who always knows the heading."],
+    ["Miner", "A dust-covered digger who works deep beneath the earth."],
+    ["Captain", "A decisive leader who commands ship or company with steady hand."],
+    ["Guard", "A watchful sentinel standing between danger and those they protect."],
+    ["Ferryman", "A quiet boatman who carries travelers across deep water."]
+  ]
+}

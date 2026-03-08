@@ -1,0 +1,453 @@
+{
+    "description": "Beneath the surface where sunlight is a memory. Caverns, tunnels, ruins, and stranger places carved by water, fire, or hands long forgotten.",
+    "locations": [
+        [
+            "Underground River",
+            "Black water rushes through stone, cold and fast. The current echoes off a low ceiling, and anything that falls in is gone."
+        ],
+        [
+            "Cavern Lake",
+            "Still water stretches into darkness, mirror-smooth and impossibly deep. Pale things move beneath the surface when the torchlight hits it wrong."
+        ],
+        [
+            "Dropoff",
+            "The floor just ends. Wind rises from the void below, carrying the smell of wet stone. A kicked pebble falls for a very long time."
+        ],
+        [
+            "Cavern",
+            "A cathedral of raw stone opens overhead. Dripping water counts the silence. The dark presses close beyond the reach of any light."
+        ],
+        [
+            "Tunnels",
+            "Branching passages wind deeper without pattern or logic. Scratches along the walls might be directions, or warnings."
+        ],
+        [
+            "Goblin Camp",
+            "Firelight flickers against low walls of scrap and bone. The smell of rancid fat hits before the noise does. Small eyes watch from every shadow."
+        ],
+        [
+            "Spider Nest",
+            "Silk threads catch the light between the stones. The webs grow thicker the deeper you go. Something large is patient here."
+        ],
+        [
+            "Well Bottom",
+            "A circle of sky far above, impossibly small. The walls are slick with moss, the water is knee-deep and cold, and the rope is gone."
+        ],
+        [
+            "Underdark Cavern",
+            "Bioluminescent fungi paint the stone in bruise-purple light. The air is thick and ancient. Civilizations thrive down here that have never seen the sun."
+        ],
+        [
+            "Undead Barrows",
+            "The earth mounds are gouged open from the inside. Rusted armor litters the ground. At night the scratching from below begins again."
+        ],
+        [
+            "Crypt",
+            "Cold stone and the sweet rot of centuries. Names worn smooth on the walls. Some sarcophagi are open, and not all were opened from outside."
+        ],
+        [
+            "Stairways",
+            "Worn steps spiral downward, carved long ago by hands that knew where they led. The air grows colder with each turn."
+        ],
+        [
+            "Catacombs",
+            "Bones stacked floor to ceiling in careful rows, thousands of the nameless dead. The deeper corridors are less organized, as if arranged in haste."
+        ],
+        [
+            "Tomb",
+            "Sealed air and dust older than memory. Gold gleams in the torchlight, untouched. The dead were buried with everything they valued, and something to guard it."
+        ],
+        [
+            "Mine Gallery",
+            "Timber braces groan under the weight of the mountain. Ore veins glint in the walls, half-harvested. The miners left their tools behind."
+        ],
+        [
+            "Mine Shaft",
+            "A vertical drop into blackness, ladders bolted to the rock with rusting iron. The air rising from below is warm and wrong."
+        ],
+        [
+            "Sewer",
+            "Fetid water moves slow through arched stone corridors. Rats scatter at the light. Whole communities survive down here, hidden from the world above."
+        ],
+        [
+            "Labyrinth",
+            "Every passage looks the same. The walls are too smooth, too deliberate. This place was built to keep something in, not to keep visitors out."
+        ],
+        [
+            "Abyss",
+            "The edge of the world, straight down. Darkness so deep it feels alive. Stones thrown over the edge never make a sound."
+        ],
+        [
+            "Ice Cave",
+            "Frozen air burns the lungs. Blue light filters through walls of ancient ice, and shapes are trapped inside, preserved and watching."
+        ],
+        [
+            "Gem Mines",
+            "Raw crystals jut from every surface, catching light in fractured rainbows. The wealth here is obvious. So are the pickaxe gouges that stopped suddenly."
+        ],
+        [
+            "Forgotten Fault",
+            "A crack in the earth's bones, jagged and deep. Hot air rises from below, carrying the smell of sulfur and something older."
+        ],
+        [
+            "Cistern",
+            "Vaulted ceilings echo above dark water. Stone columns march into the gloom, waist-deep in the reservoir. The city it once served is gone."
+        ],
+        [
+            "Crystal Caverns",
+            "Every surface refracts light into scattered rainbows. The crystals hum at a frequency felt in the teeth. Some of them pulse with their own warmth."
+        ],
+        [
+            "Lava Tubes",
+            "Smooth-walled tunnels shaped by ancient fire. The stone is still warm to the touch, and a faint orange glow pulses from deeper passages."
+        ],
+        [
+            "Underground Hot Springs",
+            "Steam curls off mineral-blue water in a stone basin. The warmth is a gift in the deep cold. Tracks in the mud say others know this place."
+        ],
+        [
+            "Mushroom Grove",
+            "Towering fungi rise like pale trees, their caps wide enough to shelter under. Spores drift in the still air, glowing faintly gold."
+        ],
+        [
+            "Stalactite Chamber",
+            "Stone teeth hang from the ceiling, some thin as needles, others thick as pillars. Water drips in a slow rhythm. One wrong sound brings them down."
+        ],
+        [
+            "Underground Waterfall",
+            "The roar fills the cavern before you see it. White water crashes from a fissure high above into a churning pool. The mist soaks everything."
+        ],
+        [
+            "Limestone Caves",
+            "Pale stone shaped by patient water over ages. Smooth columns and frozen curtains of rock. Beautiful and disorienting, every chamber looks like the last."
+        ],
+        [
+            "Mineral Pools",
+            "Terraced basins of vivid color step down a cavern slope. The water is warm and alkaline. Strange things calcify at the edges."
+        ],
+        [
+            "Bat Colony",
+            "The ceiling writhes. Thousands of leather wings shift and chitter overhead. The guano is ankle-deep, the ammonia sharp enough to water the eyes."
+        ],
+        [
+            "Underground Chasm",
+            "A rift splits the cavern floor, too wide to jump. Rope bridges sway over the gap, fraying. The far side holds something worth the crossing."
+        ],
+        [
+            "Root Cellar",
+            "Packed earth walls and the smell of damp soil. Barrels and crates crowd the small space. A trapdoor in the floor leads somewhere unexpected."
+        ],
+        [
+            "Natural Amphitheater",
+            "A bowl of stone shaped by water and time, with perfect acoustics. Whispers from the bottom carry to the rim. Someone has gathered here before."
+        ],
+        [
+            "Geothermal Vents",
+            "The ground hisses and spits. Mineral-crusted fissures exhale scalding steam at unpredictable intervals. Strange life clusters near the vents, thriving on the heat."
+        ],
+        [
+            "Dwarven Halls",
+            "Grand columns carved with ancestral faces hold up a mountain. The stonework is flawless, the silence absolute. The builders are long gone but the forges still hold heat."
+        ],
+        [
+            "Ancient Library",
+            "Shelves carved into living rock, filled with texts in dead languages. The air is dry as dust to preserve the knowledge. Some volumes are chained shut."
+        ],
+        [
+            "Temple Ruins",
+            "Broken altars and toppled idols in a vast underground chamber. The worship stopped long ago, but the presence it called to lingers in the cold."
+        ],
+        [
+            "Treasure Vault",
+            "Iron doors scarred with failed attempts to breach them. Inside, gold catches the light in heaps. The traps that guard it are still alive."
+        ],
+        [
+            "Ritual Chamber",
+            "Dark stains on the stone floor form precise circles. Candle niches line the walls. The air tastes metallic, and sound behaves strangely here."
+        ],
+        [
+            "Dragon's Lair",
+            "The heat hits first, then the smell of charred stone and old bone. Gold coins carpet the floor of a cavern scored by claw marks the size of a man."
+        ],
+        [
+            "Troll Caves",
+            "A reek of carrion and damp fur pours from the entrance. Gnawed bones litter the threshold. The growling from inside never quite stops."
+        ],
+        [
+            "Owlbear Den",
+            "Feathers and fur mat the cave floor alongside cracked bones. Deep gouges scar the walls. The owner is out hunting, but not for long."
+        ],
+        [
+            "Kobold Warrens",
+            "Cramped tunnels branch in every direction, sized for smaller bodies. Crude traps line every passage. The warrens go deeper and wider than they first appear."
+        ],
+        [
+            "Mind Flayer Colony",
+            "The walls glisten with mucus. A low psychic hum presses against the skull, growing stronger ahead. Thralls shuffle through the corridors, blank-eyed and obedient."
+        ],
+        [
+            "Beholder Sanctum",
+            "A perfectly spherical chamber, carved by disintegration rays. Petrified victims line the walls like trophies. The central darkness watches from every angle at once."
+        ],
+        [
+            "Purple Worm Tunnels",
+            "Perfectly round corridors bored through solid rock, wide enough to march an army through. The stone is glazed smooth. Tremors say the digger is close."
+        ],
+        [
+            "Giant Ant Colony",
+            "Geometric tunnels branch with alien precision. The chitinous scraping of countless legs echoes from every direction. Workers haul cargo twice their size without pause."
+        ],
+        [
+            "Orc Stronghold",
+            "Crude iron and heavy timber brace the cavern walls. War drums echo from deeper in. The defenses are brutal but effective, built by those who expect a fight."
+        ],
+        [
+            "Underground Market",
+            "Lanterns sway over stalls carved into the rock. Traders hawk wares that would get them hanged on the surface. Coin talks, and questions are unwelcome."
+        ],
+        [
+            "Smuggler's Den",
+            "Hidden behind a waterfall, crates stamped with foreign seals fill every alcove. Maps cover a makeshift table. Someone is running a careful operation."
+        ],
+        [
+            "Thieves' Hideout",
+            "A hollowed-out space behind false walls, furnished with stolen comforts. Escape routes branch in three directions. The occupants know these tunnels better than anyone."
+        ],
+        [
+            "Forgotten Shrine",
+            "Offerings of tarnished silver sit before a faceless idol. The faith that built this place is extinct, but the prayers left an imprint that still hums."
+        ],
+        [
+            "Wizard's Laboratory",
+            "Glass vessels bubble over cold flames. Chalk circles cover the floor, some half-erased in haste. The experiments left behind are still reacting."
+        ],
+        [
+            "Enchanted Grotto",
+            "The water glows from within. Flowers bloom in soil that has never seen sunlight. The magic here is old and wild, belonging to no one."
+        ],
+        [
+            "Portal Chamber",
+            "Runes circle a stone platform, pulsing with residual energy. The air between the pillars shimmers and bends. Wherever this connects to, the door is not fully closed."
+        ],
+        [
+            "Scrying Pool",
+            "Ink-black water in a stone basin, utterly still. Stare long enough and the surface shows places far away. Not everything it reveals is true."
+        ],
+        [
+            "Elemental Node",
+            "Raw power bleeds from the stone. The air crackles, the ground shifts, and flames lick from cracks without fuel. The boundary between planes is thin here."
+        ],
+        [
+            "Ley Line Convergence",
+            "The hairs stand on end. Magic saturates the air so thickly that spells cast here are unpredictable and amplified. Something is always listening."
+        ],
+        [
+            "Dimensional Rift",
+            "Reality frays at the edges. Colors bleed wrong, gravity shifts without warning, and the passage ahead opens onto a sky that belongs to no known world."
+        ],
+        [
+            "Prison Cells",
+            "Iron bars thick with rust line a narrow corridor. Scratched tallies cover the walls. Some doors hang open. Others are still locked, with something breathing inside."
+        ],
+        [
+            "Torture Chamber",
+            "Stained iron implements hang from hooks on the wall. The drains in the floor tell their own story. The echoes here carry sounds from years past."
+        ],
+        [
+            "Armory",
+            "Racks of weapons line the walls, some mundane, some radiating faint warmth. Dust coats everything except one empty stand where something was recently taken."
+        ],
+        [
+            "Wine Cellar",
+            "Oak barrels rest in cool darkness, their contents aging in silence. The oldest vintages sit deeper in, behind a locked gate with no visible key."
+        ],
+        [
+            "Storage Vault",
+            "Heavy stone doors guard crates and chests stacked to the ceiling. Inventory lists nailed to the wall are written in a cipher no one remembers."
+        ],
+        [
+            "Underground Barracks",
+            "Rows of stone bunks carved into the walls, blankets still folded. Mess kits and personal effects sit untouched. The garrison left in formation and never came back."
+        ],
+        [
+            "Smithy Forge",
+            "Heat radiates from a forge built into a volcanic fissure. Anvils and quenching troughs stand ready. The metal on the workbench is like nothing found on the surface."
+        ],
+        [
+            "Alchemist's Workshop",
+            "Bubbling flasks and coiled tubing fill shelves carved into the rock. The air stings with chemical fumes. A journal lies open to a page marked 'do not attempt.'"
+        ],
+        [
+            "Underground Spring",
+            "Clear water wells up from bare stone, cold and sweet. The source is deep and steady. Someone carved a basin to catch it, long ago."
+        ],
+        [
+            "Fossil Beds",
+            "Ancient bones jut from exposed stone, creatures from an age before memory. Some are impossibly large. A few seem to belong to things that should not have existed."
+        ],
+        [
+            "Salt Deposits",
+            "White crystal crusts every surface, glittering in the light. The air is dry and sharp. Carved chambers open into vast pillared halls of pure salt."
+        ],
+        [
+            "Underground Gorge",
+            "A narrow slash through the stone, walls close enough to touch on both sides. The river at the bottom carved this over millennia and still runs fast."
+        ],
+        [
+            "Sinkhole",
+            "The ground collapsed here, leaving a raw wound in the earth. Broken roots and shattered stone frame a drop into chambers never meant to be found."
+        ],
+        [
+            "Underground Cliff",
+            "The passage opens onto a sheer drop. A narrow ledge traces the cliff face, slick with moisture. The cavern below stretches further than the light can reach."
+        ],
+        [
+            "Flooded Chambers",
+            "Dark water fills the rooms to the doorframes. Furniture bobs gently in the still flood. Whatever is stored here sits submerged and waiting below the waterline."
+        ],
+        [
+            "Quicksand Pits",
+            "The floor looks solid but gives like wet clay underfoot. Bones protrude from the sandy patches, half-swallowed. The firm ground between the pits is narrow."
+        ],
+        [
+            "Underground Desert",
+            "Impossible dunes of fine sand fill a cavern so vast the ceiling vanishes. The air is bone-dry and hot. Wind moves through here from no visible source."
+        ],
+        [
+            "Bone Yard",
+            "Skeletons of every size carpet the cavern floor, piled deep. The bones are old and dry, but arranged too neatly to be natural."
+        ],
+        [
+            "Spider Tunnels",
+            "Webs coat every surface, thick as curtains. Desiccated husks hang in silk bundles along the walls. The vibrations of each footstep travel far."
+        ],
+        [
+            "Myconid Colony",
+            "Towering mushroom-folk stand in silent circles, communicating in clouds of spores. The air is thick and sweet. They tolerate visitors, but their patience has limits."
+        ],
+        [
+            "Deep Gnome Village",
+            "Tiny stone houses cluster around a phosphorescent pool. The residents watch from doorways with wide, dark-adapted eyes. Trust is earned slowly this far down."
+        ],
+        [
+            "Dark Elf Outpost",
+            "Obsidian architecture rises in cruel elegance. Faint violet light illuminates patrols moving with predatory grace. Outsiders are noticed immediately and studied from the shadows."
+        ],
+        [
+            "Underground Arena",
+            "Tiered stone seating surrounds a sand-floored pit stained dark with old blood. Weapons are chained to the walls. The crowd that fills these seats expects a show."
+        ],
+        [
+            "Gladiator Pits",
+            "Iron cages line a torch-lit corridor. The fighters inside size up every newcomer. Victory buys another day, and the crowd above is already chanting."
+        ],
+        [
+            "Sacrificial Altar",
+            "A black stone slab sits at the center of concentric circles. The grooves carved into its surface lead to a basin that has never been cleaned."
+        ],
+        [
+            "Necromancer's Sanctum",
+            "The cold here is unnatural, settling in the bones. Shelves of labeled jars hold things best left unnamed. The occupant's servants stand motionless until commanded."
+        ],
+        [
+            "Lich's Phylactery Chamber",
+            "Wards shimmer across every surface. Protective magic so dense it resists movement fills the air. Something precious is kept here, defended by centuries of paranoia."
+        ],
+        [
+            "Vampire Crypt",
+            "Silk and velvet line a stone coffin in a chamber that smells of earth and old perfume. The candles are fresh. Someone returns here before dawn."
+        ],
+        [
+            "Ghost-Haunted Halls",
+            "The temperature plummets. Breath fogs the air, and voices whisper from nowhere, overlapping and urgent. The dead here have something to say and no rest until it is heard."
+        ],
+        [
+            "Spectral Ruins",
+            "Translucent walls shimmer where solid ones once stood. The ghostly architecture rebuilds and crumbles in a silent loop, replaying a destruction that happened long ago."
+        ],
+        [
+            "Cursed Burial Ground",
+            "The soil is sour. Nothing grows here, not even fungus. The graves are shallow and restless. Disturbing this place is easy. Leaving it alone is wiser."
+        ],
+        [
+            "Underground Garden",
+            "Bioluminescent blooms light a cavern tended by no one. Vines climb stone trellises and fruit hangs heavy from pale branches. The beauty feels deliberate and watched."
+        ],
+        [
+            "Fungal Forest",
+            "Mushrooms tall as oaks crowd a vast cavern, their caps forming a canopy. Spores drift like pollen in lazy currents. The ecosystem here answers to its own rules."
+        ],
+        [
+            "Glowing Moss Cavern",
+            "Soft green light coats every surface, cast by living moss. The glow pulses gently, like breathing. It is quiet here and warm, and easy to lose track of time."
+        ],
+        [
+            "Phosphorescent Pools",
+            "The water shines pale blue when disturbed. Each ripple sends light dancing across the cavern ceiling. Small things dart beneath the glow."
+        ],
+        [
+            "Echo Chambers",
+            "Every sound returns tenfold. A whisper becomes a chorus, a footstep becomes thunder. Navigating by sound is impossible here. Something uses that to its advantage."
+        ],
+        [
+            "Whispering Galleries",
+            "Curved stone walls carry voices from far-off chambers with perfect clarity. Conversations not meant to be heard arrive whole and clear. Secrets do not survive here."
+        ],
+        [
+            "Singing Crystals",
+            "Crystalline formations vibrate with harmonic tones that shift as air moves through the cavern. The melody is hauntingly beautiful and never quite repeats."
+        ],
+        [
+            "Resonance Cavern",
+            "A deep hum fills the chamber, felt more than heard. The frequency shifts with movement and makes the bones ache. Staying too long brings nosebleeds and strange visions."
+        ],
+        [
+            "Stone Archway",
+            "A carved arch frames the passage ahead, decorated with warnings in a dead language. Whatever lies beyond warranted a formal threshold."
+        ],
+        [
+            "Collapsed Tunnel",
+            "Rubble chokes the passage, but gaps between the stones let air through from the other side. Squeezing through is possible. Getting stuck is also possible."
+        ],
+        [
+            "Cave-In Site",
+            "Shattered timber and crushed stone block what was once a wide corridor. Dust still hangs in the air. The ceiling above looks ready to give again."
+        ],
+        [
+            "Unstable Ceiling",
+            "Cracks web across the stone overhead. Pebbles fall without warning, and the timber braces are bowed under the weight. Every loud noise is a gamble."
+        ],
+        [
+            "Gas Vents",
+            "The air shimmers with invisible fumes. The smell is faint and sweet, which makes it worse. Open flame is a terrible idea here."
+        ],
+        [
+            "Poison Pools",
+            "Still water with an oily rainbow sheen fills shallow depressions in the floor. Dead insects ring the edges. The air above the surface burns the nostrils."
+        ],
+        [
+            "Acid Springs",
+            "Water bubbles up from the stone, clear but caustic. The rocks around the spring are eaten smooth and pale. Metal corrodes in minutes here."
+        ],
+        [
+            "Boiling Mud Pots",
+            "Thick grey mud bubbles and belches in shallow craters. The heat is intense and the sulfur smell is overpowering. The ground between the pots is thin."
+        ],
+        [
+            "Underground Geyser",
+            "A column of scalding water erupts from the stone at intervals, hitting the ceiling and raining back down. The pattern seems regular, but counting on it is risky."
+        ],
+        [
+            "Steam Vents",
+            "Jets of white vapor hiss from fissures in the floor, obscuring the path. The heat is punishing. Visibility drops to nothing when the vents pulse together."
+        ],
+        [
+            "Thermal Pools",
+            "Warm water fills stone basins, tinted mineral-blue and steaming gently. The heat soothes aching muscles. A rare comfort this deep, if you trust the silence around it."
+        ],
+        [
+            "Mine",
+            "Timber braces groan and ore glints in the walls. The tracks lead deeper, the air gets warmer, and the pickaxes left behind still have fresh edges."
+        ]
+    ]
+}

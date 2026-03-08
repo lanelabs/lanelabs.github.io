@@ -1,0 +1,18 @@
+{
+  "description": "Endless canopy and tangled roots where sunlight filters in broken shafts and every shadow could be watching.",
+  "rarity": 1,
+  "biomes": [
+    ["Bamboo", "Tall green stalks packed so tight the light barely reaches the floor. Everything creaks and sways, and the shadows move between the stems."],
+    ["Enchanted", "The trees hum with old magic. Paths shift when you are not looking, and the forest itself seems to breathe."],
+    ["Mushroom", "Towering caps of red and violet rise above the undergrowth. The air is thick with spores, and the ground feels spongy and alive."],
+    ["Pine", "Dark evergreen columns standing in silent rows. The floor is a carpet of needles, and the air smells sharp and cold."],
+    ["Tropical", "Thick heat, bright plumage, and the constant drone of insects. Vines hang from every branch and the canopy blocks the sky."],
+    ["Woodland", "Dappled sunlight on mossy stones and birdsong from every direction. A gentle place, though old things still sleep beneath the roots."],
+    ["Jungle", "Dense, sweltering green pressing in from all sides. The air is wet enough to drink, and something always moves just out of sight."],
+    ["Rainforest", "Layers of life stacked from floor to canopy, dripping with moisture. The chorus of creatures never stops, day or night."],
+    ["Petrified", "Stone trees stand like monuments to a forest that died long ago. The silence here is absolute and unsettling."],
+    ["Crystal Grove", "Trees of translucent stone catch the light and scatter rainbows across the forest floor. The air rings faintly, like distant bells."],
+    ["Dead Woods", "Bare branches claw at a grey sky. The bark is black, the ground is ash, and nothing here has been alive for a long time."],
+    ["Autumn Eternal", "Gold and crimson leaves drift endlessly but the branches never go bare. The air smells of woodsmoke and wet earth."]
+  ]
+}

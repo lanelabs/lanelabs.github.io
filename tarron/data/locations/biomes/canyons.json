@@ -1,0 +1,16 @@
+{
+  "description": "Stone walls carved by ages of wind and water, where voices echo strangely and the sky is a narrow ribbon far above.",
+  "rarity": 2,
+  "biomes": [
+    ["Canyon", "Sheer rock walls tower on both sides, striped with layers of red and gold. Sounds bounce endlessly between the stone."],
+    ["Valley", "A wide open stretch between high ridges where the wind funnels through and the grass bends in silver waves."],
+    ["Ravine", "A narrow gash in the earth, steep and overgrown. Water trickles far below and the walls are slick with moss."],
+    ["Cliffs", "A sheer drop where the land simply ends. The wind howls upward and the view stretches further than you can name."],
+    ["Gorge", "Deep and tight, with a roaring river at the bottom. The spray rises like mist and the rocks are worn smooth."],
+    ["Hollow", "A sheltered depression in the stone where the wind cannot reach. The quiet here feels deliberate, almost watchful."],
+    ["Gully", "A shallow cut carved by flash floods, dry now but littered with debris. The next storm could fill it in moments."],
+    ["Wind Carved", "Smooth stone shaped into impossible arches and spirals by centuries of grit-laden wind. The formations groan in strong gusts."],
+    ["Painted Rocks", "Bands of orange, white, and purple run through the canyon walls like brushstrokes. The stone itself seems to glow at dusk."],
+    ["Slot Canyon", "Walls so narrow you can touch both sides. Light filters down in thin golden beams, and the air is cool and still."]
+  ]
+}

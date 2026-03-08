@@ -1,0 +1,13 @@
+{
+  "description": "A land of ice and endurance where the sun barely rises and the cold seeps into everything that dares to linger.",
+  "rarity": 2,
+  "biomes": [
+    ["Tundra", "Flat frozen earth stretching to the horizon under a pale sky. The wind never stops, and nothing taller than your knee grows here."],
+    ["Ice Fields", "Blinding white in every direction. The ice groans and shifts underfoot, and crevasses open without warning."],
+    ["Frozen Lakes", "Still glass surfaces hiding dark water beneath. Every step echoes, and the cracks spread faster than you can run."],
+    ["Glaciers", "Ancient walls of blue ice grinding slowly forward, carving the earth beneath them into something unrecognizable."],
+    ["Ice Caves", "Hollow chambers of pale blue light where the air bites your lungs and the walls drip with frozen time."],
+    ["Permafrost", "Hard ground that has not thawed in centuries. Bones and roots jut from the surface like half-buried secrets."],
+    ["Aurora Fields", "Shimmering curtains of green and violet ripple overhead, casting shifting color across the silent snow below."]
+  ]
+}

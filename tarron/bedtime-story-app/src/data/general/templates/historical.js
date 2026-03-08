@@ -10,7 +10,7 @@ export const templates = [
   // Moral: woven | Mystery: teaser | Spotlight: setting
   // Structure: two-para | Rhythm: flowing | Item-role: last | Scale: epic | Genre-feel: myth
   // Shape: precious-to-protect
-  'They said the library in {setting|event} held every story ever told — floor after floor, shelf after shelf, {weather}, so vast that nobody had read it all. {Character1.emotional}, the youngest {role} in its history, was supposed to keep it safe. {Character2} was supposed to help.\n\nThen {hook} came. And {item} — the last copy of the one story that mattered most — had to be carried out before the shelves went dark. A {tone} tale about {wish.bare} and {moral.about}, written in the margins of everything that was almost lost.',
+  'They said the library {setting.placed|event.placed} held every story ever told — floor after floor, shelf after shelf, {weather}, so vast that nobody had read it all. {Character1.emotional}, the youngest {role} in its history, was supposed to keep it safe. {Character2} was supposed to help.\n\nThen {hook} came. And {item} — the last copy of the one story that mattered most — had to be carried out before the shelves went dark. A {tone} tale about {wish.bare} and {moral.about}, written in the margins of everything that was almost lost.',
 
   // Template 160 — The Age of Sail
   // Voice: campfire | Opening: sensory | Temporal: linear | Dynamic: reluctant-partners | Agency: proactive
@@ -26,7 +26,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: catalyst | Scale: expanding | Genre-feel: adventure-serial
   // Shape: dare-to-accept
-  'What if it actually works? That was the question in {setting|event}, {weather}, where {character1.emotional} and {character2} stood beside {item} — held together with nothing but stubbornness and a little bit of math. The {role} in charge said it would never fly. Gravity said the same.\n\n{Hook} was the reason it had to. One chance. One gust. The dare was {tone} and enormous and over in seconds. But those seconds changed everything. All they wanted was {wish}. A tale about {moral.about}.',
+  'What if it actually works? That was the question {setting.placed|event.placed}, {weather}, where {character1.emotional} and {character2} stood beside {item} — held together with nothing but stubbornness and a little bit of math. The {role} in charge said it would never fly. Gravity said the same.\n\n{Hook} was the reason it had to. One chance. One gust. The dare was {tone} and enormous and over in seconds. But those seconds changed everything. All they wanted was {wish}. A tale about {moral.about}.',
 
   // Template 162 — The Medieval Fair
   // Voice: laconic | Opening: catalog | Temporal: linear | Dynamic: rivals | Agency: reactive
@@ -42,7 +42,7 @@ export const templates = [
   // Moral: frame | Mystery: laid-out | Spotlight: moral
   // Structure: two-para | Rhythm: mixed | Item-role: burden | Scale: local | Genre-feel: fable
   // Shape: passing-the-torch
-  'This is a story about {moral.about} — and how {character1.emotional} learned it by getting it wrong. The apprentice\'s first job in {setting|event} was simple: protect {item}. The {role} — {character2} — said it twice. Maybe three times.\n\n{Weather}, {hook.verb}. The mistake was {tone} and immediate and impossible to undo. But here\'s what the best teachers know: the lesson lives in the fixing, not the failing. All they wanted was {wish}. And the {item.bare}, eventually, was passed from one hand to the next.',
+  'This is a story about {moral.about} — and how {character1.emotional} learned it by getting it wrong. The apprentice\'s first job {setting.placed|event.placed} was simple: protect {item}. The {role} — {character2} — said it twice. Maybe three times.\n\n{Weather}, {hook.verb}. The mistake was {tone} and immediate and impossible to undo. But here\'s what the best teachers know: the lesson lives in the fixing, not the failing. All they wanted was {wish}. And the {item.bare}, eventually, was passed from one hand to the next.',
 
   // Template 164 — The Ancient Map
   // Voice: confessional | Opening: sensory | Temporal: flashback | Dynamic: seeker | Agency: proactive
@@ -58,7 +58,7 @@ export const templates = [
   // Moral: woven | Mystery: withhold-hook | Spotlight: item
   // Structure: two-para | Rhythm: flowing | Item-role: symbol | Scale: intimate | Genre-feel: fable
   // Shape: unfinished-promise
-  '{Item} was found behind a wall in {setting|event}, {weather} — sealed, addressed, never delivered. {Character1.emotional} opened it carefully. The words inside were {tone} and small and meant for someone who had probably stopped waiting a long time ago.\n\n{Character2}, the {role} who\'d been asked to help, said {hook} was the reason it had never been sent. But some messages find their way eventually. All they wanted was {wish}. A story about {moral.about}, delivered decades late and exactly on time.',
+  '{Item} was found behind a wall {setting.placed|event.placed}, {weather} — sealed, addressed, never delivered. {Character1.emotional} opened it carefully. The words inside were {tone} and small and meant for someone who had probably stopped waiting a long time ago.\n\n{Character2}, the {role} who\'d been asked to help, said {hook} was the reason it had never been sent. But some messages find their way eventually. All they wanted was {wish}. A story about {moral.about}, delivered decades late and exactly on time.',
 
   // Template 166 — The Night Before the Battle
   // Voice: in-medias-res | Opening: contrast | Temporal: middle-first | Dynamic: fragile-alliance | Agency: compelled
@@ -74,7 +74,7 @@ export const templates = [
   // Moral: woven | Mystery: laid-out | Spotlight: setting
   // Structure: bookend | Rhythm: rhythmic | Item-role: gift | Scale: local | Genre-feel: fairy-tale
   // Shape: reunion
-  'Once a year — always {weather}, always in {setting|event} — the festival came back. Not because anyone organized it. Because the place remembered. {Character1.emotional} and {character2} didn\'t know each other. They just showed up the same way everyone always had, following something older than memory.\n\n{Item} was passed from hand to hand. {Hook} was part of the celebration — not a problem, just a tradition nobody could explain. The {role} who kept the old ways said it had always been this way.\n\nThe festival ended. The place remembered. And {wish.bare} and {moral.about} lingered like lantern smoke. A {tone} tale, told once a year.',
+  'Once a year — always {weather}, always {setting.placed|event.placed} — the festival came back. Not because anyone organized it. Because the place remembered. {Character1.emotional} and {character2} didn\'t know each other. They just showed up the same way everyone always had, following something older than memory.\n\n{Item} was passed from hand to hand. {Hook} was part of the celebration — not a problem, just a tradition nobody could explain. The {role} who kept the old ways said it had always been this way.\n\nThe festival ended. The place remembered. And {wish.bare} and {moral.about} lingered like lantern smoke. A {tone} tale, told once a year.',
 
   // Template 168 — The Cartographer's Dilemma
   // Voice: rhetorical | Opening: contrast | Temporal: linear | Dynamic: strangers | Agency: compelled

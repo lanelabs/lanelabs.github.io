@@ -1,0 +1,16 @@
+{
+  "description": "Towering stone and thin air where the world falls away beneath you and the weather turns without mercy.",
+  "rarity": 1,
+  "biomes": [
+    ["Mesa", "A flat-topped rise of red stone standing alone above the surrounding land. The edges drop sharply into empty air."],
+    ["Volcanic", "Dark rock and sulfur vents where the mountain still breathes. The ground is warm and the air tastes of ash."],
+    ["Highland", "Exposed ridges above the treeline where the wind is constant and the views stretch across entire kingdoms."],
+    ["Pass", "A narrow path between peaks where snow drifts deep and the walls of stone funnel the wind into a howl."],
+    ["Peak", "The top of the world, where the air is thin and the clouds roll below you like a second sea."],
+    ["Slopes", "Loose stone and scrubby grass angling sharply upward. Every step sends small rocks tumbling into the distance below."],
+    ["Ridge", "A spine of exposed rock with steep drops on both sides. The path is barely wide enough to walk single file."],
+    ["Crater", "A vast bowl scooped from the mountain's summit. The walls are steep and the floor holds secrets the sky cannot see."],
+    ["Alpine Meadow", "A high green clearing surrounded by snow-capped peaks. Wildflowers bloom briefly in the short summer, vivid against the grey stone."],
+    ["Rockslide", "A slope of loose boulders and shattered stone. Nothing is stable, and the mountain seems eager to keep sliding."]
+  ]
+}

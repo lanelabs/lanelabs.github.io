@@ -1,0 +1,16 @@
+{
+  "description": "Natural objects with magical or symbolic significance.",
+  "items": [
+    ["Feather", "A shimmering plume from a creature of legend."],
+    ["Fang", "A sharp tooth pulled from a fearsome beast."],
+    ["Mushroom", "A strange fungus with unpredictable magical properties."],
+    ["Acorn", "A tiny seed holding the promise of an ancient tree."],
+    ["Amber", "A golden drop of fossilized resin with something trapped inside."],
+    ["Antler", "A branching horn shed by a creature of the deep woods."],
+    ["Scale", "A tough, iridescent plate from a dragon or serpent."],
+    ["Herb", "A fragrant plant with healing or enchanting properties."],
+    ["Seashell", "A spiral shell that whispers with the voice of the sea."],
+    ["Coral", "A branching growth from the ocean floor, hard as stone."],
+    ["Pearl", "A luminous sphere formed in the heart of an oyster."]
+  ]
+}

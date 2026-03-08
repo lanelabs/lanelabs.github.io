@@ -1,0 +1,13 @@
+{
+  "description": "Characters devoted to knowledge, learning, and understanding.",
+  "characters": [
+    ["Scholar", "A book-loving mind who seeks answers in ancient texts."],
+    ["Librarian", "A keeper of knowledge who can find any book in the stacks."],
+    ["Philosopher", "A deep thinker who wrestles with questions that have no easy answers."],
+    ["Astronomer", "A night-watcher who maps the stars and reads the sky."],
+    ["Teacher", "A patient guide who helps others learn and grow."],
+    ["Physician", "A careful healer who mends wounds and eases suffering."],
+    ["Healer", "A gentle soul who tends the sick and soothes the hurt."],
+    ["Judge", "A measured voice who weighs evidence and decides what is fair."]
+  ]
+}

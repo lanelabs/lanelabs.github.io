@@ -1,0 +1,14 @@
+{
+  "description": "Places that do not follow the rules of the natural world, where reality bends and the familiar becomes strange.",
+  "rarity": 4,
+  "biomes": [
+    ["Fey Realm", "Colors too vivid to be real. Flowers that whisper. Time moves at its own pace here, and those who enter rarely leave on the day they planned."],
+    ["Shadow Lands", "Everything exists in muted grey. The light has no source, the ground has no warmth, and your own shadow does not behave."],
+    ["Floating Islands", "Chunks of earth and stone drift through open sky, connected by nothing but wind and old bridges that sway in the void."],
+    ["Infernal Realm", "Heat that sears the lungs and a red glow on the horizon that never fades. The ground cracks and bleeds fire."],
+    ["Ethereal Plane", "A pale mist where solid things turn transparent and distance loses meaning. Voices carry from nowhere and everywhere."],
+    ["Astral Sea", "An endless expanse of star-flecked darkness where thought moves you forward and gravity is only a memory."],
+    ["Void Fragments", "Broken pieces of reality floating in nothing. The edges crumble into darkness and the silence is so deep it hums."],
+    ["Dream Realm", "Landscapes that shift with your thoughts. Familiar places bleed into impossible ones, and waking up is never guaranteed."]
+  ]
+}

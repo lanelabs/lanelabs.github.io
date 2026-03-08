@@ -1,0 +1,569 @@
+{
+    "description": "Places where people gather, build, and hold ground. Every settlement carries the weight of whoever calls it home and the mark of what they fear.",
+    "locations": [
+        [
+            "City",
+            "Crowds press through narrow streets beneath towers of stone and timber. Voices haggle in a dozen tongues, and every alley hides a deal or a threat."
+        ],
+        [
+            "Village",
+            "Smoke curls from thatched roofs around a shared well. A few dozen families know each other by name, and strangers draw long stares."
+        ],
+        [
+            "Camp",
+            "Canvas flaps in the wind over trampled ground. Cookfires smolder in shallow pits, and the whole place could vanish by morning."
+        ],
+        [
+            "Town",
+            "Cobbled streets branch from a central square where merchants shout over each other. Big enough to have secrets, small enough that someone always notices."
+        ],
+        [
+            "Metropolis",
+            "The city swallows the horizon. A hundred districts blur together in noise and smoke, and a person could live here a lifetime without seeing it all."
+        ],
+        [
+            "Trade Hub",
+            "Wagons line up at every gate and the air smells of foreign spices. Coin changes hands faster than conversation, and every nation has a stake here."
+        ],
+        [
+            "Port City",
+            "Salt wind carries the creak of rigging and the shouts of dockhands. Ships crowd the harbor, and cargo from a dozen lands stacks along the wharves."
+        ],
+        [
+            "Outpost",
+            "A handful of buildings and a stockade fence at the edge of the known. The garrison watches the treeline and counts the days until relief."
+        ],
+        [
+            "Necropolis",
+            "Silent avenues of mausoleums stretch under a grey sky. The air is cold and still, and the dead outnumber the living a thousand to one."
+        ],
+        [
+            "Nomad Camp",
+            "Hide tents circle a central fire on open ground. The herd animals graze nearby, and the whole settlement will move with the season."
+        ],
+        [
+            "Orc Camp",
+            "War drums echo through a ring of crude shelters built from hide and bone. The ground is scarred from sparring, and roasting meat hangs thick in the air."
+        ],
+        [
+            "Goblin Camp",
+            "Trash heaps and crooked lean-tos crowd together in a warren of noise. Screeching voices argue over scraps, and crude traps ring the perimeter."
+        ],
+        [
+            "Mining Camp",
+            "Dust-covered tents cluster around a shaft entrance. Picks ring against stone from dawn to dusk, and the workers cough through the night."
+        ],
+        [
+            "Mining Town",
+            "Ore carts rattle through rutted streets lined with company stores. The hills are pocked with tunnels, and the taverns fill the moment the shift bell rings."
+        ],
+        [
+            "Mercenary Camp",
+            "Weapon racks and training dummies stand between rows of tents. The fighters size up every newcomer, and the price of steel is posted at the gate."
+        ],
+        [
+            "Logging Camp",
+            "The crack of falling timber echoes through the clearing. Sawdust coats everything, and the stumps spread a little further into the forest each week."
+        ],
+        [
+            "Hamlet",
+            "A handful of homes along a dirt road, too small for a proper name on most maps. Everyone works the same fields, and the nearest healer is a day away."
+        ],
+        [
+            "Fishing Village",
+            "Nets hang drying between salt-bleached cottages. The tide dictates everything here, and the catch determines whether the season is kind or cruel."
+        ],
+        [
+            "Capital City",
+            "Banners snap above massive walls and the palace towers over a skyline of spires. Power gathers here, and so do those hungry for it."
+        ],
+        [
+            "Barbarian Yurts",
+            "Thick felt shelters dot a windswept plain, anchored with heavy stones. The clan standard flies from the tallest pole, and the horses outnumber the people."
+        ],
+        [
+            "Trading Post",
+            "A single fortified building at a crossroads, its shelves stocked with goods from every direction. The owner knows every traveler by reputation."
+        ],
+        [
+            "Fortress Town",
+            "Stone walls thick enough to sleep on ring a settlement built for siege. Every citizen drills with a weapon, and the gates close at sundown."
+        ],
+        [
+            "Border Town",
+            "Two flags fly uneasily over a settlement split by a painted line. Soldiers from both sides drink in the same tavern and pretend not to listen."
+        ],
+        [
+            "Frontier Settlement",
+            "Raw timber buildings stand in fresh-cleared ground at the edge of the map. The settlers are hopeful, but the wilderness presses close on every side."
+        ],
+        [
+            "Garrison Town",
+            "Soldiers outnumber civilians and the streets are laid in military precision. Boots march at dawn, and curfew is enforced without exception."
+        ],
+        [
+            "Market Town",
+            "Stalls and awnings fill every open space on trading day. The smell of bread and leather mixes with loud bargaining, and pickpockets work the crowd."
+        ],
+        [
+            "Pilgrimage Site",
+            "Weary travelers kneel at a sacred marker while vendors sell blessings and water. The faithful arrive in waves, and not all of them leave satisfied."
+        ],
+        [
+            "Holy City",
+            "Temple bells ring on the hour and incense drifts through sunlit plazas. The clergy hold more power than any lord, and heresy is dealt with swiftly."
+        ],
+        [
+            "Temple Complex",
+            "Columned halls and sacred pools spread across terraced ground. Chanting echoes from within, and the priests keep doors that no outsider may open."
+        ],
+        [
+            "Monastery Town",
+            "Quiet stone buildings surround a central cloister where robed figures move in silence. The town beyond the walls exists to serve those within."
+        ],
+        [
+            "University Town",
+            "Ink-stained students argue in crowded taverns and lectures spill from open windows. Knowledge is currency here, and the libraries never close."
+        ],
+        [
+            "Scholar's Enclave",
+            "Quiet lanes connect towers stuffed with scrolls and instruments. The residents speak in theories, and the debates sometimes last for days without sleep."
+        ],
+        [
+            "Artist Colony",
+            "Color splashes across every surface and music drifts from open doorways. The residents create without restraint, and patrons visit seeking the next great work."
+        ],
+        [
+            "Craftsmen Quarter",
+            "Hammer strikes and kiln heat fill the air between workshops packed wall to wall. Each trade claims its own street, and apprentices run errands at a sprint."
+        ],
+        [
+            "Artisan Village",
+            "Potters' wheels spin beside looms and woodcarvers' benches. Every home doubles as a shop, and the craft defines the people who live here."
+        ],
+        [
+            "Farming Community",
+            "Golden fields stretch to the horizon around a handful of homes and a shared barn. The rhythm of planting and harvest governs everything."
+        ],
+        [
+            "Pastoral Village",
+            "Sheep graze on rolling green hills while dogs circle the flock. The village sits in a gentle hollow, unhurried and generations old."
+        ],
+        [
+            "Shepherd Settlement",
+            "Stone huts dot a high meadow where the wind carries the sound of bells. The flocks roam wide, and the people follow the grass."
+        ],
+        [
+            "Herder Camp",
+            "Portable shelters ring a trampled pen where animals are sorted and counted. The herders move with the seasons, and the camp smells of wool and dung."
+        ],
+        [
+            "Rancher Town",
+            "Fenced corrals and wide dirt roads stretch between low buildings. Dust rises from the herds, and the locals judge each other by their stock."
+        ],
+        [
+            "Vineyard Village",
+            "Terraced rows of grapevines climb sun-warmed hillsides above a cluster of stone houses. The cellars run deep, and the harvest festival lasts a week."
+        ],
+        [
+            "Orchard Settlement",
+            "Blossoming trees canopy the lanes between cottages, petals drifting like snow. The air is sweet with fruit, and ladders lean against every trunk come autumn."
+        ],
+        [
+            "Plantation Town",
+            "Endless rows of crops surround a central estate house. Workers move through the fields from first light, and the wealth flows in one direction."
+        ],
+        [
+            "Mill Town",
+            "The waterwheel never stops turning and the ground vibrates with its rhythm. Flour dust coats the windows, and grain wagons line up at the gate."
+        ],
+        [
+            "Factory Town",
+            "Smoke rises from chimneys day and night, and the clang of machinery drowns out conversation. The workers file in at the bell and leave grey-faced."
+        ],
+        [
+            "Industrial District",
+            "Soot darkens the walls and the air tastes of metal. Furnaces glow behind iron doors, and the ground trembles from the forges below."
+        ],
+        [
+            "Mining Colony",
+            "Shaft entrances dot a barren hillside above rows of identical housing. The colony exists for the ore alone, and the company owns everything in sight."
+        ],
+        [
+            "Quarry Settlement",
+            "A great wound in the earth dominates the landscape, its walls carved into terraces. Stone dust hangs in the air and coats every surface in grey."
+        ],
+        [
+            "Lumber Town",
+            "The scream of the sawmill carries for miles. Log piles tower over the rooftops, and the forest retreats a little more each season."
+        ],
+        [
+            "Trapper Camp",
+            "Pelts stretch on frames between low tents at the forest edge. The camp is quiet and watchful, and the traps are checked before dawn."
+        ],
+        [
+            "Hunter's Lodge",
+            "Antlers and pelts decorate a sturdy timber hall deep in the wilds. Tracking maps cover the walls, and the hunters know every trail for miles."
+        ],
+        [
+            "Caravan Stop",
+            "Wagon ruts converge on a dusty clearing with a well and a few permanent shelters. Travelers swap news and supplies before the next long stretch."
+        ],
+        [
+            "Waystation",
+            "A squat stone building beside the road offers water, a roof, and four walls. The logbook by the door records every traveler who passed through."
+        ],
+        [
+            "Rest Town",
+            "The inns outnumber the houses in a settlement built for weary travelers. Everyone is passing through, and no one stays more than a night or two."
+        ],
+        [
+            "Inn Cluster",
+            "Half a dozen inns crowd a crossroads, each competing with better prices and louder music. The road-weary have their pick, and the innkeepers know every rumor."
+        ],
+        [
+            "Crossroads Settlement",
+            "Four roads meet at a muddy junction where a few opportunistic buildings have taken root. Every traveler passes through, making it a place to find almost anyone."
+        ],
+        [
+            "Bridge Town",
+            "Buildings crowd both ends of a great stone span. The toll collector sits in the middle, and the river below has swallowed more than one who tried to skip paying."
+        ],
+        [
+            "Ferry Town",
+            "A rope-drawn barge is the only way across the wide river, and the town on either bank profits from the wait. Travelers camp along the shore for days."
+        ],
+        [
+            "Toll Station",
+            "A heavy gate blocks the road, and armored collectors wait beside it. The price is posted, the guards are armed, and the detour is a hundred miles."
+        ],
+        [
+            "Customs Post",
+            "Officials inspect every wagon and crate while travelers wait in growing lines. Contraband disappears into back rooms, and the right bribe moves you to the front."
+        ],
+        [
+            "Checkpoint City",
+            "Papers are checked at every gate and patrols walk the streets in pairs. The city watches its own people as carefully as it watches outsiders."
+        ],
+        [
+            "Walled City",
+            "Massive stone walls cast long shadows over the buildings huddled within. The gates are thick as a man is tall, and the battlements have never been breached."
+        ],
+        [
+            "Citadel",
+            "A fortress crowns the highest ground, its walls layered in rings of stone. The settlement below exists at the citadel's pleasure and under its protection."
+        ],
+        [
+            "Keep Town",
+            "A squat, unyielding tower anchors a cluster of buildings within a low wall. The lord watches from above, and the townsfolk sleep a little easier for it."
+        ],
+        [
+            "Castle Town",
+            "The castle's shadow falls across the marketplace at noon. The lord's banners hang from every gate, and the town prospers or suffers at the lord's whim."
+        ],
+        [
+            "Watchtower Settlement",
+            "A tall stone tower overlooks a scattering of homes along a vulnerable road. The lookout's horn can be heard for miles when trouble comes."
+        ],
+        [
+            "Guard Station",
+            "A barracks and a gate control a narrow pass or bridge. The guards rotate in shifts, and they know every face that belongs and every one that does not."
+        ],
+        [
+            "Military Camp",
+            "Rows of identical tents stretch in disciplined lines around a command pavilion. Drills run from dawn, and the camp could march within the hour."
+        ],
+        [
+            "Barracks Town",
+            "Soldiers fill the streets and the taverns serve them first. The town exists to house and supply an army, and civilians live on the margins."
+        ],
+        [
+            "Veteran Settlement",
+            "Retired soldiers farm small plots and gather at the hall to swap old stories. The peace is hard-won, and the veterans keep their weapons oiled and close."
+        ],
+        [
+            "Refugee Camp",
+            "Makeshift shelters crowd together behind a hastily raised fence. Hollow-eyed families wait for food, and the mud never dries."
+        ],
+        [
+            "Exile Colony",
+            "Outcasts from a dozen lands scrape together a living on unwanted ground. Trust is scarce, grudges run deep, and the only law is what people enforce themselves."
+        ],
+        [
+            "Penal Colony",
+            "Prisoners in chains work under guard on desolate ground. The walls face inward, the rations are thin, and escape means the wilderness or worse."
+        ],
+        [
+            "Prison Town",
+            "Iron-barred windows line the main street and guards patrol the rooftops. The town runs on the labor of its inmates, and the free citizens lock their doors at night."
+        ],
+        [
+            "Bandit Stronghold",
+            "A fortified hideout in rough terrain, ringed with lookouts and stolen goods. The bandits know every approach, and the loot is buried where only they remember."
+        ],
+        [
+            "Pirate Haven",
+            "Stolen ships crowd a hidden cove beneath cliffs carved with skull markers. Gold flows freely in the taverns, and no one asks where anything came from."
+        ],
+        [
+            "Smuggler's Port",
+            "The docks operate after dark and the manifests are fiction. Hidden compartments and false walls are standard, and the harbor master looks the other way."
+        ],
+        [
+            "Thieves' Den",
+            "A maze of tunnels and back rooms beneath an otherwise ordinary street. Entry requires knowing the right knock, and the exits change weekly."
+        ],
+        [
+            "Underground City",
+            "Vast caverns glow with phosphorescent light above streets carved from living rock. The ceiling vanishes into darkness, and the surface is a distant memory."
+        ],
+        [
+            "Cave Dwelling",
+            "Firelight flickers at the mouth of a carved-out hillside. The stone keeps the heat in winter and the cool in summer, but the darkness goes deeper than anyone admits."
+        ],
+        [
+            "Cliff Settlement",
+            "Buildings cling to a sheer rock face, connected by ladders and rope bridges. The wind howls between the structures, and the drop below discourages uninvited guests."
+        ],
+        [
+            "Mountain Village",
+            "Stone houses hunker against the slope above the clouds. The air is thin and cold, and the villagers are as hard as the granite beneath them."
+        ],
+        [
+            "Highland Town",
+            "Wind-scoured buildings sit on a broad plateau where the sky feels close enough to touch. The town commands a view for miles, and nothing approaches unseen."
+        ],
+        [
+            "Valley Settlement",
+            "Nestled between steep green slopes where a river bends, the settlement is sheltered from the worst weather. The only road in is the only road out."
+        ],
+        [
+            "Desert Oasis",
+            "Cool water in the killing heat. Palm shade and birdsong where nothing should survive. Not every gift in the desert is what it seems."
+        ],
+        [
+            "Oasis Town",
+            "Mud-brick walls encircle a precious spring where date palms sway. Water rights are worth more than gold, and the desert presses in from every direction."
+        ],
+        [
+            "Swamp Village",
+            "Wooden walkways connect huts raised on stilts above dark, stagnant water. The air buzzes with insects, and the locals navigate by landmarks only they recognize."
+        ],
+        [
+            "Marsh Settlement",
+            "Reed-thatched shelters sit on patches of solid ground between channels of murky water. The fog rolls in thick, and the sounds at night are not all frogs."
+        ],
+        [
+            "Island Village",
+            "Brightly painted boats line a pebble beach below a cluster of wind-battered homes. The sea provides everything and takes what it pleases."
+        ],
+        [
+            "Floating Village",
+            "Lashed-together platforms rise and fall with the water, connected by swaying bridges. The village drifts slowly, and the residents have not touched solid ground in years."
+        ],
+        [
+            "Stilt Town",
+            "Timber legs raise the entire town above the waterline, and boats pass beneath the floorboards. At high tide the world below is all water. At low tide, all mud."
+        ],
+        [
+            "Tree Village",
+            "Rope bridges and wooden platforms connect homes built into the great branches high above the forest floor. The leaves filter the sunlight, and the ground is a distant blur."
+        ],
+        [
+            "Canopy Settlement",
+            "Woven walkways thread through a living ceiling of branches and leaves. The settlement sways gently in the wind, and the forest floor below is another world entirely."
+        ],
+        [
+            "Sky City",
+            "Towers rise from cloud-white stone suspended impossibly in the air. The wind sings through open archways, and the land below is a patchwork quilt of color."
+        ],
+        [
+            "Aerial Platform",
+            "A broad disc of enchanted stone drifts above the landscape, anchored by chains to the peaks below. The edge has no railing, and the view steals your breath."
+        ],
+        [
+            "Nomadic Caravan",
+            "A long line of wagons and pack animals winding across open country. Home is wherever the caravan stops, and the road is the only constant."
+        ],
+        [
+            "Traveling Circus",
+            "Bright tents and painted wagons appear overnight in an empty field. Music and laughter draw crowds from miles around, but the show moves on by morning."
+        ],
+        [
+            "Merchant Convoy",
+            "Heavily loaded wagons travel in a guarded column, their goods covered in oiled tarps. The merchants calculate profit with every mile, and the hired swords watch the horizon."
+        ],
+        [
+            "Diplomatic Embassy",
+            "Flags of a foreign power hang above a walled compound in a host city. The guards answer to distant masters, and the conversations behind those doors shape nations."
+        ],
+        [
+            "Neutral Ground",
+            "No banners fly and no weapons are drawn within the boundary stones. Old enemies meet here to talk, and the peace holds because everyone needs it to."
+        ],
+        [
+            "Free City",
+            "No king's law runs here. The city governs itself through council vote and merchant influence, and anyone with coin or talent can rise."
+        ],
+        [
+            "City-State",
+            "A single city rules the land around it with no allegiance to any crown. The walls are its borders, the army is its own, and its pride is fierce."
+        ],
+        [
+            "Commune",
+            "Shared meals, shared labor, shared decisions made by every voice. The settlement runs on trust and common purpose, and outsiders are welcome if they work."
+        ],
+        [
+            "Cooperative",
+            "Every resident holds a stake and every decision goes to a vote. The warehouses are communal, the profits shared, and disagreements are settled at the long table."
+        ],
+        [
+            "Tribal Village",
+            "Totems carved from old wood stand at the village entrance. Elders speak first, traditions run deep, and the land has belonged to these people since before memory."
+        ],
+        [
+            "Clan Settlement",
+            "A single bloodline claims the settlement and its surrounding territory. Family bonds are law here, and feuds with rival clans simmer beneath the surface."
+        ],
+        [
+            "Chieftain's Camp",
+            "The largest tent flies the chieftain's banner at the center of a ring of warriors' shelters. Loyalty is proven in battle, and the strongest voice commands."
+        ],
+        [
+            "Elder Council Town",
+            "A great hall stands at the center where the eldest gather to decide the town's fate. Age is authority here, and the young wait their turn."
+        ],
+        [
+            "Seasonal Camp",
+            "The same cleared ground is used year after year when the weather turns. Fire pits are still blackened from last season, and the paths are worn into memory."
+        ],
+        [
+            "Winter Quarters",
+            "Heavy log walls and deep cellars built to outlast the killing cold. Firewood is stacked to the eaves, and the settlement hunkers down until the thaw."
+        ],
+        [
+            "Summer Village",
+            "Light shelters and open-air kitchens spread across a breezy hilltop. The living is easy in the warm months, but the village will be empty come autumn."
+        ],
+        [
+            "Harvest Town",
+            "Wagons overflow with grain and the whole settlement smells of fresh-cut wheat. The work is backbreaking but the cellars fill, and the feast that follows is worth it."
+        ],
+        [
+            "Fairgrounds",
+            "A wide flat field ringed with permanent stalls and stages that come alive when the fair arrives. Between events, the grounds sit empty and expectant."
+        ],
+        [
+            "Tournament Grounds",
+            "Jousting lanes and combat arenas surround a grand pavilion draped in competing colors. The crowd roars, the champions ride, and fortunes change with a single blow."
+        ],
+        [
+            "Gladiator City",
+            "The great arena dominates the skyline and the roar of the crowd shakes the streets. Blood and glory are the city's currency, and the fighters are its kings."
+        ],
+        [
+            "Arena Town",
+            "The fighting pit at the center draws crowds from every direction. Betting houses line the main road, and the victors drink free while the losers are carried out."
+        ],
+        [
+            "Entertainment District",
+            "Lanterns glow in every color and music spills from competing doorways. Performers call from stages, laughter fills the plazas, and the night never seems to end."
+        ],
+        [
+            "Pleasure Quarter",
+            "Perfumed air drifts through silk-curtained doorways. Every desire has a price and a provider, and the clientele prefer that what happens here stays here."
+        ],
+        [
+            "Vice District",
+            "Smoke-filled rooms and shuttered windows hide what goes on inside. The law looks the other way for the right price, and debts here are collected in blood."
+        ],
+        [
+            "Gambling Town",
+            "Dice clatter and cards slap on tables in every building on the main strip. Fortunes are made and destroyed by midnight, and the house always wins."
+        ],
+        [
+            "Spa Town",
+            "Warm mineral springs steam in tiled pools, and the air smells of eucalyptus and sulfur. The wealthy come to rest, and the attendants know secrets worth more than gold."
+        ],
+        [
+            "Resort Village",
+            "Whitewashed buildings overlook a pristine shore where the privileged idle in the sun. Servants are everywhere, coin flows freely, and the real world feels far away."
+        ],
+        [
+            "Retirement Community",
+            "Quiet streets and well-kept gardens surround modest homes where the old live out their days. The pace is gentle, but the residents carry histories that would fill libraries."
+        ],
+        [
+            "Ghost Town",
+            "Empty windows stare from buildings still standing along a silent street. Doors creak in the wind, dust covers everything, and something drove everyone away."
+        ],
+        [
+            "Abandoned Settlement",
+            "Collapsed roofs and overgrown paths mark where people once lived. Nature is reclaiming the ground, and the silence is deeper than ordinary emptiness."
+        ],
+        [
+            "Ruined City",
+            "Shattered walls and toppled columns stretch for miles beneath an open sky. The streets are choked with rubble, and what remains hints at a greatness that ended badly."
+        ],
+        [
+            "Lost Village",
+            "Hidden by forest or fog, the village appears on no map. The buildings are intact but no one answers when you call, and the food on the table is still warm."
+        ],
+        [
+            "Cursed Town",
+            "The air feels wrong the moment you cross the boundary. Shadows move against the light, doors open on their own, and the townspeople smile with too many teeth."
+        ],
+        [
+            "Plague Village",
+            "Marked doors and empty houses line streets where no one walks without a cloth over their face. The sick cough behind shutters, and the burial ground is freshly turned."
+        ],
+        [
+            "Quarantine Zone",
+            "Barricades and warning flags seal off a section of settlement. Armed guards turn back anyone who approaches, and the sounds from inside grow quieter each day."
+        ],
+        [
+            "Frontier Fort",
+            "Raw timber walls surround a handful of buildings on contested ground. The flag is new, the garrison is nervous, and the nearest reinforcements are weeks away."
+        ],
+        [
+            "Colonial Outpost",
+            "A foreign flag flies over a compound built in a style that does not belong here. The colonists reshape the land to suit them, and the locals watch from the treeline."
+        ],
+        [
+            "Expedition Base",
+            "Crates of supplies and half-assembled equipment surround tents at the edge of the unknown. Maps cover every surface, and the teams return with fewer people than they left with."
+        ],
+        [
+            "Research Station",
+            "Strange instruments hum behind locked doors, and the researchers speak in jargon no outsider follows. The experiments run day and night, and some results are hard to explain."
+        ],
+        [
+            "Observatory",
+            "A great lens points skyward from a domed tower on high ground. The astronomers track things in the night sky that they will not discuss openly."
+        ],
+        [
+            "Lighthouse Town",
+            "The beam sweeps the dark water in steady arcs from a tower on the headland. The town below lives by the light, and the keeper climbs the stairs every dusk."
+        ],
+        [
+            "Beacon Settlement",
+            "A great fire burns atop a stone platform visible for leagues. The settlement exists to keep the flame alive, and the signal it sends means salvation or warning."
+        ],
+        [
+            "Signal Post",
+            "A tall wooden tower with mirrors and shutters stands on a bare hilltop. Messages cross the land in flashes of light, and the operators see trouble before anyone else."
+        ],
+        [
+            "Temple",
+            "Stone columns frame a dim interior where incense smoke curls toward a high ceiling. The faithful kneel in silence, and the altar holds their hopes."
+        ],
+        [
+            "Cellar",
+            "Stone steps descend into cool darkness. Barrels and crates crowd the low space, and the air smells of damp earth and stored things."
+        ],
+        [
+            "Greenhouse",
+            "Glass walls trap the warmth and the air is thick with green. Plants climb every surface, reaching for the light that pours through the panes."
+        ]
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Futuristic items and sci-fi technology.",
+  "items": [
+    ["Laser Blaster", "A handheld weapon that fires concentrated beams of light."],
+    ["Data Chip", "A tiny wafer that stores vast amounts of information."],
+    ["Jetpack", "A back-mounted thruster that lets the wearer fly."],
+    ["Plasma Shield", "An energy barrier that deflects incoming fire."],
+    ["Hologram Projector", "A device that creates three-dimensional images from light."],
+    ["Quantum Drive", "An engine that bends space for faster-than-light travel."],
+    ["Force Field", "An invisible barrier of energy that blocks physical objects."],
+    ["Neural Link", "An implant that connects the brain directly to machines."],
+    ["Teleporter", "A device that disassembles matter and reassembles it elsewhere."],
+    ["Anti-gravity Boots", "Footwear that lets the wearer walk on walls and ceilings."],
+    ["Communicator", "A small device for instant contact across vast distances."],
+    ["Scanner", "A handheld sensor that reads energy, life signs, and materials."],
+    ["Power Cell", "A compact energy source that fuels advanced technology."],
+    ["Cloaking Device", "A system that bends light to make things invisible."],
+    ["Time Machine", "A device that moves through time as others move through space."],
+    ["Stasis Pod", "A chamber that freezes a body in suspended animation."],
+    ["Beacon", "A signal transmitter that broadcasts location across space."],
+    ["Translator", "A device that converts alien speech into understandable language."],
+    ["Exosuit", "A powered frame worn over the body for enhanced strength."],
+    ["Memory Core", "A crystalline unit that stores an entire mind's worth of data."]
+  ]
+}

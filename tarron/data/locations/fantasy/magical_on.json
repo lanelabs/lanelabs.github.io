@@ -1,0 +1,21 @@
+{
+    "description": "Magical sites, both natural and crafted, where the impossible becomes ordinary. Places of wonder, peril, and power that shape the world around them.",
+    "locations": [
+        [
+            "Floating Island",
+            "A slab of earth and stone drifts overhead, trailing roots and waterfalls. Its shadow passes like a slow cloud across the land below."
+        ],
+        [
+            "Rainbow Bridge",
+            "An arc of solid light stretching between two high places. It hums underfoot and the colors shift with each step."
+        ],
+        [
+            "Troll Bridge",
+            "A stone span over dark water, its underside scarred by claws. Bones are wedged between the stones and the toll is never coin."
+        ],
+        [
+            "Floating Island",
+            "A slab of earth and stone drifts overhead, trailing roots and waterfalls. Its shadow passes like a slow cloud across the land below."
+        ]
+    ]
+}

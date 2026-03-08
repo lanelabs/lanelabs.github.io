@@ -1,0 +1,17 @@
+{
+  "description": "A world beneath the surface where sunlight is a memory and the stone presses close with the weight of the earth above.",
+  "rarity": 3,
+  "biomes": [
+    ["Caves", "Rough stone chambers where water drips in the dark and your torch light barely reaches the ceiling."],
+    ["Tunnels", "Narrow passages bored through solid rock, some natural, some carved by things that prefer the dark."],
+    ["Flooded", "Passages half-filled with black water that reflects your light back at you. The way forward means getting wet."],
+    ["Mines", "Old shafts braced with rotting timber. Pick marks line the walls and abandoned carts sit rusting on iron rails."],
+    ["Caverns", "Vast underground halls where stalactites hang like cathedral pillars and your voice echoes for longer than feels right."],
+    ["Underdark", "A sprawling network of lightless tunnels where entire civilizations thrive in the absence of the sun. Nothing here is friendly."],
+    ["Deep", "So far below the surface that the stone is warm to the touch. The pressure is immense and the silence total."],
+    ["Lava Tubes", "Smooth-walled tunnels carved by rivers of molten rock long cooled. The floor is glassy and the air still carries faint warmth."],
+    ["Crystal Caves", "Walls studded with formations that catch even the faintest light and scatter it into prismatic shards across the dark."],
+    ["Mushroom Caverns", "Pale fungi the size of trees growing in the damp dark. A faint glow comes from the caps, and the air tastes earthy."],
+    ["Abandoned Dwellings", "Empty rooms carved from the rock, still furnished with the remains of lives lived in the deep. Dust covers everything."]
+  ]
+}

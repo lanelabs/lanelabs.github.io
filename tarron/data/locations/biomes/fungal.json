@@ -1,0 +1,13 @@
+{
+  "description": "A damp, strange landscape ruled by fungi where the air is thick with spores and the ground pulses with hidden networks.",
+  "rarity": 2,
+  "biomes": [
+    ["Mushroom Forest", "Towering caps of red, white, and violet rising above a carpet of soft moss. The air is still and the light is dim."],
+    ["Spore Clouds", "Drifting curtains of fine particles that catch the light and shimmer. Breathing without a cloth over your face is unwise."],
+    ["Decay Grounds", "A floor of rotting matter slowly being broken down by pale threads of fungus. The smell is rich and the ground is soft."],
+    ["Mycelium Network", "White threads spreading beneath the surface, connecting every living thing. The ground glows faintly when you press your hand to it."],
+    ["Bioluminescent Grove", "Soft blue and green light emanating from mushroom clusters and trailing vines. No torch is needed, and the glow never fades."],
+    ["Toxic Blooms", "Bright, beautiful fungi releasing clouds of poisonous spores. The colors are a warning, and the sweetness in the air is a lie."],
+    ["Giant Toadstools", "Mushrooms the size of houses with broad, flat caps that serve as shelter from the constant damp. The stems are thick and pale."]
+  ]
+}

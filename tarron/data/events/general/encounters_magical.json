@@ -1,0 +1,89 @@
+{
+  "description": "Magical Phenomena encounters.",
+  "encounters": [
+    {
+      "type": "Magical Phenomena",
+      "name": "Wild Magic Storm",
+      "details": "Chaotic magical energy causes random transmutations, animated objects, and spell misfires in area.",
+      "scale": "major"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Ley Line Convergence",
+      "details": "Intersection of magical energy lines creates power site. Mages seek it out, magical creatures are drawn to it.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Planar Bleed",
+      "details": "Another plane of existence overlaps with material world. Alien landscapes, creatures, or physics intrude temporarily.",
+      "scale": "major"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Spell Plague",
+      "details": "Contagious magical affliction spreads through area. Victims suffer random magical effects or transformations.",
+      "scale": "major"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Arcane Duel Aftermath",
+      "details": "Site of recent magical battle. Reality is scarred, magical energies linger dangerously, valuable components scattered.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Mana Drought",
+      "details": "Magic fails or requires extra effort in this area. Magical items flicker, spells fizzle, casters feel drained.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Familiar Swarm",
+      "details": "Dozens of magical familiars migrate together between masters. Chaos of talking animals, minor magic, and mischief.",
+      "scale": "minor"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Teleportation Mishap",
+      "details": "Someone or something appears suddenly via botched teleport. Could be confused traveler, dangerous creature, or valuable cargo.",
+      "scale": "minor"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Golem Gone Rogue",
+      "details": "Magical construct wanders without purpose after master's death. Follows last orders literally, causing problems.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Memory Fog",
+      "details": "Magical mist that causes those who enter to forget why they came. Only affects short-term memory but very disorienting.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Enchantment Breakdown",
+      "details": "Permanent magical effect begins failing - bridge of light flickers, flying castle drops altitude, ward weakens.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Summoning Circle Active",
+      "details": "Abandoned ritual site still pulling creatures from other planes. Random beings appear confused and often hostile.",
+      "scale": "major"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Magic Item Graveyard",
+      "details": "Area where magic items lose power and crumble. Desperate owners try to save treasures, scholars study phenomenon.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Magical Phenomena",
+      "name": "Spell Echo",
+      "details": "Powerful magic cast long ago repeats randomly. Might be healing, destruction, transformation, or transportation.",
+      "scale": "moderate"
+    }
+  ]
+}

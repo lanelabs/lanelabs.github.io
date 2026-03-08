@@ -1,0 +1,24 @@
+{
+  "description": "Characters from ocean and coastal settings.",
+  "characters": [
+    ["Reef Guardian", "A devoted protector who watches over the coral and its creatures."],
+    ["Deep-Sea Explorer", "A fearless diver who ventures into the lightless depths."],
+    ["Coral Farmer", "A patient cultivator who grows and tends living reef."],
+    ["Tide Watcher", "A keen observer who reads the rhythms of the rising and falling sea."],
+    ["Shell Collector", "A beachcomber who finds beauty in what the waves leave behind."],
+    ["Current Rider", "A daring swimmer who navigates the ocean's flowing highways."],
+    ["Pearl Diver", "A breath-holding treasure seeker who plucks gems from oyster beds."],
+    ["Kelp Weaver", "A crafty undersea artisan who makes useful things from seaweed."],
+    ["Sand Sculptor", "A beach artist who shapes entire worlds from wet sand."],
+    ["Wave Singer", "A melodic soul whose voice carries across the water."],
+    ["Lighthouse Keeper", "A solitary watcher who keeps the guiding light burning through storms."],
+    ["Shipwright", "A skilled builder who shapes timber into seaworthy vessels."],
+    ["Siren", "A haunting sea-singer whose voice draws ships off course."],
+    ["Sea Witch", "A mysterious practitioner of ocean magic and tide spells."],
+    ["Treasure Hunter", "A fortune-seeking diver who searches for sunken riches."],
+    ["Salvager", "A practical scavenger who recovers useful things from wrecks."],
+    ["Deckhand", "A hardworking crew member who keeps the ship running."],
+    ["Harbormaster", "An authority who keeps order where ships meet shore."],
+    ["Castaway", "A stranded survivor making the best of an unplanned island life."]
+  ]
+}

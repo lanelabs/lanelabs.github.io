@@ -1,0 +1,17 @@
+{
+  "description": "Alien and bioengineered plants from science fiction settings.",
+  "plants": [
+    ["Chromatic Spire", "A crystalline plant that refracts light into shifting rainbows, growing in spiraling towers on low-gravity worlds."],
+    ["Synth-Moss", "Engineered moss that scrubs carbon dioxide from station air, spreading across walls in programmed geometric patterns."],
+    ["Plasma Vine", "A plant that channels ambient electrical energy through its veins, crackling faintly in the dark."],
+    ["Void Orchid", "A flower that blooms in hard vacuum, its petals a membrane that photosynthesizes starlight."],
+    ["Terraform Seedling", "A fast-growing engineered tree designed to convert alien soil, the first step in making a dead world breathable."],
+    ["Neural Fungus", "A bioluminescent network of mycelium that responds to thought, pulsing brighter when sentient minds are near."],
+    ["Gravity Bloom", "A floating plant that hovers above the ground, its root tendrils dangling in the air, feeding on moisture and dust."],
+    ["Xenofern", "Alien fronds that curl and uncurl based on atmospheric pressure, serving as living barometers."],
+    ["Carbon Lattice Tree", "A tree-like structure with a trunk of woven carbon fiber, grown rather than manufactured."],
+    ["Cryo-Lily", "A flower that thrives in sub-zero temperatures, its petals made of thin ice crystals that never melt."],
+    ["Spore Tower", "A tall fungal structure that periodically releases clouds of spores, spreading its colony across entire continents."],
+    ["Dataroot", "A bioengineered plant whose root network stores and transmits data, a living alternative to fiber optic cable."]
+  ]
+}

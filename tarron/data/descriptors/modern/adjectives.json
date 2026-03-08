@@ -1,0 +1,27 @@
+{
+  "description": "Modern-world adjectives for describing everyday and technological items.",
+  "adjectives": [
+    ["Electric", "Powered by electricity, humming with energy."],
+    ["Digital", "Existing in electronic form, made of ones and zeros."],
+    ["Shiny", "Bright and reflective, catching the light."],
+    ["Brand-new", "Fresh from the factory, never used before."],
+    ["Vintage", "Old-fashioned in a charming, collectible way."],
+    ["Wireless", "Operating without cables or cords."],
+    ["Solar-powered", "Drawing energy from sunlight."],
+    ["Recycled", "Made from materials given a second life."],
+    ["Turbo", "Boosted for extra speed and power."],
+    ["Custom-built", "Made to order for a specific purpose."],
+    ["Secondhand", "Previously owned, carrying someone else's history."],
+    ["Homemade", "Built by hand with care and imperfection."],
+    ["Miniature", "Scaled down to a fraction of normal size."],
+    ["Glow-in-the-dark", "Absorbing light and releasing it in the darkness."],
+    ["Waterproof", "Sealed against moisture and rain."],
+    ["Personalized", "Customized with a name or unique design."],
+    ["Limited-edition", "Rare and produced in small quantities."],
+    ["Hand-painted", "Decorated by hand with careful brushwork."],
+    ["Retro", "Styled after a past era's look and feel."],
+    ["Pocket-sized", "Small enough to carry in a pocket."],
+    ["Wooden", "Made from carved and polished timber."],
+    ["Feathered", "Adorned with soft, colorful plumes."]
+  ]
+}

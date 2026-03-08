@@ -1,0 +1,10 @@
+{
+  "description": "Ferns, mosses, and other non-flowering primitive plants.",
+  "plants": [
+    ["Fern", "Unfurling fronds in the damp shade, spreading by spores instead of seeds, older than any flowering thing."],
+    ["Horsetail", "Jointed stems stacked like tiny bamboo, a living fossil that has looked the same for millions of years."],
+    ["Lichen", "A thin crust fused to rock or bark, so slow and patient it outlasts the surface it clings to."],
+    ["Liverwort", "Flat green lobes pressed against wet stone, so small and quiet it goes unnoticed by everything that walks past."],
+    ["Moss", "A soft green carpet clinging to stone and bark, quietly burying whatever it covers."]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "description": "Everyday foods from modern and contemporary settings.",
+  "foods": [
+    ["Sandwich", "Two slices of bread around whatever's in the fridge, cut diagonally because that makes it taste better."],
+    ["Pizza", "A wide round slab of melted cheese and sauce, eaten with hands and no regrets."],
+    ["Hot Chocolate", "Thick and steaming with a wobbling cap of marshmallow, the official drink of cold evenings."],
+    ["Ice Cream", "A scoop of something sweet and frozen, already melting faster than anyone can eat it."],
+    ["Cookies", "Warm from the oven with the chocolate still soft, crumbling at the first bite."],
+    ["Mac and Cheese", "Bright orange and gooey and exactly what everyone secretly wants for dinner."],
+    ["Pancakes", "Golden stacks drizzled with syrup, the breakfast that makes getting up worth it."],
+    ["Grilled Cheese", "Buttered bread pressed flat and toasted until the cheese inside turns stretchy and golden."]
+  ]
+}

@@ -4,18 +4,19 @@ You are designing a new narrative template for the bedtime story app. Your goal 
 
 ## Step 1: Read the Template Engine Reference
 
-Read ALL of these files before doing anything else:
+Read these files before doing anything else:
 
 1. `template_engine/dimensions.md` — The 18 dimensions and their tags
 2. `template_engine/placeholders.md` — All available placeholder syntax and forms
 3. `template_engine/ideas/inspiration.md` — One-line ideas and combinations to spark creativity
-4. `src/data/general/templates.js` — All existing templates (study these to avoid repeating patterns)
+4. `template_engine/README.md` — Coverage Status section shows which dimension tags are covered and which are underrepresented
+5. **One or two sample template files** from `src/data/general/templates/` (e.g. `core.js`, `cozy.js`) — study the format, comment blocks, and prose style. Do NOT read every template file; the README coverage summary is sufficient for gap analysis.
+
+Templates live in `src/data/general/templates/` as separate files (core.js, literary.js, fantasy.js, scifi.js, mystery.js, mythology.js, spooky.js, adventure.js, cozy.js, historical.js, nature.js, faction.js), combined by `index.js`.
 
 ## Step 2: Analyze Coverage Gaps
 
-Scan the dimension comment blocks on every existing template in `templates.js`. Identify which dimension tags have ZERO coverage or are underrepresented. Prioritize filling those gaps.
-
-The README at `template_engine/README.md` has a "Current Gaps" section listing known zero-coverage tags, but always verify against the actual templates in case it's out of date.
+Use the Coverage Status section in `template_engine/README.md` to identify which dimension tags have zero or low coverage. Prioritize filling those gaps.
 
 **Key coverage rule:** No two templates should share the same combination of Voice + Opening Technique + Structure. These three define the most visible "feel" of a template.
 
@@ -109,19 +110,19 @@ Choose tags honestly based on what you actually wrote, not what you intended. If
 
 ## Step 7: Add to Templates File
 
-Add the new template to the `templates` array in `src/data/general/templates.js`. Place it at the end of the array.
+Add the new template to the appropriate file in `src/data/general/templates/` (or create a new file and register it in `index.js`). Place it at the end of the file's array.
 
-If your template uses a placeholder form that doesn't exist yet (check `placeholders.md`), you'll also need to update the corresponding data file in `src/data/general/` to provide that form.
+If your template uses a placeholder form that doesn't exist yet (check `placeholders.md`), you'll also need to update the corresponding data file to provide that form.
 
 ## Step 8: Update Coverage Gaps
 
-Update the "Current Gaps" section in `template_engine/README.md` to reflect the new template's contributions. Move any newly covered tags from "Still zero coverage" to the "Tags now covered" list.
+Update the "Coverage Status" section in `template_engine/README.md` to reflect the new template's contributions.
 
 Also mark any used inspiration ideas in `template_engine/ideas/inspiration.md` with a strikethrough and note (following the existing pattern of marking used ideas).
 
 ## Reminders
 
-- **Be different.** Read the existing 12 templates carefully. If your template sounds like any of them, start over with a different creative constraint.
+- **Be different.** Review the coverage summary in `template_engine/README.md` and skim a couple of existing template files for tone. If your template sounds like any of them, start over with a different creative constraint.
 - **Test mentally.** Imagine 3-4 very different random fills. Does the template still read well? Does it still sound fun?
 - **Serve the parent.** The template is a springboard for a bedtime storytelling performance. It should inspire, not constrain.
 - **Have fun with it.** The best templates have personality — a voice, a twist, a wink. Don't write something safe and generic.

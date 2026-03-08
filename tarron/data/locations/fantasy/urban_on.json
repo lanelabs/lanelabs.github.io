@@ -1,0 +1,17 @@
+{
+    "description": "Urban locations are places that are inhabited by sapient beings, that only make sense to exist within a city or village. These should be varied and interesting to make for a colorful and diverse world, and provide good ideas for an urban fantasy setting",
+    "locations": [
+        [
+            "Viaduct",
+            "Stone arches stride across the lower city, carrying water that glitters in the sun. Moss creeps along the joints between ancient blocks."
+        ],
+        [
+            "Pier",
+            "Wooden planks stretch over dark water. Fishing boats knock against the posts, and gulls perch on every railing."
+        ],
+        [
+            "Harbor Pier",
+            "Thick timbers driven into the seabed, weathered gray by salt water. Ships tie off and gangplanks lower, connecting sea and city."
+        ]
+    ]
+}

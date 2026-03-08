@@ -1,0 +1,22 @@
+{
+  "description": "Sci-fi events and occasions.",
+  "occasions": [
+    ["A rocket launch", "A spacecraft roaring to life and climbing into the sky."],
+    ["A first contact", "The moment two species meet for the very first time."],
+    ["A systems failure", "Critical technology shutting down at the worst possible moment."],
+    ["A colony founding", "Pioneers planting their flag on a new world."],
+    ["A hyperspace jump", "Reality bending as a ship leaps between stars."],
+    ["A science fair", "Young inventors presenting wild ideas and working prototypes."],
+    ["A distress signal response", "A crew racing toward a cry for help in the void."],
+    ["A terraforming ceremony", "A barren world being officially declared habitable."],
+    ["An alien invasion", "An unknown force arriving with overwhelming power."],
+    ["A time travel experiment", "An attempt to reach into the past or future."],
+    ["A cryo-awakening", "Someone waking from frozen sleep into a changed world."],
+    ["A spacewalk", "A person stepping outside into the silence of space."],
+    ["A rebellion", "The oppressed rising up against those who hold power."],
+    ["A starship christening", "A new vessel receiving its name before its maiden voyage."],
+    ["An evacuation", "Everyone abandoning a place before it's too late."],
+    ["A wormhole opening", "A tunnel through space tearing open unexpectedly."],
+    ["A supply drop", "Essential resources arriving from far away."]
+  ]
+}

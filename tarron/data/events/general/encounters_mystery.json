@@ -1,0 +1,101 @@
+{
+  "description": "Mysteries & Oddities encounters.",
+  "encounters": [
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Abandoned Camp",
+      "details": "Recent campsite with fire still warm but no one around. Signs of struggle, or did they flee from something?",
+      "scale": "minor"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Crop Circles",
+      "details": "Elaborate patterns appear overnight in fields. Farmers blame fey, wizards suspect rituals, others see omens.",
+      "scale": "minor"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Mass Animal Behavior",
+      "details": "All animals of one type act strangely - birds fly in perfect formations, rats flee en masse, dogs howl at nothing.",
+      "scale": "minor"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Time Loop Village",
+      "details": "Settlement repeats same day endlessly. Residents may or may not be aware. Breaking loop requires solving mystery.",
+      "scale": "major"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Vanishing Road",
+      "details": "Well-traveled path disappears at night or in fog, leading travelers astray. Returns with dawn or clear weather.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Doppelganger Rumors",
+      "details": "Reports of people being in two places at once. Identity confusion, shapeshifter fears, or something stranger.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Singing Stones",
+      "details": "Mineral formation produces haunting melodies. Music might contain messages, magic, or madness.",
+      "scale": "minor"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Reverse Waterfall",
+      "details": "Water flows upward against gravity. Natural wonder, magical phenomenon, or sign of reality breaking down.",
+      "scale": "minor"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Memory Merchant",
+      "details": "Mysterious figure claims to buy and sell memories. Clients report gaps in recollection or knowledge they never had.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Probability Storm",
+      "details": "Area where luck goes wild - incredible coincidences, million-to-one chances happen constantly, dice always roll same number.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Color Drain",
+      "details": "Area slowly losing all color, becoming grayscale. Spreads slowly, artists panic, wizards investigate.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Dream Plague",
+      "details": "Everyone in area shares same recurring nightmare. Sleep deprivation causing accidents, madness, desperation.",
+      "scale": "major"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Backwards Village",
+      "details": "Settlement where everything runs in reverse - people walk backward, speak in reverse, age backward.",
+      "scale": "major"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Silence Zone",
+      "details": "Area of absolute silence - no sound possible. Sign language necessary, predators hunt soundlessly, magic affected.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Phantom Smells",
+      "details": "Strong scents with no source - baking bread, rotting flesh, exotic perfumes. May trigger memories or hide real odors.",
+      "scale": "trivial"
+    },
+    {
+      "type": "Mysteries & Oddities",
+      "name": "Shared Thoughts",
+      "details": "Everyone within area can hear surface thoughts of others. Privacy impossible, secrets revealed, chaos ensues.",
+      "scale": "major"
+    }
+  ]
+}

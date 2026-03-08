@@ -37,7 +37,7 @@ export const templates = [
   // Moral: label | Mystery: teaser | Spotlight: character-emotional
   // Structure: three-beat | Rhythm: mixed | Item-role: symbol | Scale: local | Genre-feel: myth
   // Shape: exile-and-return
-  '{Character1.emotional} used to belong in {setting|event}. That was before {hook.verb} — before everything fell apart and the only choice was to leave.\n\n{Weather}, far from home, the {role} they\'d been raised to be felt like a stranger\'s life. {Character2} found them anyway, carrying {item} and a question that wouldn\'t wait.\n\nSome things can\'t stay buried. The return begins — {aTone} legend about {wish.bare} and {moral.about}.',
+  '{Character1.emotional} used to belong {setting.placed|event.placed}. That was before {hook.verb} — before everything fell apart and the only choice was to leave.\n\n{Weather}, far from home, the {role} they\'d been raised to be felt like a stranger\'s life. {Character2} found them anyway, carrying {item} and a question that wouldn\'t wait.\n\nSome things can\'t stay buried. The return begins — {aTone} legend about {wish.bare} and {moral.about}.',
 
   // Template 52 — Befriending the Feared
   // Voice: confessional | Opening: contrast | Temporal: linear | Dynamic: believer-skeptic | Agency: proactive
@@ -45,7 +45,7 @@ export const templates = [
   // Moral: woven | Mystery: teaser | Spotlight: character-both
   // Structure: two-para | Rhythm: mixed | Item-role: symbol | Scale: local | Genre-feel: neutral
   // Shape: choosing-who-you-are
-  'Everyone said {character2} was dangerous. In {setting|event}, {weather}, the warnings were simple: stay away. {Hook} was proof enough for most people. But {character1.emotional} didn\'t listen.\n\nIt started with {item} — left out like a peace offering, taken like one too. The {role} wasn\'t what anyone expected. Neither was the friendship. A {tone} story about {wish.bare} — and how {moral.about} matters more than what you\'re told to believe.',
+  'Everyone said {character2} was dangerous. {Setting.placed|event.placed}, {weather}, the warnings were simple: stay away. {Hook} was proof enough for most people. But {character1.emotional} didn\'t listen.\n\nIt started with {item} — left out like a peace offering, taken like one too. The {role} wasn\'t what anyone expected. Neither was the friendship. A {tone} story about {wish.bare} — and how {moral.about} matters more than what you\'re told to believe.',
 
   // Template 53 — Everything Inside Out
   // Voice: warning | Opening: impossible-image | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -85,7 +85,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: story-shape
   // Structure: dialogue | Rhythm: mixed | Item-role: key | Scale: local | Genre-feel: fairy-tale
   // Shape: story-being-told
-  '"Is this the kind with a happy ending?" "The best kind." All right — here it is.\n\n{Weather}, in {setting|event}, {character1.emotional} meets {character2} — a {role} with {item} and absolutely no plan. {Hook} gets in the way, obviously. There are chases. There\'s danger. There are moments so {tone} you almost forget to breathe. All they want is {wish}. And yes — it\'s about {moral.about}.\n\n"That\'s not bad." "I told you."',
+  '"Is this the kind with a happy ending?" "The best kind." All right — here it is.\n\n{Weather}, {setting.placed|event.placed}, {character1.emotional} meets {character2} — a {role} with {item} and absolutely no plan. {Hook} gets in the way, obviously. There are chases. There\'s danger. There are moments so {tone} you almost forget to breathe. All they want is {wish}. And yes — it\'s about {moral.about}.\n\n"That\'s not bad." "I told you."',
 
   // Template 58 — The Promise That Waited
   // Voice: confessional | Opening: contrast | Temporal: flashback | Dynamic: reluctant-partners | Agency: reluctant
@@ -121,7 +121,7 @@ export const templates = [
   // Moral: woven | Mystery: laid-out | Spotlight: character-both
   // Structure: two-para | Rhythm: short-punchy | Item-role: catalyst | Scale: local | Genre-feel: neutral
   // Shape: learning-to-share
-  '{Character1.emotional} had been the {role} in {setting|event} for as long as anyone could remember. Reliable. Trusted. Irreplaceable. Then {character2} showed up — newer, shinier, carrying {item} like it was no big deal.\n\n{Weather}, {hook} forced them together, which was the last thing either wanted. Jealousy is a strange starting point for a friendship. But so is {wish.bare}. A {tone} story, in the end, about {moral.about}.',
+  '{Character1.emotional} had been the {role} {setting.placed|event.placed} for as long as anyone could remember. Reliable. Trusted. Irreplaceable. Then {character2} showed up — newer, shinier, carrying {item} like it was no big deal.\n\n{Weather}, {hook} forced them together, which was the last thing either wanted. Jealousy is a strange starting point for a friendship. But so is {wish.bare}. A {tone} story, in the end, about {moral.about}.',
 
   // Template 62 — Pulled Inside the Pages
   // Voice: direct-address | Opening: rule-to-break | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -129,7 +129,7 @@ export const templates = [
   // Moral: label | Mystery: teaser | Spotlight: item
   // Structure: two-para | Rhythm: flowing | Item-role: catalyst | Scale: expanding | Genre-feel: fairy-tale
   // Shape: story-that-pulls-you-in
-  'Don\'t read too far into this one. I\'m serious. Because somewhere in {setting|event}, {weather}, {character1.emotional} opened {item} — and the story inside started reading back.\n\n{Character2}, a {role} from the other side of the page, stepped through like it was nothing. {Hook} was already written. The ending wasn\'t. And now the only way out is through — a {tone} tale about {wish.bare} and {moral.about}.',
+  'Don\'t read too far into this one. I\'m serious. Because somewhere {setting.placed|event.placed}, {weather}, {character1.emotional} opened {item} — and the story inside started reading back.\n\n{Character2}, a {role} from the other side of the page, stepped through like it was nothing. {Hook} was already written. The ending wasn\'t. And now the only way out is through — a {tone} tale about {wish.bare} and {moral.about}.',
 
   // Template 63 — Nobody Expected Them
   // Voice: campfire | Opening: contrast | Temporal: linear | Dynamic: helper | Agency: proactive
@@ -137,7 +137,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: local | Genre-feel: tall-tale
   // Shape: unlikely-greatness
-  'Let me be clear: nobody — and I mean nobody — expected {character1.emotional} to be the one. Not in {setting|event}. Not {weather}. The {role} was supposed to be someone bigger, someone louder, someone who looked the part.\n\nBut {hook} doesn\'t care about appearances. Neither does {item}. {Character2} was the only one paying attention when {item} changed hands and the balance of power shifted. Turns out, being underestimated is its own kind of advantage. A {tone} tale about {wish.bare} — proof that {moral.about} has nothing to do with size.',
+  'Let me be clear: nobody — and I mean nobody — expected {character1.emotional} to be the one. Not {setting.placed|event.placed}. Not {weather}. The {role} was supposed to be someone bigger, someone louder, someone who looked the part.\n\nBut {hook} doesn\'t care about appearances. Neither does {item}. {Character2} was the only one paying attention when {item} changed hands and the balance of power shifted. Turns out, being underestimated is its own kind of advantage. A {tone} tale about {wish.bare} — proof that {moral.about} has nothing to do with size.',
 
   // Template 64 — The Forgotten Garden
   // Voice: bedtime-whisper | Opening: sensory | Temporal: linear | Dynamic: strangers | Agency: proactive
@@ -145,7 +145,7 @@ export const templates = [
   // Moral: woven | Mystery: withhold-hook | Spotlight: setting
   // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: intimate | Genre-feel: fable
   // Shape: hidden-garden
-  'Behind everything else in {setting|event} — past the noise, past the forgetting — there was a place nobody visited anymore. {Weather}, {character1.emotional} found the way in. The {item.bare} fit the lock like it had been waiting.\n\nInside, everything was overgrown and quiet and alive. {Character2}, a {role} with nowhere else to go, had been there all along. {Hook} was what closed it off in the first place. But some things heal when you tend to them — a {tone} kind of healing, built from {wish.bare} and {moral.about}.',
+  'Behind everything else {setting.placed|event.placed} — past the noise, past the forgetting — there was a place nobody visited anymore. {Weather}, {character1.emotional} found the way in. The {item.bare} fit the lock like it had been waiting.\n\nInside, everything was overgrown and quiet and alive. {Character2}, a {role} with nowhere else to go, had been there all along. {Hook} was what closed it off in the first place. But some things heal when you tend to them — a {tone} kind of healing, built from {wish.bare} and {moral.about}.',
 
   // Template 65 — Wanting to Be Real
   // Voice: confessional | Opening: declarative | Temporal: linear | Dynamic: helper | Agency: proactive
@@ -153,7 +153,7 @@ export const templates = [
   // Moral: woven | Mystery: teaser | Spotlight: character-emotional
   // Structure: two-para | Rhythm: flowing | Item-role: symbol | Scale: local | Genre-feel: fable
   // Shape: becoming-real
-  '{Character1.emotional} wanted one thing — to be real. Not pretend-real. Not almost-real. The kind of real that {character2} was without even trying. In {setting|event}, {weather}, that seemed like the hardest thing in the world.\n\n{Hook} was supposed to be the test. {Item} was supposed to be the proof. But the {role} who watched over them knew the truth: becoming real has nothing to do with tests. It\'s {aTone} story about {wish.bare} — where {moral.about} turns out to be the only thing that was ever real at all.',
+  '{Character1.emotional} wanted one thing — to be real. Not pretend-real. Not almost-real. The kind of real that {character2} was without even trying. {Setting.placed|event.placed}, {weather}, that seemed like the hardest thing in the world.\n\n{Hook} was supposed to be the test. {Item} was supposed to be the proof. But the {role} who watched over them knew the truth: becoming real has nothing to do with tests. It\'s {aTone} story about {wish.bare} — where {moral.about} turns out to be the only thing that was ever real at all.',
 
   // Template 66 — The Thaw
   // Voice: legend | Opening: contrast | Temporal: linear | Dynamic: protector-ward | Agency: reluctant
@@ -161,7 +161,7 @@ export const templates = [
   // Moral: tested | Mystery: teaser | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: burden | Scale: local | Genre-feel: fairy-tale
   // Shape: power-within
-  '{Character1.emotional} kept everyone at arm\'s length — not out of cruelty, but out of fear. In {setting|event}, {weather}, {hook} was the proof: the power inside them was too much. Too wild. Too dangerous to let anyone close.\n\n{Character2} came close anyway. The {role} brought {item} — not as a weapon, not as a shield, but as something to hold together. The fear didn\'t vanish. It thawed. A {tone} story about {wish.bare} and whether {moral.about} is stronger than what you\'re afraid of.',
+  '{Character1.emotional} kept everyone at arm\'s length — not out of cruelty, but out of fear. {Setting.placed|event.placed}, {weather}, {hook} was the proof: the power inside them was too much. Too wild. Too dangerous to let anyone close.\n\n{Character2} came close anyway. The {role} brought {item} — not as a weapon, not as a shield, but as something to hold together. The fear didn\'t vanish. It thawed. A {tone} story about {wish.bare} and whether {moral.about} is stronger than what you\'re afraid of.',
 
   // Template 67 — Until Nothing Was Left
   // Voice: bedtime-whisper | Opening: declarative | Temporal: linear | Dynamic: helper | Agency: passive
@@ -169,7 +169,7 @@ export const templates = [
   // Moral: woven | Mystery: laid-out | Spotlight: character-both
   // Structure: two-para | Rhythm: flowing | Item-role: last | Scale: intimate | Genre-feel: fable
   // Shape: giving-everything
-  '{Character1.emotional} gave. That\'s what they did — in {setting|event}, {weather}, whenever {character2} needed something. First it was small things. Then it was {item}. Then it was more than that.\n\n{Hook} came and went, and still the {role} gave. Not because anyone asked. Because that\'s who they were. By the end, what was left was {tone} and quiet and enough. All they wanted was {wish}. A story about {moral.about} — and how the giving was the gift.',
+  '{Character1.emotional} gave. That\'s what they did — {setting.placed|event.placed}, {weather}, whenever {character2} needed something. First it was small things. Then it was {item}. Then it was more than that.\n\n{Hook} came and went, and still the {role} gave. Not because anyone asked. Because that\'s who they were. By the end, what was left was {tone} and quiet and enough. All they wanted was {wish}. A story about {moral.about} — and how the giving was the gift.',
 
   // Template 68 — The Dubious Guide
   // Voice: campfire | Opening: dialogue-cold | Temporal: linear | Dynamic: fragile-alliance | Agency: proactive
@@ -177,7 +177,7 @@ export const templates = [
   // Moral: label | Mystery: teaser | Spotlight: character-both
   // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: expanding | Genre-feel: adventure-serial
   // Shape: treasure-hunt
-  '"I know where it is," said {character2}. "I just need a {role} brave enough to come with me." {Character1.emotional} should have said no. {Weather}, in {setting|event}, following a stranger toward {hook} was the worst idea imaginable.\n\n{Item} was the map — or the key — or the only thing keeping them honest. Hard to tell which. The treasure hunt got {tone} fast, and trust was the rarest thing they found. All they wanted was {wish}. A tale about {moral.about}.',
+  '"I know where it is," said {character2}. "I just need a {role} brave enough to come with me." {Character1.emotional} should have said no. {Weather}, {setting.placed|event.placed}, following a stranger toward {hook} was the worst idea imaginable.\n\n{Item} was the map — or the key — or the only thing keeping them honest. Hard to tell which. The treasure hunt got {tone} fast, and trust was the rarest thing they found. All they wanted was {wish}. A tale about {moral.about}.',
 
   // ---------------------------------------------------------------
   // Round 3 — Templates 69–78
@@ -189,7 +189,7 @@ export const templates = [
   // Moral: woven | Mystery: teaser | Spotlight: character-both
   // Structure: two-para | Rhythm: flowing | Item-role: symbol | Scale: local | Genre-feel: fable
   // Shape: forbidden-friendship
-  'In {setting|event}, {character1.emotional} and {character2} were never supposed to be friends. Everyone knew the rules. The {role} and the outsider don\'t mix — not {weather}, not ever. {Hook} was the reason why.\n\n{Item} was how it started — passed between them when nobody was looking. The friendship grew in secret, {tone} and stubborn, until the rules didn\'t matter as much as {wish.bare}. A story about {moral.about} — and how the best friendships are the ones you\'re not supposed to have.',
+  '{Setting.placed|event.placed}, {character1.emotional} and {character2} were never supposed to be friends. Everyone knew the rules. The {role} and the outsider don\'t mix — not {weather}, not ever. {Hook} was the reason why.\n\n{Item} was how it started — passed between them when nobody was looking. The friendship grew in secret, {tone} and stubborn, until the rules didn\'t matter as much as {wish.bare}. A story about {moral.about} — and how the best friendships are the ones you\'re not supposed to have.',
 
   // Template 70 — The Place Where No One Grows Up
   // Voice: direct-address | Opening: question-hook | Temporal: linear | Dynamic: strangers | Agency: proactive
@@ -205,7 +205,7 @@ export const templates = [
   // Moral: label | Mystery: teaser | Spotlight: character-both
   // Structure: two-para | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: neutral
   // Shape: fear-turned-friendship
-  '{Character1.emotional} was trained for one thing: make sure nobody in {setting|event} ever comes face to face with {hook}. Simple job. Important job. Then {character2} showed up — small, loud, and completely unafraid.\n\n{Weather}, the {role} who was supposed to be scary discovered something inconvenient: the thing on the other side of the door needed help. {Item} was the proof. The fear fell apart. The friendship didn\'t. A {tone} tale about {wish.bare} and {moral.about}.',
+  '{Character1.emotional} was trained for one thing: make sure nobody {setting.placed|event.placed} ever comes face to face with {hook}. Simple job. Important job. Then {character2} showed up — small, loud, and completely unafraid.\n\n{Weather}, the {role} who was supposed to be scary discovered something inconvenient: the thing on the other side of the door needed help. {Item} was the proof. The fear fell apart. The friendship didn\'t. A {tone} tale about {wish.bare} and {moral.about}.',
 
   // Template 72 — The Lonely Caretaker
   // Voice: bedtime-whisper | Opening: sensory | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -221,7 +221,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: expanding | Genre-feel: adventure-serial
   // Shape: reluctant-adventure
-  '{Character1.emotional} liked things exactly the way they were — {weather}, a comfortable spot in {setting|event}, and absolutely no surprises. That was the plan. That had always been the plan. Then {character2}, a {role} with a terrible sense of timing, knocked on the door.\n\n"There\'s something you need to see." {Hook} wasn\'t optional, apparently. Neither was {item}. The adventure that followed was {tone} and exhausting and nothing like staying home. All they wanted was {wish}. A tale about {moral.about}.',
+  '{Character1.emotional} liked things exactly the way they were — {weather}, a comfortable spot {setting.placed|event.placed}, and absolutely no surprises. That was the plan. That had always been the plan. Then {character2}, a {role} with a terrible sense of timing, knocked on the door.\n\n"There\'s something you need to see." {Hook} wasn\'t optional, apparently. Neither was {item}. The adventure that followed was {tone} and exhausting and nothing like staying home. All they wanted was {wish}. A tale about {moral.about}.',
 
   // Template 74 — Small but Mighty
   // Voice: rhetorical | Opening: contrast | Temporal: linear | Dynamic: strangers | Agency: proactive
@@ -229,7 +229,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: catalyst | Scale: local | Genre-feel: tall-tale
   // Shape: small-but-mighty
-  'Here\'s what they didn\'t know about {character1.emotional}: everything. In {setting|event}, {weather}, being small meant being overlooked. The {role} in charge had made that clear. {Hook} was supposed to be too big for someone like them.\n\n{Character2} was the only one paying attention when {item} changed hands and the balance of power shifted. Turns out, being underestimated is its own kind of advantage. A {tone} tale about {wish.bare} — where {moral.about} belongs to whoever is clever enough to claim it.',
+  'Here\'s what they didn\'t know about {character1.emotional}: everything. {Setting.placed|event.placed}, {weather}, being small meant being overlooked. The {role} in charge had made that clear. {Hook} was supposed to be too big for someone like them.\n\n{Character2} was the only one paying attention when {item} changed hands and the balance of power shifted. Turns out, being underestimated is its own kind of advantage. A {tone} tale about {wish.bare} — where {moral.about} belongs to whoever is clever enough to claim it.',
 
   // Template 75 — What Makes You Real
   // Voice: bedtime-whisper | Opening: question-hook | Temporal: linear | Dynamic: helper | Agency: passive
@@ -237,7 +237,7 @@ export const templates = [
   // Moral: woven | Mystery: question-based | Spotlight: character-emotional
   // Structure: two-para | Rhythm: flowing | Item-role: comfort | Scale: intimate | Genre-feel: fable
   // Shape: what-makes-you-real
-  'When does something become real? {Character1.emotional} didn\'t know — not yet. In {setting|event}, {weather}, they sat with {item}, worn thin and held close, wondering if being loved long enough could change what you are.\n\n{Character2}, the {role} who\'d seen it happen before, said nothing. {Hook} wasn\'t the kind of question you answer with words. Real isn\'t about being new or shiny. It\'s {aTone} feeling — the kind that comes from {wish.bare} and {moral.about}.',
+  'When does something become real? {Character1.emotional} didn\'t know — not yet. {Setting.placed|event.placed}, {weather}, they sat with {item}, worn thin and held close, wondering if being loved long enough could change what you are.\n\n{Character2}, the {role} who\'d seen it happen before, said nothing. {Hook} wasn\'t the kind of question you answer with words. Real isn\'t about being new or shiny. It\'s {aTone} feeling — the kind that comes from {wish.bare} and {moral.about}.',
 
   // Template 76 — Take from the Powerful
   // Voice: campfire | Opening: declarative | Temporal: linear | Dynamic: fragile-alliance | Agency: proactive
@@ -245,7 +245,7 @@ export const templates = [
   // Moral: tested | Mystery: teaser | Spotlight: character-both
   // Structure: two-para | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: adventure-serial
   // Shape: noble-thief
-  'The plan was simple: take {item} from the {role} who didn\'t deserve it and give it to {character2}, who did. {Character1.emotional} had done this kind of thing before. In {setting|event}, {weather}, it was practically tradition.\n\nBut {hook} complicated everything. The line between right and wrong got blurry fast. The theft was {tone}. The giving was harder. All they wanted was {wish}. A tale about {moral.about} — and whether stealing can ever be the right thing to do.',
+  'The plan was simple: take {item} from the {role} who didn\'t deserve it and give it to {character2}, who did. {Character1.emotional} had done this kind of thing before. {Setting.placed|event.placed}, {weather}, it was practically tradition.\n\nBut {hook} complicated everything. The line between right and wrong got blurry fast. The theft was {tone}. The giving was harder. All they wanted was {wish}. A tale about {moral.about} — and whether stealing can ever be the right thing to do.',
 
   // Template 77 — Those Who Came Before
   // Voice: legend | Opening: sensory | Temporal: flashback | Dynamic: seeker | Agency: proactive

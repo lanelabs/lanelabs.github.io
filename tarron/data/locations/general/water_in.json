@@ -1,0 +1,301 @@
+{
+    "description": "Rivers, lakes, seas, and frozen waters. Places where currents pull, depths hide old secrets, and the surface never tells the whole story.",
+    "locations": [
+        [
+            "Whirlpool",
+            "The water spirals with a low, hungry roar. Debris circles the rim before vanishing into a throat of black water that swallows everything whole."
+        ],
+        [
+            "Vent Field",
+            "Columns of shimmering heat twist upward from cracks in the ocean floor. The water here tastes of iron and the stone is warm to the touch."
+        ],
+        [
+            "Vent Plumes",
+            "Dark billowing clouds rise from the seabed, staining the water black and hot. Strange shapes drift at the edges, drawn to the warmth."
+        ],
+        [
+            "Volcano Cone",
+            "A mountain rises from the deep, its peak crowned in steam and fissures of molten glow. The water near its slopes is bath-warm and stinks of sulfur."
+        ],
+        [
+            "Sunken Vessel",
+            "A hull rests on its side in the murk, rigging trailing like dead vines. Fish dart through the shattered deck where something still glints below."
+        ],
+        [
+            "Sunken Fleet",
+            "Masts jut from the silt like a drowned forest. Dozens of ships lie tangled together, their holds sealed and their stories lost to the current."
+        ],
+        [
+            "Sunken Treasure",
+            "Gold coins carpet the sand between broken timbers. The glint is almost too easy to spot, as though something wants visitors to reach down."
+        ],
+        [
+            "Sunken City",
+            "Rooftops and broken towers emerge from the green murk. Streets of pale stone vanish into deeper water where faint lights still flicker."
+        ],
+        [
+            "Sunken Temple",
+            "Carved pillars rise from the silt, still holding a roof crusted with barnacles. The altar inside is clean, as though something still tends it."
+        ],
+        [
+            "Siren Shoals",
+            "Beautiful singing drifts across the water, faint and warm. The rocks just beneath the surface are littered with the splintered bones of ships."
+        ],
+        [
+            "Ship Graveyard",
+            "Broken hulls crowd the shallows, heaped and rotting. The tide groans through their ribs. Gulls circle but never land."
+        ],
+        [
+            "Seamount",
+            "The ocean floor rises sharply here into a flat-topped peak. Currents swirl with unusual force, and the water above teems with restless life."
+        ],
+        [
+            "Sea Cave",
+            "Waves boom inside the dark mouth of stone. At low tide you can walk in. At high tide, whatever entered has nowhere to go."
+        ],
+        [
+            "Coral Reef",
+            "Colors riot beneath the surface, alive and sharp-edged. The reef hums with movement and clicks with hidden claws. Touch the wrong branch and it bites back."
+        ],
+        [
+            "Kelp Forest",
+            "Tall green fronds sway in the current like slow curtains. Light filters through in shifting columns. Shadows move between the stalks that could be anything."
+        ],
+        [
+            "Ford",
+            "The river widens and goes shallow over smooth stones. Easy crossing, but the banks on both sides are thick with cover where anything could wait."
+        ],
+        [
+            "Grotto",
+            "Water drips in steady echoes inside a chamber of smooth wet stone. Light enters from below, casting rippling blue across the ceiling."
+        ],
+        [
+            "Spring",
+            "Clear water wells up from bare rock, cold enough to ache. The ground around it is impossibly green, and animals have worn deep paths to reach it."
+        ],
+        [
+            "Lake",
+            "Still water stretches to the far shore, glassy and dark. The silence is total. Whatever lives below the surface has not broken it in a long time."
+        ],
+        [
+            "River",
+            "The current runs steady and brown, carrying branches and secrets from somewhere upstream. The far bank looks easy to reach but the middle runs fast and deep."
+        ],
+        [
+            "Pond",
+            "A quiet circle of water edged in reeds and cattails. Frogs go silent as you approach. The bottom is soft mud that does not let go easily."
+        ],
+        [
+            "Stream",
+            "Cold water babbles over clean stones, barely knee-deep. It seems harmless, but it comes from somewhere higher and colder, carrying a faint mineral smell."
+        ],
+        [
+            "Creek",
+            "A thin ribbon of water winds through the underbrush, almost hidden. Follow it upstream and it gets colder. Follow it down and it disappears into the earth."
+        ],
+        [
+            "Cove",
+            "Cliffs curve around a pocket of calm water, sheltered from the open sea. The sand is untouched. A perfect hiding place, which means someone else may know it too."
+        ],
+        [
+            "Crater Lake",
+            "Water fills a vast stone bowl high in the mountains. The surface is unnaturally still and deeply blue. No streams feed it and nothing seems to live in it."
+        ],
+        [
+            "Glacier Lake",
+            "Milky blue water sits at the foot of a wall of ancient ice. The cold radiates from it in waves. Chunks of ice drift and turn slowly in the stillness."
+        ],
+        [
+            "Bay",
+            "The coastline curves inward, sheltering the water from open waves. Ships anchor here, and the beach is scarred with old fire pits and drag marks."
+        ],
+        [
+            "Waterfall",
+            "Water roars over a cliff edge in a white curtain, pounding the rocks below into mist. The noise swallows every other sound. A cave mouth hides behind the veil."
+        ],
+        [
+            "Rapids",
+            "The river narrows and drops through a gauntlet of boulders. White water crashes and spits. Anything that falls in here does not choose where it goes."
+        ],
+        [
+            "Delta",
+            "The river breaks into a hundred slow fingers, spreading across flat land choked with reeds. Channels shift with every flood. Maps of this place are never right twice."
+        ],
+        [
+            "Estuary",
+            "Salt and fresh water mingle in a wide, brackish stretch. The banks are soft and treacherous. Herons stand motionless, watching the murk for movement below."
+        ],
+        [
+            "Lagoon",
+            "Warm shallow water glows turquoise over white sand. The beauty is disarming. Beneath the surface, the sand shifts in patterns that suggest something burrowing."
+        ],
+        [
+            "Fjord",
+            "Sheer cliff walls plunge straight into black water on both sides. The passage is narrow and the echoes carry for miles. Waterfalls thread down the stone."
+        ],
+        [
+            "Strait",
+            "Two landmasses squeeze the ocean into a rushing corridor. The current is brutal and the wind funnels through. Ships that lose power here do not get second chances."
+        ],
+        [
+            "Channel",
+            "A deep cut of navigable water runs between shallows. The passage is well-known but narrow. What sits on either side controls who passes through."
+        ],
+        [
+            "Tidal Pool",
+            "A shallow basin of trapped seawater, alive with small bright creatures. Anemones pulse and crabs freeze mid-step. The ocean will reclaim this in hours."
+        ],
+        [
+            "Hot Spring",
+            "Steam curls off water that glows faintly in the dimness. The heat soaks into aching bones. The mineral smell is sharp, and the rocks are stained white and orange."
+        ],
+        [
+            "Geyser",
+            "The ground rumbles and hisses before a column of boiling water erupts skyward. The spray scalds. The ground around it is fragile crust over scalding hollows."
+        ],
+        [
+            "Marsh",
+            "Tall grasses stretch in every direction over waterlogged ground. Each step squelches and sinks. The air is thick with insects and the sweet rot of standing water."
+        ],
+        [
+            "Swamp",
+            "Dark water sits stagnant beneath a canopy of twisted trees draped in moss. The air is heavy and warm. Bubbles rise from the mud without explanation."
+        ],
+        [
+            "Bog",
+            "Spongy ground gives way underfoot to black water that smells of peat and decay. The mist sits low and thick. Old things are preserved here, not all of them natural."
+        ],
+        [
+            "Wetland",
+            "Water and land blur together across a flat expanse of reeds and shallow pools. Birds rise in startled clouds. The footing is never certain and the paths shift with the season."
+        ],
+        [
+            "Mudflat",
+            "The tide has pulled back to reveal a vast stretch of gleaming mud, pocked with worm holes and crab burrows. The stink is powerful. Things lost at sea wash up here."
+        ],
+        [
+            "Archipelago",
+            "Islands dot the water in a scattered chain, each one different. Some are green and lush, others bare rock. The channels between them run with unpredictable currents."
+        ],
+        [
+            "Inlet",
+            "A narrow finger of sea reaches inland between wooded banks. The water is deep and quiet. Small boats could hide here unseen from the open coast."
+        ],
+        [
+            "Sound",
+            "A broad protected waterway separates the mainland from a long island. The water is calmer than the open sea but deep enough to hold old wrecks and older things."
+        ],
+        [
+            "Gulf",
+            "The ocean pushes far inland, creating a vast curved basin of deep water. The shores are distant and hazy. Storms that enter here have nowhere to spend their fury but the coast."
+        ],
+        [
+            "Confluence",
+            "Two rivers collide in a churning seam of different-colored water. The current is confused and powerful. Debris collects in spinning eddies at the joining."
+        ],
+        [
+            "Oxbow Lake",
+            "A crescent of still water sits apart from the river that abandoned it. Lily pads cover the surface. It feels forgotten, a quiet pocket the current left behind."
+        ],
+        [
+            "Plunge Pool",
+            "A deep basin carved by falling water, churning white at the center and clear at the edges. The mist keeps everything damp. Smooth stones ring the bottom like teeth."
+        ],
+        [
+            "Cascade",
+            "Water spills down a staircase of stone ledges, each drop feeding the next in a chain of white curtains. The roar builds as you descend. The rocks are slick and unforgiving."
+        ],
+        [
+            "Cenote",
+            "A round hole in the limestone opens to reveal blue water far below. Vines trail down the walls. The ancient stains on the rock ledge suggest this place once had a purpose."
+        ],
+        [
+            "Sinkhole",
+            "The ground collapsed here, revealing a deep pit half-filled with dark water. The edges are crumbling and unstable. Something pale moves in the depths."
+        ],
+        [
+            "Artesian Spring",
+            "Water pushes up through the rock with steady pressure, welling into a clear pool without any visible source. The ground around it stays lush even in drought."
+        ],
+        [
+            "Thermal Spring",
+            "Warm water seeps from the rock, filling a series of shallow pools that steam in the cool air. The minerals have painted the stone in streaks of rust and gold."
+        ],
+        [
+            "Mineral Spring",
+            "The water here tastes of salt and copper and leaves a white crust on every stone it touches. People once traveled far to drink it. The old shelters still stand."
+        ],
+        [
+            "Underground River",
+            "Black water rushes through a stone passage, the current fast and echoing. The ceiling is low and the banks are narrow. Wherever it goes, no light has ever followed."
+        ],
+        [
+            "Underground Lake",
+            "A vast still surface stretches into darkness beyond the reach of any torch. The silence is absolute. A dropped stone echoes for a long, long time."
+        ],
+        [
+            "Flooded Cavern",
+            "Water fills a cave system to the ceiling in places, leaving only inches of air in others. The walls are slick and the current subtle but insistent."
+        ],
+        [
+            "Tide Cave",
+            "At low tide the cave is walkable, its walls crusted with salt and shell. At high tide the ocean fills it entirely. Timing is everything here."
+        ],
+        [
+            "Blowhole",
+            "A crack in the coastal rock erupts with a geyser of seawater every time a wave hits below. The spray is violent and the ground around it trembles with each blast."
+        ],
+        [
+            "Natural Arch",
+            "The sea has eaten through a headland, leaving a bridge of stone over crashing water. The span is narrow and the wind tears through. Walking across is a dare."
+        ],
+        [
+            "Beaver Pond",
+            "A wall of sticks and mud has backed the stream into a wide, shallow lake. The water is still and dark with tannin. Gnawed stumps ring the shore like old sentries."
+        ],
+        [
+            "Frozen Lake",
+            "Ice stretches from shore to shore, thick enough to walk on but groaning with every step. Snow covers the surface. Beneath the ice, dark shapes drift slowly."
+        ],
+        [
+            "Frozen River",
+            "The river has stopped, locked under a sheet of clouded ice. The banks are crusted with frost. In the silence you can hear the water still moving somewhere below."
+        ],
+        [
+            "Ice Dam",
+            "A wall of packed ice blocks the river, forcing the water to pool and spread. The pressure builds behind it with soft cracking sounds. When it breaks, everything downstream will know."
+        ],
+        [
+            "Glacial Pool",
+            "Meltwater collects in a depression of scored stone, painfully blue and cold enough to stop your heart. The glacier towers above, ancient and indifferent."
+        ],
+        [
+            "Meltwater Stream",
+            "A thin rush of icy water spills from the edge of a glacier, cutting a channel through gravel and silt. The water is cloudy white and so cold it burns."
+        ],
+        [
+            "Alpine Lake",
+            "A jewel of blue water sits in a high stone bowl above the treeline. The air is thin and sharp. Wind ripples the surface under a sky that feels close enough to touch."
+        ],
+        [
+            "Mountain Lake",
+            "Evergreens crowd the shore of a cold, clear lake nestled between peaks. The reflections are perfect and undisturbed. Sound carries strangely across the water here."
+        ],
+        [
+            "Salt Lake",
+            "White crusted shores surround water so dense nothing sinks. The air shimmers with heat and the smell of brine. Nothing grows at the waterline. Nothing drinks here."
+        ],
+        [
+            "Brine Pool",
+            "A pocket of water denser than the sea around it sits on the ocean floor like a lake within a lake. Its edges shimmer. Creatures that wander in do not wander out."
+        ],
+        [
+            "Ship",
+            "Timbers creak and sails snap overhead. The deck tilts with each swell, and the horizon stretches in every direction with nothing to hold onto."
+        ],
+        [
+            "Harbor",
+            "Masts crowd the waterline and ropes creak against pilings. The air smells of salt and tar, and cargo moves in steady rhythm."
+        ]
+    ]
+}

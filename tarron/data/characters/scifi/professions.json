@@ -1,0 +1,22 @@
+{
+  "description": "Human roles and occupations in sci-fi settings.",
+  "characters": [
+    ["Astronaut", "A space-trained explorer who ventures beyond the atmosphere."],
+    ["Scientist", "A hypothesis-driven researcher pushing the boundaries of knowledge."],
+    ["Engineer", "A problem-solving builder who keeps complex systems running."],
+    ["Pilot", "A skilled flyer who navigates ships through stars and storms."],
+    ["Hacker", "A digital infiltrator who bends computer systems to their will."],
+    ["Space Captain", "A commanding presence who leads a crew through the void."],
+    ["Smuggler", "A risk-taking hauler who moves cargo past the authorities."],
+    ["Bounty Hunter", "A relentless tracker who hunts targets for a price."],
+    ["Mechanic", "A grease-stained fixer who keeps machines alive."],
+    ["Rebel", "A defiant fighter who challenges the powers that be."],
+    ["Cadet", "A young recruit training for service among the stars."],
+    ["Commander", "A decisive officer who makes the calls when it matters most."],
+    ["Navigator", "A course-plotting specialist who charts paths through space."],
+    ["Scavenger", "A resourceful survivor who finds value in what others discard."],
+    ["Colonist", "A pioneer building a new life on an untamed world."],
+    ["Stowaway", "An uninvited passenger hiding in the cargo hold."],
+    ["Medic", "A field healer who patches up crew in the heat of action."]
+  ]
+}

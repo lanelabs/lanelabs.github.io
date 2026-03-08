@@ -1,0 +1,11 @@
+{
+  "description": "Fabricated and futuristic foods from sci-fi settings.",
+  "foods": [
+    ["Nutrient Paste", "A bland efficient tube of everything the body needs and nothing the tongue wants."],
+    ["Printed Meal", "Extruded layer by layer from a food printer, shaped to look like a roast but tasting slightly off."],
+    ["Hydroponic Rations", "Vacuum-sealed greens grown under artificial light, crisp and clean and faintly metallic."],
+    ["Protein Cube", "A dense tasteless block that sustains a crew member for a full shift, chewed more than enjoyed."],
+    ["Synth-Fruit", "Engineered to taste like a fruit that went extinct centuries ago, close enough to fool most people."],
+    ["Cryo-Brew", "A flash-frozen concentrate thawed into a bitter stimulant, the fuel of every night watch."]
+  ]
+}

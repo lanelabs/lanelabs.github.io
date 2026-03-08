@@ -1,0 +1,14 @@
+{
+  "description": "Shrubs, bushes, and low woody plants.",
+  "plants": [
+    ["Arching Shrub", "Long canes curving outward in graceful arcs, forming a fountain of leaves that sways in any breeze."],
+    ["Bush", "A dense round mass of leaves and branches, thick enough to hide whatever is crouching behind it."],
+    ["Cushion Dwarf Shrub", "A low, hard dome of woody stems barely rising above the ground, shaped by wind into something almost deliberate."],
+    ["Dense Shrub", "Branches packed so tight that nothing passes through. Whatever is on the other side stays hidden."],
+    ["Desert Shrub", "Twisted and tough, with small waxy leaves that waste nothing. It survives where softer things cannot."],
+    ["Dwarf Shrub", "A low woody plant hugging the ground, too short to notice until you stumble into it."],
+    ["Open Shrub", "Sparse branches letting light and wind pass through freely, more suggestion than barrier."],
+    ["Semi-woody Half-shrub", "Woody at the base but soft and green above, as if it could not decide what kind of plant to be."],
+    ["Shrub", "Multiple stems rising from the same root, branching thickly. Too short to be a tree, too stubborn to be ignored."]
+  ]
+}

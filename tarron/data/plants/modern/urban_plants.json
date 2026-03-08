@@ -1,0 +1,15 @@
+{
+  "description": "Plants found in modern urban and suburban settings.",
+  "plants": [
+    ["Street Tree", "A city-planted tree growing out of a square of dirt in the sidewalk, its roots cracking the concrete."],
+    ["Window Box Flower", "Bright blooms spilling out of a planter on a windowsill, a small defiance against concrete and glass."],
+    ["Rooftop Garden Herb", "A potted herb growing on a rooftop, tended carefully and flavoring meals in the apartment below."],
+    ["Parking Lot Weed", "A scrappy plant forcing itself through asphalt, thriving on neglect and motor oil."],
+    ["Manicured Hedge", "A wall of green trimmed into perfect geometry, marking property lines with living architecture."],
+    ["Ornamental Grass", "Tall decorative grass planted along modern buildings, swaying elegantly but serving no purpose beyond beauty."],
+    ["Community Garden Plot", "Vegetables and flowers crowded together in a raised bed, each plant chosen with care and hope."],
+    ["Fire Escape Vine", "A climbing plant winding up a metal fire escape, softening the harsh lines of an old building."],
+    ["Office Lobby Palm", "A potted tropical plant standing in an air-conditioned lobby, far from any breeze it would recognize."],
+    ["Abandoned Lot Wildflower", "Flowers blooming in a vacant lot between buildings, reclaiming the space nobody else wants."]
+  ]
+}

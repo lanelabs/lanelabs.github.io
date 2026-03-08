@@ -1,0 +1,269 @@
+{
+    "description": "Places no longer used for their original purpose. They may be abandoned, destroyed, or occupied by creatures, presenting dangers and opportunities for the bold.",
+    "locations": [
+        [
+            "Abandoned Fortress",
+            "The walls still stand but the gates hang open. Something drove the garrison out in a hurry. Their belongings remain, untouched."
+        ],
+        [
+            "Toppled Statue",
+            "A stone giant lies face down in the weeds, one hand still reaching. The pedestal bears claw marks too large to be human."
+        ],
+        [
+            "Sundered Wall",
+            "A great wall split clean through as if struck by a god's fist. Wind howls through the gap, carrying whispers from the other side."
+        ],
+        [
+            "Shattered Obelisk",
+            "Black stone fragments jut from scorched earth. The runes still glow faintly at night, and animals refuse to cross the blast circle."
+        ],
+        [
+            "Ruined Castle",
+            "Ivy chokes the battlements and rain fills the great hall. Somewhere deep below, a door slams shut on its own, again and again."
+        ],
+        [
+            "Ghost Town",
+            "Doors creak on rusted hinges. Plates still sit on tables, meals half eaten. Footprints appear in the dust with no one to make them."
+        ],
+        [
+            "Overgrown Villa",
+            "Jasmine and thornvine have swallowed the columns whole. The gardens grew wild and hungry long ago. Petals drift through shattered windows."
+        ],
+        [
+            "Mothballed Armory",
+            "Racks of weapons stand oiled and ready behind a sealed door. Someone expected to come back for them. No one ever did."
+        ],
+        [
+            "Crumbling Mansion",
+            "Plaster rains from the ceiling with every footstep. The grand staircase groans underfoot. Portraits watch from the walls with eyes that follow."
+        ],
+        [
+            "Lost Library",
+            "Dust motes float in shafts of light between toppled shelves. Pages rustle without wind. The books here remember things best left forgotten."
+        ],
+        [
+            "Forgotten Citadel",
+            "Stone towers rise from the fog, their banners long rotted away. The drawbridge is down as if expecting visitors no one remembers inviting."
+        ],
+        [
+            "Flooded Courtyard",
+            "Dark water fills the yard waist deep, still and cold. Stone benches jut like islands. Something ripples the surface from below."
+        ],
+        [
+            "Deserted Battlefield",
+            "Broken weapons rust in the mud. Crows circle but never land. The ground is soft and the air smells of iron even after all these years."
+        ],
+        [
+            "Cracked Pyramid",
+            "A fissure runs from base to apex, leaking cold air that smells of dust and copper. The stones hum when touched."
+        ],
+        [
+            "Desecrated Shrine",
+            "Holy symbols lie smashed on the floor. The altar is stained dark. Whatever was worshipped here has been replaced by something that leaves no offerings."
+        ],
+        [
+            "Desecrated Tomb",
+            "The sarcophagus lid has been pried open and shoved aside. Grave goods litter the floor, but the body is gone. Scratches mark the inside of the lid."
+        ],
+        [
+            "Collapsed Temple",
+            "Broken columns lean against each other like exhausted soldiers. Incense still lingers in the rubble. Prayer echoes from nowhere."
+        ],
+        [
+            "Ruined Cathedral",
+            "The rose window is shattered but light still pours through in colored shards. Pigeons roost where the choir once sang. The organ groans in the wind."
+        ],
+        [
+            "Abandoned Watchtower",
+            "The beacon at the top has gone dark. Stairs spiral upward past empty rooms where maps still hang, marking dangers that have long since moved."
+        ],
+        [
+            "Crumbling Monastery",
+            "Silent halls where monks once chanted now echo only dripping water. The herb garden has gone feral, and something nests in the bell tower."
+        ],
+        [
+            "Derelict Observatory",
+            "The great dome has cracked open to the sky. Lenses and brass instruments lie scattered. Star charts on the walls show constellations that no longer exist."
+        ],
+        [
+            "Sunken Amphitheater",
+            "Stone seats descend into murky water where the stage once stood. Frogs sing where actors performed. Masks float face up in the shallows."
+        ],
+        [
+            "Broken Aqueduct",
+            "A stone channel arcs across the valley, sheared clean at its midpoint. Water still trickles from the severed end, feeding a green pool far below."
+        ],
+        [
+            "Ruined Lighthouse",
+            "The tower leans seaward, its lamp long dark. Waves crash through the ground floor at high tide. Ships still wreck on the rocks it once guarded."
+        ],
+        [
+            "Collapsed Mine Shaft",
+            "Timbers jut from a mound of rubble and loose earth. A draft of cold air escapes through the gaps, carrying the smell of deep stone."
+        ],
+        [
+            "Empty Granary",
+            "Massive wooden bins stand hollow and dry. Rat bones crunch underfoot. The silence here is the particular quiet of a place that once fed thousands."
+        ],
+        [
+            "Shattered Workshop",
+            "Tools lie where they fell among broken glass and spilled reagents. Scorch marks climb one wall. Whatever was being built here, the last experiment failed."
+        ],
+        [
+            "Defunct Mill",
+            "The great wheel has seized in the current. Flour dust coats everything in pale gray. Gears and chains hang motionless, waiting for a hand to restart them."
+        ],
+        [
+            "Overgrown Cemetery",
+            "Headstones lean at odd angles beneath choking ivy. The names have worn away. Fresh flowers appear on one grave each morning, left by no one."
+        ],
+        [
+            "Deserted Prison",
+            "Cell doors stand open down a long corridor. Scratched tallies cover every wall. The deepest cell is still locked from the outside, and something breathes within."
+        ],
+        [
+            "Fallen Tower",
+            "The tower lies on its side like a felled tree, rooms exposed to the sky. Furniture clings to walls that are now floors. Birds nest in the fireplace."
+        ],
+        [
+            "Abandoned Quarry",
+            "A great gouge in the hillside filled with still green water. Cut stone blocks sit stacked and forgotten. Echoes carry strangely in the bowl shaped pit."
+        ],
+        [
+            "Crumbled Gatehouse",
+            "The portcullis has rusted halfway down. Arrow slits stare like blind eyes. The murder holes above still hold something dark and dried."
+        ],
+        [
+            "Flooded Crypt",
+            "Water seeps through cracked stone, pooling around the tombs. Candles float on the surface, still lit. No one has been down here to light them."
+        ],
+        [
+            "Decimated Barracks",
+            "Rows of cots lie overturned. Personal effects spill from open footlockers. The mess hall table is set for a meal that was never served."
+        ],
+        [
+            "Forgotten Archive",
+            "Scrolls and ledgers fill shelves from floor to ceiling in the dark. The air is dry and tastes of old paper. Some records here were hidden on purpose."
+        ],
+        [
+            "Ruined Palace",
+            "Gold leaf peels from the walls in long curling strips. The throne sits crooked on its dais. Footsteps echo through ballrooms where no one dances."
+        ],
+        [
+            "Collapsed Arena",
+            "Sand and rubble fill the fighting pit. Spectator seats have caved inward like broken teeth. Old bloodstains darken the stones beneath the dust."
+        ],
+        [
+            "Desolate Manor",
+            "Shutters bang in the wind. The garden fountain is dry and cracked. A single candle burns in an upper window, though the house has been empty for years."
+        ],
+        [
+            "Broken Windmill",
+            "The sails hang in tatters, creaking with each gust. Grain spills from a cracked millstone. The wind sounds almost like words when it passes through the blades."
+        ],
+        [
+            "Empty Stables",
+            "Hay has rotted to black mush in the stalls. Bridles hang from hooks, stiff with age. Hoofprints press deep into the dirt, heading out and never returning."
+        ],
+        [
+            "Ruined Academy",
+            "Chalkboards still bear lessons no one finished. Desks are overturned and books lie open to pages marked with desperate notes in the margins."
+        ],
+        [
+            "Abandoned Marketplace",
+            "Empty stalls line a wide square where weeds push through the cobblestones. Faded awnings snap in the breeze. A merchant's scales still balance on a counter."
+        ],
+        [
+            "Crumbling Aqueduct",
+            "Moss covers the arches and water drips through widening cracks. The channel above still holds a trickle. Stone dust falls with every tremor."
+        ],
+        [
+            "Deserted Lighthouse",
+            "Salt wind scours the empty tower. The lens is intact but dark. The keeper's logs on the desk end mid-sentence, the last entry dated years ago."
+        ],
+        [
+            "Shattered Spire",
+            "A needle of stone broken halfway up, the top half nowhere to be found. Lightning scars spiral the remaining shaft. The air crackles before storms."
+        ],
+        [
+            "Overgrown Ruins",
+            "Vine and root have pulled the stonework apart over centuries. Trees grow through what were once rooms. Nature is patient and it is winning."
+        ],
+        [
+            "Sunken Plaza",
+            "Flagstones descend into dark water at the center of the square. Fish swim between submerged market stalls. Coins still glint on the fountain floor below."
+        ],
+        [
+            "Broken Drawbridge",
+            "Chains hang slack from the gatehouse, the bridge sagging into the moat. Rotting timbers groan underfoot. Crossing would be a gamble at best."
+        ],
+        [
+            "Collapsed Tunnel",
+            "Rubble chokes the passage but a narrow gap remains near the ceiling. Cold air flows through it. Something on the other side is digging toward you."
+        ],
+        [
+            "Ruined Watchtower",
+            "Half the wall is missing, giving a perfect view of the valley below. The warning bell has fallen from its mount and lies cracked on the floor."
+        ],
+        [
+            "Abandoned Brewhouse",
+            "Copper vats stand green with verdigris. The air is sour with old yeast. Barrels line the cellar walls, some still sealed and sloshing when touched."
+        ],
+        [
+            "Crumbling Amphitheater",
+            "Weeds crack through the tiered seating. The acoustics still carry a whisper from the stage to the highest row. Applause seems to echo from nowhere."
+        ],
+        [
+            "Empty Treasury",
+            "Vault doors hang open on massive hinges. Bare shelves line the walls. A single coin sits in the center of the floor, too perfectly placed to be forgotten."
+        ],
+        [
+            "Destroyed Siege Engine",
+            "A great wooden frame lies splintered across the field, iron fittings twisted and scorched. The stone it last hurled rests in a crater nearby."
+        ],
+        [
+            "Ruined Docks",
+            "Rotting pilings jut from the harbor like broken teeth. Ropes trail into green water. One ship remains, half sunk and listing, its cargo hold just above the waterline."
+        ],
+        [
+            "Forgotten Vault",
+            "A heavy door hidden behind a collapsed wall, still sealed. The lock is intricate and old. Scratches around the keyhole suggest many have tried and failed."
+        ],
+        [
+            "Collapsed Sewers",
+            "Cracked tunnels reek of stagnant water and old stone. Grates open into darkness below the streets. Something has been building nests from debris down in the deep."
+        ],
+        [
+            "Abandoned Foundry",
+            "Cold forges line the walls, anvils still in place. Slag heaps glitter with traces of strange metal. The bellows wheeze when the wind finds its way inside."
+        ],
+        [
+            "Ruined Inn",
+            "The sign still swings above the door. Tables and chairs sit ready for guests who stopped coming. Bottles behind the bar hold liquor older than anyone alive."
+        ],
+        [
+            "Crumbling Walls",
+            "A perimeter of stone that once held something in or something out. Gaps widen with each season. Whatever the walls were built to stop, the barrier is failing."
+        ],
+        [
+            "Derelict Ship",
+            "Barnacles coat the hull and the mast has snapped. The deck tilts at a sharp angle. Below decks, cargo crates remain lashed down, their contents unknown."
+        ],
+        [
+            "Sunken City",
+            "Rooftops and spires break the surface of a still lake. Fish swim through windows. On clear days the streets below are visible, and so are the shadows moving through them."
+        ],
+        [
+            "Abandoned Mine",
+            "Ore cart tracks vanish into a dark tunnel braced with rotting timber. Pickaxes lean against the wall. A lantern hangs near the entrance, still full of oil."
+        ],
+        [
+            "Ruined Bathhouse",
+            "Cracked tile mosaics line empty pools stained with mineral deposits. Steam still rises from a crack in the floor. The water below is warm and smells of sulfur."
+        ],
+        [
+            "Collapsed Keep",
+            "The roof has caved in, filling the great hall with rubble and sky. Walls still stand on three sides, offering shelter. Campfire ash suggests others found it useful too."
+        ]
+    ]
+}

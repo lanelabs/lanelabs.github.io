@@ -10,7 +10,7 @@ export const templates = [
   // Moral: tested | Mystery: laid-out | Spotlight: character-both
   // Structure: dialogue | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: tall-tale
   // Shape: high-stakes-bet
-  '"I\'ll bet you {item}," said {character1.emotional}, grinning the way only a trickster grins. {Character2} — the {role} who should have known better — said yes. In {setting|event}, {weather}, that was the first mistake.\n\nThe bet was about {hook}. The trick was that the bet was never really about {hook} at all. Tricksters don\'t play to win — they play to teach. A {tone} tale about {wish.bare} and {moral.about}, dealt from the bottom of the deck.',
+  '"I\'ll bet you {item}," said {character1.emotional}, grinning the way only a trickster grins. {Character2} — the {role} who should have known better — said yes. {Setting.placed|event.placed}, {weather}, that was the first mistake.\n\nThe bet was about {hook}. The trick was that the bet was never really about {hook} at all. Tricksters don\'t play to win — they play to teach. A {tone} tale about {wish.bare} and {moral.about}, dealt from the bottom of the deck.',
 
   // Template 120 — Why the Sky Is That Way
   // Voice: legend | Opening: declarative | Temporal: flashback | Dynamic: strangers | Agency: passive
@@ -34,7 +34,7 @@ export const templates = [
   // Moral: tested | Mystery: teaser | Spotlight: item
   // Structure: two-para | Rhythm: mixed | Item-role: catalyst | Scale: epic | Genre-feel: myth
   // Shape: dare-to-accept
-  '{Item} belonged to the sky. Everyone in {setting|event} knew that. {Weather}, the rule was simple: what burns above stays above. {Character1.emotional} disagreed. The {role} who guarded it disagreed louder.\n\nBut {character2} was cold, and the dark was deep, and {hook} made the rule feel less like wisdom and more like cruelty. The theft was {tone}. The punishment was swift. And the gift — the stubborn, brilliant gift — changed everything. All they wanted was {wish}. A tale about {moral.about}.',
+  '{Item} belonged to the sky. Everyone {setting.placed|event.placed} knew that. {Weather}, the rule was simple: what burns above stays above. {Character1.emotional} disagreed. The {role} who guarded it disagreed louder.\n\nBut {character2} was cold, and the dark was deep, and {hook} made the rule feel less like wisdom and more like cruelty. The theft was {tone}. The punishment was swift. And the gift — the stubborn, brilliant gift — changed everything. All they wanted was {wish}. A tale about {moral.about}.',
 
   // Template 123 — The Animal Who Spoke
   // Voice: instructional | Opening: everyone-knows | Temporal: linear | Dynamic: believer-skeptic | Agency: reactive
@@ -42,7 +42,7 @@ export const templates = [
   // Moral: woven | Mystery: teaser | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: gift | Scale: local | Genre-feel: fable
   // Shape: unlikely-friendship
-  'Everyone in {setting|event} knew that {character2} couldn\'t talk. Animals don\'t. That\'s a fact. {Character1.emotional}, the {role} who spent the most time listening, knew differently — but nobody believed them.\n\n{Weather}, {hook} changed the conversation. {Item} fell from somewhere impossible, and the animal spoke — not in words, exactly, but in something truer. The friendship that followed was {tone} and stubborn. All they wanted was {wish}. A story about {moral.about} — and how some voices only speak to those who bother to listen.',
+  'Everyone {setting.placed|event.placed} knew that {character2} couldn\'t talk. Animals don\'t. That\'s a fact. {Character1.emotional}, the {role} who spent the most time listening, knew differently — but nobody believed them.\n\n{Weather}, {hook} changed the conversation. {Item} fell from somewhere impossible, and the animal spoke — not in words, exactly, but in something truer. The friendship that followed was {tone} and stubborn. All they wanted was {wish}. A story about {moral.about} — and how some voices only speak to those who bother to listen.',
 
   // Template 124 — The Weaver of Fates
   // Voice: bedtime-whisper | Opening: sensory | Temporal: linear | Dynamic: helper | Agency: passive
@@ -66,7 +66,7 @@ export const templates = [
   // Moral: frame | Mystery: laid-out | Spotlight: moral
   // Structure: three-beat | Rhythm: rhythmic | Item-role: gift | Scale: local | Genre-feel: fairy-tale
   // Shape: test-of-courage
-  'This is a story about {moral.about} — and the three trials that proved it. In {setting|event}, {weather}, {character1.emotional} was given a choice, then another, then one more.\n\nThe first trial was {hook}. The second was losing {item}. The third — the hardest — was trusting {character2}, the {role} who\'d failed the same test once before.\n\nThree chances. Three answers. The courage it took was {tone} and quiet and nothing like what the legends promised. All they wanted was {wish}.',
+  'This is a story about {moral.about} — and the three trials that proved it. {Setting.placed|event.placed}, {weather}, {character1.emotional} was given a choice, then another, then one more.\n\nThe first trial was {hook}. The second was losing {item}. The third — the hardest — was trusting {character2}, the {role} who\'d failed the same test once before.\n\nThree chances. Three answers. The courage it took was {tone} and quiet and nothing like what the legends promised. All they wanted was {wish}.',
 
   // Template 127 — The River Between Worlds
   // Voice: direct-address | Opening: scalar-shift | Temporal: linear | Dynamic: seeker | Agency: reluctant
@@ -82,5 +82,5 @@ export const templates = [
   // Moral: label | Mystery: withhold-hook | Spotlight: hook
   // Structure: two-para | Rhythm: mixed | Item-role: catalyst | Scale: local | Genre-feel: campfire-legend
   // Shape: curse-to-break
-  'In {setting|event}, {weather}, there was a name nobody spoke. Not because they\'d forgotten — because speaking it invited {hook}. {Character1.emotional} didn\'t know that. The {role} who should have warned them was already gone.\n\n{Character2} heard it first — the echo, then the stirring, then {item} cracking down the middle. The curse was old and {tone} and hungry. Breaking it meant saying the name again, louder, on purpose. All they wanted was {wish}. A tale about {moral.about}.',
+  '{Setting.placed|event.placed}, {weather}, there was a name nobody spoke. Not because they\'d forgotten — because speaking it invited {hook}. {Character1.emotional} didn\'t know that. The {role} who should have warned them was already gone.\n\n{Character2} heard it first — the echo, then the stirring, then {item} cracking down the middle. The curse was old and {tone} and hungry. Breaking it meant saying the name again, louder, on purpose. All they wanted was {wish}. A tale about {moral.about}.',
 ];

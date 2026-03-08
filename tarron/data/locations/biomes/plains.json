@@ -1,0 +1,15 @@
+{
+  "description": "Wide open land under an endless sky where you can see for miles and there is nowhere to hide.",
+  "rarity": 1,
+  "biomes": [
+    ["Farmland", "Neat rows of crops stretching to low fences and distant barns. The soil is dark and rich, turned by hands that know it well."],
+    ["Grassland", "Tall grass rippling in waves under the wind. The sky is enormous here, and the horizon is a clean unbroken line."],
+    ["Steppe", "Dry grass and hard earth under a wide sky. The wind is constant and the land rolls on without a single tree in sight."],
+    ["Prairie", "Golden grass as far as you can see, dotted with wildflowers. The ground hums with insects and the air smells of warm earth."],
+    ["Savannah", "Scattered trees standing alone in seas of golden grass. The heat shimmers and large shapes move slowly in the distance."],
+    ["Wildflower Meadow", "A riot of color spreading across gentle ground. Bees drone through lavender and poppy, and the air is sweet and heavy."],
+    ["Barren Fields", "Empty dirt stretching flat and lifeless. Whatever grew here once is gone, and the soil has given up trying."],
+    ["Burnt Plains", "Blackened earth and the smell of old smoke. New green shoots push through the char, but the land remembers the fire."],
+    ["Windswept Moor", "Open, treeless ground under low grey clouds. The heather bends in the gale and the rain comes sideways."]
+  ]
+}

@@ -1,0 +1,29 @@
+{
+    "description": "Places built by thinking hands but found far from city walls. Farmland, frontier posts, lonely roads, and the quiet structures that hold rural life together.",
+    "locations": [
+        [
+            "Bridge",
+            "A sturdy span worn smooth by traffic, with the river rushing below. Travelers' marks scratch the railings. Bridges are chokepoints, and someone always figures that out."
+        ],
+        [
+            "Stone Bridge",
+            "Massive arches of fitted stone rise above the current, built to outlast kingdoms. Moss clings to the supports. Tolls are collected on one side, trouble on the other."
+        ],
+        [
+            "Wooden Bridge",
+            "Planks creak and flex underfoot with every step. The river is visible through the gaps. Trust the builder or swim."
+        ],
+        [
+            "Stone Causeway",
+            "A raised road of fitted stone crossing low marshy ground, built long ago by hands that planned for floods. The surface is worn but solid. The marsh is not."
+        ],
+        [
+            "Suspension Bridge",
+            "Rope and plank swaying over a deep gorge. The boards groan underfoot and the view below is dizzying. Cutting the anchor ropes would only take a moment."
+        ],
+        [
+            "Rope Bridge",
+            "Woven fibers sway over a chasm, the footing uneven with every step. The whole span groans under your weight. Do not look down."
+        ]
+    ]
+}

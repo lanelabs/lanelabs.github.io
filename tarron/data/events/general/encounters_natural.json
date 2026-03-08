@@ -1,0 +1,119 @@
+{
+  "description": "Natural Events encounters.",
+  "encounters": [
+    {
+      "type": "Natural Events",
+      "name": "Sudden Fog Bank",
+      "details": "Thick fog rolls in reducing visibility to 30 feet, muffling sounds and creating an eerie atmosphere. May hide dangers or opportunities.",
+      "scale": "minor"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Aurora Cascade",
+      "details": "Magical lights dance across the sky in impossible colors. Local folklore claims they predict major events or carry messages from the gods.",
+      "scale": "trivial"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Blood Moon Rising",
+      "details": "The moon turns crimson, empowering lycanthropes and undead. Nocturnal predators become bold and aggressive.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Solar Eclipse",
+      "details": "Unexpected darkness falls as the sun is blotted out. Superstitious locals panic, cultists claim prophecies fulfilled, nocturnal creatures emerge confused.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Meteor Shower",
+      "details": "Falling stars streak across the sky, some impacting nearby with thunderous booms. Impact sites may contain star metal or attracted creatures.",
+      "scale": "minor"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Flash Freeze",
+      "details": "Temperature plummets unnaturally fast, freezing water sources and threatening unprepared travelers with hypothermia.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Mirage Storm",
+      "details": "Extreme heat creates shifting mirages showing distant places, possible futures, or complete illusions. Navigation becomes treacherous.",
+      "scale": "minor"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Acid Rain",
+      "details": "Corrosive precipitation from distant volcanic activity damages equipment and burns exposed skin. Local wildlife flees to shelter.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Gravity Flux",
+      "details": "Local gravity becomes erratic - sometimes half strength, sometimes double. Movement is difficult and disorienting.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Time Distortion Bubble",
+      "details": "A shimmering area where time flows differently. Minutes inside could be hours outside, or vice versa.",
+      "scale": "major"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Lightning Glass Storm",
+      "details": "Intense electrical storm where strikes turn sand to glass. Beautiful but deadly formations litter the landscape.",
+      "scale": "moderate"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Wandering Tornado",
+      "details": "Tornado carrying debris from distant lands - foreign coins, exotic seeds, confused animals, or stranger things rain down.",
+      "scale": "major"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Flash Flood",
+      "details": "Sudden wall of water from upstream storms washes out bridges, changes river courses, and threatens camps in low areas.",
+      "scale": "major"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Earthquake Swarm",
+      "details": "Series of tremors crack roads, trigger landslides, and may open fissures revealing underground ruins or creatures.",
+      "scale": "major"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Floating Island Passage",
+      "details": "Massive earthmote drifts overhead, casting moving shadows. Rope ladders or flying creatures might provide access.",
+      "scale": "minor"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Sinkhole Opening",
+      "details": "Ground suddenly collapses revealing caves, ruins, or underground waterways. May swallow buildings or travelers.",
+      "scale": "major"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Insect Swarm Migration",
+      "details": "Massive cloud of insects moves across landscape. Blocks out sun, strips plants bare, but usually harmless to people.",
+      "scale": "minor"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Geyser Eruption",
+      "details": "Superheated water explodes from ground at regular intervals. Scalding danger but possible rare minerals in deposits.",
+      "scale": "minor"
+    },
+    {
+      "type": "Natural Events",
+      "name": "Quicksand Field",
+      "details": "Recent rains have created treacherous terrain. Unwary travelers risk becoming trapped. Local guides demand high fees.",
+      "scale": "moderate"
+    }
+  ]
+}

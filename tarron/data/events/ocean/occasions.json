@@ -1,0 +1,21 @@
+{
+  "description": "Ocean and coastal events and occasions.",
+  "occasions": [
+    ["A coral spawning", "The reef releasing clouds of life into the water."],
+    ["A whale migration", "Giants of the deep passing through on their annual journey."],
+    ["A treasure hunt", "A search for sunken riches guided by old maps."],
+    ["A deep-sea expedition", "A descent into the lightless depths to discover the unknown."],
+    ["A reef celebration", "Ocean dwellers gathering to mark a season of abundance."],
+    ["A tidal gathering", "Creatures assembling as the tide reaches its peak."],
+    ["A shipwreck discovery", "The finding of a vessel lost long ago to the sea."],
+    ["A moonlit surface glow", "The ocean shimmering silver under the full moon."],
+    ["A fishing competition", "Anglers competing to land the biggest catch."],
+    ["A pearl harvest", "Divers collecting lustrous gems from the oyster beds."],
+    ["A sea turtle nesting", "Ancient creatures crawling ashore to lay their eggs."],
+    ["An underwater volcano eruption", "The seafloor splitting open with heat and fury."],
+    ["A ship launching", "A new vessel sliding into the water for the first time."],
+    ["A harbor festival", "A port town celebrating the sea with food and song."],
+    ["A lighthouse lighting", "A beacon igniting to guide ships through the dark."],
+    ["A low tide", "The water pulling back to reveal what's normally hidden."]
+  ]
+}

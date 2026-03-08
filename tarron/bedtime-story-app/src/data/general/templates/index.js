@@ -8,6 +8,9 @@ import { templates as spooky } from './spooky';
 import { templates as adventure } from './adventure';
 import { templates as cozy } from './cozy';
 import { templates as historical } from './historical';
+import { templates as nature } from './nature';
+import { templates as faction } from './faction';
+import { templates as feast } from './feast';
 
 export const templates = [
   ...core,
@@ -20,4 +23,7 @@ export const templates = [
   ...adventure,
   ...cozy,
   ...historical,
+  ...nature,
+  ...faction,
+  ...feast,
 ];

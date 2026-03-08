@@ -1,0 +1,13 @@
+{
+    "description": "Beneath the surface where sunlight is a memory. Caverns, tunnels, ruins, and stranger places carved by water, fire, or hands long forgotten.",
+    "locations": [
+        [
+            "Underground Bridge",
+            "A natural stone arch spans a chasm, worn smooth by centuries of crossing. It is narrow and has no railing. The wind from below tugs at balance."
+        ],
+        [
+            "Rope Crossing",
+            "Frayed rope and weathered planks stretch across the dark. The bridge sways with each step, groaning. It has held so far, but the knots are old."
+        ]
+    ]
+}

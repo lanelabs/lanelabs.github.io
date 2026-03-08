@@ -1,0 +1,29 @@
+{
+  "description": "Sci-fi adjectives for describing futuristic and technological items.",
+  "adjectives": [
+    ["Quantum", "Operating at the subatomic level with impossible precision."],
+    ["Plasma", "Formed from superheated, ionized gas."],
+    ["Holographic", "Projected as a three-dimensional image of light."],
+    ["Cybernetic", "Blending organic life with mechanical enhancement."],
+    ["Nano", "Built from microscopic machines too small to see."],
+    ["Alien", "Originating from another world entirely."],
+    ["Interstellar", "Spanning the vast distances between stars."],
+    ["Nuclear", "Powered by the splitting or fusing of atoms."],
+    ["Biometric", "Keyed to a specific person's unique biology."],
+    ["Encrypted", "Locked behind layers of unbreakable code."],
+    ["Neon", "Glowing with bright, artificial color."],
+    ["Cyber", "Born of digital networks and virtual space."],
+    ["Chrome", "Gleaming with polished reflective metal."],
+    ["Void", "Empty and dark as the space between stars."],
+    ["Ion", "Charged with electrical particles."],
+    ["Data", "Composed of pure digital information."],
+    ["Prototype", "An experimental first version, untested and unique."],
+    ["Glitching", "Malfunctioning with flickering errors and static."],
+    ["Sentient", "Self-aware and capable of independent thought."],
+    ["Classified", "Restricted to authorized access only."],
+    ["Salvaged", "Recovered from wreckage and repurposed."],
+    ["Experimental", "Cutting-edge and untested, possibly unstable."],
+    ["Synthetic", "Artificially manufactured rather than naturally occurring."],
+    ["Cloaked", "Hidden from sensors and sight by advanced technology."]
+  ]
+}

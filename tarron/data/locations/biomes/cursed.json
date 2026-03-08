@@ -1,0 +1,13 @@
+{
+  "description": "Blighted land where something went deeply wrong and the earth itself seems to suffer, warning away all who approach.",
+  "rarity": 3,
+  "biomes": [
+    ["Blighted Lands", "Grey soil where nothing grows right. The plants that survive are twisted and pale, and the animals have too many eyes."],
+    ["Dead Magic Zone", "A hollow place where spells unravel and enchantments go silent. The air feels flat and empty, like something vital was drained away."],
+    ["Twisted Forest", "Trees bent into spirals and knots by some unseen force. The bark splits in patterns that almost look like faces."],
+    ["Bone Fields", "White fragments scattered across dark earth as far as you can see. The ground crunches with every step and the wind moans low."],
+    ["Shadow Marsh", "Dark water that does not reflect the sky. The reeds are black and the fog moves against the wind."],
+    ["Withered Plains", "Cracked earth and dead grass under a sky that never quite clears. A faint wrongness hangs in the air like a taste you cannot name."],
+    ["Corruption Spread", "A creeping stain on the land where the soil turns black and the plants wilt in a slow, spreading circle. The edge moves closer each day."]
+  ]
+}

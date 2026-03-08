@@ -1,0 +1,15 @@
+{
+  "description": "Plants prized for potion-making, alchemy, and magical remedies.",
+  "plants": [
+    ["Healwort", "A low herb with thick bitter leaves, chewed by travelers to close wounds and ease fevers."],
+    ["Mana Bloom", "Pale blue flowers that hum with stored energy, their nectar a key ingredient in restorative draughts."],
+    ["Nightshade", "Beautiful and lethal, its purple berries gleaming like dark jewels among heart-shaped leaves."],
+    ["Silverthorn", "A thorny shrub whose bark shavings glow faintly silver and are used to ward off curses."],
+    ["Embermint", "Smells like mint but leaves a warm tingling on the tongue, brewed into teas that ward off the cold."],
+    ["Ghostcap Mushroom", "A pale translucent mushroom that grows in graveyards, glowing faintly in the dark."],
+    ["Basilisk Root", "A thick tuber that turns stone-grey when dried, said to protect against petrification."],
+    ["Dragon's Tongue", "A fiery red herb that burns the mouth and clears the lungs, used in fire-resistance potions."],
+    ["Moonwort", "A silver-leafed herb gathered only at night, essential for potions of clarity and truth."],
+    ["Wyrmweed", "A pungent yellow plant that repels serpents and dragonkind, hung in doorways for protection."]
+  ]
+}

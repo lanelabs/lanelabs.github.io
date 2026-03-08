@@ -1,0 +1,25 @@
+{
+  "description": "Fantasy-specific character roles and occupations.",
+  "characters": [
+    ["Elder", "A respected voice of experience who remembers the old ways."],
+    ["Sage", "A keeper of ancient knowledge and forgotten lore."],
+    ["Bard", "A wandering performer who carries news and stories between towns."],
+    ["Scribe", "A careful writer who preserves words for future generations."],
+    ["Tinker", "A traveling repair-worker who fixes anything for a price."],
+    ["Tailor", "A needle-wielding craftsperson who shapes cloth into garments."],
+    ["Toymaker", "A whimsical builder who creates playthings from wood and paint."],
+    ["Wanderer", "A rootless traveler who belongs nowhere and everywhere."],
+    ["Apprentice", "A young learner bound to a master, eager and clumsy."],
+    ["Jester", "A quick-witted fool who speaks truth disguised as comedy."],
+    ["Goldsmith", "A precise artisan who works precious metal into beauty."],
+    ["Glassblower", "A heat-resistant artist who shapes molten glass into form."],
+    ["Vintner", "A grape-growing winemaker with purple-stained hands."],
+    ["Mason", "A stone-cutting builder who raises walls that last centuries."],
+    ["Chandler", "A candle-maker whose workshop smells of beeswax and tallow."],
+    ["Cartographer", "A map-drawing explorer who charts the unknown."],
+    ["Architect", "A visionary builder who designs structures that inspire."],
+    ["Furrier", "A skilled worker who transforms animal pelts into fine garments."],
+    ["Acrobat", "A flexible performer who defies gravity with leaps and tumbles."],
+    ["Puppeteer", "A string-pulling artist who brings carved figures to life."]
+  ]
+}

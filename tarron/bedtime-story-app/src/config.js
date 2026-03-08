@@ -7,3 +7,7 @@ export const NUM_TONES = 1;
 
 export const NUM_WISHES = 1;
 export const NUM_ROLES = 1;
+export const NUM_CREATURES = 1;
+export const NUM_PLANTS = 1;
+export const NUM_FOODS = 1;
+export const NUM_FACTIONS = 1;

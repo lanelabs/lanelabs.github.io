@@ -10,7 +10,7 @@ export const templates = [
   // Moral: woven | Mystery: laid-out | Spotlight: setting
   // Structure: wind-down | Rhythm: flowing | Item-role: comfort | Scale: microscopic | Genre-feel: lullaby
   // Shape: build-together
-  '{Weather}, the light in {setting|event} was dim and golden and exactly right. {Character1.emotional} and {character2} had spent all evening building — pillows here, {item} there, blankets draped just so. The {role} of chief architect was shared, unevenly and happily.\n\n{Hook} didn\'t matter tonight. Not really. Inside the fort, the world was {tone} and small and theirs. All they wanted was {wish}. A story about {moral.about}, told from inside the softest walls in the world.',
+  '{Weather}, the light {setting.placed|event.placed} was dim and golden and exactly right. {Character1.emotional} and {character2} had spent all evening building — pillows here, {item} there, blankets draped just so. The {role} of chief architect was shared, unevenly and happily.\n\n{Hook} didn\'t matter tonight. Not really. Inside the fort, the world was {tone} and small and theirs. All they wanted was {wish}. A story about {moral.about}, told from inside the softest walls in the world.',
 
   // Template 150 — The Slowest Walk Home
   // Voice: direct-address | Opening: sensory | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -26,7 +26,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-both
   // Structure: two-para | Rhythm: short-punchy | Item-role: catalyst | Scale: microscopic | Genre-feel: tall-tale
   // Shape: mistake-to-fix
-  'The recipe said: add {item.bare}, stir twice, wait. {Character1.emotional} added {item.bare}, stirred six times, and did not wait. In {setting|event}, {weather}, this was a predictable disaster.\n\n{Character2}, the {role} with actual patience, arrived to find {hook} — which was technically edible but spiritually wrong. The fix was {tone} and messy and involved starting over from scratch, together. All they wanted was {wish}. A tale about {moral.about}.',
+  'The recipe said: add {item.bare}, stir twice, wait. {Character1.emotional} added {item.bare}, stirred six times, and did not wait. {Setting.placed|event.placed}, {weather}, this was a predictable disaster.\n\n{Character2}, the {role} with actual patience, arrived to find {hook} — which was technically edible but spiritually wrong. The fix was {tone} and messy and involved starting over from scratch, together. All they wanted was {wish}. A tale about {moral.about}.',
 
   // Template 152 — The Lost Pet
   // Voice: confessional | Opening: declarative | Temporal: linear | Dynamic: helper | Agency: proactive
@@ -34,7 +34,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-emotional
   // Structure: two-para | Rhythm: mixed | Item-role: clue | Scale: local | Genre-feel: neutral
   // Shape: search-for-lost
-  '{Character1.emotional} had looked everywhere — under every table in {setting|event}, behind every door, inside every pocket. Gone. {Weather}, the search felt heavier with every empty spot. {Character2}, the {role} who always knew where things were, didn\'t know this time.\n\n{Item} was the clue — a trail of small, {tone} evidence leading somewhere neither of them expected. {Hook} was part of the chase. All they wanted was {wish}. A tale about {moral.about}, and how sometimes what you\'re looking for is looking for you too.',
+  '{Character1.emotional} had looked everywhere — under every table {setting.placed|event.placed}, behind every door, inside every pocket. Gone. {Weather}, the search felt heavier with every empty spot. {Character2}, the {role} who always knew where things were, didn\'t know this time.\n\n{Item} was the clue — a trail of small, {tone} evidence leading somewhere neither of them expected. {Hook} was part of the chase. All they wanted was {wish}. A tale about {moral.about}, and how sometimes what you\'re looking for is looking for you too.',
 
   // Template 153 — The Snow Day
   // Voice: direct-address | Opening: impossible-image | Temporal: linear | Dynamic: strangers | Agency: proactive
@@ -66,7 +66,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: setting
   // Structure: two-para | Rhythm: mixed | Item-role: key | Scale: intimate | Genre-feel: neutral
   // Shape: build-together
-  '{Character1.emotional} wanted the door on the left. {Character2} wanted it on the right. The {role} in charge — which was neither of them and both of them — declared a standoff. {Weather}, the treehouse in {setting|event} was half-built and fully argued about.\n\n{Item} was the solution — or the compromise — or the thing that made them both laugh long enough to stop fighting. {Hook} was still unresolved when they finished, but the treehouse stood. A {tone} tale about {wish.bare} and {moral.about}, nailed together one board at a time.',
+  '{Character1.emotional} wanted the door on the left. {Character2} wanted it on the right. The {role} in charge — which was neither of them and both of them — declared a standoff. {Weather}, the treehouse {setting.placed|event.placed} was half-built and fully argued about.\n\n{Item} was the solution — or the compromise — or the thing that made them both laugh long enough to stop fighting. {Hook} was still unresolved when they finished, but the treehouse stood. A {tone} tale about {wish.bare} and {moral.about}, nailed together one board at a time.',
 
   // Template 157 — The Night Garden
   // Voice: bedtime-whisper | Opening: scalar-shift | Temporal: linear | Dynamic: helper | Agency: passive

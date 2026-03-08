@@ -51,7 +51,38 @@ Data values can be plain strings or objects with named forms. The template engin
 
 ### Template authoring
 
-Templates in `src/data/general/templates.js` are plain strings with `{placeholder}` slots, using `\n\n` for paragraph breaks. Each template has a comment block listing dimension tags (voice, opening, arc, tension, etc.) plus its baked-in story shape for coverage tracking. Story shapes (quest, rescue, discovery, etc.) are written directly into each template's prose rather than being a separate random element. `applyTemplate()` handles a/an auto-correction, so templates can write `a {character1}` and it fixes to `an` when the value starts with a vowel.
+Templates in `src/data/general/templates/` are plain strings with `{placeholder}` slots, using `\n\n` for paragraph breaks. Each template has a comment block listing dimension tags (voice, opening, arc, tension, etc.) plus its baked-in story shape for coverage tracking. Story shapes (quest, rescue, discovery, etc.) are written directly into each template's prose rather than being a separate random element. `applyTemplate()` handles a/an auto-correction, so templates can write `a {character1}` and it fixes to `an` when the value starts with a vowel.
+
+#### Placeholder reference
+
+| Placeholder | Forms | Data source | Example resolved |
+|---|---|---|---|
+| `{character1}` | `.bare`, `.emotional`, `.emotional.bare` | `@data/characters` + `@data/creatures` | "a farmer", "an owl" |
+| `{character2}` | `.bare`, `.emotional`, `.emotional.bare` | (same pool as character1) | "a knight" |
+| `{setting}` | `.bare`, `.placed` | `@data/locations` | "a moonlit cave" |
+| `{event}` | `.bare`, `.placed` | `@data/events` | "a harvest festival" |
+| `{weather}` | `.bare`, `.adj`, `.noun` | `@data/weather` | "on a rainy night" |
+| `{item}` | `.bare` | `@data/items` (with descriptor) | "a glowing lantern" |
+| `{hook}` | `.bare`, `.verb` | `@data/narrative` (conflicts/mysteries) | "a broken promise" |
+| `{wish}` | `.bare` | `@data/narrative` | "to find a way home" |
+| `{tone}` | `.bare`, `.noun` | `@data/narrative` | "gentle" |
+| `{moral}` | `.bare`, `.about` | `@data/narrative` | "the importance of kindness" |
+| `{role}` | `.bare` | `@data/character__roles` | "a mentor", "a trickster" |
+| `{creature}` | `.bare` | `@data/creatures` | "a fox", "a dragon" |
+| `{plant}` | `.bare` | `@data/plants` | "a moonpetal", "an ancient oak" |
+| `{food}` | `.bare` | `@data/food` | "stew", "faerie cake" |
+| `{faction}` | `.bare` | `@data/character__factions` | "a thieves' guild" |
+
+Special helpers: `{aWeatherAdj}` (a/an + weather adjective), `{aTone}` (a/an + tone). Pipe syntax `{setting|event}` randomly picks one at generation time.
+
+#### Minimum placeholder rules
+
+- **Minimum 6** unique placeholder types per template
+- **Required in every template:** at least 1 character (`{character1}` or `{character2}`), 1 location element (`{setting}`, `{event}`, or pipe), 1 hook (`{hook}`)
+- **Flexible:** remaining 3+ types chosen per the template's theme — nature templates lean into `{creature}`/`{plant}`, political templates into `{faction}`, etc.
+- `{character1}` and `{character2}` count as 1 type
+- Pipe syntax (`{setting|event}`) counts as covering both types
+- Templates may omit non-required types when they don't fit the story
 
 ### Config
 

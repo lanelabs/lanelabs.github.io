@@ -21,7 +21,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: setting
   // Structure: two-para | Rhythm: mixed | Item-role: clue | Scale: local | Genre-feel: adventure-serial
   // Shape: quest
-  '{Weather}, the notice was still pinned to the board in {setting|event} — edges curled, ink fading, but the words unmistakable: {hook}. {Character1.emotional} read it twice. {Character2}, the {role} nursing a drink at the next table, read it once and stood up.\n\nNeither one planned on company. But {item} was listed as the reward, and the road ahead was too long for one. The quest took shape between two strangers who hadn\'t even exchanged names — {aTone} tale about {wish.bare} and {moral.about}.',
+  '{Weather}, the notice was still pinned to the board {setting.placed|event.placed} — edges curled, ink fading, but the words unmistakable: {hook}. {Character1.emotional} read it twice. {Character2}, the {role} nursing a drink at the next table, read it once and stood up.\n\nNeither one planned on company. But {item} was listed as the reward, and the road ahead was too long for one. The quest took shape between two strangers who hadn\'t even exchanged names — {aTone} tale about {wish.bare} and {moral.about}.',
 
   // Template 80 — The Dungeon Crawl
   // Voice: in-medias-res | Opening: sensory | Temporal: middle-first | Dynamic: fragile-alliance | Agency: reactive
@@ -37,7 +37,7 @@ export const templates = [
   // Moral: question | Mystery: teaser | Spotlight: hook
   // Structure: two-para | Rhythm: flowing | Item-role: burden | Scale: epic | Genre-feel: myth
   // Shape: trade
-  '"I will give you what you need," it said, "but not what you want." In {setting|event}, {weather}, the oldest creature alive made {character1.emotional} an offer: solve {hook}, and claim {item}. The cost? Only the {role} could say.\n\n{Character2} warned against it. Bargains like this have teeth. But {wish} was too close to walk away from, and the creature\'s eyes held no malice — only patience. A {tone} legend about {moral.about}, and whether the price of a bargain is ever what it seems.',
+  '"I will give you what you need," it said, "but not what you want." {Setting.placed|event.placed}, {weather}, the oldest creature alive made {character1.emotional} an offer: solve {hook}, and claim {item}. The cost? Only the {role} could say.\n\n{Character2} warned against it. Bargains like this have teeth. But {wish} was too close to walk away from, and the creature\'s eyes held no malice — only patience. A {tone} legend about {moral.about}, and whether the price of a bargain is ever what it seems.',
 
   // Template 82 — The Cursed Artifact
   // Voice: warning | Opening: rule-to-break | Temporal: linear | Dynamic: reluctant-partners | Agency: reluctant
@@ -53,7 +53,7 @@ export const templates = [
   // Moral: woven | Mystery: teaser | Spotlight: character-emotional
   // Structure: two-para | Rhythm: flowing | Item-role: last | Scale: expanding | Genre-feel: myth
   // Shape: race-against-time
-  '{Character1.emotional} had been tracking it for longer than they\'d admit — the source, the heart of {hook}, hidden somewhere in {setting|event}. Legends called it {item}. The {role} who\'d taught them everything said it couldn\'t be destroyed. They were wrong about that. They were right about the cost.\n\n{Weather}, {character2} caught up to them at last. Time was running out — the darkness was already spreading. All they wanted was {wish}. What they found was {aTone} truth about {moral.about}, and whether ending something is the same as saving it.',
+  '{Character1.emotional} had been tracking it for longer than they\'d admit — the source, the heart of {hook}, hidden somewhere {setting.placed|event.placed}. Legends called it {item}. The {role} who\'d taught them everything said it couldn\'t be destroyed. They were wrong about that. They were right about the cost.\n\n{Weather}, {character2} caught up to them at last. Time was running out — the darkness was already spreading. All they wanted was {wish}. What they found was {aTone} truth about {moral.about}, and whether ending something is the same as saving it.',
 
   // Template 84 — The Party Forms
   // Voice: laconic | Opening: catalog | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -69,7 +69,7 @@ export const templates = [
   // Moral: woven | Mystery: question-based | Spotlight: character-emotional
   // Structure: two-para | Rhythm: flowing | Item-role: last | Scale: intimate | Genre-feel: fable
   // Shape: promise-to-keep
-  '{Character1.emotional} could heal anything — everyone in {setting|event} knew that. The {role} who mends what\'s broken. But {hook} was different. Healing {character2} meant using the last of {item}, and there wouldn\'t be more.\n\n{Weather}, the choice hung in the quiet between heartbeats. Keep the power or use it — save one and lose the gift, or keep the gift and lose the one person who made it worth having. A {tone} story about {wish.bare} — and whether {moral.about} means giving everything, even the part of you that\'s irreplaceable.',
+  '{Character1.emotional} could heal anything — everyone {setting.placed|event.placed} knew that. The {role} who mends what\'s broken. But {hook} was different. Healing {character2} meant using the last of {item}, and there wouldn\'t be more.\n\n{Weather}, the choice hung in the quiet between heartbeats. Keep the power or use it — save one and lose the gift, or keep the gift and lose the one person who made it worth having. A {tone} story about {wish.bare} — and whether {moral.about} means giving everything, even the part of you that\'s irreplaceable.',
 
   // Template 86 — The Rogue's Honor
   // Voice: campfire | Opening: dialogue-cold | Temporal: linear | Dynamic: fragile-alliance | Agency: proactive
@@ -77,7 +77,7 @@ export const templates = [
   // Moral: tested | Mystery: teaser | Spotlight: character-both
   // Structure: two-para | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: adventure-serial
   // Shape: noble-thief
-  '"You\'re a thief." "And you need one." {Character1.emotional} didn\'t argue the point. In {setting|event}, {weather}, {hook} had everyone else running scared. {Character2} was the only {role} who could get to {item} — and they both knew it.\n\nThe job was simple. The trust wasn\'t. Every step deeper tested something neither of them expected: the idea that a thief might keep a promise. A {tone} tale about {wish.bare} and {moral.about} — earned one risk at a time.',
+  '"You\'re a thief." "And you need one." {Character1.emotional} didn\'t argue the point. {Setting.placed|event.placed}, {weather}, {hook} had everyone else running scared. {Character2} was the only {role} who could get to {item} — and they both knew it.\n\nThe job was simple. The trust wasn\'t. Every step deeper tested something neither of them expected: the idea that a thief might keep a promise. A {tone} tale about {wish.bare} and {moral.about} — earned one risk at a time.',
 
   // Template 87 — The Shapeshifter Revealed
   // Voice: confessional | Opening: contrast | Temporal: linear | Dynamic: secret-between | Agency: reluctant
@@ -85,7 +85,7 @@ export const templates = [
   // Moral: woven | Mystery: withhold-hook | Spotlight: character-emotional
   // Structure: three-beat | Rhythm: mixed | Item-role: symbol | Scale: local | Genre-feel: fairy-tale
   // Shape: hidden-truth
-  '{Character1.emotional} had kept the secret perfectly. In {setting|event}, {weather}, nobody suspected. The {role} they pretended to be fit like a second skin. {Character2} trusted them completely — and that was the problem.\n\nThen {hook.verb}. {Item} fell into the open, and the mask slipped. There was no hiding after that.\n\nThe hardest part wasn\'t being found out. It was watching {character2.bare}\'s face and knowing: the truth had cost them {wish}. A {tone} story about {moral.about} — and whether what you are matters more than who you choose to be.',
+  '{Character1.emotional} had kept the secret perfectly. {Setting.placed|event.placed}, {weather}, nobody suspected. The {role} they pretended to be fit like a second skin. {Character2} trusted them completely — and that was the problem.\n\nThen {hook.verb}. {Item} fell into the open, and the mask slipped. There was no hiding after that.\n\nThe hardest part wasn\'t being found out. It was watching {character2.bare}\'s face and knowing: the truth had cost them {wish}. A {tone} story about {moral.about} — and whether what you are matters more than who you choose to be.',
 
   // Template 88 — The Portal to Another Plane
   // Voice: direct-address | Opening: impossible-image | Temporal: linear | Dynamic: reluctant-partners | Agency: reactive
@@ -93,7 +93,7 @@ export const templates = [
   // Moral: label | Mystery: teaser | Spotlight: setting
   // Structure: two-para | Rhythm: flowing | Item-role: catalyst | Scale: expanding | Genre-feel: fairy-tale
   // Shape: between-two-worlds
-  'The door shouldn\'t have been there. Not in {setting|event}, not {weather}, not anywhere that made sense. But {character1.emotional} touched it anyway — and {item} blazed to life, and the world peeled open like a page being turned.\n\nOn the other side, {hook} was the first thing they saw. {Character2}, a {role} from this stranger place, said it had been waiting for someone exactly like them. Going back meant forgetting. Staying meant leaving everything behind. A {tone} tale about {wish.bare} and {moral.about}.',
+  'The door shouldn\'t have been there. Not {setting.placed|event.placed}, not {weather}, not anywhere that made sense. But {character1.emotional} touched it anyway — and {item} blazed to life, and the world peeled open like a page being turned.\n\nOn the other side, {hook} was the first thing they saw. {Character2}, a {role} from this stranger place, said it had been waiting for someone exactly like them. Going back meant forgetting. Staying meant leaving everything behind. A {tone} tale about {wish.bare} and {moral.about}.',
 
   // ---------------------------------------------------------------
   // Round 5 — Templates 89–98 (fantasy novel/movie/game tropes)
@@ -121,7 +121,7 @@ export const templates = [
   // Moral: woven | Mystery: laid-out | Spotlight: setting
   // Structure: two-para | Rhythm: flowing | Item-role: gift | Scale: intimate | Genre-feel: fairy-tale
   // Shape: hidden-garden
-  '{Weather}, the trees in {setting|event} whispered. Not words — something older. Something that sounded like {hook} if you listened with your whole body instead of just your ears. {Character1.emotional} stepped deeper, following {item} as it glowed faintly along the path.\n\n{Character2} was already there — a {role} who\'d been part of the forest so long they\'d nearly become part of it. The gift they offered wasn\'t something you could hold. It was the feeling of {wish.bare} — living, growing, rooted in {moral.about}.',
+  '{Weather}, the trees {setting.placed|event.placed} whispered. Not words — something older. Something that sounded like {hook} if you listened with your whole body instead of just your ears. {Character1.emotional} stepped deeper, following {item} as it glowed faintly along the path.\n\n{Character2} was already there — a {role} who\'d been part of the forest so long they\'d nearly become part of it. The gift they offered wasn\'t something you could hold. It was the feeling of {wish.bare} — living, growing, rooted in {moral.about}.',
 
   // Template 92 — The Prophecy Misread
   // Voice: rhetorical | Opening: everyone-knows | Temporal: linear | Dynamic: believer-skeptic | Agency: reactive
@@ -145,7 +145,7 @@ export const templates = [
   // Moral: label | Mystery: laid-out | Spotlight: character-both
   // Structure: two-para | Rhythm: short-punchy | Item-role: catalyst | Scale: local | Genre-feel: tall-tale
   // Shape: mistake-to-fix
-  'The spell was supposed to be simple. {Character1.emotional} had practiced it a hundred times in {setting|event}. But {weather}, something went sideways — specifically, {item} exploded, {hook.verb}, and {character2} ended up stuck to the ceiling.\n\nThe {role} in charge gave them until sundown to fix it. Together. Which was a problem, because they couldn\'t stand each other. But some messes are too big for pride. A {tone} tale about {wish.bare} and {moral.about}.',
+  'The spell was supposed to be simple. {Character1.emotional} had practiced it a hundred times {setting.placed|event.placed}. But {weather}, something went sideways — specifically, {item} exploded, {hook.verb}, and {character2} ended up stuck to the ceiling.\n\nThe {role} in charge gave them until sundown to fix it. Together. Which was a problem, because they couldn\'t stand each other. But some messes are too big for pride. A {tone} tale about {wish.bare} and {moral.about}.',
 
   // Template 95 — The Last Dragon
   // Voice: legend | Opening: declarative | Temporal: linear | Dynamic: strangers | Agency: passive
@@ -161,7 +161,7 @@ export const templates = [
   // Moral: question | Mystery: question-based | Spotlight: hook
   // Structure: two-para | Rhythm: mixed | Item-role: burden | Scale: local | Genre-feel: campfire-legend
   // Shape: promise-to-keep
-  'Who wants to sit on a throne nobody asked for? In {setting|event}, {weather}, {hook} left the seat empty — and {character1.emotional} and {character2} were the only ones left. The {role} with the strongest claim. The outsider with the best intentions. Neither one wanted it.\n\n{Item} was the key to the whole mess — proof of right, burden of duty. All they wanted was {wish}. But someone had to sit down. A {tone} tale about {moral.about} — and whether leading is something you choose or something that chooses you.',
+  'Who wants to sit on a throne nobody asked for? {Setting.placed|event.placed}, {weather}, {hook} left the seat empty — and {character1.emotional} and {character2} were the only ones left. The {role} with the strongest claim. The outsider with the best intentions. Neither one wanted it.\n\n{Item} was the key to the whole mess — proof of right, burden of duty. All they wanted was {wish}. But someone had to sit down. A {tone} tale about {moral.about} — and whether leading is something you choose or something that chooses you.',
 
   // Template 97 — The Wild Hunt
   // Voice: in-medias-res | Opening: sensory | Temporal: countdown | Dynamic: protector-ward | Agency: reactive
@@ -177,5 +177,47 @@ export const templates = [
   // Moral: woven | Mystery: withhold-hook | Spotlight: setting
   // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: local | Genre-feel: lullaby
   // Shape: curse-to-break
-  'Everything in {setting|event} was still. The trees. The water. The {role} on the throne — eyes closed, dust on their shoulders, a crown that hadn\'t moved in years. {Weather}, the whole kingdom dreamed the same dream. Nobody remembered {hook}. Nobody remembered anything.\n\n{Character1.emotional} was the only one still awake — wandering the silent halls with {item}, looking for {character2}, the one person who might know how to wake it all up. The answer was {tone} and small and exactly what you\'d expect: {wish.bare}, and the patient truth of {moral.about}.',
+  'Everything {setting.placed|event.placed} was still. The trees. The water. The {role} on the throne — eyes closed, dust on their shoulders, a crown that hadn\'t moved in years. {Weather}, the whole kingdom dreamed the same dream. Nobody remembered {hook}. Nobody remembered anything.\n\n{Character1.emotional} was the only one still awake — wandering the silent halls with {item}, looking for {character2}, the one person who might know how to wake it all up. The answer was {tone} and small and exactly what you\'d expect: {wish.bare}, and the patient truth of {moral.about}.',
+
+  // --- Book-inspired fantasy templates (179–183) ---
+
+  // Template 179 — The Shadow Self (A Wizard of Earthsea)
+  // Voice: bedtime-whisper | Opening: sensory | Temporal: linear | Dynamic: seeker | Agency: compelled
+  // Arc: dark-to-light | Tension: pursuit | Stakes: identity | Connection: symbolic | Hook-role: central
+  // Moral: woven | Mystery: withhold-hook | Spotlight: character-emotional
+  // Structure: two-para | Rhythm: flowing | Item-role: symbol | Scale: internal | Genre-feel: myth
+  // Shape: shadow-to-face
+  'Something followed {character1.emotional} through {setting|event} — not behind them, exactly, but beneath. {Weather}, their shadow moved wrong. Too slow. Too deliberate. Too much like something that had its own ideas. The {role} who\'d warned them said: you cannot fight what is already yours.\n\n{Character2} found them at the edge, holding {item} and staring at the dark shape that wore their face. {Hook} was how it had broken free. Running hadn\'t worked. Hiding hadn\'t worked. All they wanted was {wish}. But you can\'t outrun your own shadow. A {tone} tale about {moral.about} — and the moment you stop running and turn around.',
+
+  // Template 180 — The Moving Castle (Howl\'s Moving Castle)
+  // Voice: laconic | Opening: impossible-image | Temporal: linear | Dynamic: reluctant-partners | Agency: reactive
+  // Arc: surprise-pivot | Tension: mismatch | Stakes: belonging | Connection: causal | Hook-role: catalyst
+  // Moral: label | Mystery: laid-out | Spotlight: setting
+  // Structure: two-para | Rhythm: short-punchy | Item-role: key | Scale: local | Genre-feel: tall-tale
+  // Shape: taming-the-untamable
+  '{Setting|event} moved. Not metaphorically. It groaned, shifted two feet to the left, and settled with a sigh that rattled every window. {Character1.emotional} had been living inside it long enough to know: you don\'t argue with a building that has opinions. {Weather}, the {role} next door had stopped being surprised.\n\n{Character2} arrived with {item} and the idea that {hook} was somehow the building\'s fault. The building disagreed — loudly, structurally, with a door that refused to open. All they wanted was {wish}. A {tone} tale about {moral.about} — and the art of negotiating with something that has no mouth but plenty to say.',
+
+  // Template 181 — The True Name (Earthsea / Rumplestiltskin)
+  // Voice: legend | Opening: rule-to-break | Temporal: linear | Dynamic: mentor-student | Agency: proactive
+  // Arc: steady-build | Tension: forbidden | Stakes: trust | Connection: prophecy | Hook-role: central
+  // Moral: woven | Mystery: teaser | Spotlight: hook
+  // Structure: two-para | Rhythm: flowing | Item-role: key | Scale: local | Genre-feel: myth
+  // Shape: naming-what-matters
+  'The first rule {setting.placed|event.placed} was simple: never speak a true name aloud. Names have weight. Names have teeth. {Character1.emotional} learned this from the {role} who\'d taught every student before them — and who\'d lost something to a name once, long ago.\n\n{Weather}, {hook} forced the choice nobody wanted. {Character2} stood at the center of it, voiceless, waiting. {Item} held the name written down — the only safe way to carry it. To speak it was to claim it. To claim it was to be responsible for it. All they wanted was {wish}. A {tone} tale about {moral.about}, and the difference between knowing a name and understanding what it means.',
+
+  // Template 182 — The Last Feast (Redwall)
+  // Voice: campfire | Opening: catalog | Temporal: countdown | Dynamic: fragile-alliance | Agency: proactive
+  // Arc: peak-resolve | Tension: ticking-clock | Stakes: belonging | Connection: causal | Hook-role: looming-threat
+  // Moral: woven | Mystery: laid-out | Spotlight: setting
+  // Structure: two-para | Rhythm: mixed | Item-role: comfort | Scale: local | Genre-feel: fairy-tale
+  // Shape: gathering-before-the-storm
+  'The table was set. {Item}. Fresh bread. Candles lit against {weather.noun}. {Setting.placed|event.placed}, every chair was taken — {character1.emotional} at one end, {character2} at the other, and the {role} in between, keeping the peace the way they always did.\n\nOutside, {hook} was getting closer. Everyone at the table knew it. Nobody mentioned it — not yet. First, the feast. First, this one night of {tone.noun} and warmth and {wish.bare}, because some things you protect by celebrating them while you still can. A tale about {moral.about}, told with a full plate and a worried heart.',
+
+  // Template 183 — The Fallen Star (Stardust)
+  // Voice: direct-address | Opening: scalar-shift | Temporal: linear | Dynamic: strangers | Agency: proactive
+  // Arc: surprise-pivot | Tension: discovery | Stakes: identity | Connection: collision | Hook-role: reframed
+  // Moral: label | Mystery: withhold-hook | Spotlight: weather
+  // Structure: two-para | Rhythm: mixed | Item-role: clue | Scale: contracting | Genre-feel: fairy-tale
+  // Shape: prize-becomes-person
+  'Picture this: {weather}, something fell from the sky above {setting|event}. Not fast — slowly, the way important things always fall. {Character1.emotional} saw it from miles away and started walking. {Item} was proof it was real. The {role} who knew the old stories said don\'t go. Everyone went anyway.\n\nThe star wasn\'t a star. It was {character2} — bruised, glowing faintly, and deeply annoyed about being chased. {Hook} was the reason for the fall, but the real surprise was this: you can\'t keep a person. Not as a prize, not as a wish, not as a trophy. All they wanted was {wish}. A {tone} tale about {moral.about}, and the difference between finding something and earning it.',
 ];

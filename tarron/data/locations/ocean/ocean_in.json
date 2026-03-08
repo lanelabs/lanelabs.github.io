@@ -1,0 +1,141 @@
+{
+    "description": "Beneath the waves and along the shore, where saltwater shapes every story.",
+    "locations": [
+        [
+            "Coral Reef",
+            "Colors riot beneath the surface, alive and sharp-edged. The reef hums with movement and clicks with hidden claws."
+        ],
+        [
+            "Kelp Forest",
+            "Tall green fronds sway in the current like slow curtains. Light filters through in shifting columns, and shadows move between the stalks."
+        ],
+        [
+            "Sunken Shipwreck",
+            "A hull rests on its side in the murk, rigging trailing like dead vines. Fish dart through the shattered deck where something still glints below."
+        ],
+        [
+            "Deep-Sea Trench",
+            "The ocean floor drops away into blackness so complete it swallows light. Pressure builds with every fathom, and strange shapes pulse in the dark."
+        ],
+        [
+            "Sea Cave",
+            "Waves boom inside the dark mouth of stone. At low tide you can walk in. At high tide, whatever entered has nowhere to go."
+        ],
+        [
+            "Oyster Bed",
+            "Rough shells crowd the shallow bottom in bumpy rows. The water here is cloudy with silt, and pearls hide inside the quietest ones."
+        ],
+        [
+            "Volcanic Vent",
+            "Columns of shimmering heat twist upward from cracks in the ocean floor. The water tastes of iron and the stone is warm to the touch."
+        ],
+        [
+            "Sandy Seafloor",
+            "Fine white sand stretches in gentle ripples beneath clear water. Small creatures dart between shells, and the silence down here is vast."
+        ],
+        [
+            "Hidden Grotto",
+            "Water drips in steady echoes inside a chamber of smooth wet stone. Light enters from below, casting rippling blue across the ceiling."
+        ],
+        [
+            "Coral Castle",
+            "Towers and arches of living coral rise from the reef, shaped by decades of patient growth. Fish swim through the windows of rooms no one built."
+        ],
+        [
+            "Tidal Pool",
+            "A shallow basin of trapped seawater, alive with small bright creatures. Anemones pulse and crabs freeze mid-step."
+        ],
+        [
+            "Underwater Canyon",
+            "Sheer walls of rock plunge into blue darkness on either side. The current funnels through the gap, carrying everything with it."
+        ],
+        [
+            "Island Village",
+            "Brightly painted boats line a pebble beach below a cluster of wind-battered homes. The sea provides everything and takes what it pleases."
+        ],
+        [
+            "Lighthouse",
+            "A beam sweeps the dark water in a slow circle from the rocky shore. The keeper climbs the spiral stairs each evening."
+        ],
+        [
+            "Boathouse",
+            "Slick planks over dark water, sheltering a vessel or two. Oars lean against the walls and the hull knocks gently at its moorings."
+        ],
+        [
+            "Whirlpool",
+            "The water spirals with a low, hungry roar. Debris circles the rim before vanishing into a throat of black water."
+        ],
+        [
+            "Lagoon",
+            "Warm shallow water glows turquoise over white sand. The beauty is disarming, and beneath the surface the sand shifts in patterns."
+        ],
+        [
+            "Mangrove",
+            "Twisted roots rise from brackish water, forming a tangled maze at the waterline. The mud sucks at your boots and the insects never stop."
+        ],
+        [
+            "Floating Market",
+            "Boats bump gently together, laden with fruit and fish and bright cloth. Voices haggle across the water, and coins pass from hand to hand over the rails."
+        ],
+        [
+            "Abyss",
+            "The edge of the world, straight down. Darkness so deep it feels alive. Stones thrown over the edge never make a sound."
+        ],
+        [
+            "Pearl Farm",
+            "Ropes of shells hang in rows beneath the surface, tended by divers who know each one. The water is warm and clear, and the harvest takes patience."
+        ],
+        [
+            "Fishing Village",
+            "Nets hang drying between salt-bleached cottages. The tide dictates everything here, and the catch determines whether the season is kind."
+        ],
+        [
+            "Sunken City",
+            "Rooftops and broken towers emerge from the green murk. Streets of pale stone vanish into deeper water where faint lights still flicker."
+        ],
+        [
+            "Sunken Temple",
+            "Carved pillars rise from the silt, still holding a roof crusted with barnacles. The altar inside is clean, as though something still tends it."
+        ],
+        [
+            "Ship Graveyard",
+            "Broken hulls crowd the shallows, heaped and rotting. The tide groans through their ribs. Gulls circle but never land."
+        ],
+        [
+            "Seamount",
+            "The ocean floor rises sharply here into a flat-topped peak. Currents swirl with unusual force, and the water above teems with life."
+        ],
+        [
+            "Fjord",
+            "Sheer cliff walls plunge straight into black water on both sides. The passage is narrow and the echoes carry for miles."
+        ],
+        [
+            "Cenote",
+            "A round hole in the limestone opens to reveal blue water far below. Vines trail down the walls. The ancient stains suggest this place once had a purpose."
+        ],
+        [
+            "Brine Pool",
+            "A pocket of water denser than the sea around it sits on the ocean floor like a lake within a lake. Its edges shimmer."
+        ],
+        [
+            "Coral Garden",
+            "Soft corals wave in the gentle current like an underwater meadow. Colors bloom in every direction, and tiny fish dart between the branches."
+        ],
+        [
+            "Estuary",
+            "Salt and fresh water mingle in a wide, brackish stretch. The banks are soft and treacherous. Herons stand motionless, watching the murk."
+        ],
+        [
+            "Delta",
+            "The river breaks into a hundred slow fingers, spreading across flat land choked with reeds. Channels shift with every flood."
+        ],
+        [
+            "Frozen Sea",
+            "Ice stretches from shore to horizon, groaning and cracking under its own weight. The cold is absolute and the silence almost perfect."
+        ],
+        [
+            "Glacier",
+            "A river of ancient ice creeps forward, blue-white and groaning. Crevasses split its surface, and meltwater runs in channels carved by centuries."
+        ]
+    ]
+}

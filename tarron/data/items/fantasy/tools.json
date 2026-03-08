@@ -1,0 +1,16 @@
+{
+  "description": "Practical tools and utility items used in fantasy settings.",
+  "items": [
+    ["Compass", "A magnetic needle in a case that always points north."],
+    ["Spyglass", "A tube of lenses that brings distant things close."],
+    ["Lantern", "A caged flame that lights the way in dark places."],
+    ["Candle", "A pillar of wax with a wick that burns with steady light."],
+    ["Map", "A drawn chart of lands, roads, and hidden places."],
+    ["Anvil", "A heavy iron block where metal is shaped by hammer."],
+    ["Quill", "A feather pen dipped in ink for writing."],
+    ["Needle", "A thin spike of steel for stitching cloth or leather."],
+    ["Chest", "A sturdy box with a lock for storing valuables."],
+    ["Urn", "A sealed vessel for holding ashes or precious substances."],
+    ["Vial", "A small glass tube for carrying liquids or powders."]
+  ]
+}

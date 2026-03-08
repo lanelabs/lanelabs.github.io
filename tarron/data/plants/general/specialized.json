@@ -1,0 +1,14 @@
+{
+  "description": "Plants with unusual survival strategies: parasitic, carnivorous, epiphytic, and symbiotic.",
+  "plants": [
+    ["Ant Plant", "Swollen hollow stems offering shelter to ants, who repay the favor by defending it from anything that tries to feed."],
+    ["Carnivorous Plant", "Sweet-smelling and brightly colored, with traps that close on anything curious enough to touch."],
+    ["Epiphyte", "Perched on a branch high above the ground, drawing its water from mist and rain without harming its host."],
+    ["Hemiepiphyte", "Begins life clinging to a branch, then slowly sends roots down to the ground like lowering a rope."],
+    ["Nitrogen Fixer", "Hosts invisible allies in its roots that pull nourishment from thin air and feed it into the soil."],
+    ["Parasitic Plant", "Taps into the roots or stems of its neighbors, drawing life from them without offering anything in return."],
+    ["Poikilohydric Plant", "Dries to a brown crisp and looks completely dead, then greens up within hours of the first rain."],
+    ["Saprophytic Plant", "Pale and strange, with no green anywhere. It feeds on rot, growing where things are breaking down."],
+    ["Strangler Fig-type", "Starts as a seed lodged high in the canopy, then sends roots down to slowly envelop its host."]
+  ]
+}

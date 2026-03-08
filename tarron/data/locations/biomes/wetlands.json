@@ -1,0 +1,14 @@
+{
+  "description": "Soft ground and standing water where the earth cannot decide if it is land or lake, and the smell of rot hangs in the air.",
+  "rarity": 1,
+  "biomes": [
+    ["Bog", "Dark peat water and sinking ground. Pale grasses whisper in the stillness, and bones surface where you least expect them."],
+    ["Marsh", "Reeds taller than a person hide the waterline. Frogs call from every direction and the mud grabs at your boots."],
+    ["Swamp", "Gnarled trees rise from black water, their roots tangled like fingers. The air buzzes with insects and smells of decay."],
+    ["Mangrove", "A maze of arching roots half-submerged in brackish water. The tide comes and goes, rearranging what counts as a path."],
+    ["Fen", "Waterlogged grassland fed by hidden springs. The ground looks solid but gives way without warning, swallowing the careless."],
+    ["Mire", "Thick mud stretches in every direction, broken only by tufts of sickly grass. Each step takes effort, and rest is nowhere."],
+    ["Quicksand", "The ground looks firm until it is not. Still pools of wet sand wait patiently for anything foolish enough to stand still."],
+    ["Toxic Pools", "Bubbling water in shades of yellow and green. The fumes sting your eyes and the banks are crusted with strange deposits."]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Breads, porridges, and grain-based staples found in any era.",
+  "foods": [
+    ["Bread", "A crusty round loaf, still warm from the oven, cracking open with a sound like a quiet promise."],
+    ["Porridge", "Thick and plain and perfect, the kind of breakfast that sticks to your ribs until well past noon."],
+    ["Flatbread", "Thin and floppy, torn by hand and used to scoop up whatever else is on the plate."],
+    ["Pastry", "Flaky golden layers that shatter at the first bite and leave crumbs on everything within reach."],
+    ["Biscuit", "Dense and crumbly, split open and spread with butter before it even has time to cool."],
+    ["Oatcake", "A sturdy little cake of pressed oats, plain enough to go with anything and filling enough to travel on."],
+    ["Cornbread", "Warm and slightly sweet, golden-crusted on the outside and soft as a whisper within."],
+    ["Rice Ball", "Sticky rice pressed into a careful shape, holding a small surprise at its center."],
+    ["Dumpling", "A plump pocket of dough pinched shut around something savory, bobbing in broth like a small boat."],
+    ["Rye Loaf", "Dark and dense, sliced thin because a little goes a long way and it keeps for days."]
+  ]
+}
