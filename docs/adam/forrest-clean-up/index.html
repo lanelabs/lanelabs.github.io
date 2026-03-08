@@ -689,6 +689,35 @@
       touch-action: manipulation;
     }
 
+    .flashlight-toggle {
+      position: absolute;
+      top: calc(50% + 30px);
+      left: 12px;
+      z-index: 40;
+      transform: scale(var(--play-ui-scale));
+      transform-origin: left center;
+      border: 1px solid rgba(176, 210, 176, 0.7);
+      border-radius: 999px;
+      background: rgba(248, 255, 246, 0.85);
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #255e39;
+      box-shadow: 0 3px 8px rgba(20, 55, 33, 0.15);
+      cursor: pointer;
+      touch-action: manipulation;
+      pointer-events: auto;
+      opacity: 0.9;
+    }
+    .flashlight-toggle[aria-pressed="false"] {
+      opacity: 0.45;
+      filter: grayscale(0.7);
+    }
+
     .tool-options {
       display: flex;
       align-items: center;
@@ -722,6 +751,25 @@
       border-color: #2f7d45;
       color: #f2ffe8;
       box-shadow: 0 6px 14px rgba(23, 66, 37, 0.28);
+    }
+
+    .demolish-icon {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+    .demolish-x {
+      position: absolute;
+      top: -5px;
+      right: -6px;
+      font-size: 10px;
+      font-weight: 900;
+      color: #c0392b;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .tool-btn.active .demolish-x {
+      color: #ffaaaa;
     }
 
     .quest-widget {
@@ -1727,11 +1775,14 @@
           <div class="top-stat" id="ecoHud">Eco 5%</div>
           <div class="top-stat" id="wildlifeHud">Wildlife 1</div>
         </div>
+        <button id="flashlightToggle" class="flashlight-toggle" type="button" aria-pressed="true" aria-label="Toggle flashlight" title="Toggle flashlight" style="display:none">🔦</button>
         <div id="toolSelector" class="tool-selector" role="group" aria-label="Tool selector">
           <button id="toolToggle" class="tool-toggle" type="button" aria-expanded="false" aria-label="Current tool: Empty Hand. Tap to choose tool." title="Current tool: Empty Hand"><span aria-hidden="true">🖐️</span></button>
           <div id="toolOptions" class="tool-options" role="group" aria-label="Choose tool">
             <button id="toolEmptyHand" class="tool-btn active" type="button" aria-pressed="true" aria-label="Empty Hand" title="Empty Hand"><span aria-hidden="true">🖐️</span></button>
             <button id="toolShovel" class="tool-btn" type="button" aria-pressed="false" aria-label="Shovel" title="Shovel"><span aria-hidden="true">🪏</span></button>
+            <button id="toolHammer" class="tool-btn" type="button" aria-pressed="false" aria-label="Hammer" title="Hammer — place tent"><span aria-hidden="true">🔨</span></button>
+            <button id="toolDemolish" class="tool-btn" type="button" aria-pressed="false" aria-label="Demolish — remove tent" title="Demolish — remove tent"><span class="demolish-icon" aria-hidden="true"><span class="demolish-hammer">🔨</span><span class="demolish-x">✕</span></span></button>
           </div>
         </div>
         <div id="floatingMessage" class="floating-message">
@@ -1888,6 +1939,215 @@
     const canvas = document.getElementById("game");
     const ctx = canvas.getContext("2d");
 
+    // ── Audio ─────────────────────────────────────────────────────────────────
+    // All sounds are synthesized with Web Audio API — no external files needed.
+    // AudioContext is created lazily on first user interaction (browser policy).
+    let audioCtx = null;
+    let ambientLoopNode = null;
+    let ambientGainNode = null;
+    let fireCrackleNode = null;
+    let fireCrackleGain = null;
+
+    function getAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === "suspended") audioCtx.resume();
+      return audioCtx;
+    }
+
+    // Crunchy paper/plastic crinkle for litter pickup
+    function playCrinkle() {
+      try {
+        const ac = getAudio();
+        const duration = 0.18;
+        const buf = ac.createBuffer(1, Math.floor(ac.sampleRate * duration), ac.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 0.6);
+        }
+        const src = ac.createBufferSource();
+        src.buffer = buf;
+        const hpf = ac.createBiquadFilter();
+        hpf.type = "highpass";
+        hpf.frequency.value = 2800;
+        const gain = ac.createGain();
+        gain.gain.setValueAtTime(0.22, ac.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + duration);
+        src.connect(hpf); hpf.connect(gain); gain.connect(ac.destination);
+        src.start();
+      } catch (e) {}
+    }
+
+    // Soft earthy thud + rising tone for tree planting
+    function playPlant() {
+      try {
+        const ac = getAudio();
+        const t = ac.currentTime;
+        // Low thud
+        const thudOsc = ac.createOscillator();
+        const thudGain = ac.createGain();
+        thudOsc.type = "sine";
+        thudOsc.frequency.setValueAtTime(90, t);
+        thudOsc.frequency.exponentialRampToValueAtTime(45, t + 0.25);
+        thudGain.gain.setValueAtTime(0.3, t);
+        thudGain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+        thudOsc.connect(thudGain); thudGain.connect(ac.destination);
+        thudOsc.start(t); thudOsc.stop(t + 0.3);
+        // Bright rising tone (hopeful sprout)
+        const riseOsc = ac.createOscillator();
+        const riseGain = ac.createGain();
+        riseOsc.type = "sine";
+        riseOsc.frequency.setValueAtTime(260, t + 0.05);
+        riseOsc.frequency.exponentialRampToValueAtTime(520, t + 0.5);
+        riseGain.gain.setValueAtTime(0.0, t + 0.05);
+        riseGain.gain.linearRampToValueAtTime(0.14, t + 0.15);
+        riseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.55);
+        riseOsc.connect(riseGain); riseGain.connect(ac.destination);
+        riseOsc.start(t + 0.05); riseOsc.stop(t + 0.6);
+      } catch (e) {}
+    }
+
+    // Gentle water splash/trickle for collecting water
+    function playWaterCollect() {
+      try {
+        const ac = getAudio();
+        const t = ac.currentTime;
+        const buf = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.4), ac.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.sin(i / data.length * Math.PI);
+        }
+        const src = ac.createBufferSource();
+        src.buffer = buf;
+        const lpf = ac.createBiquadFilter();
+        lpf.type = "bandpass";
+        lpf.frequency.value = 800;
+        lpf.Q.value = 0.8;
+        const gain = ac.createGain();
+        gain.gain.setValueAtTime(0.15, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+        src.connect(lpf); lpf.connect(gain); gain.connect(ac.destination);
+        src.start();
+      } catch (e) {}
+    }
+
+    // Water pour sound for watering a tree
+    function playWaterTree() {
+      try {
+        const ac = getAudio();
+        const t = ac.currentTime;
+        const buf = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.55), ac.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+          const env = Math.min(i / (ac.sampleRate * 0.08), 1) * Math.pow(1 - i / data.length, 0.4);
+          data[i] = (Math.random() * 2 - 1) * env;
+        }
+        const src = ac.createBufferSource();
+        src.buffer = buf;
+        const lpf = ac.createBiquadFilter();
+        lpf.type = "bandpass";
+        lpf.frequency.value = 600;
+        lpf.Q.value = 0.6;
+        const gain = ac.createGain();
+        gain.gain.setValueAtTime(0.18, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.55);
+        src.connect(lpf); lpf.connect(gain); gain.connect(ac.destination);
+        src.start();
+      } catch (e) {}
+    }
+
+    // Small pop/click for acorn collected
+    function playAcornCollect() {
+      try {
+        const ac = getAudio();
+        const t = ac.currentTime;
+        const osc = ac.createOscillator();
+        const gain = ac.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(520, t);
+        osc.frequency.exponentialRampToValueAtTime(780, t + 0.06);
+        gain.gain.setValueAtTime(0.18, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+        osc.connect(gain); gain.connect(ac.destination);
+        osc.start(t); osc.stop(t + 0.12);
+      } catch (e) {}
+    }
+
+    // Gentle ambient nature loop (birds + breeze) — starts/stops with game
+    function startAmbientLoop() {
+      try {
+        if (ambientLoopNode) return;
+        const ac = getAudio();
+        // Soft wind noise through a bandpass
+        const bufLen = ac.sampleRate * 4; // 4 sec loop
+        const buf = ac.createBuffer(1, bufLen, ac.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < bufLen; i++) data[i] = Math.random() * 2 - 1;
+
+        ambientLoopNode = ac.createBufferSource();
+        ambientLoopNode.buffer = buf;
+        ambientLoopNode.loop = true;
+
+        const bpf = ac.createBiquadFilter();
+        bpf.type = "bandpass";
+        bpf.frequency.value = 400;
+        bpf.Q.value = 0.3;
+
+        ambientGainNode = ac.createGain();
+        ambientGainNode.gain.setValueAtTime(0, ac.currentTime);
+        ambientGainNode.gain.linearRampToValueAtTime(0.04, ac.currentTime + 3);
+
+        ambientLoopNode.connect(bpf);
+        bpf.connect(ambientGainNode);
+        ambientGainNode.connect(ac.destination);
+        ambientLoopNode.start();
+      } catch (e) {}
+    }
+
+    // Fire crackle loop for when fire pits exist at night
+    function startFireCrackle() {
+      try {
+        if (fireCrackleNode) return;
+        const ac = getAudio();
+        const bufLen = ac.sampleRate * 2;
+        const buf = ac.createBuffer(1, bufLen, ac.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < bufLen; i++) {
+          // Sparse pops: mostly silence with random bursts
+          data[i] = Math.random() < 0.003 ? (Math.random() * 2 - 1) : 0;
+        }
+        fireCrackleNode = ac.createBufferSource();
+        fireCrackleNode.buffer = buf;
+        fireCrackleNode.loop = true;
+
+        const lpf = ac.createBiquadFilter();
+        lpf.type = "bandpass";
+        lpf.frequency.value = 900;
+        lpf.Q.value = 0.5;
+
+        fireCrackleGain = ac.createGain();
+        fireCrackleGain.gain.setValueAtTime(0, ac.currentTime);
+        fireCrackleGain.gain.linearRampToValueAtTime(0.25, ac.currentTime + 2);
+
+        fireCrackleNode.connect(lpf);
+        lpf.connect(fireCrackleGain);
+        fireCrackleGain.connect(ac.destination);
+        fireCrackleNode.start();
+      } catch (e) {}
+    }
+
+    function stopFireCrackle() {
+      try {
+        if (!fireCrackleGain || !fireCrackleNode) return;
+        const ac = getAudio();
+        fireCrackleGain.gain.linearRampToValueAtTime(0, ac.currentTime + 1.5);
+        const node = fireCrackleNode;
+        setTimeout(() => { try { node.stop(); } catch(e) {} }, 2000);
+        fireCrackleNode = null;
+        fireCrackleGain = null;
+      } catch (e) {}
+    }
+    // ─────────────────────────────────────────────────────────────────────────
+
     const ui = {
       water: document.getElementById("water"),
       trees: document.getElementById("trees"),
@@ -1954,6 +2214,9 @@
       toolOptions: document.getElementById("toolOptions"),
       toolEmptyHand: document.getElementById("toolEmptyHand"),
       toolShovel: document.getElementById("toolShovel"),
+      toolHammer: document.getElementById("toolHammer"),
+      toolDemolish: document.getElementById("toolDemolish"),
+      flashlightToggle: document.getElementById("flashlightToggle"),
       buildToggle: document.getElementById("buildToggle"),
       buildMenu: document.getElementById("buildMenu"),
       campsiteList: document.getElementById("campsiteList"),
@@ -2017,8 +2280,13 @@
       },
       playerUnderIce: false,
       playerStillFrames: 0,
+      flashlightOn: true,
+      sleepState: null, // null | "in-tent" | "fading-out" | "waking"
+      sleepTent: null,
+      sleepTimer: 0,
       submergedPondId: null,
       postFxCanvas: null,
+      nightLightCanvas: null,
       acornNodes: [],
       saplingSpots: [],
       litterSpots: [],
@@ -2043,9 +2311,11 @@
       notebookHistory: [],
       notebookHistoryIndex: -1,
       mouseWorld: null,
+      moveTarget: null,
       lastMovementInputFrame: 0,
       surprises: [],
       recentImpacts: [],
+      invalidTapEffects: [],
       eventLog: [],
       stats: {
         surprisesTriggered: 0,
@@ -3438,6 +3708,7 @@
       state.cleaned = 0;
       state.surprises = [];
       state.recentImpacts = [];
+      state.invalidTapEffects = [];
       state.eventLog = [];
       state.stats.surprisesTriggered = 0;
       state.stats.flowerSpreadEvents = 0;
@@ -3663,6 +3934,7 @@
       state.winterIceCells = save.winterIceCells || [];
       state.winterSnowballs = save.winterSnowballs || [];
       state.winterHitEffects = [];
+      state.invalidTapEffects = [];
       state.winterSnowflakes = Array.from(
         { length: isMobileViewport() ? WINTER.snowflakeCountMobile : WINTER.snowflakeCountDesktop },
         () => ({
@@ -3754,7 +4026,7 @@
       state.questUnlocks = Object.assign(state.questUnlocks, save.questUnlocks || {});
       state.campsiteItems = save.campsiteItems || [];
       state.buildMode = save.buildMode || null;
-      state.activeTool = save.activeTool === "shovel" ? "shovel" : "empty-hand";
+      state.activeTool = save.activeTool === "shovel" ? "shovel" : save.activeTool === "hammer" ? "hammer" : save.activeTool === "demolish" ? "demolish" : "empty-hand";
       state.toolMenuOpen = false;
       state.trash = Object.assign(state.trash, save.trash || {});
       state.nextFlowerSpreadFrame = save.nextFlowerSpreadFrame || 0;
@@ -3963,11 +4235,17 @@
     }
 
     function getActiveToolLabel() {
-      return state.activeTool === "shovel" ? "Shovel" : "Empty Hand";
+      if (state.activeTool === "shovel") return "Shovel";
+      if (state.activeTool === "hammer") return "Hammer";
+      if (state.activeTool === "demolish") return "Demolish";
+      return "Empty Hand";
     }
 
     function getActiveToolIcon() {
-      return state.activeTool === "shovel" ? "🪏" : "🖐️";
+      if (state.activeTool === "shovel") return "🪏";
+      if (state.activeTool === "hammer") return "🔨";
+      if (state.activeTool === "demolish") return '<span class="demolish-icon"><span class="demolish-hammer">🔨</span><span class="demolish-x">✕</span></span>';
+      return "🖐️";
     }
 
     function setToolMenuOpen(open) {
@@ -3977,9 +4255,21 @@
     }
 
     function setActiveTool(id) {
-      const nextTool = id === "shovel" ? "shovel" : "empty-hand";
+      let nextTool;
+      if (id === "shovel") nextTool = "shovel";
+      else if (id === "hammer") nextTool = "hammer";
+      else if (id === "demolish") nextTool = "demolish";
+      else nextTool = "empty-hand";
       const changed = state.activeTool !== nextTool;
+      const leavingHammer = state.activeTool === "hammer" && nextTool !== "hammer";
       state.activeTool = nextTool;
+      if (nextTool === "hammer") {
+        renderCampsiteList();
+        ui.buildMenu.hidden = false;
+      } else if (leavingHammer) {
+        setBuildMode(null);
+        ui.buildMenu.hidden = true;
+      }
       renderToolSelector();
       setToolMenuOpen(false);
       if (changed) {
@@ -3989,16 +4279,20 @@
     }
 
     function renderToolSelector() {
-      const shovel = state.activeTool === "shovel";
+      const t = state.activeTool;
       const activeLabel = getActiveToolLabel();
       const activeIcon = getActiveToolIcon();
       ui.toolToggle.innerHTML = "<span aria-hidden=\"true\">" + activeIcon + "</span>";
       ui.toolToggle.setAttribute("aria-label", "Current tool: " + activeLabel + ". Tap to choose tool.");
       ui.toolToggle.title = "Current tool: " + activeLabel;
-      ui.toolEmptyHand.classList.toggle("active", !shovel);
-      ui.toolEmptyHand.setAttribute("aria-pressed", shovel ? "false" : "true");
-      ui.toolShovel.classList.toggle("active", shovel);
-      ui.toolShovel.setAttribute("aria-pressed", shovel ? "true" : "false");
+      ui.toolEmptyHand.classList.toggle("active", t === "empty-hand");
+      ui.toolEmptyHand.setAttribute("aria-pressed", t === "empty-hand" ? "true" : "false");
+      ui.toolShovel.classList.toggle("active", t === "shovel");
+      ui.toolShovel.setAttribute("aria-pressed", t === "shovel" ? "true" : "false");
+      ui.toolHammer.classList.toggle("active", t === "hammer");
+      ui.toolHammer.setAttribute("aria-pressed", t === "hammer" ? "true" : "false");
+      ui.toolDemolish.classList.toggle("active", t === "demolish");
+      ui.toolDemolish.setAttribute("aria-pressed", t === "demolish" ? "true" : "false");
       ui.toolSelector.classList.toggle("open", state.toolMenuOpen);
       ui.toolToggle.setAttribute("aria-expanded", state.toolMenuOpen ? "true" : "false");
     }
@@ -4028,6 +4322,16 @@
       return true;
     }
 
+    function findCampsiteItemAtPoint(point, radius = 32) {
+      for (let i = state.campsiteItems.length - 1; i >= 0; i--) {
+        const item = state.campsiteItems[i];
+        const dx = point.x - item.x;
+        const dy = point.y - item.y;
+        if (Math.sqrt(dx * dx + dy * dy) < radius) return i;
+      }
+      return -1;
+    }
+
     function placeCampsiteItem(point) {
       if (!state.buildMode) return false;
       if (!canPlaceCampsiteItem(point)) {
@@ -4043,7 +4347,11 @@
         placedAt: state.t
       });
       setMessage(entry.name + " placed!");
-      setBuildMode(null);
+      if (state.activeTool === "hammer") {
+        setBuildMode(state.buildMode);
+      } else {
+        setBuildMode(null);
+      }
       return true;
     }
 
@@ -4221,6 +4529,16 @@
     }
 
     function playerMove() {
+      if (state.sleepState === "in-tent") {
+        const hasMoveInput = state.touch.active ||
+          state.keys.has("ArrowLeft") || state.keys.has("a") ||
+          state.keys.has("ArrowRight") || state.keys.has("d") ||
+          state.keys.has("ArrowUp") || state.keys.has("w") ||
+          state.keys.has("ArrowDown") || state.keys.has("s");
+        if (hasMoveInput) exitTent();
+        return;
+      }
+      if (state.sleepState) return;
       let dx = 0;
       let dy = 0;
       let speedScale = 1;
@@ -4243,13 +4561,17 @@
       if (dx !== 0 || dy !== 0) {
         moved = movePlayerByVector(dx, dy, speedScale);
         state.lastMovementInputFrame = state.t;
-      } else if (!state.touchControlsEnabled && state.mouseWorld && state.t - state.lastMovementInputFrame > 600) {
-        const toMouseX = state.mouseWorld.x - state.player.x;
-        const toMouseY = state.mouseWorld.y - state.player.y;
-        const dist = Math.hypot(toMouseX, toMouseY);
-        if (dist > 10) {
-          const ramp = clamp((state.t - state.lastMovementInputFrame - 600) / 180, 0, 1);
-          moved = movePlayerByVector(toMouseX / dist, toMouseY / dist, 0.22 + ramp * 0.5);
+        state.moveTarget = null;
+      } else if (state.moveTarget) {
+        const mt = state.moveTarget;
+        const toX = mt.x - state.player.x;
+        const toY = mt.y - state.player.y;
+        const dist = Math.hypot(toX, toY);
+        if (dist <= mt.range) {
+          if (mt.action) mt.action();
+          state.moveTarget = null;
+        } else {
+          moved = movePlayerByVector(toX, toY, 1);
         }
       }
 
@@ -4285,6 +4607,7 @@
       state.player.x += dx * speed;
       state.player.y += dy * speed;
       state.player.facing = dx < -0.02 ? -1 : dx > 0.02 ? 1 : state.player.facing;
+      state.player.moveAngle = Math.atan2(dy, dx);
       const moved = Math.hypot(state.player.x - oldX, state.player.y - oldY) > 0.01;
       if (moved) syncFriendsPosition();
       return moved;
@@ -4551,6 +4874,7 @@
       }
 
       spot.planted = true;
+      playPlant();
       spot.growth = 0.04;
       spot.acornDropped = false;
       spot.wilted = false;
@@ -4579,6 +4903,7 @@
     function attemptCleanup(spot) {
       if (spot.cleaned) return;
       spot.cleaned = true;
+      playCrinkle();
       state.cleaned += 1;
       state.ecoScore += 5;
       state.questUnlocks.afterClean = true;
@@ -4624,6 +4949,7 @@
     function attemptCollectAcorn(acorn) {
       if (!acorn.active) return;
       acorn.active = false;
+      playAcornCollect();
       state.acorns += 1;
       state.stats.acornsCollected += 1;
       state.questUnlocks.afterAcorn = true;
@@ -4637,6 +4963,7 @@
         return;
       }
       state.waterCarried = true;
+      playWaterCollect();
       setBasicActionMessageOnce("waterFill", "Water collected from the " + sourceLabel + ". Find a thirsty tree.");
       logImpact("Collected water from a " + sourceLabel + ".");
     }
@@ -4658,6 +4985,7 @@
       spot.growth = clamp((spot.growth || 0.04) + 0.05, 0.04, 1);
       state.nextWiltAllowedFrame = Math.max(state.nextWiltAllowedFrame, state.t + WATER.postWaterGraceFrames);
       state.waterCarried = false;
+      playWaterTree();
       state.stats.treesWatered += 1;
       state.ecoScore = clamp(state.ecoScore + 1, 5, 100);
       setBasicActionMessageOnce("waterTree", "You watered the tree. It’s perking up!");
@@ -4826,7 +5154,32 @@
         fx.ttl -= 1;
       }
       state.winterHitEffects = state.winterHitEffects.filter((fx) => fx.ttl > 0);
+      for (const fx of state.invalidTapEffects) fx.ttl -= 1;
+      state.invalidTapEffects = state.invalidTapEffects.filter((fx) => fx.ttl > 0);
       updateWinterPlayerSubmerge();
+    }
+
+    function spawnInvalidTapEffect(x, y) {
+      state.invalidTapEffects.push({ x, y, ttl: 20 });
+    }
+
+    function drawInvalidTapEffects() {
+      for (const fx of state.invalidTapEffects) {
+        const life = fx.ttl / 20;
+        const r = 5;
+        ctx.save();
+        ctx.globalAlpha = life * 0.85;
+        ctx.strokeStyle = "#e05050";
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(fx.x - r, fx.y - r);
+        ctx.lineTo(fx.x + r, fx.y + r);
+        ctx.moveTo(fx.x + r, fx.y - r);
+        ctx.lineTo(fx.x - r, fx.y + r);
+        ctx.stroke();
+        ctx.restore();
+      }
     }
 
     function getCanvasPoint(event) {
@@ -4868,12 +5221,59 @@
 
       if (!isWinterMode() && isInStream(point, 12)) return { kind: "stream", ref: point };
 
+      for (const item of state.campsiteItems) {
+        if (item.id === "tent" && !state.sleepState && distance(point, item) <= 24) {
+          return { kind: "tent", ref: item };
+        }
+      }
+
       return null;
+    }
+
+    function getInteractionRange(kind, ref) {
+      if (kind === "animal") return 18;
+      if (kind === "plant-spot") return 24;
+      if (kind === "tree") return 28;
+      if (kind === "litter") return 24;
+      if (kind === "acorn") return 16;
+      if (kind === "pond") return (ref ? ref.r + 8 : 30);
+      if (kind === "stream") return 12;
+      if (kind === "tent") return 22;
+      return 20;
+    }
+
+    function isInstantInteraction(target) {
+      if (!target) return false;
+      if (target.kind === "animal") return true;
+      if (target.kind === "tree" && !target.ref.wilted) return true;
+      if (target.kind === "ice") return true; // shovel+ice is handled before setMoveTarget is called
+      return false;
+    }
+
+    function setMoveTarget(point, target) {
+      if (target && isInstantInteraction(target)) {
+        handleCanvasPoint(point);
+        return;
+      }
+      if (target) {
+        const ref = target.ref;
+        const destX = (ref && ref.x != null) ? ref.x : point.x;
+        const destY = (ref && ref.y != null) ? ref.y : point.y;
+        const range = getInteractionRange(target.kind, ref);
+        state.moveTarget = { x: destX, y: destY, range, action: () => handleCanvasPoint(point) };
+      } else {
+        state.moveTarget = { x: point.x, y: point.y, range: 12, action: null };
+      }
     }
 
     function handleCanvasPoint(point) {
       const target = findInteractiveTarget(point);
       if (!target) return;
+
+      if (target.kind === "tent") {
+        enterTent(target.ref);
+        return;
+      }
 
       if (target.kind === "animal") {
         const animal = target.ref;
@@ -4926,9 +5326,24 @@
     }
 
     function handleCanvasClick(event) {
+      startAmbientLoop(); // lazy-init audio on first click (browser policy)
+      if (state.sleepState === "in-tent") { exitTent(); return; }
       const point = getCanvasPoint(event);
       if (state.buildMode) {
-        placeCampsiteItem(point);
+        if (!placeCampsiteItem(point)) spawnInvalidTapEffect(point.x, point.y);
+        return;
+      }
+      if (state.activeTool === "demolish") {
+        const idx = findCampsiteItemAtPoint(point);
+        if (idx >= 0) {
+          const item = state.campsiteItems[idx];
+          state.moveTarget = { x: item.x, y: item.y, range: 40, action: () => {
+            const i = state.campsiteItems.indexOf(item);
+            if (i >= 0) { const name = CAMPSITE_LOOKUP[item.id]?.name || "Item"; state.campsiteItems.splice(i, 1); setMessage(name + " removed."); }
+          }};
+        } else {
+          spawnInvalidTapEffect(point.x, point.y);
+        }
         return;
       }
       if (isWinterMode() && state.activeTool === "shovel") {
@@ -4938,16 +5353,18 @@
       if (state.activeTool === "shovel") {
         const target = findInteractiveTarget(point);
         if (target) {
-          handleCanvasPoint(point);
+          setMoveTarget(point, target);
           return;
         }
         const spot = createSaplingSpotAt(point);
         if (spot) {
           state.hoverTarget = { kind: "plant-spot", ref: spot };
+        } else {
+          spawnInvalidTapEffect(point.x, point.y);
         }
         return;
       }
-      handleCanvasPoint(point);
+      setMoveTarget(point, findInteractiveTarget(point));
     }
 
     function handleCanvasMove(event) {
@@ -4956,6 +5373,8 @@
       state.hoverTarget = findInteractiveTarget(point);
       if (state.buildMode) {
         canvas.style.cursor = canPlaceCampsiteItem(point) ? "crosshair" : "not-allowed";
+      } else if (state.activeTool === "demolish") {
+        canvas.style.cursor = findCampsiteItemAtPoint(point) >= 0 ? "pointer" : "not-allowed";
       } else if (isWinterMode() && state.activeTool === "shovel") {
         const pond = findWinterPondAtPoint(point, 0);
         canvas.style.cursor = (pond || canCreateWinterSnowballAt(point)) ? "crosshair" : "not-allowed";
@@ -7092,6 +7511,7 @@
 
     function drawPlayer() {
       if (state.playerUnderIce) return;
+      if (state.sleepState) return;
       const p = state.player;
       drawShadowEllipse(p.x + 3, p.y + 16, 10, 4, 0.2);
 
@@ -7164,6 +7584,145 @@
         state.postFxCanvas.height = canvas.height;
       }
       return state.postFxCanvas;
+    }
+
+    function ensureNightLightCanvas() {
+      if (!state.nightLightCanvas) {
+        state.nightLightCanvas = document.createElement("canvas");
+      }
+      if (state.nightLightCanvas.width !== canvas.width || state.nightLightCanvas.height !== canvas.height) {
+        state.nightLightCanvas.width = canvas.width;
+        state.nightLightCanvas.height = canvas.height;
+      }
+      return state.nightLightCanvas;
+    }
+
+    function drawNightOverlay(nightAmount, camX, camY, zoom) {
+      const lightSources = state.campsiteItems.filter(
+        (item) => item.id === "firepit" || item.id === "lantern"
+      );
+
+      const flashlightStrength = 1.0;
+      const showFlashlight = state.flashlightOn && flashlightStrength > 0 && nightAmount > 0.1;
+
+      if (lightSources.length === 0 && !showFlashlight) {
+        // Simple path: no lights, just fill
+        ctx.save();
+        ctx.fillStyle = "rgba(8, 16, 12, " + (nightAmount * 0.22).toFixed(3) + ")";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.restore();
+        return;
+      }
+
+      // Draw night overlay onto offscreen canvas, punch holes for lights, blit result
+      const nc = ensureNightLightCanvas();
+      const nctx = nc.getContext("2d");
+      nctx.clearRect(0, 0, nc.width, nc.height);
+
+      // Fill dark overlay
+      nctx.fillStyle = "rgba(8, 16, 12, " + (nightAmount * 0.22).toFixed(3) + ")";
+      nctx.fillRect(0, 0, nc.width, nc.height);
+
+      // Punch radial light holes
+      nctx.globalCompositeOperation = "destination-out";
+      for (const item of lightSources) {
+        const sx = (item.x - camX) * zoom;
+        const sy = (item.y - camY) * zoom;
+        const isFirepit = item.id === "firepit";
+
+        // Flicker for fire pits, steady for lanterns
+        const flicker = isFirepit
+          ? 1 + 0.08 * Math.sin(state.t * 0.21 + item.x * 0.05) + 0.05 * Math.sin(state.t * 0.37 + item.y * 0.07)
+          : 1;
+        const radius = isFirepit ? 90 * zoom * flicker : 48 * zoom;
+
+        const grad = nctx.createRadialGradient(sx, sy, 0, sx, sy, radius);
+        // Center is fully transparent (no overlay), edge fades back to opaque overlay
+        grad.addColorStop(0, "rgba(0,0,0,1)");
+        grad.addColorStop(0.45, "rgba(0,0,0,0.82)");
+        grad.addColorStop(0.75, "rgba(0,0,0,0.35)");
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        nctx.fillStyle = grad;
+        nctx.beginPath();
+        nctx.arc(sx, sy, radius, 0, Math.PI * 2);
+        nctx.fill();
+      }
+      // Flashlight cone for player when moving at night
+      if (showFlashlight) {
+        const angle = state.player.moveAngle ?? 0;
+        const halfAngle = Math.PI / 5; // 72-degree cone
+        const coneLength = 115 * zoom;
+        const px = (state.player.x - camX) * zoom;
+        const py = (state.player.y - camY) * zoom;
+        const s = flashlightStrength;
+
+        const grad = nctx.createRadialGradient(px, py, 0, px, py, coneLength);
+        grad.addColorStop(0,   "rgba(0,0,0," + (s * 0.95).toFixed(2) + ")");
+        grad.addColorStop(0.45,"rgba(0,0,0," + (s * 0.80).toFixed(2) + ")");
+        grad.addColorStop(0.75,"rgba(0,0,0," + (s * 0.38).toFixed(2) + ")");
+        grad.addColorStop(1,   "rgba(0,0,0,0)");
+        nctx.fillStyle = grad;
+        nctx.beginPath();
+        nctx.moveTo(px, py);
+        nctx.arc(px, py, coneLength, angle - halfAngle, angle + halfAngle);
+        nctx.closePath();
+        nctx.fill();
+      }
+
+      nctx.globalCompositeOperation = "source-over";
+
+      // Blit the composited overlay onto the main canvas
+      ctx.drawImage(nc, 0, 0);
+
+      // Draw warm glow tint on top of the punched holes (additive warm color at light sources)
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      for (const item of lightSources) {
+        const sx = (item.x - camX) * zoom;
+        const sy = (item.y - camY) * zoom;
+        const isFirepit = item.id === "firepit";
+        const flicker = isFirepit
+          ? 1 + 0.08 * Math.sin(state.t * 0.21 + item.x * 0.05) + 0.05 * Math.sin(state.t * 0.37 + item.y * 0.07)
+          : 1;
+        const radius = isFirepit ? 70 * zoom * flicker : 38 * zoom;
+        const warmAlpha = nightAmount * (isFirepit ? 0.13 : 0.07);
+        const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, radius);
+        if (isFirepit) {
+          grad.addColorStop(0, "rgba(255, 160, 40, " + warmAlpha.toFixed(3) + ")");
+          grad.addColorStop(0.5, "rgba(220, 100, 20, " + (warmAlpha * 0.5).toFixed(3) + ")");
+        } else {
+          grad.addColorStop(0, "rgba(255, 210, 120, " + warmAlpha.toFixed(3) + ")");
+          grad.addColorStop(0.5, "rgba(220, 170, 80, " + (warmAlpha * 0.5).toFixed(3) + ")");
+        }
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Cool-white glow tint for flashlight cone
+      if (showFlashlight) {
+        const angle = state.player.moveAngle ?? 0;
+        const halfAngle = Math.PI / 5;
+        const coneLength = 90 * zoom;
+        const px = (state.player.x - camX) * zoom;
+        const py = (state.player.y - camY) * zoom;
+        const glowAlpha = nightAmount * flashlightStrength * 0.09;
+
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, coneLength);
+        grad.addColorStop(0,    "rgba(210, 230, 255, " + glowAlpha.toFixed(3) + ")");
+        grad.addColorStop(0.5,  "rgba(180, 210, 255, " + (glowAlpha * 0.5).toFixed(3) + ")");
+        grad.addColorStop(1,    "rgba(0,0,0,0)");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.arc(px, py, coneLength, angle - halfAngle, angle + halfAngle);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      ctx.restore();
     }
 
     function getSubmergedPond() {
@@ -7278,7 +7837,105 @@
       ctx.restore();
     }
 
+    // ── Sleep / tent system ───────────────────────────────────────────────────
+    function enterTent(tentItem) {
+      if (state.sleepState) return;
+      state.sleepState = "in-tent";
+      state.sleepTent = tentItem;
+      state.sleepTimer = 0;
+      state.moveTarget = null;
+    }
+
+    function exitTent() {
+      state.sleepState = null;
+      state.sleepTent = null;
+      state.sleepTimer = 0;
+    }
+
+    function updateSleep() {
+      // Proximity: auto-enter tent if player walks on top of one
+      if (!state.sleepState && !state.buildMode && state.activeTool !== "demolish") {
+        for (const item of state.campsiteItems) {
+          if (item.id === "tent" && distance(state.player, item) < 16) {
+            enterTent(item);
+            break;
+          }
+        }
+      }
+
+      if (!state.sleepState) return;
+      state.sleepTimer++;
+
+      const isNight = getDaylightLevel() < 0.5;
+
+      if (state.sleepState === "in-tent") {
+        if (isNight && state.sleepTimer >= 180) {
+          // 3 seconds of Zs, then fade to black
+          state.sleepState = "fading-out";
+          state.sleepTimer = 0;
+        }
+      } else if (state.sleepState === "fading-out") {
+        if (state.sleepTimer >= 90) {
+          // Jump to next dawn
+          const cycleLen = CYCLE.total;
+          const currentCycleStart = Math.floor(state.t / cycleLen) * cycleLen;
+          state.t = currentCycleStart + cycleLen; // frame 0 of next cycle = full daylight
+          state.sleepState = "waking";
+          state.sleepTimer = 0;
+          setMessage("Good morning!");
+        }
+      } else if (state.sleepState === "waking") {
+        if (state.sleepTimer >= 90) {
+          exitTent();
+        }
+      }
+    }
+
+    function drawSleepZs() {
+      const tent = state.sleepTent;
+      if (!tent || state.sleepState !== "in-tent") return;
+      if (getDaylightLevel() >= 0.5) return; // only at night
+      if (state.sleepTimer < 30) return; // short delay before Zs appear
+
+      ctx.save();
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (let i = 0; i < 3; i++) {
+        const phase = ((state.sleepTimer * 0.018) + i * 0.8) % (Math.PI * 2);
+        const alpha = Math.max(0, Math.sin(phase));
+        if (alpha < 0.05) continue;
+        const rise = (phase / (Math.PI * 2)) * 30;
+        const x = tent.x + 5 + i * 8;
+        const y = tent.y - 24 - rise;
+        const size = 8 + i * 3;
+        ctx.globalAlpha = alpha * 0.9;
+        ctx.font = `bold ${size}px Trebuchet MS`;
+        ctx.fillStyle = "#b8d4e8";
+        ctx.fillText("z", x, y);
+      }
+      ctx.textAlign = "start";
+      ctx.textBaseline = "alphabetic";
+      ctx.restore();
+    }
+
+    function drawSleepFade() {
+      if (!state.sleepState || state.sleepState === "in-tent") return;
+      let alpha = 0;
+      if (state.sleepState === "fading-out") {
+        alpha = Math.min(state.sleepTimer / 90, 1);
+      } else if (state.sleepState === "waking") {
+        alpha = Math.max(0, 1 - state.sleepTimer / 90);
+      }
+      if (alpha <= 0) return;
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.fillStyle = `rgba(0,0,0,${alpha.toFixed(3)})`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
+    }
+
     function update() {
+      updateSleep();
       playerMove();
       updateCamera();
       updateAcorns();
@@ -7303,6 +7960,17 @@
       updateDebugPanel();
 
       if (state.celebrationFrames > 0) state.celebrationFrames -= 1;
+
+      // Fire crackle ambient: play when fire pits exist and it's night
+      if (audioCtx) {
+        const cycle = getCycleInfo();
+        const hasFirePit = state.campsiteItems.some(i => i.id === "fire-pit");
+        if (hasFirePit && cycle.nightAmount > 0.2) {
+          startFireCrackle();
+        } else if (!hasFirePit || cycle.nightAmount < 0.05) {
+          if (fireCrackleNode) stopFireCrackle();
+        }
+      }
     }
 
     // ── Forrest Friends: render other players ─────────────────────────────────
@@ -7393,20 +8061,21 @@
       drawAnimals();
       drawFireflies();
       drawWinterHitEffects();
+      drawInvalidTapEffects();
       drawHoverHighlight();
       drawPlayer();
       drawFriendsPlayers();
       drawNoAcornHint();
+      drawSleepZs();
       ctx.restore();
       if (state.playerUnderIce) {
         drawSubmergedViewOverlay(camX, camY, zoom);
       }
       if (nightAmount > 0) {
-        ctx.save();
-        ctx.fillStyle = "rgba(8, 16, 12, " + (nightAmount * 0.22).toFixed(3) + ")";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.restore();
+        drawNightOverlay(nightAmount, camX, camY, zoom);
       }
+      drawSleepFade();
+      ui.flashlightToggle.style.display = nightAmount > 0.1 ? "inline-flex" : "none";
       if (!isMobileViewport()) {
         if (!isWinterMode()) {
           drawHudOverlay();
@@ -7673,7 +8342,8 @@
     ui.toolToggle.addEventListener("pointerdown", (event) => {
       event.stopPropagation();
       event.preventDefault();
-      const nextTool = state.activeTool === "shovel" ? "empty-hand" : "shovel";
+      const toolCycle = { "empty-hand": "shovel", "shovel": "hammer", "hammer": "demolish", "demolish": "empty-hand" };
+      const nextTool = toolCycle[state.activeTool] || "empty-hand";
       setActiveTool(nextTool);
     });
     ui.toolEmptyHand.addEventListener("pointerdown", (event) => {
@@ -7685,6 +8355,22 @@
       event.stopPropagation();
       event.preventDefault();
       setActiveTool("shovel");
+    });
+    ui.toolHammer.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      setActiveTool("hammer");
+    });
+    ui.toolDemolish.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      setActiveTool("demolish");
+    });
+    ui.flashlightToggle.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      state.flashlightOn = !state.flashlightOn;
+      ui.flashlightToggle.setAttribute("aria-pressed", state.flashlightOn ? "true" : "false");
     });
     document.addEventListener("pointerdown", (event) => {
       if (!state.toolMenuOpen) return;
@@ -7788,14 +8474,41 @@
     canvas.addEventListener("click", handleCanvasClick);
     canvas.addEventListener("mousemove", handleCanvasMove);
     canvas.addEventListener("pointerdown", (event) => {
+      startAmbientLoop(); // lazy-init audio on first touch (browser policy)
       if (event.pointerType === "mouse") return;
       if (!state.touchControlsEnabled) return;
+      if (state.sleepState === "in-tent") { exitTent(); event.preventDefault(); return; }
       const point = getCanvasPoint(event);
       state.mouseWorld = point;
-      if (isWinterMode() && state.activeTool === "shovel") {
+      if (state.buildMode) {
+        if (!placeCampsiteItem(point)) spawnInvalidTapEffect(point.x, point.y);
+      } else if (state.activeTool === "demolish") {
+        const idx = findCampsiteItemAtPoint(point);
+        if (idx >= 0) {
+          const item = state.campsiteItems[idx];
+          state.moveTarget = { x: item.x, y: item.y, range: 40, action: () => {
+            const i = state.campsiteItems.indexOf(item);
+            if (i >= 0) { const name = CAMPSITE_LOOKUP[item.id]?.name || "Item"; state.campsiteItems.splice(i, 1); setMessage(name + " removed."); }
+          }};
+        } else {
+          spawnInvalidTapEffect(point.x, point.y);
+        }
+      } else if (isWinterMode() && state.activeTool === "shovel") {
         handleWinterShovelAction(point);
+      } else if (state.activeTool === "shovel") {
+        const target = findInteractiveTarget(point);
+        if (target) {
+          setMoveTarget(point, target);
+        } else {
+          const spot = createSaplingSpotAt(point);
+          if (spot) {
+            state.hoverTarget = { kind: "plant-spot", ref: spot };
+          } else {
+            spawnInvalidTapEffect(point.x, point.y);
+          }
+        }
       } else {
-        handleCanvasPoint(point);
+        setMoveTarget(point, findInteractiveTarget(point));
       }
       event.preventDefault();
     }, { passive: false });
