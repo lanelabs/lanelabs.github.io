@@ -2316,6 +2316,7 @@
       surprises: [],
       recentImpacts: [],
       invalidTapEffects: [],
+      actionEffects: [],
       eventLog: [],
       stats: {
         surprisesTriggered: 0,
@@ -4874,6 +4875,7 @@
       }
 
       spot.planted = true;
+      spawnActionEffect("plant", spot.x, spot.y);
       playPlant();
       spot.growth = 0.04;
       spot.acornDropped = false;
@@ -4903,6 +4905,7 @@
     function attemptCleanup(spot) {
       if (spot.cleaned) return;
       spot.cleaned = true;
+      spawnActionEffect("litter-pickup", spot.x, spot.y);
       playCrinkle();
       state.cleaned += 1;
       state.ecoScore += 5;
@@ -4949,6 +4952,7 @@
     function attemptCollectAcorn(acorn) {
       if (!acorn.active) return;
       acorn.active = false;
+      spawnActionEffect("acorn", acorn.x, acorn.y);
       playAcornCollect();
       state.acorns += 1;
       state.stats.acornsCollected += 1;
@@ -4963,6 +4967,7 @@
         return;
       }
       state.waterCarried = true;
+      spawnActionEffect("water-scoop", puddle.x, puddle.y);
       playWaterCollect();
       setBasicActionMessageOnce("waterFill", "Water collected from the " + sourceLabel + ". Find a thirsty tree.");
       logImpact("Collected water from a " + sourceLabel + ".");
@@ -4985,6 +4990,7 @@
       spot.growth = clamp((spot.growth || 0.04) + 0.05, 0.04, 1);
       state.nextWiltAllowedFrame = Math.max(state.nextWiltAllowedFrame, state.t + WATER.postWaterGraceFrames);
       state.waterCarried = false;
+      spawnActionEffect("water-pour", spot.x, spot.y);
       playWaterTree();
       state.stats.treesWatered += 1;
       state.ecoScore = clamp(state.ecoScore + 1, 5, 100);
@@ -5154,13 +5160,103 @@
         fx.ttl -= 1;
       }
       state.winterHitEffects = state.winterHitEffects.filter((fx) => fx.ttl > 0);
-      for (const fx of state.invalidTapEffects) fx.ttl -= 1;
-      state.invalidTapEffects = state.invalidTapEffects.filter((fx) => fx.ttl > 0);
       updateWinterPlayerSubmerge();
     }
 
     function spawnInvalidTapEffect(x, y) {
       state.invalidTapEffects.push({ x, y, ttl: 20 });
+    }
+
+    function spawnActionEffect(kind, x, y) {
+      const maxTtl = { "water-scoop": 30, "water-pour": 35, "litter-pickup": 22, "plant": 28, "acorn": 18 }[kind] || 24;
+      state.actionEffects.push({ kind, x, y, ttl: maxTtl, maxTtl });
+    }
+
+    function drawActionEffects() {
+      for (const fx of state.actionEffects) {
+        const life = fx.ttl / fx.maxTtl;
+        const prog = 1 - life;
+        ctx.save();
+        if (fx.kind === "water-scoop") {
+          // Expanding blue ring
+          ctx.globalAlpha = life * 0.9;
+          ctx.strokeStyle = "rgba(100, 180, 230, 0.9)";
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.arc(fx.x, fx.y, 4 + prog * 14, 0, Math.PI * 2);
+          ctx.stroke();
+          // 4 droplets floating outward and up
+          ctx.fillStyle = "rgba(120, 190, 240, 0.9)";
+          for (let i = 0; i < 4; i++) {
+            const a = (Math.PI * 2 * i) / 4;
+            const dx = Math.cos(a) * 8 * prog;
+            const dy = Math.sin(a) * 6 * prog - prog * 8;
+            ctx.globalAlpha = life * 0.85;
+            ctx.beginPath();
+            ctx.arc(fx.x + dx, fx.y + dy, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        } else if (fx.kind === "water-pour") {
+          // Droplets falling down onto tree
+          ctx.fillStyle = "rgba(100, 170, 230, 0.9)";
+          for (let i = 0; i < 5; i++) {
+            const phase = ((i / 5) + prog) % 1;
+            const dx = ((i % 3) - 1) * 5;
+            const dy = phase * 16 - 8;
+            ctx.globalAlpha = (1 - phase) * life * 0.85;
+            ctx.beginPath();
+            ctx.ellipse(fx.x + dx, fx.y + dy, 2, 3, 0, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          // Ripple at base
+          ctx.globalAlpha = life * 0.5;
+          ctx.strokeStyle = "rgba(100, 170, 230, 0.8)";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.ellipse(fx.x, fx.y + 8, prog * 10 + 2, prog * 4 + 1, 0, 0, Math.PI * 2);
+          ctx.stroke();
+        } else if (fx.kind === "litter-pickup") {
+          // Sparkle burst
+          ctx.strokeStyle = "rgba(255, 210, 60, 0.95)";
+          ctx.lineWidth = 1.5;
+          ctx.lineCap = "round";
+          for (let i = 0; i < 6; i++) {
+            const a = (Math.PI * 2 * i) / 6;
+            const inner = 2 + prog * 3;
+            const outer = 4 + prog * 11;
+            ctx.globalAlpha = life * 0.9;
+            ctx.beginPath();
+            ctx.moveTo(fx.x + Math.cos(a) * inner, fx.y + Math.sin(a) * inner);
+            ctx.lineTo(fx.x + Math.cos(a) * outer, fx.y + Math.sin(a) * outer);
+            ctx.stroke();
+          }
+        } else if (fx.kind === "plant") {
+          // Green leaf particles float outward and up
+          const colors = ["#5cb85c", "#82c94f", "#a8e07a"];
+          for (let i = 0; i < 5; i++) {
+            const a = (Math.PI * 2 * i) / 5 - Math.PI / 2;
+            const dx = Math.cos(a) * 12 * prog;
+            const dy = Math.sin(a) * 8 * prog - prog * 8;
+            ctx.globalAlpha = life * 0.85;
+            ctx.fillStyle = colors[i % colors.length];
+            ctx.beginPath();
+            ctx.ellipse(fx.x + dx, fx.y + dy, 3, 2, a, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        } else if (fx.kind === "acorn") {
+          // Small golden burst
+          ctx.fillStyle = "rgba(190, 130, 50, 0.9)";
+          for (let i = 0; i < 5; i++) {
+            const a = (Math.PI * 2 * i) / 5;
+            const r = 3 + prog * 9;
+            ctx.globalAlpha = life * 0.85;
+            ctx.beginPath();
+            ctx.arc(fx.x + Math.cos(a) * r, fx.y + Math.sin(a) * r, 2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        ctx.restore();
+      }
     }
 
     function drawInvalidTapEffects() {
@@ -7212,24 +7308,154 @@
       if (!item) return;
       const bob = Math.sin(state.t * 0.02 + item.x * 0.01) * 0.4;
       if (item.id === "tent") {
-        ctxRef.fillStyle = "#ead7b2";
+        ctxRef.save();
+        // Shadow
+        ctxRef.fillStyle = "rgba(0,0,0,0.13)";
         ctxRef.beginPath();
-        ctxRef.moveTo(item.x, item.y - 16 + bob);
-        ctxRef.lineTo(item.x - 18, item.y + 10 + bob);
-        ctxRef.lineTo(item.x + 18, item.y + 10 + bob);
+        ctxRef.ellipse(item.x + 3, item.y + 13 + bob, 22, 5, 0, 0, Math.PI * 2);
+        ctxRef.fill();
+        // Back/base panel (darkest)
+        ctxRef.fillStyle = "#c4a87a";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x - 21, item.y + 10 + bob);
+        ctxRef.lineTo(item.x + 21, item.y + 10 + bob);
         ctxRef.closePath();
         ctxRef.fill();
+        // Left face
+        ctxRef.fillStyle = "#dfc480";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x - 21, item.y + 10 + bob);
+        ctxRef.lineTo(item.x, item.y + 10 + bob);
+        ctxRef.closePath();
+        ctxRef.fill();
+        // Right face (sun side, lightest)
+        ctxRef.fillStyle = "#f2e0a8";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x, item.y + 10 + bob);
+        ctxRef.lineTo(item.x + 21, item.y + 10 + bob);
+        ctxRef.closePath();
+        ctxRef.fill();
+        // Door opening (dark arch)
+        ctxRef.fillStyle = "#3a2710";
+        ctxRef.beginPath();
+        ctxRef.arc(item.x, item.y + 6 + bob, 5, Math.PI, 0);
+        ctxRef.lineTo(item.x + 5, item.y + 10 + bob);
+        ctxRef.lineTo(item.x - 5, item.y + 10 + bob);
+        ctxRef.closePath();
+        ctxRef.fill();
+        // Outline
         ctxRef.strokeStyle = "#9a7a4f";
+        ctxRef.lineWidth = 1;
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x - 21, item.y + 10 + bob);
+        ctxRef.lineTo(item.x + 21, item.y + 10 + bob);
+        ctxRef.closePath();
         ctxRef.stroke();
+        // Center ridge line (subtle)
+        ctxRef.strokeStyle = "rgba(80,50,20,0.35)";
+        ctxRef.lineWidth = 0.8;
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x, item.y + 10 + bob);
+        ctxRef.stroke();
+        // Peak pole
+        ctxRef.strokeStyle = "#8a6a3e";
+        ctxRef.lineWidth = 1.5;
+        ctxRef.lineCap = "round";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x, item.y - 24 + bob);
+        ctxRef.stroke();
+        // Guy lines
+        ctxRef.strokeStyle = "rgba(110,80,40,0.45)";
+        ctxRef.lineWidth = 0.7;
+        ctxRef.setLineDash([2, 2]);
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x - 28, item.y + 14 + bob);
+        ctxRef.moveTo(item.x, item.y - 19 + bob);
+        ctxRef.lineTo(item.x + 28, item.y + 14 + bob);
+        ctxRef.stroke();
+        ctxRef.setLineDash([]);
+        ctxRef.restore();
       } else if (item.id === "firepit") {
-        ctxRef.fillStyle = "#7a5534";
+        ctxRef.save();
+        // Shadow
+        ctxRef.fillStyle = "rgba(0,0,0,0.13)";
         ctxRef.beginPath();
-        ctxRef.arc(item.x, item.y + 8 + bob, 12, 0, Math.PI * 2);
+        ctxRef.ellipse(item.x + 2, item.y + 17 + bob, 15, 4, 0, 0, Math.PI * 2);
         ctxRef.fill();
-        ctxRef.fillStyle = "#e38a3e";
+        // Stone ring base
+        ctxRef.fillStyle = "#7a6858";
         ctxRef.beginPath();
-        ctxRef.arc(item.x, item.y + 4 + bob, 5, 0, Math.PI * 2);
+        ctxRef.arc(item.x, item.y + 8 + bob, 13, 0, Math.PI * 2);
         ctxRef.fill();
+        // Inner dirt
+        ctxRef.fillStyle = "#4a2e12";
+        ctxRef.beginPath();
+        ctxRef.arc(item.x, item.y + 8 + bob, 9, 0, Math.PI * 2);
+        ctxRef.fill();
+        // Individual stones around ring
+        const numStones = 7;
+        for (let si = 0; si < numStones; si++) {
+          const sa = (si / numStones) * Math.PI * 2;
+          const sx = item.x + Math.cos(sa) * 10;
+          const sy = item.y + 8 + bob + Math.sin(sa) * 6;
+          ctxRef.fillStyle = si % 2 === 0 ? "#9a8878" : "#857060";
+          ctxRef.beginPath();
+          ctxRef.ellipse(sx, sy, 3.5, 2.5, sa, 0, Math.PI * 2);
+          ctxRef.fill();
+          ctxRef.strokeStyle = "rgba(0,0,0,0.18)";
+          ctxRef.lineWidth = 0.5;
+          ctxRef.stroke();
+        }
+        // Crossed logs
+        ctxRef.lineCap = "round";
+        ctxRef.lineWidth = 3;
+        ctxRef.strokeStyle = "#7a4f28";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x - 7, item.y + 13 + bob);
+        ctxRef.lineTo(item.x + 7, item.y + 4 + bob);
+        ctxRef.stroke();
+        ctxRef.strokeStyle = "#6a3f1e";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x + 7, item.y + 13 + bob);
+        ctxRef.lineTo(item.x - 7, item.y + 4 + bob);
+        ctxRef.stroke();
+        // Animated flames
+        const ft = state.t * 0.08;
+        const fh1 = 10 + 3 * Math.sin(ft * 1.3);
+        const fh2 = 8 + 2 * Math.sin(ft * 1.7 + 0.5);
+        const fh3 = 6 + 2 * Math.sin(ft * 2.3 + 1.0);
+        // Outer flame (deep red-orange)
+        ctxRef.fillStyle = "rgba(205, 60, 10, 0.8)";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x - 6, item.y + 8 + bob);
+        ctxRef.quadraticCurveTo(item.x - 7, item.y + 8 - fh1 * 0.5 + bob, item.x, item.y + 8 - fh1 + bob);
+        ctxRef.quadraticCurveTo(item.x + 7, item.y + 8 - fh1 * 0.5 + bob, item.x + 6, item.y + 8 + bob);
+        ctxRef.closePath();
+        ctxRef.fill();
+        // Mid flame (orange)
+        ctxRef.fillStyle = "rgba(245, 110, 20, 0.88)";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x - 4, item.y + 8 + bob);
+        ctxRef.quadraticCurveTo(item.x - 4, item.y + 8 - fh2 * 0.6 + bob, item.x, item.y + 8 - fh2 + bob);
+        ctxRef.quadraticCurveTo(item.x + 4, item.y + 8 - fh2 * 0.6 + bob, item.x + 4, item.y + 8 + bob);
+        ctxRef.closePath();
+        ctxRef.fill();
+        // Inner flame (bright yellow)
+        ctxRef.fillStyle = "rgba(255, 215, 50, 0.95)";
+        ctxRef.beginPath();
+        ctxRef.moveTo(item.x - 2, item.y + 8 + bob);
+        ctxRef.quadraticCurveTo(item.x - 1, item.y + 8 - fh3 * 0.7 + bob, item.x, item.y + 8 - fh3 + bob);
+        ctxRef.quadraticCurveTo(item.x + 1, item.y + 8 - fh3 * 0.7 + bob, item.x + 2, item.y + 8 + bob);
+        ctxRef.closePath();
+        ctxRef.fill();
+        ctxRef.restore();
       } else if (item.id === "log-seats") {
         ctxRef.fillStyle = "#8f5f33";
         ctxRef.fillRect(item.x - 16, item.y + 4 + bob, 32, 8);
@@ -7940,6 +8166,10 @@
       updateCamera();
       updateAcorns();
       updateLeaves();
+      for (const fx of state.invalidTapEffects) fx.ttl -= 1;
+      state.invalidTapEffects = state.invalidTapEffects.filter((fx) => fx.ttl > 0);
+      for (const fx of state.actionEffects) fx.ttl -= 1;
+      state.actionEffects = state.actionEffects.filter((fx) => fx.ttl > 0);
       updateWinterMode();
       updateEcoSystem();
       updateTrashSpawns();
@@ -8062,6 +8292,7 @@
       drawFireflies();
       drawWinterHitEffects();
       drawInvalidTapEffects();
+      drawActionEffects();
       drawHoverHighlight();
       drawPlayer();
       drawFriendsPlayers();
