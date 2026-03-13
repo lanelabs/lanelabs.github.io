@@ -44,6 +44,7 @@ export interface SaveData {
     height: number;
     blocks: BlockMaterial[][];
     surfaceY: number;
+    surfaceHeights?: number[];
     rooms: HiddenRoom[];
   };
   waterState: WaterState;
@@ -192,6 +193,7 @@ export function serializeGame(game: Game): SaveData {
       height: game.terrain.height,
       blocks: game.terrain.blocks,
       surfaceY: game.terrain.surfaceY,
+      surfaceHeights: game.terrain.surfaceHeights,
       rooms: game.terrain.rooms,
     },
     waterState: { ...game.waterState },

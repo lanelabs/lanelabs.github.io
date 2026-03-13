@@ -81,6 +81,13 @@ export class DismantleAtFeetCommand implements Command {
         }
       }
 
+      // Adjacent platform → convert instead of despawning
+      if (game.hasPlatform({ x: pos.x - 1, y: freeY }) || game.hasPlatform({ x: pos.x + 1, y: freeY })) {
+        freeClimb.type = 'platform';
+        game.log.add('action', `${dwarfComp.name} converts a ladder into a platform.`);
+        return { success: true, message: 'Ladder converted to platform.' };
+      }
+
       // Trail cleanup + despawn + refund
       for (let i = game.trail.length - 1; i >= 0; i--) {
         if (game.trail[i].x === pos.x && game.trail[i].y === freeY) {

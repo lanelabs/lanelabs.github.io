@@ -10,23 +10,28 @@ import { HoistCommand } from '../../sim/commands/HoistCommand';
 import { WaitCommand } from '../../sim/commands/WaitCommand';
 import { handleCtrlDirection } from './ctrlInput';
 import { handleSpaceAction } from './spaceAction';
+import { processChipping, processShaping, processSellErrand } from './autoTimers';
+import type { TimerState } from './autoTimers';
 import { ScribePanel } from '../ui/ScribePanel';
 import { AlertOverlay } from '../ui/AlertOverlay';
 import { drawToolbar } from '../draw/toolbar';
+import { drawBackground } from '../draw/background';
 import { drawTerrain } from '../draw/terrain';
 import { drawEntities as drawEntitiesLayer } from '../draw/entities';
 import { drawCursor, drawRopeOverlay } from '../draw/cursor';
-import { resolveAction, SmartMode } from '../smartMode';
+import { SmartMode } from '../smartMode';
+import { getActionHintText } from './actionHint';
+import { PauseOverlay } from '../ui/PauseOverlay';
 import { serializeGame } from '../../sim/save';
-import type { SaveData } from '../../sim/save';
+import { loadSlot, saveToSlot, setActiveSlot, clearActiveSlot, getSlotMeta, updateSlotZoom } from '../saveSlots';
 
-const SAVE_KEY = 'dwarfstead-save';
 const MODE_KEY = 'dwarfstead-mode';
-const ZOOM_LEVELS = [0, 10, 20, 30, 40]; // 0 = full-map (computed dynamically)
-const DEFAULT_ZOOM = 4;
+const ZOOM_LEVELS = [0, 10, 20, 40, -1]; // 0 = full-map, -1 = close (computed dynamically)
+const DEFAULT_ZOOM = 3;
 
 export class ExpeditionScene extends Phaser.Scene {
   private bridge!: SimulationBridge;
+  private bgGraphics!: Phaser.GameObjects.Graphics;
   private terrainGraphics!: Phaser.GameObjects.Graphics;
   private entityGraphics!: Phaser.GameObjects.Graphics;
   private cursorGraphics!: Phaser.GameObjects.Graphics;
@@ -36,11 +41,11 @@ export class ExpeditionScene extends Phaser.Scene {
   private hintsText!: Phaser.GameObjects.Text;
   private scribePanel!: ScribePanel;
   private alertOverlay!: AlertOverlay;
+  private pauseOverlay!: PauseOverlay;
   private scribeBtn!: Phaser.GameObjects.Text;
   private zoomBtn!: Phaser.GameObjects.Text;
   private suppliesText!: Phaser.GameObjects.Text;
   private actionHint!: Phaser.GameObjects.Text;
-
   private keyW!: Phaser.Input.Keyboard.Key;
   private keyA!: Phaser.Input.Keyboard.Key;
   private keyS!: Phaser.Input.Keyboard.Key;
@@ -52,9 +57,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private keyCtrl!: Phaser.Input.Keyboard.Key;
   private modeKeys!: Phaser.Input.Keyboard.Key[];
   private inputCooldown = 0;
-  private shapingTimer = 0;
-  private sellTimer = 0;
-  private chippingTimer = 0;
+  private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0 };
   private zoomIndex = DEFAULT_ZOOM;
   private currentMode: SmartMode = SmartMode.Mine;
   private hasActed = false;
@@ -62,9 +65,16 @@ export class ExpeditionScene extends Phaser.Scene {
   private suppressHeaveOff = false;
   private pendingHeave: { verticalDir: Direction.Up | Direction.Down; blockX: number; blockY: number; leftAvailable: boolean; rightAvailable: boolean } | null = null;
   private pendingHoist: { leftAvailable: boolean; rightAvailable: boolean } | null = null;
+  private paused = false;
+  private slotId: string | null = null;
+  private slotName = 'Expedition';
 
   constructor() { super({ key: 'ExpeditionScene' }); }
-
+  init(data?: { slotId?: string; slotName?: string }) {
+    this.slotId = data?.slotId ?? null;
+    this.slotName = data?.slotName ?? 'Expedition';
+    this.paused = false;
+  }
   private get gameW(): number { return this.scale.width; }
   private get gameH(): number { return this.scale.height; }
   private get tileSize(): number {
@@ -72,54 +82,57 @@ export class ExpeditionScene extends Phaser.Scene {
       const t = this.bridge.game.terrain;
       return Math.max(1, Math.floor(Math.min(this.gameW / t.width, this.gameH / t.height)));
     }
+    if (ZOOM_LEVELS[this.zoomIndex] === -1) {
+      return Math.max(1, Math.floor(Math.min(this.gameW / 10, this.gameH / 10)));
+    }
     return ZOOM_LEVELS[this.zoomIndex];
   }
   private get tilesX(): number { return Math.ceil(this.gameW / this.tileSize); }
   private get tilesY(): number { return Math.ceil(this.gameH / this.tileSize); }
-
   private createFreshBridge(): SimulationBridge {
     const minFixedTile = ZOOM_LEVELS[1]; // smallest fixed zoom level
     const maxTilesX = Math.ceil(this.gameW / minFixedTile) + 20;
     const maxTilesY = Math.ceil(this.gameH / minFixedTile) + 20;
     const bridge = new SimulationBridge({
-      seed: 42, worldWidth: Math.max(80, maxTilesX),
+      seed: Date.now(), worldWidth: Math.max(80, maxTilesX),
       worldHeight: Math.max(60, maxTilesY), startingDwarves: 3,
     });
     bridge.init();
     return bridge;
   }
-
   private autoSave(): void {
     try {
+      if (!this.slotId) return;
       const data = serializeGame(this.bridge.game);
-      localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+      saveToSlot(this.slotId, data, this.slotName);
+      setActiveSlot(this.slotId);
       localStorage.setItem(MODE_KEY, String(this.currentMode));
     } catch { /* ignore */ }
   }
-
   create() {
-    const saved = localStorage.getItem(SAVE_KEY);
-    if (saved) {
+    const saveData = this.slotId ? loadSlot(this.slotId) : null;
+    if (saveData) {
       try {
-        const data: SaveData = JSON.parse(saved);
-        this.bridge = SimulationBridge.fromSaveData(data);
+        this.bridge = SimulationBridge.fromSaveData(saveData);
         this.bridge.game.log.markSessionStart();
         this.bridge.game.log.add('narration', 'You awaken from a brief rest. The mountain still calls.');
       } catch {
-        localStorage.removeItem(SAVE_KEY);
         this.bridge = this.createFreshBridge();
       }
     } else {
       this.bridge = this.createFreshBridge();
     }
-
-    // Restore saved mode
+    // Restore saved mode and zoom
     const savedMode = localStorage.getItem(MODE_KEY);
     if (savedMode) {
       const m = Number(savedMode);
       if (m >= SmartMode.Mine && m <= SmartMode.Demolish) this.currentMode = m;
     }
-
+    if (this.slotId) {
+      const meta = getSlotMeta(this.slotId);
+      if (meta?.zoom != null && meta.zoom >= 0 && meta.zoom < ZOOM_LEVELS.length) this.zoomIndex = meta.zoom;
+    }
+    this.bgGraphics = this.add.graphics().setDepth(-1);
     this.terrainGraphics = this.add.graphics();
     this.entityGraphics = this.add.graphics();
     this.cursorGraphics = this.add.graphics().setDepth(50);
@@ -135,16 +148,19 @@ export class ExpeditionScene extends Phaser.Scene {
       fontSize: '13px', fontFamily: 'monospace', color: '#a0a0b8',
       backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
     }).setOrigin(0, 1).setDepth(100);
-
     const kb = this.input.keyboard!;
     const K = Phaser.Input.Keyboard.KeyCodes;
     [this.keyW, this.keyA, this.keyS, this.keyD] = [K.W, K.A, K.S, K.D].map((k) => kb.addKey(k));
     this.keySpace = kb.addKey(K.SPACE); this.keyTab = kb.addKey(K.TAB);
     this.keyEsc = kb.addKey(K.ESC); this.keyShift = kb.addKey(K.SHIFT); this.keyCtrl = kb.addKey(K.CTRL);
     this.modeKeys = [kb.addKey(K.ONE), kb.addKey(K.TWO), kb.addKey(K.THREE), kb.addKey(K.FOUR)];
-
     this.scribePanel = new ScribePanel(this, this.bridge.game.log);
     this.alertOverlay = new AlertOverlay(this, this.gameW);
+    this.pauseOverlay = new PauseOverlay(
+      this,
+      () => { this.paused = false; },
+      () => { clearActiveSlot(); this.scene.start('BootScene'); },
+    );
     const btnStyle = { fontSize: '12px', color: '#e8c170', backgroundColor: '#2a2a3e', padding: { x: 4, y: 2 } };
     this.scribeBtn = this.add.text(this.gameW - 10, 10, '[Scribe]', btnStyle)
       .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
@@ -152,6 +168,16 @@ export class ExpeditionScene extends Phaser.Scene {
     this.zoomBtn = this.add.text(this.gameW - 10, 36, this.zoomLabel(), btnStyle)
       .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
     this.zoomBtn.on('pointerdown', () => this.cycleZoom());
+    // TEMP: regenerate world button — remove later
+    const regenBtn = this.add.text(this.gameW - 10, 62, '[Regen World]', btnStyle)
+      .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
+    regenBtn.on('pointerover', () => regenBtn.setColor('#ff6666'));
+    regenBtn.on('pointerout', () => regenBtn.setColor('#e8c170'));
+    regenBtn.on('pointerdown', () => {
+      this.bridge = this.createFreshBridge();
+      this.scribePanel = new ScribePanel(this, this.bridge.game.log);
+      this.autoSave(); this.redraw();
+    });
     this.suppliesText = this.add.text(10, 10, '', {
       fontSize: '14px', fontFamily: 'monospace', color: '#e8c170', backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
     }).setDepth(100);
@@ -162,35 +188,42 @@ export class ExpeditionScene extends Phaser.Scene {
     this.scale.on('resize', this.onResize, this);
     this.redraw();
   }
-
   private zoomLabel(): string {
-    return `[Zoom: ${['Full', 'Far', 'Mid', 'Near', 'Close'][this.zoomIndex]}]`;
+    return `[Zoom: ${['Full', 'Far', 'Mid', 'Near', 'Close'][this.zoomIndex] ?? 'Close'}]`;
   }
-
   private cycleZoom() {
     this.zoomIndex = (this.zoomIndex + 1) % ZOOM_LEVELS.length;
     this.zoomBtn.setText(this.zoomLabel());
+    if (this.slotId) updateSlotZoom(this.slotId, this.zoomIndex);
     this.redraw();
   }
-
   private onResize() {
     this.hintsText.setPosition(10, this.gameH - 10);
     this.scribeBtn.setPosition(this.gameW - 10, 10);
     this.zoomBtn.setPosition(this.gameW - 10, 36);
     this.scribePanel.reposition(this.gameW, this.gameH);
     this.alertOverlay.reposition(this.gameW);
+    this.pauseOverlay.reposition(this.gameW, this.gameH);
     this.actionHint.setPosition(this.gameW - 10, this.gameH - 8);
     this.redraw();
   }
-
   update(_time: number, delta: number) {
+    // While paused, only ESC resumes
+    if (this.paused) {
+      this.inputCooldown -= delta;
+      if (this.inputCooldown > 0) return;
+      if (this.keyEsc.isDown) {
+        this.pauseOverlay.hide();
+        this.inputCooldown = 200;
+      }
+      return;
+    }
     this.inputCooldown -= delta;
     const mainDwarfForCrouch = this.bridge.game.getMainDwarf();
     if (mainDwarfForCrouch) {
       mainDwarfForCrouch.get<DwarfComponent>('dwarf')!.crouching = this.keyCtrl.isDown;
     }
     if (this.suppressHeaveOff && !this.keyW.isDown) this.suppressHeaveOff = false;
-
     if (this.selfSelect && !this.keyCtrl.isDown) {
       this.selfSelect = false;
       this.hasActed = false;
@@ -198,89 +231,40 @@ export class ExpeditionScene extends Phaser.Scene {
       this.pendingHoist = null;
       this.redraw();
     }
-
     if (this.bridge.game.expeditionOver) return;
-
-    // --- Time-based sim progress: run every frame so companions/shaping/chipping advance in real time ---
-    // Chipping lock: while chipping, only ESC and Tab are allowed; auto-tick at 200ms
-    if (this.bridge.game.hasActiveChipping()) {
-      if (this.keyTab.isDown) {
-        this.scribePanel.toggle();
-        this.inputCooldown = 200;
-        return;
-      }
-      if (this.keyEsc.isDown) {
-        this.bridge.game.cancelChipping();
-        this.chippingTimer = 0;
-        this.inputCooldown = 150; this.autoSave(); this.redraw(); return;
-      }
-      if (this.chippingTimer <= 0) this.chippingTimer = 200;
-      this.chippingTimer -= delta;
-      if (this.chippingTimer <= 0) {
-        this.bridge.game.execute(new WaitCommand());
-        this.chippingTimer = 200;
-        this.alertOverlay.show('Chipping... ESC to cancel', '#ff8800');
-        this.autoSave(); this.redraw();
-      }
-      return;
-    }
-    this.chippingTimer = 0;
-
-    // Shaping auto-tick: companion works independently at a slow pace
-    if (!this.bridge.game.expeditionOver && this.bridge.game.hasActiveShaping()) {
-      if (this.shapingTimer <= 0) this.shapingTimer = 500;
-      this.shapingTimer -= delta;
-      if (this.shapingTimer <= 0) {
-        this.bridge.game.shapingArmed = true;
-        this.bridge.game.execute(new WaitCommand());
-        this.shapingTimer = 500;
-        this.autoSave(); this.redraw();
-      }
-    } else {
-      this.shapingTimer = 0;
-    }
-
-    // Sell errand auto-tick: companion walks 1 tile per tick at a visible pace
-    if (!this.bridge.game.expeditionOver && this.bridge.game.hasActiveSellErrand()) {
-      if (this.sellTimer <= 0) this.sellTimer = 300;
-      this.sellTimer -= delta;
-      if (this.sellTimer <= 0) {
-        const logBefore = this.bridge.game.log.length;
-        this.bridge.game.sellTickArmed = true;
-        this.bridge.game.execute(new WaitCommand());
-        this.sellTimer = 300;
-        const entries = this.bridge.game.log.all();
-        for (let i = logBefore; i < entries.length; i++) {
-          if (entries[i].category === 'narration') {
-            this.alertOverlay.show(entries[i].message, '#e8c170');
-          } else if (entries[i].message.includes("can't find a way out")) {
-            this.alertOverlay.show('A companion is blocked from their errand.', '#ff6666');
-          }
-        }
-        this.autoSave(); this.redraw();
-      }
-    } else {
-      this.sellTimer = 0;
-    }
-
+    // --- Time-based sim progress ---
+    const timerCtx = {
+      game: this.bridge.game, alertOverlay: this.alertOverlay,
+      scribePanel: this.scribePanel, keyTab: this.keyTab, keyEsc: this.keyEsc,
+      autoSave: () => this.autoSave(), redraw: () => this.redraw(),
+      inputCooldown: this.inputCooldown,
+    };
+    const chipResult = processChipping(delta, this.timers, timerCtx);
+    if (chipResult.handled) { this.inputCooldown = chipResult.inputCooldown; return; }
+    processShaping(delta, this.timers, timerCtx);
+    processSellErrand(delta, this.timers, timerCtx);
     if (this.inputCooldown > 0) return;
-
     if (this.keyTab.isDown) {
       this.scribePanel.toggle();
       this.inputCooldown = 200;
       return;
     }
-
     if (this.keyEsc.isDown) {
       if (this.pendingHeave || this.pendingHoist) {
         this.pendingHeave = null; this.pendingHoist = null;
         this.inputCooldown = 150; this.redraw(); return;
       }
-      this.currentMode = SmartMode.Mine;
-      localStorage.setItem(MODE_KEY, String(this.currentMode));
-      this.inputCooldown = 150; this.redraw(); return;
+      if (this.currentMode !== SmartMode.Mine) {
+        this.currentMode = SmartMode.Mine;
+        localStorage.setItem(MODE_KEY, String(this.currentMode));
+        this.inputCooldown = 150; this.redraw(); return;
+      }
+      // Already in Mine mode, nothing pending → open pause menu
+      this.paused = true;
+      this.pauseOverlay.show();
+      this.inputCooldown = 200;
+      return;
     }
-
     // Pending heave/hoist resolution
     if (this.pendingHeave || this.pendingHoist) {
       const lateralDir = this.keyA.isDown ? Direction.Left : this.keyD.isDown ? Direction.Right : null;
@@ -306,7 +290,6 @@ export class ExpeditionScene extends Phaser.Scene {
       this.hasActed = true; this.inputCooldown = 120; this.autoSave(); this.redraw();
       return;
     }
-
     // Mode switching (1-3)
     for (let i = 0; i < this.modeKeys.length; i++) {
       if (this.modeKeys[i].isDown) {
@@ -315,11 +298,9 @@ export class ExpeditionScene extends Phaser.Scene {
         this.inputCooldown = 150; this.redraw(); return;
       }
     }
-
     let acted = false;
     const dir = this.keyA.isDown ? Direction.Left : this.keyD.isDown ? Direction.Right
       : this.keyW.isDown ? Direction.Up : this.keyS.isDown ? Direction.Down : null;
-
     if (!acted && this.keyCtrl.isDown && !this.selfSelect && !this.keySpace.isDown) {
       this.selfSelect = true; this.hasActed = true;
       this.inputCooldown = 150; this.redraw(); return;
@@ -327,7 +308,6 @@ export class ExpeditionScene extends Phaser.Scene {
     if (!acted && this.keyCtrl.isDown && this.keySpace.isDown) {
       this.selfSelect = true;
     }
-
     // Space takes priority over direction (allows lasso while holding a direction)
     if (!acted && this.keySpace.isDown) {
       const game = this.bridge.game;
@@ -344,7 +324,6 @@ export class ExpeditionScene extends Phaser.Scene {
       }
       acted = true;
     }
-
     if (!acted && dir !== null) {
       if (!this.keyCtrl.isDown) this.selfSelect = false;
       const game = this.bridge.game;
@@ -378,12 +357,10 @@ export class ExpeditionScene extends Phaser.Scene {
       }
       acted = true;
     }
-
     if (acted) {
       this.hasActed = true; this.inputCooldown = 120;
       this.autoSave(); this.redraw();
     }
-
     if (!acted && this.inputCooldown <= 0 && !this.bridge.game.expeditionOver) {
       if (this.bridge.game.hasUnsettledBlocks()) {
         this.bridge.game.execute(new WaitCommand());
@@ -391,30 +368,12 @@ export class ExpeditionScene extends Phaser.Scene {
       }
     }
   }
-
-  private static readonly ACTION_LABELS: Record<string, string> = {
-    dig: 'Dig block', lasso: 'Lasso block', untether: 'Untether rope',
-    ladder: 'Build ladder', platform: 'Build platform',
-    cement: 'Cement block', shape: 'Carve block',
-    sell: 'Sell block', collect: 'Collect crate',
-    chip: 'Chip block', blast: 'Shaped charge',
-    dismantle_ladder: 'Dismantle ladder', dismantle_platform: 'Dismantle platform',
-  };
-
   private updateActionHint(): void {
-    if (this.pendingHeave || this.pendingHoist) {
-      this.actionHint.setText('A/D: Choose side');
-      return;
-    }
-    if (this.bridge.game.isRappelling()) {
-      this.actionHint.setText('W: Climb  S: Descend');
-      return;
-    }
-    const resolved = resolveAction(this.bridge.game, this.currentMode, this.selfSelect);
-    const text = ExpeditionScene.ACTION_LABELS[resolved.label];
-    this.actionHint.setText(text ? `Space: ${text}` : '');
+    this.actionHint.setText(getActionHintText(this.bridge.game, this.currentMode, {
+      pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
+      selfSelect: this.selfSelect,
+    }));
   }
-
   private getCamera(): { camX: number; camY: number } {
     const dwarf = this.bridge.game.getMainDwarf();
     if (!dwarf) return { camX: 0, camY: 0 };
@@ -424,10 +383,10 @@ export class ExpeditionScene extends Phaser.Scene {
       camY: pos.y - Math.floor(this.tilesY / 2),
     };
   }
-
   private redraw() {
     const { camX, camY } = this.getCamera();
     const ts = this.tileSize;
+    drawBackground(this.bgGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
     drawTerrain(this.terrainGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
     drawEntitiesLayer(this.entityGraphics, this.bridge.game, ts, this.gameW, this.gameH, camX, camY, this.selfSelect);
     drawCursor(this.cursorGraphics, this.bridge.game, ts, camX, camY, {

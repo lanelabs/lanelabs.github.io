@@ -141,17 +141,17 @@ export function resolveAction(game: Game, mode: SmartMode, selfSelect = false): 
 
   // Self-select (Ctrl+Space): toggle ladder at feet, or convert platform to ladder
   if (selfSelect) {
+    // Ladder at feet → remove it (checked first so platforms above don't interfere)
+    if (game.hasLadder({ x: tx, y: ty })) {
+      return { command: new DismantleAtFeetCommand(), cursorColor: CursorColor.DISMANTLE, cursorDashed: false, label: 'dismantle_ladder' };
+    }
     // Platform at feet without ladder → convert to ladder (free, platform supplies material)
-    if (game.hasPlatform({ x: tx, y: ty }) && !game.hasLadder({ x: tx, y: ty })) {
+    if (game.hasPlatform({ x: tx, y: ty })) {
       return { command: new BuildLadderAtFeetCommand(), cursorColor: CursorColor.BUILD, cursorDashed: false, label: 'ladder' };
     }
     // Platform directly above without ladder → convert via upward build (free)
     if (game.hasPlatform({ x: tx, y: ty - 1 }) && !game.hasLadder({ x: tx, y: ty - 1 })) {
       return { command: new BuildLadderCommand(Direction.Up), cursorColor: CursorColor.BUILD, cursorDashed: false, label: 'ladder' };
-    }
-    // Ladder at feet → remove it
-    if (game.hasLadder({ x: tx, y: ty })) {
-      return { command: new DismantleAtFeetCommand(), cursorColor: CursorColor.DISMANTLE, cursorDashed: false, label: 'dismantle_ladder' };
     }
     // Loose block at feet touching solid terrain → cement (not crates)
     const selfMovable = findMovableAt(game, tx, ty);

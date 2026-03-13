@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import { CARVING_MAX_TICKS } from '../../sim/components/ShapeBlock';
 
-const AIR = 0x1a1a2e;
 const WIP_OUTLINE = 0x4488ff;
 /** Dark ashen wood — cool gray-brown to contrast warm dirt tones. */
 export const WOOD_COLOR = 0x3d3530;
@@ -34,21 +33,38 @@ export function drawShaped(
   const blockTop = sy;
   const blockH = ts - boardH;
 
-  // Block body
+  // Block body as polygon with WIP corner chips cut out
+  const cx = sx + inset;
+  const cw = ts - inset * 2;
+  const by = blockTop + blockH;
   g.fillStyle(blockColor, 0.9);
-  g.fillRect(sx + inset, blockTop, ts - inset * 2, blockH);
-
-  // Corner chips (WIP only)
+  g.beginPath();
   if (cornerChip > 0) {
-    g.fillStyle(AIR, 1);
-    const cx = sx + inset;
-    const cw = ts - inset * 2;
-    const by = blockTop + blockH;
-    g.beginPath(); g.moveTo(cx, blockTop); g.lineTo(cx + cornerChip, blockTop); g.lineTo(cx, blockTop + cornerChip); g.closePath(); g.fillPath();
-    g.beginPath(); g.moveTo(cx + cw, blockTop); g.lineTo(cx + cw - cornerChip, blockTop); g.lineTo(cx + cw, blockTop + cornerChip); g.closePath(); g.fillPath();
-    g.beginPath(); g.moveTo(cx, by); g.lineTo(cx + cornerChip, by); g.lineTo(cx, by - cornerChip); g.closePath(); g.fillPath();
-    g.beginPath(); g.moveTo(cx + cw, by); g.lineTo(cx + cw - cornerChip, by); g.lineTo(cx + cw, by - cornerChip); g.closePath(); g.fillPath();
+    g.moveTo(cx, blockTop + cornerChip);
+    g.lineTo(cx + cornerChip, blockTop);
+  } else {
+    g.moveTo(cx, blockTop);
   }
+  if (cornerChip > 0) {
+    g.lineTo(cx + cw - cornerChip, blockTop);
+    g.lineTo(cx + cw, blockTop + cornerChip);
+  } else {
+    g.lineTo(cx + cw, blockTop);
+  }
+  if (cornerChip > 0) {
+    g.lineTo(cx + cw, by - cornerChip);
+    g.lineTo(cx + cw - cornerChip, by);
+  } else {
+    g.lineTo(cx + cw, by);
+  }
+  if (cornerChip > 0) {
+    g.lineTo(cx + cornerChip, by);
+    g.lineTo(cx, by - cornerChip);
+  } else {
+    g.lineTo(cx, by);
+  }
+  g.closePath();
+  g.fillPath();
 
   // Inner recessed rectangle (door inset) — fades in early for visible feedback
   const insetStart = Math.round(CARVING_MAX_TICKS * 0.15);

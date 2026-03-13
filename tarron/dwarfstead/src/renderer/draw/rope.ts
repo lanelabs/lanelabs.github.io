@@ -142,8 +142,11 @@ export function drawRopeEntity(
       game.getBlock({ x, y }) !== BlockMaterial.Air || game.hasClimbable({ x, y });
     let wallX: number | null = null;
     let wallRow = anchorY;
-    for (const row of [anchorY, anchorY + 1]) {
-      for (let dist = 1; dist <= 5; dist++) {
+    // Prioritize nearest horizontal distance, checking multiple Y levels
+    // to handle surface height variation (hills/valleys)
+    for (let dist = 1; dist <= 5; dist++) {
+      for (const row of [anchorY, anchorY + 1, anchorY - 1, anchorY + 2, anchorY - 2, anchorY + 3, anchorY - 3]) {
+        if (row < 0 || row >= game.terrain.height) continue;
         const lx = anchorX - dist;
         if (lx >= 0 && isSolid(lx, row)) {
           wallX = lx; wallRow = row; break;

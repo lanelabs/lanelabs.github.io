@@ -5,8 +5,9 @@ import { ExpeditionScene } from './renderer/scenes/ExpeditionScene';
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   backgroundColor: '#1a1a2e',
-  scene: [ExpeditionScene, BootScene], // ExpeditionScene first to skip title during dev
+  scene: [BootScene, ExpeditionScene],
   pixelArt: true,
+  dom: { createContainer: true },
   scale: {
     mode: Phaser.Scale.RESIZE,
     parent: 'game-container',

@@ -199,9 +199,9 @@ function hurdleOffRope(
     }
   }
 
-  // Scan for a passable tile with solid ground below
+  // Scan for a passable tile with solid ground below (1 tile only — no teleporting across gaps)
   const sign = onlySide === Direction.Left ? -1 : onlySide === Direction.Right ? 1 : 0;
-  for (let dist = 1; dist <= 3; dist++) {
+  for (let dist = 1; dist <= 1; dist++) {
     const offsets = sign !== 0 ? [sign * dist] : [-dist, dist];
     for (const dx of offsets) {
       const hx = ropePos.x + dx;

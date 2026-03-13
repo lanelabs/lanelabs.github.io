@@ -62,4 +62,10 @@ export const BLOCK_INFO: Record<BlockMaterial, BlockInfo> = {
     color: '#6B6B6B',
     drops: null,
   },
+  [BlockMaterial.GrassyDirt]: {
+    hardness: 1,
+    displayChar: '"',
+    color: '#4A7C3F',
+    drops: BlockMaterial.GrassyDirt,
+  },
 };

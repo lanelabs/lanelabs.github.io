@@ -226,16 +226,18 @@ export function drawDwarfSprite(
   g.fillStyle(buckle, 1);
   px(7, 12, 2, 1);
 
-  // -- Legs / boots (rows 13-15) --
+  // -- Legs / boots (rows 13-15), toe direction matches facing --
+  const toeLeft = facing === Direction.Left;
+  const bootOff = toeLeft ? -1 : 0;
   g.fillStyle(tunic, 1);
   px(5, 13, 2, 1);
   px(9, 13, 2, 1);
   g.fillStyle(boots, 1);
   px(4, 14, 3, 1);
   px(9, 14, 3, 1);
-  px(4, 15, 4, 1);
-  px(9, 15, 4, 1);
+  px(4 + bootOff, 15, 4, 1);
+  px(9 + bootOff, 15, 4, 1);
   g.fillStyle(bootsDark, 1);
-  px(4, 15, 1, 1);
-  px(12, 15, 1, 1);
+  px(toeLeft ? 3 : 7, 15, 1, 1);
+  px(toeLeft ? 8 : 12, 15, 1, 1);
 }

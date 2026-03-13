@@ -93,11 +93,20 @@ export class DismantleLadderCommand implements Command {
         return { success: true, message: 'Ladder converted to platform.' };
       }
 
-      // If dwarf is on a ladder in this column, always move one step toward anchor
+      // If dwarf is on a ladder in this column, move toward anchor if destination is passable
       const dwarfOnLadder = pos.x === targetPos.x && game.hasLadder({ x: pos.x, y: pos.y });
       if (dwarfOnLadder && !isLast) {
-        const anchorDir = -step;
-        pos.y += anchorDir;
+        const newY = pos.y + (-step);
+        const passable = game.getBlock({ x: pos.x, y: newY }) === BlockMaterial.Air
+          || game.hasClimbable({ x: pos.x, y: newY });
+        if (passable) pos.y = newY;
+      }
+
+      // Adjacent platform → convert instead of despawning
+      if (game.hasPlatform({ x: freePos.x - 1, y: freeY }) || game.hasPlatform({ x: freePos.x + 1, y: freeY })) {
+        freeClimb.type = 'platform';
+        game.log.add('action', `${dwarfComp.name} converts a ladder into a platform.`);
+        return { success: true, message: 'Ladder converted to platform.' };
       }
 
       // Trail cleanup + despawn + refund

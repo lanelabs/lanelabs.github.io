@@ -6,7 +6,6 @@ import { DwarfComponent } from '../../sim/components/Dwarf';
 import { BlockTypeComponent } from '../../sim/components/BlockType';
 import { CreatureComponent } from '../../sim/components/Creature';
 import { BLOCK_INFO } from '../../sim/terrain/BlockTypes';
-import { BlockMaterial } from '../../sim/types';
 import { CompanionTaskComponent } from '../../sim/components/CompanionTask';
 import { ClimbableComponent } from '../../sim/components/Climbable';
 import { ShapeBlockComponent } from '../../sim/components/ShapeBlock';
@@ -15,8 +14,6 @@ import { drawShaped } from './shapedBlock';
 import { RopeComponent } from '../../sim/components/Rope';
 import { ChippingComponent } from '../../sim/components/Chipping';
 import { drawRopeEntity } from './rope';
-
-const AIR_COLOR = parseInt(BLOCK_INFO[BlockMaterial.Air].color.slice(1), 16);
 
 /**
  * Each crack is a polyline with segments that reveal progressively.
@@ -215,24 +212,20 @@ export function drawEntities(
         }
       } else {
         const isOverhead = overheadId !== null && entity.id === overheadId;
-        g.fillStyle(color, isOverhead ? 0.65 : 0.9);
-        g.fillRect(sx, sy, ts, ts);
         const chip = Math.ceil(ts * 0.2);
-        const chipCorner = (
-          x0: number, y0: number, x1: number, y1: number, x2: number, y2: number,
-        ) => {
-          g.fillStyle(AIR_COLOR, 1);
-          g.beginPath();
-          g.moveTo(x0, y0);
-          g.lineTo(x1, y1);
-          g.lineTo(x2, y2);
-          g.closePath();
-          g.fillPath();
-        };
-        chipCorner(sx, sy, sx + chip, sy, sx, sy + chip);
-        chipCorner(sx + ts, sy, sx + ts - chip, sy, sx + ts, sy + chip);
-        chipCorner(sx, sy + ts, sx + chip, sy + ts, sx, sy + ts - chip);
-        chipCorner(sx + ts, sy + ts, sx + ts - chip, sy + ts, sx + ts, sy + ts - chip);
+        // Draw loose block as polygon with all 4 corners cut (octagonal)
+        g.fillStyle(color, isOverhead ? 0.65 : 0.9);
+        g.beginPath();
+        g.moveTo(sx, sy + chip);
+        g.lineTo(sx + chip, sy);
+        g.lineTo(sx + ts - chip, sy);
+        g.lineTo(sx + ts, sy + chip);
+        g.lineTo(sx + ts, sy + ts - chip);
+        g.lineTo(sx + ts - chip, sy + ts);
+        g.lineTo(sx + chip, sy + ts);
+        g.lineTo(sx, sy + ts - chip);
+        g.closePath();
+        g.fillPath();
         const dashLen = Math.max(2, Math.round(ts / 5));
         const gapLen = Math.max(1, Math.round(ts / 8));
         g.lineStyle(1, 0x000000, 0.7);

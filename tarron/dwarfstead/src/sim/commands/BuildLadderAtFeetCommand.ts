@@ -49,6 +49,7 @@ export class BuildLadderAtFeetCommand implements Command {
     ladder
       .add(new PositionComponent(pos.x, pos.y))
       .add(new ClimbableComponent('ladder', anchorEnd));
+    if (anchorEnd) game.unifyLadderColumn(pos.x, pos.y, anchorEnd);
 
     if (platforms.length > 0) {
       game.log.add('action', `${dwarfComp.name} converts the platform into a ladder.`);

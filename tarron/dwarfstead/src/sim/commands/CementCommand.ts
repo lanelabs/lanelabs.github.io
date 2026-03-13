@@ -51,6 +51,9 @@ export class CementCommand implements Command {
     const bt = block.get<BlockTypeComponent>('blockType');
     const material = bt ? bt.material : BlockMaterial.Stone;
 
+    // GrassyDirt becomes plain Dirt when cemented
+    const cementMaterial = material === BlockMaterial.GrassyDirt ? BlockMaterial.Dirt : material;
+
     // Clear any dwarf references to this block
     for (const e of game.world.query('dwarf')) {
       const d = e.get<DwarfComponent>('dwarf')!;
@@ -61,9 +64,9 @@ export class CementCommand implements Command {
 
     // Despawn entity and set terrain
     game.world.despawn(block.id);
-    game.setBlock({ x: tx, y: ty }, material);
+    game.setBlock({ x: tx, y: ty }, cementMaterial);
 
-    game.log.add('action', `${dwarfComp.name} cements a ${material} block into place.`);
-    return { success: true, message: `Cemented ${material} block.` };
+    game.log.add('action', `${dwarfComp.name} cements a ${cementMaterial} block into place.`);
+    return { success: true, message: `Cemented ${cementMaterial} block.` };
   }
 }

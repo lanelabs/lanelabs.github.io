@@ -6,10 +6,10 @@ import { BlockMaterial } from '../types';
 import { PositionComponent } from '../components/Position';
 import { DwarfComponent } from '../components/Dwarf';
 import { CompanionTaskComponent } from '../components/CompanionTask';
-import { MovableComponent } from '../components/Movable';
-import { SupplyCrateComponent } from '../components/SupplyCrate';
 import { findPath } from '../pathfinding/findPath';
-import type { PathContext } from '../pathfinding/types';
+import {
+  buildPathCtx, findEdgePath, handleSellPathComplete, handleSellCountdown,
+} from './companionSell';
 
 export interface CompanionContext {
   surfaceY: number;
@@ -89,159 +89,6 @@ export class CompanionSystem implements System {
     return `${x},${y}`;
   }
 
-  private buildPathCtx(excludeEntityId?: number): PathContext {
-    return {
-      terrainWidth: this.ctx.terrainWidth,
-      terrainHeight: this.ctx.terrainHeight,
-      maxSafeFallHeight: this.ctx.maxSafeFallHeight,
-      getBlock: this.ctx.getBlock,
-      isFlooded: this.ctx.isFlooded,
-      hasLadder: this.ctx.hasLadder,
-      hasPlatform: this.ctx.hasPlatform,
-      hasClimbable: this.ctx.hasClimbable,
-      hasRope: this.ctx.hasRope,
-      hasMovableAt: (x, y) => this.ctx.hasMovableAt(x, y, excludeEntityId),
-    };
-  }
-
-  /** If pos overlaps a dwarf or movable, shift it left/right to a free air tile. */
-  private nudgeToFree(world: World, pos: PositionComponent): void {
-    const isOccupied = (x: number, y: number) =>
-      world.query('position').some((e) => {
-        const p = e.get<PositionComponent>('position')!;
-        return p.x === x && p.y === y && p !== pos;
-      });
-    if (!isOccupied(pos.x, pos.y)) return;
-    for (let d = 1; d <= 5; d++) {
-      for (const dx of [-d, d]) {
-        const nx = pos.x + dx;
-        if (nx < 0 || nx >= this.ctx.terrainWidth) continue;
-        if (this.ctx.getBlock({ x: nx, y: pos.y }) !== BlockMaterial.Air) continue;
-        if (!isOccupied(nx, pos.y)) {
-          pos.x = nx;
-          return;
-        }
-      }
-    }
-    // Fallback: place one tile above
-    pos.y -= 1;
-  }
-
-  private cancelSell(ct: CompanionTaskComponent): void {
-    ct.task = 'idle'; ct.sellPhase = 0; ct.pendingErrand = null;
-    ct.dragEntityId = null; ct.path = null; ct.pathIndex = 0;
-    ct.dragTrail = []; ct.blocked = false;
-  }
-
-  /** Find the first walkable Y (air with ground below) at a given X, near surfaceY. */
-  private findWalkableY(x: number): number | null {
-    const baseY = this.ctx.surfaceY;
-    // Scan upward from surfaceY to find air above ground
-    for (let y = baseY - 1; y >= Math.max(0, baseY - 8); y--) {
-      if (this.ctx.getBlock({ x, y }) === BlockMaterial.Air
-        && !this.ctx.isFlooded({ x, y })
-        && this.ctx.getBlock({ x, y: y + 1 }) !== BlockMaterial.Air) {
-        return y;
-      }
-    }
-    // Scan downward as fallback
-    for (let y = baseY; y < Math.min(this.ctx.terrainHeight, baseY + 4); y++) {
-      if (this.ctx.getBlock({ x, y }) === BlockMaterial.Air
-        && !this.ctx.isFlooded({ x, y })
-        && y + 1 < this.ctx.terrainHeight
-        && this.ctx.getBlock({ x, y: y + 1 }) !== BlockMaterial.Air) {
-        return y;
-      }
-    }
-    return null;
-  }
-
-  /** Try to find a path to either edge, preferring edgeX, falling back to opposite. */
-  private findEdgePath(
-    pathCtx: PathContext, start: { x: number; y: number }, edgeX: number,
-    ct: CompanionTaskComponent,
-  ): void {
-    const otherEdge = edgeX === 0 ? this.ctx.terrainWidth - 1 : 0;
-
-    // Try preferred edge with valid walkable Y
-    const goalY1 = this.findWalkableY(edgeX);
-    let path = goalY1 !== null ? findPath(pathCtx, start, { x: edgeX, y: goalY1 }) : null;
-    let finalEdge = edgeX;
-
-    if (!path) {
-      const goalY2 = this.findWalkableY(otherEdge);
-      path = goalY2 !== null ? findPath(pathCtx, start, { x: otherEdge, y: goalY2 }) : null;
-      finalEdge = otherEdge;
-    }
-
-    ct.path = path;
-    ct.pathIndex = 0;
-    ct.edgeX = finalEdge;
-    ct.blocked = !path;
-  }
-
-  private onSellPathComplete(
-    world: World, log: GameLog,
-    entity: ReturnType<typeof world.query>[0],
-    _dwarfPos: { x: number; y: number } | null,
-  ): void {
-    const dwarf = entity.get<DwarfComponent>('dwarf')!;
-    const ct = entity.get<CompanionTaskComponent>('companionTask')!;
-    const pos = entity.get<PositionComponent>('position')!;
-
-    if (ct.sellPhase === 1) {
-      // Phase 1 complete: begin phase 2 (drag block to edge)
-      if (ct.targetEntityId !== null) {
-        const block = world.getEntity(ct.targetEntityId);
-        if (block) {
-          const bp = block.get<PositionComponent>('position')!;
-          pos.x = bp.x;
-          pos.y = bp.y - 1;
-          ct.dragEntityId = ct.targetEntityId;
-          ct.dragTrail = [{ x: bp.x, y: bp.y - 1 }, { x: bp.x, y: bp.y }];
-          const pathCtx = this.buildPathCtx(ct.dragEntityId!);
-          this.findEdgePath(pathCtx, { x: pos.x, y: pos.y }, ct.edgeX, ct);
-          ct.sellPhase = 2;
-          if (ct.blocked) {
-            log.add('action', `${dwarf.name} ropes the shaped block but can't find a way out.`);
-          } else {
-            log.add('action', `${dwarf.name} ropes the shaped block and drags it toward the surface.`);
-          }
-          return;
-        }
-      }
-      this.cancelSell(ct);
-    } else if (ct.sellPhase === 2) {
-      // Phase 2 complete: go off-screen (phase 3)
-      if (ct.dragEntityId !== null) {
-        world.despawn(ct.dragEntityId);
-      }
-      ct.dragEntityId = null;
-      pos.x = -1;
-      pos.y = -1;
-      ct.task = 'selling';
-      ct.sellPhase = 3;
-      ct.ticksRemaining = 5;
-      ct.path = null;
-      log.add('narration', `${dwarf.name} disappears over the ridge to trade.`);
-    } else if (ct.sellPhase === 4) {
-      // Phase 4 complete: auto-collect crate supplies and despawn it
-      if (ct.dragEntityId !== null) {
-        const crate = world.getEntity(ct.dragEntityId);
-        if (crate) {
-          const sc = crate.get<SupplyCrateComponent>('supplyCrate');
-          if (sc) {
-            this.ctx.addSupplies(sc.suppliesInside);
-            log.add('action', `Collected ${sc.suppliesInside} supply from ${dwarf.name}'s crate.`);
-          }
-          world.despawn(ct.dragEntityId);
-        }
-      }
-      log.add('narration', `${dwarf.name} delivers the goods and rejoins the band.`);
-      this.cancelSell(ct);
-    }
-  }
-
   update(world: World, log: GameLog): void {
     const companions = world.query('dwarf', 'position', 'companionTask');
     const dwarfPos = this.ctx.mainDwarfPos();
@@ -301,7 +148,7 @@ export class CompanionSystem implements System {
 
       // Recompute path if null (e.g. after load, blocked retry, or dwarf moved)
       if (!ct.path) {
-        const pathCtx = this.buildPathCtx(ct.dragEntityId ?? undefined);
+        const pathCtx = buildPathCtx(this.ctx, ct.dragEntityId ?? undefined);
         const start = { x: pos.x, y: pos.y };
         if (ct.sellPhase === 1 && ct.targetEntityId !== null) {
           const block = world.getEntity(ct.targetEntityId);
@@ -310,7 +157,7 @@ export class CompanionSystem implements System {
             ct.path = findPath(pathCtx, start, { x: bp.x, y: bp.y - 1 });
           }
         } else if (ct.sellPhase === 2) {
-          this.findEdgePath(pathCtx, start, ct.edgeX, ct);
+          findEdgePath(this.ctx, pathCtx, start, ct.edgeX, ct);
         } else if (ct.sellPhase === 4 && dwarfPos) {
           ct.path = findPath(pathCtx, start, dwarfPos);
         }
@@ -328,7 +175,7 @@ export class CompanionSystem implements System {
       // Step along path
       if (ct.pathIndex >= ct.path.length) {
         // Path complete — transition to next phase
-        this.onSellPathComplete(world, log, entity, dwarfPos);
+        handleSellPathComplete(this.ctx, world, log, entity, dwarfPos);
         continue;
       }
 
@@ -375,7 +222,7 @@ export class CompanionSystem implements System {
 
       if (!ct.path) {
         if (dwarfPos) {
-          const pathCtx = this.buildPathCtx();
+          const pathCtx = buildPathCtx(this.ctx);
           ct.path = findPath(pathCtx, { x: pos.x, y: pos.y }, dwarfPos);
         }
         ct.pathIndex = 0;
@@ -416,35 +263,7 @@ export class CompanionSystem implements System {
       if (dwarf.isMainDwarf) continue;
       const ct = entity.get<CompanionTaskComponent>('companionTask')!;
       if (ct.task !== 'selling' || ct.sellPhase !== 3) continue;
-      const pos = entity.get<PositionComponent>('position')!;
-
-      ct.ticksRemaining--;
-      if (ct.ticksRemaining <= 0) {
-        // Phase 4: return with crate
-        const walkY = this.findWalkableY(ct.edgeX) ?? (this.ctx.surfaceY - 1);
-        pos.x = ct.edgeX;
-        pos.y = walkY;
-
-        // Spawn supply crate at edge
-        const crate = world.spawn();
-        crate
-          .add(new PositionComponent(ct.edgeX, walkY))
-          .add(new MovableComponent(1))
-          .add(new SupplyCrateComponent(1));
-        ct.dragEntityId = crate.id;
-        ct.dragTrail = [{ x: ct.edgeX, y: walkY }, { x: ct.edgeX, y: walkY }];
-
-        // Path from edge to main dwarf
-        const pathCtx = this.buildPathCtx(crate.id);
-        const goal = dwarfPos ?? { x: Math.floor(this.ctx.terrainWidth / 2), y: walkY };
-        ct.path = findPath(pathCtx, { x: pos.x, y: pos.y }, goal);
-        ct.pathIndex = 0;
-        ct.task = 'pathfinding';
-        ct.sellPhase = 4;
-        ct.blocked = !ct.path;
-
-        log.add('narration', `${dwarf.name} returns from trade, dragging a crate of supplies.`);
-      }
+      handleSellCountdown(this.ctx, world, log, entity, dwarfPos);
     }
 
     if (!dwarfPos) return;

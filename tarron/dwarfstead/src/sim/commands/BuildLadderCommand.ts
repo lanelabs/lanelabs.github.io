@@ -74,6 +74,7 @@ export class BuildLadderCommand implements Command {
           const c = platformAtFeet.get<ClimbableComponent>('climbable')!;
           c.type = 'ladder';
           c.anchorEnd = 'top';
+          game.unifyLadderColumn(pos.x, pos.y, 'top');
           game.log.add('action', `${dwarfComp.name} converts the platform into a ladder.`);
           return { success: true, message: 'Platform converted to ladder.' };
         }
@@ -88,6 +89,7 @@ export class BuildLadderCommand implements Command {
           const c = platformAtTarget.get<ClimbableComponent>('climbable')!;
           c.type = 'ladder';
           c.anchorEnd = 'top';
+          game.unifyLadderColumn(targetX, targetY, 'top');
           pos.y = targetY;
           game.log.add('action', `${dwarfComp.name} converts the platform into a ladder.`);
           return { success: true, message: 'Platform converted to ladder.' };
@@ -131,6 +133,7 @@ export class BuildLadderCommand implements Command {
             c.anchorEnd = 'top';
           }
         }
+        game.unifyLadderColumn(targetX, placeY, 'top');
         pos.y = placeY;
         game.log.add('action', `${dwarfComp.name} lowers a ladder ${this.direction}.`);
         return { success: true, message: `Lowered ladder ${this.direction}.` };
@@ -178,6 +181,7 @@ export class BuildLadderCommand implements Command {
         }
         const ladder = game.world.spawn();
         ladder.add(new PositionComponent(targetX, targetY)).add(new ClimbableComponent('ladder', 'bottom'));
+        game.unifyLadderColumn(targetX, targetY, 'bottom');
         game.log.add('action', `${dwarfComp.name} converts the platform into a ladder.`);
         return { success: true, message: 'Platform converted to ladder.' };
       }
@@ -205,6 +209,7 @@ export class BuildLadderCommand implements Command {
         ladder.add(new PositionComponent(targetX, targetY)).add(new ClimbableComponent('ladder', 'bottom'));
         game.log.add('action', `${dwarfComp.name} builds a ladder to the ${this.direction}.`);
       }
+      game.unifyLadderColumn(targetX, targetY, 'bottom');
       return { success: true, message: `Built ladder ${this.direction}.` };
     }
   }

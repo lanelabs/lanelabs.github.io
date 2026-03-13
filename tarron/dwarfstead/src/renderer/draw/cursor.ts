@@ -8,6 +8,24 @@ import { drawRope } from './rope';
 import { CompanionTaskComponent } from '../../sim/components/CompanionTask';
 import { resolveAction, SmartMode } from '../smartMode';
 
+/** Return true if (wx, wy) is above the surface (sky). */
+function isSky(game: Game, wx: number, wy: number): boolean {
+  const t = game.terrain;
+  if (wx < 0 || wx >= t.width) return false;
+  const sy = t.surfaceHeights ? t.surfaceHeights[wx] : t.surfaceY;
+  return wy < sy;
+}
+
+/** Darken a color for visibility against light sky. */
+function adaptColor(color: number, game: Game, wx: number, wy: number): number {
+  if (!isSky(game, wx, wy)) return color;
+  // Halve each channel to darken
+  const r = ((color >> 16) & 0xff) >> 1;
+  const g = ((color >> 8) & 0xff) >> 1;
+  const b = (color & 0xff) >> 1;
+  return (r << 16) | (g << 8) | b;
+}
+
 export interface CursorState {
   hasActed: boolean;
   selfSelect: boolean;
@@ -96,33 +114,32 @@ export function drawCursor(
 
   const sx = (cursorX - camX) * ts;
   const sy = (cursorY - camY) * ts;
-  g.lineStyle(2, resolved.cursorColor, 0.8);
+  const cc = adaptColor(resolved.cursorColor, game, cursorX, cursorY);
+  g.lineStyle(2, cc, 0.8);
 
   if (resolved.label === 'cement') {
-    // Green semi-transparent fill for cement ghost
-    g.fillStyle(resolved.cursorColor, 0.3);
+    g.fillStyle(cc, 0.3);
     g.fillRect(sx, sy, ts, ts);
-    g.lineStyle(2, resolved.cursorColor, 0.8);
+    g.lineStyle(2, cc, 0.8);
     g.strokeRect(sx, sy, ts, ts);
   } else if (resolved.label === 'ladder' && resolved.ladderTiles) {
     for (const tile of resolved.ladderTiles) {
       const tx = (tile.x - camX) * ts;
       const ty = (tile.y - camY) * ts;
-      drawLadder(g, tx, ty, ts, 0.5, resolved.cursorColor!);
+      drawLadder(g, tx, ty, ts, 0.5, adaptColor(resolved.cursorColor, game, tile.x, tile.y));
     }
   } else if (resolved.label === 'ladder') {
-    drawLadder(g, sx, sy, ts, 0.5, resolved.cursorColor);
+    drawLadder(g, sx, sy, ts, 0.5, cc);
   } else if (resolved.label === 'platform') {
-    drawPlatform(g, sx, sy + ts, ts, 0.5, resolved.cursorColor);
+    drawPlatform(g, sx, sy + ts, ts, 0.5, cc);
   } else if (resolved.label === 'dismantle_ladder') {
-    drawLadder(g, sx, sy, ts, 0.5, resolved.cursorColor);
+    drawLadder(g, sx, sy, ts, 0.5, cc);
   } else if (resolved.label === 'dismantle_platform') {
-    drawPlatform(g, sx, sy + ts, ts, 0.5, resolved.cursorColor);
+    drawPlatform(g, sx, sy + ts, ts, 0.5, cc);
   } else if (resolved.label === 'shape' || resolved.label === 'sell' || resolved.label === 'collect') {
-    // Command mode: blue semi-transparent fill + blue stroke
-    g.fillStyle(resolved.cursorColor, 0.2);
+    g.fillStyle(cc, 0.2);
     g.fillRect(sx, sy, ts, ts);
-    g.lineStyle(2, resolved.cursorColor, 0.8);
+    g.lineStyle(2, cc, 0.8);
     g.strokeRect(sx, sy, ts, ts);
   } else if (resolved.cursorDashed) {
     const dashLen = Math.max(2, Math.round(ts / 4));

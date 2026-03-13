@@ -14,6 +14,7 @@ import { CompanionTaskComponent } from './components/CompanionTask';
 import { ClimbableComponent } from './components/Climbable';
 import { RopeComponent } from './components/Rope';
 import type { Command } from './commands/Command';
+import { collapseRopesSupportedBy as collapseRopesImpl } from './ropeCollapse';
 import { GravitySystem, setGravityTerrain, setGravityTetheredCheck, setGravityOverheadCheck } from './systems/GravitySystem';
 import { MovementSystem } from './systems/MovementSystem';
 import { WaterSystem, type WaterState } from './systems/WaterSystem';
@@ -241,6 +242,20 @@ export class Game {
     });
   }
 
+  /** After placing a ladder, unify anchor if two chains just connected. */
+  unifyLadderColumn(x: number, y: number, newAnchor: 'top' | 'bottom'): void {
+    if (!this.hasLadder({ x, y: y - 1 }) && !this.hasLadder({ x, y: y + 1 })) return;
+    let topY = y;
+    while (this.hasLadder({ x, y: topY - 1 })) topY--;
+    let bottomY = y;
+    while (this.hasLadder({ x, y: bottomY + 1 })) bottomY++;
+    for (const e of this.world.query('position', 'climbable')) {
+      const p = e.get<PositionComponent>('position')!;
+      const c = e.get<ClimbableComponent>('climbable')!;
+      if (p.x === x && p.y >= topY && p.y <= bottomY && c.type === 'ladder') c.anchorEnd = newAnchor;
+    }
+  }
+
   /** Check if any rope entity covers a position (between anchorY and anchorY+length). */
   hasRope(pos: Vec2): boolean {
     return this.world.query('position', 'rope').some((e) => {
@@ -259,57 +274,9 @@ export class Game {
     }) ?? null;
   }
 
-  /**
-   * Collapse any ropes whose gallows beam was supported by the climbable at (cx, cy).
-   * Detaches the dwarf if rappelling on a collapsed rope and refunds supplies.
-   */
+  /** Collapse ropes supported by a removed climbable. See ropeCollapse.ts. */
   collapseRopesSupportedBy(cx: number, cy: number): void {
-    const ropes = this.world.query('position', 'rope');
-    for (const ropeEntity of ropes) {
-      const rp = ropeEntity.get<PositionComponent>('position')!;
-      const rc = ropeEntity.get<RopeComponent>('rope')!;
-      // Platform-anchored ropes: the anchor IS the climbable
-      if (rp.x === cx && rp.y === cy) {
-        this.collapseRope(ropeEntity, rc);
-        continue;
-      }
-      // Gallows ropes: check if this climbable is adjacent and at the anchor row or one below
-      if (rp.y !== cy && rp.y !== cy - 1) continue;
-      const dist = Math.abs(rp.x - cx);
-      if (dist < 1 || dist > 5) continue;
-      // Verify this climbable was the nearest support (same scan as rendering)
-      let nearest: number | null = null;
-      for (const row of [rp.y, rp.y + 1]) {
-        for (let d = 1; d <= 5; d++) {
-          for (const dx of [-d, d]) {
-            const sx = rp.x + dx;
-            if (sx < 0 || sx >= this.terrain.width) continue;
-            if (this.getBlock({ x: sx, y: row }) !== BlockMaterial.Air || this.hasClimbable({ x: sx, y: row })) {
-              if (nearest === null || d < Math.abs(rp.x - nearest)) nearest = sx;
-            }
-          }
-          if (nearest !== null) break;
-        }
-        if (nearest !== null) break;
-      }
-      if (nearest === cx) {
-        this.collapseRope(ropeEntity, rc);
-      }
-    }
-  }
-
-  private collapseRope(ropeEntity: Entity, rc: RopeComponent): void {
-    // Detach dwarf if rappelling on this rope
-    const md = this.getMainDwarf();
-    if (md) {
-      const dc = md.get<DwarfComponent>('dwarf')!;
-      if (dc.rappelRopeId === ropeEntity.id) {
-        dc.rappelRopeId = null;
-      }
-    }
-    this.supplies += rc.suppliesRecoverable;
-    this.world.despawn(ropeEntity.id);
-    this.log.add('action', 'The rope collapses without its support.');
+    collapseRopesImpl(this, cx, cy);
   }
 
   /** Check if the main dwarf is currently rappelling on a rope. */
@@ -400,9 +367,7 @@ export class Game {
     }
   }
 
-  getCurrentTick(): number {
-    return this.tick;
-  }
+  getCurrentTick(): number { return this.tick; }
 
   getCommandHistory(): readonly Command[] {
     return this.commandHistory;
@@ -469,49 +434,25 @@ export class Game {
   /** Restore a Game from serialized save data (skips init/terrain generation). */
   static fromSaveData(data: SaveData): Game {
     const game = new Game(data.config);
-
-    // Restore tick
     game.tick = data.tick;
     game.log.setTick(data.tick);
-
-    // Restore scalar state
     game.expeditionOver = data.expeditionOver;
     game.supplies = data.supplies;
     game.surfaceY = data.surfaceY;
 
-    // Restore terrain (directly, no re-generation)
     game.terrain = {
-      width: data.terrain.width,
-      height: data.terrain.height,
-      blocks: data.terrain.blocks,
-      surfaceY: data.terrain.surfaceY,
-      rooms: data.terrain.rooms,
+      ...data.terrain,
+      surfaceHeights: data.terrain.surfaceHeights
+        ?? TerrainGenerator.fallbackSurfaceHeights(data.terrain.width, data.terrain.surfaceY),
     };
-
-    // Restore water state
     game.waterState = { ...data.waterState };
-
-    // Restore RNG
     game.rng.setState(data.rngState);
-
-    // Restore trail
     game.trail.length = 0;
-    for (const v of data.trail) {
-      game.trail.push({ x: v.x, y: v.y });
-    }
-
-    // Restore entities
+    for (const v of data.trail) game.trail.push({ x: v.x, y: v.y });
     restoreNextEntityId(data);
-    for (const savedEntity of data.entities) {
-      const entity = deserializeEntity(savedEntity);
-      game.world.addEntity(entity);
-    }
-
-    // Restore log
+    for (const se of data.entities) game.world.addEntity(deserializeEntity(se));
     const logData = restoreLogEntries(data);
     game.log.restore(logData.entries, logData.currentTick);
-
-    // Wire systems
     game.wireSystems();
 
     return game;

@@ -27,6 +27,7 @@ export enum BlockMaterial {
   Crystal = 'crystal',
   Bedrock = 'bedrock',
   Rubble = 'rubble',
+  GrassyDirt = 'grassy_dirt',
 }
 
 export enum CreatureType {
