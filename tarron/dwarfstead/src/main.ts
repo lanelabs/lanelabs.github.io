@@ -1,17 +1,17 @@
 import Phaser from 'phaser';
-import { BootScene } from './scenes/BootScene';
+import { BootScene } from './renderer/scenes/BootScene';
+import { ExpeditionScene } from './renderer/scenes/ExpeditionScene';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
-  parent: 'game-container',
   backgroundColor: '#1a1a2e',
-  scene: [BootScene],
+  scene: [ExpeditionScene, BootScene], // ExpeditionScene first to skip title during dev
   pixelArt: true,
   scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
+    mode: Phaser.Scale.RESIZE,
+    parent: 'game-container',
+    width: window.innerWidth,
+    height: window.innerHeight,
   },
 };
 
