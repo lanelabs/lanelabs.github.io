@@ -22,6 +22,7 @@ export interface CompanionContext {
   hasPlatform: (pos: Vec2) => boolean;
   hasRope: (pos: Vec2) => boolean;
   isFlooded: (pos: Vec2) => boolean;
+  getWaterMass: (pos: Vec2) => number;
   getTrail: () => Vec2[];
   isTethered: (entityId: number) => boolean;
   hasMovableAt: (x: number, y: number, excludeId?: number) => boolean;

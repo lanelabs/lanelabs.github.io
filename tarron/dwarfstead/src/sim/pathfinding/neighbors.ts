@@ -2,16 +2,15 @@ import type { Vec2 } from '../types';
 import { BlockMaterial } from '../types';
 import type { PathContext } from './types';
 
-/** Check if a tile is passable: in-bounds, air, not flooded, no movable block. */
+/** Check if a tile is passable: in-bounds, air, no movable block. Water is passable (swimming). */
 export function isPassable(ctx: PathContext, x: number, y: number): boolean {
   if (x < 0 || x >= ctx.terrainWidth || y < 0 || y >= ctx.terrainHeight) return false;
   if (ctx.getBlock({ x, y }) !== BlockMaterial.Air) return false;
-  if (ctx.isFlooded({ x, y })) return false;
   if (ctx.hasMovableAt(x, y)) return false;
   return true;
 }
 
-/** Has ground support: solid block, climbable, movable below, or on a rope. */
+/** Has ground support: solid block, climbable, movable below, rope, or in water. */
 function hasGround(ctx: PathContext, x: number, y: number): boolean {
   const below = y + 1;
   if (below >= ctx.terrainHeight) return true; // bottom of map = ground
@@ -20,6 +19,8 @@ function hasGround(ctx: PathContext, x: number, y: number): boolean {
   if (ctx.hasMovableAt(x, below)) return true;
   if (ctx.hasRope({ x, y })) return true;
   if (ctx.hasRope({ x, y: below })) return true;
+  // Water acts as buoyant ground
+  if (ctx.getWaterMass({ x, y }) >= 2) return true;
   return false;
 }
 
@@ -68,6 +69,19 @@ export function getNeighbors(ctx: PathContext, pos: Vec2): Vec2[] {
       results.push({ x, y });
     }
   };
+
+  // Swimming: if in water, allow all 4 cardinal directions freely
+  const inWater = ctx.getWaterMass(pos) >= 2;
+  if (inWater) {
+    for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+      const nx = pos.x + dx;
+      const ny = pos.y + dy;
+      if (isPassable(ctx, nx, ny)) {
+        add(nx, ny);
+      }
+    }
+    return results;
+  }
 
   // --- Horizontal neighbors (left/right) ---
   for (const dx of [-1, 1]) {

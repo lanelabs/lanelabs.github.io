@@ -50,17 +50,31 @@ export class MoveCommand implements Command {
       return { success: false, message: 'Cannot move outside the world.' };
     }
 
-    // Helper: check if a tile is passable (air, no loose blocks, not flooded)
+    // Helper: check if a tile is passable (air, no loose blocks)
+    // Water is now passable — dwarves can swim through it.
     const isPassable = (x: number, y: number): boolean => {
       if (x < 0 || x >= game.terrain.width || y < 0 || y >= game.terrain.height) return false;
       if (game.getBlock({ x, y }) !== BlockMaterial.Air) return false;
-      if (game.isFlooded({ x, y })) return false;
       if (game.world.query('position', 'movable').some((e) => {
         const p = e.get<PositionComponent>('position')!;
         return p.x === x && p.y === y;
       })) return false;
       return true;
     };
+
+    // Swimming: if destination has water, allow free 4-directional movement
+    const destInWater = isPassable(newX, newY) && game.isFlooded({ x: newX, y: newY });
+    if (destInWater) {
+      pos.x = newX;
+      pos.y = newY;
+      dwarfComp.facingDirection = this.direction;
+      if (dwarfComp.rappelRopeId === null) {
+        game.trail.unshift({ x: pos.x, y: pos.y });
+        if (game.trail.length > 20) game.trail.length = 20;
+      }
+      game.log.add('action', `${dwarfComp.name} swims ${this.direction}.`);
+      return { success: true, message: `Swam ${this.direction}.` };
+    }
 
     // Check if target tile is blocked
     const isHorizontal = this.direction === Direction.Left || this.direction === Direction.Right;
@@ -71,8 +85,8 @@ export class MoveCommand implements Command {
     let rubbleAtDest: ReturnType<typeof findMovableAt>;
 
     if (!isPassable(newX, newY)) {
-      // Check if blocked only by rubble on air (not solid terrain or water)
-      if (game.getBlock({ x: newX, y: newY }) === BlockMaterial.Air && !game.isFlooded({ x: newX, y: newY })) {
+      // Check if blocked only by rubble on air (not solid terrain)
+      if (game.getBlock({ x: newX, y: newY }) === BlockMaterial.Air) {
         const movable = findMovableAt(game, newX, newY);
         if (movable?.has('rubble') && !hasLooseBlockOnTop(game, newX, newY)) {
           rubbleAtDest = movable;
@@ -106,7 +120,7 @@ export class MoveCommand implements Command {
           if (hasLooseBlock) {
             return { success: false, message: `A loose block is in the way. Push or carry it.` };
           }
-          return { success: false, message: 'Water blocks the way. Wait for dry season or find another route.' };
+          return { success: false, message: 'The way is blocked.' };
         }
       }
     }

@@ -17,7 +17,8 @@ import type { Command } from './commands/Command';
 import { collapseRopesSupportedBy as collapseRopesImpl } from './ropeCollapse';
 import { GravitySystem, setGravityTerrain, setGravityTetheredCheck, setGravityOverheadCheck } from './systems/GravitySystem';
 import { MovementSystem } from './systems/MovementSystem';
-import { WaterSystem, type WaterState } from './systems/WaterSystem';
+import { WaterFlowSystem, type WaterFlowState } from './systems/WaterFlowSystem';
+import { WATER_FLOOD_THRESHOLD } from './systems/waterCA';
 import { CompanionSystem } from './systems/CompanionSystem';
 import { CreatureSystem } from './systems/CreatureSystem';
 import { ShapingSystem } from './systems/ShapingSystem';
@@ -25,12 +26,11 @@ import type { SaveData } from './save';
 import { deserializeEntity, restoreNextEntityId, restoreLogEntries } from './save';
 import { ShapeBlockComponent, CARVING_MAX_TICKS } from './components/ShapeBlock';
 import { ChippingSystem } from './systems/ChippingSystem';
+import { OxygenSystem } from './systems/OxygenSystem';
+import { OxygenComponent } from './components/Oxygen';
 import { findMovableAt } from './helpers';
 
-const DWARF_NAMES = [
-  'Urist', 'Bomrek', 'Kadol', 'Olin', 'Doren',
-  'Rimtar', 'Zuglar', 'Melbil', 'Tosid', 'Ingiz',
-];
+const DWARF_NAMES = ['Urist', 'Bomrek', 'Kadol', 'Olin', 'Doren', 'Rimtar', 'Zuglar', 'Melbil', 'Tosid', 'Ingiz'];
 
 export class Game {
   readonly config: GameConfig;
@@ -50,8 +50,9 @@ export class Game {
   // Trail of positions the main dwarf has left — companions follow these
   readonly trail: Vec2[] = [];
 
-  // Water & season state (shared with WaterSystem)
-  waterState!: WaterState;
+  // Water & season state (shared with WaterFlowSystem)
+  waterState!: WaterFlowState;
+  private waterFlowSystem!: WaterFlowSystem;
 
   private systems: System[] = [];
   private tick = 0;
@@ -90,7 +91,8 @@ export class Game {
     mainDwarf
       .add(new PositionComponent(spawnX, spawnY))
       .add(mainDwarfComp)
-      .add(new HealthComponent(10, 10));
+      .add(new HealthComponent(10, 10))
+      .add(new OxygenComponent(10));
 
     // Spawn companion dwarves evenly split on both sides of main dwarf
     const companionCount = Math.max(0, this.config.startingDwarves - 1);
@@ -105,6 +107,7 @@ export class Game {
         .add(new PositionComponent(cx, spawnY))
         .add(new DwarfComponent(name, i === 0 ? 'porter' : 'miner', false))
         .add(new HealthComponent(8, 8))
+        .add(new OxygenComponent(10))
         .add(new CompanionTaskComponent('idle'));
       this.trail.push({ x: cx, y: spawnY });
     }
@@ -131,13 +134,9 @@ export class Game {
 
     // Initialize water state
     this.waterState = {
-      waterLevel: this.config.worldHeight - 2,
       season: Season.Dry,
       seasonTick: 0,
       seasonLength: this.config.seasonLength ?? 50,
-      waterRiseRate: this.config.waterRiseRate ?? 5,
-      worldHeight: this.config.worldHeight,
-      surfaceY: this.surfaceY,
     };
 
     // Wire up systems
@@ -153,9 +152,7 @@ export class Game {
     }
   }
 
-  addSystem(system: System): void {
-    this.systems.push(system);
-  }
+  addSystem(system: System): void { this.systems.push(system); }
 
   /** Execute a command and advance one tick. */
   execute(command: Command): CommandResult {
@@ -209,11 +206,26 @@ export class Game {
       return;
     }
     this.terrain.blocks[pos.y][pos.x] = material;
+    // Solid placement removes water; any change wakes neighbors
+    if (material !== BlockMaterial.Air) {
+      this.terrain.waterMass[pos.y][pos.x] = 0;
+    }
+    if (this.waterFlowSystem) {
+      this.waterFlowSystem.markUnsettled(pos.x, pos.y);
+    }
   }
 
-  /** Check if a position is flooded (below water level and air). */
+  /** Check if a position is flooded (waterMass above threshold). */
   isFlooded(pos: Vec2): boolean {
-    return pos.y >= this.waterState.waterLevel && this.getBlock(pos) === BlockMaterial.Air;
+    return this.getWaterMass(pos) >= WATER_FLOOD_THRESHOLD;
+  }
+
+  /** Get the water mass at a position (0 if out of bounds or solid). */
+  getWaterMass(pos: Vec2): number {
+    if (pos.x < 0 || pos.x >= this.terrain.width || pos.y < 0 || pos.y >= this.terrain.height) {
+      return 0;
+    }
+    return this.terrain.waterMass[pos.y][pos.x];
   }
 
   /** Check if there's a ladder (not platform) at a position — enables climbing. */
@@ -289,18 +301,12 @@ export class Game {
 
   /** Get the main dwarf entity. */
   getMainDwarf(): Entity | undefined {
-    return this.world.query('dwarf', 'position').find((e) => {
-      const d = e.get<DwarfComponent>('dwarf');
-      return d?.isMainDwarf;
-    });
+    return this.world.query('dwarf', 'position').find((e) => e.get<DwarfComponent>('dwarf')?.isMainDwarf);
   }
 
   /** Check if a block entity is tethered by any dwarf. */
   isTethered(entityId: number): boolean {
-    return this.world.query('dwarf').some((e) => {
-      const d = e.get<DwarfComponent>('dwarf');
-      return d?.tetheredEntityId === entityId;
-    });
+    return this.world.query('dwarf').some((e) => e.get<DwarfComponent>('dwarf')?.tetheredEntityId === entityId);
   }
 
   /** Get tether anchor info for a block (dwarf position + rope length), or null. */
@@ -351,6 +357,20 @@ export class Game {
     });
   }
 
+  /** Check if water CA has unsettled tiles that need more simulation ticks. */
+  hasActiveWater(): boolean { return this.waterFlowSystem?.waterActive ?? false; }
+
+  /** Debug info for water system. */
+  getWaterDebug(): { active: boolean; streak: number; maxFlow: number; settled: boolean[][] } | null {
+    if (!this.waterFlowSystem) return null;
+    return {
+      active: this.waterFlowSystem.waterActive,
+      streak: this.waterFlowSystem.lowFlowStreak,
+      maxFlow: this.waterFlowSystem.lastMaxFlow,
+      settled: this.waterFlowSystem.settled,
+    };
+  }
+
   /** Check if the main dwarf is actively chipping a block. */
   hasActiveChipping(): boolean {
     const md = this.getMainDwarf();
@@ -368,12 +388,8 @@ export class Game {
   }
 
   getCurrentTick(): number { return this.tick; }
+  getCommandHistory(): readonly Command[] { return this.commandHistory; }
 
-  getCommandHistory(): readonly Command[] {
-    return this.commandHistory;
-  }
-
-  /** Wire up all systems (shared between init and fromSaveData). */
   /** Check if a block entity is held overhead by any dwarf. */
   getOverheadHolder(entityId: number): { x: number; y: number } | null {
     for (const e of this.world.query('dwarf', 'position')) {
@@ -391,7 +407,11 @@ export class Game {
     setGravityTetheredCheck((id) => this.getTetherInfo(id));
     setGravityOverheadCheck((id) => this.getOverheadHolder(id));
     this.addSystem(new MovementSystem());
-    this.addSystem(new WaterSystem(this.waterState));
+    this.waterFlowSystem = new WaterFlowSystem({
+      terrain: this.terrain,
+      state: this.waterState,
+    });
+    this.addSystem(this.waterFlowSystem);
     this.addSystem(new CreatureSystem());
     // Shaping before gravity so companion is positioned before gravity runs
     this.addSystem(new ShapingSystem({
@@ -404,6 +424,11 @@ export class Game {
     this.addSystem(new ChippingSystem());
     // Gravity before companions so companions see the dwarf's final settled position
     this.addSystem(new GravitySystem());
+    this.addSystem(new OxygenSystem({
+      surfaceY: this.surfaceY,
+      terrainWidth: this.terrain.width,
+      getWaterMass: (x, y) => this.getWaterMass({ x, y }),
+    }));
     this.addSystem(new CompanionSystem({
       surfaceY: this.surfaceY,
       terrainHeight: this.terrain.height,
@@ -420,6 +445,7 @@ export class Game {
       hasPlatform: (pos) => this.hasPlatform(pos),
       hasRope: (pos) => this.hasRope(pos),
       isFlooded: (pos) => this.isFlooded(pos),
+      getWaterMass: (pos) => this.getWaterMass(pos),
       getTrail: () => this.trail,
       isTethered: (id) => this.isTethered(id),
       hasMovableAt: (x, y, excludeId?) => !!findMovableAt(this, x, y, excludeId),
@@ -440,8 +466,14 @@ export class Game {
     game.supplies = data.supplies;
     game.surfaceY = data.surfaceY;
 
+    const wm = data.terrain.waterMass
+      ?? TerrainGenerator.emptyWaterMass(data.terrain.width, data.terrain.height);
+    // Backward compat: old saves used float 0.0–1.0 water → convert to int 0–5
+    for (const row of wm) for (let x = 0; x < row.length; x++) {
+      if (row[x] > 0 && row[x] < 1) row[x] = Math.min(5, Math.round(row[x] * 5));
+    }
     game.terrain = {
-      ...data.terrain,
+      ...data.terrain, waterMass: wm,
       surfaceHeights: data.terrain.surfaceHeights
         ?? TerrainGenerator.fallbackSurfaceHeights(data.terrain.width, data.terrain.surfaceY),
     };

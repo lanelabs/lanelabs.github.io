@@ -60,5 +60,5 @@ export interface HiddenRoom {
   y: number;
   width: number;
   height: number;
-  type: 'cache' | 'lair' | 'ruin';
+  type: 'cache' | 'lair' | 'ruin' | 'pool';
 }

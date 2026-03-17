@@ -46,3 +46,39 @@ export class ValueNoise2D {
     return top * (1 - sy) + bot * sy;
   }
 }
+
+export interface FractalNoiseConfig {
+  octaves: number;
+  baseFreq: number;
+  amplitude: number;
+  persistence: number;
+}
+
+/**
+ * Generate 1D fractal brownian motion surface offsets by layering
+ * multiple octaves of ValueNoise2D.
+ *
+ * Returns number[] of length `width` with values centered around 0.
+ */
+export function fractalNoise1D(
+  rng: SeededRNG, width: number, config: FractalNoiseConfig,
+): number[] {
+  const { octaves, baseFreq, amplitude, persistence } = config;
+  const offsets = new Array<number>(width).fill(0);
+
+  let amp = amplitude / 2; // first octave amplitude
+  let freq = baseFreq;
+
+  for (let o = 0; o < octaves; o++) {
+    const noise = new ValueNoise2D(rng, Math.max(2, Math.ceil(freq)), 1);
+    for (let x = 0; x < width; x++) {
+      const nx = (x / width) * freq;
+      // Noise returns [0,1), shift to [-0.5, 0.5) then scale by amplitude
+      offsets[x] += (noise.sample(nx, 0) - 0.5) * 2 * amp;
+    }
+    freq *= 2;
+    amp *= persistence;
+  }
+
+  return offsets;
+}

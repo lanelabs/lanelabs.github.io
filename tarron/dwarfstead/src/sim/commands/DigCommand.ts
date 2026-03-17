@@ -56,6 +56,18 @@ export class DigCommand implements Command {
       game.log.add('discovery', `${dwarfComp.name} uncovers ${targetBlock}!`);
     }
 
+    // Check if digging breached water
+    const neighbors = [
+      { x: targetX - 1, y: targetY }, { x: targetX + 1, y: targetY },
+      { x: targetX, y: targetY - 1 }, { x: targetX, y: targetY + 1 },
+    ];
+    for (const n of neighbors) {
+      if (game.getWaterMass(n) > 0) {
+        game.log.add('system', 'Water rushes through the breach!');
+        break;
+      }
+    }
+
     return { success: true, message: `Dug ${targetBlock} to the ${this.direction}.` };
   }
 }

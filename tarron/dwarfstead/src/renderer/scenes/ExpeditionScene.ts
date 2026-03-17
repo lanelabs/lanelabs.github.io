@@ -10,20 +10,22 @@ import { HoistCommand } from '../../sim/commands/HoistCommand';
 import { WaitCommand } from '../../sim/commands/WaitCommand';
 import { handleCtrlDirection } from './ctrlInput';
 import { handleSpaceAction } from './spaceAction';
-import { processChipping, processShaping, processSellErrand } from './autoTimers';
+import { processChipping, processShaping, processSellErrand, processWater } from './autoTimers';
 import type { TimerState } from './autoTimers';
 import { ScribePanel } from '../ui/ScribePanel';
 import { AlertOverlay } from '../ui/AlertOverlay';
 import { drawToolbar } from '../draw/toolbar';
-import { drawBackground } from '../draw/background';
+import { drawBackground, drawDebugOverlay, DEBUG_BG } from '../draw/background';
 import { drawTerrain } from '../draw/terrain';
 import { drawEntities as drawEntitiesLayer } from '../draw/entities';
 import { drawCursor, drawRopeOverlay } from '../draw/cursor';
 import { SmartMode } from '../smartMode';
 import { getActionHintText } from './actionHint';
 import { PauseOverlay } from '../ui/PauseOverlay';
-import { serializeGame } from '../../sim/save';
-import { loadSlot, saveToSlot, setActiveSlot, clearActiveSlot, getSlotMeta, updateSlotZoom } from '../saveSlots';
+import { AdminOverlay } from '../ui/AdminOverlay';
+import { loadSlot, clearActiveSlot, getSlotMeta, updateSlotZoom } from '../saveSlots';
+import { createFreshBridge, autoSave } from './expeditionHelpers';
+import { refreshGradientTextures } from '../draw/gradientTiles';
 
 const MODE_KEY = 'dwarfstead-mode';
 const ZOOM_LEVELS = [0, 10, 20, 40, -1]; // 0 = full-map, -1 = close (computed dynamically)
@@ -34,6 +36,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private bgGraphics!: Phaser.GameObjects.Graphics;
   private terrainGraphics!: Phaser.GameObjects.Graphics;
   private entityGraphics!: Phaser.GameObjects.Graphics;
+  private debugGraphics!: Phaser.GameObjects.Graphics;
   private cursorGraphics!: Phaser.GameObjects.Graphics;
   private ropeGraphics!: Phaser.GameObjects.Graphics;
   private toolbarGraphics!: Phaser.GameObjects.Graphics;
@@ -42,6 +45,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private scribePanel!: ScribePanel;
   private alertOverlay!: AlertOverlay;
   private pauseOverlay!: PauseOverlay;
+  private adminOverlay!: AdminOverlay;
   private scribeBtn!: Phaser.GameObjects.Text;
   private zoomBtn!: Phaser.GameObjects.Text;
   private suppliesText!: Phaser.GameObjects.Text;
@@ -57,7 +61,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private keyCtrl!: Phaser.Input.Keyboard.Key;
   private modeKeys!: Phaser.Input.Keyboard.Key[];
   private inputCooldown = 0;
-  private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0 };
+  private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0, waterTimer: 0 };
   private zoomIndex = DEFAULT_ZOOM;
   private currentMode: SmartMode = SmartMode.Mine;
   private hasActed = false;
@@ -90,24 +94,10 @@ export class ExpeditionScene extends Phaser.Scene {
   private get tilesX(): number { return Math.ceil(this.gameW / this.tileSize); }
   private get tilesY(): number { return Math.ceil(this.gameH / this.tileSize); }
   private createFreshBridge(): SimulationBridge {
-    const minFixedTile = ZOOM_LEVELS[1]; // smallest fixed zoom level
-    const maxTilesX = Math.ceil(this.gameW / minFixedTile) + 20;
-    const maxTilesY = Math.ceil(this.gameH / minFixedTile) + 20;
-    const bridge = new SimulationBridge({
-      seed: Date.now(), worldWidth: Math.max(80, maxTilesX),
-      worldHeight: Math.max(60, maxTilesY), startingDwarves: 3,
-    });
-    bridge.init();
-    return bridge;
+    return createFreshBridge(this.gameW, this.gameH, ZOOM_LEVELS[1]);
   }
   private autoSave(): void {
-    try {
-      if (!this.slotId) return;
-      const data = serializeGame(this.bridge.game);
-      saveToSlot(this.slotId, data, this.slotName);
-      setActiveSlot(this.slotId);
-      localStorage.setItem(MODE_KEY, String(this.currentMode));
-    } catch { /* ignore */ }
+    autoSave(this.bridge.game, this.slotId, this.slotName, this.currentMode);
   }
   create() {
     const saveData = this.slotId ? loadSlot(this.slotId) : null;
@@ -135,6 +125,7 @@ export class ExpeditionScene extends Phaser.Scene {
     this.bgGraphics = this.add.graphics().setDepth(-1);
     this.terrainGraphics = this.add.graphics();
     this.entityGraphics = this.add.graphics();
+    this.debugGraphics = this.add.graphics().setDepth(10);
     this.cursorGraphics = this.add.graphics().setDepth(50);
     this.ropeGraphics = this.add.graphics().setDepth(49);
     this.toolbarGraphics = this.add.graphics().setDepth(100);
@@ -156,11 +147,12 @@ export class ExpeditionScene extends Phaser.Scene {
     this.modeKeys = [kb.addKey(K.ONE), kb.addKey(K.TWO), kb.addKey(K.THREE), kb.addKey(K.FOUR)];
     this.scribePanel = new ScribePanel(this, this.bridge.game.log);
     this.alertOverlay = new AlertOverlay(this, this.gameW);
-    this.pauseOverlay = new PauseOverlay(
-      this,
+    this.pauseOverlay = new PauseOverlay(this,
       () => { this.paused = false; },
       () => { clearActiveSlot(); this.scene.start('BootScene'); },
-    );
+      () => { this.pauseOverlay.setContainerVisible(false); this.adminOverlay.show(); });
+    this.adminOverlay = new AdminOverlay(this,
+      () => { this.adminOverlay.hide(); this.pauseOverlay.show(); });
     const btnStyle = { fontSize: '12px', color: '#e8c170', backgroundColor: '#2a2a3e', padding: { x: 4, y: 2 } };
     this.scribeBtn = this.add.text(this.gameW - 10, 10, '[Scribe]', btnStyle)
       .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
@@ -186,6 +178,7 @@ export class ExpeditionScene extends Phaser.Scene {
       backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
     }).setOrigin(1, 1).setDepth(100);
     this.scale.on('resize', this.onResize, this);
+    refreshGradientTextures(this, this.tileSize);
     this.redraw();
   }
   private zoomLabel(): string {
@@ -195,6 +188,7 @@ export class ExpeditionScene extends Phaser.Scene {
     this.zoomIndex = (this.zoomIndex + 1) % ZOOM_LEVELS.length;
     this.zoomBtn.setText(this.zoomLabel());
     if (this.slotId) updateSlotZoom(this.slotId, this.zoomIndex);
+    refreshGradientTextures(this, this.tileSize);
     this.redraw();
   }
   private onResize() {
@@ -204,16 +198,22 @@ export class ExpeditionScene extends Phaser.Scene {
     this.scribePanel.reposition(this.gameW, this.gameH);
     this.alertOverlay.reposition(this.gameW);
     this.pauseOverlay.reposition(this.gameW, this.gameH);
+    this.adminOverlay.reposition(this.gameW, this.gameH);
     this.actionHint.setPosition(this.gameW - 10, this.gameH - 8);
     this.redraw();
   }
   update(_time: number, delta: number) {
-    // While paused, only ESC resumes
+    // While paused, ESC navigates back through overlays
     if (this.paused) {
       this.inputCooldown -= delta;
       if (this.inputCooldown > 0) return;
       if (this.keyEsc.isDown) {
-        this.pauseOverlay.hide();
+        if (this.adminOverlay.isVisible()) {
+          this.adminOverlay.hide();
+          this.pauseOverlay.show();
+        } else {
+          this.pauseOverlay.hide();
+        }
         this.inputCooldown = 200;
       }
       return;
@@ -243,6 +243,7 @@ export class ExpeditionScene extends Phaser.Scene {
     if (chipResult.handled) { this.inputCooldown = chipResult.inputCooldown; return; }
     processShaping(delta, this.timers, timerCtx);
     processSellErrand(delta, this.timers, timerCtx);
+    processWater(delta, this.timers, timerCtx);
     if (this.inputCooldown > 0) return;
     if (this.keyTab.isDown) {
       this.scribePanel.toggle();
@@ -387,6 +388,10 @@ export class ExpeditionScene extends Phaser.Scene {
     const { camX, camY } = this.getCamera();
     const ts = this.tileSize;
     drawBackground(this.bgGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
+    if (DEBUG_BG) {
+      drawDebugOverlay(this.bgGraphics, this.bridge.game.terrain, ts, this.tilesX, camX, camY);
+    }
+    this.debugGraphics.clear();
     drawTerrain(this.terrainGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
     drawEntitiesLayer(this.entityGraphics, this.bridge.game, ts, this.gameW, this.gameH, camX, camY, this.selfSelect);
     drawCursor(this.cursorGraphics, this.bridge.game, ts, camX, camY, {

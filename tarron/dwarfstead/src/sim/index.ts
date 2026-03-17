@@ -59,7 +59,7 @@ export { CollectCrateCommand } from './commands/CollectCrateCommand';
 // Systems
 export { GravitySystem } from './systems/GravitySystem';
 export { MovementSystem } from './systems/MovementSystem';
-export { WaterSystem } from './systems/WaterSystem';
+export { WaterFlowSystem } from './systems/WaterFlowSystem';
 export { CompanionSystem } from './systems/CompanionSystem';
 export { CreatureSystem } from './systems/CreatureSystem';
 

@@ -11,6 +11,7 @@ export class PauseOverlay {
     private scene: Phaser.Scene,
     private onResume: () => void,
     private onExitToMenu: () => void,
+    private onAdmin?: () => void,
   ) {
     const { width, height } = scene.scale;
 
@@ -44,6 +45,17 @@ export class PauseOverlay {
     exitBtn.on('pointerout', () => exitBtn.setColor('#a0a0b8'));
     exitBtn.on('pointerdown', () => this.onExitToMenu());
     this.container.add(exitBtn);
+
+    // Admin button
+    if (this.onAdmin) {
+      const adminBtn = scene.add.text(width / 2, height / 2 + 80, '[ Admin ]', {
+        fontSize: '18px', color: '#a0a0b8',
+      }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+      adminBtn.on('pointerover', () => adminBtn.setColor('#ffffff'));
+      adminBtn.on('pointerout', () => adminBtn.setColor('#a0a0b8'));
+      adminBtn.on('pointerdown', () => this.onAdmin!());
+      this.container.add(adminBtn);
+    }
   }
 
   private drawBg(w: number, h: number): void {
@@ -63,16 +75,23 @@ export class PauseOverlay {
     this.onResume();
   }
 
+  /** Hide/show the container without triggering onResume. */
+  setContainerVisible(v: boolean): void {
+    this.visible = v;
+    this.container.setVisible(v);
+  }
+
   isVisible(): boolean {
     return this.visible;
   }
 
   reposition(w: number, h: number): void {
     this.drawBg(w, h);
-    // Reposition text children (title at index 1, resume at 2, exit at 3)
+    // Reposition text children (title at index 1, resume at 2, exit at 3, admin at 4)
     const children = this.container.getAll();
     if (children[1]) (children[1] as Phaser.GameObjects.Text).setPosition(w / 2, h / 2 - 60);
     if (children[2]) (children[2] as Phaser.GameObjects.Text).setPosition(w / 2, h / 2);
     if (children[3]) (children[3] as Phaser.GameObjects.Text).setPosition(w / 2, h / 2 + 40);
+    if (children[4]) (children[4] as Phaser.GameObjects.Text).setPosition(w / 2, h / 2 + 80);
   }
 }

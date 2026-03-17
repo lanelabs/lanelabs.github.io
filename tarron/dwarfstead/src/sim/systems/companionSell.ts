@@ -22,6 +22,7 @@ export function buildPathCtx(ctx: CompanionContext, excludeEntityId?: number): P
     hasClimbable: ctx.hasClimbable,
     hasRope: ctx.hasRope,
     hasMovableAt: (x, y) => ctx.hasMovableAt(x, y, excludeEntityId),
+    getWaterMass: ctx.getWaterMass,
   };
 }
 

@@ -4,7 +4,7 @@ import * as path from 'node:path';
 import * as os from 'node:os';
 import { Game } from '../sim/Game';
 import { parseInput, HELP_TEXT } from './commands';
-import { renderTerrain, renderLog, renderStatus, renderInspect } from './renderer';
+import { renderTerrain, renderLog, renderStatus, renderInspect, renderWaterDebug } from './renderer';
 import { serializeGame } from '../sim/save';
 import type { SaveData } from '../sim/save';
 
@@ -88,6 +88,10 @@ function main() {
 
       case 'inspect':
         console.log(renderInspect(game, input.dx, input.dy));
+        break;
+
+      case 'wdebug':
+        console.log(renderWaterDebug(game));
         break;
 
       case 'help':

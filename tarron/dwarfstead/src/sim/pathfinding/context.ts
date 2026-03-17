@@ -15,5 +15,6 @@ export function buildPathContext(game: Game, excludeEntityId?: number): PathCont
     hasClimbable: (pos) => game.hasClimbable(pos),
     hasMovableAt: (x, y) => !!findMovableAt(game, x, y, excludeEntityId),
     hasRope: (pos) => game.hasRope(pos),
+    getWaterMass: (pos) => game.getWaterMass(pos),
   };
 }

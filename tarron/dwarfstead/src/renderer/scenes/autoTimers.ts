@@ -7,6 +7,7 @@ export interface TimerState {
   chippingTimer: number;
   shapingTimer: number;
   sellTimer: number;
+  waterTimer: number;
 }
 
 interface TimerContext {
@@ -67,6 +68,21 @@ export function processShaping(delta: number, timers: TimerState, ctx: TimerCont
     ctx.game.execute(new WaitCommand());
     timers.shapingTimer = 500;
     ctx.autoSave(); ctx.redraw();
+  }
+}
+
+/** Process water CA auto-tick. Never blocks input. */
+export function processWater(delta: number, timers: TimerState, ctx: TimerContext): void {
+  if (ctx.game.expeditionOver || !ctx.game.hasActiveWater()) {
+    timers.waterTimer = 0;
+    return;
+  }
+  if (timers.waterTimer <= 0) timers.waterTimer = 150;
+  timers.waterTimer -= delta;
+  if (timers.waterTimer <= 0) {
+    ctx.game.execute(new WaitCommand());
+    timers.waterTimer = 150;
+    ctx.redraw();
   }
 }
 

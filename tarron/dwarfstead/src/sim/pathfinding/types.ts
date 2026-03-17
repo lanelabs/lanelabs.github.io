@@ -13,4 +13,5 @@ export interface PathContext {
   hasClimbable: (pos: Vec2) => boolean;
   hasMovableAt: (x: number, y: number) => boolean;
   hasRope: (pos: Vec2) => boolean;
+  getWaterMass: (pos: Vec2) => number;
 }

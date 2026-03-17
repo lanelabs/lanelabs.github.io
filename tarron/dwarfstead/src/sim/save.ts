@@ -1,6 +1,6 @@
 import type { GameConfig, Vec2, HiddenRoom, BlockMaterial, Direction, CreatureType } from './types';
 import type { LogEntry, LogCategory } from './log/GameLog';
-import type { WaterState } from './systems/WaterSystem';
+import type { WaterFlowState } from './systems/WaterFlowSystem';
 import type { Game } from './Game';
 import type { Component } from './ecs/Component';
 import { Entity, setNextEntityId } from './ecs/Entity';
@@ -17,6 +17,7 @@ import { SupplyCrateComponent } from './components/SupplyCrate';
 import { RopeComponent } from './components/Rope';
 import { RubbleComponent } from './components/Rubble';
 import { ChippingComponent } from './components/Chipping';
+import { OxygenComponent } from './components/Oxygen';
 
 /** Serialized representation of a single component. */
 export interface SavedComponent {
@@ -33,7 +34,7 @@ export interface SavedEntity {
 
 /** Full serializable game snapshot. */
 export interface SaveData {
-  version: 1;
+  version: 1 | 2;
   config: GameConfig;
   tick: number;
   expeditionOver: boolean;
@@ -43,11 +44,12 @@ export interface SaveData {
     width: number;
     height: number;
     blocks: BlockMaterial[][];
+    waterMass?: number[][];
     surfaceY: number;
     surfaceHeights?: number[];
     rooms: HiddenRoom[];
   };
-  waterState: WaterState;
+  waterState: WaterFlowState;
   rngState: number;
   trail: Vec2[];
   entities: SavedEntity[];
@@ -102,6 +104,7 @@ const componentSerializers: Record<string, ComponentSerializer> = {
   rope: { serialize: (c) => ({ length: c.length, suppliesRecoverable: c.suppliesRecoverable }) },
   rubble: { serialize: () => ({}) },
   chipping: { serialize: (c) => ({ targetEntityId: c.targetEntityId, direction: c.direction, progress: c.progress }) },
+  oxygen: { serialize: (c) => ({ current: c.current, max: c.max }) },
 };
 
 // --- Component deserializers ---
@@ -163,6 +166,11 @@ const componentDeserializers: Record<string, ComponentDeserializer> = {
     c.progress = d.progress ?? 0;
     return c;
   },
+  oxygen: (d) => {
+    const c = new OxygenComponent(d.max ?? 10);
+    c.current = d.current ?? c.max;
+    return c;
+  },
 };
 
 // --- Serialize ---
@@ -182,7 +190,7 @@ function serializeEntity(entity: Entity): SavedEntity {
 
 export function serializeGame(game: Game): SaveData {
   return {
-    version: 1,
+    version: 2,
     config: { ...game.config },
     tick: game.getCurrentTick(),
     expeditionOver: game.expeditionOver,
@@ -192,6 +200,7 @@ export function serializeGame(game: Game): SaveData {
       width: game.terrain.width,
       height: game.terrain.height,
       blocks: game.terrain.blocks,
+      waterMass: game.terrain.waterMass,
       surfaceY: game.terrain.surfaceY,
       surfaceHeights: game.terrain.surfaceHeights,
       rooms: game.terrain.rooms,

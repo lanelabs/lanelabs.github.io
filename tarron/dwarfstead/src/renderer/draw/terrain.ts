@@ -2,10 +2,13 @@ import Phaser from 'phaser';
 import type { Game } from '../../sim/Game';
 import { BlockMaterial } from '../../sim/types';
 import { BLOCK_INFO } from '../../sim/terrain/BlockTypes';
+import { WATER_FLOOD_THRESHOLD } from '../../sim/systems/waterCA';
+
+const WATER_COLOR = 0x2255aa;
 
 /** Returns a fill color when the air at (wx,wy) contains a visible substance, or null for plain air. */
 function chipFillColor(game: Game, wx: number, wy: number): number | null {
-  if (game.isFlooded({ x: wx, y: wy })) return 0x2244aa;
+  if (game.getWaterMass({ x: wx, y: wy }) >= WATER_FLOOD_THRESHOLD) return WATER_COLOR;
   if (game.hasClimbable({ x: wx, y: wy })) return 0x3d3530;
   return null;
 }
@@ -64,9 +67,12 @@ export function drawTerrain(
 
       if (!solid) {
         // Substance fills for air tiles (water, etc.)
-        if (game.isFlooded({ x: wx, y: wy })) {
-          g.fillStyle(0x2244aa, 0.8);
-          g.fillRect(px, py, ts, ts);
+        const wm = game.getWaterMass({ x: wx, y: wy });
+        if (wm >= 1) {
+          const aboveHasWater = game.getWaterMass({ x: wx, y: wy - 1 }) > 0;
+          const fillH = aboveHasWater ? ts : (wm / 5) * ts;
+          g.fillStyle(WATER_COLOR, 0.8);
+          g.fillRect(px, py + (ts - fillH), ts, fillH);
         }
         // Debris chips on air tiles (adjacent solid bleeds in)
         if (isSolid(game, wx - 1, wy) && isSolid(game, wx, wy - 1)) {
