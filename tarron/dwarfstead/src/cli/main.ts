@@ -10,8 +10,8 @@ import type { SaveData } from '../sim/save';
 
 const DEFAULT_CONFIG = {
   seed: 42,
-  worldWidth: 80,
-  worldHeight: 60,
+  worldWidth: 200,
+  worldHeight: 400,
   startingDwarves: 3,
   seasonLength: 50,
   waterRiseRate: 5,

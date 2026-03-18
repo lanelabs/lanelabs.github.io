@@ -5,10 +5,10 @@ import { saveToSlot, setActiveSlot } from '../saveSlots';
 
 const MODE_KEY = 'dwarfstead-mode';
 
-export function createFreshBridge(gameW: number, gameH: number, zoomTileSize: number): SimulationBridge {
+export function createFreshBridge(_gameW: number, _gameH: number, _zoomTileSize: number): SimulationBridge {
   const bridge = new SimulationBridge({
-    seed: Date.now(), worldWidth: Math.max(80, Math.ceil(gameW / zoomTileSize) + 20),
-    worldHeight: Math.max(60, Math.ceil(gameH / zoomTileSize) + 20), startingDwarves: 3,
+    seed: Date.now(), worldWidth: 200,
+    worldHeight: 400, startingDwarves: 3,
   });
   bridge.init(); return bridge;
 }

@@ -1,29 +1,47 @@
 
+# Background
+
+Still getting small peaks with broken backgrounds. We need to have a gradient that works for those, or bypass small elements
+
+# Map grid
+
+Grid doesn't seem to line up zero with top row. Numbers shoul be in middle of block height and width› It also doesn't seem to keep things aligned whne zoomed really far out, as it bunches up the grid in the top left where it doesn't even align wiht hte map.
+Might be related to camera moving with dwarf
+
 # Mobile Friendly view
 
 I want some mobile friendly version and controls.
 
 Fog of War - Don't make all squares visible until we can see them (so only 1 square deep, digging / making loose will reveal the block beyond as well). Making a bolock loose should make sure the 4 cardinal direction blocks are now visible, as if we carved all around the block. Also give my person a view distance, maybe up to 10 squares, with it being greyed out if I've seen it before but it's not in viewable distance. So If I dig into a tunnel I can't necessarily see the full length. Also, in order to test this, have it generate some tunnel shapes close to the surface and going down, with at least one breaking the surface near me in a hillside so I can go down it.
 
+# Block Visuals
+
+When two blocks are touching corner to corner, specifically with sky or space in the opposite corners, we need to get the fill and chipping to look right. Right now it will both chip and try to fill, which looks disjointed. We should ahve t he top diagonal block take the top fill, and the bottom diagonal block use it's material for the bottom fill. This way we
+
+When creating ladders off edges, we need wood to fillin the chipped corner.
 
 # Move system for companions
 
 Have falling blocks not be blocked by companions, have the companion move out of the way towards me. Only have me stop falling blocks
 
-# Features to add
+Make companions always just be teleported to near me when they're part of my train, no need to actually get blocked, unless they are running errands
 
+# Map layers
 
-# Block generation
+have types of fill depend on what layer is getting generated
 
-Let's have the top layer be grass (green), then next layer be dirt (dark brown) then next layer be clay (current brown color). Actually, let's have the top layer be the dark brown with a small layer of green grass on top, and when we carve it out it just becomes all brown with flecks of green in it, as if it's a pile of dirt and some grass
+More caverns to fill spaces in the stone layer.
+more small caverns in the dirt layer
+wider dirt layer
+vertical "layers"
+cavern layer that is mostly space, disjoined "floor" levels
 
-
-
-Less sky, maybe only 20 blocks high.
-Have sky be different color above ground vs below ground (ligher above, current color for below)
-Have a gound line, were we keep track of above ground vs below ground, which we can use to have things like rain only show up above ground
-Top layer of ground should have small bit of grass on top, maybe just a cosmetic color on the block that goes away when I mine it into a block. Have the op copule layers be dirt. If I mine a block of dirt that has grass in it, maybe turn it ito a dirt  block with flecks of grass in it? But cementing a dirt with grass block just turns it into a regular dirt block.
-Have the top ground-level have some variation, ups and downs.
+Sky
+dirt
+clay
+stone
+bedrock
+cavern layer (much more caverns)
 
 
 # Water system
@@ -40,8 +58,6 @@ Build housing from supply?
 
 Noise tunnels should go up or down, any direction, basically long thinnish shapes that can fork or combine, but are 1 to 3 in width.
 
-
-ladder endedu p with two anchors .Should only have one. I starte dfrom the bottom and built up to platform, when it anchord to platform instead. Also it shouldn't let me build a platform over a ladder (in the same tile, so it looks like the platform and the ladder top are aligned). Right now it shows green, but doesn't dow anything
 
 inside/outside corners between layers should have a sloped look just like our chipped corners approach with the air.
 

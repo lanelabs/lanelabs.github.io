@@ -13,6 +13,7 @@ export interface SlotMeta {
   turn: number;
   timestamp: number;
   zoom?: number;
+  mapOpen?: boolean;
 }
 
 function generateId(): string {
@@ -71,7 +72,8 @@ export function saveToSlot(id: string, data: SaveData, name: string): void {
   localStorage.setItem(SLOT_PREFIX + id, JSON.stringify(data));
   const slots = readSlotsMeta();
   const idx = slots.findIndex((s) => s.id === id);
-  const meta: SlotMeta = { id, name, turn: data.tick, timestamp: Date.now(), zoom: idx >= 0 ? slots[idx].zoom : undefined };
+  const prev = idx >= 0 ? slots[idx] : undefined;
+  const meta: SlotMeta = { id, name, turn: data.tick, timestamp: Date.now(), zoom: prev?.zoom, mapOpen: prev?.mapOpen };
   if (idx >= 0) {
     slots[idx] = meta;
   } else {
@@ -105,6 +107,12 @@ export function updateSlotZoom(id: string, zoom: number): void {
   const slots = readSlotsMeta();
   const slot = slots.find((s) => s.id === id);
   if (slot) { slot.zoom = zoom; writeSlotsMeta(slots); }
+}
+
+export function updateSlotMapOpen(id: string, open: boolean): void {
+  const slots = readSlotsMeta();
+  const slot = slots.find((s) => s.id === id);
+  if (slot) { slot.mapOpen = open; writeSlotsMeta(slots); }
 }
 
 export function getActiveSlot(): string | null {

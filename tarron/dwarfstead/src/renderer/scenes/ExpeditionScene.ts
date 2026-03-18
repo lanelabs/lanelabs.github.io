@@ -13,7 +13,6 @@ import { handleSpaceAction } from './spaceAction';
 import { processChipping, processShaping, processSellErrand, processWater } from './autoTimers';
 import type { TimerState } from './autoTimers';
 import { ScribePanel } from '../ui/ScribePanel';
-import { AlertOverlay } from '../ui/AlertOverlay';
 import { drawToolbar } from '../draw/toolbar';
 import { drawBackground, drawDebugOverlay, DEBUG_BG } from '../draw/background';
 import { drawTerrain } from '../draw/terrain';
@@ -21,35 +20,19 @@ import { drawEntities as drawEntitiesLayer } from '../draw/entities';
 import { drawCursor, drawRopeOverlay } from '../draw/cursor';
 import { SmartMode } from '../smartMode';
 import { getActionHintText } from './actionHint';
-import { PauseOverlay } from '../ui/PauseOverlay';
-import { AdminOverlay } from '../ui/AdminOverlay';
-import { loadSlot, clearActiveSlot, getSlotMeta, updateSlotZoom } from '../saveSlots';
+import { loadSlot, clearActiveSlot, getSlotMeta, updateSlotZoom, updateSlotMapOpen } from '../saveSlots';
 import { createFreshBridge, autoSave } from './expeditionHelpers';
 import { refreshGradientTextures } from '../draw/gradientTiles';
+import { createSceneUI, type SceneUI } from './createSceneUI';
 
 const MODE_KEY = 'dwarfstead-mode';
-const ZOOM_LEVELS = [0, 10, 20, 40, -1]; // 0 = full-map, -1 = close (computed dynamically)
-const DEFAULT_ZOOM = 3;
+const ZOOM_LEVELS = [10, 20, 40, -1]; // -1 = close (computed dynamically)
+const DEFAULT_ZOOM = 2; // "Near" / 40px
+const MAP_MARGIN = 12; // px gap around map view
 
 export class ExpeditionScene extends Phaser.Scene {
   private bridge!: SimulationBridge;
-  private bgGraphics!: Phaser.GameObjects.Graphics;
-  private terrainGraphics!: Phaser.GameObjects.Graphics;
-  private entityGraphics!: Phaser.GameObjects.Graphics;
-  private debugGraphics!: Phaser.GameObjects.Graphics;
-  private cursorGraphics!: Phaser.GameObjects.Graphics;
-  private ropeGraphics!: Phaser.GameObjects.Graphics;
-  private toolbarGraphics!: Phaser.GameObjects.Graphics;
-  private toolbarLabels!: Phaser.GameObjects.Text[];
-  private hintsText!: Phaser.GameObjects.Text;
-  private scribePanel!: ScribePanel;
-  private alertOverlay!: AlertOverlay;
-  private pauseOverlay!: PauseOverlay;
-  private adminOverlay!: AdminOverlay;
-  private scribeBtn!: Phaser.GameObjects.Text;
-  private zoomBtn!: Phaser.GameObjects.Text;
-  private suppliesText!: Phaser.GameObjects.Text;
-  private actionHint!: Phaser.GameObjects.Text;
+  private ui!: SceneUI;
   private keyW!: Phaser.Input.Keyboard.Key;
   private keyA!: Phaser.Input.Keyboard.Key;
   private keyS!: Phaser.Input.Keyboard.Key;
@@ -59,6 +42,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private keyEsc!: Phaser.Input.Keyboard.Key;
   private keyShift!: Phaser.Input.Keyboard.Key;
   private keyCtrl!: Phaser.Input.Keyboard.Key;
+  private keyM!: Phaser.Input.Keyboard.Key;
   private modeKeys!: Phaser.Input.Keyboard.Key[];
   private inputCooldown = 0;
   private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0, waterTimer: 0 };
@@ -70,6 +54,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private pendingHeave: { verticalDir: Direction.Up | Direction.Down; blockX: number; blockY: number; leftAvailable: boolean; rightAvailable: boolean } | null = null;
   private pendingHoist: { leftAvailable: boolean; rightAvailable: boolean } | null = null;
   private paused = false;
+  private mapOpen = false;
   private slotId: string | null = null;
   private slotName = 'Expedition';
 
@@ -78,13 +63,16 @@ export class ExpeditionScene extends Phaser.Scene {
     this.slotId = data?.slotId ?? null;
     this.slotName = data?.slotName ?? 'Expedition';
     this.paused = false;
+    this.mapOpen = false;
   }
   private get gameW(): number { return this.scale.width; }
   private get gameH(): number { return this.scale.height; }
   private get tileSize(): number {
-    if (this.zoomIndex === 0) {
+    if (this.mapOpen) {
       const t = this.bridge.game.terrain;
-      return Math.max(1, Math.floor(Math.min(this.gameW / t.width, this.gameH / t.height)));
+      const availW = this.gameW - MAP_MARGIN * 2;
+      const availH = this.gameH - MAP_MARGIN * 2;
+      return Math.max(1, Math.floor(Math.min(availW / t.width, availH / t.height)));
     }
     if (ZOOM_LEVELS[this.zoomIndex] === -1) {
       return Math.max(1, Math.floor(Math.min(this.gameW / 10, this.gameH / 10)));
@@ -94,7 +82,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private get tilesX(): number { return Math.ceil(this.gameW / this.tileSize); }
   private get tilesY(): number { return Math.ceil(this.gameH / this.tileSize); }
   private createFreshBridge(): SimulationBridge {
-    return createFreshBridge(this.gameW, this.gameH, ZOOM_LEVELS[1]);
+    return createFreshBridge(this.gameW, this.gameH, ZOOM_LEVELS[0]);
   }
   private autoSave(): void {
     autoSave(this.bridge.game, this.slotId, this.slotName, this.currentMode);
@@ -112,7 +100,7 @@ export class ExpeditionScene extends Phaser.Scene {
     } else {
       this.bridge = this.createFreshBridge();
     }
-    // Restore saved mode and zoom
+    // Restore saved mode, zoom, and map state
     const savedMode = localStorage.getItem(MODE_KEY);
     if (savedMode) {
       const m = Number(savedMode);
@@ -121,98 +109,81 @@ export class ExpeditionScene extends Phaser.Scene {
     if (this.slotId) {
       const meta = getSlotMeta(this.slotId);
       if (meta?.zoom != null && meta.zoom >= 0 && meta.zoom < ZOOM_LEVELS.length) this.zoomIndex = meta.zoom;
+      if (meta?.mapOpen) this.mapOpen = true;
     }
-    this.bgGraphics = this.add.graphics().setDepth(-1);
-    this.terrainGraphics = this.add.graphics();
-    this.entityGraphics = this.add.graphics();
-    this.debugGraphics = this.add.graphics().setDepth(10);
-    this.cursorGraphics = this.add.graphics().setDepth(50);
-    this.ropeGraphics = this.add.graphics().setDepth(49);
-    this.toolbarGraphics = this.add.graphics().setDepth(100);
-    this.toolbarLabels = ['Mine', 'Build', 'Command', 'Demolish'].map((name) =>
-      this.add.text(0, 0, name, {
-        fontSize: '9px', fontFamily: 'monospace', color: '#888898',
-      }).setOrigin(0.5, 0).setDepth(101),
-    );
-    this.hintsText = this.add.text(10, this.gameH - 8,
-      'WASD:Move  Shift:Look  Ctrl:Self  Space:Act  1-4:Mode  Tab:Scribe', {
-      fontSize: '13px', fontFamily: 'monospace', color: '#a0a0b8',
-      backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
-    }).setOrigin(0, 1).setDepth(100);
+    this.ui = createSceneUI(this, this.bridge.game.log, this.zoomLabel(), {
+      onResume: () => { this.paused = false; },
+      onQuit: () => { clearActiveSlot(); this.scene.start('BootScene'); },
+      onOpenAdmin: (po, ao) => { po.setContainerVisible(false); ao.show(); },
+      onCloseAdmin: (po, ao) => { ao.hide(); po.show(); },
+      onCycleZoom: () => this.cycleZoom(),
+      onRegen: () => {
+        this.bridge = this.createFreshBridge();
+        this.ui.scribePanel = new ScribePanel(this, this.bridge.game.log);
+        this.autoSave(); this.redraw();
+      },
+      onScribeToggle: () => this.ui.scribePanel.toggle(),
+      onMapToggle: () => this.toggleMap(),
+    });
     const kb = this.input.keyboard!;
     const K = Phaser.Input.Keyboard.KeyCodes;
     [this.keyW, this.keyA, this.keyS, this.keyD] = [K.W, K.A, K.S, K.D].map((k) => kb.addKey(k));
     this.keySpace = kb.addKey(K.SPACE); this.keyTab = kb.addKey(K.TAB);
     this.keyEsc = kb.addKey(K.ESC); this.keyShift = kb.addKey(K.SHIFT); this.keyCtrl = kb.addKey(K.CTRL);
+    this.keyM = kb.addKey(K.M);
     this.modeKeys = [kb.addKey(K.ONE), kb.addKey(K.TWO), kb.addKey(K.THREE), kb.addKey(K.FOUR)];
-    this.scribePanel = new ScribePanel(this, this.bridge.game.log);
-    this.alertOverlay = new AlertOverlay(this, this.gameW);
-    this.pauseOverlay = new PauseOverlay(this,
-      () => { this.paused = false; },
-      () => { clearActiveSlot(); this.scene.start('BootScene'); },
-      () => { this.pauseOverlay.setContainerVisible(false); this.adminOverlay.show(); });
-    this.adminOverlay = new AdminOverlay(this,
-      () => { this.adminOverlay.hide(); this.pauseOverlay.show(); });
-    const btnStyle = { fontSize: '12px', color: '#e8c170', backgroundColor: '#2a2a3e', padding: { x: 4, y: 2 } };
-    this.scribeBtn = this.add.text(this.gameW - 10, 10, '[Scribe]', btnStyle)
-      .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
-    this.scribeBtn.on('pointerdown', () => this.scribePanel.toggle());
-    this.zoomBtn = this.add.text(this.gameW - 10, 36, this.zoomLabel(), btnStyle)
-      .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
-    this.zoomBtn.on('pointerdown', () => this.cycleZoom());
-    // TEMP: regenerate world button — remove later
-    const regenBtn = this.add.text(this.gameW - 10, 62, '[Regen World]', btnStyle)
-      .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
-    regenBtn.on('pointerover', () => regenBtn.setColor('#ff6666'));
-    regenBtn.on('pointerout', () => regenBtn.setColor('#e8c170'));
-    regenBtn.on('pointerdown', () => {
-      this.bridge = this.createFreshBridge();
-      this.scribePanel = new ScribePanel(this, this.bridge.game.log);
-      this.autoSave(); this.redraw();
-    });
-    this.suppliesText = this.add.text(10, 10, '', {
-      fontSize: '14px', fontFamily: 'monospace', color: '#e8c170', backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
-    }).setDepth(100);
-    this.actionHint = this.add.text(this.gameW - 10, this.gameH - 8, '', {
-      fontSize: '13px', fontFamily: 'monospace', color: '#c0c0d0',
-      backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
-    }).setOrigin(1, 1).setDepth(100);
     this.scale.on('resize', this.onResize, this);
     refreshGradientTextures(this, this.tileSize);
     this.redraw();
   }
   private zoomLabel(): string {
-    return `[Zoom: ${['Full', 'Far', 'Mid', 'Near', 'Close'][this.zoomIndex] ?? 'Close'}]`;
+    return `[Zoom: ${['Far', 'Mid', 'Near', 'Close'][this.zoomIndex] ?? 'Close'}]`;
   }
   private cycleZoom() {
     this.zoomIndex = (this.zoomIndex + 1) % ZOOM_LEVELS.length;
-    this.zoomBtn.setText(this.zoomLabel());
+    this.ui.zoomBtn.setText(this.zoomLabel());
     if (this.slotId) updateSlotZoom(this.slotId, this.zoomIndex);
     refreshGradientTextures(this, this.tileSize);
     this.redraw();
   }
+  private toggleMap() {
+    this.mapOpen = !this.mapOpen;
+    if (this.slotId) updateSlotMapOpen(this.slotId, this.mapOpen);
+    refreshGradientTextures(this, this.tileSize);
+    this.redraw();
+  }
   private onResize() {
-    this.hintsText.setPosition(10, this.gameH - 10);
-    this.scribeBtn.setPosition(this.gameW - 10, 10);
-    this.zoomBtn.setPosition(this.gameW - 10, 36);
-    this.scribePanel.reposition(this.gameW, this.gameH);
-    this.alertOverlay.reposition(this.gameW);
-    this.pauseOverlay.reposition(this.gameW, this.gameH);
-    this.adminOverlay.reposition(this.gameW, this.gameH);
-    this.actionHint.setPosition(this.gameW - 10, this.gameH - 8);
+    this.ui.hintsText.setPosition(10, this.gameH - 10);
+    this.ui.scribePanel.reposition(this.gameW, this.gameH);
+    this.ui.alertOverlay.reposition(this.gameW);
+    this.ui.pauseOverlay.reposition(this.gameW, this.gameH);
+    this.ui.adminOverlay.reposition(this.gameW, this.gameH);
+    this.ui.gridOverlay.reposition();
+    this.ui.statsPanel.reposition();
+    this.ui.actionHint.setPosition(this.gameW - 10, this.gameH - 8);
     this.redraw();
   }
   update(_time: number, delta: number) {
+    // While map is open, only M and Esc close it
+    if (this.mapOpen) {
+      this.inputCooldown -= delta;
+      if (this.inputCooldown > 0) return;
+      if (this.keyM.isDown || this.keyEsc.isDown) {
+        this.toggleMap();
+        this.inputCooldown = 200;
+      }
+      return;
+    }
     // While paused, ESC navigates back through overlays
     if (this.paused) {
       this.inputCooldown -= delta;
       if (this.inputCooldown > 0) return;
       if (this.keyEsc.isDown) {
-        if (this.adminOverlay.isVisible()) {
-          this.adminOverlay.hide();
-          this.pauseOverlay.show();
+        if (this.ui.adminOverlay.isVisible()) {
+          this.ui.adminOverlay.hide();
+          this.ui.pauseOverlay.show();
         } else {
-          this.pauseOverlay.hide();
+          this.ui.pauseOverlay.hide();
         }
         this.inputCooldown = 200;
       }
@@ -234,8 +205,8 @@ export class ExpeditionScene extends Phaser.Scene {
     if (this.bridge.game.expeditionOver) return;
     // --- Time-based sim progress ---
     const timerCtx = {
-      game: this.bridge.game, alertOverlay: this.alertOverlay,
-      scribePanel: this.scribePanel, keyTab: this.keyTab, keyEsc: this.keyEsc,
+      game: this.bridge.game, alertOverlay: this.ui.alertOverlay,
+      scribePanel: this.ui.scribePanel, keyTab: this.keyTab, keyEsc: this.keyEsc,
       autoSave: () => this.autoSave(), redraw: () => this.redraw(),
       inputCooldown: this.inputCooldown,
     };
@@ -245,8 +216,14 @@ export class ExpeditionScene extends Phaser.Scene {
     processSellErrand(delta, this.timers, timerCtx);
     processWater(delta, this.timers, timerCtx);
     if (this.inputCooldown > 0) return;
+    // M key opens map
+    if (this.keyM.isDown) {
+      this.toggleMap();
+      this.inputCooldown = 200;
+      return;
+    }
     if (this.keyTab.isDown) {
-      this.scribePanel.toggle();
+      this.ui.scribePanel.toggle();
       this.inputCooldown = 200;
       return;
     }
@@ -260,9 +237,8 @@ export class ExpeditionScene extends Phaser.Scene {
         localStorage.setItem(MODE_KEY, String(this.currentMode));
         this.inputCooldown = 150; this.redraw(); return;
       }
-      // Already in Mine mode, nothing pending → open pause menu
       this.paused = true;
-      this.pauseOverlay.show();
+      this.ui.pauseOverlay.show();
       this.inputCooldown = 200;
       return;
     }
@@ -309,11 +285,9 @@ export class ExpeditionScene extends Phaser.Scene {
     if (!acted && this.keyCtrl.isDown && this.keySpace.isDown) {
       this.selfSelect = true;
     }
-    // Space takes priority over direction (allows lasso while holding a direction)
     if (!acted && this.keySpace.isDown) {
       const game = this.bridge.game;
       const mainDwarf = game.getMainDwarf();
-      // Update facing before action so direction + space targets the right tile
       if (dir !== null && mainDwarf) {
         mainDwarf.get<DwarfComponent>('dwarf')!.facingDirection = dir;
       }
@@ -321,7 +295,7 @@ export class ExpeditionScene extends Phaser.Scene {
       if (!this.keyCtrl.isDown) this.selfSelect = false;
       const { result } = handleSpaceAction(game, this.currentMode, wasSelfSelect);
       if (this.currentMode === SmartMode.Command && !result.success && result.message) {
-        this.alertOverlay.show(result.message);
+        this.ui.alertOverlay.show(result.message);
       }
       acted = true;
     }
@@ -370,12 +344,17 @@ export class ExpeditionScene extends Phaser.Scene {
     }
   }
   private updateActionHint(): void {
-    this.actionHint.setText(getActionHintText(this.bridge.game, this.currentMode, {
+    this.ui.actionHint.setText(getActionHintText(this.bridge.game, this.currentMode, {
       pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
       selfSelect: this.selfSelect,
     }));
   }
   private getCamera(): { camX: number; camY: number } {
+    if (this.mapOpen) {
+      const { width: tw, height: th } = this.bridge.game.terrain;
+      const ts = this.tileSize;
+      return { camX: -Math.round((this.gameW - tw * ts) / (2 * ts)), camY: -Math.round((this.gameH - th * ts) / (2 * ts)) };
+    }
     const dwarf = this.bridge.game.getMainDwarf();
     if (!dwarf) return { camX: 0, camY: 0 };
     const pos = dwarf.get<PositionComponent>('position')!;
@@ -387,22 +366,46 @@ export class ExpeditionScene extends Phaser.Scene {
   private redraw() {
     const { camX, camY } = this.getCamera();
     const ts = this.tileSize;
-    drawBackground(this.bgGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
+    drawBackground(this.ui.bgGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
     if (DEBUG_BG) {
-      drawDebugOverlay(this.bgGraphics, this.bridge.game.terrain, ts, this.tilesX, camX, camY);
+      drawDebugOverlay(this.ui.bgGraphics, this.bridge.game.terrain, ts, this.tilesX, camX, camY);
     }
-    this.debugGraphics.clear();
-    drawTerrain(this.terrainGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
-    drawEntitiesLayer(this.entityGraphics, this.bridge.game, ts, this.gameW, this.gameH, camX, camY, this.selfSelect);
-    drawCursor(this.cursorGraphics, this.bridge.game, ts, camX, camY, {
-      hasActed: this.hasActed, selfSelect: this.selfSelect,
-      currentMode: this.currentMode,
-      pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
-    });
-    drawRopeOverlay(this.ropeGraphics, this.bridge.game, ts, camX, camY);
-    drawToolbar(this.toolbarGraphics, this.gameW, this.currentMode, this.toolbarLabels);
-    this.suppliesText.setText(`Supplies: ${this.bridge.game.supplies}`);
-    this.updateActionHint();
-    this.scribePanel.refresh();
+    this.ui.debugGraphics.clear();
+    drawTerrain(this.ui.terrainGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
+    drawEntitiesLayer(this.ui.entityGraphics, this.bridge.game, ts, this.gameW, this.gameH, camX, camY, this.selfSelect);
+    if (this.mapOpen) {
+      // Map mode: skip cursor, toolbar, grid, and action hint
+      this.ui.cursorGraphics.clear();
+      this.ui.ropeGraphics.clear();
+      this.ui.toolbarGraphics.clear();
+      this.ui.gridOverlay.setVisible(false);
+      for (const lbl of this.ui.toolbarLabels) lbl.setVisible(false);
+      this.ui.actionHint.setText('');
+    } else {
+      this.ui.gridOverlay.restoreSessionVisible();
+      for (const lbl of this.ui.toolbarLabels) lbl.setVisible(true);
+      drawCursor(this.ui.cursorGraphics, this.bridge.game, ts, camX, camY, {
+        hasActed: this.hasActed, selfSelect: this.selfSelect,
+        currentMode: this.currentMode,
+        pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
+      });
+      drawRopeOverlay(this.ui.ropeGraphics, this.bridge.game, ts, camX, camY);
+      const topOff = this.ui.gridOverlay.getTopOffset();
+      drawToolbar(this.ui.toolbarGraphics, this.gameW, this.currentMode, this.ui.toolbarLabels, topOff);
+      this.updateActionHint();
+    }
+    const topOff = this.ui.gridOverlay.getTopOffset();
+    const leftOff = this.ui.gridOverlay.getLeftOffset();
+    this.ui.hintsText.setX(10 + leftOff);
+    this.ui.suppliesText.setPosition(10 + leftOff, 10 + topOff);
+    this.ui.suppliesText.setText(`Supplies: ${this.bridge.game.supplies}`);
+    this.ui.scribeBtn.setPosition(this.gameW - 10, 10 + topOff);
+    this.ui.zoomBtn.setPosition(this.gameW - 10, 36 + topOff);
+    this.ui.regenBtn.setPosition(this.gameW - 10, 62 + topOff);
+    this.ui.mapBtn.setPosition(this.gameW - 10, 88 + topOff);
+    this.ui.gridOverlay.update(camX, camY, ts, this.tilesX, this.tilesY);
+    this.ui.statsPanel.setPosition(10 + leftOff, 10 + topOff + this.ui.suppliesText.height + 4);
+    this.ui.statsPanel.update(this.bridge.game);
+    this.ui.scribePanel.refresh();
   }
 }

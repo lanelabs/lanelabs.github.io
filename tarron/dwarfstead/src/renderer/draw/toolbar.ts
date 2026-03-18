@@ -148,6 +148,7 @@ export function drawToolbar(
   g: Phaser.GameObjects.Graphics,
   screenW: number, currentMode: number,
   labels: ToolbarLabel[],
+  topOffset = 0,
 ): void {
   g.clear();
 
@@ -162,7 +163,7 @@ export function drawToolbar(
   const modeCount = SMART_MODE_COLORS.length - 1;
   const totalW = modeCount * boxW + (modeCount - 1) * gap + pad * 2;
   const startX = Math.floor((screenW - totalW) / 2) + pad;
-  const startY = 8;
+  const startY = 8 + topOffset;
 
   g.fillStyle(0x1a1a2e, 0.85);
   g.fillRoundedRect(startX - pad - 2, startY - pad, totalW + 4, boxH + pad * 2, 4);
