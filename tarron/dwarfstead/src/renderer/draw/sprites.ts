@@ -127,8 +127,10 @@ export function drawDwarfSprite(
   sx: number, sy: number, ts: number,
   isMain: boolean, facing: Direction = Direction.Right,
   crouching = false,
+  alpha = 1,
 ): void {
   const u = ts / 16; // each pixel = ts/16 screen units
+  const fill = (c: number) => { g.fillStyle(c, alpha); };
 
   // Crouch: squash vertically and shift down so feet stay on ground
   const yOff = crouching ? 5 : 0;
@@ -165,79 +167,79 @@ export function drawDwarfSprite(
   const pupilRow = facing === Direction.Up ? 4 : 5;
 
   // -- Helmet (rows 0-3) --
-  g.fillStyle(helmet, 1);
+  fill(helmet);
   px(5, 0, 6, 1);
   px(4, 1, 8, 1);
   px(3, 2, 10, 1);
   px(3, 3, 10, 1);
-  g.fillStyle(helmetDark, 1);
+  fill(helmetDark);
   px(4, 1, 1, 1);
   px(11, 1, 1, 1);
   px(3, 3, 1, 1);
   px(12, 3, 1, 1);
 
   // -- Face (rows 4-6) --
-  g.fillStyle(skin, 1);
+  fill(skin);
   px(4, 4, 8, 3);
-  g.fillStyle(skinShadow, 1);
+  fill(skinShadow);
   px(4, 5, 1, 2);
   px(11, 5, 1, 2);
 
   // -- Eyes (row 4-5) with facing-aware pupils --
-  g.fillStyle(eyeWhite, 1);
+  fill(eyeWhite);
   px(5, 4, 2, 2);
   px(9, 4, 2, 2);
-  g.fillStyle(eyePupil, 1);
+  fill(eyePupil);
   px(leftPupilCol, pupilRow, 1, 1);
   px(rightPupilCol, pupilRow, 1, 1);
 
   // -- Nose (row 5-6 center), shift slightly with horizontal facing --
-  g.fillStyle(skinShadow, 1);
+  fill(skinShadow);
   const noseX = facing === Direction.Right ? 8 : 7;
   px(noseX, 5, 2, 1);
   px(noseX, 6, 2, 1);
 
   // -- Beard (rows 7-10, tapers) --
-  g.fillStyle(beard, 1);
+  fill(beard);
   px(3, 7, 10, 1);
   px(4, 8, 8, 1);
   px(5, 9, 6, 1);
   px(6, 10, 4, 1);
-  g.fillStyle(beardDark, 1);
+  fill(beardDark);
   px(5, 7, 1, 1);
   px(9, 7, 1, 1);
   px(6, 8, 1, 1);
   px(8, 9, 1, 1);
 
   // -- Body / tunic (rows 7-11, behind beard) --
-  g.fillStyle(tunic, 1);
+  fill(tunic);
   px(3, 7, 2, 4);
   px(11, 7, 2, 4);
   px(5, 8, 1, 3);
   px(10, 8, 1, 3);
   px(5, 11, 6, 1);
-  g.fillStyle(tunicDark, 1);
+  fill(tunicDark);
   px(3, 10, 1, 1);
   px(12, 10, 1, 1);
 
   // -- Belt (row 12) --
-  g.fillStyle(belt, 1);
+  fill(belt);
   px(4, 12, 8, 1);
-  g.fillStyle(buckle, 1);
+  fill(buckle);
   px(7, 12, 2, 1);
 
   // -- Legs / boots (rows 13-15), toe direction matches facing --
   const toeLeft = facing === Direction.Left;
   const bootOff = toeLeft ? -1 : 0;
-  g.fillStyle(tunic, 1);
+  fill(tunic);
   px(5, 13, 2, 1);
   px(9, 13, 2, 1);
-  g.fillStyle(boots, 1);
+  fill(boots);
   px(4, 14, 3, 1);
   px(9, 14, 3, 1);
   px(4 + bootOff, 15, 4, 1);
   px(9 + bootOff, 15, 4, 1);
-  g.fillStyle(bootsDark, 1);
+  fill(bootsDark);
   px(toeLeft ? 3 : 7, 15, 1, 1);
   px(toeLeft ? 8 : 12, 15, 1, 1);
 }

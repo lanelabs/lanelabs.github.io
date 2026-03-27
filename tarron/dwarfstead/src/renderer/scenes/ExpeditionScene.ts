@@ -13,17 +13,13 @@ import { handleSpaceAction } from './spaceAction';
 import { processChipping, processShaping, processSellErrand, processWater } from './autoTimers';
 import type { TimerState } from './autoTimers';
 import { ScribePanel } from '../ui/ScribePanel';
-import { drawToolbar } from '../draw/toolbar';
-import { drawBackground, drawDebugOverlay, DEBUG_BG } from '../draw/background';
-import { drawTerrain } from '../draw/terrain';
-import { drawEntities as drawEntitiesLayer } from '../draw/entities';
-import { drawCursor, drawRopeOverlay } from '../draw/cursor';
 import { SmartMode } from '../smartMode';
-import { getActionHintText } from './actionHint';
+import { redrawScene } from './sceneRedraw';
 import { loadSlot, clearActiveSlot, getSlotMeta, updateSlotZoom, updateSlotMapOpen } from '../saveSlots';
 import { createFreshBridge, autoSave } from './expeditionHelpers';
 import { refreshGradientTextures } from '../draw/gradientTiles';
 import { createSceneUI, type SceneUI } from './createSceneUI';
+import { toggleNoclip, handleNoclipMove, isNoclipActive } from './noclipMode';
 
 const MODE_KEY = 'dwarfstead-mode';
 const ZOOM_LEVELS = [10, 20, 40, -1]; // -1 = close (computed dynamically)
@@ -43,6 +39,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private keyShift!: Phaser.Input.Keyboard.Key;
   private keyCtrl!: Phaser.Input.Keyboard.Key;
   private keyM!: Phaser.Input.Keyboard.Key;
+  private keyBacktick!: Phaser.Input.Keyboard.Key;
   private modeKeys!: Phaser.Input.Keyboard.Key[];
   private inputCooldown = 0;
   private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0, waterTimer: 0 };
@@ -55,6 +52,8 @@ export class ExpeditionScene extends Phaser.Scene {
   private pendingHoist: { leftAvailable: boolean; rightAvailable: boolean } | null = null;
   private paused = false;
   private mapOpen = false;
+  private backtickWasDown = false;
+  private spaceWasDown = false;
   private slotId: string | null = null;
   private slotName = 'Expedition';
 
@@ -131,6 +130,7 @@ export class ExpeditionScene extends Phaser.Scene {
     this.keySpace = kb.addKey(K.SPACE); this.keyTab = kb.addKey(K.TAB);
     this.keyEsc = kb.addKey(K.ESC); this.keyShift = kb.addKey(K.SHIFT); this.keyCtrl = kb.addKey(K.CTRL);
     this.keyM = kb.addKey(K.M);
+    this.keyBacktick = kb.addKey(192); // backtick/tilde key
     this.modeKeys = [kb.addKey(K.ONE), kb.addKey(K.TWO), kb.addKey(K.THREE), kb.addKey(K.FOUR)];
     this.scale.on('resize', this.onResize, this);
     refreshGradientTextures(this, this.tileSize);
@@ -215,7 +215,29 @@ export class ExpeditionScene extends Phaser.Scene {
     processShaping(delta, this.timers, timerCtx);
     processSellErrand(delta, this.timers, timerCtx);
     processWater(delta, this.timers, timerCtx);
+    // Track single-fire key states before cooldown guard so presses aren't lost
+    const backtickDown = this.keyBacktick.isDown;
+    const backtickJust = backtickDown && !this.backtickWasDown;
+    this.backtickWasDown = backtickDown;
+    const spaceDown = this.keySpace.isDown;
+    const spaceJust = spaceDown && !this.spaceWasDown;
+    this.spaceWasDown = spaceDown;
     if (this.inputCooldown > 0) return;
+    // Backtick toggles noclip ghost mode (single-fire: only on initial press)
+    if (backtickJust) {
+      toggleNoclip(this.bridge.game);
+      this.inputCooldown = 200; this.redraw(); return;
+    }
+    // Noclip mode: WASD moves ghost, all other inputs blocked
+    if (isNoclipActive(this.bridge.game)) {
+      const dir = this.keyA.isDown ? Direction.Left : this.keyD.isDown ? Direction.Right
+        : this.keyW.isDown ? Direction.Up : this.keyS.isDown ? Direction.Down : null;
+      if (dir !== null) {
+        handleNoclipMove(this.bridge.game, dir);
+        this.inputCooldown = 120; this.redraw();
+      }
+      return;
+    }
     // M key opens map
     if (this.keyM.isDown) {
       this.toggleMap();
@@ -285,7 +307,7 @@ export class ExpeditionScene extends Phaser.Scene {
     if (!acted && this.keyCtrl.isDown && this.keySpace.isDown) {
       this.selfSelect = true;
     }
-    if (!acted && this.keySpace.isDown) {
+    if (!acted && spaceJust) {
       const game = this.bridge.game;
       const mainDwarf = game.getMainDwarf();
       if (dir !== null && mainDwarf) {
@@ -343,69 +365,14 @@ export class ExpeditionScene extends Phaser.Scene {
       }
     }
   }
-  private updateActionHint(): void {
-    this.ui.actionHint.setText(getActionHintText(this.bridge.game, this.currentMode, {
-      pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
-      selfSelect: this.selfSelect,
-    }));
-  }
-  private getCamera(): { camX: number; camY: number } {
-    if (this.mapOpen) {
-      const { width: tw, height: th } = this.bridge.game.terrain;
-      const ts = this.tileSize;
-      return { camX: -Math.round((this.gameW - tw * ts) / (2 * ts)), camY: -Math.round((this.gameH - th * ts) / (2 * ts)) };
-    }
-    const dwarf = this.bridge.game.getMainDwarf();
-    if (!dwarf) return { camX: 0, camY: 0 };
-    const pos = dwarf.get<PositionComponent>('position')!;
-    return {
-      camX: pos.x - Math.floor(this.tilesX / 2),
-      camY: pos.y - Math.floor(this.tilesY / 2),
-    };
-  }
   private redraw() {
-    const { camX, camY } = this.getCamera();
-    const ts = this.tileSize;
-    drawBackground(this.ui.bgGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
-    this.ui.debugGraphics.clear();
-    if (DEBUG_BG) {
-      drawDebugOverlay(this.ui.bgGraphics, this.bridge.game.terrain, ts, this.tilesX, camX, camY);
-    }
-    drawTerrain(this.ui.terrainGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
-    drawEntitiesLayer(this.ui.entityGraphics, this.bridge.game, ts, this.gameW, this.gameH, camX, camY, this.selfSelect);
-    if (this.mapOpen) {
-      // Map mode: skip cursor, toolbar, grid, and action hint
-      this.ui.cursorGraphics.clear();
-      this.ui.ropeGraphics.clear();
-      this.ui.toolbarGraphics.clear();
-      this.ui.gridOverlay.setVisible(false);
-      for (const lbl of this.ui.toolbarLabels) lbl.setVisible(false);
-      this.ui.actionHint.setText('');
-    } else {
-      this.ui.gridOverlay.restoreSessionVisible();
-      for (const lbl of this.ui.toolbarLabels) lbl.setVisible(true);
-      drawCursor(this.ui.cursorGraphics, this.bridge.game, ts, camX, camY, {
-        hasActed: this.hasActed, selfSelect: this.selfSelect,
-        currentMode: this.currentMode,
-        pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
-      });
-      drawRopeOverlay(this.ui.ropeGraphics, this.bridge.game, ts, camX, camY);
-      const topOff = this.ui.gridOverlay.getTopOffset();
-      drawToolbar(this.ui.toolbarGraphics, this.gameW, this.currentMode, this.ui.toolbarLabels, topOff);
-      this.updateActionHint();
-    }
-    const topOff = this.ui.gridOverlay.getTopOffset();
-    const leftOff = this.ui.gridOverlay.getLeftOffset();
-    this.ui.hintsText.setX(10 + leftOff);
-    this.ui.suppliesText.setPosition(10 + leftOff, 10 + topOff);
-    this.ui.suppliesText.setText(`Supplies: ${this.bridge.game.supplies}`);
-    this.ui.scribeBtn.setPosition(this.gameW - 10, 10 + topOff);
-    this.ui.zoomBtn.setPosition(this.gameW - 10, 36 + topOff);
-    this.ui.regenBtn.setPosition(this.gameW - 10, 62 + topOff);
-    this.ui.mapBtn.setPosition(this.gameW - 10, 88 + topOff);
-    this.ui.gridOverlay.update(camX, camY, ts, this.tilesX, this.tilesY);
-    this.ui.statsPanel.setPosition(10 + leftOff, 10 + topOff + this.ui.suppliesText.height + 4);
-    this.ui.statsPanel.update(this.bridge.game);
-    this.ui.scribePanel.refresh();
+    redrawScene({
+      ui: this.ui, game: this.bridge.game,
+      gameW: this.gameW, gameH: this.gameH,
+      ts: this.tileSize, tilesX: this.tilesX, tilesY: this.tilesY,
+      mapOpen: this.mapOpen, selfSelect: this.selfSelect,
+      hasActed: this.hasActed, currentMode: this.currentMode,
+      pendingHeave: this.pendingHeave, pendingHoist: this.pendingHoist,
+    });
   }
 }

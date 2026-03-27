@@ -107,9 +107,10 @@ export class GravitySystem implements System {
       if (entity.has('movable')) continue; // Already handled
       if (entity.has('rope')) continue; // Rope entities don't fall
 
-      // Skip dwarves on ropes (rappelling)
+      // Skip ghost dwarves (noclip mode)
       if (entity.has('dwarf')) {
         const d = entity.get<DwarfComponent>('dwarf')!;
+        if (d.isGhost) continue;
         if (d.rappelRopeId !== null) continue;
       }
 

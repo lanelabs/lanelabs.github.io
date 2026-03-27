@@ -125,7 +125,8 @@ export function drawEntities(
         }
       }
       const crouch = d.isMainDwarf && mainDwarfCrouching;
-      drawDwarfSprite(g, sx, sy, ts, d.isMainDwarf, facing, crouch);
+      const dAlpha = d.isGhost ? 0.5 : 1;
+      drawDwarfSprite(g, sx, sy, ts, d.isMainDwarf, facing, crouch, dAlpha);
       // Draw indicators above companions
       if (!d.isMainDwarf) {
         const ct = entity.get<CompanionTaskComponent>('companionTask');
@@ -241,9 +242,14 @@ export function drawEntities(
 
   const characters: ReturnType<typeof game.world.all>[number][] = [];
   let tetheredEntity: ReturnType<typeof game.world.all>[number] | null = null;
+  let ghostEntity: ReturnType<typeof game.world.all>[number] | null = null;
   for (const entity of game.world.all()) {
     if (tetheredId !== null && entity.id === tetheredId) {
       tetheredEntity = entity;
+      continue;
+    }
+    if (entity.has('dwarf') && entity.get<DwarfComponent>('dwarf')!.isGhost) {
+      ghostEntity = entity;
       continue;
     }
     if (entity.has('dwarf') || entity.has('creature')) {
@@ -253,7 +259,6 @@ export function drawEntities(
     }
   }
   for (const c of characters) drawEntity(c);
-  if (tetheredEntity) {
-    drawEntity(tetheredEntity);
-  }
+  if (tetheredEntity) drawEntity(tetheredEntity);
+  if (ghostEntity) drawEntity(ghostEntity);
 }

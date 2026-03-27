@@ -29,6 +29,7 @@ export interface SceneUI {
   mapBtn: Phaser.GameObjects.Text;
   suppliesText: Phaser.GameObjects.Text;
   actionHint: Phaser.GameObjects.Text;
+  noclipText: Phaser.GameObjects.Text;
 }
 
 export interface SceneUICallbacks {
@@ -117,11 +118,16 @@ export function createSceneUI(
     ...hintStyle, color: '#c0c0d0',
   }).setOrigin(1, 1).setDepth(100);
 
+  const noclipText = scene.add.text(10, 30, 'NOCLIP', {
+    fontSize: '12px', fontFamily: 'monospace', color: '#ff6600',
+    backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 3 },
+  }).setDepth(200).setVisible(false);
+
   return {
     bgGraphics, terrainGraphics, entityGraphics, debugGraphics,
     cursorGraphics, ropeGraphics, toolbarGraphics, toolbarLabels,
     hintsText, scribePanel, alertOverlay, pauseOverlay, adminOverlay,
     statsPanel, gridOverlay, scribeBtn, zoomBtn, regenBtn, mapBtn,
-    suppliesText, actionHint,
+    suppliesText, actionHint, noclipText,
   };
 }

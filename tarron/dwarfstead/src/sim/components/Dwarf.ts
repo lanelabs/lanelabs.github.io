@@ -9,6 +9,7 @@ export class DwarfComponent implements Component {
   public overheadEntityId: number | null = null;
   public crouching = false;
   public rappelRopeId: number | null = null;
+  public isGhost = false;
   constructor(
     public name: string,
     public specialty: string = 'miner',

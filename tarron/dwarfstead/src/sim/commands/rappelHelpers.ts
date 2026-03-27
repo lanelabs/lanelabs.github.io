@@ -230,6 +230,7 @@ export function tryStartRappelHorizontal(
   game: Game, dwarf: Entity,
   finalX: number, finalY: number,
 ): CommandResult | null {
+  if (game.noclipMode) return null;
   const dwarfComp = dwarf.get<DwarfComponent>('dwarf')!;
   const pos = dwarf.get<PositionComponent>('position')!;
 
@@ -259,6 +260,7 @@ export function tryStartRappelHorizontal(
 export function tryStartRappelVertical(
   game: Game, dwarf: Entity,
 ): CommandResult | null {
+  if (game.noclipMode) return null;
   const dwarfComp = dwarf.get<DwarfComponent>('dwarf')!;
   const pos = dwarf.get<PositionComponent>('position')!;
 

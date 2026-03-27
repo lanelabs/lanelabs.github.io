@@ -46,6 +46,8 @@ export class Game {
   shapingArmed = false;
   /** Set by renderer before execute() to signal CompanionSystem sell tick should advance. */
   sellTickArmed = false;
+  /** Debug noclip/ghost mode — main dwarf ignores collision and gravity. */
+  noclipMode = false;
 
   // Trail of positions the main dwarf has left — companions follow these
   readonly trail: Vec2[] = [];
