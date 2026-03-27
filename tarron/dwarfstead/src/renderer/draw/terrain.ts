@@ -2,13 +2,13 @@ import Phaser from 'phaser';
 import type { Game } from '../../sim/Game';
 import { BlockMaterial } from '../../sim/types';
 import { BLOCK_INFO } from '../../sim/terrain/BlockTypes';
-import { WATER_FLOOD_THRESHOLD } from '../../sim/systems/waterCA';
+import { WATER_FLOOD_THRESHOLD, MAX_WATER } from '../../sim/systems/waterCA';
 
 const WATER_COLOR = 0x2255aa;
 
 /** Returns a fill color when the air at (wx,wy) contains a visible substance, or null for plain air. */
-function chipFillColor(game: Game, wx: number, wy: number): number | null {
-  if (game.getWaterMass({ x: wx, y: wy }) >= WATER_FLOOD_THRESHOLD) return WATER_COLOR;
+function chipFillColor(game: Game, wx: number, wy: number, minWater = WATER_FLOOD_THRESHOLD): number | null {
+  if (game.getWaterMass({ x: wx, y: wy }) >= minWater) return WATER_COLOR;
   if (game.hasClimbable({ x: wx, y: wy })) return 0x3d3530;
   return null;
 }
@@ -112,21 +112,24 @@ export function drawTerrain(
         g.closePath();
         g.fillPath();
 
-        // Conditional chip fills — only when neighbor air contains a substance
+        // Conditional chip fills — only when neighbor air contains a substance.
+        // Top chips: side neighbor must be full (MAX_WATER) for water to reach chip height.
+        // Bottom chips: side at level >= 1 (water fills from bottom), below at MAX_WATER
+        //   (chip is at top of below cell, so water must fill that cell completely).
         if (chipTL) {
-          const fill = chipFillColor(game, wx - 1, wy) ?? chipFillColor(game, wx, wy - 1);
+          const fill = chipFillColor(game, wx - 1, wy, MAX_WATER);
           if (fill !== null) fillTriangle(g, fill, px, py, px + chip, py, px, py + chip);
         }
         if (chipTR) {
-          const fill = chipFillColor(game, wx + 1, wy) ?? chipFillColor(game, wx, wy - 1);
+          const fill = chipFillColor(game, wx + 1, wy, MAX_WATER);
           if (fill !== null) fillTriangle(g, fill, px + ts, py, px + ts - chip, py, px + ts, py + chip);
         }
         if (chipBL) {
-          const fill = chipFillColor(game, wx - 1, wy) ?? chipFillColor(game, wx, wy + 1);
+          const fill = chipFillColor(game, wx - 1, wy, 1);
           if (fill !== null) fillTriangle(g, fill, px, py + ts, px + chip, py + ts, px, py + ts - chip);
         }
         if (chipBR) {
-          const fill = chipFillColor(game, wx + 1, wy) ?? chipFillColor(game, wx, wy + 1);
+          const fill = chipFillColor(game, wx + 1, wy, 1);
           if (fill !== null) fillTriangle(g, fill, px + ts, py + ts, px + ts - chip, py + ts, px + ts, py + ts - chip);
         }
       }

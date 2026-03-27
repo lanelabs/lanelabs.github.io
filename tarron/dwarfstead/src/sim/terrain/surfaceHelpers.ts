@@ -1,6 +1,6 @@
 import { SeededRNG } from '../rng';
 
-export const MIN_FEATURE_WIDTH = 3;
+export const MIN_FEATURE_WIDTH = 5;
 
 /** Remove thin spikes/dips: any column that differs from both neighbors gets averaged. */
 export function smoothSpikes(heights: number[]): void {
@@ -16,9 +16,40 @@ export function smoothSpikes(heights: number[]): void {
   }
 }
 
-/** Smooth sharp cliff edges with gradual transitions. */
-export function roundCliffs(heights: number[], minWidth: number): void {
-  const snap = heights.slice(); // detect cliffs from original values
+/**
+ * Build a gradient baseline that skips narrow peaks and valleys.
+ * For each column, compare it to the terrain `radius` columns away on
+ * each side. If the column is significantly higher or lower than BOTH
+ * reference points, it's part of a narrow feature and gets interpolated
+ * toward the reference level.
+ */
+export function computeGradientLine(heights: number[], minWidth: number): number[] {
+  const line = heights.slice();
+  const len = line.length;
+  const radius = minWidth + 1; // look 4 columns out on each side
+  const minDev = 3;            // ignore features < 3 blocks tall
+
+  for (let pass = 0; pass < 2; pass++) {
+    const snap = line.slice();
+    for (let x = 0; x < len; x++) {
+      const h = snap[x];
+      const leftRef = snap[Math.max(0, x - radius)];
+      const rightRef = snap[Math.min(len - 1, x + radius)];
+      const isPeak = h < leftRef - minDev && h < rightRef - minDev;
+      const isValley = h > leftRef + minDev && h > rightRef + minDev;
+      if (!isPeak && !isValley) continue;
+
+      // Blend toward the average of the two reference heights
+      const avg = (leftRef + rightRef) / 2;
+      line[x] = Math.round(avg);
+    }
+  }
+  return line;
+}
+
+/** Apply rounding to a height array in-place. */
+function applyRounding(heights: number[]): void {
+  const snap = heights.slice();
   const len = heights.length;
 
   for (let x = 0; x < len - 1; x++) {
@@ -26,38 +57,42 @@ export function roundCliffs(heights: number[], minWidth: number): void {
     const absDiff = Math.abs(diff);
     if (absDiff <= 1) continue;
 
-    const desiredRadius = absDiff <= 3 ? 1 : Math.min(3, Math.floor(absDiff / 2));
-
-    // Left flat run length (columns at snap[x] extending left from x)
-    let leftRun = 1;
-    while (x - leftRun >= 0 && snap[x - leftRun] === snap[x]) leftRun++;
-    // Right flat run length (columns at snap[x+1] extending right from x+1)
-    let rightRun = 1;
-    while (x + 1 + rightRun < len && snap[x + 1 + rightRun] === snap[x + 1]) rightRun++;
-
-    // Always allow at least 1 block of rounding; only reserve (minWidth-1) for the flat
-    const leftBudget = Math.max(1, leftRun - (minWidth - 1));
-    const rightBudget = Math.max(1, rightRun - (minWidth - 1));
-    const leftRadius = Math.min(desiredRadius, leftBudget);
-    const rightRadius = Math.min(desiredRadius, rightBudget);
+    const minRadius = absDiff <= 4 ? 1 : absDiff <= 12 ? 2 : 3;
+    const desiredRadius = Math.max(minRadius, Math.min(3, Math.floor(absDiff / 2)));
+    const leftRadius = Math.min(desiredRadius, x + 1);
+    const rightRadius = Math.min(desiredRadius, len - x - 1);
 
     const lo = Math.min(snap[x], snap[x + 1]);
     const hi = Math.max(snap[x], snap[x + 1]);
-    const sign = diff > 0 ? 1 : -1; // direction of height change
+    const sign = diff > 0 ? 1 : -1;
 
-    // Left-side rounding: adjust heights[x - i] toward the cliff
     for (let i = 0; i < leftRadius; i++) {
       const col = x - i;
       const step = (leftRadius - i) * sign;
       heights[col] = Math.max(lo, Math.min(hi, heights[col] + step));
     }
 
-    // Right-side rounding: adjust heights[x+1 + i] toward the cliff
     for (let i = 0; i < rightRadius; i++) {
       const col = x + 1 + i;
       const step = (rightRadius - i) * -sign;
       heights[col] = Math.max(lo, Math.min(hi, heights[col] + step));
     }
+  }
+}
+
+/**
+ * Smooth sharp cliff edges with gradual transitions.
+ * Rounding is computed on a gradient line that bypasses thin features
+ * (< MIN_FEATURE_WIDTH wide), then the same deltas are applied to the
+ * actual surface. This prevents rounding from creating sharp peaks
+ * when it hits narrow spires or holes from both sides.
+ */
+export function roundCliffs(heights: number[]): void {
+  const gradient = computeGradientLine(heights, MIN_FEATURE_WIDTH);
+  const before = gradient.slice();
+  applyRounding(gradient);
+  for (let x = 0; x < heights.length; x++) {
+    heights[x] += gradient[x] - before[x];
   }
 }
 
@@ -88,33 +123,66 @@ export function injectCliffs(heights: number[], rng: SeededRNG): void {
   }
   cliffs.sort((a, b) => a.x - b.x);
 
-  // Apply: shift all columns right of each cliff down by `drop`
-  // Process right-to-left so shifts don't compound unexpectedly
+  // Apply: shift one side of each cliff down by `drop`, direction randomized
+  // Process outside-in so shifts don't compound unexpectedly
   for (let i = cliffs.length - 1; i >= 0; i--) {
     const { x, drop } = cliffs[i];
-    for (let col = x + 1; col < len; col++) {
-      heights[col] += drop;
+    const dropRight = rng.next() > 0.5;
+    if (dropRight) {
+      for (let col = x + 1; col < len; col++) heights[col] += drop;
+    } else {
+      for (let col = x - 1; col >= 0; col--) heights[col] += drop;
     }
   }
 }
 
-/** Widen any peak or canyon narrower than `minWidth` columns. */
+/**
+ * Walk every horizontal row and flag any run of sky or ground shorter
+ * than `minWidth`. Returns an array of violations (empty = clean).
+ */
+export function validateMinWidth(
+  surfaceHeights: number[], minWidth: number, mapHeight: number,
+): { y: number; x: number; type: 'sky' | 'ground'; width: number }[] {
+  const violations: { y: number; x: number; type: 'sky' | 'ground'; width: number }[] = [];
+  const len = surfaceHeights.length;
+
+  for (let y = 0; y < mapHeight; y++) {
+    let runStart = 0;
+    let runIsSky = y < surfaceHeights[0];
+
+    for (let x = 1; x <= len; x++) {
+      const isSky = x < len ? y < surfaceHeights[x] : !runIsSky; // force flush at end
+      if (isSky === runIsSky) continue;
+      const w = x - runStart;
+      // Only flag interior runs (ignore runs touching map edges)
+      if (w < minWidth && runStart > 0 && x < len) {
+        violations.push({ y, x: runStart, type: runIsSky ? 'sky' : 'ground', width: w });
+      }
+      runStart = x;
+      runIsSky = isSky;
+    }
+  }
+  return violations;
+}
+
+/**
+ * Widen any peak or canyon narrower than `minWidth` columns,
+ * then add a 1-block "chip" transition on each outer edge so
+ * rounding has room to create smooth tops/bottoms.
+ */
 export function widenExtrema(heights: number[], minWidth: number): void {
   const len = heights.length;
   for (let pass = 0; pass < 3; pass++) {
-    // Find runs of equal height, check if the run is a local extremum
     let x = 0;
     while (x < len) {
       const h = heights[x];
       const lo = x;
       while (x < len && heights[x] === h) x++;
-      const hi = x - 1; // inclusive end of run
+      const hi = x - 1;
       const w = hi - lo + 1;
       if (w >= minWidth) continue;
       const leftH = lo > 0 ? heights[lo - 1] : h;
       const rightH = hi < len - 1 ? heights[hi + 1] : h;
-      // Peak: run is lower Y (higher ground) than both neighbors
-      // Canyon: run is higher Y (lower ground) than both neighbors
       const isPeak = h < leftH && h < rightH;
       const isCanyon = h > leftH && h > rightH;
       if (!isPeak && !isCanyon) continue;
@@ -123,6 +191,19 @@ export function widenExtrema(heights: number[], minWidth: number): void {
       const addR = need - addL;
       for (let i = 1; i <= addL && lo - i >= 0; i++) heights[lo - i] = h;
       for (let i = 1; i <= addR && hi + i < len; i++) heights[hi + i] = h;
+
+      // Chip: 1-block transition step on each outer edge
+      // For peaks (low Y = high ground): chip is 1 step toward neighbors (h+1)
+      // For canyons (high Y = low ground): chip is 1 step toward neighbors (h-1)
+      const chip = isPeak ? h + 1 : h - 1;
+      const newLo = lo - addL;
+      const newHi = hi + addR;
+      if (newLo - 1 >= 0 && Math.abs(heights[newLo - 1] - h) > 1) {
+        heights[newLo - 1] = chip;
+      }
+      if (newHi + 1 < len && Math.abs(heights[newHi + 1] - h) > 1) {
+        heights[newHi + 1] = chip;
+      }
     }
   }
 }

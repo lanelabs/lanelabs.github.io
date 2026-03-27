@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import type { Game } from '../../sim/Game';
-
 export const SKY_COLOR = 0x7a9ab0;
 export const CAVE_COLOR = 0x252535;
 
@@ -240,4 +239,5 @@ export function drawDebugOverlay(
     const p = chainPos(v, px, py, ts);
     drawTileGradient(g, px, py, ts, v.dir, p.s0, p.s1, p.c0, p.c1);
   }
+
 }

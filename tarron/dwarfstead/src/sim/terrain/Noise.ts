@@ -82,3 +82,34 @@ export function fractalNoise1D(
 
   return offsets;
 }
+
+/**
+ * Evaluate a Catmull-Rom spline at parameter t ∈ [0, 1].
+ * `points` is an array of y-values evenly spaced along the curve.
+ * Returns an interpolated y-value that passes through every control point.
+ */
+export function catmullRomSpline(points: number[], t: number): number {
+  const n = points.length;
+  if (n < 2) return points[0] ?? 0;
+
+  // Map t to segment index
+  const seg = t * (n - 1);
+  const i = Math.min(Math.floor(seg), n - 2);
+  const f = seg - i;
+
+  // Four control points with clamped boundary
+  const p0 = points[Math.max(0, i - 1)];
+  const p1 = points[i];
+  const p2 = points[Math.min(n - 1, i + 1)];
+  const p3 = points[Math.min(n - 1, i + 2)];
+
+  // Catmull-Rom basis (tau = 0.5)
+  const f2 = f * f;
+  const f3 = f2 * f;
+  return 0.5 * (
+    (2 * p1) +
+    (-p0 + p2) * f +
+    (2 * p0 - 5 * p1 + 4 * p2 - p3) * f2 +
+    (-p0 + 3 * p1 - 3 * p2 + p3) * f3
+  );
+}

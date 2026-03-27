@@ -367,10 +367,10 @@ export class ExpeditionScene extends Phaser.Scene {
     const { camX, camY } = this.getCamera();
     const ts = this.tileSize;
     drawBackground(this.ui.bgGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
+    this.ui.debugGraphics.clear();
     if (DEBUG_BG) {
       drawDebugOverlay(this.ui.bgGraphics, this.bridge.game.terrain, ts, this.tilesX, camX, camY);
     }
-    this.ui.debugGraphics.clear();
     drawTerrain(this.ui.terrainGraphics, this.bridge.game, ts, this.tilesX, this.tilesY, camX, camY);
     drawEntitiesLayer(this.ui.entityGraphics, this.bridge.game, ts, this.gameW, this.gameH, camX, camY, this.selfSelect);
     if (this.mapOpen) {

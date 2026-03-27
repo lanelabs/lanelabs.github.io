@@ -1,7 +1,19 @@
+# Dev tools
+
+enable noclip mode to be able to fly around as a ghost that shows up transparently on top of things
+
+# Controls
+
+Holding space should not continuosly selecte/unselect. Trigger only once. Unlike WASD which should allow holding.Can
 
 # Background
 
 Still getting small peaks with broken backgrounds. We need to have a gradient that works for those, or bypass small elements
+
+# Map generation
+
+HOles are not overlapping sections, they're geting cut off by the dirt layer.
+Tunnels connecting things
 
 # Map grid
 
@@ -11,6 +23,8 @@ Might be related to camera moving with dwarf
 # Mobile Friendly view
 
 I want some mobile friendly version and controls.
+
+# Fog of war
 
 Fog of War - Don't make all squares visible until we can see them (so only 1 square deep, digging / making loose will reveal the block beyond as well). Making a bolock loose should make sure the 4 cardinal direction blocks are now visible, as if we carved all around the block. Also give my person a view distance, maybe up to 10 squares, with it being greyed out if I've seen it before but it's not in viewable distance. So If I dig into a tunnel I can't necessarily see the full length. Also, in order to test this, have it generate some tunnel shapes close to the surface and going down, with at least one breaking the surface near me in a hillside so I can go down it.
 
@@ -25,6 +39,10 @@ When creating ladders off edges, we need wood to fillin the chipped corner.
 Have falling blocks not be blocked by companions, have the companion move out of the way towards me. Only have me stop falling blocks
 
 Make companions always just be teleported to near me when they're part of my train, no need to actually get blocked, unless they are running errands
+
+# Surface block
+
+Change 3 size curve into just 2 size
 
 # Map layers
 
@@ -45,6 +63,14 @@ cavern layer (much more caverns)
 
 
 # Water system
+
+should only color top chip if 5/5 layers filled
+
+Wtaer pools in map
+
+Other liquids in map
+
+Flip water system for gas
 
 I want water to be affected by gravity, flow downward (in ticks, etc). But not be a performance drag. Let's research a good recommended way to implement this in our stack.
 

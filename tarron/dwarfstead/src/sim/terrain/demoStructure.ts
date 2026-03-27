@@ -4,18 +4,18 @@
  *
  * Layout (relative to spawn @, D = dirt wall to breach):
  *
- *   @ # D ~ ~ ~ ~ #      pool: 4 wide, 3 tall, full of water
- *   # # D ~ ~ ~ ~ #
- *   # # D ~ ~ ~ ~ #
- *   # # D # # . # #      shaft: 1 wide, 5 deep
- *   # # D # # . # #
- *   # # D # # . # #
- *   # # D # # . # #
- *   # # D # # . # #
- *   # # D # . . . . . #  cavern: 6 wide, 4 tall
- *   # # D # . . . . . #
- *   # # D # S . . . . #  S = stone steps (staircase)
- *   # # D # S S . . . #
+ *   @ # D ~ ~ | ~ ~ ~ | ~ ~ #   ledges + pool, 3 tall, water throughout
+ *   # # D ~ ~ | ~ ~ ~ | ~ ~ #   | = drain shaft (air, open below)
+ *   # # D ~ ~ | ~ ~ ~ | ~ ~ #   ~ = water on ledge (against wall near hole)
+ *   # # D # # | # . # | # # #   floor (not under drains), center shaft
+ *   # # D # # | # . # | # # #   3 shafts: left drain, center, right drain
+ *   # # D # # | # . # | # # #
+ *   # # D # # | # . # | # # #
+ *   # # D # # | # . # | # # #
+ *   # # D # . . . . . # # # #   cavern: drain-to-drain, 4 tall
+ *   # # D # . . . . . # # # #
+ *   # # D # S . . . . # # # #   S = stone steps
+ *   # # D # S S . . . # # # #
  */
 
 import { BlockMaterial } from '../types';
@@ -28,69 +28,118 @@ export function carveDemoStructure(
   width: number,
   height: number,
 ): void {
-  // Pool starts 3 tiles right of spawn
-  const poolLeft = spawnX + 3;
-  const poolRight = poolLeft + 3; // 4 wide
-  const poolTop = surfaceY;       // starts at surface
-  const poolBottom = surfaceY + 2; // 3 tall
-
-  // Breakable wall column is at spawnX + 2
+  // Breakable wall column at spawnX + 2
   const wallX = spawnX + 2;
 
-  // Shaft: 1 wide at poolLeft + 2, from poolBottom+1 to poolBottom+5
-  const shaftX = poolLeft + 2;
+  // Left ledge: 2 cells against dirt wall
+  const leftLedgeL = spawnX + 3;
+  const leftLedgeR = spawnX + 4;
+
+  // Left drain shaft
+  const leftDrainX = spawnX + 5;
+
+  // Pool: 3 cells between drains
+  const poolLeft = spawnX + 6;
+  const poolRight = spawnX + 8;
+
+  // Right drain shaft
+  const rightDrainX = spawnX + 9;
+
+  // Right ledge: 2 cells against right wall
+  const rightLedgeL = spawnX + 10;
+  const rightLedgeR = spawnX + 11;
+
+  // Right wall
+  const rightWallX = spawnX + 12;
+
+  const poolTop = surfaceY;
+  const poolBottom = surfaceY + 2; // 3 tall
+
+  // Center shaft
+  const shaftX = spawnX + 7;
   const shaftTop = poolBottom + 1;
   const shaftBottom = shaftTop + 4;
 
-  // Cavern: 6 wide starting at shaftX - 1, 4 tall below shaft
-  const cavernLeft = shaftX - 1;
-  const cavernRight = cavernLeft + 5; // 6 wide
+  // Cavern: spans drain-to-drain, 4 tall below shafts
+  const cavernLeft = leftDrainX;
+  const cavernRight = rightDrainX;
   const cavernTop = shaftBottom + 1;
-  const cavernBottom = cavernTop + 3; // 4 tall
+  const cavernBottom = cavernTop + 3;
 
   // Bounds check
-  if (poolRight + 1 >= width || cavernRight + 1 >= width) return;
+  if (rightWallX >= width) return;
   if (cavernBottom + 1 >= height) return;
 
-  // Carve pool (air + water)
+  // ── Carve entire water area as air (ledge-to-ledge) ──
   for (let y = poolTop; y <= poolBottom; y++) {
-    for (let x = poolLeft; x <= poolRight; x++) {
-      if (x >= 0 && x < width && y >= 0 && y < height) {
+    for (let x = leftLedgeL; x <= rightLedgeR; x++) {
+      if (x < width && y < height) {
         blocks[y][x] = BlockMaterial.Air;
-        waterMass[y][x] = 5;
       }
     }
   }
 
-  // Place dirt walls around pool (right side + bottom)
+  // ── Place water: ledges stacked against walls, pool full ──
   for (let y = poolTop; y <= poolBottom; y++) {
-    const rx = poolRight + 1;
-    if (rx < width && y < height && blocks[y][rx] !== BlockMaterial.Air) {
-      blocks[y][rx] = BlockMaterial.Dirt;
+    // Left ledge: high against wall, low near drain
+    waterMass[y][leftLedgeL] = 3;
+    waterMass[y][leftLedgeR] = 1;
+    // Pool: full
+    for (let x = poolLeft; x <= poolRight; x++) {
+      waterMass[y][x] = 5;
     }
-  }
-  for (let x = poolLeft; x <= poolRight + 1; x++) {
-    const by = poolBottom + 1;
-    if (x < width && by < height) {
-      blocks[by][x] = BlockMaterial.Dirt;
-    }
+    // Right ledge: low near drain, high against wall
+    waterMass[y][rightLedgeL] = 1;
+    waterMass[y][rightLedgeR] = 3;
   }
 
-  // Place breakable dirt wall (column at wallX, from poolTop to cavernBottom)
+  // ── Right wall ──
   for (let y = poolTop; y <= cavernBottom; y++) {
-    if (wallX >= 0 && wallX < width && y >= 0 && y < height) {
-      blocks[y][wallX] = BlockMaterial.Dirt;
+    if (rightWallX < width && y < height) {
+      blocks[y][rightWallX] = BlockMaterial.Stone;
     }
   }
 
-  // Carve shaft
+  // ── Carve drain shafts (air from poolTop through shaftBottom) ──
+  for (let y = poolTop; y <= shaftBottom; y++) {
+    if (y < height) {
+      blocks[y][leftDrainX] = BlockMaterial.Air;
+      blocks[y][rightDrainX] = BlockMaterial.Air;
+    }
+  }
+
+  // ── Floor: solid under ledges + pool (not under drains) ──
+  const floorY = poolBottom + 1;
+  for (let x = leftLedgeL; x <= rightLedgeR; x++) {
+    if (x === leftDrainX || x === rightDrainX) continue;
+    if (x < width && floorY < height) {
+      blocks[floorY][x] = BlockMaterial.Dirt;
+    }
+  }
+
+  // ── Seal shaft-area walls (shaftTop to shaftBottom) ──
   for (let y = shaftTop; y <= shaftBottom; y++) {
-    if (shaftX >= 0 && shaftX < width && y >= 0 && y < height) {
+    if (y >= height) continue;
+    // Left of left drain (under left ledge)
+    blocks[y][leftLedgeR] = BlockMaterial.Stone;
+    // Right of left drain / left of center shaft
+    blocks[y][poolLeft] = BlockMaterial.Stone;
+    // Right of center shaft / left of right drain
+    blocks[y][poolRight] = BlockMaterial.Stone;
+    // Right of right drain (under right ledge)
+    if (rightLedgeL < width) blocks[y][rightLedgeL] = BlockMaterial.Stone;
+  }
+
+  // ── Carve all three shafts (after sealing so they stay open) ──
+  for (let y = shaftTop; y <= shaftBottom; y++) {
+    if (y < height) {
+      blocks[y][leftDrainX] = BlockMaterial.Air;
       blocks[y][shaftX] = BlockMaterial.Air;
+      blocks[y][rightDrainX] = BlockMaterial.Air;
     }
   }
 
-  // Seal cavern walls & floor so caves/tunnels can't drain water out
+  // ── Seal cavern walls & floor ──
   for (let x = cavernLeft - 1; x <= cavernRight + 1; x++) {
     const by = cavernBottom + 1;
     if (x >= 0 && x < width && by < height) blocks[by][x] = BlockMaterial.Stone;
@@ -102,28 +151,28 @@ export function carveDemoStructure(
     if (rx < width && y < height) blocks[y][rx] = BlockMaterial.Stone;
   }
 
-  // Seal shaft walls so water can't escape sideways
-  for (let y = shaftTop; y <= shaftBottom; y++) {
-    if (shaftX - 1 >= 0 && y < height) blocks[y][shaftX - 1] = BlockMaterial.Stone;
-    if (shaftX + 1 < width && y < height) blocks[y][shaftX + 1] = BlockMaterial.Stone;
-  }
-
-  // Carve cavern (after sealing so interior is Air)
+  // ── Carve cavern (after sealing so interior is Air) ──
   for (let y = cavernTop; y <= cavernBottom; y++) {
     for (let x = cavernLeft; x <= cavernRight; x++) {
-      if (x >= 0 && x < width && y >= 0 && y < height) {
+      if (x >= 0 && x < width && y < height) {
         blocks[y][x] = BlockMaterial.Air;
       }
     }
   }
 
-  // Stone steps in cavern (staircase at bottom-left)
-  // Bottom-left 2 tiles of cavern are stone (step 1)
+  // ── Stone steps in cavern (staircase at bottom-left) ──
   const stepY1 = cavernBottom;
   const stepY2 = cavernBottom - 1;
   if (cavernLeft >= 0 && cavernLeft < width) {
     if (stepY1 < height) blocks[stepY1][cavernLeft] = BlockMaterial.Stone;
     if (stepY1 < height && cavernLeft + 1 < width) blocks[stepY1][cavernLeft + 1] = BlockMaterial.Stone;
     if (stepY2 < height) blocks[stepY2][cavernLeft] = BlockMaterial.Stone;
+  }
+
+  // ── Breakable dirt wall (placed last so it isn't overwritten) ──
+  for (let y = poolTop; y <= cavernBottom; y++) {
+    if (wallX >= 0 && wallX < width && y < height) {
+      blocks[y][wallX] = BlockMaterial.Dirt;
+    }
   }
 }

@@ -9,7 +9,7 @@ import type { System } from '../ecs/System';
 import type { World } from '../ecs/World';
 import type { GameLog } from '../log/GameLog';
 import { Season, BlockMaterial } from '../types';
-import { simulateWaterCA, MAX_WATER, type WaterCAContext } from './waterCA';
+import { simulateWaterCA, snapPoolsToFlat, MAX_WATER, type WaterCAContext } from './waterCA';
 
 export interface WaterFlowState {
   season: Season;
@@ -65,6 +65,7 @@ export class WaterFlowSystem implements System {
   markUnsettled(x: number, y: number): void {
     const { width, height } = this.terrain;
     this.lowFlowStreak = 0;
+    this.waterActive = true;
     for (let dy = -1; dy <= 1; dy++) {
       for (let dx = -1; dx <= 1; dx++) {
         const nx = x + dx;
@@ -96,12 +97,7 @@ export class WaterFlowSystem implements System {
       this.injectEdgeWater();
     }
 
-    // Dry season: evaporation disabled for now (drains sealed caverns too fast)
-    // if (s.season === Season.Dry && s.seasonTick % 5 === 0) {
-    //   this.evaporate();
-    // }
-
-    // Run CA simulation
+    // Build shared context for snap + CA
     const ctx: WaterCAContext = {
       width: this.terrain.width,
       height: this.terrain.height,
@@ -110,37 +106,82 @@ export class WaterFlowSystem implements System {
       waterMassNext: this.waterMassNext,
       settled: this.settled,
     };
+
+    // Snap nearly-flat pools before running CA
+    const snapped = snapPoolsToFlat(ctx);
+
+    // Run CA simulation
     const maxFlow = simulateWaterCA(ctx);
     this.lastMaxFlow = maxFlow;
 
-    // Require several consecutive low-flow ticks before declaring equilibrium
-    if (maxFlow < SETTLE_FLOW) {
-      this.lowFlowStreak++;
-    } else {
+    // Require several consecutive low-flow ticks before declaring equilibrium.
+    // Use > (not >=) so single-unit oscillations count as low flow.
+    if (maxFlow > SETTLE_FLOW || snapped > 0) {
       this.lowFlowStreak = 0;
+    } else {
+      this.lowFlowStreak++;
     }
     if (this.lowFlowStreak >= 3) {
-      for (let y = 0; y < this.terrain.height; y++) {
-        for (let x = 0; x < this.terrain.width; x++) {
-          this.settled[y][x] = true;
+      if (!this.isAtEquilibrium()) {
+        this.lowFlowStreak = 0;
+        // Force re-evaluation: unsettle all water cells
+        for (let y = 0; y < this.terrain.height; y++) {
+          for (let x = 0; x < this.terrain.width; x++) {
+            if (this.terrain.waterMass[y][x] > 0) {
+              this.settled[y][x] = false;
+            }
+          }
         }
+      } else {
+        for (let y = 0; y < this.terrain.height; y++) {
+          for (let x = 0; x < this.terrain.width; x++) {
+            this.settled[y][x] = true;
+          }
+        }
+        this.waterActive = false;
+        return;
       }
-      this.waterActive = false;
-      return;
     }
 
-    // Otherwise mark empty tiles as settled and track whether any water is still active
-    let anyActive = false;
+    // Mark empty tiles as settled; if any water cell is unsettled, keep water active.
+    // Only the lowFlowStreak + isAtEquilibrium path above can set waterActive = false.
     for (let y = 0; y < this.terrain.height; y++) {
       for (let x = 0; x < this.terrain.width; x++) {
         if (this.terrain.waterMass[y][x] <= 0) {
           this.settled[y][x] = true;
         } else if (!this.settled[y][x]) {
-          anyActive = true;
+          this.waterActive = true;
         }
       }
     }
-    this.waterActive = anyActive;
+  }
+
+  /** Check if water is truly at rest — no cell can flow anywhere. */
+  private isAtEquilibrium(): boolean {
+    const { width, height, blocks, waterMass } = this.terrain;
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        if (blocks[y][x] !== BlockMaterial.Air) continue;
+        const m = waterMass[y][x];
+        if (m <= 0) continue;
+
+        // Can flow down?
+        if (y + 1 < height && blocks[y + 1][x] === BlockMaterial.Air) {
+          if (waterMass[y + 1][x] < MAX_WATER) return false;
+        }
+
+        // Adjacent water with different level? (diff >= 1 triggers side flow)
+        if (x + 1 < width && blocks[y][x + 1] === BlockMaterial.Air) {
+          const diff = Math.abs(m - waterMass[y][x + 1]);
+          if (diff >= 1 && waterMass[y][x + 1] >= 0) return false;
+        }
+        if (x - 1 >= 0 && blocks[y][x - 1] === BlockMaterial.Air) {
+          const diff = Math.abs(m - waterMass[y][x - 1]);
+          if (diff >= 1 && waterMass[y][x - 1] >= 0) return false;
+        }
+      }
+    }
+    return true;
   }
 
   private injectEdgeWater(): void {
