@@ -15,8 +15,8 @@ import type { TimerState } from './autoTimers';
 import { ScribePanel } from '../ui/ScribePanel';
 import { SmartMode } from '../smartMode';
 import { redrawScene } from './sceneRedraw';
-import { loadSlot, clearActiveSlot, getSlotMeta, updateSlotZoom, updateSlotMapOpen } from '../saveSlots';
-import { createFreshBridge, autoSave } from './expeditionHelpers';
+import { clearActiveSlot, getSlotMeta, updateSlotZoom, updateSlotMapOpen } from '../saveSlots';
+import { createFreshBridge, initBridge, autoSave } from './expeditionHelpers';
 import { refreshGradientTextures } from '../draw/gradientTiles';
 import { createSceneUI, type SceneUI } from './createSceneUI';
 import { toggleNoclip, handleNoclipMove, isNoclipActive } from './noclipMode';
@@ -54,13 +54,15 @@ export class ExpeditionScene extends Phaser.Scene {
   private mapOpen = false;
   private backtickWasDown = false;
   private spaceWasDown = false;
+  private waterTest = false;
   private slotId: string | null = null;
   private slotName = 'Expedition';
-
   constructor() { super({ key: 'ExpeditionScene' }); }
-  init(data?: { slotId?: string; slotName?: string }) {
+  init(data?: { slotId?: string; slotName?: string; waterTest?: boolean }) {
     this.slotId = data?.slotId ?? null;
     this.slotName = data?.slotName ?? 'Expedition';
+    this.waterTest = data?.waterTest ?? false;
+    if (this.waterTest) this.slotId = null; // no auto-save for test worlds
     this.paused = false;
     this.mapOpen = false;
   }
@@ -87,18 +89,7 @@ export class ExpeditionScene extends Phaser.Scene {
     autoSave(this.bridge.game, this.slotId, this.slotName, this.currentMode);
   }
   create() {
-    const saveData = this.slotId ? loadSlot(this.slotId) : null;
-    if (saveData) {
-      try {
-        this.bridge = SimulationBridge.fromSaveData(saveData);
-        this.bridge.game.log.markSessionStart();
-        this.bridge.game.log.add('narration', 'You awaken from a brief rest. The mountain still calls.');
-      } catch {
-        this.bridge = this.createFreshBridge();
-      }
-    } else {
-      this.bridge = this.createFreshBridge();
-    }
+    this.bridge = initBridge(this.waterTest, this.slotId, () => this.createFreshBridge());
     // Restore saved mode, zoom, and map state
     const savedMode = localStorage.getItem(MODE_KEY);
     if (savedMode) {

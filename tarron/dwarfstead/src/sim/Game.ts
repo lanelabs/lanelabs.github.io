@@ -1,5 +1,5 @@
 import type { GameConfig, Vec2, CommandResult } from './types';
-import { BlockMaterial, Season, CreatureType, Direction } from './types';
+import { BlockMaterial, Season } from './types';
 import { World } from './ecs/World';
 import type { System } from './ecs/System';
 import type { Entity } from './ecs/Entity';
@@ -8,9 +8,6 @@ import { SeededRNG } from './rng';
 import { TerrainGenerator, type TerrainGrid } from './terrain/TerrainGenerator';
 import { PositionComponent } from './components/Position';
 import { DwarfComponent } from './components/Dwarf';
-import { HealthComponent } from './components/Health';
-import { CreatureComponent } from './components/Creature';
-import { CompanionTaskComponent } from './components/CompanionTask';
 import { ClimbableComponent } from './components/Climbable';
 import { RopeComponent } from './components/Rope';
 import type { Command } from './commands/Command';
@@ -27,10 +24,9 @@ import { deserializeEntity, restoreNextEntityId, restoreLogEntries } from './sav
 import { ShapeBlockComponent, CARVING_MAX_TICKS } from './components/ShapeBlock';
 import { ChippingSystem } from './systems/ChippingSystem';
 import { OxygenSystem } from './systems/OxygenSystem';
-import { OxygenComponent } from './components/Oxygen';
+import { CompanionTaskComponent } from './components/CompanionTask';
 import { findMovableAt } from './helpers';
-
-const DWARF_NAMES = ['Urist', 'Bomrek', 'Kadol', 'Olin', 'Doren', 'Rimtar', 'Zuglar', 'Melbil', 'Tosid', 'Ingiz'];
+import { findSpawnY, spawnMainDwarf, spawnCompanions, spawnCreatures } from './spawnEntities';
 
 export class Game {
   readonly config: GameConfig;
@@ -68,70 +64,28 @@ export class Game {
   }
 
   init(): void {
-    // Generate terrain
-    this.terrain = TerrainGenerator.generate(
-      this.config.seed,
-      this.config.worldWidth,
-      this.config.worldHeight,
-    );
+    const hasOverride = !!this.config.terrainOverride;
+
+    // Generate or use override terrain
+    if (hasOverride) {
+      this.terrain = this.config.terrainOverride!;
+    } else {
+      this.terrain = TerrainGenerator.generate(
+        this.config.seed,
+        this.config.worldWidth,
+        this.config.worldHeight,
+      );
+    }
     this.surfaceY = this.terrain.surfaceY;
 
-    // Find a valid surface spawn point (center-ish)
-    const spawnX = Math.floor(this.config.worldWidth / 2);
-    let spawnY = 0;
-    for (let y = 0; y < this.config.worldHeight; y++) {
-      if (this.terrain.blocks[y][spawnX] !== BlockMaterial.Air) {
-        spawnY = y - 1;
-        break;
-      }
-    }
+    const spawnX = hasOverride ? 3 : Math.floor(this.config.worldWidth / 2);
+    const spawnY = findSpawnY(this.terrain, spawnX);
+    spawnMainDwarf(this.world, spawnX, spawnY);
 
-    // Spawn main dwarf (facing down by default)
-    const mainDwarf = this.world.spawn();
-    const mainDwarfComp = new DwarfComponent(DWARF_NAMES[0], 'miner', true);
-    mainDwarfComp.facingDirection = Direction.Down;
-    mainDwarf
-      .add(new PositionComponent(spawnX, spawnY))
-      .add(mainDwarfComp)
-      .add(new HealthComponent(10, 10))
-      .add(new OxygenComponent(10));
-
-    // Spawn companion dwarves evenly split on both sides of main dwarf
-    const companionCount = Math.max(0, this.config.startingDwarves - 1);
-    for (let i = 0; i < companionCount; i++) {
-      // Alternate sides: left(-1), right(+1), left(-2), right(+2), ...
-      const side = i % 2 === 0 ? -1 : 1;
-      const dist = Math.floor(i / 2) + 1;
-      const cx = spawnX + side * dist;
-      const name = DWARF_NAMES[(i + 1) % DWARF_NAMES.length];
-      const companion = this.world.spawn();
-      companion
-        .add(new PositionComponent(cx, spawnY))
-        .add(new DwarfComponent(name, i === 0 ? 'porter' : 'miner', false))
-        .add(new HealthComponent(8, 8))
-        .add(new OxygenComponent(10))
-        .add(new CompanionTaskComponent('idle'));
-      this.trail.push({ x: cx, y: spawnY });
-    }
-
-    // Spawn creatures in lairs
-    for (const room of this.terrain.rooms) {
-      if (room.type === 'lair') {
-        const cx = room.x + Math.floor(room.width / 2);
-        const cy = room.y + Math.floor(room.height / 2);
-        const isBeetle = this.rng.next() > 0.4;
-        const creature = this.world.spawn();
-        creature
-          .add(new PositionComponent(cx, cy))
-          .add(new CreatureComponent(
-            isBeetle ? 'Cave Beetle' : 'Rock Crab',
-            isBeetle ? CreatureType.CaveBeetle : CreatureType.RockCrab,
-            isBeetle ? 6 : 10,
-            isBeetle ? 6 : 10,
-            isBeetle ? 1 : 2,
-          ))
-          .add(new HealthComponent(isBeetle ? 6 : 10, isBeetle ? 6 : 10));
-      }
+    if (!hasOverride) {
+      const companionCount = Math.max(0, this.config.startingDwarves - 1);
+      spawnCompanions(this.world, spawnX, spawnY, companionCount, this.trail);
+      spawnCreatures(this.world, this.terrain, this.rng);
     }
 
     // Initialize water state

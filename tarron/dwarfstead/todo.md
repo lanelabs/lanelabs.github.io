@@ -1,19 +1,13 @@
-# Dev tools
+# Water flow
 
-enable noclip mode to be able to fly around as a ghost that shows up transparently on top of things
-
-# Controls
-
-Holding space should not continuosly selecte/unselect. Trigger only once. Unlike WASD which should allow holding.Can
-
-# Background
-
-Still getting small peaks with broken backgrounds. We need to have a gradient that works for those, or bypass small elements
+Pool not draining out side hole correctly
 
 # Map generation
 
 HOles are not overlapping sections, they're geting cut off by the dirt layer.
 Tunnels connecting things
+
+Generate burried ruins, old building, tunnels, mines
 
 # Map grid
 
@@ -39,10 +33,6 @@ When creating ladders off edges, we need wood to fillin the chipped corner.
 Have falling blocks not be blocked by companions, have the companion move out of the way towards me. Only have me stop falling blocks
 
 Make companions always just be teleported to near me when they're part of my train, no need to actually get blocked, unless they are running errands
-
-# Surface block
-
-Change 3 size curve into just 2 size
 
 # Map layers
 
@@ -90,3 +80,4 @@ inside/outside corners between layers should have a sloped look just like our ch
 Have full show full map in screen ,and DOESN'T move with my character
 
 Add a black border around blocks, boundaries?
+

@@ -33,6 +33,29 @@ export interface WaterCAContext {
   settled: boolean[][];
 }
 
+/**
+ * Pre-CA pass: for each column, propagate unsettled status upward through
+ * water cells so the bottom-to-top gravity cascade works in a single tick.
+ */
+export function unsettleColumnsAbove(ctx: WaterCAContext): void {
+  const { width, height, blocks, waterMass, settled } = ctx;
+  for (let x = 0; x < width; x++) {
+    let needsUnsettling = false;
+    for (let y = height - 1; y >= 0; y--) {
+      if (blocks[y][x] !== BlockMaterial.Air) {
+        needsUnsettling = false;
+        continue;
+      }
+      if (!settled[y][x]) {
+        needsUnsettling = true;
+      }
+      if (needsUnsettling && waterMass[y][x] > 0) {
+        settled[y][x] = false;
+      }
+    }
+  }
+}
+
 /** Run one CA tick. Mutates waterMassNext, then swaps into waterMass. Returns max single-cell delta. */
 export function simulateWaterCA(ctx: WaterCAContext): number {
   const { width, height, blocks, waterMass, waterMassNext, settled } = ctx;
@@ -260,28 +283,27 @@ function trySnapRun(
     return drained;
   }
 
-  // 7. Both sealed: snap — existing majority-vote logic
+  // 7. Both sealed: snap — mass-conserving redistribution
   // Already flat (span 0): nothing to snap
   if (span === 0) {
     return 0;
   }
 
-  // span === 1: majority vote
-  let countHi = 0;
-  let countLo = 0;
-  for (let x = x0; x < x1; x++) {
-    if (waterMass[y][x] === maxVal) countHi++;
-    else countLo++;
-  }
-
-  const snapTo = countHi >= countLo ? maxVal : minVal;
+  // span === 1: redistribute to preserve total mass exactly
+  const len = x1 - x0;
+  const lo = Math.floor(totalWater / len);
+  const hi = lo + 1;
+  const numHi = totalWater - lo * len; // cells that get the higher value
   let snapped = 0;
+  let hiPlaced = 0;
   for (let x = x0; x < x1; x++) {
-    if (waterMass[y][x] !== snapTo) {
-      waterMass[y][x] = snapTo;
+    const target = hiPlaced < numHi ? hi : lo;
+    if (waterMass[y][x] !== target) {
+      waterMass[y][x] = target;
       settled[y][x] = false;
       snapped++;
     }
+    if (target === hi) hiPlaced++;
   }
 
   return snapped;

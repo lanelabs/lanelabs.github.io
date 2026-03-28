@@ -197,7 +197,7 @@ describe('simulateWaterCA', () => {
 });
 
 describe('snapPoolsToFlat', () => {
-  it('snaps sealed basin with diff-1 run via majority vote', () => {
+  it('snaps sealed basin preserving total mass', () => {
     // Sealed basin: stone walls, stone floor, water [3,3,2]
     const ctx = makeCtx({
       blocks: [
@@ -209,16 +209,14 @@ describe('snapPoolsToFlat', () => {
         [0, 0, 0, 0, 0],
       ],
     });
-    const snapped = snapPoolsToFlat(ctx);
-    expect(snapped).toBeGreaterThan(0);
-    // Majority is 3 (2 cells), so snap to 3
-    expect(ctx.waterMass[0][1]).toBe(3);
-    expect(ctx.waterMass[0][2]).toBe(3);
-    expect(ctx.waterMass[0][3]).toBe(3);
+    const before = totalMass(ctx);
+    snapPoolsToFlat(ctx);
+    // [3,3,2] total=8, 3 cells — already optimal, mass preserved
+    expect(totalMass(ctx)).toBe(before);
   });
 
-  it('snaps to lower when lower count is majority', () => {
-    // [3,2,2] — majority is 2
+  it('preserves mass when lower count is majority', () => {
+    // [3,2,2] total=7, 3 cells — already optimal (1 hi, 2 lo)
     const ctx = makeCtx({
       blocks: [
         [S, A, A, A, S],
@@ -229,11 +227,10 @@ describe('snapPoolsToFlat', () => {
         [0, 0, 0, 0, 0],
       ],
     });
-    const snapped = snapPoolsToFlat(ctx);
-    expect(snapped).toBeGreaterThan(0);
-    expect(ctx.waterMass[0][1]).toBe(2);
-    expect(ctx.waterMass[0][2]).toBe(2);
-    expect(ctx.waterMass[0][3]).toBe(2);
+    const before = totalMass(ctx);
+    snapPoolsToFlat(ctx);
+    // Mass preserved: [3,2,2] is already the optimal mass-conserving distribution
+    expect(totalMass(ctx)).toBe(before);
   });
 
   it('does not snap when cell can flow down', () => {
@@ -341,7 +338,7 @@ describe('snapPoolsToFlat', () => {
   });
 
   it('does not drain when boundary is wall (normal snap)', () => {
-    // Sealed basin — should snap, not drain
+    // Sealed basin — should snap with mass conservation
     const ctx = makeCtx({
       blocks: [
         [S, A, A, A, S],
@@ -352,16 +349,14 @@ describe('snapPoolsToFlat', () => {
         [0, 0, 0, 0, 0],
       ],
     });
-    const snapped = snapPoolsToFlat(ctx);
-    expect(snapped).toBeGreaterThan(0);
-    // Majority vote snaps to 3
-    expect(ctx.waterMass[0][1]).toBe(3);
-    expect(ctx.waterMass[0][2]).toBe(3);
-    expect(ctx.waterMass[0][3]).toBe(3);
+    const before = totalMass(ctx);
+    snapPoolsToFlat(ctx);
+    // [3,3,2] total=8, 3 cells → already optimal distribution, mass preserved
+    expect(totalMass(ctx)).toBe(before);
   });
 
-  it('single drop in sealed pool snaps to 0 (majority)', () => {
-    // [1, 0, 0, 0] with walls — full pool surface detected, majority is 0
+  it('single drop in sealed pool preserves mass', () => {
+    // [1, 0, 0, 0] with walls — mass-conserving snap keeps total = 1
     const ctx = makeCtx({
       blocks: [
         [S, A, A, A, A, S],
@@ -372,13 +367,10 @@ describe('snapPoolsToFlat', () => {
         [0, 0, 0, 0, 0, 0],
       ],
     });
-    const snapped = snapPoolsToFlat(ctx);
-    expect(snapped).toBeGreaterThan(0);
-    // Majority is 0 (3 cells vs 1 cell), snap to 0
-    expect(ctx.waterMass[0][1]).toBe(0);
-    expect(ctx.waterMass[0][2]).toBe(0);
-    expect(ctx.waterMass[0][3]).toBe(0);
-    expect(ctx.waterMass[0][4]).toBe(0);
+    const before = totalMass(ctx);
+    snapPoolsToFlat(ctx);
+    // Mass must be preserved — water should not disappear
+    expect(totalMass(ctx)).toBe(before);
   });
 
   it('drains to both holes', () => {

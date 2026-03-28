@@ -48,6 +48,7 @@ export interface GameConfig {
   seasonLength?: number;     // ticks per season (default 50)
   waterRiseRate?: number;    // ticks between water level changes (default 5)
   maxSafeFallHeight?: number; // max tiles a dwarf can drop without a ladder (default 1)
+  terrainOverride?: import('./terrain/TerrainGenerator').TerrainGrid; // skip generation, use this terrain
 }
 
 export interface CommandResult {

@@ -9,7 +9,7 @@ import type { System } from '../ecs/System';
 import type { World } from '../ecs/World';
 import type { GameLog } from '../log/GameLog';
 import { Season, BlockMaterial } from '../types';
-import { simulateWaterCA, snapPoolsToFlat, MAX_WATER, type WaterCAContext } from './waterCA';
+import { simulateWaterCA, snapPoolsToFlat, unsettleColumnsAbove, MAX_WATER, type WaterCAContext } from './waterCA';
 
 export interface WaterFlowState {
   season: Season;
@@ -109,6 +109,9 @@ export class WaterFlowSystem implements System {
 
     // Snap nearly-flat pools before running CA
     const snapped = snapPoolsToFlat(ctx);
+
+    // Propagate unsettled status up through water columns so gravity cascades in one tick
+    unsettleColumnsAbove(ctx);
 
     // Run CA simulation
     const maxFlow = simulateWaterCA(ctx);
