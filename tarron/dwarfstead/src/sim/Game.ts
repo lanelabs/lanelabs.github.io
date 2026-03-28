@@ -1,5 +1,5 @@
 import type { GameConfig, Vec2, CommandResult } from './types';
-import { BlockMaterial, Season } from './types';
+import { BlockMaterial, Season, Direction } from './types';
 import { World } from './ecs/World';
 import type { System } from './ecs/System';
 import type { Entity } from './ecs/Entity';
@@ -44,8 +44,10 @@ export class Game {
   sellTickArmed = false;
   /** Debug noclip/ghost mode — main dwarf ignores collision and gravity. */
   noclipMode = false;
+  /** Entity IDs of blocks being dragged by companions — excluded from movable queries. */
+  companionDragIds: Set<number> = new Set();
 
-  // Trail of positions the main dwarf has left — companions follow these
+  // Trail of positions the main dwarf has left — used by tethered block towing
   readonly trail: Vec2[] = [];
 
   // Water & season state (shared with WaterFlowSystem)
@@ -66,15 +68,10 @@ export class Game {
   init(): void {
     const hasOverride = !!this.config.terrainOverride;
 
-    // Generate or use override terrain
     if (hasOverride) {
       this.terrain = this.config.terrainOverride!;
     } else {
-      this.terrain = TerrainGenerator.generate(
-        this.config.seed,
-        this.config.worldWidth,
-        this.config.worldHeight,
-      );
+      this.terrain = TerrainGenerator.generate(this.config.seed, this.config.worldWidth, this.config.worldHeight);
     }
     this.surfaceY = this.terrain.surfaceY;
 
@@ -88,14 +85,7 @@ export class Game {
       spawnCreatures(this.world, this.terrain, this.rng);
     }
 
-    // Initialize water state
-    this.waterState = {
-      season: Season.Dry,
-      seasonTick: 0,
-      seasonLength: this.config.seasonLength ?? 50,
-    };
-
-    // Wire up systems
+    this.waterState = { season: Season.Dry, seasonTick: 0, seasonLength: this.config.seasonLength ?? 50 };
     this.wireSystems();
 
     this.log.add('system', 'The expedition begins. Dig deep, build well.');
@@ -395,6 +385,14 @@ export class Game {
         const p = md.get<PositionComponent>('position')!;
         return { x: p.x, y: p.y };
       },
+      mainDwarfFacing: () =>
+        this.getMainDwarf()?.get<DwarfComponent>('dwarf')?.facingDirection ?? Direction.Down,
+      mainDwarfTetheredPos: () => {
+        const d = this.getMainDwarf()?.get<DwarfComponent>('dwarf');
+        if (!d?.tetheredEntityId) return null;
+        const bp = this.world.getEntity(d.tetheredEntityId)?.get<PositionComponent>('position');
+        return bp ? { x: bp.x, y: bp.y } : null;
+      },
       getBlock: (pos) => this.getBlock(pos),
       hasClimbable: (pos) => this.hasClimbable(pos),
       hasLadder: (pos) => this.hasLadder(pos),
@@ -402,7 +400,6 @@ export class Game {
       hasRope: (pos) => this.hasRope(pos),
       isFlooded: (pos) => this.isFlooded(pos),
       getWaterMass: (pos) => this.getWaterMass(pos),
-      getTrail: () => this.trail,
       isTethered: (id) => this.isTethered(id),
       hasMovableAt: (x, y, excludeId?) => !!findMovableAt(this, x, y, excludeId),
       maxSafeFallHeight: this.config.maxSafeFallHeight ?? 1,
@@ -410,6 +407,7 @@ export class Game {
       isSellTickArmed: () => this.sellTickArmed,
       isMainDwarfRappelling: () => this.isRappelling(),
       addSupplies: (amount) => { this.supplies += amount; },
+      setCompanionDragIds: (ids) => { this.companionDragIds = ids; },
     }));
   }
 

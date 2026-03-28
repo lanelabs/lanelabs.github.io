@@ -88,12 +88,6 @@ export class DismantleAtFeetCommand implements Command {
         return { success: true, message: 'Ladder converted to platform.' };
       }
 
-      // Trail cleanup + despawn + refund
-      for (let i = game.trail.length - 1; i >= 0; i--) {
-        if (game.trail[i].x === pos.x && game.trail[i].y === freeY) {
-          game.trail.splice(i, 1);
-        }
-      }
       game.collapseRopesSupportedBy(pos.x, freeY);
       game.world.despawn(freeEntity.id);
       game.supplies += 1;
@@ -129,11 +123,6 @@ export class DismantleAtFeetCommand implements Command {
       climbable.type = 'platform';
       game.log.add('action', `${dwarfComp.name} converts a ladder into a platform.`);
       return { success: true, message: 'Ladder converted to platform.' };
-    }
-
-    // Remove trail entries so companions retract instead of falling
-    for (let i = game.trail.length - 1; i >= 0; i--) {
-      if (game.trail[i].x === pos.x && game.trail[i].y === pos.y) game.trail.splice(i, 1);
     }
 
     const targetPos = target.get<PositionComponent>('position')!;
