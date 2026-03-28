@@ -4,10 +4,12 @@ import { BlockMaterial, Direction } from './types';
 import { PositionComponent } from './components/Position';
 import { DwarfComponent } from './components/Dwarf';
 
-/** Find a movable entity at a specific tile, optionally excluding one entity by id. */
+/** Find a movable entity at a specific tile, optionally excluding one entity by id.
+ *  Also excludes entities being dragged by companions (game.companionDragIds). */
 export function findMovableAt(game: Game, x: number, y: number, excludeId?: number): Entity | undefined {
   return game.world.query('position', 'movable').find((e) => {
     if (excludeId !== undefined && e.id === excludeId) return false;
+    if (game.companionDragIds.has(e.id)) return false;
     const p = e.get<PositionComponent>('position')!;
     return p.x === x && p.y === y;
   });

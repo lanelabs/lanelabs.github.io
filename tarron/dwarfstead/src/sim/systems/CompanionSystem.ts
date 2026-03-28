@@ -2,7 +2,7 @@ import type { System } from '../ecs/System';
 import type { World } from '../ecs/World';
 import type { GameLog } from '../log/GameLog';
 import type { Vec2 } from '../types';
-import { BlockMaterial } from '../types';
+import { BlockMaterial, Direction } from '../types';
 import { PositionComponent } from '../components/Position';
 import { DwarfComponent } from '../components/Dwarf';
 import { CompanionTaskComponent } from '../components/CompanionTask';
@@ -16,6 +16,8 @@ export interface CompanionContext {
   terrainHeight: number;
   terrainWidth: number;
   mainDwarfPos: () => { x: number; y: number } | null;
+  mainDwarfFacing: () => Direction;
+  mainDwarfTetheredPos: () => Vec2 | null;
   getBlock: (pos: Vec2) => BlockMaterial;
   hasClimbable: (pos: Vec2) => boolean;
   hasLadder: (pos: Vec2) => boolean;
@@ -23,7 +25,6 @@ export interface CompanionContext {
   hasRope: (pos: Vec2) => boolean;
   isFlooded: (pos: Vec2) => boolean;
   getWaterMass: (pos: Vec2) => number;
-  getTrail: () => Vec2[];
   isTethered: (entityId: number) => boolean;
   hasMovableAt: (x: number, y: number, excludeId?: number) => boolean;
   maxSafeFallHeight: number;
@@ -31,6 +32,7 @@ export interface CompanionContext {
   isSellTickArmed: () => boolean;
   isMainDwarfRappelling: () => boolean;
   addSupplies: (amount: number) => void;
+  setCompanionDragIds: (ids: Set<number>) => void;
 }
 
 export class CompanionSystem implements System {
@@ -38,52 +40,22 @@ export class CompanionSystem implements System {
 
   constructor(private ctx: CompanionContext) {}
 
-  /**
-   * Given a trail position, find a valid Y for placement.
-   * If inside solid terrain, scans up to find air.
-   * If on a ladder, stays there.
-   * If floating in air, settles down to ground.
-   * Returns null if no valid position exists at this X.
-   */
-  private findValidY(world: World, x: number, startY: number): number | null {
+  /** Check if a tile is valid for ghost companion placement. */
+  private isWalkable(x: number, y: number): boolean {
     const { terrainHeight, terrainWidth } = this.ctx;
-    if (x < 0 || x >= terrainWidth || startY < 0 || startY >= terrainHeight) return null;
-
-    let y = startY;
-
-    // If inside solid terrain, scan up to find air
-    while (y >= 0 && this.ctx.getBlock({ x, y }) !== BlockMaterial.Air) {
-      y--;
-    }
-    if (y < 0) return null;
-
-    // If flooded, not valid
-    if (this.ctx.isFlooded({ x, y })) return null;
-
-    // If on a ladder or rope, valid — stay here
-    if (this.ctx.hasClimbable({ x, y })) return y;
-    if (this.ctx.hasRope({ x, y })) return y;
-
-    // Settle down to find ground support
-    while (y + 1 < terrainHeight) {
-      const below = y + 1;
-      if (this.ctx.getBlock({ x, y: below }) !== BlockMaterial.Air) break;
-      if (this.ctx.hasClimbable({ x, y: below })) break;
-      if (this.ctx.hasRope({ x, y: below })) break;
-      if (world.query('position', 'movable').some((e) => {
-        if (this.ctx.isTethered(e.id)) return false; // tethered blocks aren't ground
-        const p = e.get<PositionComponent>('position')!;
-        return p.x === x && p.y === below;
-      })) break;
-      y++;
-    }
-
-    // Final validity check (may have settled into flood zone)
-    if (y >= terrainHeight) return null;
-    if (this.ctx.getBlock({ x, y }) !== BlockMaterial.Air) return null;
-    if (this.ctx.isFlooded({ x, y })) return null;
-
-    return y;
+    if (x < 0 || x >= terrainWidth || y < 0 || y >= terrainHeight) return false;
+    if (this.ctx.getBlock({ x, y }) !== BlockMaterial.Air) return false;
+    if (this.ctx.isFlooded({ x, y })) return false;
+    // Must have ground support: solid block, climbable, or rope below (or at bottom)
+    if (y + 1 >= terrainHeight) return true;
+    const below = { x, y: y + 1 };
+    if (this.ctx.getBlock(below) !== BlockMaterial.Air) return true;
+    if (this.ctx.hasClimbable(below)) return true;
+    if (this.ctx.hasRope(below)) return true;
+    // Also valid if standing on climbable/rope at current pos
+    if (this.ctx.hasClimbable({ x, y })) return true;
+    if (this.ctx.hasRope({ x, y })) return true;
+    return false;
   }
 
   private static key(x: number, y: number): string {
@@ -93,6 +65,14 @@ export class CompanionSystem implements System {
   update(world: World, log: GameLog): void {
     const companions = world.query('dwarf', 'position', 'companionTask');
     const dwarfPos = this.ctx.mainDwarfPos();
+
+    // Populate companion drag IDs so findMovableAt excludes them
+    const dragIds = new Set<number>();
+    for (const entity of companions) {
+      const ct = entity.get<CompanionTaskComponent>('companionTask')!;
+      if (ct.dragEntityId !== null) dragIds.add(ct.dragEntityId);
+    }
+    this.ctx.setCompanionDragIds(dragIds);
 
     // --- Handle off-screen tasks (haul) ---
     for (const entity of companions) {
@@ -268,25 +248,8 @@ export class CompanionSystem implements System {
     }
 
     if (!dwarfPos) return;
-    // When main dwarf is rappelling, switch idle companions to pathfind toward the dwarf
-    if (this.ctx.isMainDwarfRappelling()) {
-      for (const entity of companions) {
-        const dwarf = entity.get<DwarfComponent>('dwarf')!;
-        if (dwarf.isMainDwarf) continue;
-        const ct = entity.get<CompanionTaskComponent>('companionTask')!;
-        if (ct.task !== 'idle') continue;
-        const pos = entity.get<PositionComponent>('position')!;
-        const dist = Math.abs(pos.x - dwarfPos.x) + Math.abs(pos.y - dwarfPos.y);
-        if (dist <= 2) continue;
-        ct.task = 'pathfinding';
-        ct.pendingErrand = 'return';
-        ct.path = null;
-        ct.pathIndex = 0;
-      }
-      return;
-    }
-    // --- Trail-based following for idle companions ---
-    const trail = this.ctx.getTrail();
+
+    // --- Ghost placement for idle companions ---
     const idleCompanions: { pos: PositionComponent; name: string }[] = [];
     for (const entity of companions) {
       const dwarf = entity.get<DwarfComponent>('dwarf')!;
@@ -299,48 +262,56 @@ export class CompanionSystem implements System {
 
     if (idleCompanions.length === 0) return;
 
-    // Sort closest-to-dwarf first so nearest companion gets the closest trail slot
-    idleCompanions.sort((a, b) => {
-      const da = Math.abs(a.pos.x - dwarfPos.x) + Math.abs(a.pos.y - dwarfPos.y);
-      const db = Math.abs(b.pos.x - dwarfPos.x) + Math.abs(b.pos.y - dwarfPos.y);
-      return da - db;
-    });
-
-    // Occupied set: dwarf position + all movable block positions
+    // Occupied set: dwarf position + all movable block positions + tethered block
     const occupied = new Set<string>();
     occupied.add(CompanionSystem.key(dwarfPos.x, dwarfPos.y));
     for (const block of world.query('position', 'movable')) {
       const bp = block.get<PositionComponent>('position')!;
       occupied.add(CompanionSystem.key(bp.x, bp.y));
     }
+    const tetheredPos = this.ctx.mainDwarfTetheredPos();
+    if (tetheredPos) occupied.add(CompanionSystem.key(tetheredPos.x, tetheredPos.y));
 
-    // Assign trail positions to companions sequentially.
-    // Each companion gets the next valid, unoccupied trail position.
-    // trail[0] = most recent position the dwarf left, so companion 0 follows 1 step behind.
-    let trailIdx = 0;
+    // Compute trailing direction (opposite of facing)
+    const facing = this.ctx.mainDwarfFacing();
+    const trailDirs = this.getTrailingDirections(facing);
+
     for (const c of idleCompanions) {
       let placed = false;
-      while (trailIdx < trail.length) {
-        const target = trail[trailIdx];
-        trailIdx++;
-
-        const validY = this.findValidY(world, target.x, target.y);
-        if (validY === null) continue;
-
-        const key = CompanionSystem.key(target.x, validY);
-        if (occupied.has(key)) continue;
-
-        c.pos.x = target.x;
-        c.pos.y = validY;
-        occupied.add(key);
-        placed = true;
-        break;
+      // Search outward from dwarf in priority direction order
+      for (const dir of trailDirs) {
+        for (let dist = 1; dist <= 6; dist++) {
+          const tx = dwarfPos.x + dir.dx * dist;
+          const ty = dwarfPos.y + dir.dy * dist;
+          if (!this.isWalkable(tx, ty)) continue;
+          const key = CompanionSystem.key(tx, ty);
+          if (occupied.has(key)) continue;
+          c.pos.x = tx;
+          c.pos.y = ty;
+          occupied.add(key);
+          placed = true;
+          break;
+        }
+        if (placed) break;
       }
-
       if (!placed) {
-        // No valid trail position available — stay put
+        // Fallback: stay put, mark occupied
         occupied.add(CompanionSystem.key(c.pos.x, c.pos.y));
       }
+    }
+  }
+
+  /** Get search directions for ghost placement, opposite to facing first. */
+  private getTrailingDirections(facing: Direction): { dx: number; dy: number }[] {
+    switch (facing) {
+      case Direction.Left:
+        return [{ dx: 1, dy: 0 }, { dx: 0, dy: -1 }, { dx: 0, dy: 1 }, { dx: -1, dy: 0 }];
+      case Direction.Right:
+        return [{ dx: -1, dy: 0 }, { dx: 0, dy: -1 }, { dx: 0, dy: 1 }, { dx: 1, dy: 0 }];
+      case Direction.Up:
+        return [{ dx: 0, dy: 1 }, { dx: -1, dy: 0 }, { dx: 1, dy: 0 }, { dx: 0, dy: -1 }];
+      case Direction.Down:
+        return [{ dx: 0, dy: -1 }, { dx: -1, dy: 0 }, { dx: 1, dy: 0 }, { dx: 0, dy: 1 }];
     }
   }
 }

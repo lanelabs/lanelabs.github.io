@@ -109,12 +109,6 @@ export class DismantleLadderCommand implements Command {
         return { success: true, message: 'Ladder converted to platform.' };
       }
 
-      // Trail cleanup + despawn + refund
-      for (let i = game.trail.length - 1; i >= 0; i--) {
-        if (game.trail[i].x === freePos.x && game.trail[i].y === freeY) {
-          game.trail.splice(i, 1);
-        }
-      }
       game.collapseRopesSupportedBy(freePos.x, freeY);
       game.world.despawn(freeEntity.id);
       game.supplies += 1;
@@ -167,12 +161,6 @@ export class DismantleLadderCommand implements Command {
     }
 
     const label = climbable.type === 'platform' ? 'platform' : 'ladder';
-
-    // Remove trail entries at the walkable space so companions retract instead of falling
-    const walkY = climbable.type === 'platform' ? targetPos.y - 1 : targetPos.y;
-    for (let i = game.trail.length - 1; i >= 0; i--) {
-      if (game.trail[i].x === targetPos.x && game.trail[i].y === walkY) game.trail.splice(i, 1);
-    }
 
     game.collapseRopesSupportedBy(targetPos.x, targetPos.y);
     game.world.despawn(target.id);

@@ -55,10 +55,7 @@ export class MoveCommand implements Command {
     const isPassable = (x: number, y: number): boolean => {
       if (x < 0 || x >= game.terrain.width || y < 0 || y >= game.terrain.height) return false;
       if (game.getBlock({ x, y }) !== BlockMaterial.Air) return false;
-      if (game.world.query('position', 'movable').some((e) => {
-        const p = e.get<PositionComponent>('position')!;
-        return p.x === x && p.y === y;
-      })) return false;
+      if (findMovableAt(game, x, y)) return false;
       return true;
     };
 
@@ -113,11 +110,7 @@ export class MoveCommand implements Command {
           if (targetBlock !== BlockMaterial.Air) {
             return { success: false, message: `The way ${this.direction} is blocked by ${targetBlock}.` };
           }
-          const hasLooseBlock = game.world.query('position', 'movable').some((e) => {
-            const p = e.get<PositionComponent>('position')!;
-            return p.x === newX && p.y === newY;
-          });
-          if (hasLooseBlock) {
+          if (findMovableAt(game, newX, newY)) {
             return { success: false, message: `A loose block is in the way. Push or carry it.` };
           }
           return { success: false, message: 'The way is blocked.' };
@@ -139,12 +132,8 @@ export class MoveCommand implements Command {
       let dropDist = 0;
       let checkY = finalY + 1;
       while (checkY < game.terrain.height && game.getBlock({ x: finalX, y: checkY }) === BlockMaterial.Air) {
-        // Stop counting if there's a climbable or movable block in the way
         if (game.hasClimbable({ x: finalX, y: checkY })) break;
-        if (game.world.query('position', 'movable').some((e) => {
-          const p = e.get<PositionComponent>('position')!;
-          return p.x === finalX && p.y === checkY;
-        })) break;
+        if (findMovableAt(game, finalX, checkY)) break;
         dropDist++;
         checkY++;
       }
@@ -169,10 +158,7 @@ export class MoveCommand implements Command {
       let checkY = finalY + 1;
       while (checkY < game.terrain.height && game.getBlock({ x: finalX, y: checkY }) === BlockMaterial.Air) {
         if (game.hasClimbable({ x: finalX, y: checkY })) break;
-        if (game.world.query('position', 'movable').some((e) => {
-          const p = e.get<PositionComponent>('position')!;
-          return p.x === finalX && p.y === checkY;
-        })) break;
+        if (findMovableAt(game, finalX, checkY)) break;
         dropDist++;
         checkY++;
       }
@@ -192,10 +178,7 @@ export class MoveCommand implements Command {
       let checkY = finalY + 1;
       while (checkY < game.terrain.height && game.getBlock({ x: finalX, y: checkY }) === BlockMaterial.Air) {
         if (game.hasClimbable({ x: finalX, y: checkY })) break;
-        if (game.world.query('position', 'movable').some((e) => {
-          const p = e.get<PositionComponent>('position')!;
-          return p.x === finalX && p.y === checkY;
-        })) break;
+        if (findMovableAt(game, finalX, checkY)) break;
         dropDist++;
         checkY++;
       }
