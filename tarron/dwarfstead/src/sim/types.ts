@@ -25,6 +25,7 @@ export enum BlockMaterial {
   Iron = 'iron',
   Gold = 'gold',
   Crystal = 'crystal',
+  DarkStone = 'dark_stone',
   Bedrock = 'bedrock',
   Rubble = 'rubble',
   GrassyDirt = 'grassy_dirt',

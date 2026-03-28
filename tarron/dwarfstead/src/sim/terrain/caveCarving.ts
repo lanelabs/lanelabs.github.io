@@ -2,9 +2,45 @@ import { BlockMaterial } from '../types';
 import { SeededRNG } from '../rng';
 import { ValueNoise2D } from './Noise';
 
+interface CaveLayerConfig {
+  freqX: number;
+  freqY: number;
+  threshold: number;
+}
+
+const CAVE_LAYERS: CaveLayerConfig[] = [
+  { freqX: 8,  freqY: 20, threshold: 0.72 },  // dirt: wide, flat
+  { freqX: 16, freqY: 16, threshold: 0.70 },  // stone: round
+  { freqX: 20, freqY: 20, threshold: 0.82 },  // granite: sparse
+];
+
+const BLEND_RADIUS = 12;
+
+function smoothstep(t: number): number {
+  const c = Math.max(0, Math.min(1, t));
+  return c * c * (3 - 2 * c);
+}
+
+function computeLayerWeights(
+  y: number, b0: number, b1: number, radius: number,
+): [number, number, number] {
+  // Raw blend factors: 0 = fully above boundary, 1 = fully below
+  const t0 = smoothstep((y - b0) / radius * 0.5 + 0.5);
+  const t1 = smoothstep((y - b1) / radius * 0.5 + 0.5);
+  // dirt weight fades out at b0, granite fades in at b1, stone is in between
+  const wDirt = 1 - t0;
+  const wGranite = t1;
+  const wStone = t0 - t1;
+  // Normalize (handles thin layers where blend zones overlap)
+  const sum = wDirt + wStone + wGranite;
+  if (sum < 0.001) return [0, 0, 1];
+  return [wDirt / sum, wStone / sum, wGranite / sum];
+}
+
 /**
  * Carve caves with different character per geological layer,
- * then add worm tunnels for connectivity.
+ * blending noise across layer boundaries for smooth transitions.
+ * Worm tunnels added afterward for connectivity.
  */
 export function carveCaves(
   blocks: BlockMaterial[][], width: number, height: number,
@@ -14,33 +50,32 @@ export function carveCaves(
   rng: SeededRNG,
 ): void {
   // Per-layer noise — normalize both axes by width to avoid vertical stretching
-  const dirtCaveNoise = new ValueNoise2D(rng, 8, Math.ceil(20 * height / width));
-  const stoneCaveNoise = new ValueNoise2D(rng, 16, Math.ceil(16 * height / width));
-  const graniteCaveNoise = new ValueNoise2D(rng, 20, Math.ceil(20 * height / width));
+  const noises = CAVE_LAYERS.map(
+    cfg => new ValueNoise2D(rng, cfg.freqX, Math.ceil(cfg.freqY * height / width)),
+  );
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const depthBelowSurface = y - surfaceHeights[x];
       if (depthBelowSurface < 8) continue;
       const mat = blocks[y][x];
-      if (mat === BlockMaterial.Air || mat === BlockMaterial.Bedrock) continue;
+      if (mat === BlockMaterial.Air || mat === BlockMaterial.Bedrock || mat === BlockMaterial.DarkStone) continue;
+      if (y >= height - 2) continue;
 
       const nx = x / width;
       const ny = y / width; // normalize y by width too — keeps noise isotropic
 
-      let carved = false;
-      if (y < dirtBottom[x]) {
-        // Dirt layer: wide, flat horizontal caverns
-        carved = dirtCaveNoise.sample(nx * 8, ny * 20) > 0.72;
-      } else if (y < stoneBottom[x]) {
-        // Stone layer: isotropic, rounder caves
-        carved = stoneCaveNoise.sample(nx * 16, ny * 16) > 0.70;
-      } else if (y < height - 2) {
-        // Granite layer: sparse, small caves
-        carved = graniteCaveNoise.sample(nx * 20, ny * 20) > 0.82;
+      const weights = computeLayerWeights(y, dirtBottom[x], stoneBottom[x], BLEND_RADIUS);
+      let blendedVal = 0;
+      let blendedThr = 0;
+      for (let i = 0; i < 3; i++) {
+        if (weights[i] < 0.001) continue;
+        const cfg = CAVE_LAYERS[i];
+        blendedVal += weights[i] * noises[i].sample(nx * cfg.freqX, ny * cfg.freqY);
+        blendedThr += weights[i] * cfg.threshold;
       }
 
-      if (carved) {
+      if (blendedVal > blendedThr) {
         blocks[y][x] = BlockMaterial.Air;
       }
     }
@@ -60,7 +95,7 @@ export function carveCaves(
       for (let th = 0; th < tunnelH; th++) {
         const cy = wy + th;
         if (wx >= 0 && wx < width && cy >= 0 && cy < height - 1) {
-          if (blocks[cy][wx] !== BlockMaterial.Bedrock) {
+          if (blocks[cy][wx] !== BlockMaterial.Bedrock && blocks[cy][wx] !== BlockMaterial.DarkStone) {
             blocks[cy][wx] = BlockMaterial.Air;
           }
         }

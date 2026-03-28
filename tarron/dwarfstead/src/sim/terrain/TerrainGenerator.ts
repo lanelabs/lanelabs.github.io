@@ -4,6 +4,7 @@ import { ValueNoise2D, fractalNoise1D, catmullRomSpline } from './Noise';
 import { carveDemoStructure } from './demoStructure';
 import { smoothSpikes, roundCliffs, widenExtrema, validateMinWidth, MIN_FEATURE_WIDTH } from './surfaceHelpers';
 import { carveCaves } from './caveCarving';
+import { carveDarkStone } from './darkStoneCarving';
 
 export interface TerrainGrid {
   width: number;
@@ -145,6 +146,19 @@ export class TerrainGenerator {
       stoneBottom[x] = smoothBase[x] + Math.floor(underground * 0.7) + Math.floor(stoneLayerNoise[x]);
     }
 
+    // DarkStone barrier — sits at ~50% through the stone layer
+    const darkStoneThicknessNoise = fractalNoise1D(rng, width, {
+      octaves: 2, baseFreq: 5, amplitude: 5, persistence: 0.5,
+    });
+    const darkStoneTop: number[] = [];
+    const darkStoneBottom: number[] = [];
+    for (let x = 0; x < width; x++) {
+      const stoneMid = Math.floor((dirtBottom[x] + stoneBottom[x]) / 2);
+      const thickness = 15 + Math.floor(darkStoneThicknessNoise[x]); // 10-20 range
+      darkStoneTop[x] = stoneMid - Math.floor(thickness / 2);
+      darkStoneBottom[x] = darkStoneTop[x] + thickness;
+    }
+
     // Base terrain pass — block assignment using layer boundaries
     const blocks: BlockMaterial[][] = [];
     for (let y = 0; y < height; y++) {
@@ -157,10 +171,14 @@ export class TerrainGenerator {
         } else if (y < dirtBottom[x]) {
           row.push(BlockMaterial.Dirt);
         } else if (y < stoneBottom[x]) {
-          const oreVal = oreNoise.sample(x * 10 / width, y * 10 / width);
-          if (oreVal > 0.92) row.push(BlockMaterial.Gold);
-          else if (oreVal > 0.85) row.push(BlockMaterial.Iron);
-          else row.push(BlockMaterial.Stone);
+          if (y >= darkStoneTop[x] && y < darkStoneBottom[x]) {
+            row.push(BlockMaterial.DarkStone);
+          } else {
+            const oreVal = oreNoise.sample(x * 10 / width, y * 10 / width);
+            if (oreVal > 0.92) row.push(BlockMaterial.Gold);
+            else if (oreVal > 0.85) row.push(BlockMaterial.Iron);
+            else row.push(BlockMaterial.Stone);
+          }
         } else if (y < height - 2) {
           const oreVal = oreNoise.sample(x * 10 / width, y * 10 / width);
           if (oreVal > 0.9) row.push(BlockMaterial.Crystal);
@@ -174,6 +192,9 @@ export class TerrainGenerator {
 
     // Cave carving — per-layer noise with different character per layer
     carveCaves(blocks, width, height, surfaceHeights, dirtBottom, stoneBottom, surfaceBase, rng);
+
+    // DarkStone internal carving — sparse pockets + rare tunnels through barrier
+    carveDarkStone(blocks, width, height, darkStoneTop, darkStoneBottom, rng);
 
     // Grass painting pass — topmost Dirt at each surface column becomes GrassyDirt
     for (let x = 0; x < width; x++) {

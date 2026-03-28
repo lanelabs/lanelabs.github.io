@@ -50,6 +50,12 @@ export const BLOCK_INFO: Record<BlockMaterial, BlockInfo> = {
     color: '#00CED1',
     drops: BlockMaterial.Crystal,
   },
+  [BlockMaterial.DarkStone]: {
+    hardness: 2,
+    displayChar: '▓',
+    color: '#3A3A3A',
+    drops: BlockMaterial.DarkStone,
+  },
   [BlockMaterial.Bedrock]: {
     hardness: -1,
     displayChar: '=',
