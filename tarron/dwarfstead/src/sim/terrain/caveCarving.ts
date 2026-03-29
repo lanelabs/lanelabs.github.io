@@ -1,113 +1,132 @@
 import { BlockMaterial } from '../types';
 import { SeededRNG } from '../rng';
-import { ValueNoise2D } from './Noise';
+import { ValueNoise2D, warpedSample } from './Noise';
 
-interface CaveLayerConfig {
-  freqX: number;
-  freqY: number;
-  threshold: number;
-}
-
-const CAVE_LAYERS: CaveLayerConfig[] = [
-  { freqX: 8,  freqY: 20, threshold: 0.72 },  // dirt: wide, flat
-  { freqX: 16, freqY: 16, threshold: 0.70 },  // stone: round
-  { freqX: 20, freqY: 20, threshold: 0.82 },  // granite: sparse
-];
-
-const BLEND_RADIUS = 12;
+// Shallow caves: high-freq (small), peppered frequently near surface
+const SHALLOW = { freqX: 24, freqY: 28, thrNear: 0.66, thrFar: 0.82 };
+// Deep caves: low-freq (large), spread apart near darkstone
+const DEEP = { freqX: 8, freqY: 14, thrNear: 0.85, thrFar: 0.76 };
 
 function smoothstep(t: number): number {
   const c = Math.max(0, Math.min(1, t));
   return c * c * (3 - 2 * c);
 }
 
-function computeLayerWeights(
-  y: number, b0: number, b1: number, radius: number,
-): [number, number, number] {
-  // Raw blend factors: 0 = fully above boundary, 1 = fully below
-  const t0 = smoothstep((y - b0) / radius * 0.5 + 0.5);
-  const t1 = smoothstep((y - b1) / radius * 0.5 + 0.5);
-  // dirt weight fades out at b0, granite fades in at b1, stone is in between
-  const wDirt = 1 - t0;
-  const wGranite = t1;
-  const wStone = t0 - t1;
-  // Normalize (handles thin layers where blend zones overlap)
-  const sum = wDirt + wStone + wGranite;
-  if (sum < 0.001) return [0, 0, 1];
-  return [wDirt / sum, wStone / sum, wGranite / sum];
-}
-
 /**
- * Carve caves with different character per geological layer,
- * blending noise across layer boundaries for smooth transitions.
- * Worm tunnels added afterward for connectivity.
+ * Carve caves with depth-dependent character:
+ * - Near surface (dirt / top stone): small, frequent pockets (high-freq noise, low threshold)
+ * - Near DarkStone (deep stone): larger, sparser caverns (low-freq noise, high threshold)
+ * Smooth transition via depth ratio from surface to darkstone top.
  */
 export function carveCaves(
   blocks: BlockMaterial[][], width: number, height: number,
   surfaceHeights: number[],
-  dirtBottom: number[], stoneBottom: number[],
+  darkStoneTop: number[],
   surfaceBase: number,
   rng: SeededRNG,
 ): void {
-  // Per-layer noise — normalize both axes by width to avoid vertical stretching
-  const noises = CAVE_LAYERS.map(
-    cfg => new ValueNoise2D(rng, cfg.freqX, Math.ceil(cfg.freqY * height / width)),
-  );
+  const shallowNoise = new ValueNoise2D(rng, SHALLOW.freqX, Math.ceil(SHALLOW.freqY * height / width));
+  const deepNoise = new ValueNoise2D(rng, DEEP.freqX, Math.ceil(DEEP.freqY * height / width));
+  // Warp fields for domain warping — 2 per population
+  const swx = new ValueNoise2D(rng, 6, Math.ceil(6 * height / width));
+  const swy = new ValueNoise2D(rng, 6, Math.ceil(6 * height / width));
+  const dwx = new ValueNoise2D(rng, 4, Math.ceil(4 * height / width));
+  const dwy = new ValueNoise2D(rng, 4, Math.ceil(4 * height / width));
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const depthBelowSurface = y - surfaceHeights[x];
-      if (depthBelowSurface < 8) continue;
+      if (depthBelowSurface < 2) continue;
       const mat = blocks[y][x];
       if (mat === BlockMaterial.Air || mat === BlockMaterial.Bedrock || mat === BlockMaterial.DarkStone) continue;
       if (y >= height - 2) continue;
 
+      // Depth ratio: 0 at surface, 1 at darkstone top
+      const depthRange = darkStoneTop[x] - surfaceHeights[x];
+      const t = depthRange > 0 ? smoothstep((y - surfaceHeights[x]) / depthRange) : 0.5;
+
       const nx = x / width;
-      const ny = y / width; // normalize y by width too — keeps noise isotropic
+      const ny = y / width;
 
-      const weights = computeLayerWeights(y, dirtBottom[x], stoneBottom[x], BLEND_RADIUS);
-      let blendedVal = 0;
-      let blendedThr = 0;
-      for (let i = 0; i < 3; i++) {
-        if (weights[i] < 0.001) continue;
-        const cfg = CAVE_LAYERS[i];
-        blendedVal += weights[i] * noises[i].sample(nx * cfg.freqX, ny * cfg.freqY);
-        blendedThr += weights[i] * cfg.threshold;
-      }
+      // Warp strength interpolates by depth: 0.8 near surface, 2.5 near darkstone
+      const warpStr = 0.8 + t * 1.7;
 
-      if (blendedVal > blendedThr) {
+      // Shallow noise with domain warping
+      const sv = warpedSample(shallowNoise, nx * SHALLOW.freqX, ny * SHALLOW.freqY, swx, swy, warpStr);
+      const sThr = SHALLOW.thrNear + t * (SHALLOW.thrFar - SHALLOW.thrNear);
+
+      // Deep noise with domain warping
+      const dv = warpedSample(deepNoise, nx * DEEP.freqX, ny * DEEP.freqY, dwx, dwy, warpStr);
+      const dThr = DEEP.thrNear + t * (DEEP.thrFar - DEEP.thrNear);
+
+      if (sv > sThr || dv > dThr) {
         blocks[y][x] = BlockMaterial.Air;
       }
     }
   }
+}
 
-  // Worm tunnel pass — drunkard's walk to carve narrow connecting passages
-  const wormCount = 4 + Math.floor(rng.next() * 3); // 4-6 worms
-  for (let w = 0; w < wormCount; w++) {
-    const steps = 40 + Math.floor(rng.next() * 40); // 40-79 steps
-    const tunnelH = 1 + Math.floor(rng.next() * 3); // 1-3 blocks tall
-    let wx = Math.floor(rng.next() * width);
-    const minY = surfaceBase + 6;
-    const maxY = height - 3 - tunnelH;
-    if (minY >= maxY) continue;
-    let wy = minY + Math.floor(rng.next() * (maxY - minY));
-    for (let s = 0; s < steps; s++) {
-      for (let th = 0; th < tunnelH; th++) {
-        const cy = wy + th;
-        if (wx >= 0 && wx < width && cy >= 0 && cy < height - 1) {
-          if (blocks[cy][wx] !== BlockMaterial.Bedrock && blocks[cy][wx] !== BlockMaterial.DarkStone) {
-            blocks[cy][wx] = BlockMaterial.Air;
-          }
-        }
+/**
+ * Carve a cavern layer below the DarkStone barrier.
+ * Two independent noise patterns unioned (carve if EITHER is high) so
+ * their different shapes overlap into a dense network of chambers.
+ * A detail noise erodes edges for irregular walls and pillars.
+ * Band is capped to 30 blocks thick.
+ */
+const CAVERN_FADE = 8;
+const MAX_BAND = 30;
+
+export function carveCavernLayer(
+  blocks: BlockMaterial[][], width: number, height: number,
+  darkStoneBottom: number[], stoneBottom: number[],
+  rng: SeededRNG,
+): void {
+  // Three noise fields at different scales — their union gives lots of space
+  // with interesting overlapping shapes at multiple sizes
+  const bigNoise = new ValueNoise2D(rng, 8, Math.ceil(8 * height / width));
+  const midNoise = new ValueNoise2D(rng, 14, Math.ceil(14 * height / width));
+  const smallNoise = new ValueNoise2D(rng, 20, Math.ceil(20 * height / width));
+  // Detail noise erodes edges for irregular walls
+  const detailNoise = new ValueNoise2D(rng, 24, Math.ceil(24 * height / width));
+  // Warp fields for organic cavern shapes
+  const cwx = new ValueNoise2D(rng, 5, Math.ceil(5 * height / width));
+  const cwy = new ValueNoise2D(rng, 5, Math.ceil(5 * height / width));
+  const CAVERN_WARP = 3.0;
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const mat = blocks[y][x];
+      if (mat === BlockMaterial.Air || mat === BlockMaterial.Bedrock) continue;
+      if (y >= height - 2) continue;
+
+      const top = darkStoneBottom[x];
+      const bot = Math.min(stoneBottom[x], top + MAX_BAND);
+      if (top >= bot || y < top || y >= bot) continue;
+
+      const distFromTop = y - top;
+      const distFromBot = bot - 1 - y;
+      const edgeDist = Math.min(distFromTop, distFromBot);
+      const fade = edgeDist >= CAVERN_FADE ? 1 : smoothstep(edgeDist / CAVERN_FADE);
+
+      const nx = x / width;
+      const ny = y / width;
+
+      // Sample all three noise fields with domain warping
+      const big = warpedSample(bigNoise, nx * 8, ny * 8, cwx, cwy, CAVERN_WARP);
+      const mid = warpedSample(midNoise, nx * 14, ny * 14, cwx, cwy, CAVERN_WARP);
+      const small = warpedSample(smallNoise, nx * 20, ny * 20, cwx, cwy, CAVERN_WARP);
+      // Detail subtracts to create pillars and irregular edges
+      const d = detailNoise.sample(nx * 24, ny * 24) * 0.12;
+
+      // Fade raises thresholds near edges
+      const bigThr = 0.52 + (1 - fade) * 0.35;
+      const midThr = 0.55 + (1 - fade) * 0.35;
+      const smallThr = 0.58 + (1 - fade) * 0.32;
+
+      // Union: carve if ANY noise exceeds its threshold
+      if (big - d > bigThr || mid - d > midThr || small - d > smallThr) {
+        blocks[y][x] = BlockMaterial.Air;
       }
-      // 70% horizontal, 30% vertical — creates long connecting passages
-      const r = rng.next();
-      if (r < 0.35) wx += 1;
-      else if (r < 0.7) wx -= 1;
-      else if (r < 0.85) wy += 1;
-      else wy -= 1;
-      wy = Math.max(minY, Math.min(maxY, wy));
-      wx = Math.max(0, Math.min(width - 1, wx));
     }
   }
 }

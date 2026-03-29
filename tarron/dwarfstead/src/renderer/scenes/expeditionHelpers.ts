@@ -2,7 +2,6 @@ import { SimulationBridge } from '../bridge';
 import { serializeGame } from '../../sim/save';
 import type { Game } from '../../sim/Game';
 import { saveToSlot, setActiveSlot, loadSlot } from '../saveSlots';
-import { buildWaterTestTerrain } from '../../sim/terrain/waterTestTerrain';
 
 const MODE_KEY = 'dwarfstead-mode';
 
@@ -14,24 +13,9 @@ export function createFreshBridge(_gameW: number, _gameH: number, _zoomTileSize:
   bridge.init(); return bridge;
 }
 
-export function createWaterTestBridge(): SimulationBridge {
-  const terrain = buildWaterTestTerrain();
-  const bridge = new SimulationBridge({
-    seed: Date.now(),
-    worldWidth: terrain.width,
-    worldHeight: terrain.height,
-    startingDwarves: 1,
-    seasonLength: 99999, // long dry season — no edge water injection
-    terrainOverride: terrain,
-  });
-  bridge.init();
-  return bridge;
-}
-
 export function initBridge(
-  waterTest: boolean, slotId: string | null, makeFresh: () => SimulationBridge,
+  slotId: string | null, makeFresh: () => SimulationBridge,
 ): SimulationBridge {
-  if (waterTest) return createWaterTestBridge();
   const saveData = slotId ? loadSlot(slotId) : null;
   if (!saveData) return makeFresh();
   try {

@@ -2,22 +2,26 @@ import Phaser from 'phaser';
 import type { Game } from '../../sim/Game';
 import { BlockMaterial } from '../../sim/types';
 import { BLOCK_INFO } from '../../sim/terrain/BlockTypes';
-import { WATER_FLOOD_THRESHOLD, MAX_WATER } from '../../sim/systems/waterCA';
 
-const WATER_COLOR = 0x2255aa;
+/** Clamp a value to [0, 255]. */
+function clamp255(v: number): number { return v < 0 ? 0 : v > 255 ? 255 : v; }
 
-/** Returns a fill color when the air at (wx,wy) contains a visible substance, or null for plain air. */
-function chipFillColor(game: Game, wx: number, wy: number, minWater = WATER_FLOOD_THRESHOLD): number | null {
-  if (game.getWaterMass({ x: wx, y: wy }) >= minWater) return WATER_COLOR;
-  if (game.hasClimbable({ x: wx, y: wy })) return 0x3d3530;
-  return null;
+/** Apply a brightness offset to a packed RGB color. */
+function applyBrightnessTint(color: number, offset: number): number {
+  if (offset === 0) return color;
+  const r = clamp255(((color >> 16) & 0xff) + offset);
+  const g = clamp255(((color >> 8) & 0xff) + offset);
+  const b = clamp255((color & 0xff) + offset);
+  return (r << 16) | (g << 8) | b;
 }
 
 function blockColor(game: Game, wx: number, wy: number): number {
   const t = game.terrain;
   if (wx < 0 || wx >= t.width || wy < 0 || wy >= t.height) return 0x2c2c2c;
   const mat = t.blocks[wy][wx];
-  return parseInt(BLOCK_INFO[mat].color.slice(1), 16);
+  const base = parseInt(BLOCK_INFO[mat].color.slice(1), 16);
+  const tint = t.strataTint?.[wy]?.[wx] ?? 0;
+  return applyBrightnessTint(base, tint);
 }
 
 function isSolid(game: Game, wx: number, wy: number): boolean {
@@ -66,14 +70,6 @@ export function drawTerrain(
       const py = vy * ts;
 
       if (!solid) {
-        // Substance fills for air tiles (water, etc.)
-        const wm = game.getWaterMass({ x: wx, y: wy });
-        if (wm >= 1) {
-          const aboveHasWater = game.getWaterMass({ x: wx, y: wy - 1 }) > 0;
-          const fillH = aboveHasWater ? ts : (wm / 5) * ts;
-          g.fillStyle(WATER_COLOR, 0.8);
-          g.fillRect(px, py + (ts - fillH), ts, fillH);
-        }
         // Debris chips on air tiles (adjacent solid bleeds in)
         if (isSolid(game, wx - 1, wy) && isSolid(game, wx, wy - 1)) {
           fillTriangle(g, blockColor(game, wx - 1, wy), px, py, px + chip, py, px, py + chip);
@@ -95,7 +91,7 @@ export function drawTerrain(
         const chipBR = !isSolid(game, wx, wy + 1) && !isSolid(game, wx + 1, wy);
 
         // Draw solid block as polygon with chipped corners cut out
-        const color = parseInt(BLOCK_INFO[terrain.blocks[wy][wx]].color.slice(1), 16);
+        const color = blockColor(game, wx, wy);
         g.fillStyle(color, 1);
         g.beginPath();
         // Top edge (left to right)
@@ -111,27 +107,6 @@ export function drawTerrain(
         else { g.lineTo(px, py + ts); }
         g.closePath();
         g.fillPath();
-
-        // Conditional chip fills — only when neighbor air contains a substance.
-        // Top chips: side neighbor must be full (MAX_WATER) for water to reach chip height.
-        // Bottom chips: side at level >= 1 (water fills from bottom), below at MAX_WATER
-        //   (chip is at top of below cell, so water must fill that cell completely).
-        if (chipTL) {
-          const fill = chipFillColor(game, wx - 1, wy, MAX_WATER);
-          if (fill !== null) fillTriangle(g, fill, px, py, px + chip, py, px, py + chip);
-        }
-        if (chipTR) {
-          const fill = chipFillColor(game, wx + 1, wy, MAX_WATER);
-          if (fill !== null) fillTriangle(g, fill, px + ts, py, px + ts - chip, py, px + ts, py + chip);
-        }
-        if (chipBL) {
-          const fill = chipFillColor(game, wx - 1, wy, 1);
-          if (fill !== null) fillTriangle(g, fill, px, py + ts, px + chip, py + ts, px, py + ts - chip);
-        }
-        if (chipBR) {
-          const fill = chipFillColor(game, wx + 1, wy, 1);
-          if (fill !== null) fillTriangle(g, fill, px + ts, py + ts, px + ts - chip, py + ts, px + ts, py + ts - chip);
-        }
       }
     }
   }

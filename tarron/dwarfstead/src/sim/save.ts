@@ -1,6 +1,5 @@
 import type { GameConfig, Vec2, HiddenRoom, BlockMaterial, Direction, CreatureType } from './types';
 import type { LogEntry, LogCategory } from './log/GameLog';
-import type { WaterFlowState } from './systems/WaterFlowSystem';
 import type { Game } from './Game';
 import type { Component } from './ecs/Component';
 import { Entity, setNextEntityId } from './ecs/Entity';
@@ -49,7 +48,7 @@ export interface SaveData {
     surfaceHeights?: number[];
     rooms: HiddenRoom[];
   };
-  waterState: WaterFlowState;
+  waterState: { season: string; seasonTick: number; seasonLength: number };
   rngState: number;
   trail: Vec2[];
   entities: SavedEntity[];
@@ -200,12 +199,11 @@ export function serializeGame(game: Game): SaveData {
       width: game.terrain.width,
       height: game.terrain.height,
       blocks: game.terrain.blocks,
-      waterMass: game.terrain.waterMass,
       surfaceY: game.terrain.surfaceY,
       surfaceHeights: game.terrain.surfaceHeights,
       rooms: game.terrain.rooms,
     },
-    waterState: { ...game.waterState },
+    waterState: { season: 'dry', seasonTick: 0, seasonLength: 50 },
     rngState: game.rng.getState(),
     trail: game.trail.map((v) => ({ ...v })),
     entities: game.world.all().map(serializeEntity),

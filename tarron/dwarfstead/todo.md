@@ -1,6 +1,7 @@
 # Water flow
 
-Pool not draining out side hole correctly
+pools not snapping to flat
+Water not filling in
 
 # Map generation
 
@@ -72,12 +73,7 @@ Build housing from supply?
 
 # ------------------------- bug
 
-Noise tunnels should go up or down, any direction, basically long thinnish shapes that can fork or combine, but are 1 to 3 in width.
-
-
 inside/outside corners between layers should have a sloped look just like our chipped corners approach with the air.
-
-Have full show full map in screen ,and DOESN'T move with my character
 
 Add a black border around blocks, boundaries?
 

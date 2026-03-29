@@ -41,7 +41,6 @@ export type ParsedInput =
   | { type: 'save' }
   | { type: 'load' }
   | { type: 'help' }
-  | { type: 'wdebug' }
   | { type: 'quit' }
   | { type: 'error'; message: string };
 
@@ -189,9 +188,6 @@ export function parseInput(raw: string): ParsedInput {
       const d = vec[dir];
       return { type: 'inspect', dx: d.dx, dy: d.dy };
     }
-
-    case 'wdebug':
-      return { type: 'wdebug' };
 
     case 'save':
       return { type: 'save' };

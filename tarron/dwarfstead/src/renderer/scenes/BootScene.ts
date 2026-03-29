@@ -62,25 +62,15 @@ export class BootScene extends Phaser.Scene {
       this.newBtn.on('pointerdown', () => this.showNamingDialog());
     }
 
-    // Water Testing button
-    const waterBtn = this.add.text(width / 2, height * 0.2 + 130, '[ Water Testing ]', {
-      fontSize: '16px', color: '#70b8e8',
-    }).setOrigin(0.5).setInteractive({ useHandCursor: true });
-    waterBtn.on('pointerover', () => waterBtn.setColor('#ffffff'));
-    waterBtn.on('pointerout', () => waterBtn.setColor('#70b8e8'));
-    waterBtn.on('pointerdown', () => {
-      this.scene.start('ExpeditionScene', { waterTest: true });
-    });
-
     // Saved expeditions header
     if (slots.length > 0) {
-      this.headerLabel = this.add.text(width / 2, height * 0.2 + 170, 'Saved Expeditions:', {
+      this.headerLabel = this.add.text(width / 2, height * 0.2 + 130, 'Saved Expeditions:', {
         fontSize: '14px', color: '#a0a0b8',
       }).setOrigin(0.5);
     }
 
     // Slot buttons
-    const startY = height * 0.2 + 200;
+    const startY = height * 0.2 + 160;
     slots.forEach((slot, i) => {
       this.addSlotRow(slot, startY + i * 36, width);
     });

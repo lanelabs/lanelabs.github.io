@@ -10,7 +10,6 @@ export {
   DirectionVec,
   BlockMaterial,
   CreatureType,
-  Season,
 } from './types';
 export type { Vec2, GameConfig, CommandResult, HiddenRoom } from './types';
 
@@ -59,7 +58,6 @@ export { CollectCrateCommand } from './commands/CollectCrateCommand';
 // Systems
 export { GravitySystem } from './systems/GravitySystem';
 export { MovementSystem } from './systems/MovementSystem';
-export { WaterFlowSystem } from './systems/WaterFlowSystem';
 export { CompanionSystem } from './systems/CompanionSystem';
 export { CreatureSystem } from './systems/CreatureSystem';
 

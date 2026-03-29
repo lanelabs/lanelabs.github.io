@@ -1,0 +1,5 @@
+[     345ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5176/favicon.ico:0
+[  155715ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5176/tarron/dwarfstead/src/renderer/scenes/ExpeditionScene.ts?t=1774737994235:0
+[  172384ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5176/tarron/dwarfstead/src/renderer/scenes/ExpeditionScene.ts?t=1774738010904:0
+[  177481ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5176/tarron/dwarfstead/src/renderer/scenes/ExpeditionScene.ts?t=1774738016003:0
+[  718008ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5176/tarron/dwarfstead/src/sim/Game.ts?t=1774738556507:0

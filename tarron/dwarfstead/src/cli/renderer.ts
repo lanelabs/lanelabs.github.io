@@ -8,7 +8,6 @@ import { CompanionTaskComponent } from '../sim/components/CompanionTask';
 import { HealthComponent } from '../sim/components/Health';
 import { RopeComponent } from '../sim/components/Rope';
 import { BLOCK_INFO } from '../sim/terrain/BlockTypes';
-import { BlockMaterial } from '../sim/types';
 
 const VIEWPORT_W = 40;
 const VIEWPORT_H = 20;
@@ -79,8 +78,6 @@ export function renderTerrain(game: Game): string {
         row += entityMap.get(key);
       } else if (wx < 0 || wx >= game.terrain.width || wy < 0 || wy >= game.terrain.height) {
         row += '~';
-      } else if (game.getWaterMass({ x: wx, y: wy }) >= 2) {
-        row += '~';
       } else {
         const block = game.terrain.blocks[wy][wx];
         row += BLOCK_INFO[block].displayChar;
@@ -94,7 +91,7 @@ export function renderTerrain(game: Game): string {
 
   // Legend
   lines.push('');
-  lines.push('  @ You  d Companion  B Beetle  C Crab  # Ladder  ^| Rope  + Crate  ~ Water  S=Surface');
+  lines.push('  @ You  d Companion  B Beetle  C Crab  # Ladder  ^| Rope  + Crate  S=Surface');
 
   return lines.join('\n');
 }
@@ -119,7 +116,7 @@ export function renderLog(game: Game, count = 10, category?: string): string {
 /** Render dwarf status. */
 export function renderStatus(game: Game): string {
   const lines: string[] = [
-    `  Tick: ${game.getCurrentTick()}  |  Season: ${game.waterState.season}  (${game.waterState.seasonTick}/${game.waterState.seasonLength})  |  Supplies: ${game.supplies}`,
+    `  Tick: ${game.getCurrentTick()}  |  Supplies: ${game.supplies}`,
     '',
   ];
 
@@ -174,64 +171,6 @@ export function renderStatus(game: Game): string {
   if (rooms.length > 0) {
     lines.push('');
     lines.push(`  Hidden rooms: ${rooms.length} (${rooms.map(r => r.type).join(', ')})`);
-  }
-
-  return lines.join('\n');
-}
-
-/** Render water debug info: maxFlow, streak, active flag, water mass grid near demo pool. */
-export function renderWaterDebug(game: Game): string {
-  const dbg = game.getWaterDebug();
-  if (!dbg) return '  No water system.';
-  const lines: string[] = [
-    `  waterActive: ${dbg.active}  lowFlowStreak: ${dbg.streak}  lastMaxFlow: ${dbg.maxFlow}`,
-  ];
-
-  // Count unsettled water tiles
-  let unsettledCount = 0;
-  let totalWater = 0;
-  for (let y = 0; y < game.terrain.height; y++) {
-    for (let x = 0; x < game.terrain.width; x++) {
-      if (game.terrain.waterMass[y][x] > 0) totalWater++;
-      if (!dbg.settled[y][x] && game.terrain.waterMass[y][x] > 0) unsettledCount++;
-    }
-  }
-  lines.push(`  Water tiles: ${totalWater}  Unsettled: ${unsettledCount}`);
-
-  // Show water mass grid near demo pool (spawnX+3 area)
-  const spawnX = Math.floor(game.terrain.width / 2);
-  const poolLeft = spawnX + 1;
-  const showLeft = poolLeft;
-  const showRight = Math.min(showLeft + 15, game.terrain.width - 1);
-  const showTop = game.surfaceY - 1;
-  const showBottom = Math.min(showTop + 16, game.terrain.height - 1);
-
-  lines.push(`  Water mass grid (x=${showLeft}-${showRight}, y=${showTop}-${showBottom}):`);
-  let header = '      ';
-  for (let x = showLeft; x <= showRight; x++) {
-    header += String(x % 100).padStart(5, ' ') + ' ';
-  }
-  lines.push(header);
-
-  for (let y = showTop; y <= showBottom; y++) {
-    let row = `  ${String(y).padStart(3)}:`;
-    for (let x = showLeft; x <= showRight; x++) {
-      const m = game.terrain.waterMass[y][x];
-      const blk = game.terrain.blocks[y][x];
-      if (blk !== BlockMaterial.Air) {
-        row += '  ####';
-      } else if (m > 0) {
-        row += String(m).padStart(6, ' ');
-      } else {
-        row += '     .';
-      }
-    }
-    const settled = [];
-    for (let x = showLeft; x <= showRight; x++) {
-      settled.push(dbg.settled[y][x] ? 's' : 'u');
-    }
-    row += '  ' + settled.join('');
-    lines.push(row);
   }
 
   return lines.join('\n');

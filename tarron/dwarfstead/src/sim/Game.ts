@@ -1,5 +1,5 @@
 import type { GameConfig, Vec2, CommandResult } from './types';
-import { BlockMaterial, Season, Direction } from './types';
+import { BlockMaterial, Direction } from './types';
 import { World } from './ecs/World';
 import type { System } from './ecs/System';
 import type { Entity } from './ecs/Entity';
@@ -14,8 +14,6 @@ import type { Command } from './commands/Command';
 import { collapseRopesSupportedBy as collapseRopesImpl } from './ropeCollapse';
 import { GravitySystem, setGravityTerrain, setGravityTetheredCheck, setGravityOverheadCheck } from './systems/GravitySystem';
 import { MovementSystem } from './systems/MovementSystem';
-import { WaterFlowSystem, type WaterFlowState } from './systems/WaterFlowSystem';
-import { WATER_FLOOD_THRESHOLD } from './systems/waterCA';
 import { CompanionSystem } from './systems/CompanionSystem';
 import { CreatureSystem } from './systems/CreatureSystem';
 import { ShapingSystem } from './systems/ShapingSystem';
@@ -50,10 +48,6 @@ export class Game {
   // Trail of positions the main dwarf has left — used by tethered block towing
   readonly trail: Vec2[] = [];
 
-  // Water & season state (shared with WaterFlowSystem)
-  waterState!: WaterFlowState;
-  private waterFlowSystem!: WaterFlowSystem;
-
   private systems: System[] = [];
   private tick = 0;
   private commandHistory: Command[] = [];
@@ -85,13 +79,11 @@ export class Game {
       spawnCreatures(this.world, this.terrain, this.rng);
     }
 
-    this.waterState = { season: Season.Dry, seasonTick: 0, seasonLength: this.config.seasonLength ?? 50 };
     this.wireSystems();
 
     this.log.add('system', 'The expedition begins. Dig deep, build well.');
     this.log.add('narration',
       `${this.config.startingDwarves} ${this.config.startingDwarves > 1 ? 'dwarves' : 'dwarf'} stand${this.config.startingDwarves === 1 ? 's' : ''} at the mountainside.`);
-    this.log.add('system', `Season: ${this.waterState.season}. The water table is calm.`);
 
     if (this.terrain.rooms.length > 0) {
       this.log.add('narration', 'The mountain hides its secrets below...');
@@ -152,27 +144,13 @@ export class Game {
       return;
     }
     this.terrain.blocks[pos.y][pos.x] = material;
-    // Solid placement removes water; any change wakes neighbors
-    if (material !== BlockMaterial.Air) {
-      this.terrain.waterMass[pos.y][pos.x] = 0;
-    }
-    if (this.waterFlowSystem) {
-      this.waterFlowSystem.markUnsettled(pos.x, pos.y);
-    }
   }
 
-  /** Check if a position is flooded (waterMass above threshold). */
-  isFlooded(pos: Vec2): boolean {
-    return this.getWaterMass(pos) >= WATER_FLOOD_THRESHOLD;
-  }
+  /** Stub — water system removed. Always returns false. */
+  isFlooded(_pos: Vec2): boolean { return false; }
 
-  /** Get the water mass at a position (0 if out of bounds or solid). */
-  getWaterMass(pos: Vec2): number {
-    if (pos.x < 0 || pos.x >= this.terrain.width || pos.y < 0 || pos.y >= this.terrain.height) {
-      return 0;
-    }
-    return this.terrain.waterMass[pos.y][pos.x];
-  }
+  /** Stub — water system removed. Always returns 0. */
+  getWaterMass(_pos: Vec2): number { return 0; }
 
   /** Check if there's a ladder (not platform) at a position — enables climbing. */
   hasLadder(pos: Vec2): boolean {
@@ -303,20 +281,6 @@ export class Game {
     });
   }
 
-  /** Check if water CA has unsettled tiles that need more simulation ticks. */
-  hasActiveWater(): boolean { return this.waterFlowSystem?.waterActive ?? false; }
-
-  /** Debug info for water system. */
-  getWaterDebug(): { active: boolean; streak: number; maxFlow: number; settled: boolean[][] } | null {
-    if (!this.waterFlowSystem) return null;
-    return {
-      active: this.waterFlowSystem.waterActive,
-      streak: this.waterFlowSystem.lowFlowStreak,
-      maxFlow: this.waterFlowSystem.lastMaxFlow,
-      settled: this.waterFlowSystem.settled,
-    };
-  }
-
   /** Check if the main dwarf is actively chipping a block. */
   hasActiveChipping(): boolean {
     const md = this.getMainDwarf();
@@ -353,11 +317,6 @@ export class Game {
     setGravityTetheredCheck((id) => this.getTetherInfo(id));
     setGravityOverheadCheck((id) => this.getOverheadHolder(id));
     this.addSystem(new MovementSystem());
-    this.waterFlowSystem = new WaterFlowSystem({
-      terrain: this.terrain,
-      state: this.waterState,
-    });
-    this.addSystem(this.waterFlowSystem);
     this.addSystem(new CreatureSystem());
     // Shaping before gravity so companion is positioned before gravity runs
     this.addSystem(new ShapingSystem({
@@ -420,18 +379,13 @@ export class Game {
     game.supplies = data.supplies;
     game.surfaceY = data.surfaceY;
 
-    const wm = data.terrain.waterMass
-      ?? TerrainGenerator.emptyWaterMass(data.terrain.width, data.terrain.height);
-    // Backward compat: old saves used float 0.0–1.0 water → convert to int 0–5
-    for (const row of wm) for (let x = 0; x < row.length; x++) {
-      if (row[x] > 0 && row[x] < 1) row[x] = Math.min(5, Math.round(row[x] * 5));
-    }
     game.terrain = {
-      ...data.terrain, waterMass: wm,
+      ...data.terrain,
+      waterMass: TerrainGenerator.emptyWaterMass(data.terrain.width, data.terrain.height),
+      strataTint: TerrainGenerator.emptyStrataTint(data.terrain.width, data.terrain.height),
       surfaceHeights: data.terrain.surfaceHeights
         ?? TerrainGenerator.fallbackSurfaceHeights(data.terrain.width, data.terrain.surfaceY),
     };
-    game.waterState = { ...data.waterState };
     game.rng.setState(data.rngState);
     game.trail.length = 0;
     for (const v of data.trail) game.trail.push({ x: v.x, y: v.y });

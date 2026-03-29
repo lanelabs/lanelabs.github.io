@@ -4,7 +4,7 @@ import * as path from 'node:path';
 import * as os from 'node:os';
 import { Game } from '../sim/Game';
 import { parseInput, HELP_TEXT } from './commands';
-import { renderTerrain, renderLog, renderStatus, renderInspect, renderWaterDebug } from './renderer';
+import { renderTerrain, renderLog, renderStatus, renderInspect } from './renderer';
 import { serializeGame } from '../sim/save';
 import type { SaveData } from '../sim/save';
 
@@ -14,7 +14,6 @@ const DEFAULT_CONFIG = {
   worldHeight: 400,
   startingDwarves: 3,
   seasonLength: 50,
-  waterRiseRate: 5,
 };
 
 const SAVE_PATH = path.join(os.homedir(), '.dwarfstead-save.json');
@@ -88,10 +87,6 @@ function main() {
 
       case 'inspect':
         console.log(renderInspect(game, input.dx, input.dy));
-        break;
-
-      case 'wdebug':
-        console.log(renderWaterDebug(game));
         break;
 
       case 'help':

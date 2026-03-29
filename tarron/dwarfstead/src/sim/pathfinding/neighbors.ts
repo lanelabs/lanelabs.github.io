@@ -19,8 +19,6 @@ function hasGround(ctx: PathContext, x: number, y: number): boolean {
   if (ctx.hasMovableAt(x, below)) return true;
   if (ctx.hasRope({ x, y })) return true;
   if (ctx.hasRope({ x, y: below })) return true;
-  // Water acts as buoyant ground
-  if (ctx.getWaterMass({ x, y }) >= 2) return true;
   return false;
 }
 

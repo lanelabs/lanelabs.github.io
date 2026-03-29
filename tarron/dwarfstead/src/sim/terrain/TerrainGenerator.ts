@@ -1,16 +1,25 @@
 import { BlockMaterial, type HiddenRoom } from '../types';
 import { SeededRNG } from '../rng';
 import { ValueNoise2D, fractalNoise1D, catmullRomSpline } from './Noise';
-import { carveDemoStructure } from './demoStructure';
+
 import { smoothSpikes, roundCliffs, widenExtrema, validateMinWidth, MIN_FEATURE_WIDTH } from './surfaceHelpers';
-import { carveCaves } from './caveCarving';
+import { carveCaves, carveCavernLayer } from './caveCarving';
 import { carveDarkStone } from './darkStoneCarving';
+import { carveSpaghettiTunnels } from './tunnelCarving';
+import { generateOreVeins } from './oreVeins';
+import { generateStrata } from './strataGen';
+import { carveFaultLines } from './faultLines';
+import { carvePerlinWorms } from './perlinWorms';
+import { caRoughen } from './caRoughen';
+import { growFormations } from './formations';
+import type { LayerBoundaries } from './depthZones';
 
 export interface TerrainGrid {
   width: number;
   height: number;
   blocks: BlockMaterial[][];
   waterMass: number[][];
+  strataTint: number[][];
   surfaceY: number;
   surfaceHeights: number[];
   rooms: HiddenRoom[];
@@ -33,8 +42,8 @@ const MIN_SKY = 10;  // highest surface point sits this many rows from top
 export class TerrainGenerator {
   static generate(seed: number, width: number, height: number): TerrainGrid {
     const rng = new SeededRNG(seed);
-    // Ore noise — normalize both axes by width to prevent vertical stretching
-    const oreNoise = new ValueNoise2D(rng, 10, Math.ceil(10 * height / width));
+    // Fade noise for DarkStone edge blending
+    const fadeNoise = new ValueNoise2D(rng, 8, Math.ceil(8 * height / width));
 
     // Randomize terrain character per world: rolling hills ↔ dramatic cliffs
     const amplitude = 10 + Math.floor(rng.next() * 21);      // 10–30
@@ -159,7 +168,12 @@ export class TerrainGenerator {
       darkStoneBottom[x] = darkStoneTop[x] + thickness;
     }
 
-    // Base terrain pass — block assignment using layer boundaries
+    // Layer boundaries bundle for new terrain features
+    const bounds: LayerBoundaries = {
+      surfaceHeights, dirtBottom, darkStoneTop, darkStoneBottom, stoneBottom, height,
+    };
+
+    // Base terrain pass — block assignment (no inline ore; veins added later)
     const blocks: BlockMaterial[][] = [];
     for (let y = 0; y < height; y++) {
       const row: BlockMaterial[] = [];
@@ -172,17 +186,18 @@ export class TerrainGenerator {
           row.push(BlockMaterial.Dirt);
         } else if (y < stoneBottom[x]) {
           if (y >= darkStoneTop[x] && y < darkStoneBottom[x]) {
-            row.push(BlockMaterial.DarkStone);
+            const FADE_DEPTH = 6;
+            const distFromTop = y - darkStoneTop[x];
+            const distFromBottom = darkStoneBottom[x] - 1 - y;
+            const distFromEdge = Math.min(distFromTop, distFromBottom);
+            const isDark = distFromEdge >= FADE_DEPTH
+              || fadeNoise.sample(x * 8 / width, y * 8 / width) < distFromEdge / FADE_DEPTH;
+            row.push(isDark ? BlockMaterial.DarkStone : BlockMaterial.Stone);
           } else {
-            const oreVal = oreNoise.sample(x * 10 / width, y * 10 / width);
-            if (oreVal > 0.92) row.push(BlockMaterial.Gold);
-            else if (oreVal > 0.85) row.push(BlockMaterial.Iron);
-            else row.push(BlockMaterial.Stone);
+            row.push(BlockMaterial.Stone);
           }
         } else if (y < height - 2) {
-          const oreVal = oreNoise.sample(x * 10 / width, y * 10 / width);
-          if (oreVal > 0.9) row.push(BlockMaterial.Crystal);
-          else row.push(BlockMaterial.Granite);
+          row.push(BlockMaterial.Granite);
         } else {
           row.push(BlockMaterial.Bedrock);
         }
@@ -190,19 +205,40 @@ export class TerrainGenerator {
       blocks.push(row);
     }
 
-    // Cave carving — per-layer noise with different character per layer
-    carveCaves(blocks, width, height, surfaceHeights, dirtBottom, stoneBottom, surfaceBase, rng);
-
-    // DarkStone internal carving — sparse pockets + rare tunnels through barrier
-    carveDarkStone(blocks, width, height, darkStoneTop, darkStoneBottom, rng);
-
-    // Grass painting pass — topmost Dirt at each surface column becomes GrassyDirt
+    // Grass painting pass — before carving so tunnels/caves that breach the
+    // surface naturally remove grass, creating visible openings
     for (let x = 0; x < width; x++) {
       const sy = surfaceHeights[x];
       if (sy >= 0 && sy < height && blocks[sy][x] === BlockMaterial.Dirt) {
         blocks[sy][x] = BlockMaterial.GrassyDirt;
       }
     }
+
+    // Pre-carving features: ore veins, strata tint, fault lines
+    generateOreVeins(blocks, width, height, bounds, rng);
+    const strataTint = generateStrata(width, height, bounds, rng);
+    carveFaultLines(blocks, width, height, bounds, rng);
+
+    // Cave carving — small frequent pockets near surface, larger sparse caverns near darkstone
+    carveCaves(blocks, width, height, surfaceHeights, darkStoneTop, surfaceBase, rng);
+
+    // Cavern layer — dense large chambers below the DarkStone barrier
+    carveCavernLayer(blocks, width, height, darkStoneBottom, stoneBottom, rng);
+
+    // DarkStone internal carving — sparse pockets + rare tunnels through barrier
+    carveDarkStone(blocks, width, height, darkStoneTop, darkStoneBottom, rng);
+
+    // Spaghetti tunnels — thin directed strands that can pierce any layer
+    carveSpaghettiTunnels(blocks, width, height, surfaceHeights, rng);
+
+    // Perlin worms — variable-radius noise-directed tunnels
+    carvePerlinWorms(blocks, width, height, bounds, rng);
+
+    // CA roughening — erode cave edges for irregular walls
+    caRoughen(blocks, width, height, bounds, rng);
+
+    // Stalactites and stalagmites
+    growFormations(blocks, width, height, bounds, rng);
 
     // Hidden rooms pass
     const rooms: HiddenRoom[] = [];
@@ -242,29 +278,11 @@ export class TerrainGenerator {
       }
     }
 
-    // Initialize waterMass grid
+    // Empty waterMass grid (water system removed — kept for save compatibility)
     const waterMass: number[][] = [];
     for (let y = 0; y < height; y++) waterMass.push(new Array(width).fill(0));
 
-    // Fill pool-type rooms with water
-    for (const room of rooms) {
-      if (room.type === 'pool') {
-        for (let dy = 0; dy < room.height; dy++) {
-          for (let dx = 0; dx < room.width; dx++) {
-            const px = room.x + dx, py = room.y + dy;
-            if (px >= 0 && px < width && py >= 0 && py < height && blocks[py][px] === BlockMaterial.Air) {
-              waterMass[py][px] = 5;
-            }
-          }
-        }
-      }
-    }
-
-    // Carve demo structure next to player spawn
-    const spawnX = Math.floor(width / 2);
-    carveDemoStructure(blocks, waterMass, spawnX, surfaceBase, width, height);
-
-    return { width, height, blocks, waterMass, surfaceY: surfaceBase, surfaceHeights, rooms };
+    return { width, height, blocks, waterMass, strataTint, surfaceY: surfaceBase, surfaceHeights, rooms };
   }
 
   static fallbackSurfaceHeights(width: number, surfaceY: number): number[] {
@@ -272,6 +290,12 @@ export class TerrainGenerator {
   }
 
   static emptyWaterMass(width: number, height: number): number[][] {
+    const grid: number[][] = [];
+    for (let y = 0; y < height; y++) grid.push(new Array(width).fill(0));
+    return grid;
+  }
+
+  static emptyStrataTint(width: number, height: number): number[][] {
     const grid: number[][] = [];
     for (let y = 0; y < height; y++) grid.push(new Array(width).fill(0));
     return grid;

@@ -10,7 +10,8 @@ import { PositionComponent } from '../components/Position';
 import { DwarfComponent } from '../components/Dwarf';
 import { HealthComponent } from '../components/Health';
 import { OxygenComponent } from '../components/Oxygen';
-import { WATER_SWIM_THRESHOLD } from './waterCA';
+/** Water mass threshold for drowning. Kept as stub — water system removed. */
+const WATER_SWIM_THRESHOLD = 2;
 
 export interface OxygenSystemConfig {
   surfaceY: number;

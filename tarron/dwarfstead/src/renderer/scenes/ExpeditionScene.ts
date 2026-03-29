@@ -10,7 +10,7 @@ import { HoistCommand } from '../../sim/commands/HoistCommand';
 import { WaitCommand } from '../../sim/commands/WaitCommand';
 import { handleCtrlDirection } from './ctrlInput';
 import { handleSpaceAction } from './spaceAction';
-import { processChipping, processShaping, processSellErrand, processWater } from './autoTimers';
+import { processChipping, processShaping, processSellErrand } from './autoTimers';
 import type { TimerState } from './autoTimers';
 import { ScribePanel } from '../ui/ScribePanel';
 import { SmartMode } from '../smartMode';
@@ -42,7 +42,7 @@ export class ExpeditionScene extends Phaser.Scene {
   private keyBacktick!: Phaser.Input.Keyboard.Key;
   private modeKeys!: Phaser.Input.Keyboard.Key[];
   private inputCooldown = 0;
-  private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0, waterTimer: 0 };
+  private timers: TimerState = { chippingTimer: 0, shapingTimer: 0, sellTimer: 0 };
   private zoomIndex = DEFAULT_ZOOM;
   private currentMode: SmartMode = SmartMode.Mine;
   private hasActed = false;
@@ -54,15 +54,12 @@ export class ExpeditionScene extends Phaser.Scene {
   private mapOpen = false;
   private backtickWasDown = false;
   private spaceWasDown = false;
-  private waterTest = false;
   private slotId: string | null = null;
   private slotName = 'Expedition';
   constructor() { super({ key: 'ExpeditionScene' }); }
-  init(data?: { slotId?: string; slotName?: string; waterTest?: boolean }) {
+  init(data?: { slotId?: string; slotName?: string }) {
     this.slotId = data?.slotId ?? null;
     this.slotName = data?.slotName ?? 'Expedition';
-    this.waterTest = data?.waterTest ?? false;
-    if (this.waterTest) this.slotId = null; // no auto-save for test worlds
     this.paused = false;
     this.mapOpen = false;
   }
@@ -89,7 +86,7 @@ export class ExpeditionScene extends Phaser.Scene {
     autoSave(this.bridge.game, this.slotId, this.slotName, this.currentMode);
   }
   create() {
-    this.bridge = initBridge(this.waterTest, this.slotId, () => this.createFreshBridge());
+    this.bridge = initBridge(this.slotId, () => this.createFreshBridge());
     // Restore saved mode, zoom, and map state
     const savedMode = localStorage.getItem(MODE_KEY);
     if (savedMode) {
@@ -205,7 +202,6 @@ export class ExpeditionScene extends Phaser.Scene {
     if (chipResult.handled) { this.inputCooldown = chipResult.inputCooldown; return; }
     processShaping(delta, this.timers, timerCtx);
     processSellErrand(delta, this.timers, timerCtx);
-    processWater(delta, this.timers, timerCtx);
     // Track single-fire key states before cooldown guard so presses aren't lost
     const backtickDown = this.keyBacktick.isDown;
     const backtickJust = backtickDown && !this.backtickWasDown;
@@ -219,13 +215,19 @@ export class ExpeditionScene extends Phaser.Scene {
       toggleNoclip(this.bridge.game);
       this.inputCooldown = 200; this.redraw(); return;
     }
-    // Noclip mode: WASD moves ghost, all other inputs blocked
+    // Noclip mode: WASD moves ghost, Esc opens menu, all other inputs blocked
     if (isNoclipActive(this.bridge.game)) {
+      if (this.keyEsc.isDown) {
+        this.paused = true;
+        this.ui.pauseOverlay.show();
+        this.inputCooldown = 200;
+        return;
+      }
       const dir = this.keyA.isDown ? Direction.Left : this.keyD.isDown ? Direction.Right
         : this.keyW.isDown ? Direction.Up : this.keyS.isDown ? Direction.Down : null;
       if (dir !== null) {
         handleNoclipMove(this.bridge.game, dir);
-        this.inputCooldown = 120; this.redraw();
+        this.inputCooldown = 60; this.redraw();
       }
       return;
     }

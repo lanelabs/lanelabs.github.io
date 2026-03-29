@@ -88,6 +88,21 @@ export function fractalNoise1D(
  * `points` is an array of y-values evenly spaced along the curve.
  * Returns an interpolated y-value that passes through every control point.
  */
+/**
+ * Sample noise with domain warping: offset input coords by two warp noise fields.
+ * Strength controls how far coords are displaced (in grid units).
+ */
+export function warpedSample(
+  baseNoise: ValueNoise2D,
+  x: number, y: number,
+  warpX: ValueNoise2D, warpY: ValueNoise2D,
+  strength: number,
+): number {
+  const dx = (warpX.sample(x, y) - 0.5) * 2 * strength;
+  const dy = (warpY.sample(x, y) - 0.5) * 2 * strength;
+  return baseNoise.sample(x + dx, y + dy);
+}
+
 export function catmullRomSpline(points: number[], t: number): number {
   const n = points.length;
   if (n < 2) return points[0] ?? 0;

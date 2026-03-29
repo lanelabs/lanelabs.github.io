@@ -48,6 +48,7 @@ export function createSceneUI(
   gameLog: GameLog,
   zoomLabel: string,
   callbacks: SceneUICallbacks,
+  opts?: { regenLabel?: string },
 ): SceneUI {
   const { width: w, height: h } = scene.scale;
   const g = () => scene.add.graphics();
@@ -99,7 +100,7 @@ export function createSceneUI(
     .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
   zoomBtn.on('pointerdown', () => callbacks.onCycleZoom());
 
-  const regenBtn = scene.add.text(w - 10, 62, '[Regen World]', btnStyle)
+  const regenBtn = scene.add.text(w - 10, 62, opts?.regenLabel ?? '[Regen World]', btnStyle)
     .setOrigin(1, 0).setDepth(100).setInteractive({ useHandCursor: true });
   regenBtn.on('pointerover', () => regenBtn.setColor('#ff6666'));
   regenBtn.on('pointerout', () => regenBtn.setColor('#e8c170'));
