@@ -18,6 +18,12 @@ export class BootScene extends Phaser.Scene {
 
   create() {
     migrateOldSave();
+    // Auto-resume water lab if it was active on reload
+    if (sessionStorage.getItem('dwarfstead_waterlab') === '1') {
+      sessionStorage.removeItem('dwarfstead_waterlab');
+      this.scene.start('WaterTestScene');
+      return;
+    }
     // Auto-resume last active slot on page load (browser refresh)
     const activeId = getActiveSlot();
     if (activeId) {
@@ -62,15 +68,23 @@ export class BootScene extends Phaser.Scene {
       this.newBtn.on('pointerdown', () => this.showNamingDialog());
     }
 
+    // Water Test button
+    const waterBtn = this.add.text(width / 2, height * 0.2 + 130, '[ Water Test Lab ]', {
+      fontSize: '16px', color: '#4488ff',
+    }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+    waterBtn.on('pointerover', () => waterBtn.setColor('#88bbff'));
+    waterBtn.on('pointerout', () => waterBtn.setColor('#4488ff'));
+    waterBtn.on('pointerdown', () => this.scene.start('WaterTestScene'));
+
     // Saved expeditions header
     if (slots.length > 0) {
-      this.headerLabel = this.add.text(width / 2, height * 0.2 + 130, 'Saved Expeditions:', {
+      this.headerLabel = this.add.text(width / 2, height * 0.2 + 165, 'Saved Expeditions:', {
         fontSize: '14px', color: '#a0a0b8',
       }).setOrigin(0.5);
     }
 
     // Slot buttons
-    const startY = height * 0.2 + 160;
+    const startY = height * 0.2 + 195;
     slots.forEach((slot, i) => {
       this.addSlotRow(slot, startY + i * 36, width);
     });

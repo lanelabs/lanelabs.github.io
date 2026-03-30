@@ -1,11 +1,12 @@
 import Phaser from 'phaser';
 import { BootScene } from './renderer/scenes/BootScene';
 import { ExpeditionScene } from './renderer/scenes/ExpeditionScene';
+import { WaterTestScene } from './renderer/scenes/WaterTestScene';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   backgroundColor: '#1a1a2e',
-  scene: [BootScene, ExpeditionScene],
+  scene: [BootScene, ExpeditionScene, WaterTestScene],
   pixelArt: true,
   dom: { createContainer: true },
   scale: {

@@ -1,14 +1,25 @@
-# Water flow
+# IN progress
 
-pools not snapping to flat
-Water not filling in
+## Water system
 
-# Map generation
+- [ ] Water breach or pipe draining into same pool as coming from?
+- [ ] Wate3r snakes converging with other snakes
+- [ ] water should not enter pipe if no valid entrace (to able-to-recive side slot or below slot)
+- [ ] water draining ito pipe should take only 1 quantity to fill entire pipe tile, not 4 like regular tile
+- [ ] pipes should not have gaps in the water fill color between connecting pipes
+- [ ] pipes not disgorging all their water, they are hanging on to it
+- [ ] have some pipes that drain to the side so we can verify this.
+- [ ] have reservoir with pipe and breach
+- [ ] have reservoir with multiple pipes
+- [ ] have reservoir with multiple breachs at differnt size layers
+- [ ] splitting snakes should have each head only advance when pushed to from above, meaning we don't get gaps in the snake from the alternating. That means the two heads will move at half speed, but the column of water stays all connected
 
-HOles are not overlapping sections, they're geting cut off by the dirt layer.
-Tunnels connecting things
+- water not splitting correctly
+- water should not be able to exit pipe flowing up. That breaks our free water rule. It should not be able to exit a pipe upwards. So our water world needs to have the upward pipe go around and up to the top of the pool and empty either to the side or downwards
 
-Generate burried ruins, old building, tunnels, mines
+- [ ] Water going in pipe is not pooling up once the pipe output is full. Also, cell right at exit of pipe still looks not full like regular standing water.  A pipe should be able to completely fill the ssqwuare after it's output block
+
+- first output sqaure after a pipe exit flashes empty and then fills all at once. Should fill incrementally just like any layer, with ghost behidn it, etc, up to the pipe entrace, and then just sit as solid fill
 
 # Map grid
 
@@ -29,44 +40,6 @@ When two blocks are touching corner to corner, specifically with sky or space in
 
 When creating ladders off edges, we need wood to fillin the chipped corner.
 
-# Move system for companions
-
-Have falling blocks not be blocked by companions, have the companion move out of the way towards me. Only have me stop falling blocks
-
-Make companions always just be teleported to near me when they're part of my train, no need to actually get blocked, unless they are running errands
-
-# Map layers
-
-have types of fill depend on what layer is getting generated
-
-More caverns to fill spaces in the stone layer.
-more small caverns in the dirt layer
-wider dirt layer
-vertical "layers"
-cavern layer that is mostly space, disjoined "floor" levels
-
-Sky
-dirt
-clay
-stone
-bedrock
-cavern layer (much more caverns)
-
-
-# Water system
-
-should only color top chip if 5/5 layers filled
-
-Wtaer pools in map
-
-Other liquids in map
-
-Flip water system for gas
-
-I want water to be affected by gravity, flow downward (in ticks, etc). But not be a performance drag. Let's research a good recommended way to implement this in our stack.
-
-generate random paths downward (lightning shaped ziz sag along block edges) where water seeps in that season. If intersects with an open area then it starts filling with water there.
-
 # Ways to get more followers
 
 Build housing from supply?
@@ -77,3 +50,10 @@ inside/outside corners between layers should have a sloped look just like our ch
 
 Add a black border around blocks, boundaries?
 
+
+
+# Brand new features
+
+Generate burried ruins, old building, tunnels, mines
+clay layer
+better veins, longer, fillaments and branches, chasing the vein
