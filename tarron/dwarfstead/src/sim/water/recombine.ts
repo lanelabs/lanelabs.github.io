@@ -16,8 +16,9 @@ import { fillPool } from './poolScan';
 import type { PoolInfo, PoolLayer } from './poolScan';
 
 /**
- * Scan the full connected air shape from (startX, startY).
+ * Scan the full connected air shape from (startX, startY) via flood-fill.
  * Unlike findPool, does NOT stop at full water — scans all air tiles.
+ * Handles L, T, U, and other non-rectangular pool shapes correctly.
  */
 export function scanPoolShape(
   startX: number, startY: number,
@@ -27,24 +28,44 @@ export function scanPoolShape(
   if (startX < 0 || startX >= w || startY < 0 || startY >= h) return null;
   if (blocks[startY][startX] !== BlockMaterial.Air) return null;
 
-  // Find the bottom scanning only blocks (ignore water)
-  let bottomY = startY;
-  while (bottomY + 1 < h && blocks[bottomY + 1][startX] === BlockMaterial.Air) {
-    bottomY++;
+  // Flood-fill to find all connected air tiles
+  const visited = new Set<number>();
+  const key = (x: number, y: number) => y * w + x;
+  const queue: [number, number][] = [[startX, startY]];
+  visited.add(key(startX, startY));
+  const rowTiles = new Map<number, number[]>();
+
+  while (queue.length > 0) {
+    const [x, y] = queue.shift()!;
+    if (!rowTiles.has(y)) rowTiles.set(y, []);
+    rowTiles.get(y)!.push(x);
+
+    const neighbors: [number, number][] = [[x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1]];
+    for (const [nx, ny] of neighbors) {
+      if (nx < 0 || nx >= w || ny < 0 || ny >= h) continue;
+      const k = key(nx, ny);
+      if (visited.has(k)) continue;
+      if (blocks[ny][nx] !== BlockMaterial.Air) continue;
+      visited.add(k);
+      queue.push([nx, ny]);
+    }
   }
 
-  // Collect layers from bottom to top
+  // Build layers: group x-values into contiguous runs per row, bottom-first
   const layers: PoolLayer[] = [];
-  for (let y = bottomY; y >= 0; y--) {
-    if (blocks[y][startX] !== BlockMaterial.Air) break;
+  const sortedYs = [...rowTiles.keys()].sort((a, b) => b - a);
 
-    let left = startX;
-    while (left > 0 && blocks[y][left - 1] === BlockMaterial.Air) left--;
-    let right = startX;
-    while (right < w - 1 && blocks[y][right + 1] === BlockMaterial.Air) right++;
-
-    const width = right - left + 1;
-    layers.push({ y, left, right, capacity: width * VOLUME_PER_TILE });
+  for (const y of sortedYs) {
+    const xs = rowTiles.get(y)!.sort((a, b) => a - b);
+    let runStart = xs[0];
+    for (let i = 1; i <= xs.length; i++) {
+      if (i === xs.length || xs[i] !== xs[i - 1] + 1) {
+        const left = runStart;
+        const right = xs[i - 1];
+        layers.push({ y, left, right, capacity: (right - left + 1) * VOLUME_PER_TILE });
+        if (i < xs.length) runStart = xs[i];
+      }
+    }
   }
 
   if (layers.length === 0) return null;
@@ -62,11 +83,15 @@ function isPoolContained(
   for (const layer of pool.layers) {
     if (layer.left === 0 || layer.right === w - 1) return false;
   }
-  // Bottom layer must have solid floor
-  const bottom = pool.layers[0]; // bottom-first order
-  if (bottom.y + 1 >= h) return true; // world bottom = contained
-  for (let x = bottom.left; x <= bottom.right; x++) {
-    if (blocks[bottom.y + 1][x] === BlockMaterial.Air) return false;
+  // All bottom-most layers must have solid floor (there may be
+  // multiple runs at the same y for non-rectangular shapes)
+  const bottomY = pool.layers[0].y; // bottom-first order
+  for (const layer of pool.layers) {
+    if (layer.y !== bottomY) break;
+    if (layer.y + 1 >= h) continue; // world bottom = contained
+    for (let x = layer.left; x <= layer.right; x++) {
+      if (blocks[layer.y + 1][x] === BlockMaterial.Air) return false;
+    }
   }
   return true;
 }

@@ -165,6 +165,101 @@ describe('recombine', () => {
     expect(bottomLayer!.volume).toBe(20); // 2 tiles * 10 = full
   });
 
+  /**
+   * L-shape merge — side wall removal connecting narrow upper to wider lower:
+   *   S S S S S S
+   *   S A S S S S   ← y=1, upper narrow pool (x=1)
+   *   S A S S S S   ← y=2, upper narrow pool (x=1)
+   *   S A S S S S   ← y=3, upper narrow pool (x=1), wall at (2,3) to remove
+   *   S A A A S S   ← y=4, wider bottom
+   *   S S S S S S   ← floor
+   *
+   * Remove wall at (2,3) → pools merge into L-shape,
+   * water redistributes bottom-up.
+   */
+  it('L-shape merge — side wall connects narrow upper to wider lower', () => {
+    const { blocks } = emptyGrid(6, 6);
+    // Upper narrow: x=1, y=1..3
+    carveRect(blocks, 1, 1, 1, 3);
+    // Lower wide: x=1..3, y=4
+    carveRect(blocks, 1, 4, 3, 4);
+
+    const waterLayers: WaterLayer[] = [];
+    const w = 6, h = 6;
+    addWater(waterLayers, blocks, 1, 1, 10, w, h); // y=1: 10/10
+    addWater(waterLayers, blocks, 1, 2, 10, w, h); // y=2: 10/10
+    addWater(waterLayers, blocks, 1, 3, 10, w, h); // y=3: 10/10
+    addWater(waterLayers, blocks, 1, 4, 10, w, h); // y=4: 10/30
+
+    const volumeBefore = waterLayers.reduce((s, l) => s + l.volume, 0);
+    expect(volumeBefore).toBe(40);
+
+    // Remove side wall at (2,3) — connects upper column to wider area
+    blocks[3][2] = A;
+
+    const pool = scanPoolShape(2, 3, blocks, w, h);
+    expect(pool).not.toBeNull();
+    expect(pool!.layers.length).toBe(4); // y=4, y=3, y=2, y=1
+
+    const result = recombineAtTile(2, 3, waterLayers, blocks, w, h);
+    expect(result).toBe(true);
+
+    const volumeAfter = waterLayers.reduce((s, l) => s + l.volume, 0);
+    expect(volumeAfter).toBe(volumeBefore);
+  });
+
+  /**
+   * Two 1-wide, 2-tall chambers separated by a wall, remove bottom wall:
+   *   S S S S S
+   *   S A S A S   ← y=1, top row of both chambers
+   *   S A[X]A S   ← y=2, bottom row, wall at (2,2) to remove
+   *   S S S S S   ← floor
+   *
+   * Left chamber: both layers full (10 + 10 = 20).
+   * Right chamber: only bottom full (0 + 10 = 10).
+   * Total water = 30.
+   *
+   * After removing [X], bottom row becomes 3-wide (capacity 30).
+   * All 30 units should settle into that single bottom layer.
+   */
+  it('twin chambers — bottom wall removed, water drains to fill 3-wide bottom', () => {
+    const { blocks } = emptyGrid(5, 4);
+    // Left chamber: x=1, y=1..2
+    carveRect(blocks, 1, 1, 1, 2);
+    // Right chamber: x=3, y=1..2
+    carveRect(blocks, 3, 1, 3, 2);
+
+    const waterLayers: WaterLayer[] = [];
+    const w = 5, h = 4;
+    // Left: both layers full
+    addWater(waterLayers, blocks, 1, 1, 10, w, h); // y=1: 10/10
+    addWater(waterLayers, blocks, 1, 2, 10, w, h); // y=2: 10/10
+    // Right: only bottom full
+    addWater(waterLayers, blocks, 3, 2, 10, w, h); // y=2: 10/10
+
+    expect(waterLayers.reduce((s, l) => s + l.volume, 0)).toBe(30);
+
+    // Remove bottom wall at (2,2)
+    blocks[2][2] = A;
+    const result = recombineAtTile(2, 2, waterLayers, blocks, w, h);
+
+    expect(result).toBe(true);
+
+    const volumeAfter = waterLayers.reduce((s, l) => s + l.volume, 0);
+    expect(volumeAfter).toBe(30);
+
+    // Bottom row y=2 is now 3-wide (x=1..3), capacity 30 — should be full
+    const bottom = findLayer(waterLayers, 1, 2);
+    expect(bottom).not.toBeNull();
+    expect(bottom!.left).toBe(1);
+    expect(bottom!.right).toBe(3);
+    expect(bottom!.volume).toBe(30);
+
+    // Upper layers should be empty (no water layers at y=1)
+    expect(findLayer(waterLayers, 1, 1)).toBeNull();
+    expect(findLayer(waterLayers, 3, 1)).toBeNull();
+  });
+
   it('collectOverlappingLayers finds correct indices', () => {
     const { blocks } = emptyGrid(10, 5);
     carveRect(blocks, 1, 1, 8, 1);
