@@ -3,16 +3,19 @@
  *
  * A WaterLayer is a contiguous horizontal run of air tiles at a given y.
  * Volume is shared across the entire layer (no per-tile differences).
- * Max capacity = width * 4 quarter-blocks.
+ * Max capacity = width * VOLUME_PER_TILE.
  */
 
 import { BlockMaterial } from '../types';
+
+/** Volume units that fit in a single tile. */
+export const VOLUME_PER_TILE = 10;
 
 export interface WaterLayer {
   y: number;
   left: number;   // leftmost air x (inclusive)
   right: number;  // rightmost air x (inclusive)
-  volume: number; // total quarters (0 to width*4)
+  volume: number; // total units (0 to width * VOLUME_PER_TILE)
 }
 
 /** Width of a layer in tiles. */
@@ -39,7 +42,7 @@ export function getWaterAt(layers: WaterLayer[], x: number, y: number): number {
 export function isWaterFull(layers: WaterLayer[], x: number, y: number): boolean {
   const l = findLayer(layers, x, y);
   if (!l) return false;
-  return l.volume >= layerWidth(l) * 4;
+  return l.volume >= layerWidth(l) * VOLUME_PER_TILE;
 }
 
 /**
@@ -67,7 +70,7 @@ export function addWater(
     layers.push(layer);
   }
 
-  const cap = layerWidth(layer) * 4;
+  const cap = layerWidth(layer) * VOLUME_PER_TILE;
   const space = cap - layer.volume;
   const added = Math.min(quarters, space);
   layer.volume += added;
@@ -83,9 +86,43 @@ export function removeWater(layers: WaterLayer[], x: number, y: number, quarters
   return removed;
 }
 
+/**
+ * Find the contained air run at (x, y) — walled on both sides with a solid floor.
+ * Returns { y, left, right } if valid, or null if not contained.
+ * "Solid floor" means every tile below the run is either solid or full water.
+ */
+export function findContainedLayer(
+  x: number, y: number,
+  blocks: BlockMaterial[][], waterLayers: WaterLayer[],
+  w: number, h: number,
+): { y: number; left: number; right: number } | null {
+  if (x < 0 || x >= w || y < 0 || y >= h) return null;
+  if (blocks[y][x] !== BlockMaterial.Air) return null;
+
+  // Scan left/right for walls
+  let left = x;
+  while (left > 0 && blocks[y][left - 1] === BlockMaterial.Air) left--;
+  let right = x;
+  while (right < w - 1 && blocks[y][right + 1] === BlockMaterial.Air) right++;
+
+  // Must have solid walls, not just world edge
+  if (left === 0 || right === w - 1) return null;
+
+  // Every tile must have a solid floor or full water below
+  if (y + 1 < h) {
+    for (let tx = left; tx <= right; tx++) {
+      if (blocks[y + 1][tx] === BlockMaterial.Air && !isWaterFull(waterLayers, tx, y + 1)) {
+        return null;
+      }
+    }
+  }
+
+  return { y, left, right };
+}
+
 /** Fill fraction for rendering: volume / capacity (0..1). */
 export function layerFillFraction(layer: WaterLayer): number {
-  const cap = layerWidth(layer) * 4;
+  const cap = layerWidth(layer) * VOLUME_PER_TILE;
   if (cap <= 0) return 0;
   return layer.volume / cap;
 }

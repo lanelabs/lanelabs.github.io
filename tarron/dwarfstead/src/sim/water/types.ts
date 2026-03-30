@@ -1,57 +1,84 @@
 /**
- * Water system types — quarter-block resolution.
+ * Water system types — path-based model.
  *
- * Base unit: quarter-block (1/4 tile).
- * Free water moves 4 quarters/tick (1 block).
- * Pipe water moves 1 quarter/tick.
+ * Water only exists in pool layers. Exits generate instant paths;
+ * water teleports along those paths one tick later.
+ *
+ * Paths are either pure-air or pipe-then-air:
+ * - Air paths: pool → air → pool (terrain exits, never enter pipes)
+ * - Pipe paths: pool → pipe network → air continuation → pool
  */
 
-import type { Direction } from '../types';
 import type { WaterLayer } from './waterLayer';
 
-export enum SnakeState {
-  FALLING = 'falling',
-  SCANNING = 'scanning',
-  FLOWING = 'flowing',
-  FILLING = 'filling',
-  RISING = 'rising',
-  PIPE_FOLLOWING = 'pipe_following',
-  DONE = 'done',
+/** How water exits a pool. */
+export enum ExitType {
+  Terrain = 'terrain',
+  Pipe = 'pipe',
 }
 
-export interface WaterSnake {
-  id: number;
+/**
+ * Pipe segment marker. Presence in the grid means a pipe exists.
+ * Connectivity and flow direction are determined by neighbor adjacency.
+ */
+export type PipeCell = true;
+
+/** An up-pump placed on a pipe tile. Forces terminals above to be exit-only. */
+export interface PumpCell {
   x: number;
   y: number;
-  volume: number;          // quarter-blocks carried
-  state: SnakeState;
-  flowDir: Direction | null;
-  pipeProgress: number;    // 0-3 quarters within current pipe segment
+  direction: 'up'; // only up for now
 }
 
-/** A single pipe segment — entry/exit directions for rendering + flow. */
-export interface PipeCell {
-  entry: Direction;        // direction water enters FROM
-  exit: Direction;         // direction water exits TOWARD
-  isDrain: boolean;        // embedded drain entrance (grate visual)
+/** One node along a traced water path. */
+export interface PathNode {
+  x: number;
+  y: number;
+  inPipe: boolean;
 }
 
-/** Full water simulation state, owned by WaterSnakeSystem. */
+/** A single branch of a (potentially forked) water path. */
+export interface PathBranch {
+  nodes: PathNode[];
+  destination: { x: number; y: number } | null;
+  volumeFraction: number;  // fraction of total volume this branch receives (0..1)
+}
+
+/** A complete water path from a pool exit to one or more destinations. */
+export interface WaterPath {
+  exitX: number;
+  exitY: number;
+  exitType: ExitType;
+  rate: number;               // VOLUME_PER_TILE for terrain, 1 for pipe
+  sourceX: number;            // x coordinate inside the source pool
+  sourceLayerY: number;
+  branches: PathBranch[];
+  networkId?: number;         // pipe network ID (for throughput limiting)
+  /** Valid exit terminal positions for pipe paths (filters tracePipeNetwork results). */
+  validExitTerminals?: { x: number; y: number }[];
+}
+
+/** Round-robin state for a single pipe network. */
+export interface PipeRoundRobin {
+  index: number;
+  exitKeys: string[];  // terminal position fingerprint for reset detection
+}
+
+/** Full water simulation state, owned by WaterPathSystem. */
 export interface WaterSimState {
-  waterLayers: WaterLayer[];  // layer-based pool water
-  pipes: (PipeCell | null)[][]; // pipe overlay grid
-  pipeFill: number[][];    // 0-4 quarters of water in each pipe segment
-  snakes: WaterSnake[];
-  ghostTiles: Set<string>; // "x,y" keys for active snake positions
-  nextSnakeId: number;
+  waterLayers: WaterLayer[];
+  pipes: (PipeCell | null)[][];
+  pumps: PumpCell[];
+  pipeFill: number[][];
+  paths: WaterPath[];
+  pipeRoundRobin: Map<number, PipeRoundRobin>;
 }
 
 /** Serialized water simulation state for save/load. */
 export interface WaterSaveData {
   waterLayers: WaterLayer[];
   pipeFill: number[][];
-  snakes: WaterSnake[];
-  nextSnakeId: number;
+  pipes?: (PipeCell | null)[][];
 }
 
 /** Config to initialize the water system. */
@@ -60,5 +87,6 @@ export interface WaterConfig {
   height: number;
   blocks: import('../types').BlockMaterial[][];
   pipes: (PipeCell | null)[][];
+  pumps?: PumpCell[];
   initialWaterVolume?: WaterLayer[];
 }

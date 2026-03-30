@@ -7,7 +7,7 @@
 
 import Phaser from 'phaser';
 import { buildWaterTestTerrain } from '../../sim/terrain/waterTestTerrain';
-import { WaterSnakeSystem } from '../../sim/water/WaterSnakeSystem';
+import { WaterPathSystem } from '../../sim/water/WaterPathSystem';
 import type { WaterSaveData } from '../../sim/water/types';
 import { drawTerrain } from '../draw/terrain';
 import { drawWater } from '../draw/water';
@@ -16,17 +16,18 @@ import { drawEntities } from '../draw/entities';
 import { Game } from '../../sim/Game';
 import { serializeGame } from '../../sim/save';
 import type { SaveData } from '../../sim/save';
-import { Direction } from '../../sim/types';
+import { BlockMaterial, Direction } from '../../sim/types';
+import { findLayer } from '../../sim/water/waterLayer';
 import { PositionComponent } from '../../sim/components/Position';
 import { DwarfComponent } from '../../sim/components/Dwarf';
 import { handleNoclipMove } from './noclipMode';
 
 const TICK_MS = 200;
-const ZOOM_LEVELS = [8, 16, 24, 32];
+const ZOOM_LEVELS = [8, 16, 24, 32, 48, 64];
 const DEFAULT_ZOOM = 2;
 const ZOOM_KEY = 'dwarfstead_waterlab_zoom';
 const SAVE_KEY = 'dwarfstead_waterlab_save';
-const SAVE_VERSION = 2; // bump when terrain layout changes
+const SAVE_VERSION = 4; // pipes included in save data
 const SAVE_INTERVAL_MS = 1000;
 const MOVE_COOLDOWN = 60;
 
@@ -35,10 +36,11 @@ interface WaterLabSave {
   game: SaveData;
   water: WaterSaveData;
   tickCount: number;
+  mode?: 'water' | 'stone' | 'pipe' | 'pump';
 }
 
 export class WaterTestScene extends Phaser.Scene {
-  private waterSystem!: WaterSnakeSystem;
+  private waterSystem!: WaterPathSystem;
   private simGame!: Game;
   private terrainGraphics!: Phaser.GameObjects.Graphics;
   private entityGraphics!: Phaser.GameObjects.Graphics;
@@ -51,6 +53,8 @@ export class WaterTestScene extends Phaser.Scene {
   private camY = 0;
   private inputCooldown = 0;
   private lastSaveTime = 0;
+  private mode: 'water' | 'stone' | 'pipe' | 'pump' = 'water';
+  private modeText!: Phaser.GameObjects.Text;
 
   private keyW!: Phaser.Input.Keyboard.Key;
   private keyA!: Phaser.Input.Keyboard.Key;
@@ -59,6 +63,8 @@ export class WaterTestScene extends Phaser.Scene {
   private keyEsc!: Phaser.Input.Keyboard.Key;
   private keyPlus!: Phaser.Input.Keyboard.Key;
   private keyMinus!: Phaser.Input.Keyboard.Key;
+  private keySpace!: Phaser.Input.Keyboard.Key;
+  private keyTab!: Phaser.Input.Keyboard.Key;
 
   constructor() {
     super({ key: 'WaterTestScene' });
@@ -75,14 +81,15 @@ export class WaterTestScene extends Phaser.Scene {
     if (saved) {
       this.simGame = Game.fromSaveData(saved.game);
       this.tickCount = saved.tickCount;
-      this.waterSystem = new WaterSnakeSystem({
+      if (saved.mode) this.mode = saved.mode;
+      this.waterSystem = new WaterPathSystem({
         width: testWorld.terrain.width,
         height: testWorld.terrain.height,
         blocks: this.simGame.terrain.blocks,
         pipes: testWorld.pipes,
         initialWaterVolume: testWorld.initialWaterVolume,
       });
-      WaterSnakeSystem.restoreState(this.waterSystem, saved.water);
+      WaterPathSystem.restoreState(this.waterSystem, saved.water);
     } else {
       this.simGame = new Game({
         seed: 1, worldWidth: testWorld.terrain.width,
@@ -92,7 +99,7 @@ export class WaterTestScene extends Phaser.Scene {
       });
       this.simGame.init();
       this.tickCount = 0;
-      this.waterSystem = new WaterSnakeSystem({
+      this.waterSystem = new WaterPathSystem({
         width: testWorld.terrain.width,
         height: testWorld.terrain.height,
         blocks: testWorld.terrain.blocks,
@@ -112,14 +119,19 @@ export class WaterTestScene extends Phaser.Scene {
     this.entityGraphics = this.add.graphics().setDepth(5);
     this.waterGraphics = this.add.graphics().setDepth(3);
 
-
     const w = this.scale.width;
 
     const style = { fontSize: '13px', fontFamily: 'monospace', color: '#a0a0b8',
       backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 } };
     this.add.text(10, this.scale.height - 10,
-      'WASD:Move  +/-:Zoom  ESC:Back', style,
+      'WASD:Move  Space:Act  Tab:Mode  +/-:Zoom  ESC:Back', style,
     ).setOrigin(0, 1).setDepth(100);
+
+    this.modeText = this.add.text(w / 2, 42, '', {
+      fontSize: '13px', fontFamily: 'monospace', color: '#e8c170',
+      backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 4 },
+    }).setOrigin(0.5, 0).setDepth(100);
+    this.updateModeText();
 
     this.add.text(w / 2, 10,
       'WATER TEST LAB', {
@@ -167,6 +179,8 @@ export class WaterTestScene extends Phaser.Scene {
     this.keyEsc = kb.addKey(K.ESC);
     this.keyPlus = kb.addKey(K.PLUS);
     this.keyMinus = kb.addKey(K.MINUS);
+    this.keySpace = kb.addKey(K.SPACE);
+    this.keyTab = kb.addKey(K.TAB);
 
     this.updateCamera();
     this.redraw();
@@ -198,11 +212,19 @@ export class WaterTestScene extends Phaser.Scene {
         return;
       }
 
+      if (Phaser.Input.Keyboard.JustDown(this.keyTab)) {
+        const modes: ('water' | 'stone' | 'pipe' | 'pump')[] = ['water', 'stone', 'pipe', 'pump'];
+        this.mode = modes[(modes.indexOf(this.mode) + 1) % modes.length];
+        this.updateModeText();
+      }
+
       let moved = false;
       if (this.keyW.isDown) { handleNoclipMove(this.simGame, Direction.Up); moved = true; }
       if (this.keyS.isDown) { handleNoclipMove(this.simGame, Direction.Down); moved = true; }
       if (this.keyA.isDown) { handleNoclipMove(this.simGame, Direction.Left); moved = true; }
       if (this.keyD.isDown) { handleNoclipMove(this.simGame, Direction.Right); moved = true; }
+
+      if (Phaser.Input.Keyboard.JustDown(this.keySpace)) { this.executeAction(); moved = true; }
 
       if (this.keyPlus.isDown) {
         this.setZoom(this.zoomIndex + 1);
@@ -257,6 +279,7 @@ export class WaterTestScene extends Phaser.Scene {
         game: serializeGame(this.simGame),
         water: this.waterSystem.serializeWater(),
         tickCount: this.tickCount,
+        mode: this.mode,
       };
       localStorage.setItem(SAVE_KEY, JSON.stringify(data));
     } catch { /* localStorage full or unavailable — silently skip */ }
@@ -273,6 +296,61 @@ export class WaterTestScene extends Phaser.Scene {
       }
       return data;
     } catch { return null; }
+  }
+
+  private executeAction(): void {
+    const dwarf = this.simGame.getMainDwarf();
+    if (!dwarf) return;
+    const pos = dwarf.get<PositionComponent>('position')!;
+    if (this.mode === 'water') {
+      this.waterSystem.fillAt(pos.x, pos.y);
+    } else if (this.mode === 'stone') {
+      this.toggleStone(pos.x, pos.y);
+    } else if (this.mode === 'pipe') {
+      this.togglePipe(pos.x, pos.y);
+    } else {
+      this.togglePump(pos.x, pos.y);
+    }
+  }
+
+  private toggleStone(x: number, y: number): void {
+    const blocks = this.simGame.terrain.blocks;
+    if (y < 0 || y >= blocks.length || x < 0 || x >= blocks[0].length) return;
+    if (blocks[y][x] === BlockMaterial.Air) {
+      // Don't allow placing stone on water tiles
+      const layers = this.waterSystem.state.waterLayers;
+      if (findLayer(layers, x, y)) return;
+      blocks[y][x] = BlockMaterial.Stone;
+    } else {
+      blocks[y][x] = BlockMaterial.Air;
+      this.waterSystem.onBlockRemoved(x, y);
+    }
+  }
+
+  private togglePipe(x: number, y: number): void {
+    const pipes = this.waterSystem.state.pipes;
+    if (y < 0 || y >= pipes.length || x < 0 || x >= pipes[0].length) return;
+    pipes[y][x] = pipes[y][x] ? null : true;
+  }
+
+  private togglePump(x: number, y: number): void {
+    const pipes = this.waterSystem.state.pipes;
+    if (y < 0 || y >= pipes.length || x < 0 || x >= pipes[0].length) return;
+    if (!pipes[y][x]) return; // can only place pump on existing pipe
+    const pumps = this.waterSystem.state.pumps;
+    const idx = pumps.findIndex(p => p.x === x && p.y === y);
+    if (idx >= 0) {
+      pumps.splice(idx, 1);
+    } else {
+      pumps.push({ x, y, direction: 'up' });
+    }
+  }
+
+  private updateModeText(): void {
+    const labels = ['Water', 'Stone', 'Pipe', 'Pump'];
+    const idx = ['water', 'stone', 'pipe', 'pump'].indexOf(this.mode);
+    const parts = labels.map((l, i) => i === idx ? `[${l}]` : l);
+    this.modeText.setText(parts.join('  '));
   }
 
   private redraw(): void {

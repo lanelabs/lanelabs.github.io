@@ -1,100 +1,94 @@
 /**
- * Pipe terminal visual markers — flared entrances and nozzle exits.
+ * Pipe terminal visual markers + pump tile rendering.
  *
- * Detects pipe segments whose entry/exit sides have no neighboring pipe
- * and draws directional copper markers (funnels for entrances, nozzles for exits).
+ * Terminals are pipe tiles with fewer than 2 pipe neighbors.
+ * All non-neighbor sides are capped by drawPipeSegment.
+ * Flow-able air sides (down/left/right on air terminals) get a circle marker.
+ *
+ * Pumps are solid, wider blocks with a red upward caret.
  */
 
 import Phaser from 'phaser';
-import type { WaterSimState, PipeCell } from '../../sim/water/types';
-import { Direction } from '../../sim/types';
+import type { WaterSimState } from '../../sim/water/types';
+import { BlockMaterial, Direction } from '../../sim/types';
+import { pipeNeighborDirs } from '../../sim/water/pipeNetwork';
 
 const PIPE_COLOR = 0xb87333;
-
-const TERM_DX: Record<Direction, number> = {
-  [Direction.Left]: -1, [Direction.Right]: 1,
-  [Direction.Up]: 0, [Direction.Down]: 0,
-};
-const TERM_DY: Record<Direction, number> = {
-  [Direction.Left]: 0, [Direction.Right]: 0,
-  [Direction.Up]: -1, [Direction.Down]: 1,
-};
+const PUMP_COLOR = 0xb87333;
+const PUMP_ARROW_COLOR = 0xff3333;
 
 export function drawPipeTerminals(
   g: Phaser.GameObjects.Graphics, state: WaterSimState,
-  pipe: PipeCell, wx: number, wy: number,
+  blocks: BlockMaterial[][] | undefined,
+  wx: number, wy: number,
   px: number, py: number, ts: number,
   cx: number, cy: number, pipeW: number, wallT: number,
 ): void {
+  // Draw pump if present at this tile
+  if (state.pumps.some(p => p.x === wx && p.y === wy)) {
+    drawPumpTile(g, px, py, ts, cx, cy, pipeW);
+    return; // pump replaces normal terminal visuals
+  }
+
   const ph = state.pipes.length;
   const pw = ph > 0 ? state.pipes[0].length : 0;
+  const neighbors = pipeNeighborDirs(state.pipes, wx, wy, pw, ph);
+  if (neighbors.length >= 2) return;
+
+  if (!blocks || blocks[wy]?.[wx] !== BlockMaterial.Air) return;
+
   const half = pipeW / 2;
-  const flare = Math.max(2, Math.round(pipeW * 0.3));
 
-  // Check entry side — is there a neighboring pipe in the entry direction?
-  const enx = wx + TERM_DX[pipe.entry];
-  const eny = wy + TERM_DY[pipe.entry];
-  const entryNeighbor = (enx >= 0 && enx < pw && eny >= 0 && eny < ph)
-    ? state.pipes[eny][enx] : null;
-
-  if (!entryNeighbor && !pipe.isDrain) {
-    drawTerminalFlare(g, pipe.entry, px, py, ts, cx, cy, half, wallT, flare);
+  // Determine which sides get indicators based on pipe direction.
+  // Extends up → bottom + both sides. Down → both sides.
+  // Left → bottom + right. Right → bottom + left.
+  const indicatorDirs: Direction[] = [];
+  const pipeDir = neighbors[0]; // terminal has 0 or 1 pipe neighbor
+  if (pipeDir === Direction.Up) {
+    indicatorDirs.push(Direction.Down, Direction.Left, Direction.Right);
+  } else if (pipeDir === Direction.Down) {
+    indicatorDirs.push(Direction.Left, Direction.Right);
+  } else if (pipeDir === Direction.Left) {
+    indicatorDirs.push(Direction.Down, Direction.Right);
+  } else if (pipeDir === Direction.Right) {
+    indicatorDirs.push(Direction.Down, Direction.Left);
+  } else {
+    // Isolated pipe (0 neighbors) — show all three
+    indicatorDirs.push(Direction.Down, Direction.Left, Direction.Right);
   }
 
-  // Check exit side
-  const exnx = wx + TERM_DX[pipe.exit];
-  const exny = wy + TERM_DY[pipe.exit];
-  const exitNeighbor = (exnx >= 0 && exnx < pw && exny >= 0 && exny < ph)
-    ? state.pipes[exny][exnx] : null;
-
-  if (!exitNeighbor) {
-    drawTerminalNozzle(g, pipe.exit, px, py, ts, cx, cy, half, wallT, flare);
-  }
-}
-
-function drawTerminalFlare(
-  g: Phaser.GameObjects.Graphics, dir: Direction,
-  px: number, py: number, ts: number,
-  cx: number, cy: number, half: number, wallT: number, flare: number,
-): void {
-  g.fillStyle(PIPE_COLOR, 1);
-  const t = Math.max(2, wallT * 2);
-  switch (dir) {
-    case Direction.Left:
-      g.fillRect(px, cy - half - flare, t, half * 2 + flare * 2);
-      break;
-    case Direction.Right:
-      g.fillRect(px + ts - t, cy - half - flare, t, half * 2 + flare * 2);
-      break;
-    case Direction.Up:
-      g.fillRect(cx - half - flare, py, half * 2 + flare * 2, t);
-      break;
-    case Direction.Down:
-      g.fillRect(cx - half - flare, py + ts - t, half * 2 + flare * 2, t);
-      break;
+  for (const dir of indicatorDirs) {
+    const r = Math.max(1, Math.round(half * 0.3));
+    g.lineStyle(Math.max(1, wallT), PIPE_COLOR, 0.6);
+    switch (dir) {
+      case Direction.Left:  g.strokeCircle(cx - half - r, cy, r); break;
+      case Direction.Right: g.strokeCircle(cx + half + r, cy, r); break;
+      case Direction.Down:  g.strokeCircle(cx, cy + half + r, r); break;
+    }
   }
 }
 
-function drawTerminalNozzle(
-  g: Phaser.GameObjects.Graphics, dir: Direction,
+/** Draw a pump tile: solid wider block with red upward caret. */
+function drawPumpTile(
+  g: Phaser.GameObjects.Graphics,
   px: number, py: number, ts: number,
-  cx: number, cy: number, half: number, wallT: number, flare: number,
+  cx: number, cy: number, _pipeW: number,
 ): void {
-  g.fillStyle(PIPE_COLOR, 1);
-  const nozzle = Math.max(1, Math.round(flare * 0.6));
-  const t = Math.max(2, wallT * 2);
-  switch (dir) {
-    case Direction.Left:
-      g.fillRect(px, cy - half - nozzle, t, half * 2 + nozzle * 2);
-      break;
-    case Direction.Right:
-      g.fillRect(px + ts - t, cy - half - nozzle, t, half * 2 + nozzle * 2);
-      break;
-    case Direction.Up:
-      g.fillRect(cx - half - nozzle, py, half * 2 + nozzle * 2, t);
-      break;
-    case Direction.Down:
-      g.fillRect(cx - half - nozzle, py + ts - t, half * 2 + nozzle * 2, t);
-      break;
-  }
+  // Wider solid block (60% of tile vs 40% for normal pipe)
+  const pumpW = Math.max(6, Math.round(ts * 0.6));
+  const half = pumpW / 2;
+
+  // Solid pump body (opaque, no water visible through)
+  g.fillStyle(PUMP_COLOR, 1);
+  g.fillRect(cx - half, cy - half, pumpW, pumpW);
+
+  // Red upward caret on top
+  const caretSize = Math.max(3, Math.round(pumpW * 0.4));
+  const caretY = cy - half + Math.max(2, Math.round(pumpW * 0.15));
+  g.lineStyle(Math.max(1, Math.round(ts * 0.08)), PUMP_ARROW_COLOR, 1);
+  g.beginPath();
+  g.moveTo(cx - caretSize / 2, caretY + caretSize / 2);
+  g.lineTo(cx, caretY);
+  g.lineTo(cx + caretSize / 2, caretY + caretSize / 2);
+  g.strokePath();
 }

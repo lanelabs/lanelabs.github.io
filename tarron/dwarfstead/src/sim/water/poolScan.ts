@@ -9,7 +9,7 @@
 
 import { BlockMaterial, Direction } from '../types';
 import type { WaterLayer } from './waterLayer';
-import { findLayer, addWater, isWaterFull } from './waterLayer';
+import { findLayer, addWater, isWaterFull, VOLUME_PER_TILE } from './waterLayer';
 
 /** A single horizontal layer in a pool. */
 export interface PoolLayer {
@@ -67,7 +67,7 @@ export function findPool(
     while (right < w - 1 && !isSolid(blocks, right + 1, y, w, h)) right++;
 
     const width = right - left + 1;
-    layers.push({ y, left, right, capacity: width * 4 });
+    layers.push({ y, left, right, capacity: width * VOLUME_PER_TILE });
   }
 
   if (layers.length === 0) return null;

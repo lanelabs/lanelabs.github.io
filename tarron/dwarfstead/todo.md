@@ -2,24 +2,18 @@
 
 ## Water system
 
-- [ ] Water breach or pipe draining into same pool as coming from?
-- [ ] Wate3r snakes converging with other snakes
-- [ ] water should not enter pipe if no valid entrace (to able-to-recive side slot or below slot)
-- [ ] water draining ito pipe should take only 1 quantity to fill entire pipe tile, not 4 like regular tile
-- [ ] pipes should not have gaps in the water fill color between connecting pipes
-- [ ] pipes not disgorging all their water, they are hanging on to it
-- [ ] have some pipes that drain to the side so we can verify this.
-- [ ] have reservoir with pipe and breach
-- [ ] have reservoir with multiple pipes
-- [ ] have reservoir with multiple breachs at differnt size layers
-- [ ] splitting snakes should have each head only advance when pushed to from above, meaning we don't get gaps in the snake from the alternating. That means the two heads will move at half speed, but the column of water stays all connected
+Have a visual indication on the path showing the direcion of water flow and quantity flowing (like 10 >) That will show how splits are handled too, with both directional numbers shown
 
-- water not splitting correctly
-- water should not be able to exit pipe flowing up. That breaks our free water rule. It should not be able to exit a pipe upwards. So our water world needs to have the upward pipe go around and up to the top of the pool and empty either to the side or downwards
+Round exposed corners (in air) of our water path?. Make it look like flowing and not chunky. Visually change based on path direction so it flows in narrow stream visually? I'm thinking of something like a smart draw for the links in the path that will pick the right visual depending on where it "flows" next or if it splits or if it goes into a pipe, so it looks like it's spraying into a pipe or getting sucked in, etc. Additionally, this could only render the part of a pipe tile in an intersection of pipes that actually contains the path (not going partway down the blocked T)
 
-- [ ] Water going in pipe is not pooling up once the pipe output is full. Also, cell right at exit of pipe still looks not full like regular standing water.  A pipe should be able to completely fill the ssqwuare after it's output block
 
-- first output sqaure after a pipe exit flashes empty and then fills all at once. Should fill incrementally just like any layer, with ghost behidn it, etc, up to the pipe entrace, and then just sit as solid fill
+Our side fill out when removing stone at the bottom of a pool isn't working. Let's investigate and creat ea test to identify problem. This is with a completely two-high pool (1 by 2). I remove the block next to the botoom. It doesn't recalculate the whole pool and completely fill the two bottom layers with the top now empty. Instead it's doing some kind of visual indication, but the layer doesn't get any more total than before.
+
+pump arrow should be centered vertically in the pump chunk
+
+Should not be able to add pump on an intersection or side to side junction, Should just be on up and down, and it should prevent that pipe from pathing to side adjacent paths on that tile.
+
+test pump behavior
 
 # Map grid
 

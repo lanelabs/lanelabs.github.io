@@ -14,10 +14,11 @@
  * 7. Pipe-Up              (~x=115)
  */
 
-import { BlockMaterial, Direction } from '../types';
+import { BlockMaterial } from '../types';
 import type { TerrainGrid } from './TerrainGenerator';
 import type { PipeCell } from '../water/types';
 import type { WaterLayer } from '../water/waterLayer';
+import { VOLUME_PER_TILE } from '../water/waterLayer';
 
 const W = 140;
 const H = 50;
@@ -39,21 +40,17 @@ function stoneRect(b: BlockMaterial[][], x: number, y: number, w: number, h: num
   for (let dy = 0; dy < h; dy++) for (let dx = 0; dx < w; dx++) stone(b, x + dx, y + dy);
 }
 
-function setPipe(
-  pipes: (PipeCell | null)[][],
-  x: number, y: number,
-  entry: Direction, exit: Direction,
-  isDrain = false,
-): void {
+/** Place a pipe at (x, y). Connectivity is by adjacency. */
+function setPipe(pipes: (PipeCell | null)[][], x: number, y: number): void {
   if (x >= 0 && x < W && y >= 0 && y < H) {
-    pipes[y][x] = { entry, exit, isDrain };
+    pipes[y][x] = true;
   }
 }
 
 /**
  * Build a stone-walled reservoir in the sky zone.
  * Returns WaterLayers for every interior row (all filled to capacity).
- * Places a drain at (drainX, topY + innerH + 1) connecting down.
+ * Places a drain pipe at (drainX, floorY) connecting down.
  */
 function buildReservoir(
   b: BlockMaterial[][], pipes: (PipeCell | null)[][],
@@ -61,42 +58,33 @@ function buildReservoir(
   innerW: number, innerH: number,
   drainX: number,
 ): WaterLayer[] {
-  // Stone walls: ceiling row, floor row, side columns
   const outerLeft = leftX - 1;
   const outerRight = leftX + innerW;
   const ceilingY = topY - 1;
   const floorY = topY + innerH;
 
-  // Ceiling
   stoneRect(b, outerLeft, ceilingY, innerW + 2, 1);
-  // Floor
   stoneRect(b, outerLeft, floorY, innerW + 2, 1);
-  // Left wall
   for (let y = topY; y < floorY; y++) stone(b, outerLeft, y);
-  // Right wall
   for (let y = topY; y < floorY; y++) stone(b, outerRight, y);
-  // Interior air
   carveRect(b, leftX, topY, innerW, innerH);
 
-  // Drain tile in floor below reservoir
-  setPipe(pipes, drainX, floorY, Direction.Up, Direction.Down, true);
+  // Drain pipe in floor below reservoir
+  setPipe(pipes, drainX, floorY);
 
-  // Return water layers for every interior row, each filled to capacity
   const layers: WaterLayer[] = [];
   for (let dy = 0; dy < innerH; dy++) {
-    layers.push({ y: topY + dy, left: leftX, right: leftX + innerW - 1, volume: innerW * 4 });
+    layers.push({ y: topY + dy, left: leftX, right: leftX + innerW - 1, volume: innerW * VOLUME_PER_TILE });
   }
   return layers;
 }
 
-/**
- * Build vertical pipe segment downward from (x, startY) for length tiles.
- */
+/** Build vertical pipe run downward from (x, startY) for length tiles. */
 function pipeDown(
   pipes: (PipeCell | null)[][], x: number, startY: number, length: number,
 ): void {
   for (let i = 0; i < length; i++) {
-    setPipe(pipes, x, startY + i, Direction.Up, Direction.Down);
+    setPipe(pipes, x, startY + i);
   }
 }
 
@@ -108,17 +96,12 @@ function buildChamber1(
   const sx = 6;
   const py = SURFACE + 2;
 
-  // Reservoir at y=1-2 (10 wide = 80 quarters)
   const resLayers = buildReservoir(b, pipes, 1, 1, 10, 2, sx);
   layers.push(...resLayers);
 
-  // Pipe from reservoir floor down to surface
   pipeDown(pipes, sx, SURFACE - 1, 1);
 
-  // Shaft for water to fall from pipe exit
   for (let y = SURFACE; y < py; y++) air(b, sx, y);
-
-  // 5-wide, 3-deep pool
   carveRect(b, 4, py, 5, 3);
 }
 
@@ -130,23 +113,16 @@ function buildChamber2(
   const ox = 18;
   const uy = SURFACE + 2;
 
-  // Reservoir (10 wide = 80 quarters)
   const resLayers = buildReservoir(b, pipes, 14, 1, 10, 2, ox + 1);
   layers.push(...resLayers);
   pipeDown(pipes, ox + 1, SURFACE - 1, 1);
 
-  // Shaft
   for (let y = SURFACE; y < uy; y++) air(b, ox + 1, y);
-
-  // Upper pool: 3 wide, 3 deep
   carveRect(b, ox, uy, 3, 3);
 
-  // Right wall gap → overflow
   air(b, ox + 3, uy + 2);
   carveRect(b, ox + 3, uy + 2, 3, 1);
   for (let y = uy + 3; y < uy + 6; y++) air(b, ox + 5, y);
-
-  // Lower pool: 4 wide, 3 deep
   carveRect(b, ox + 3, uy + 6, 4, 3);
 }
 
@@ -158,24 +134,16 @@ function buildChamber3(
   const cx = 38;
   const fy = SURFACE + 2;
 
-  // Reservoir (10 wide = 80 quarters)
   const resLayers = buildReservoir(b, pipes, 33, 1, 10, 2, cx);
   layers.push(...resLayers);
   pipeDown(pipes, cx, SURFACE - 1, 1);
 
-  // Shaft
   for (let y = SURFACE; y < fy; y++) air(b, cx, y);
   air(b, cx, fy);
-
-  // Left pool
   carveRect(b, cx - 4, fy + 1, 3, 3);
   air(b, cx - 1, fy);
   air(b, cx + 1, fy);
-
-  // Right pool
   carveRect(b, cx + 2, fy + 1, 3, 3);
-
-  // Floor-level scanning air
   carveRect(b, cx - 1, fy, 3, 1);
   air(b, cx - 1, fy + 1);
   air(b, cx + 1, fy + 1);
@@ -189,29 +157,21 @@ function buildChamber4(
   const px = 50;
   const py = SURFACE + 3;
 
-  // Reservoir (12 wide = 96 quarters)
   const resLayers = buildReservoir(b, pipes, 45, 1, 12, 2, px);
   layers.push(...resLayers);
   pipeDown(pipes, px, SURFACE - 1, 1);
 
-  // Shaft
   for (let y = SURFACE; y < py; y++) air(b, px, y);
 
-  // Horizontal pipe: 12 tiles
+  // Horizontal pipe run: 12 tiles
   const pipeLen = 12;
   for (let dx = 0; dx < pipeLen; dx++) {
-    setPipe(pipes, px + dx, py,
-      dx === 0 ? Direction.Up : Direction.Left,
-      dx === pipeLen - 1 ? Direction.Down : Direction.Right,
-    );
+    setPipe(pipes, px + dx, py);
   }
-  setPipe(pipes, px, py, Direction.Up, Direction.Right);
 
   // Pipe exit drop
   const exitX = px + pipeLen - 1;
   for (let y = py + 1; y < py + 5; y++) air(b, exitX, y);
-
-  // Destination pool
   carveRect(b, exitX - 1, py + 5, 4, 3);
 }
 
@@ -223,37 +183,27 @@ function buildChamber5(
   const dx = 72;
   const dy = SURFACE + 2;
 
-  // Reservoir (14 wide = 112 quarters)
   const resLayers = buildReservoir(b, pipes, 68, 1, 14, 2, dx + 3);
   layers.push(...resLayers);
   pipeDown(pipes, dx + 3, SURFACE - 1, 1);
 
-  // Shaft
   for (let y = SURFACE; y < dy; y++) air(b, dx + 3, y);
-
-  // Upper pool: 7 wide, 3 deep
   carveRect(b, dx, dy, 7, 3);
 
-  // Drain tiles in floor
+  // Pipe tiles in floor row
   const floorY = dy + 3;
   for (let x = dx; x < dx + 7; x++) {
-    setPipe(pipes, x, floorY,
-      Direction.Up,
-      x < dx + 6 ? Direction.Right : Direction.Down,
-      true,
-    );
+    setPipe(pipes, x, floorY);
   }
 
-  // Downward pipe from last drain tile
+  // Downward pipe from last tile
   for (let y = floorY + 1; y < floorY + 4; y++) {
-    setPipe(pipes, dx + 6, y, Direction.Up, Direction.Down);
+    setPipe(pipes, dx + 6, y);
   }
 
   // Pipe exit
   const exitY = floorY + 4;
   air(b, dx + 6, exitY);
-
-  // Lower pool
   carveRect(b, dx + 4, exitY + 1, 5, 3);
 }
 
@@ -265,32 +215,26 @@ function buildChamber6(
   const bx = 95;
   const by = SURFACE + 2;
 
-  // Reservoir (14 wide = 112 quarters)
   const resLayers = buildReservoir(b, pipes, 91, 1, 14, 2, bx + 3);
   layers.push(...resLayers);
   pipeDown(pipes, bx + 3, SURFACE - 1, 1);
 
-  // Shaft
   for (let y = SURFACE; y < by; y++) air(b, bx + 3, y);
-
-  // Upper pool area: 5 wide, 4 deep
   carveRect(b, bx + 1, by, 5, 4);
 
   // Pipe entrance at center of pool floor
   const pipeY = by + 4;
   const pipeX = bx + 3;
-  setPipe(pipes, pipeX, pipeY, Direction.Up, Direction.Down, true);
+  setPipe(pipes, pipeX, pipeY);
 
   // Downward pipe: 5 tiles
   for (let y = pipeY + 1; y < pipeY + 6; y++) {
-    setPipe(pipes, pipeX, y, Direction.Up, Direction.Down);
+    setPipe(pipes, pipeX, y);
   }
 
   // Pipe exit
   const exitY = pipeY + 6;
   air(b, pipeX, exitY);
-
-  // Lower pool
   carveRect(b, bx + 1, exitY + 1, 5, 3);
 }
 
@@ -300,54 +244,48 @@ function buildChamber7(
   layers: WaterLayer[],
 ): void {
   const bx = 115;
-  const topPool = SURFACE + 2;  // left pool top y
-  const rightPoolY = SURFACE;   // right pool top y (higher elevation)
+  const topPool = SURFACE + 2;
+  const rightPoolY = SURFACE;
 
-  // Reservoir (14 wide = 112 quarters — needs to fill entire pipe system)
   const resLayers = buildReservoir(b, pipes, 111, 1, 14, 2, bx + 3);
   layers.push(...resLayers);
   pipeDown(pipes, bx + 3, SURFACE - 1, 1);
 
-  // Shaft from reservoir to left pool
   for (let y = SURFACE; y < topPool; y++) air(b, bx + 3, y);
-
-  // Left pool: 5 wide, 4 deep (deeper)
   carveRect(b, bx + 1, topPool, 5, 4);
 
-  // Drain at left pool floor center
+  // Pipe at left pool floor center
   const drainY = topPool + 4;
   const drainX = bx + 3;
-  setPipe(pipes, drainX, drainY, Direction.Up, Direction.Down, true);
+  setPipe(pipes, drainX, drainY);
 
   // Pipe down from drain (3 tiles)
   const pipeBottomY = drainY + 3;
   for (let y = drainY + 1; y <= pipeBottomY; y++) {
-    setPipe(pipes, drainX, y, Direction.Up, Direction.Down);
+    setPipe(pipes, drainX, y);
   }
 
   // Corner: down → right
-  setPipe(pipes, drainX, pipeBottomY + 1, Direction.Up, Direction.Right);
+  setPipe(pipes, drainX, pipeBottomY + 1);
 
   // Horizontal pipe right (5 tiles)
   const rightPipeX = drainX + 5;
   for (let x = drainX + 1; x < rightPipeX; x++) {
-    setPipe(pipes, x, pipeBottomY + 1, Direction.Left, Direction.Right);
+    setPipe(pipes, x, pipeBottomY + 1);
   }
 
   // Corner: right → up
-  setPipe(pipes, rightPipeX, pipeBottomY + 1, Direction.Left, Direction.Up);
+  setPipe(pipes, rightPipeX, pipeBottomY + 1);
 
   // Pipe up to right pool level
-  const rightPoolBase = rightPoolY + 3; // right pool bottom
+  const rightPoolBase = rightPoolY + 3;
   for (let y = pipeBottomY; y >= rightPoolBase; y--) {
-    setPipe(pipes, rightPipeX, y, Direction.Down, Direction.Up);
+    setPipe(pipes, rightPipeX, y);
   }
 
   // Pipe exit above right pool
   const exitY = rightPoolBase - 1;
   air(b, rightPipeX, exitY);
-
-  // Right pool: 4 wide, 3 deep (shallower, higher elevation)
   carveRect(b, rightPipeX - 1, rightPoolY, 4, 3);
 }
 
@@ -380,7 +318,6 @@ export function buildWaterTestTerrain(): WaterTestWorld {
   buildChamber6(blocks, pipes, initialWaterVolume);
   buildChamber7(blocks, pipes, initialWaterVolume);
 
-  // Bedrock walls on world edges
   for (let y = 0; y < H; y++) {
     blocks[y][0] = BlockMaterial.Stone;
     blocks[y][W - 1] = BlockMaterial.Stone;

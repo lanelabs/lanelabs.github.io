@@ -7,6 +7,7 @@
 
 import Phaser from 'phaser';
 import type { WaterSimState } from '../../sim/water/types';
+import { VOLUME_PER_TILE } from '../../sim/water/waterLayer';
 
 const LABEL_STYLE: Phaser.Types.GameObjects.Text.TextStyle = {
   fontSize: '10px', fontFamily: 'monospace', color: '#00ff00',
@@ -33,7 +34,7 @@ export function drawWaterDebug(
     if (vy < -1 || vy > tilesY) continue;
 
     const width = layer.right - layer.left + 1;
-    const cap = width * 4;
+    const cap = width * VOLUME_PER_TILE;
     const centerX = Math.floor((layer.left + layer.right) / 2);
     const cvx = centerX - camX;
     if (cvx < 0 || cvx >= tilesX) continue;
