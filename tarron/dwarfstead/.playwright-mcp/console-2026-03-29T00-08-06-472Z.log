@@ -1,2 +1,0 @@
-[     321ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5178/favicon.ico:0
-[   26567ms] [WARNING] [TerrainGen] 5 min-width violations after 5 passes @ http://localhost:5178/tarron/dwarfstead/src/sim/terrain/TerrainGenerator.ts:89
