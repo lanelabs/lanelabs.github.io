@@ -11,6 +11,7 @@ import type { PipeCell, PathNode, PumpCell } from './types';
 import type { WaterLayer } from './waterLayer';
 
 const ALL_DIRS: Direction[] = [Direction.Up, Direction.Down, Direction.Left, Direction.Right];
+const HORIZONTAL: Direction[] = [Direction.Left, Direction.Right];
 
 /** Whether a pipe exists at (x, y). */
 export function isPipe(
@@ -20,15 +21,31 @@ export function isPipe(
   return pipes[y][x] !== null;
 }
 
-/** Return directions toward adjacent pipe tiles. */
+/** Whether a pump exists at (x, y). */
+export function hasPumpAt(pumps: PumpCell[], x: number, y: number): boolean {
+  return pumps.some(p => p.x === x && p.y === y);
+}
+
+/**
+ * Return directions toward adjacent pipe tiles.
+ * When pumps are provided, horizontal connections are blocked if either
+ * the current tile or the neighbor tile has a pump.
+ */
 export function pipeNeighborDirs(
   pipes: (PipeCell | null)[][], x: number, y: number, w: number, h: number,
+  pumps?: PumpCell[],
 ): Direction[] {
   const result: Direction[] = [];
+  const selfHasPump = pumps && hasPumpAt(pumps, x, y);
   for (const dir of ALL_DIRS) {
     const nx = x + DirectionVec[dir].x;
     const ny = y + DirectionVec[dir].y;
-    if (isPipe(pipes, nx, ny, w, h)) result.push(dir);
+    if (!isPipe(pipes, nx, ny, w, h)) continue;
+    // Pump tiles block horizontal connections on both sides
+    if (pumps && HORIZONTAL.includes(dir)) {
+      if (selfHasPump || hasPumpAt(pumps, nx, ny)) continue;
+    }
+    result.push(dir);
   }
   return result;
 }
@@ -49,6 +66,7 @@ export function oppositeDir(dir: Direction): Direction {
  */
 export function buildNetworkGrid(
   pipes: (PipeCell | null)[][], w: number, h: number,
+  pumps?: PumpCell[],
 ): number[][] {
   const grid: number[][] = [];
   for (let y = 0; y < h; y++) grid.push(new Array(w).fill(0));
@@ -62,11 +80,16 @@ export function buildNetworkGrid(
       grid[y][x] = id;
       while (queue.length > 0) {
         const [cx, cy] = queue.shift()!;
+        const selfHasPump = pumps && hasPumpAt(pumps, cx, cy);
         for (const dir of ALL_DIRS) {
           const nx = cx + DirectionVec[dir].x;
           const ny = cy + DirectionVec[dir].y;
           if (nx < 0 || nx >= w || ny < 0 || ny >= h) continue;
           if (!pipes[ny][nx] || grid[ny][nx] !== 0) continue;
+          // Pump tiles block horizontal connections
+          if (pumps && HORIZONTAL.includes(dir)) {
+            if (selfHasPump || hasPumpAt(pumps, nx, ny)) continue;
+          }
           grid[ny][nx] = id;
           queue.push([nx, ny]);
         }
@@ -98,6 +121,7 @@ export function findTerminals(
   blocks: BlockMaterial[][],
   w: number, h: number,
   networkGrid: number[][],
+  pumps?: PumpCell[],
 ): PipeTerminal[] {
   const terminals: PipeTerminal[] = [];
 
@@ -105,7 +129,7 @@ export function findTerminals(
     for (let x = 0; x < w; x++) {
       if (!pipes[y][x]) continue;
 
-      const neighbors = pipeNeighborDirs(pipes, x, y, w, h);
+      const neighbors = pipeNeighborDirs(pipes, x, y, w, h, pumps);
       if (neighbors.length >= 2) continue;
 
       // Terminal must be in air to interact with the world
@@ -174,11 +198,16 @@ export function tagPumpExitOnly(
       if (term && term.networkId === pumpNetId) {
         term.exitOnly = true;
       }
+      const selfHasPump = hasPumpAt(pumps, cx, cy);
       for (const dir of ALL_DIRS) {
         const nx = cx + DirectionVec[dir].x;
         const ny = cy + DirectionVec[dir].y;
         // Don't walk back through/past the pump tile
         if (nx === pump.x && ny === pump.y) continue;
+        // Pump tiles block horizontal connections
+        if (HORIZONTAL.includes(dir)) {
+          if (selfHasPump || hasPumpAt(pumps, nx, ny)) continue;
+        }
         const key = `${nx},${ny}`;
         if (visited.has(key)) continue;
         if (!isPipe(pipes, nx, ny, w, h)) continue;
@@ -213,6 +242,7 @@ export function tracePipeNetwork(
   blocks: BlockMaterial[][],
   w: number, h: number,
   _waterLayers?: WaterLayer[],
+  pumps?: PumpCell[],
 ): PipeTraceResult[] {
   const results: PipeTraceResult[] = [];
   const visited = new Set<string>();
@@ -230,19 +260,25 @@ export function tracePipeNetwork(
 
     // Find pipe neighbors excluding came-from direction
     const forward: Direction[] = [];
+    const selfHasPump = pumps && hasPumpAt(pumps, x, y);
     for (const dir of ALL_DIRS) {
       if (dir === fromDir) continue;
       const nx = x + DirectionVec[dir].x;
       const ny = y + DirectionVec[dir].y;
-      if (isPipe(pipes, nx, ny, w, h)) forward.push(dir);
+      if (!isPipe(pipes, nx, ny, w, h)) continue;
+      // Pump tiles block horizontal connections
+      if (pumps && HORIZONTAL.includes(dir)) {
+        if (selfHasPump || hasPumpAt(pumps, nx, ny)) continue;
+      }
+      forward.push(dir);
     }
 
     if (forward.length === 0) {
       // Terminal must be in air to create exits
       if (blocks[y][x] !== BlockMaterial.Air) return;
 
-      // Check if terminal has any valid exit direction (sides or below, not up).
-      // Exit point is always the terminal tile itself — air trace continues from here.
+      // Check if terminal has any valid exit direction (sides or below, not up),
+      // OR if the terminal tile itself is a contained basin (e.g. 1-wide cell).
       let hasExit = false;
       for (const dir of ALL_DIRS) {
         if (dir === fromDir) continue;
@@ -254,6 +290,13 @@ export function tracePipeNetwork(
         if (isPipe(pipes, nx, ny, w, h)) continue;
         hasExit = true;
         break;
+      }
+      // Terminal tile itself is a contained basin (walled on all sides with solid floor)
+      if (!hasExit) {
+        const floorSolid = y + 1 >= h || blocks[y + 1][x] !== BlockMaterial.Air;
+        const leftSolid = x - 1 < 0 || blocks[y][x - 1] !== BlockMaterial.Air || isPipe(pipes, x - 1, y, w, h);
+        const rightSolid = x + 1 >= w || blocks[y][x + 1] !== BlockMaterial.Air || isPipe(pipes, x + 1, y, w, h);
+        if (floorSolid && leftSolid && rightSolid) hasExit = true;
       }
       if (hasExit) {
         results.push({ nodes: [...pathNodes], exitX: x, exitY: y });

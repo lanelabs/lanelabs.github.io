@@ -86,6 +86,7 @@ export class WaterPathSystem {
         this.w, this.h,
         exit.sourceX, exit.sourceLayerY,
         exit.validExitTerminals,
+        this.state.pumps,
       );
     }
 

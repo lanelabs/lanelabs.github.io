@@ -11,12 +11,15 @@ import { WaterPathSystem } from '../../sim/water/WaterPathSystem';
 import type { WaterSaveData } from '../../sim/water/types';
 import { drawTerrain } from '../draw/terrain';
 import { drawWater } from '../draw/water';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { drawStreamDebugTiles } from '../draw/streamShapes';
 import { drawWaterDebug } from '../draw/waterDebug';
 import { drawEntities } from '../draw/entities';
 import { Game } from '../../sim/Game';
 import { serializeGame } from '../../sim/save';
 import type { SaveData } from '../../sim/save';
 import { BlockMaterial, Direction } from '../../sim/types';
+import { pipeNeighborDirs, hasPumpAt } from '../../sim/water/pipeNetwork';
 import { findLayer } from '../../sim/water/waterLayer';
 import { PositionComponent } from '../../sim/components/Position';
 import { DwarfComponent } from '../../sim/components/Dwarf';
@@ -46,6 +49,8 @@ export class WaterTestScene extends Phaser.Scene {
   private entityGraphics!: Phaser.GameObjects.Graphics;
   private waterGraphics!: Phaser.GameObjects.Graphics;
   private debugLabels: Phaser.GameObjects.Text[] = [];
+  private streamDebugLabels: Phaser.GameObjects.Text[] = [];
+  private streamDebugGraphics!: Phaser.GameObjects.Graphics;
   private tickAccumulator = 0;
   private tickCount = 0;
   private zoomIndex = DEFAULT_ZOOM;
@@ -118,6 +123,7 @@ export class WaterTestScene extends Phaser.Scene {
     this.terrainGraphics = this.add.graphics();
     this.entityGraphics = this.add.graphics().setDepth(5);
     this.waterGraphics = this.add.graphics().setDepth(3);
+    this.streamDebugGraphics = this.add.graphics().setDepth(150);
 
     const w = this.scale.width;
 
@@ -330,6 +336,25 @@ export class WaterTestScene extends Phaser.Scene {
   private togglePipe(x: number, y: number): void {
     const pipes = this.waterSystem.state.pipes;
     if (y < 0 || y >= pipes.length || x < 0 || x >= pipes[0].length) return;
+    // When removing a pipe, block if it would orphan an adjacent pump
+    if (pipes[y][x]) {
+      const pumps = this.waterSystem.state.pumps;
+      // Check vertical neighbors (up/down) — only those matter since pumps only connect vertically
+      for (const [nx, ny] of [[x, y - 1], [x, y + 1]] as const) {
+        if (ny < 0 || ny >= pipes.length) continue;
+        if (!hasPumpAt(pumps, nx, ny)) continue;
+        // Simulate removal: count remaining vertical neighbors for the pump tile
+        const ph = pipes.length;
+        const pw = ph > 0 ? pipes[0].length : 0;
+        const dirs = pipeNeighborDirs(pipes, nx, ny, pw, ph);
+        // Vertical neighbors only (pumps block horizontal)
+        const vertCount = (dirs.includes(Direction.Up) ? 1 : 0) + (dirs.includes(Direction.Down) ? 1 : 0);
+        // This pipe tile is one of those vertical neighbors; removing it drops count by 1
+        if (vertCount - 1 < 2) return; // would leave pump with < 2 vertical neighbors
+      }
+      // Also block if this tile itself has a pump
+      if (hasPumpAt(pumps, x, y)) return;
+    }
     pipes[y][x] = pipes[y][x] ? null : true;
   }
 
@@ -342,6 +367,12 @@ export class WaterTestScene extends Phaser.Scene {
     if (idx >= 0) {
       pumps.splice(idx, 1);
     } else {
+      // Only allow pumps on vertical mid-pipe (up+down, no left/right, not endpoints)
+      const ph = pipes.length;
+      const pw = ph > 0 ? pipes[0].length : 0;
+      const dirs = pipeNeighborDirs(pipes, x, y, pw, ph);
+      if (dirs.includes(Direction.Left) || dirs.includes(Direction.Right)) return;
+      if (!dirs.includes(Direction.Up) || !dirs.includes(Direction.Down)) return;
       pumps.push({ x, y, direction: 'up' });
     }
   }
@@ -367,5 +398,10 @@ export class WaterTestScene extends Phaser.Scene {
     this.debugLabels = drawWaterDebug(this, this.debugLabels,
       this.waterSystem.state,
       this.ts, this.tilesX, this.tilesY, this.camX, this.camY);
+
+    // Uncomment to show stream tile debug overlay:
+    // this.streamDebugGraphics.clear();
+    // this.streamDebugLabels = drawStreamDebugTiles(
+    //   this, this.streamDebugGraphics, this.streamDebugLabels, this.ts);
   }
 }

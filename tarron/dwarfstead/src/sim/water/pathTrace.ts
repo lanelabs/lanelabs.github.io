@@ -7,7 +7,7 @@
  */
 
 import { BlockMaterial, Direction } from '../types';
-import type { PathNode, PathBranch, PipeCell } from './types';
+import type { PathNode, PathBranch, PipeCell, PumpCell } from './types';
 import type { WaterLayer } from './waterLayer';
 import { findLayer, isWaterFull, getWaterAt, findContainedLayer } from './waterLayer';
 import { tracePipeNetwork } from './pipeNetwork';
@@ -192,6 +192,7 @@ export function tracePath(
   waterLayers: WaterLayer[], w: number, h: number,
   sourceX?: number, sourceLayerY?: number,
   validExitTerminals?: { x: number; y: number }[],
+  pumps?: PumpCell[],
 ): PathBranch[] {
   if (!inPipe) {
     // Pure air trace
@@ -206,7 +207,7 @@ export function tracePath(
   );
 
   let pipeExits = tracePipeNetwork(
-    exitX, exitY, entryDir, pipes, blocks, w, h, waterLayers,
+    exitX, exitY, entryDir, pipes, blocks, w, h, waterLayers, pumps,
   );
 
   // Filter to only valid exit terminals (prevents water flowing to terminals above entrance)

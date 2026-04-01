@@ -4,16 +4,10 @@
 
 Have a visual indication on the path showing the direcion of water flow and quantity flowing (like 10 >) That will show how splits are handled too, with both directional numbers shown
 
-Round exposed corners (in air) of our water path?. Make it look like flowing and not chunky. Visually change based on path direction so it flows in narrow stream visually? I'm thinking of something like a smart draw for the links in the path that will pick the right visual depending on where it "flows" next or if it splits or if it goes into a pipe, so it looks like it's spraying into a pipe or getting sucked in, etc. Additionally, this could only render the part of a pipe tile in an intersection of pipes that actually contains the path (not going partway down the blocked T)
+  - Water curve around corners
+  - Water getting sucked into pipe should have trapezoid with top at the level of the top of the pipe. going down tot he ground, looking like the water is getting sucked up in
 
-
-Our side fill out when removing stone at the bottom of a pool isn't working. Let's investigate and creat ea test to identify problem. This is with a completely two-high pool (1 by 2). I remove the block next to the botoom. It doesn't recalculate the whole pool and completely fill the two bottom layers with the top now empty. Instead it's doing some kind of visual indication, but the layer doesn't get any more total than before.
-
-pump arrow should be centered vertically in the pump chunk
-
-Should not be able to add pump on an intersection or side to side junction, Should just be on up and down, and it should prevent that pipe from pathing to side adjacent paths on that tile.
-
-test pump behavior
+Logic for combining streams, two falling into same pool
 
 # Map grid
 

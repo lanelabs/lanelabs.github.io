@@ -189,8 +189,8 @@ function findPipeExits(
   w: number, h: number,
   seen: Set<string>,
 ): WaterPath[] {
-  const networkGrid = buildNetworkGrid(pipes, w, h);
-  const terminals = findTerminals(pipes, blocks, w, h, networkGrid);
+  const networkGrid = buildNetworkGrid(pipes, w, h, pumps);
+  const terminals = findTerminals(pipes, blocks, w, h, networkGrid, pumps);
 
   if (terminals.length === 0) return [];
 

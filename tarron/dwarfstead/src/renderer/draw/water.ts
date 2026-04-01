@@ -3,14 +3,14 @@
  *
  * Visual language:
  * - Settled pool water: solid blue blocks (0x2266cc, alpha 0.75)
- * - Water paths: lighter blue (0x55bbff, alpha 0.45) showing traced routes
- *   Inside pipes the fill is clipped to the pipe interior.
- * - Pipes: copper frame (0xb87333) with blue fill proportional to pipeFill
+ * - Water paths: context-aware stream shapes (ribbons, columns, corners)
+ *   Inside pipes the fill is clipped to active arms only.
+ * - Pipes: copper frame (0xb87333) with active-arm flow fill
  *   Open terminals (air side) have no wall cap; capped terminals (solid) do.
  */
 
 import Phaser from 'phaser';
-import type { WaterSimState } from '../../sim/water/types';
+import type { WaterSimState, PumpCell } from '../../sim/water/types';
 import { BlockMaterial, Direction } from '../../sim/types';
 import { BLOCK_INFO } from '../../sim/terrain/BlockTypes';
 import { layerFillFraction, findLayer } from '../../sim/water/waterLayer';
@@ -18,9 +18,12 @@ import { pipeNeighborDirs } from '../../sim/water/pipeNetwork';
 import { drawPipeTerminals } from './pipeTerminals';
 import { computeChipFills, drawChipTriangle, chipAlpha } from './chipFill';
 import { CAVE_COLOR } from './background';
+import { buildStreamContext } from './streamContext';
+import type { StreamContext, ClassifiedNode } from './streamContext';
+import { drawStreamNode } from './streamShapes';
+import { drawActivePipeInterior } from './streamPipe';
 
 const WATER_COLOR = 0x2266cc;
-const FLOW_COLOR = 0x55bbff;
 const PIPE_COLOR = 0xb87333;
 
 export function drawWater(
@@ -31,10 +34,11 @@ export function drawWater(
   blocks?: BlockMaterial[][],
 ): void {
   g.clear();
-  drawPaths(g, state, ts, camX, camY);
+  const streamCtx = buildStreamContext(state);
+  drawPaths(g, streamCtx, ts, camX, camY);
   drawPoolWater(g, state, ts, tilesX, tilesY, camX, camY);
   if (blocks) drawChipFills(g, state, blocks, ts, tilesX, tilesY, camX, camY);
-  drawPipes(g, state, ts, tilesX, tilesY, camX, camY, blocks);
+  drawPipes(g, state, streamCtx.activePipeArms, ts, tilesX, tilesY, camX, camY, blocks);
 }
 
 function drawPoolWater(
@@ -130,25 +134,43 @@ function drawChipFills(
   }
 }
 
-/** Draw non-pipe path nodes as full-tile flow overlay, deduplicated. */
+/** Draw classified air nodes as context-aware stream shapes, merging duplicates. */
 function drawPaths(
-  g: Phaser.GameObjects.Graphics, state: WaterSimState,
+  g: Phaser.GameObjects.Graphics, streamCtx: StreamContext,
   ts: number, camX: number, camY: number,
 ): void {
-  const drawn = new Set<string>();
-  for (const path of state.paths) {
-    for (const branch of path.branches) {
-      for (const node of branch.nodes) {
-        if (node.inPipe) continue;
-        const key = `${node.x},${node.y}`;
-        if (drawn.has(key)) continue;
-        drawn.add(key);
-        const px = (node.x - camX) * ts;
-        const py = (node.y - camY) * ts;
-        g.fillStyle(FLOW_COLOR, 0.45);
-        g.fillRect(px, py, ts, ts);
+  // First pass: collect nodes per tile, merging chipDir on duplicates
+  const seen = new Map<string, ClassifiedNode>();
+  for (let bi = 0; bi < streamCtx.classifiedBranches.length; bi++) {
+    const branch = streamCtx.classifiedBranches[bi];
+    for (const node of branch) {
+      const key = `${node.x},${node.y}`;
+      const existing = seen.get(key);
+      if (existing) {
+        // Merge chipDir: if both sides appear, upgrade to 'both'
+        if (node.chipDir && node.chipDir !== existing.chipDir) {
+          existing.chipDir = 'both';
+        } else if (node.chipDir && !existing.chipDir) {
+          existing.chipDir = node.chipDir;
+        }
+        // Mark as dual when two branches share a cliff-edge or landing
+        if (node.prevDir !== existing.prevDir || node.nextDir !== existing.nextDir) {
+          existing.dual = true;
+        }
+        if (node.innerCurve) {
+          if (!existing.innerCurve) existing.innerCurve = node.innerCurve;
+          else if (node.innerCurve !== existing.innerCurve) existing.innerCurve = 'both';
+        }
+      } else {
+        seen.set(key, { ...node });
       }
     }
+  }
+  // Second pass: draw merged nodes
+  for (const node of seen.values()) {
+    const px = (node.x - camX) * ts;
+    const py = (node.y - camY) * ts;
+    drawStreamNode(g, node, px, py, ts);
   }
 }
 
@@ -161,8 +183,9 @@ function drawPipeInterior(
   pw: number, ph: number,
   pipeW: number, wallT: number, inner: number,
   color: number, alpha: number,
+  pumps?: PumpCell[],
 ): void {
-  const neighbors = pipeNeighborDirs(pipes, wx, wy, pw, ph);
+  const neighbors = pipeNeighborDirs(pipes, wx, wy, pw, ph, pumps);
   const cx = px + ts / 2;
   const cy = py + ts / 2;
   const half = pipeW / 2;
@@ -201,12 +224,14 @@ function fillArmToward(
 
 function drawPipes(
   g: Phaser.GameObjects.Graphics, state: WaterSimState,
+  activePipeArms: Map<string, Set<Direction>>,
   ts: number, tilesX: number, tilesY: number,
   camX: number, camY: number,
   blocks?: BlockMaterial[][],
 ): void {
   const pipeW = Math.max(4, Math.round(ts * 0.4));
   const wallT = Math.max(1, Math.round(ts * 0.08));
+  const inner = pipeW - wallT * 2;
   const ph = state.pipes.length;
   const pw = ph > 0 ? state.pipes[0].length : 0;
 
@@ -222,12 +247,13 @@ function drawPipes(
       const cx = px + ts / 2;
       const cy = py + ts / 2;
 
-      drawPipeInterior(g, state.pipes, wx, wy, px, py, ts, pw, ph, pipeW, wallT, pipeW - wallT * 2, CAVE_COLOR, 1);
-      if (state.pipeFill[wy]?.[wx] > 0) {
-        drawPipeInterior(g, state.pipes, wx, wy, px, py, ts, pw, ph, pipeW, wallT, pipeW - wallT * 2, FLOW_COLOR, 0.45);
+      drawPipeInterior(g, state.pipes, wx, wy, px, py, ts, pw, ph, pipeW, wallT, inner, CAVE_COLOR, 1, state.pumps);
+      const arms = activePipeArms.get(`${wx},${wy}`);
+      if (arms && arms.size > 0) {
+        drawActivePipeInterior(g, px, py, ts, pipeW, wallT, inner, arms);
       }
-      drawPipeSegment(g, state.pipes, wx, wy, px, py, ts, cx, cy, pipeW, wallT, pw, ph);
-      drawPipeTerminals(g, state, blocks, wx, wy, px, py, ts, cx, cy, pipeW, wallT);
+      drawPipeSegment(g, state.pipes, wx, wy, px, py, ts, cx, cy, pipeW, wallT, pw, ph, state.pumps);
+      drawPipeTerminals(g, state, blocks, wx, wy, px, py, ts, cx, cy, pipeW, wallT, arms);
     }
   }
 }
@@ -240,8 +266,9 @@ function drawPipeSegment(
   px: number, py: number, ts: number,
   cx: number, cy: number, pipeW: number, wallT: number,
   pw: number, ph: number,
+  pumps?: PumpCell[],
 ): void {
-  const neighbors = pipeNeighborDirs(pipes, wx, wy, pw, ph);
+  const neighbors = pipeNeighborDirs(pipes, wx, wy, pw, ph, pumps);
   const half = pipeW / 2;
   g.fillStyle(PIPE_COLOR, 0.9);
 
