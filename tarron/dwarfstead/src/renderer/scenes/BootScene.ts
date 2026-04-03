@@ -68,8 +68,8 @@ export class BootScene extends Phaser.Scene {
       this.newBtn.on('pointerdown', () => this.showNamingDialog());
     }
 
-    // Water Test button
-    const waterBtn = this.add.text(width / 2, height * 0.2 + 130, '[ Water Test Lab ]', {
+    // Fluid Test button
+    const waterBtn = this.add.text(width / 2, height * 0.2 + 130, '[ Fluid Test Lab ]', {
       fontSize: '16px', color: '#4488ff',
     }).setOrigin(0.5).setInteractive({ useHandCursor: true });
     waterBtn.on('pointerover', () => waterBtn.setColor('#88bbff'));

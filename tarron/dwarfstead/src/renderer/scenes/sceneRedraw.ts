@@ -7,13 +7,21 @@ import { drawTerrain } from '../draw/terrain';
 import { drawEntities as drawEntitiesLayer } from '../draw/entities';
 import { drawCursor, drawRopeOverlay } from '../draw/cursor';
 import { drawToolbar } from '../draw/toolbar';
+import { drawWater } from '../draw/water';
+import { drawGas } from '../draw/gas';
+import { drawAllPipes } from '../draw/pipes';
+import type { WaterSimState } from '../../sim/water/types';
+import type { GasSimState } from '../../sim/gas/types';
 import { SmartMode } from '../smartMode';
 import { getActionHintText } from './actionHint';
 import { isNoclipActive } from './noclipMode';
 
+
 export interface RedrawContext {
   ui: SceneUI;
   game: Game;
+  waterState: WaterSimState;
+  gasState?: GasSimState;
   gameW: number;
   gameH: number;
   ts: number;
@@ -52,6 +60,12 @@ export function redrawScene(ctx: RedrawContext): void {
   ui.debugGraphics.clear();
   if (DEBUG_BG) drawDebugOverlay(ui.bgGraphics, game.terrain, ts, tilesX, camX, camY);
   drawTerrain(ui.terrainGraphics, game, ts, tilesX, tilesY, camX, camY);
+  const waterArms = drawWater(ui.waterGraphics, ctx.waterState, ts, tilesX, tilesY, camX, camY, game.terrain.blocks);
+  let gasArms: Map<string, Set<Direction>> = new Map();
+  if (ctx.gasState && ui.gasGraphics) {
+    gasArms = drawGas(ui.gasGraphics, ctx.gasState, ts, tilesX, tilesY, camX, camY, game.terrain.blocks);
+  }
+  drawAllPipes(ui.pipeGraphics, ctx.waterState.pipes, ctx.waterState.pumps, game.terrain.blocks, waterArms, gasArms, ts, tilesX, tilesY, camX, camY);
   drawEntitiesLayer(ui.entityGraphics, game, ts, gameW, ctx.gameH, camX, camY, selfSelect);
 
   if (mapOpen) {

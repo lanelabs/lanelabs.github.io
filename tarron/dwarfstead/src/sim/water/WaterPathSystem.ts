@@ -11,12 +11,12 @@
  */
 
 import { BlockMaterial } from '../types';
-import type { WaterSimState, WaterConfig, WaterSaveData } from './types';
+import type { WaterSimState, WaterConfig, WaterSaveData, LiquidContext } from './types';
 import { ExitType } from './types';
 import type { WaterLayer } from './waterLayer';
-import { cloneLayers, addWater, isWaterFull, findContainedLayer, findLayer, VOLUME_PER_TILE } from './waterLayer';
+import { cloneLayers, addWater, isWaterFull, findContainedLayer, findLayer, getWaterAt, VOLUME_PER_TILE } from './waterLayer';
 import { findPoolExits } from './exitDetection';
-import { tracePath } from './pathTrace';
+import { traceLiquidPath } from '../liquidTrace';
 import { teleportWater } from './teleport';
 import { recombineAtTile } from './recombine';
 
@@ -42,7 +42,7 @@ export class WaterPathSystem {
     this.state = {
       waterLayers: cloneLayers(this.initialWaterLayers),
       pipes: config.pipes,
-      pumps: config.pumps ? [...config.pumps] : [],
+      pumps: config.pumps ?? [],
       pipeFill,
       paths: [],
       pipeRoundRobin: new Map(),
@@ -78,12 +78,20 @@ export class WaterPathSystem {
     );
 
     // 4. Trace paths from each exit
+    const layers = this.state.waterLayers;
+    const ctx: LiquidContext = {
+      dy: 1,
+      findLayer: (x, y) => findLayer(layers, x, y),
+      isFull: (x, y) => isWaterFull(layers, x, y),
+      getVolume: (x, y) => getWaterAt(layers, x, y),
+      findContained: (x, y) => findContainedLayer(x, y, this.blocks, layers, this.w, this.h),
+    };
     for (const exit of exits) {
       const inPipe = exit.exitType === ExitType.Pipe;
-      exit.branches = tracePath(
+      exit.branches = traceLiquidPath(
         exit.exitX, exit.exitY, inPipe,
-        this.blocks, this.state.pipes, this.state.waterLayers,
-        this.w, this.h,
+        this.blocks, this.state.pipes,
+        this.w, this.h, ctx,
         exit.sourceX, exit.sourceLayerY,
         exit.validExitTerminals,
         this.state.pumps,
@@ -116,6 +124,7 @@ export class WaterPathSystem {
       waterLayers: cloneLayers(this.state.waterLayers),
       pipeFill: this.state.pipeFill.map(row => [...row]),
       pipes: this.state.pipes.map(row => [...row]),
+      pumps: this.state.pumps.map(p => ({ ...p })),
     };
   }
 
@@ -136,6 +145,10 @@ export class WaterPathSystem {
           system.state.pipes[y][x] = data.pipes[y]?.[x] ?? null;
         }
       }
+    }
+    if (data.pumps) {
+      system.state.pumps.length = 0;
+      for (const p of data.pumps) system.state.pumps.push({ ...p });
     }
     system.state.paths = [];
   }

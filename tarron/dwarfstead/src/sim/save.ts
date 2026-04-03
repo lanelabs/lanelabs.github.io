@@ -2,6 +2,8 @@ import type { GameConfig, Vec2, HiddenRoom, BlockMaterial, Direction, CreatureTy
 import type { LogEntry, LogCategory } from './log/GameLog';
 import type { Game } from './Game';
 import type { Component } from './ecs/Component';
+import type { WaterSaveData } from './water/types';
+import type { GasSaveData } from './gas/types';
 import { Entity, setNextEntityId } from './ecs/Entity';
 import { PositionComponent } from './components/Position';
 import { DwarfComponent } from './components/Dwarf';
@@ -57,6 +59,8 @@ export interface SaveData {
     entries: LogEntry[];
     currentTick: number;
   };
+  waterSaveData?: WaterSaveData;
+  gasSaveData?: GasSaveData;
 }
 
 // --- Component serializers ---
@@ -187,7 +191,7 @@ function serializeEntity(entity: Entity): SavedEntity {
   return { id: entity.id, components };
 }
 
-export function serializeGame(game: Game): SaveData {
+export function serializeGame(game: Game, waterData?: WaterSaveData, gasData?: GasSaveData): SaveData {
   return {
     version: 2,
     config: { ...game.config },
@@ -212,6 +216,8 @@ export function serializeGame(game: Game): SaveData {
       entries: game.log.all().map((e) => ({ ...e })),
       currentTick: game.getCurrentTick(),
     },
+    waterSaveData: waterData,
+    gasSaveData: gasData,
   };
 }
 

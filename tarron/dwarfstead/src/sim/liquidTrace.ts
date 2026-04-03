@@ -1,16 +1,16 @@
 /**
- * Path tracing — computes instant water paths from exits to destinations.
+ * Unified liquid path trace — works for both water (dy=+1) and gas (dy=-1).
  *
  * Two modes:
- * - Air paths (terrain exits): fall → scan → flow through air. Never enter pipes.
+ * - Air paths (terrain exits): fall/rise → scan → flow through air. Never enter pipes.
  * - Pipe paths: trace through pipe network by adjacency, then continue in air.
+ *
+ * Replaces the former water/pathTrace.ts and gas/gasPathTrace.ts.
  */
 
-import { BlockMaterial, Direction } from '../types';
-import type { PathNode, PathBranch, PipeCell, PumpCell } from './types';
-import type { WaterLayer } from './waterLayer';
-import { findLayer, isWaterFull, getWaterAt, findContainedLayer } from './waterLayer';
-import { tracePipeNetwork } from './pipeNetwork';
+import { BlockMaterial, Direction } from './types';
+import type { PathNode, PathBranch, PipeCell, PumpCell, LiquidContext } from './water/types';
+import { tracePipeNetwork } from './water/pipeNetwork';
 
 const MAX_ITERATIONS = 500;
 
@@ -20,43 +20,44 @@ function isSolid(blocks: BlockMaterial[][], x: number, y: number, w: number, h: 
 }
 
 function isBlocked(
-  blocks: BlockMaterial[][], waterLayers: WaterLayer[],
-  x: number, y: number, w: number, h: number,
+  blocks: BlockMaterial[][], x: number, y: number, w: number, h: number,
+  ctx: LiquidContext,
 ): boolean {
   if (isSolid(blocks, x, y, w, h)) return true;
-  return isWaterFull(waterLayers, x, y);
+  return ctx.isFull(x, y);
 }
 
 interface ScanResult {
-  drop: boolean;
-  dropX: number;
+  found: boolean;
+  targetX: number;
 }
 
-/** Scan in a direction for a drop or wall. Air paths never enter pipes. */
+/** Scan in a direction for a drop/rise (air in dy direction) or wall. */
 function scanDirection(
   startX: number, startY: number, dx: number,
-  blocks: BlockMaterial[][], waterLayers: WaterLayer[],
-  w: number, h: number,
+  blocks: BlockMaterial[][], w: number, h: number,
+  ctx: LiquidContext,
 ): ScanResult {
   for (let x = startX + dx; x >= 0 && x < w; x += dx) {
-    if (isSolid(blocks, x, startY, w, h)) return { drop: false, dropX: x };
-    if (getWaterAt(waterLayers, x, startY) > 0) return { drop: false, dropX: x };
-    if (!isBlocked(blocks, waterLayers, x, startY + 1, w, h)) {
-      return { drop: true, dropX: x };
+    if (isSolid(blocks, x, startY, w, h)) return { found: false, targetX: x };
+    if (ctx.getVolume(x, startY) > 0) return { found: false, targetX: x };
+    // Check air in the gravity direction (down for water, up for gas)
+    if (!isBlocked(blocks, x, startY + ctx.dy, w, h, ctx)) {
+      return { found: true, targetX: x };
     }
   }
-  return { drop: false, dropX: startX };
+  return { found: false, targetX: startX };
 }
 
 /**
  * Trace a single air path branch. Never enters pipes.
  * Returns one or more branches (forks produce additional branches).
  */
-function traceAir(
+function traceLiquidAir(
   startX: number, startY: number,
-  blocks: BlockMaterial[][], waterLayers: WaterLayer[],
-  w: number, h: number,
+  blocks: BlockMaterial[][], w: number, h: number,
   volumeFraction: number, visited: Set<string>,
+  ctx: LiquidContext,
 ): PathBranch[] {
   const nodes: PathNode[] = [];
   let x = startX;
@@ -78,13 +79,12 @@ function traceAir(
       return [{ nodes, destination: null, volumeFraction }];
     }
 
-    // Full water = impassable wall
-    if (isWaterFull(waterLayers, x, y)) {
+    if (ctx.isFull(x, y)) {
       return [{ nodes, destination: null, volumeFraction }];
     }
 
     // Existing pool = destination (stop at pool surface, include entry tile)
-    const existingLayer = findLayer(waterLayers, x, y);
+    const existingLayer = ctx.findLayer(x, y);
     if (existingLayer && existingLayer.volume > 0) {
       nodes.push({ x, y, inPipe: false });
       return [{ nodes, destination: { x, y }, volumeFraction }];
@@ -92,26 +92,26 @@ function traceAir(
 
     nodes.push({ x, y, inPipe: false });
 
-    // FALL: if air below, move down
-    if (!isBlocked(blocks, waterLayers, x, y + 1, w, h)) {
-      y += 1;
+    // VERTICAL: if air in gravity direction, move there
+    if (!isBlocked(blocks, x, y + ctx.dy, w, h, ctx)) {
+      y += ctx.dy;
       continue;
     }
 
     // SCAN left/right
-    const leftScan = scanDirection(x, y, -1, blocks, waterLayers, w, h);
-    const rightScan = scanDirection(x, y, 1, blocks, waterLayers, w, h);
+    const leftScan = scanDirection(x, y, -1, blocks, w, h, ctx);
+    const rightScan = scanDirection(x, y, 1, blocks, w, h, ctx);
 
-    if (!leftScan.drop && !rightScan.drop) {
+    if (!leftScan.found && !rightScan.found) {
       // Both walls — contained space, this is a destination
-      const contained = findContainedLayer(x, y, blocks, waterLayers, w, h);
+      const contained = ctx.findContained(x, y);
       if (contained) {
         return [{ nodes, destination: { x, y }, volumeFraction }];
       }
       return [{ nodes, destination: null, volumeFraction }];
     }
 
-    if (leftScan.drop && rightScan.drop) {
+    if (leftScan.found && rightScan.found) {
       // FORK
       const halfFrac = volumeFraction / 2;
       const leftVisited = new Set(visited);
@@ -120,22 +120,22 @@ function traceAir(
       const leftNodes = [...nodes];
       const rightNodes = [...nodes];
 
-      for (let fx = x - 1; fx >= leftScan.dropX; fx--) {
+      for (let fx = x - 1; fx >= leftScan.targetX; fx--) {
         leftNodes.push({ x: fx, y, inPipe: false });
       }
-      for (let fx = x + 1; fx <= rightScan.dropX; fx++) {
+      for (let fx = x + 1; fx <= rightScan.targetX; fx++) {
         rightNodes.push({ x: fx, y, inPipe: false });
       }
 
-      const leftBranches = traceAir(
-        leftScan.dropX, y + 1,
-        blocks, waterLayers, w, h,
-        halfFrac, leftVisited,
+      const leftBranches = traceLiquidAir(
+        leftScan.targetX, y + ctx.dy,
+        blocks, w, h,
+        halfFrac, leftVisited, ctx,
       );
-      const rightBranches = traceAir(
-        rightScan.dropX, y + 1,
-        blocks, waterLayers, w, h,
-        halfFrac, rightVisited,
+      const rightBranches = traceLiquidAir(
+        rightScan.targetX, y + ctx.dy,
+        blocks, w, h,
+        halfFrac, rightVisited, ctx,
       );
 
       if (leftBranches.length > 0) {
@@ -148,19 +148,19 @@ function traceAir(
       return [...leftBranches, ...rightBranches];
     }
 
-    // One drop — flow toward it
-    if (leftScan.drop) {
-      for (let fx = x - 1; fx >= leftScan.dropX; fx--) {
+    // One drop/rise — flow toward it
+    if (leftScan.found) {
+      for (let fx = x - 1; fx >= leftScan.targetX; fx--) {
         nodes.push({ x: fx, y, inPipe: false });
       }
-      x = leftScan.dropX;
-      y = y + 1;
+      x = leftScan.targetX;
+      y = y + ctx.dy;
     } else {
-      for (let fx = x + 1; fx <= rightScan.dropX; fx++) {
+      for (let fx = x + 1; fx <= rightScan.targetX; fx++) {
         nodes.push({ x: fx, y, inPipe: false });
       }
-      x = rightScan.dropX;
-      y = y + 1;
+      x = rightScan.targetX;
+      y = y + ctx.dy;
     }
   }
 
@@ -182,22 +182,25 @@ function computeEntryDir(
 }
 
 /**
- * Trace a complete path from an exit point.
+ * Trace a complete liquid path from an exit point.
  * For terrain exits: pure air trace.
  * For pipe exits: pipe network trace → air continuation from each pipe exit.
+ *
+ * No pipe-exit fallback — if the air trace finds no destination, the branch
+ * gets destination=null and no fluid is teleported there.
  */
-export function tracePath(
+export function traceLiquidPath(
   exitX: number, exitY: number, inPipe: boolean,
   blocks: BlockMaterial[][], pipes: (PipeCell | null)[][],
-  waterLayers: WaterLayer[], w: number, h: number,
+  w: number, h: number,
+  ctx: LiquidContext,
   sourceX?: number, sourceLayerY?: number,
   validExitTerminals?: { x: number; y: number }[],
   pumps?: PumpCell[],
 ): PathBranch[] {
   if (!inPipe) {
-    // Pure air trace
     const visited = new Set<string>();
-    return traceAir(exitX, exitY, blocks, waterLayers, w, h, 1.0, visited);
+    return traceLiquidAir(exitX, exitY, blocks, w, h, 1.0, visited, ctx);
   }
 
   // Pipe trace: compute entry direction, trace through pipe, then air continuation
@@ -207,49 +210,35 @@ export function tracePath(
   );
 
   let pipeExits = tracePipeNetwork(
-    exitX, exitY, entryDir, pipes, blocks, w, h, waterLayers, pumps,
+    exitX, exitY, entryDir, pipes, blocks, w, h, undefined, pumps,
   );
 
-  // Filter to only valid exit terminals (prevents water flowing to terminals above entrance)
+  // Filter to only valid exit terminals (prevents fluid flowing to terminals above/below entrance)
   if (validExitTerminals && validExitTerminals.length > 0) {
     const validSet = new Set(validExitTerminals.map(t => `${t.x},${t.y}`));
     pipeExits = pipeExits.filter(pe => {
-      // The last pipe node is the terminal — check if it's in the valid set
       const lastPipe = pe.nodes[pe.nodes.length - 1];
       return lastPipe && validSet.has(`${lastPipe.x},${lastPipe.y}`);
     });
   }
 
   if (pipeExits.length === 0) {
-    // Dead-end pipe — no valid exits
     return [{ nodes: [{ x: exitX, y: exitY, inPipe: true }], destination: null, volumeFraction: 1 }];
   }
 
-  // Trace ALL pipe exits — each becomes a branch. Round-robin selects
-  // which one actually receives water; all render simultaneously.
   const allBranches: PathBranch[] = [];
-  const fracPerExit = pipeExits.length > 0 ? 1 / pipeExits.length : 1;
+  const fracPerExit = 1 / pipeExits.length;
 
   for (const pe of pipeExits) {
     const visited = new Set<string>();
-    for (const node of pe.nodes) visited.add(`${node.x},${node.y}`);
-    visited.delete(`${pe.exitX},${pe.exitY}`);
 
-    const airBranches = traceAir(
+    const airBranches = traceLiquidAir(
       pe.exitX, pe.exitY,
-      blocks, waterLayers, w, h,
-      fracPerExit, visited,
+      blocks, w, h,
+      fracPerExit, visited, ctx,
     );
 
-    // If air trace found no destination, the exit tile itself is the destination.
-    // This handles pipe exits into small basins where containment check fails
-    // because the air scan extends through pipe tiles.
     for (const ab of airBranches) {
-      if (ab.destination === null && ab.nodes.length > 0) {
-        if (blocks[pe.exitY]?.[pe.exitX] === BlockMaterial.Air) {
-          ab.destination = { x: pe.exitX, y: pe.exitY };
-        }
-      }
       ab.nodes = [...pe.nodes, ...ab.nodes];
       ab.volumeFraction = fracPerExit;
       allBranches.push(ab);

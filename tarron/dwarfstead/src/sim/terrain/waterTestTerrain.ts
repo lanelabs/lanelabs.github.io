@@ -16,9 +16,10 @@
 
 import { BlockMaterial } from '../types';
 import type { TerrainGrid } from './TerrainGenerator';
-import type { PipeCell } from '../water/types';
+import type { PipeCell, PumpCell } from '../water/types';
 import type { WaterLayer } from '../water/waterLayer';
 import { VOLUME_PER_TILE } from '../water/waterLayer';
+import type { GasLayer } from '../gas/types';
 
 const W = 140;
 const H = 50;
@@ -292,7 +293,32 @@ function buildChamber7(
 export interface WaterTestWorld {
   terrain: TerrainGrid;
   pipes: (PipeCell | null)[][];
+  pumps: PumpCell[];
   initialWaterVolume: WaterLayer[];
+  initialGasVolume: GasLayer[];
+}
+
+// ── Gas Reservoirs (near bottom, y=40-46) ───────────────────────
+
+/** Build simple gas-filled ceiling pockets as reservoirs for manual testing. */
+function buildGasReservoirs(
+  b: BlockMaterial[][], gasLayers: GasLayer[],
+): void {
+  // Pocket A: 8-wide, 2-tall at x=5
+  const ay = 42;
+  carveRect(b, 5, ay, 8, 2);
+  gasLayers.push({ y: ay, left: 5, right: 12, volume: 8 * VOLUME_PER_TILE });
+  gasLayers.push({ y: ay + 1, left: 5, right: 12, volume: 8 * VOLUME_PER_TILE });
+
+  // Pocket B: 8-wide, 2-tall at x=25
+  carveRect(b, 25, ay, 8, 2);
+  gasLayers.push({ y: ay, left: 25, right: 32, volume: 8 * VOLUME_PER_TILE });
+  gasLayers.push({ y: ay + 1, left: 25, right: 32, volume: 8 * VOLUME_PER_TILE });
+
+  // Pocket C: 8-wide, 2-tall at x=45
+  carveRect(b, 45, ay, 8, 2);
+  gasLayers.push({ y: ay, left: 45, right: 52, volume: 8 * VOLUME_PER_TILE });
+  gasLayers.push({ y: ay + 1, left: 45, right: 52, volume: 8 * VOLUME_PER_TILE });
 }
 
 export function buildWaterTestTerrain(): WaterTestWorld {
@@ -308,7 +334,9 @@ export function buildWaterTestTerrain(): WaterTestWorld {
   const pipes: (PipeCell | null)[][] = [];
   for (let y = 0; y < H; y++) pipes.push(new Array(W).fill(null));
 
+  const pumps: PumpCell[] = [];
   const initialWaterVolume: WaterLayer[] = [];
+  const initialGasVolume: GasLayer[] = [];
 
   buildChamber1(blocks, pipes, initialWaterVolume);
   buildChamber2(blocks, pipes, initialWaterVolume);
@@ -317,6 +345,8 @@ export function buildWaterTestTerrain(): WaterTestWorld {
   buildChamber5(blocks, pipes, initialWaterVolume);
   buildChamber6(blocks, pipes, initialWaterVolume);
   buildChamber7(blocks, pipes, initialWaterVolume);
+
+  buildGasReservoirs(blocks, initialGasVolume);
 
   for (let y = 0; y < H; y++) {
     blocks[y][0] = BlockMaterial.Stone;
@@ -336,7 +366,8 @@ export function buildWaterTestTerrain(): WaterTestWorld {
   const terrain: TerrainGrid = {
     width: W, height: H, blocks, waterMass,
     strataTint, surfaceY: SURFACE, surfaceHeights, rooms: [],
+    initialWaterVolume: [],
   };
 
-  return { terrain, pipes, initialWaterVolume };
+  return { terrain, pipes, pumps, initialWaterVolume, initialGasVolume };
 }

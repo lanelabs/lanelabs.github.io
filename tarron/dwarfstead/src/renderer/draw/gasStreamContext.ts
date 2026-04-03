@@ -1,43 +1,41 @@
 /**
- * Stream context — pre-computes per-node classification and active pipe arms
- * for context-aware water stream rendering.
+ * Gas stream context — pre-computes per-node classification and active pipe arms
+ * for context-aware gas stream rendering.
  *
- * Pure data layer: no Phaser imports, no drawing.
+ * Mirror of streamContext.ts with inverted direction logic:
+ * - "down" and "up" swap roles for classifications
+ * - Gas rises, so cliff-edge = horizontal → up, landing = vertical → horizontal (from above)
  */
 
 import { Direction } from '../../sim/types';
-import type { WaterSimState, WaterPath, PathBranch, PathNode } from '../../sim/water/types';
-import { findLayer, VOLUME_PER_TILE } from '../../sim/water/waterLayer';
-import type { WaterLayer } from '../../sim/water/waterLayer';
+import type { GasSimState, GasPath, PathBranch, PathNode } from '../../sim/gas/types';
+import { findGasLayer, VOLUME_PER_TILE } from '../../sim/gas/gasLayer';
+import type { GasLayer } from '../../sim/gas/types';
 import { pipeNeighborDirs } from '../../sim/water/pipeNetwork';
 
-export type NodeClass =
+export type GasNodeClass =
   | 'horizontal'
   | 'vertical'
   | 'corner'
-  | 'cliff-edge'
-  | 'landing'
+  | 'cliff-edge'  // gas lifts off from floor → rises
+  | 'landing'     // gas hits ceiling from below
   | 'pool-entry'
   | 'source';
 
-export interface ClassifiedNode {
+export interface GasClassifiedNode {
   x: number;
   y: number;
-  cls: NodeClass;
+  cls: GasNodeClass;
   prevDir: Direction | null;
   nextDir: Direction | null;
-  /** True when this node is at the pipe-exit tile (draw from mid-tile down). */
   pipeExit?: boolean;
-  /** Side(s) to draw a rounded chip on (tile below a corner/cliff-edge). */
   chipDir?: 'left' | 'right' | 'both';
-  /** True when two branches merge at this tile (e.g. T-junction cliff-edge). */
   dual?: boolean;
-  /** Which side(s) the cliff arc is on when this tile follows a cliff-edge. */
   innerCurve?: 'left' | 'right' | 'both';
 }
 
-export interface StreamContext {
-  classifiedBranches: ClassifiedNode[][];
+export interface GasStreamContext {
+  classifiedBranches: GasClassifiedNode[][];
   activePipeArms: Map<string, Set<Direction>>;
 }
 
@@ -68,24 +66,22 @@ function isVertical(dir: Direction | null): boolean {
   return dir === Direction.Up || dir === Direction.Down;
 }
 
-/** Classify air nodes in a branch for stream shape rendering. */
-function classifyBranch(branch: PathBranch): ClassifiedNode[] {
-  const result: ClassifiedNode[] = [];
+/**
+ * Classify air nodes in a gas branch for stream shape rendering.
+ * Inverted from water: cliff-edge = horizontal→Up, landing = vertical→horizontal (from below ceiling).
+ */
+function classifyGasBranch(branch: PathBranch): GasClassifiedNode[] {
+  const result: GasClassifiedNode[] = [];
 
-  // Find where air nodes start — skip pipe-exit duplicate
   let airStart = 0;
-  while (airStart < branch.nodes.length && branch.nodes[airStart].inPipe) {
-    airStart++;
-  }
+  while (airStart < branch.nodes.length && branch.nodes[airStart].inPipe) airStart++;
 
-  // If the first air node shares position with the last pipe node, flag it
-  // so the renderer draws only the bottom half (avoids extending above pipe).
   let pipeExitIndex = -1;
   if (airStart > 0 && airStart < branch.nodes.length) {
     const lastPipe = branch.nodes[airStart - 1];
     const firstAir = branch.nodes[airStart];
     if (lastPipe.x === firstAir.x && lastPipe.y === firstAir.y) {
-      pipeExitIndex = 0; // index in airNodes array
+      pipeExitIndex = 0;
     }
   }
 
@@ -104,16 +100,16 @@ function classifyBranch(branch: PathBranch): ClassifiedNode[] {
     const prevDir = prev ? dirBetween(prev.x, prev.y, node.x, node.y) : null;
     const nextDir = next ? dirBetween(node.x, node.y, next.x, next.y) : null;
 
-    let cls: NodeClass;
+    let cls: GasNodeClass;
 
-    // Last node matching destination = pool-entry
     if (i === airNodes.length - 1 && branch.destination &&
         node.x === branch.destination.x && node.y === branch.destination.y) {
       cls = 'pool-entry';
     } else if (i === 0) {
       // Pipe exit going horizontal → landing (column from pipe meets ribbon)
       cls = (pipeExitIndex === 0 && isHorizontal(nextDir)) ? 'landing' : 'source';
-    } else if (isHorizontal(prevDir) && nextDir === Direction.Down) {
+    } else if (isHorizontal(prevDir) && nextDir === Direction.Up) {
+      // Gas version: cliff-edge when going UP (instead of down)
       cls = 'cliff-edge';
     } else if (isVertical(prevDir) && (isHorizontal(nextDir) || nextDir === null)) {
       cls = 'landing';
@@ -130,17 +126,16 @@ function classifyBranch(branch: PathBranch): ClassifiedNode[] {
     } else if (prevDir === null && isVertical(nextDir)) {
       cls = 'vertical';
     } else {
-      cls = 'vertical'; // fallback for ambiguous cases
+      cls = 'vertical';
     }
 
-    const classified: ClassifiedNode = { x: node.x, y: node.y, cls, prevDir, nextDir };
+    const classified: GasClassifiedNode = { x: node.x, y: node.y, cls, prevDir, nextDir };
     if (i === pipeExitIndex) {
       classified.pipeExit = true;
       // Set vertical prevDir for pipe-exit landings so merge logic works
-      if (cls === 'landing') classified.prevDir = Direction.Down;
+      if (cls === 'landing') classified.prevDir = Direction.Up;
     }
 
-    // If this vertical node follows a corner/cliff-edge, mark which side gets a chip
     if (cls === 'vertical' && i > 0) {
       const prevNode = result[result.length - 1];
       if (prevNode.cls === 'corner' || prevNode.cls === 'cliff-edge') {
@@ -149,7 +144,6 @@ function classifyBranch(branch: PathBranch): ClassifiedNode[] {
       }
     }
 
-    // If this landing/pool-entry follows a cliff-edge, record which side the arc is on
     if ((cls === 'landing' || cls === 'pool-entry') && i > 0) {
       const prevNode = result[result.length - 1];
       if (prevNode.cls === 'cliff-edge') {
@@ -171,8 +165,7 @@ function classifyBranch(branch: PathBranch): ClassifiedNode[] {
   return result;
 }
 
-/** Build a map of active (water-flowing) pipe arms per tile. */
-function buildActivePipeArms(state: WaterSimState, paths: WaterPath[]): Map<string, Set<Direction>> {
+function buildGasActivePipeArms(state: GasSimState, paths: GasPath[]): Map<string, Set<Direction>> {
   const arms = new Map<string, Set<Direction>>();
 
   function addArm(x: number, y: number, dir: Direction): void {
@@ -189,7 +182,6 @@ function buildActivePipeArms(state: WaterSimState, paths: WaterPath[]): Map<stri
         if (node.inPipe) pipeNodes.push(node);
       }
 
-      // Consecutive pipe pairs — add direction between them
       for (let i = 0; i < pipeNodes.length - 1; i++) {
         const a = pipeNodes[i];
         const b = pipeNodes[i + 1];
@@ -200,34 +192,20 @@ function buildActivePipeArms(state: WaterSimState, paths: WaterPath[]): Map<stri
         }
       }
 
-      // Entry transition: first pipe node ← direction from source
       if (pipeNodes.length > 0) {
         const first = pipeNodes[0];
-        // The path's exitX/exitY is the pipe entrance tile
-        // Entry comes from source side — compute direction from source toward pipe
-        const srcDir = dirBetween(
-          path.exitX, path.exitY,
-          first.x, first.y,
-        );
-        // If first pipe node IS the exit tile, use source pool direction
         if (first.x === path.exitX && first.y === path.exitY) {
-          // Direction from source toward pipe entrance
           const dy = path.exitY - path.sourceLayerY;
           const dx = path.exitX - path.sourceX;
           const entryDir: Direction = Math.abs(dy) >= Math.abs(dx)
             ? (dy > 0 ? Direction.Up : Direction.Down)
             : (dx > 0 ? Direction.Left : Direction.Right);
           addArm(first.x, first.y, entryDir);
-        } else if (srcDir) {
-          // first pipe node is NOT the exit tile — unusual but handle
-          addArm(first.x, first.y, oppositeDir(srcDir));
         }
       }
 
-      // Exit transition: last pipe node → direction toward air continuation
       if (pipeNodes.length > 0) {
         const last = pipeNodes[pipeNodes.length - 1];
-        // Find first air node after pipe nodes
         let firstAirAfterPipe: PathNode | null = null;
         let inPipeSection = false;
         for (const node of branch.nodes) {
@@ -245,12 +223,24 @@ function buildActivePipeArms(state: WaterSimState, paths: WaterPath[]): Map<stri
   return arms;
 }
 
-/** Collect pipe tiles that actively carry water (appear as pipe nodes in branches). */
-function buildActivePipeTiles(state: WaterSimState, paths: WaterPath[]): Set<string> {
+function isGasPathActive(path: GasPath, gasLayers: GasLayer[]): boolean {
+  const sourceLayer = findGasLayer(gasLayers, path.sourceX, path.sourceLayerY);
+  if (!sourceLayer || sourceLayer.volume <= 0) return false;
+  for (const branch of path.branches) {
+    if (!branch.destination) continue;
+    const destLayer = findGasLayer(gasLayers, branch.destination.x, branch.destination.y);
+    if (!destLayer) return true;
+    const width = destLayer.right - destLayer.left + 1;
+    if (destLayer.volume < width * VOLUME_PER_TILE) return true;
+  }
+  return false;
+}
+
+/** Collect pipe tiles that actively carry gas (appear as pipe nodes in branches). */
+function buildGasActivePipeTiles(state: GasSimState, paths: GasPath[]): Set<string> {
   const tiles = new Set<string>();
   for (const path of paths) {
     for (const branch of path.branches) {
-      if (branch.nodes.length === 0) continue;
       for (const node of branch.nodes) {
         if (node.inPipe) tiles.add(`${node.x},${node.y}`);
       }
@@ -259,10 +249,10 @@ function buildActivePipeTiles(state: WaterSimState, paths: WaterPath[]): Set<str
   return tiles;
 }
 
-/** Add pool-entry nodes for pipe terminals submerged in pool water with active flow. */
-function addSubmergedTerminals(
-  state: WaterSimState, activePipeTiles: Set<string>,
-  branches: ClassifiedNode[][],
+/** Add pool-entry nodes for pipe terminals submerged in gas pools with active flow. */
+function addSubmergedGasTerminals(
+  state: GasSimState, activePipeTiles: Set<string>,
+  branches: GasClassifiedNode[][],
 ): void {
   const ph = state.pipes.length;
   const pw = ph > 0 ? state.pipes[0].length : 0;
@@ -272,45 +262,30 @@ function addSubmergedTerminals(
       if (!activePipeTiles.has(`${wx},${wy}`)) continue;
       const neighbors = pipeNeighborDirs(state.pipes, wx, wy, pw, ph, state.pumps);
       if (neighbors.length >= 2) continue;
-      const layer = findLayer(state.waterLayers, wx, wy);
+      const layer = findGasLayer(state.gasLayers, wx, wy);
       if (!layer || layer.volume <= 0) continue;
       branches.push([{
         x: wx, y: wy, cls: 'pool-entry',
-        prevDir: Direction.Down, nextDir: null, pipeExit: true,
+        prevDir: Direction.Up, nextDir: null, pipeExit: true,
       }]);
     }
   }
 }
 
-/** Check if a path can actually transfer water (source has water + destination can accept). */
-function isPathActive(path: WaterPath, waterLayers: WaterLayer[]): boolean {
-  const sourceLayer = findLayer(waterLayers, path.sourceX, path.sourceLayerY);
-  if (!sourceLayer || sourceLayer.volume <= 0) return false;
-  for (const branch of path.branches) {
-    if (!branch.destination) continue;
-    const destLayer = findLayer(waterLayers, branch.destination.x, branch.destination.y);
-    if (!destLayer) return true;
-    const width = destLayer.right - destLayer.left + 1;
-    if (destLayer.volume < width * VOLUME_PER_TILE) return true;
-  }
-  return false;
-}
-
-/** Build the full stream context for one frame. */
-export function buildStreamContext(state: WaterSimState): StreamContext {
-  const classifiedBranches: ClassifiedNode[][] = [];
-  const activePaths = state.paths.filter(p => isPathActive(p, state.waterLayers));
+export function buildGasStreamContext(state: GasSimState): GasStreamContext {
+  const classifiedBranches: GasClassifiedNode[][] = [];
+  const activePaths = state.paths.filter(p => isGasPathActive(p, state.gasLayers));
 
   for (const path of activePaths) {
     for (const branch of path.branches) {
-      const classified = classifyBranch(branch);
+      const classified = classifyGasBranch(branch);
       if (classified.length > 0) classifiedBranches.push(classified);
     }
   }
 
-  const activePipeArms = buildActivePipeArms(state, activePaths);
-  const activePipeTiles = buildActivePipeTiles(state, activePaths);
-  addSubmergedTerminals(state, activePipeTiles, classifiedBranches);
+  const activePipeArms = buildGasActivePipeArms(state, activePaths);
+  const activePipeTiles = buildGasActivePipeTiles(state, activePaths);
+  addSubmergedGasTerminals(state, activePipeTiles, classifiedBranches);
 
   return { classifiedBranches, activePipeArms };
 }

@@ -181,13 +181,13 @@ export function tagPumpExitOnly(
     const pumpNetId = networkGrid[pump.y][pump.x];
     if (pumpNetId === 0) continue;
 
-    // BFS upward from pump tile through pipe adjacency
+    // BFS from the directed side of the pump through pipe adjacency
     const visited = new Set<string>();
     const queue: [number, number][] = [];
 
-    // Start from the tile above the pump (upward side)
-    const startY = pump.y - 1;
-    if (startY >= 0 && isPipe(pipes, pump.x, startY, w, h)) {
+    // Start from the tile on the pump's direction side
+    const startY = pump.direction === 'up' ? pump.y - 1 : pump.y + 1;
+    if (startY >= 0 && startY < h && isPipe(pipes, pump.x, startY, w, h)) {
       queue.push([pump.x, startY]);
       visited.add(`${pump.x},${startY}`);
     }

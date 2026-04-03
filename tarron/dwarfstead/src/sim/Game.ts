@@ -42,6 +42,8 @@ export class Game {
   sellTickArmed = false;
   /** Debug noclip/ghost mode — main dwarf ignores collision and gravity. */
   noclipMode = false;
+  /** Blocks removed this tick — consumed by water system for recombination. */
+  readonly removedBlocks: Vec2[] = [];
   /** Entity IDs of blocks being dragged by companions — excluded from movable queries. */
   companionDragIds: Set<number> = new Set();
 
@@ -143,7 +145,11 @@ export class Game {
     if (pos.x < 0 || pos.x >= this.terrain.width || pos.y < 0 || pos.y >= this.terrain.height) {
       return;
     }
+    const old = this.terrain.blocks[pos.y][pos.x];
     this.terrain.blocks[pos.y][pos.x] = material;
+    if (material === BlockMaterial.Air && old !== BlockMaterial.Air) {
+      this.removedBlocks.push({ x: pos.x, y: pos.y });
+    }
   }
 
   /** Stub — water system removed. Always returns false. */
@@ -385,6 +391,7 @@ export class Game {
       strataTint: TerrainGenerator.emptyStrataTint(data.terrain.width, data.terrain.height),
       surfaceHeights: data.terrain.surfaceHeights
         ?? TerrainGenerator.fallbackSurfaceHeights(data.terrain.width, data.terrain.surfaceY),
+      initialWaterVolume: [],
     };
     game.rng.setState(data.rngState);
     game.trail.length = 0;

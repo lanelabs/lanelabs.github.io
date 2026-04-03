@@ -2,12 +2,14 @@
 
 ## Water system
 
-Have a visual indication on the path showing the direcion of water flow and quantity flowing (like 10 >) That will show how splits are handled too, with both directional numbers shown
+Hard wall on worlds edge, to prevent dumping water off world
+Allow water to pool over free blocks, supporting that as a flag for items, whether water can flow through them and pool through them.
 
-  - Water curve around corners
-  - Water getting sucked into pipe should have trapezoid with top at the level of the top of the pipe. going down tot he ground, looking like the water is getting sucked up in
+When water or gas leaves a pipe and immedately paths to a side, we still want to show the same curved trapezoid tile that shows up when a falling water or gas pillar hits a ground and curves, with the only difference being the visual should end at the same point that the pipe exit into pool does (top of the pipe for water flowing down, bottom of the pipe center square for gas flowing up)
 
-Logic for combining streams, two falling into same pool
+# Gas
+
+When I create a breach above a gas pool, it should start an air flow of gas from the breach and seek upward. Same with side breaches, etc. These should follow the algorithm to path seek for fluids. But there's also the system that if it detects that the place it flows into is filling a layer that connects to the start pool, it immediately resizes. It looks like we're incorrectly doing that because when I make a hole in the top of a gas cave it immedateily reshapes all up through the hole and into a pool up above, even though it wasn't an adjacent tile. If it was just making a 1x1 cavity above the gas then yes it should fill immediately. The immediate fill should ONLY happen if the filling layer is detected to be touching our starting pool. So If I dig a hole in the roof of a gas cavern and it connects it to a 1 wide 2 tall cavity above the gas, it whould flow at it's normal air flow rate as it fills up, but then when ti gets to the layer connecting the two pools it detects "hey this layer connect start and end pool" and it just then runs the pool recompute logic. Does that make sense? Ask me questions to make sure you understand.
 
 # Map grid
 

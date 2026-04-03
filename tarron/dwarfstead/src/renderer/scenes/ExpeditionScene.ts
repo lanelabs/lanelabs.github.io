@@ -16,10 +16,12 @@ import { ScribePanel } from '../ui/ScribePanel';
 import { SmartMode } from '../smartMode';
 import { redrawScene } from './sceneRedraw';
 import { clearActiveSlot, getSlotMeta, updateSlotZoom, updateSlotMapOpen } from '../saveSlots';
-import { createFreshBridge, initBridge, autoSave } from './expeditionHelpers';
+import { createFreshBridge, initBridge, autoSave, createFluidSystems, type BridgeInit } from './expeditionHelpers';
 import { refreshGradientTextures } from '../draw/gradientTiles';
 import { createSceneUI, type SceneUI } from './createSceneUI';
 import { toggleNoclip, handleNoclipMove, isNoclipActive } from './noclipMode';
+import { WaterPathSystem } from '../../sim/water/WaterPathSystem';
+import { GasPathSystem } from '../../sim/gas/GasPathSystem';
 
 const MODE_KEY = 'dwarfstead-mode';
 const ZOOM_LEVELS = [10, 20, 40, -1]; // -1 = close (computed dynamically)
@@ -28,6 +30,8 @@ const MAP_MARGIN = 12; // px gap around map view
 
 export class ExpeditionScene extends Phaser.Scene {
   private bridge!: SimulationBridge;
+  private waterSystem!: WaterPathSystem;
+  private gasSystem!: GasPathSystem;
   private ui!: SceneUI;
   private keyW!: Phaser.Input.Keyboard.Key;
   private keyA!: Phaser.Input.Keyboard.Key;
@@ -83,10 +87,15 @@ export class ExpeditionScene extends Phaser.Scene {
     return createFreshBridge(this.gameW, this.gameH, ZOOM_LEVELS[0]);
   }
   private autoSave(): void {
-    autoSave(this.bridge.game, this.slotId, this.slotName, this.currentMode);
+    autoSave(this.bridge.game, this.waterSystem.serializeWater(),
+      this.slotId, this.slotName, this.currentMode, this.gasSystem.serializeGas());
   }
   create() {
-    this.bridge = initBridge(this.slotId, () => this.createFreshBridge());
+    const init: BridgeInit = initBridge(this.slotId, () => this.createFreshBridge());
+    this.bridge = init.bridge;
+    const fluid = createFluidSystems(this.bridge.game, init.waterSaveData, init.gasSaveData);
+    this.waterSystem = fluid.water;
+    this.gasSystem = fluid.gas;
     // Restore saved mode, zoom, and map state
     const savedMode = localStorage.getItem(MODE_KEY);
     if (savedMode) {
@@ -105,9 +114,16 @@ export class ExpeditionScene extends Phaser.Scene {
       onCloseAdmin: (po, ao) => { ao.hide(); po.show(); },
       onCycleZoom: () => this.cycleZoom(),
       onRegen: () => {
-        this.bridge = this.createFreshBridge();
-        this.ui.scribePanel = new ScribePanel(this, this.bridge.game.log);
-        this.autoSave(); this.redraw();
+        this.ui.loadingOverlay.setVisible(true);
+        setTimeout(() => {
+          this.bridge = this.createFreshBridge();
+          const f = createFluidSystems(this.bridge.game);
+          this.waterSystem = f.water;
+          this.gasSystem = f.gas;
+          this.ui.scribePanel = new ScribePanel(this, this.bridge.game.log);
+          this.autoSave(); this.redraw();
+          this.ui.loadingOverlay.setVisible(false);
+        }, 30);
       },
       onScribeToggle: () => this.ui.scribePanel.toggle(),
       onMapToggle: () => this.toggleMap(),
@@ -358,9 +374,22 @@ export class ExpeditionScene extends Phaser.Scene {
       }
     }
   }
+  private tickWater(): void {
+    const removed = this.bridge.game.removedBlocks;
+    for (const pos of removed) {
+      this.waterSystem.onBlockRemoved(pos.x, pos.y);
+      this.gasSystem.onBlockRemoved(pos.x, pos.y);
+    }
+    removed.length = 0;
+    this.waterSystem.update();
+    this.gasSystem.update();
+  }
   private redraw() {
+    this.tickWater();
     redrawScene({
       ui: this.ui, game: this.bridge.game,
+      waterState: this.waterSystem.state,
+      gasState: this.gasSystem.state,
       gameW: this.gameW, gameH: this.gameH,
       ts: this.tileSize, tilesX: this.tilesX, tilesY: this.tilesY,
       mapOpen: this.mapOpen, selfSelect: this.selfSelect,

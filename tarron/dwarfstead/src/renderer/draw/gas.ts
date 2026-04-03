@@ -1,49 +1,48 @@
 /**
- * Water rendering — draws settled pools, path traces, and pipe fill.
+ * Gas rendering — draws settled gas pools, path traces, and pipe fill.
  *
  * Visual language:
- * - Settled pool water: solid blue blocks (0x2266cc, alpha 0.75)
- * - Water paths: context-aware stream shapes (ribbons, columns, corners)
- *   Inside pipes the fill is clipped to active arms only.
- * - Pipes: copper frame (0xb87333) with active-arm flow fill
- *   Open terminals (air side) have no wall cap; capped terminals (solid) do.
+ * - Settled gas: solid beige/clay blocks (top-aligned, wave on bottom)
+ * - Gas paths: context-aware stream shapes (inverted from water)
+ * - Pipes: same copper frame, gas-colored active-arm flow fill
  */
 
 import Phaser from 'phaser';
-import type { WaterSimState } from '../../sim/water/types';
+import type { GasSimState } from '../../sim/gas/types';
 import { BlockMaterial, Direction } from '../../sim/types';
 import { BLOCK_INFO } from '../../sim/terrain/BlockTypes';
-import { layerFillFraction, findLayer } from '../../sim/water/waterLayer';
-import { computeChipFills, drawChipTriangle, chipAlpha } from './chipFill';
-import { buildStreamContext } from './streamContext';
-import type { StreamContext, ClassifiedNode } from './streamContext';
-import { drawStreamNode } from './streamShapes';
+import { gasLayerFillFraction, findGasLayer } from '../../sim/gas/gasLayer';
+import { computeGasChipFills } from './gasChipFill';
+import { drawChipTriangle } from './chipFill';
+import { buildGasStreamContext } from './gasStreamContext';
+import type { GasStreamContext, GasClassifiedNode } from './gasStreamContext';
+import { drawGasStreamNode } from './gasStreamShapes';
+import { GAS_COLOR } from './gasStreamConstants';
 
-const WATER_COLOR = 0x2266cc;
-
-export function drawWater(
+export function drawGas(
   g: Phaser.GameObjects.Graphics,
-  state: WaterSimState,
+  state: GasSimState,
   ts: number, tilesX: number, tilesY: number,
   camX: number, camY: number,
   blocks?: BlockMaterial[][],
 ): Map<string, Set<Direction>> {
   g.clear();
-  const streamCtx = buildStreamContext(state);
-  drawPaths(g, streamCtx, ts, camX, camY);
-  drawPoolWater(g, state, ts, tilesX, tilesY, camX, camY);
-  if (blocks) drawChipFills(g, state, blocks, ts, tilesX, tilesY, camX, camY);
+  const streamCtx = buildGasStreamContext(state);
+  drawGasPaths(g, streamCtx, ts, camX, camY);
+  drawGasPoolWater(g, state, ts, tilesX, tilesY, camX, camY);
+  if (blocks) drawGasChipFills(g, state, blocks, ts, tilesX, tilesY, camX, camY);
   return streamCtx.activePipeArms;
 }
 
-function drawPoolWater(
-  g: Phaser.GameObjects.Graphics, state: WaterSimState,
+/** Draw gas pools — top-aligned fill (gas clings to ceiling). */
+function drawGasPoolWater(
+  g: Phaser.GameObjects.Graphics, state: GasSimState,
   ts: number, tilesX: number, tilesY: number,
   camX: number, camY: number,
 ): void {
-  for (const layer of state.waterLayers) {
+  for (const layer of state.gasLayers) {
     if (layer.volume <= 0) continue;
-    const frac = layerFillFraction(layer);
+    const frac = gasLayerFillFraction(layer);
     const fillH = Math.ceil(ts * frac);
 
     for (let x = layer.left; x <= layer.right; x++) {
@@ -53,22 +52,26 @@ function drawPoolWater(
       const px = vx * ts;
       const py = vy * ts;
 
-      const aboveLayer = findLayer(state.waterLayers, x, layer.y - 1);
-      const aboveHasWater = aboveLayer !== null && aboveLayer.volume > 0;
+      // Check if there's gas below (inverted from water checking above)
+      const belowLayer = findGasLayer(state.gasLayers, x, layer.y + 1);
+      const belowHasGas = belowLayer !== null && belowLayer.volume > 0;
 
-      if (aboveHasWater) {
-        g.fillStyle(WATER_COLOR, 1);
+      if (belowHasGas) {
+        // Full tile fill when gas continues below
+        g.fillStyle(GAS_COLOR, 1);
         g.fillRect(px, py, ts, ts);
       } else {
-        const fillY = py + ts - fillH;
-        g.fillStyle(WATER_COLOR, 1);
-        g.fillRect(px, fillY, ts, fillH);
+        // Top-aligned fill (inverted from water's bottom-aligned)
+        g.fillStyle(GAS_COLOR, 1);
+        g.fillRect(px, py, ts, fillH);
+        // Wave texture on bottom edge (inverted from water's top wave)
         if (frac < 1) {
-          g.lineStyle(1, 0x88bbff, 0.5);
+          g.lineStyle(1, 0xd4b892, 0.5);
           g.beginPath();
-          g.moveTo(px, fillY);
+          const waveY = py + fillH;
+          g.moveTo(px, waveY);
           for (let wx = 1; wx <= ts; wx += 2) {
-            g.lineTo(px + wx, fillY + Math.sin(wx * 0.3) * 1.5);
+            g.lineTo(px + wx, waveY + Math.sin(wx * 0.3) * 1.5);
           }
           g.strokePath();
         }
@@ -88,8 +91,8 @@ function blockColor(blocks: BlockMaterial[][], wx: number, wy: number): number {
   return parseInt(BLOCK_INFO[blocks[wy][wx]].color.slice(1), 16);
 }
 
-function drawChipFills(
-  g: Phaser.GameObjects.Graphics, state: WaterSimState,
+function drawGasChipFills(
+  g: Phaser.GameObjects.Graphics, state: GasSimState,
   blocks: BlockMaterial[][],
   ts: number, tilesX: number, tilesY: number,
   camX: number, camY: number,
@@ -106,16 +109,22 @@ function drawChipFills(
       const py = vy * ts;
 
       if (blocks[wy][wx] !== BlockMaterial.Air) {
+        // Solid tile: outside corners filled with gas color
         const chipTL = !isSolid(blocks, wx, wy - 1) && !isSolid(blocks, wx - 1, wy);
         const chipTR = !isSolid(blocks, wx, wy - 1) && !isSolid(blocks, wx + 1, wy);
         const chipBL = !isSolid(blocks, wx, wy + 1) && !isSolid(blocks, wx - 1, wy);
         const chipBR = !isSolid(blocks, wx, wy + 1) && !isSolid(blocks, wx + 1, wy);
         if (!chipTL && !chipTR && !chipBL && !chipBR) continue;
-        const fills = computeChipFills(wx, wy, chipTL, chipTR, chipBL, chipBR, state.waterLayers);
+        const fills = computeGasChipFills(wx, wy, chipTL, chipTR, chipBL, chipBR, state.gasLayers);
         for (const c of corners) {
-          if (fills[c] !== null) drawChipTriangle(g, px, py, ts, chip, c, fills[c]!, chipAlpha(fills[c]!));
+          if (fills[c] !== null) drawChipTriangle(g, px, py, ts, chip, c, fills[c]!, 1);
         }
       } else {
+        // Air tile: re-draw terrain inside-corner debris on top of gas
+        const hasGas = findGasLayer(state.gasLayers, wx, wy) !== null;
+        if (!hasGas) continue;
+        // Skip pipe tiles — pipe rendering handles their appearance
+        if (wy < state.pipes.length && wx < state.pipes[0].length && state.pipes[wy][wx]) continue;
         if (isSolid(blocks, wx - 1, wy) && isSolid(blocks, wx, wy - 1))
           drawChipTriangle(g, px, py, ts, chip, 'tl', blockColor(blocks, wx - 1, wy), 1);
         if (isSolid(blocks, wx + 1, wy) && isSolid(blocks, wx, wy - 1))
@@ -129,46 +138,41 @@ function drawChipFills(
   }
 }
 
-/** Draw classified air nodes as context-aware stream shapes, merging duplicates. */
-function drawPaths(
-  g: Phaser.GameObjects.Graphics, streamCtx: StreamContext,
+function drawGasPaths(
+  g: Phaser.GameObjects.Graphics, streamCtx: GasStreamContext,
   ts: number, camX: number, camY: number,
 ): void {
-  // First pass: collect nodes per tile, merging chipDir on duplicates
-  const seen = new Map<string, ClassifiedNode>();
-  for (let bi = 0; bi < streamCtx.classifiedBranches.length; bi++) {
-    const branch = streamCtx.classifiedBranches[bi];
+  const seen = new Map<string, GasClassifiedNode>();
+  for (const branch of streamCtx.classifiedBranches) {
     for (const node of branch) {
       const key = `${node.x},${node.y}`;
       const existing = seen.get(key);
       if (existing) {
-        // Merge chipDir: if both sides appear, upgrade to 'both'
         if (node.chipDir && node.chipDir !== existing.chipDir) {
           existing.chipDir = 'both';
         } else if (node.chipDir && !existing.chipDir) {
           existing.chipDir = node.chipDir;
         }
-        // Mark as dual when two branches share a cliff-edge or landing
         if (node.prevDir !== existing.prevDir || node.nextDir !== existing.nextDir) {
           existing.dual = true;
           // T-junction: one branch horizontal, other purely vertical → corner
           const isH = (d: Direction | null) => d === Direction.Left || d === Direction.Right;
           const eHasH = isH(existing.prevDir) || isH(existing.nextDir);
           const nHasH = isH(node.prevDir) || isH(node.nextDir);
-          const eHasDown = existing.prevDir === Direction.Down || existing.nextDir === Direction.Down;
-          const nHasDown = node.prevDir === Direction.Down || node.nextDir === Direction.Down;
+          const eHasUp = existing.prevDir === Direction.Up || existing.nextDir === Direction.Up;
+          const nHasUp = node.prevDir === Direction.Up || node.nextDir === Direction.Up;
           const opp = (d: Direction) => d === Direction.Left ? Direction.Right : Direction.Left;
-          if (eHasH && !nHasH && nHasDown) {
+          if (eHasH && !nHasH && nHasUp) {
             const hp = isH(existing.prevDir) ? existing.prevDir! : null;
             const hn = isH(existing.nextDir) ? existing.nextDir! : null;
             existing.cls = 'corner';
-            existing.prevDir = Direction.Down;
+            existing.prevDir = Direction.Up;
             existing.nextDir = hp ? opp(hp) : hn!;
-          } else if (nHasH && !eHasH && eHasDown) {
+          } else if (nHasH && !eHasH && eHasUp) {
             const hp = isH(node.prevDir) ? node.prevDir! : null;
             const hn = isH(node.nextDir) ? node.nextDir! : null;
             existing.cls = 'corner';
-            existing.prevDir = Direction.Down;
+            existing.prevDir = Direction.Up;
             existing.nextDir = hp ? opp(hp) : hn!;
           }
         }
@@ -181,11 +185,10 @@ function drawPaths(
       }
     }
   }
-  // Second pass: draw merged nodes
   for (const node of seen.values()) {
     const px = (node.x - camX) * ts;
     const py = (node.y - camY) * ts;
-    drawStreamNode(g, node, px, py, ts);
+    drawGasStreamNode(g, node, px, py, ts);
   }
 }
 

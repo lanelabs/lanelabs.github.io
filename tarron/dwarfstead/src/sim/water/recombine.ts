@@ -76,7 +76,7 @@ export function scanPoolShape(
  * Check if a pool shape is fully contained — walled on every layer,
  * solid floor under the bottom layer.
  */
-function isPoolContained(
+export function isPoolContained(
   pool: PoolInfo, blocks: BlockMaterial[][],
   w: number, h: number,
 ): boolean {

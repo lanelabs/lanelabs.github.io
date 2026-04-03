@@ -25,6 +25,12 @@ function isAir(blocks: BlockMaterial[][], x: number, y: number, w: number, h: nu
   return blocks[y][x] === BlockMaterial.Air;
 }
 
+/** Check if there's a water layer with actual volume at (x, y). */
+function hasWaterAt(layers: WaterLayer[], x: number, y: number): boolean {
+  const l = findLayer(layers, x, y);
+  return l !== null && l.volume > 0;
+}
+
 /**
  * Find the topmost layer with water in the column that contains the given layer.
  * Walks upward through connected air tiles to find the surface layer.
@@ -64,7 +70,7 @@ function findTerrainExits(
     const lx = layer.left - 1;
     if (lx >= 0) {
       const key = `S${lx},${y}`;
-      if (!seen.has(key) && isAir(blocks, lx, y, w, h) && !findLayer(waterLayers, lx, y)) {
+      if (!seen.has(key) && isAir(blocks, lx, y, w, h) && !hasWaterAt(waterLayers, lx, y)) {
         seen.add(key);
         exits.push({
           exitX: lx, exitY: y,
@@ -80,7 +86,7 @@ function findTerrainExits(
     const rx = layer.right + 1;
     if (rx < w) {
       const key = `S${rx},${y}`;
-      if (!seen.has(key) && isAir(blocks, rx, y, w, h) && !findLayer(waterLayers, rx, y)) {
+      if (!seen.has(key) && isAir(blocks, rx, y, w, h) && !hasWaterAt(waterLayers, rx, y)) {
         seen.add(key);
         exits.push({
           exitX: rx, exitY: y,
@@ -98,7 +104,7 @@ function findTerrainExits(
       for (let x = layer.left; x <= layer.right; x++) {
         const key = `B${x},${y + 1}`;
         if (seen.has(key)) continue;
-        if (isAir(blocks, x, y + 1, w, h) && !findLayer(waterLayers, x, y + 1)) {
+        if (isAir(blocks, x, y + 1, w, h) && !hasWaterAt(waterLayers, x, y + 1)) {
           seen.add(key);
           exits.push({
             exitX: x, exitY: y + 1,

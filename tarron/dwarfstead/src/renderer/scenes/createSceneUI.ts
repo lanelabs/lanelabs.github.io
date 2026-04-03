@@ -10,6 +10,9 @@ import type { GameLog } from '../../sim/log/GameLog';
 export interface SceneUI {
   bgGraphics: Phaser.GameObjects.Graphics;
   terrainGraphics: Phaser.GameObjects.Graphics;
+  waterGraphics: Phaser.GameObjects.Graphics;
+  gasGraphics?: Phaser.GameObjects.Graphics;
+  pipeGraphics: Phaser.GameObjects.Graphics;
   entityGraphics: Phaser.GameObjects.Graphics;
   debugGraphics: Phaser.GameObjects.Graphics;
   cursorGraphics: Phaser.GameObjects.Graphics;
@@ -30,6 +33,7 @@ export interface SceneUI {
   suppliesText: Phaser.GameObjects.Text;
   actionHint: Phaser.GameObjects.Text;
   noclipText: Phaser.GameObjects.Text;
+  loadingOverlay: Phaser.GameObjects.Container;
 }
 
 export interface SceneUICallbacks {
@@ -55,7 +59,10 @@ export function createSceneUI(
 
   const bgGraphics = g().setDepth(-1);
   const terrainGraphics = g();
-  const entityGraphics = g();
+  const waterGraphics = g().setDepth(1);
+  const gasGraphics = g().setDepth(2);
+  const pipeGraphics = g().setDepth(3);
+  const entityGraphics = g().setDepth(4);
   const debugGraphics = g().setDepth(10);
   const cursorGraphics = g().setDepth(50);
   const ropeGraphics = g().setDepth(49);
@@ -124,11 +131,21 @@ export function createSceneUI(
     backgroundColor: '#1a1a2eCC', padding: { x: 6, y: 3 },
   }).setDepth(200).setVisible(false);
 
+  // Full-screen loading overlay (hidden by default)
+  const loadingBg = scene.add.graphics();
+  loadingBg.fillStyle(0x0a0a18, 0.85);
+  loadingBg.fillRect(0, 0, w, h);
+  const loadingText = scene.add.text(w / 2, h / 2, 'Generating world...', {
+    fontSize: '18px', fontFamily: 'monospace', color: '#e8c170',
+  }).setOrigin(0.5);
+  const loadingOverlay = scene.add.container(0, 0, [loadingBg, loadingText])
+    .setDepth(500).setVisible(false);
+
   return {
-    bgGraphics, terrainGraphics, entityGraphics, debugGraphics,
+    bgGraphics, terrainGraphics, waterGraphics, gasGraphics, pipeGraphics, entityGraphics, debugGraphics,
     cursorGraphics, ropeGraphics, toolbarGraphics, toolbarLabels,
     hintsText, scribePanel, alertOverlay, pauseOverlay, adminOverlay,
     statsPanel, gridOverlay, scribeBtn, zoomBtn, regenBtn, mapBtn,
-    suppliesText, actionHint, noclipText,
+    suppliesText, actionHint, noclipText, loadingOverlay,
   };
 }

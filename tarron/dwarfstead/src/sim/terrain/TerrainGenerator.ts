@@ -13,6 +13,8 @@ import { carvePerlinWorms } from './perlinWorms';
 import { caRoughen } from './caRoughen';
 import { growFormations } from './formations';
 import type { LayerBoundaries } from './depthZones';
+import { generateWater } from './waterGen';
+import type { WaterLayer } from '../water/waterLayer';
 
 export interface TerrainGrid {
   width: number;
@@ -23,6 +25,7 @@ export interface TerrainGrid {
   surfaceY: number;
   surfaceHeights: number[];
   rooms: HiddenRoom[];
+  initialWaterVolume: WaterLayer[];
 }
 
 const SKY_HEIGHT = 24;
@@ -278,11 +281,16 @@ export class TerrainGenerator {
       }
     }
 
+    // Water body generation — 3-pass system (imposed shapes, basin fill, rainfall)
+    const initialWaterVolume = generateWater({
+      width, height, blocks, bounds, surfaceHeights, surfaceY: surfaceBase, rng,
+    });
+
     // Empty waterMass grid (water system removed — kept for save compatibility)
     const waterMass: number[][] = [];
     for (let y = 0; y < height; y++) waterMass.push(new Array(width).fill(0));
 
-    return { width, height, blocks, waterMass, strataTint, surfaceY: surfaceBase, surfaceHeights, rooms };
+    return { width, height, blocks, waterMass, strataTint, surfaceY: surfaceBase, surfaceHeights, rooms, initialWaterVolume };
   }
 
   static fallbackSurfaceHeights(width: number, surfaceY: number): number[] {
