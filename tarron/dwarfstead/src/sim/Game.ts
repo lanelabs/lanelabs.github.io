@@ -392,6 +392,7 @@ export class Game {
       surfaceHeights: data.terrain.surfaceHeights
         ?? TerrainGenerator.fallbackSurfaceHeights(data.terrain.width, data.terrain.surfaceY),
       initialWaterVolume: [],
+      initialGasVolume: [],
     };
     game.rng.setState(data.rngState);
     game.trail.length = 0;

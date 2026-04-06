@@ -15,6 +15,8 @@ import { growFormations } from './formations';
 import type { LayerBoundaries } from './depthZones';
 import { generateWater } from './waterGen';
 import type { WaterLayer } from '../water/waterLayer';
+import type { GasLayer } from '../gas/types';
+import { generateGas } from './gasGen';
 
 export interface TerrainGrid {
   width: number;
@@ -26,6 +28,7 @@ export interface TerrainGrid {
   surfaceHeights: number[];
   rooms: HiddenRoom[];
   initialWaterVolume: WaterLayer[];
+  initialGasVolume: GasLayer[];
 }
 
 const SKY_HEIGHT = 24;
@@ -286,11 +289,17 @@ export class TerrainGenerator {
       width, height, blocks, bounds, surfaceHeights, surfaceY: surfaceBase, rng,
     });
 
+    // Gas pocket generation — 2-pass system (imposed pockets, ceiling basin fill)
+    const initialGasVolume = generateGas({
+      width, height, blocks, bounds, surfaceHeights, surfaceY: surfaceBase, rng,
+      waterLayers: initialWaterVolume,
+    });
+
     // Empty waterMass grid (water system removed — kept for save compatibility)
     const waterMass: number[][] = [];
     for (let y = 0; y < height; y++) waterMass.push(new Array(width).fill(0));
 
-    return { width, height, blocks, waterMass, strataTint, surfaceY: surfaceBase, surfaceHeights, rooms, initialWaterVolume };
+    return { width, height, blocks, waterMass, strataTint, surfaceY: surfaceBase, surfaceHeights, rooms, initialWaterVolume, initialGasVolume };
   }
 
   static fallbackSurfaceHeights(width: number, surfaceY: number): number[] {

@@ -65,7 +65,7 @@ export function createFluidSystems(
   if (waterSaved) WaterPathSystem.restoreState(water, waterSaved);
   const gas = new GasPathSystem({
     width: t.width, height: t.height, blocks: t.blocks,
-    pipes, pumps, initialGasVolume: gasSaved ? [] : [],
+    pipes, pumps, initialGasVolume: gasSaved ? [] : t.initialGasVolume,
   });
   if (gasSaved) GasPathSystem.restoreState(gas, gasSaved);
   return { water, gas };

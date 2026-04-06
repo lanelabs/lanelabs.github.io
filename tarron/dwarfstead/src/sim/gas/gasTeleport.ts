@@ -47,6 +47,7 @@ export function teleportGas(
   w: number, h: number,
   forkToggle: boolean,
   pipeRoundRobin: Map<number, PipeRoundRobin>,
+  deposits?: { x: number; y: number }[],
 ): void {
   const usedNetworks = new Set<number>();
 
@@ -67,7 +68,7 @@ export function teleportGas(
     if (path.networkId !== undefined) {
       teleportPipeRoundRobin(
         path, validBranches, sourceLayer,
-        gasLayers, blocks, w, h, pipeRoundRobin,
+        gasLayers, blocks, w, h, pipeRoundRobin, deposits,
       );
     } else {
       const available = Math.min(path.rate, sourceLayer.volume);
@@ -75,7 +76,7 @@ export function teleportGas(
       if (drained <= 0) continue;
 
       const deposited = distributeToBranches(
-        path.branches, drained, gasLayers, blocks, w, h, forkToggle, 0,
+        path.branches, drained, gasLayers, blocks, w, h, forkToggle, 0, deposits,
       );
       const leftover = drained - deposited;
       if (leftover > 0) {
@@ -93,6 +94,7 @@ function teleportPipeRoundRobin(
   blocks: BlockMaterial[][],
   w: number, h: number,
   pipeRoundRobin: Map<number, PipeRoundRobin>,
+  deposits?: { x: number; y: number }[],
 ): void {
   const netId = path.networkId!;
 
@@ -116,6 +118,7 @@ function teleportPipeRoundRobin(
       if (drained > 0) {
         const dest = branch.destination!;
         const deposited = addGas(gasLayers, blocks, dest.x, dest.y, drained, w, h);
+        if (deposited > 0 && deposits) deposits.push({ x: dest.x, y: dest.y });
         const leftover = drained - deposited;
         if (leftover > 0) {
           addGas(gasLayers, blocks, sourceLayer.left, sourceLayer.y, leftover, w, h);
@@ -145,6 +148,7 @@ function distributeToBranches(
   w: number, h: number,
   forkToggle: boolean,
   cascadeDepth: number,
+  deposits?: { x: number; y: number }[],
 ): number {
   if (volume <= 0 || cascadeDepth > MAX_CASCADE) return 0;
 
@@ -153,7 +157,9 @@ function distributeToBranches(
 
   if (valid.length === 1) {
     const dest = valid[0].destination!;
-    return addGas(gasLayers, blocks, dest.x, dest.y, volume, w, h);
+    const added = addGas(gasLayers, blocks, dest.x, dest.y, volume, w, h);
+    if (added > 0 && deposits) deposits.push({ x: dest.x, y: dest.y });
+    return added;
   }
 
   const perBranch = Math.floor(volume / valid.length);
@@ -173,7 +179,9 @@ function distributeToBranches(
     }
 
     if (branchVol > 0) {
-      totalDeposited += addGas(gasLayers, blocks, dest.x, dest.y, branchVol, w, h);
+      const added = addGas(gasLayers, blocks, dest.x, dest.y, branchVol, w, h);
+      if (added > 0 && deposits) deposits.push({ x: dest.x, y: dest.y });
+      totalDeposited += added;
     }
   }
 

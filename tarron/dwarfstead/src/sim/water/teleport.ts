@@ -62,6 +62,7 @@ export function teleportWater(
   w: number, h: number,
   forkToggle: boolean,
   pipeRoundRobin: Map<number, PipeRoundRobin>,
+  deposits?: { x: number; y: number }[],
 ): void {
   const usedNetworks = new Set<number>();
 
@@ -88,7 +89,7 @@ export function teleportWater(
     if (path.networkId !== undefined) {
       teleportPipeRoundRobin(
         path, validBranches, sourceLayer,
-        waterLayers, blocks, w, h, pipeRoundRobin,
+        waterLayers, blocks, w, h, pipeRoundRobin, deposits,
       );
     } else {
       // Terrain: drain and distribute across all branches
@@ -97,7 +98,7 @@ export function teleportWater(
       if (drained <= 0) continue;
 
       const deposited = distributeToBranches(
-        path.branches, drained, waterLayers, blocks, w, h, forkToggle, 0,
+        path.branches, drained, waterLayers, blocks, w, h, forkToggle, 0, deposits,
       );
       const leftover = drained - deposited;
       if (leftover > 0) {
@@ -119,6 +120,7 @@ function teleportPipeRoundRobin(
   blocks: BlockMaterial[][],
   w: number, h: number,
   pipeRoundRobin: Map<number, PipeRoundRobin>,
+  deposits?: { x: number; y: number }[],
 ): void {
   const netId = path.networkId!;
 
@@ -144,6 +146,7 @@ function teleportPipeRoundRobin(
       if (drained > 0) {
         const dest = branch.destination!;
         const deposited = addWater(waterLayers, blocks, dest.x, dest.y, drained, w, h);
+        if (deposited > 0 && deposits) deposits.push({ x: dest.x, y: dest.y });
         const leftover = drained - deposited;
         if (leftover > 0) {
           addWater(waterLayers, blocks, sourceLayer.left, sourceLayer.y, leftover, w, h);
@@ -179,6 +182,7 @@ function distributeToBranches(
   w: number, h: number,
   forkToggle: boolean,
   cascadeDepth: number,
+  deposits?: { x: number; y: number }[],
 ): number {
   if (volume <= 0 || cascadeDepth > MAX_CASCADE) return 0;
 
@@ -187,7 +191,9 @@ function distributeToBranches(
 
   if (valid.length === 1) {
     const dest = valid[0].destination!;
-    return addWater(waterLayers, blocks, dest.x, dest.y, volume, w, h);
+    const added = addWater(waterLayers, blocks, dest.x, dest.y, volume, w, h);
+    if (added > 0 && deposits) deposits.push({ x: dest.x, y: dest.y });
+    return added;
   }
 
   // Multiple branches — split volume
@@ -208,7 +214,9 @@ function distributeToBranches(
     }
 
     if (branchVol > 0) {
-      totalDeposited += addWater(waterLayers, blocks, dest.x, dest.y, branchVol, w, h);
+      const added = addWater(waterLayers, blocks, dest.x, dest.y, branchVol, w, h);
+      if (added > 0 && deposits) deposits.push({ x: dest.x, y: dest.y });
+      totalDeposited += added;
     }
   }
 

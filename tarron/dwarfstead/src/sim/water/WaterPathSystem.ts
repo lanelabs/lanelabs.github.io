@@ -19,6 +19,7 @@ import { findPoolExits } from './exitDetection';
 import { traceLiquidPath } from '../liquidTrace';
 import { teleportWater } from './teleport';
 import { recombineAtTile } from './recombine';
+import { isBetweenTwoLayers, layerBridgesLiquid } from '../liquidMerge';
 
 export class WaterPathSystem {
   readonly state: WaterSimState;
@@ -52,6 +53,7 @@ export class WaterPathSystem {
   /** Advance the water simulation by one tick. */
   update(): void {
     // 1. Teleport water along PREVIOUS tick's paths (one-tick delay)
+    const deposits: { x: number; y: number }[] = [];
     if (this.state.paths.length > 0) {
       teleportWater(
         this.state.paths,
@@ -60,9 +62,13 @@ export class WaterPathSystem {
         this.w, this.h,
         this.forkToggle,
         this.state.pipeRoundRobin,
+        deposits,
       );
       this.forkToggle = !this.forkToggle;
     }
+
+    // 1b. Check if any deposit bridged two water pools → instant merge
+    this.checkBridges(deposits);
 
     // 2. Clear pipeFill
     for (let y = 0; y < this.h; y++) {
@@ -182,15 +188,52 @@ export class WaterPathSystem {
    */
   onBlockRemoved(x: number, y: number): void {
     const layers = this.state.waterLayers;
-    const adjacent = [
+
+    // No adjacent water → nothing to do
+    const adjacent: [number, number][] = [
       [x - 1, y], [x + 1, y],
       [x, y - 1], [x, y + 1],
     ];
-    const hasAdjacentWater = adjacent.some(
-      ([ax, ay]) => findLayer(layers, ax, ay) !== null,
-    );
+    const hasAdjacentWater = adjacent.some(([ax, ay]) => {
+      const l = findLayer(layers, ax, ay);
+      return l !== null && l.volume > 0;
+    });
     if (!hasAdjacentWater) return;
-    recombineAtTile(x, y, layers, this.blocks, this.w, this.h);
+
+    // Case 1: Between two liquid layers on opposite sides → instant merge
+    if (isBetweenTwoLayers(x, y, layers)) {
+      recombineAtTile(x, y, layers, this.blocks, this.w, this.h);
+      return;
+    }
+
+    // Case 2: Contained pocket → instant fill via recombine
+    const contained = findContainedLayer(
+      x, y, this.blocks, layers, this.w, this.h,
+    );
+    if (contained) {
+      recombineAtTile(x, y, layers, this.blocks, this.w, this.h);
+      return;
+    }
+
+    // Otherwise: let normal exit detection + flow handle it gradually
+  }
+
+  /** Check if any teleport deposit bridged two water pools → trigger merge. */
+  private checkBridges(deposits: { x: number; y: number }[]): void {
+    if (deposits.length === 0) return;
+    const layers = this.state.waterLayers;
+    const seen = new Set<string>();
+
+    for (const { x, y } of deposits) {
+      const key = `${x},${y}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      if (layerBridgesLiquid(x, y, layers)) {
+        recombineAtTile(x, y, layers, this.blocks, this.w, this.h);
+        return; // layers reorganized — check again next tick
+      }
+    }
   }
 
   /** Reset all water state — restore initial reservoir volumes. */

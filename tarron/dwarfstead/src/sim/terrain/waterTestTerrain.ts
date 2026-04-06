@@ -367,6 +367,7 @@ export function buildWaterTestTerrain(): WaterTestWorld {
     width: W, height: H, blocks, waterMass,
     strataTint, surfaceY: SURFACE, surfaceHeights, rooms: [],
     initialWaterVolume: [],
+    initialGasVolume: [],
   };
 
   return { terrain, pipes, pumps, initialWaterVolume, initialGasVolume };
